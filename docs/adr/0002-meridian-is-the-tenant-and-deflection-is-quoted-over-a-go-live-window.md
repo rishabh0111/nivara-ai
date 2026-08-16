@@ -1,0 +1,15 @@
+# Meridian is this service's Tenant, and live deflection is quoted only over a Window that starts at go-live
+
+This repository's headline claim is that its score is awarded by a different system, from authorship it cannot forge. That claim is fragile in a way that is easy to miss, and two facts in the API's seed are where it would have broken.
+
+**Meridian's backlog is composed, and part of what it composes is deflection.** `prisma/seed/meridian.ts` says it plainly — *"a non-zero deflection rate needs Tickets the AI closed with no human on the thread"* — and seeds exactly those. An all-time deflection figure read from `GET /analytics` on Meridian is therefore partly a measurement of the seed. Quoting it as the number this service cannot fake would be quoting a number the seed faked, and it is the kind of thing a reviewer finds in one question.
+
+**And the public demo did not point at Meridian.** The GitHub Pages demo host bootstraps **Sortwood**, deliberately: the seed's comment explains that an embedded widget mints Contacts and opens Tickets on whatever tenant it is bootstrapped against, and that the showcase tenant's data is *"curated to be read rather than added to"*.
+
+**The decision is that Meridian becomes this service's Tenant anyway**, because these three repositories are one portfolio and the showcase should be the tenant that was built to be shown. That costs three data changes in the API repository — the demo-host origin moves from Sortwood's allowlist to Meridian's, with Sortwood keeping a different origin so the allowlist-isolation demonstration survives with its roles swapped; the seeded service token is narrowed (ADR-0005); and a Reporter token is added. None of them changes a product rule, which is the line that matters: altering how a *product* behaves so that a downstream metric reads better would be backwards, and altering seed *data* so a demo points where it should is not.
+
+**The seeded-deflection problem is then solved by the Window rather than by editing the seed.** Deflection is computed over a Cohort of Tickets *created in* the analytics Window, so a Window whose start is this service's go-live date excludes every seeded Ticket automatically — no filtering, no special-casing, and no touching the API's definition, whose independence is the entire reason it is worth quoting. The scoreboard hardcodes that start date and prints it beside the number, together with `cohortSize` and the API's own definition verbatim.
+
+The alternative was to delete the seeded AI-closed Tickets. It was rejected because they earn their place: they are what makes deflection non-zero thirty seconds after `docker compose up`, for a developer with no keys configured and no AI layer running. The Window removes them from the published number without removing them from the demo.
+
+The cost accepted is a standing trap. Both an all-time figure and a Go-live Window figure are available from the same endpoint, and only one of them is honest — so the Window's start is a committed constant with this reasoning attached, not a parameter someone can widen later while tidying up.

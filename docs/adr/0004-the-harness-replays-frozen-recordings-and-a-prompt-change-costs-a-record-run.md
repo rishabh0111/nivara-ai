@@ -1,0 +1,13 @@
+# The harness replays frozen Recordings, and a prompt change costs a deliberate Record run
+
+The eval harness must run in CI on every pull request with **no model provider key**. There is no paid tier here and there will not be one; a suite that spends the day's quota is a suite that stops being run, and a number a stranger cannot reproduce is not evidence. So the harness replays Recordings — real responses captured once from a real provider and committed.
+
+**The part that is easy to miss is that a Recording is only valid for the inputs it was captured against.** Change a prompt, a model, or the tool schema, and every Recording is stale: CI would be replaying the old model's answers and reporting them as the new prompt's score. That is not a weaker signal, it is a wrong one, and the failure is silent.
+
+Re-recording is not cheap. Roughly six hundred eval cases at two to four model calls each is twelve hundred to twenty-four hundred requests, against a free tier whose binding limit is requests **per day** rather than tokens. A full re-record is two to three days of quota.
+
+**So the harness runs in two tiers.** Every pull request replays the frozen Recordings and **fails on any per-category regression in false deflection** — zero tolerance is affordable precisely because replay is deterministic, so a regression is a real change and never a flaky sample. A pull request that touches a prompt, a model choice or a tool schema must additionally ship a fresh Recording of the hand-authored sensitive slice plus every regression case: about a day of quota, checkpointed and resumable. The full set is re-recorded on a release cadence rather than per change. Every report stamps the age and provenance of the Recordings it ran against, so "this number was produced against a prompt that no longer exists" is a thing the report says rather than a thing a reader has to suspect.
+
+The alternative — re-record everything on any model-facing change, so no number is ever computed against another prompt's responses — is cleaner to state and was rejected on consequences. It makes prompt iteration a multi-day operation, and prompts that cost two days to try are prompts nobody tries.
+
+The cost accepted is a caveat that must be stated rather than buried: **between a prompt change and its Record run, the false-deflection gate is protecting the sensitive slice and the regression cases, not the whole set.** The gate is narrower in exactly the window where change is riskiest. That is the trade, and it is why the sensitive slice — the one sized to support the claim that would end the demo if it were wrong — is the slice that is always re-recorded.
