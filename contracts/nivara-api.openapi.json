@@ -1,0 +1,5175 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/auth/sign-in": {
+      "post": {
+        "description": "Returns a 15-minute access token in the body and sets an httpOnly refresh cookie. Every failure answers the same `unauthenticated` error: a wrong password, an unknown address, and an address belonging to a different tenant are deliberately indistinguishable.",
+        "operationId": "AuthController_signIn",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignInDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "`validation_failed` — The request body failed validation. `details` enumerates one entry per offending field.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Sign in with email and password",
+        "tags": [
+          "auth"
+        ],
+        "x-error-codes": [
+          "validation_failed",
+          "unauthenticated"
+        ]
+      }
+    },
+    "/auth/google": {
+      "post": {
+        "description": "Exchanges an authorization code for a session. Binds to an existing invite-provisioned User by verified Google email against `(tenantId, email)`; a Google identity with no such User is refused rather than provisioned, because the invite is the only source of membership. Answers `integration_dormant` when this deployment has no Google configuration — check that before offering the affordance.",
+        "operationId": "AuthController_signInWithGoogle",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GoogleSignInDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "`validation_failed` — The request body failed validation. `details` enumerates one entry per offending field.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "`integration_dormant` — An optional integration this operation depends on is not configured in this deployment. Not a fault and not a permission problem: the capability is absent here and no retry will produce it. Optional integrations are dormant when unconfigured rather than fatal, so the rest of the API is unaffected — a client seeing this should hide the affected affordance and use the alternative, such as email-and-password sign-in in place of Google.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Sign in with Google",
+        "tags": [
+          "auth"
+        ],
+        "x-error-codes": [
+          "validation_failed",
+          "unauthenticated",
+          "integration_dormant"
+        ]
+      }
+    },
+    "/auth/refresh": {
+      "post": {
+        "description": "Rotates the refresh token on every use. Presenting an already-rotated token is treated as theft and revokes the entire token family, so both copies stop working and the legitimate client signs in again.",
+        "operationId": "AuthController_refresh",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "nivara_refresh": []
+          }
+        ],
+        "summary": "Exchange the refresh cookie for a new access token",
+        "tags": [
+          "auth"
+        ],
+        "x-error-codes": [
+          "unauthenticated"
+        ]
+      }
+    },
+    "/auth/sign-out": {
+      "post": {
+        "description": "Revokes the whole token family and clears the cookie. Idempotent: signing out without a valid cookie succeeds, because whether a given token exists is not something an unauthenticated caller should be able to learn.",
+        "operationId": "AuthController_signOut",
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "nivara_refresh": []
+          }
+        ],
+        "summary": "End the session",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/auth/me": {
+      "get": {
+        "description": "Resolved from the presented credential alone. Reads the User row inside the tenant context the token arms, so a response here is evidence the whole chain is wired. A portal token is refused — a Contact describes itself at `GET /portal/auth/me`.",
+        "operationId": "AuthController_me",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrincipalDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "`not_found` — No such resource is visible to this principal. A record belonging to another tenant is indistinguishable from one that does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "The authenticated staff principal",
+        "tags": [
+          "auth"
+        ],
+        "x-error-codes": [
+          "unauthenticated",
+          "forbidden",
+          "not_found"
+        ],
+        "x-required-principal-kind": "user"
+      }
+    },
+    "/tickets/{id}/audit": {
+      "get": {
+        "description": "Every control-plane change to this Ticket, newest first, in the standard list envelope. Conversation is not here: Messages and Notes are domain data attributed on their own rows, and the log records changes of state and configuration only.",
+        "operationId": "AuditController_list",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The Ticket’s id.",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "Maximum rows to return. Defaults to 25.",
+            "schema": {
+              "minimum": 1,
+              "maximum": 100,
+              "default": 25,
+              "type": "number"
+            }
+          },
+          {
+            "name": "cursor",
+            "required": false,
+            "in": "query",
+            "description": "Opaque cursor from a previous response's `nextCursor`. Treat as a black box — its contents are an implementation detail and its format may change. Changing `sort` invalidates it.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "required": false,
+            "in": "query",
+            "description": "`createdAt`, with a leading `-` for descending. Defaults to `-createdAt` — newest first. Changing it invalidates a cursor.",
+            "schema": {
+              "example": "-createdAt",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "data",
+                    "nextCursor"
+                  ],
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/AuditEntryDto"
+                      }
+                    },
+                    "nextCursor": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "Pass as `cursor` to fetch the next page. `null` means end of list. Opaque — do not parse."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`malformed_request` — The request could not be parsed or is structurally invalid.\n\n`invalid_sort` — The requested sort field is not sortable on this resource. Use `field` for ascending, `-field` for descending.\n\n`invalid_cursor` — The pagination cursor is malformed or was issued for a different sort. Restart the traversal without a cursor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "`not_found` — No such resource is visible to this principal. A record belonging to another tenant is indistinguishable from one that does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Read a Ticket’s audit timeline",
+        "tags": [
+          "audit"
+        ],
+        "x-error-codes": [
+          "malformed_request",
+          "invalid_sort",
+          "invalid_cursor",
+          "unauthenticated",
+          "forbidden",
+          "not_found"
+        ],
+        "x-required-permission": "audit:read"
+      }
+    },
+    "/staff/invitations": {
+      "post": {
+        "description": "Admin-only. Creates a pending User with the given role and returns a single-use invitation token, shown exactly once. The tenant is taken from the calling admin’s credential — there is no self-service way into a tenant.",
+        "operationId": "InvitationsController_invite",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InviteStaffDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvitationDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "`conflict` — The request conflicts with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "`validation_failed` — The request body failed validation. `details` enumerates one entry per offending field.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Invite a staff member into the tenant",
+        "tags": [
+          "staff"
+        ],
+        "x-error-codes": [
+          "validation_failed",
+          "unauthenticated",
+          "forbidden",
+          "conflict"
+        ],
+        "x-required-permission": "user:invite"
+      }
+    },
+    "/staff/invitations/accept": {
+      "post": {
+        "description": "Spends the invitation and sets the invited User’s password; they can then sign in. Single-use — an already-accepted, expired, or unknown token is refused identically, because which of the three it is describes the state of someone’s account to whoever holds the link.",
+        "operationId": "InvitationsController_accept",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AcceptInvitationDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": ""
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "`validation_failed` — The request body failed validation. `details` enumerates one entry per offending field.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Accept an invitation by setting a password",
+        "tags": [
+          "staff"
+        ],
+        "x-error-codes": [
+          "validation_failed",
+          "unauthenticated"
+        ]
+      }
+    },
+    "/tickets": {
+      "post": {
+        "description": "The Ticket is born `open` with `normal` priority — neither is settable here. Triage is an explicit act, so setting priority or an assignee is a separate, separately permissioned call.",
+        "operationId": "TicketsController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTicketDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "`not_found` — No such resource is visible to this principal. A record belonging to another tenant is indistinguishable from one that does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "`validation_failed` — The request body failed validation. `details` enumerates one entry per offending field.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Open a Ticket on a Contact’s behalf",
+        "tags": [
+          "tickets"
+        ],
+        "x-error-codes": [
+          "validation_failed",
+          "unauthenticated",
+          "forbidden",
+          "not_found"
+        ],
+        "x-required-permission": "ticket:create"
+      },
+      "get": {
+        "description": "Cursor-paginated, newest first by default. Filters and sorts are drawn from a closed per-resource allowlist: an unknown parameter is a 400 rather than something quietly ignored.",
+        "operationId": "TicketsController_list",
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "Maximum rows to return. Defaults to 25.",
+            "schema": {
+              "minimum": 1,
+              "maximum": 100,
+              "default": 25,
+              "type": "number"
+            }
+          },
+          {
+            "name": "cursor",
+            "required": false,
+            "in": "query",
+            "description": "Opaque cursor from a previous response's `nextCursor`. Treat as a black box — its contents are an implementation detail and its format may change. Changing `sort` invalidates it.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "state",
+            "required": false,
+            "in": "query",
+            "description": "One state, or several comma-separated. One of: open, pending, on_hold, resolved, closed.",
+            "schema": {
+              "example": "open,pending",
+              "type": "string"
+            }
+          },
+          {
+            "name": "priority",
+            "required": false,
+            "in": "query",
+            "description": "One priority, or several comma-separated. One of: low, normal, high, urgent.",
+            "schema": {
+              "example": "high,urgent",
+              "type": "string"
+            }
+          },
+          {
+            "name": "source",
+            "required": false,
+            "in": "query",
+            "description": "One source, or several comma-separated. One of: portal, widget, slack.",
+            "schema": {
+              "example": "widget",
+              "type": "string"
+            }
+          },
+          {
+            "name": "assigneeId",
+            "required": false,
+            "in": "query",
+            "description": "A User's id, or `none` for untriaged Tickets.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "contactId",
+            "required": false,
+            "in": "query",
+            "description": "A Contact's id — the requester.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "createdAfter",
+            "required": false,
+            "in": "query",
+            "description": "ISO-8601. Tickets created at or after this instant.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "createdBefore",
+            "required": false,
+            "in": "query",
+            "description": "ISO-8601. Tickets created at or before this instant.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "required": false,
+            "in": "query",
+            "description": "`createdAt` or `updatedAt`, with a leading `-` for descending. Defaults to `-createdAt`. Changing it invalidates a cursor.",
+            "schema": {
+              "example": "-createdAt",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "data",
+                    "nextCursor"
+                  ],
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/TicketDto"
+                      }
+                    },
+                    "nextCursor": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "Pass as `cursor` to fetch the next page. `null` means end of list. Opaque — do not parse."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`invalid_filter` — An unknown query parameter was supplied, or a filter value is outside the allowed set for this resource. Unknown parameters are rejected rather than ignored.\n\n`invalid_sort` — The requested sort field is not sortable on this resource. Use `field` for ascending, `-field` for descending.\n\n`invalid_cursor` — The pagination cursor is malformed or was issued for a different sort. Restart the traversal without a cursor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "List Tickets",
+        "tags": [
+          "tickets"
+        ],
+        "x-error-codes": [
+          "invalid_filter",
+          "invalid_sort",
+          "invalid_cursor",
+          "unauthenticated",
+          "forbidden"
+        ],
+        "x-required-permission": "ticket:read"
+      }
+    },
+    "/tickets/{id}": {
+      "get": {
+        "description": "A Ticket belonging to another tenant answers 404, identically to one that does not exist — a 403 would confirm it is real.",
+        "operationId": "TicketsController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`malformed_request` — The request could not be parsed or is structurally invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "`not_found` — No such resource is visible to this principal. A record belonging to another tenant is indistinguishable from one that does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Read one Ticket",
+        "tags": [
+          "tickets"
+        ],
+        "x-error-codes": [
+          "malformed_request",
+          "unauthenticated",
+          "forbidden",
+          "not_found"
+        ],
+        "x-required-permission": "ticket:read"
+      }
+    },
+    "/tickets/{id}/conversation": {
+      "get": {
+        "description": "The chain of Tickets linked by reply-on-closed, oldest first, so it reads as a narrative from where the customer first got in touch to where the work is now. A Ticket that has never been closed-and-replied-to is a chain of one — the common case, and deliberately not a special one, so a client never has to ask whether a conversation exists before reading it.\n\nAny Ticket in a chain returns the same chain: the endpoint is addressed by whichever Ticket you happen to hold, not only by the origin.\n\nIn the standard list envelope but never paginated — `nextCursor` is always null. A chain grows only when a closed Ticket is replied to, so it is bounded by how many times a conversation has been finished and resumed, and handing back a fragment of a narrative would make reading one a loop.",
+        "operationId": "TicketsController_conversation",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "data",
+                    "nextCursor"
+                  ],
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/TicketDto"
+                      }
+                    },
+                    "nextCursor": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "Pass as `cursor` to fetch the next page. `null` means end of list. Opaque — do not parse."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`malformed_request` — The request could not be parsed or is structurally invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "`not_found` — No such resource is visible to this principal. A record belonging to another tenant is indistinguishable from one that does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Read the whole conversation this Ticket belongs to",
+        "tags": [
+          "tickets"
+        ],
+        "x-error-codes": [
+          "malformed_request",
+          "unauthenticated",
+          "forbidden",
+          "not_found"
+        ],
+        "x-required-permission": "ticket:read"
+      }
+    },
+    "/tickets/{id}/state": {
+      "patch": {
+        "description": "The active states `open`, `pending` and `on_hold` interconvert freely; any of them may be `resolved`; a `resolved` Ticket reopens to `open` or moves to `closed`. `closed` is terminal — nothing leads out of it, and a later reply from the Contact opens a new linked Ticket. An illegal move answers 409 and is refused by the database rather than by this service, so it is refused identically on every write path.\n\nMoving to `closed` additionally requires `ticket:close`, which `ticket:transition` does not imply. It is checked here rather than on the route because one endpoint serves every transition, so a route-level grant could not tell them apart — a caller holding `ticket:transition` alone reaches this operation and is refused only for that destination.",
+        "operationId": "TicketsController_transition",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetStateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`malformed_request` — The request could not be parsed or is structurally invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "`not_found` — No such resource is visible to this principal. A record belonging to another tenant is indistinguishable from one that does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "`conflict` — The request conflicts with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "`validation_failed` — The request body failed validation. `details` enumerates one entry per offending field.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Move a Ticket to another state",
+        "tags": [
+          "tickets"
+        ],
+        "x-error-codes": [
+          "malformed_request",
+          "validation_failed",
+          "unauthenticated",
+          "forbidden",
+          "not_found",
+          "conflict"
+        ],
+        "x-required-permission": "ticket:transition"
+      }
+    },
+    "/tickets/{id}/priority": {
+      "patch": {
+        "description": "Independent of state: priority is urgency and state is progress, and changing one never moves the other. Not a state transition, so the transition table is not consulted. The single exception is a `closed` Ticket, which is a locked record — a priority edit on one answers 409.",
+        "operationId": "TicketsController_setPriority",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetPriorityDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`malformed_request` — The request could not be parsed or is structurally invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "`not_found` — No such resource is visible to this principal. A record belonging to another tenant is indistinguishable from one that does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "`conflict` — The request conflicts with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "`validation_failed` — The request body failed validation. `details` enumerates one entry per offending field.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Set a Ticket’s priority",
+        "tags": [
+          "tickets"
+        ],
+        "x-error-codes": [
+          "malformed_request",
+          "validation_failed",
+          "unauthenticated",
+          "forbidden",
+          "not_found",
+          "conflict"
+        ],
+        "x-required-permission": "ticket:priority"
+      }
+    },
+    "/tickets/{id}/assignee": {
+      "patch": {
+        "description": "At most one assignee, and `null` clears it. There are no teams or groups — responsibility has exactly one holder or none.",
+        "operationId": "TicketsController_setAssignee",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetAssigneeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`malformed_request` — The request could not be parsed or is structurally invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "`not_found` — No such resource is visible to this principal. A record belonging to another tenant is indistinguishable from one that does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "`validation_failed` — The request body failed validation. `details` enumerates one entry per offending field.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Assign a Ticket, or unassign it",
+        "tags": [
+          "tickets"
+        ],
+        "x-error-codes": [
+          "malformed_request",
+          "validation_failed",
+          "unauthenticated",
+          "forbidden",
+          "not_found"
+        ],
+        "x-required-permission": "ticket:assign"
+      }
+    },
+    "/tickets/{id}/messages": {
+      "post": {
+        "description": "The author is not part of the request: `authorKind` and `authorId` are stamped from the credential that made it, so a Message cannot be attributed to anyone else. For internal context that the Contact must not see, write a Note instead — a different endpoint over a different table, not a flag on this one.",
+        "operationId": "MessagesController_post",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The Ticket’s id.",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMessageDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`malformed_request` — The request could not be parsed or is structurally invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "`not_found` — No such resource is visible to this principal. A record belonging to another tenant is indistinguishable from one that does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "`validation_failed` — The request body failed validation. `details` enumerates one entry per offending field.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Post a customer-visible Message",
+        "tags": [
+          "conversation"
+        ],
+        "x-error-codes": [
+          "malformed_request",
+          "validation_failed",
+          "unauthenticated",
+          "forbidden",
+          "not_found"
+        ],
+        "x-required-permission": "ticket:reply"
+      },
+      "get": {
+        "description": "Messages only, newest first, in the standard list envelope. Notes are structurally absent rather than filtered out — they are a separate table, and no parameter to this endpoint can reach them.",
+        "operationId": "MessagesController_list",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The Ticket’s id.",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "Maximum rows to return. Defaults to 25.",
+            "schema": {
+              "minimum": 1,
+              "maximum": 100,
+              "default": 25,
+              "type": "number"
+            }
+          },
+          {
+            "name": "cursor",
+            "required": false,
+            "in": "query",
+            "description": "Opaque cursor from a previous response's `nextCursor`. Treat as a black box — its contents are an implementation detail and its format may change. Changing `sort` invalidates it.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "required": false,
+            "in": "query",
+            "description": "`createdAt`, with a leading `-` for descending. Defaults to `-createdAt` — newest first, which is where the work is. Ask for `createdAt` to render the thread top-down. Changing it invalidates a cursor.",
+            "schema": {
+              "example": "createdAt",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "data",
+                    "nextCursor"
+                  ],
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/MessageDto"
+                      }
+                    },
+                    "nextCursor": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "Pass as `cursor` to fetch the next page. `null` means end of list. Opaque — do not parse."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`malformed_request` — The request could not be parsed or is structurally invalid.\n\n`invalid_sort` — The requested sort field is not sortable on this resource. Use `field` for ascending, `-field` for descending.\n\n`invalid_cursor` — The pagination cursor is malformed or was issued for a different sort. Restart the traversal without a cursor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "`not_found` — No such resource is visible to this principal. A record belonging to another tenant is indistinguishable from one that does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Read a Ticket’s customer-visible thread",
+        "tags": [
+          "conversation"
+        ],
+        "x-error-codes": [
+          "malformed_request",
+          "invalid_sort",
+          "invalid_cursor",
+          "unauthenticated",
+          "forbidden",
+          "not_found"
+        ],
+        "x-required-permission": "ticket:read"
+      }
+    },
+    "/tickets/{id}/notes": {
+      "post": {
+        "description": "Never visible to the Contact, and not by virtue of a flag this endpoint sets — a Note is a row in a different table, and the customer-visible thread read does not look there. The author is stamped from the credential, as it is for a Message.",
+        "operationId": "NotesController_write",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The Ticket’s id.",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateNoteDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NoteDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`malformed_request` — The request could not be parsed or is structurally invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "`not_found` — No such resource is visible to this principal. A record belonging to another tenant is indistinguishable from one that does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "`validation_failed` — The request body failed validation. `details` enumerates one entry per offending field.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Write an internal Note",
+        "tags": [
+          "conversation"
+        ],
+        "x-error-codes": [
+          "malformed_request",
+          "validation_failed",
+          "unauthenticated",
+          "forbidden",
+          "not_found"
+        ],
+        "x-required-permission": "note:write"
+      },
+      "get": {
+        "description": "Notes only, newest first, in the standard list envelope. Interleaving them with the customer-visible thread is the client’s job: it reads both endpoints and merges by `createdAt`, so nothing on the server ever holds a mixed collection that could be serialized to the wrong audience.",
+        "operationId": "NotesController_list",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The Ticket’s id.",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "Maximum rows to return. Defaults to 25.",
+            "schema": {
+              "minimum": 1,
+              "maximum": 100,
+              "default": 25,
+              "type": "number"
+            }
+          },
+          {
+            "name": "cursor",
+            "required": false,
+            "in": "query",
+            "description": "Opaque cursor from a previous response's `nextCursor`. Treat as a black box — its contents are an implementation detail and its format may change. Changing `sort` invalidates it.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "required": false,
+            "in": "query",
+            "description": "`createdAt`, with a leading `-` for descending. Defaults to `-createdAt` — newest first, which is where the work is. Ask for `createdAt` to render the thread top-down. Changing it invalidates a cursor.",
+            "schema": {
+              "example": "createdAt",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "data",
+                    "nextCursor"
+                  ],
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/NoteDto"
+                      }
+                    },
+                    "nextCursor": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "Pass as `cursor` to fetch the next page. `null` means end of list. Opaque — do not parse."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`malformed_request` — The request could not be parsed or is structurally invalid.\n\n`invalid_sort` — The requested sort field is not sortable on this resource. Use `field` for ascending, `-field` for descending.\n\n`invalid_cursor` — The pagination cursor is malformed or was issued for a different sort. Restart the traversal without a cursor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "`not_found` — No such resource is visible to this principal. A record belonging to another tenant is indistinguishable from one that does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Read a Ticket’s internal Notes",
+        "tags": [
+          "conversation"
+        ],
+        "x-error-codes": [
+          "malformed_request",
+          "invalid_sort",
+          "invalid_cursor",
+          "unauthenticated",
+          "forbidden",
+          "not_found"
+        ],
+        "x-required-permission": "note:read"
+      }
+    },
+    "/portal/auth/sign-in": {
+      "post": {
+        "description": "Returns a 15-minute access token in the body and sets an httpOnly refresh cookie, exactly as staff sign-in does. Every failure answers the same `unauthenticated` error — a wrong password, an unknown address, an address at another tenant, and a Contact with no portal credential at all are deliberately indistinguishable. The last of those is the common case: a Contact created from a widget visit has no password and cannot sign in here.",
+        "operationId": "PortalAuthController_signIn",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PortalSignInDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "`validation_failed` — The request body failed validation. `details` enumerates one entry per offending field.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Sign a Contact into the portal",
+        "tags": [
+          "portal"
+        ],
+        "x-error-codes": [
+          "validation_failed",
+          "unauthenticated"
+        ]
+      }
+    },
+    "/portal/auth/refresh": {
+      "post": {
+        "description": "Rotates on every use, with the same family-wide replay eviction staff sessions have. A staff refresh token presented here is refused without revoking its family: it is a client error rather than evidence of theft, and evicting the family would sign an agent out of the console for it.",
+        "operationId": "PortalAuthController_refresh",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "nivara_portal_refresh": []
+          }
+        ],
+        "summary": "Exchange the portal refresh cookie for a new access token",
+        "tags": [
+          "portal"
+        ],
+        "x-error-codes": [
+          "unauthenticated"
+        ]
+      }
+    },
+    "/portal/auth/sign-out": {
+      "post": {
+        "description": "Revokes the whole token family and clears the cookie. Idempotent: signing out without a valid cookie succeeds, because whether a given token exists is not something an unauthenticated caller should be able to learn.",
+        "operationId": "PortalAuthController_signOut",
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "nivara_portal_refresh": []
+          }
+        ],
+        "summary": "End the portal session",
+        "tags": [
+          "portal"
+        ]
+      }
+    },
+    "/portal/auth/me": {
+      "get": {
+        "description": "Resolved from the presented credential alone. Reads the Contact row inside the tenant context the token arms, so a response here is evidence the whole chain is wired. A staff token is refused: this describes a Contact, and a User is not one.",
+        "operationId": "PortalAuthController_me",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactPrincipalDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "`not_found` — No such resource is visible to this principal. A record belonging to another tenant is indistinguishable from one that does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "The signed-in Contact",
+        "tags": [
+          "portal"
+        ],
+        "x-error-codes": [
+          "unauthenticated",
+          "forbidden",
+          "not_found"
+        ],
+        "x-required-principal-kind": "contact"
+      }
+    },
+    "/portal/tickets": {
+      "post": {
+        "description": "Born `open` with `normal` priority and Source `portal`. The requester is the signed-in Contact, taken from the credential — it is not a field of this request, so a Ticket cannot be filed in another customer’s name.",
+        "operationId": "PortalTicketsController_open",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OpenTicketDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "`not_found` — No such resource is visible to this principal. A record belonging to another tenant is indistinguishable from one that does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "`validation_failed` — The request body failed validation. `details` enumerates one entry per offending field.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Open a Ticket",
+        "tags": [
+          "portal"
+        ],
+        "x-error-codes": [
+          "validation_failed",
+          "unauthenticated",
+          "forbidden",
+          "not_found"
+        ],
+        "x-required-principal-kind": "contact"
+      },
+      "get": {
+        "description": "Cursor-paginated, newest first by default, and scoped to the signed-in Contact by row-level security rather than by a filter this endpoint applies. Another customer’s Tickets are not excluded from the page — they do not exist in this context at all.",
+        "operationId": "PortalTicketsController_list",
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "Maximum rows to return. Defaults to 25.",
+            "schema": {
+              "minimum": 1,
+              "maximum": 100,
+              "default": 25,
+              "type": "number"
+            }
+          },
+          {
+            "name": "cursor",
+            "required": false,
+            "in": "query",
+            "description": "Opaque cursor from a previous response's `nextCursor`. Treat as a black box — its contents are an implementation detail and its format may change. Changing `sort` invalidates it.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "state",
+            "required": false,
+            "in": "query",
+            "description": "One state, or several comma-separated. One of: open, pending, on_hold, resolved, closed.",
+            "schema": {
+              "example": "open,pending",
+              "type": "string"
+            }
+          },
+          {
+            "name": "priority",
+            "required": false,
+            "in": "query",
+            "description": "One priority, or several comma-separated. One of: low, normal, high, urgent.",
+            "schema": {
+              "example": "high,urgent",
+              "type": "string"
+            }
+          },
+          {
+            "name": "source",
+            "required": false,
+            "in": "query",
+            "description": "One source, or several comma-separated. One of: portal, widget, slack.",
+            "schema": {
+              "example": "widget",
+              "type": "string"
+            }
+          },
+          {
+            "name": "assigneeId",
+            "required": false,
+            "in": "query",
+            "description": "A User's id, or `none` for untriaged Tickets.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "contactId",
+            "required": false,
+            "in": "query",
+            "description": "A Contact's id — the requester.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "createdAfter",
+            "required": false,
+            "in": "query",
+            "description": "ISO-8601. Tickets created at or after this instant.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "createdBefore",
+            "required": false,
+            "in": "query",
+            "description": "ISO-8601. Tickets created at or before this instant.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "required": false,
+            "in": "query",
+            "description": "`createdAt` or `updatedAt`, with a leading `-` for descending. Defaults to `-createdAt`. Changing it invalidates a cursor.",
+            "schema": {
+              "example": "-createdAt",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "data",
+                    "nextCursor"
+                  ],
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/TicketDto"
+                      }
+                    },
+                    "nextCursor": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "Pass as `cursor` to fetch the next page. `null` means end of list. Opaque — do not parse."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`invalid_filter` — An unknown query parameter was supplied, or a filter value is outside the allowed set for this resource. Unknown parameters are rejected rather than ignored.\n\n`invalid_sort` — The requested sort field is not sortable on this resource. Use `field` for ascending, `-field` for descending.\n\n`invalid_cursor` — The pagination cursor is malformed or was issued for a different sort. Restart the traversal without a cursor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "List my Tickets",
+        "tags": [
+          "portal"
+        ],
+        "x-error-codes": [
+          "invalid_filter",
+          "invalid_sort",
+          "invalid_cursor",
+          "unauthenticated",
+          "forbidden"
+        ],
+        "x-required-principal-kind": "contact"
+      }
+    },
+    "/portal/tickets/{id}": {
+      "get": {
+        "description": "Another customer’s Ticket answers 404, identically to one that does not exist and identically to another tenant’s — a 403 would confirm it is real, which is a fact about somebody else’s support request.",
+        "operationId": "PortalTicketsController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`malformed_request` — The request could not be parsed or is structurally invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "`not_found` — No such resource is visible to this principal. A record belonging to another tenant is indistinguishable from one that does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Read one of my Tickets",
+        "tags": [
+          "portal"
+        ],
+        "x-error-codes": [
+          "malformed_request",
+          "unauthenticated",
+          "forbidden",
+          "not_found"
+        ],
+        "x-required-principal-kind": "contact"
+      }
+    },
+    "/portal/tickets/{id}/messages": {
+      "get": {
+        "description": "The full customer-visible thread — every Message, whoever wrote it. Notes are not filtered out of this response; they are a different table that this read does not name, are excluded from a Contact’s context by policy, and have no route on this surface.",
+        "operationId": "PortalTicketsController_thread",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "Maximum rows to return. Defaults to 25.",
+            "schema": {
+              "minimum": 1,
+              "maximum": 100,
+              "default": 25,
+              "type": "number"
+            }
+          },
+          {
+            "name": "cursor",
+            "required": false,
+            "in": "query",
+            "description": "Opaque cursor from a previous response's `nextCursor`. Treat as a black box — its contents are an implementation detail and its format may change. Changing `sort` invalidates it.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "required": false,
+            "in": "query",
+            "description": "`createdAt`, with a leading `-` for descending. Defaults to `-createdAt` — newest first, which is where the work is. Ask for `createdAt` to render the thread top-down. Changing it invalidates a cursor.",
+            "schema": {
+              "example": "createdAt",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "data",
+                    "nextCursor"
+                  ],
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/MessageDto"
+                      }
+                    },
+                    "nextCursor": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "Pass as `cursor` to fetch the next page. `null` means end of list. Opaque — do not parse."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`malformed_request` — The request could not be parsed or is structurally invalid.\n\n`invalid_sort` — The requested sort field is not sortable on this resource. Use `field` for ascending, `-field` for descending.\n\n`invalid_cursor` — The pagination cursor is malformed or was issued for a different sort. Restart the traversal without a cursor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "`not_found` — No such resource is visible to this principal. A record belonging to another tenant is indistinguishable from one that does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Read the conversation on my Ticket",
+        "tags": [
+          "portal"
+        ],
+        "x-error-codes": [
+          "malformed_request",
+          "invalid_sort",
+          "invalid_cursor",
+          "unauthenticated",
+          "forbidden",
+          "not_found"
+        ],
+        "x-required-principal-kind": "contact"
+      },
+      "post": {
+        "description": "Attributed to the signed-in Contact, stamped from the credential by a database trigger rather than claimed by the request — which is what makes `authorKind` trustworthy enough to compute deflection from. Posting on a Ticket that is not mine answers 404.\n\nA reply is not only a Message: it moves the Ticket it lands on. A `pending` or `resolved` Ticket reopens to `open`, because the customer has said the matter is not finished. A `closed` Ticket is terminal and is not revived — the reply opens a **new linked Ticket** with a fresh clock, inheriting the requester and its place in the conversation but nothing else, and becomes that Ticket’s first Message. If the conversation already has a Ticket that is not closed, the reply joins it rather than starting another, so replying repeatedly does not produce duplicates.\n\nBecause of that, the Message returned may belong to a different Ticket than the one addressed — read `ticketId` on the response rather than assuming, and read that Ticket’s thread to see the reply in place. `GET /tickets/:id/conversation`, which returns a whole chain at once, is a staff endpoint and is not reachable from this surface.",
+        "operationId": "PortalTicketsController_reply",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMessageDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`malformed_request` — The request could not be parsed or is structurally invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "`not_found` — No such resource is visible to this principal. A record belonging to another tenant is indistinguishable from one that does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "`conflict` — The request conflicts with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "`validation_failed` — The request body failed validation. `details` enumerates one entry per offending field.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Reply on my Ticket",
+        "tags": [
+          "portal"
+        ],
+        "x-error-codes": [
+          "malformed_request",
+          "validation_failed",
+          "unauthenticated",
+          "forbidden",
+          "not_found",
+          "conflict"
+        ],
+        "x-required-principal-kind": "contact"
+      }
+    },
+    "/widget/sessions": {
+      "post": {
+        "description": "Mints a 30-minute session for a visitor on the tenant’s own site. No account, no credential, and nothing durable stored about the visitor — the session’s Contact is created only when they do something that needs a requester, such as opening a Ticket.\n\nGated by the tenant’s `Origin` allowlist and by nothing else. A tenant that has not configured any origin has the widget switched off, and is refused identically to an unknown tenant and to a disallowed page: the refusal cannot be used to learn whether a given tenant id is real.",
+        "operationId": "WidgetSessionsController_start",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StartWidgetSessionDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WidgetSessionDto"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "`validation_failed` — The request body failed validation. `details` enumerates one entry per offending field.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Start an anonymous widget session",
+        "tags": [
+          "widget"
+        ],
+        "x-error-codes": [
+          "validation_failed",
+          "forbidden"
+        ]
+      }
+    },
+    "/widget/sessions/renew": {
+      "post": {
+        "description": "Returns a fresh token for the **same** session, so the visitor’s Contact and their Tickets survive the renewal — a conversation that runs past thirty minutes is still one conversation. Call it before `expiresInSeconds` elapses; there is no grace period after expiry, and a lapsed session must start a new one.\n\nThe `Origin` allowlist is checked again here, so a token lifted onto another page cannot keep itself alive from there. A revoked session is refused.",
+        "operationId": "WidgetSessionsController_renew",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WidgetSessionDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Extend this widget session",
+        "tags": [
+          "widget"
+        ],
+        "x-error-codes": [
+          "unauthenticated",
+          "forbidden"
+        ],
+        "x-required-principal-kind": "widget"
+      }
+    },
+    "/widget/tickets": {
+      "post": {
+        "description": "Born `open` with `normal` priority and Source `widget`. This is the act that makes a Contact exist: an anonymous session resolves to a freshly created, unverified Contact with no email, no name and no credential, and that Contact becomes the Ticket’s requester. A session that already has one reuses it, so a visitor who opens two Tickets in one conversation is one customer rather than two.",
+        "operationId": "WidgetTicketsController_open",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OpenWidgetTicketDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "`not_found` — No such resource is visible to this principal. A record belonging to another tenant is indistinguishable from one that does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "`validation_failed` — The request body failed validation. `details` enumerates one entry per offending field.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Open a Ticket from the widget",
+        "tags": [
+          "widget"
+        ],
+        "x-error-codes": [
+          "validation_failed",
+          "unauthenticated",
+          "forbidden",
+          "not_found"
+        ],
+        "x-required-principal-kind": "widget"
+      },
+      "get": {
+        "description": "Cursor-paginated, newest first by default, and scoped to the session’s Contact by row-level security rather than by a filter this endpoint applies. A session that has not yet opened a Ticket has no Contact at all and receives an empty page — asking does not create one.",
+        "operationId": "WidgetTicketsController_list",
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "Maximum rows to return. Defaults to 25.",
+            "schema": {
+              "minimum": 1,
+              "maximum": 100,
+              "default": 25,
+              "type": "number"
+            }
+          },
+          {
+            "name": "cursor",
+            "required": false,
+            "in": "query",
+            "description": "Opaque cursor from a previous response's `nextCursor`. Treat as a black box — its contents are an implementation detail and its format may change. Changing `sort` invalidates it.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "state",
+            "required": false,
+            "in": "query",
+            "description": "One state, or several comma-separated. One of: open, pending, on_hold, resolved, closed.",
+            "schema": {
+              "example": "open,pending",
+              "type": "string"
+            }
+          },
+          {
+            "name": "priority",
+            "required": false,
+            "in": "query",
+            "description": "One priority, or several comma-separated. One of: low, normal, high, urgent.",
+            "schema": {
+              "example": "high,urgent",
+              "type": "string"
+            }
+          },
+          {
+            "name": "source",
+            "required": false,
+            "in": "query",
+            "description": "One source, or several comma-separated. One of: portal, widget, slack.",
+            "schema": {
+              "example": "widget",
+              "type": "string"
+            }
+          },
+          {
+            "name": "assigneeId",
+            "required": false,
+            "in": "query",
+            "description": "A User's id, or `none` for untriaged Tickets.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "contactId",
+            "required": false,
+            "in": "query",
+            "description": "A Contact's id — the requester.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "createdAfter",
+            "required": false,
+            "in": "query",
+            "description": "ISO-8601. Tickets created at or after this instant.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "createdBefore",
+            "required": false,
+            "in": "query",
+            "description": "ISO-8601. Tickets created at or before this instant.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "required": false,
+            "in": "query",
+            "description": "`createdAt` or `updatedAt`, with a leading `-` for descending. Defaults to `-createdAt`. Changing it invalidates a cursor.",
+            "schema": {
+              "example": "-createdAt",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "data",
+                    "nextCursor"
+                  ],
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/TicketDto"
+                      }
+                    },
+                    "nextCursor": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "Pass as `cursor` to fetch the next page. `null` means end of list. Opaque — do not parse."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`invalid_filter` — An unknown query parameter was supplied, or a filter value is outside the allowed set for this resource. Unknown parameters are rejected rather than ignored.\n\n`invalid_sort` — The requested sort field is not sortable on this resource. Use `field` for ascending, `-field` for descending.\n\n`invalid_cursor` — The pagination cursor is malformed or was issued for a different sort. Restart the traversal without a cursor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "List this session’s Tickets",
+        "tags": [
+          "widget"
+        ],
+        "x-error-codes": [
+          "invalid_filter",
+          "invalid_sort",
+          "invalid_cursor",
+          "unauthenticated",
+          "forbidden"
+        ],
+        "x-required-principal-kind": "widget"
+      }
+    },
+    "/widget/tickets/{id}": {
+      "get": {
+        "description": "Another visitor’s Ticket answers 404, identically to one that does not exist and identically to another tenant’s — a 403 would confirm it is real, which is a fact about somebody else’s support request.",
+        "operationId": "WidgetTicketsController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`malformed_request` — The request could not be parsed or is structurally invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "`not_found` — No such resource is visible to this principal. A record belonging to another tenant is indistinguishable from one that does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Read one of this session’s Tickets",
+        "tags": [
+          "widget"
+        ],
+        "x-error-codes": [
+          "malformed_request",
+          "unauthenticated",
+          "forbidden",
+          "not_found"
+        ],
+        "x-required-principal-kind": "widget"
+      }
+    },
+    "/widget/tickets/{id}/messages": {
+      "get": {
+        "description": "The full customer-visible thread — every Message, whoever wrote it. Notes are not filtered out of this response; they are a different table that this read does not name, are excluded from a Contact’s context by policy, and have no route on this surface.",
+        "operationId": "WidgetTicketsController_thread",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "Maximum rows to return. Defaults to 25.",
+            "schema": {
+              "minimum": 1,
+              "maximum": 100,
+              "default": 25,
+              "type": "number"
+            }
+          },
+          {
+            "name": "cursor",
+            "required": false,
+            "in": "query",
+            "description": "Opaque cursor from a previous response's `nextCursor`. Treat as a black box — its contents are an implementation detail and its format may change. Changing `sort` invalidates it.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "required": false,
+            "in": "query",
+            "description": "`createdAt`, with a leading `-` for descending. Defaults to `-createdAt` — newest first, which is where the work is. Ask for `createdAt` to render the thread top-down. Changing it invalidates a cursor.",
+            "schema": {
+              "example": "createdAt",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "data",
+                    "nextCursor"
+                  ],
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/MessageDto"
+                      }
+                    },
+                    "nextCursor": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "Pass as `cursor` to fetch the next page. `null` means end of list. Opaque — do not parse."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`malformed_request` — The request could not be parsed or is structurally invalid.\n\n`invalid_sort` — The requested sort field is not sortable on this resource. Use `field` for ascending, `-field` for descending.\n\n`invalid_cursor` — The pagination cursor is malformed or was issued for a different sort. Restart the traversal without a cursor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "`not_found` — No such resource is visible to this principal. A record belonging to another tenant is indistinguishable from one that does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Read the conversation on this session’s Ticket",
+        "tags": [
+          "widget"
+        ],
+        "x-error-codes": [
+          "malformed_request",
+          "invalid_sort",
+          "invalid_cursor",
+          "unauthenticated",
+          "forbidden",
+          "not_found"
+        ],
+        "x-required-principal-kind": "widget"
+      },
+      "post": {
+        "description": "Attributed to the session’s Contact, stamped from the credential by a database trigger rather than claimed by the request. Posting on a Ticket that is not this session’s answers 404.\n\nA reply is not only a Message: it moves the Ticket it lands on, exactly as a portal reply does. A `pending` or `resolved` Ticket reopens to `open`. A `closed` Ticket is terminal and is not revived — the reply opens a **new linked Ticket** with a fresh clock and becomes its first Message — so read `ticketId` on the response rather than assuming it matches the Ticket addressed.",
+        "operationId": "WidgetTicketsController_reply",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMessageDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`malformed_request` — The request could not be parsed or is structurally invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "`not_found` — No such resource is visible to this principal. A record belonging to another tenant is indistinguishable from one that does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "`conflict` — The request conflicts with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "`validation_failed` — The request body failed validation. `details` enumerates one entry per offending field.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Reply on this session’s Ticket",
+        "tags": [
+          "widget"
+        ],
+        "x-error-codes": [
+          "malformed_request",
+          "validation_failed",
+          "unauthenticated",
+          "forbidden",
+          "not_found",
+          "conflict"
+        ],
+        "x-required-principal-kind": "widget"
+      }
+    },
+    "/service-tokens": {
+      "post": {
+        "description": "Admin-only. Returns the credential **once** — only a hash is stored, so it cannot be recovered afterwards and a lost token is reminted rather than looked up.\n\nThe tenant and the minting User are stamped from your credential, never taken from the request. Scopes are drawn from the same permission catalog staff roles are built from; destructive, configuration, user-management and audit-read permissions are refused.",
+        "operationId": "ServiceTokensController_mint",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MintServiceTokenDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MintedServiceTokenDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "`validation_failed` — The request body failed validation. `details` enumerates one entry per offending field.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Mint a service token",
+        "tags": [
+          "service-tokens"
+        ],
+        "x-error-codes": [
+          "validation_failed",
+          "unauthenticated",
+          "forbidden"
+        ],
+        "x-required-permission": "token:manage"
+      },
+      "get": {
+        "description": "Newest first, and including revoked tokens: the operator question is what has ever held authority here, and a token that vanished on revocation would make an incident harder to reconstruct. The credential itself is never returned — it exists nowhere the server could read it.",
+        "operationId": "ServiceTokensController_list",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ServiceTokenDto"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "List this tenant’s service tokens",
+        "tags": [
+          "service-tokens"
+        ],
+        "x-error-codes": [
+          "unauthenticated",
+          "forbidden"
+        ],
+        "x-required-permission": "token:manage"
+      }
+    },
+    "/service-tokens/scopes": {
+      "get": {
+        "description": "Published so tooling does not hardcode the list. These are permissions from the staff catalog — the same vocabulary, not a parallel one — minus everything no machine credential may hold.",
+        "operationId": "ServiceTokensController_assignableScopes",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssignableScopesDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "List the scopes a service token may be granted",
+        "tags": [
+          "service-tokens"
+        ],
+        "x-error-codes": [
+          "unauthenticated",
+          "forbidden"
+        ],
+        "x-required-permission": "token:manage"
+      }
+    },
+    "/service-tokens/{id}": {
+      "delete": {
+        "description": "Takes effect on the token’s very next request — the authentication path reads the row every time and caches nothing, because a TTL here would be revocation delay.\n\nFinal: a revoked token cannot be reinstated, and restoring access means minting a new one. The row is kept rather than deleted so the audit trail still has something to point at.",
+        "operationId": "ServiceTokensController_revoke",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          },
+          "400": {
+            "description": "`malformed_request` — The request could not be parsed or is structurally invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "`not_found` — No such resource is visible to this principal. A record belonging to another tenant is indistinguishable from one that does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "`conflict` — The request conflicts with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Revoke a service token",
+        "tags": [
+          "service-tokens"
+        ],
+        "x-error-codes": [
+          "malformed_request",
+          "unauthenticated",
+          "forbidden",
+          "not_found",
+          "conflict"
+        ],
+        "x-required-permission": "token:manage"
+      }
+    },
+    "/analytics": {
+      "get": {
+        "description": "Four headline rates — deflection, resolution, and the two SLA breach rates — over one shared cohort of Tickets created in `[from, to)`, defaulting to the last 30 days and anchored on creation time. First-response and resolution durations are reported at p50 and p90. An optional `groupBy` breaks every figure down by priority, source, assignee, or day; the assignee cut excludes deflected and unassigned Tickets. Everything is computed live as tenant-scoped SQL — never stale, and never able to cross tenants.",
+        "operationId": "AnalyticsController_report",
+        "parameters": [
+          {
+            "name": "from",
+            "required": false,
+            "in": "query",
+            "description": "ISO-8601. The cohort is Tickets created at or after this instant. Defaults to 30 days before `to`.",
+            "schema": {
+              "example": "2026-06-20T00:00:00.000Z",
+              "type": "string"
+            }
+          },
+          {
+            "name": "to",
+            "required": false,
+            "in": "query",
+            "description": "ISO-8601. The cohort is Tickets created strictly before this instant. Defaults to now.",
+            "schema": {
+              "example": "2026-07-20T00:00:00.000Z",
+              "type": "string"
+            }
+          },
+          {
+            "name": "groupBy",
+            "required": false,
+            "in": "query",
+            "description": "Break the figures down by one axis. One of: priority, source, assignee, day. Omit for the ungrouped report.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "priority",
+                "source",
+                "assignee",
+                "day"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnalyticsReportDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "`invalid_filter` — An unknown query parameter was supplied, or a filter value is outside the allowed set for this resource. Unknown parameters are rejected rather than ignored.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "`unauthenticated` — No credential was presented, or the credential is invalid or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "`forbidden` — The principal is authenticated but lacks the permission this operation requires.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "The tenant’s live support metrics over a cohort",
+        "tags": [
+          "analytics"
+        ],
+        "x-error-codes": [
+          "invalid_filter",
+          "unauthenticated",
+          "forbidden"
+        ],
+        "x-required-permission": "analytics:read"
+      }
+    },
+    "/health": {
+      "get": {
+        "description": "Answers 200 whenever the process is alive. Touches neither Postgres nor Redis. This is the keep-warm ping target.",
+        "operationId": "HealthController_liveness",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LivenessDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Liveness — process only, no dependencies",
+        "tags": [
+          "health"
+        ]
+      }
+    },
+    "/health/ready": {
+      "get": {
+        "description": "Answers 200 when the database is reachable and no enabled tick has stalled, and 503 otherwise, with the offending dependency named in the body. Redis is reported but never fails the check: it fails open, so an unreachable one is degraded rather than down. Not the keep-warm ping target — that is `/health`.",
+        "operationId": "HealthController_readiness",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadinessDto"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "A dependency is unavailable, or a scheduler tick has stalled.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadinessDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Readiness — Postgres, Redis and the scheduler heartbeat",
+        "tags": [
+          "health"
+        ]
+      }
+    },
+    "/meta/error-codes": {
+      "get": {
+        "description": "Every non-2xx response carries one of these codes in `error.code`. The list is closed: a code not here is never returned.",
+        "operationId": "MetaController_errorCodes",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ErrorCodeDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "The closed catalog of machine-readable error codes",
+        "tags": [
+          "meta"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Nivara Desk API",
+    "description": "The support API for Nivara Desk — a multitenant, two-sided customer-support helpdesk.\n\n**Conventions every endpoint obeys:**\n\n- **Success** — single resources are returned bare; collections wrap as `{ data, nextCursor }`. HTTP status discriminates success from error, so success bodies need no envelope.\n- **Pagination** — cursor/keyset, never offset. `limit` defaults to 25 and caps at 100. There is no `total`. Default order is newest-first. The cursor is opaque — pass it back unmodified.\n- **Errors** — always `{ error: { code, message, details? } }`. Branch on `code`, drawn from the closed catalog at `GET /meta/error-codes`. `details` appears only on 422.\n- **Authority** — an operation that needs a named permission carries it as `x-required-permission`, derived from the guard that enforces it rather than written by hand. The same vocabulary is the scope namespace for service tokens: there is one set of permission names, not two.\n- **Safe retries** — any authenticated `POST` accepts an optional `Idempotency-Key` header. Send one and the effect happens at most once however many times you retry: a completed request replays its original status and body verbatim, marked `Idempotency-Replayed: true`. A duplicate arriving while the original is still running answers `409 idempotency_in_flight` and is safe to retry; the same key sent with a different body answers `422 idempotency_key_reused`. Keys are honoured for 24 hours, scoped per caller and per request. Omitting the header is not an error — it simply carries no guarantee.\n- **Unknown query parameters are rejected with 400**, never silently ignored.\n- **404, never 403, for records you cannot see** — a record belonging to another tenant is indistinguishable from one that does not exist.",
+    "version": "0.1.0",
+    "contact": {}
+  },
+  "tags": [
+    {
+      "name": "health",
+      "description": "Liveness"
+    },
+    {
+      "name": "meta",
+      "description": "Published contracts — error codes and scopes"
+    },
+    {
+      "name": "auth",
+      "description": "Sign-in, session refresh, and the current principal"
+    },
+    {
+      "name": "staff",
+      "description": "Provisioning colleagues into a tenant by invitation"
+    }
+  ],
+  "servers": [],
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http",
+        "description": "A 15-minute staff access token from `POST /auth/sign-in`. Hold it in memory and refresh before it expires."
+      },
+      "nivara_refresh": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "nivara_refresh",
+        "description": "The httpOnly refresh cookie. Set by sign-in, sent automatically by the browser, and readable by no script — including this page."
+      }
+    },
+    "schemas": {
+      "SignInDto": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "string",
+            "description": "Which tenant to sign in to. Login is scoped to `(tenantId, email)`, so the same address at two tenants is two separate Users with two separate passwords.",
+            "format": "uuid"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "example": "admin@meridian.test"
+          },
+          "password": {
+            "type": "string",
+            "format": "password",
+            "maxLength": 256
+          }
+        },
+        "required": [
+          "tenantId",
+          "email",
+          "password"
+        ]
+      },
+      "SessionDto": {
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string",
+            "description": "Bearer credential for the API. Hold it in memory — persisting it to `localStorage` puts it back within reach of a page script."
+          },
+          "expiresInSeconds": {
+            "type": "number",
+            "description": "Seconds until the access token expires. Refresh before this elapses; the refresh cookie is sent automatically.",
+            "example": 900
+          }
+        },
+        "required": [
+          "accessToken",
+          "expiresInSeconds"
+        ]
+      },
+      "ErrorDetailDto": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string",
+            "example": "priority"
+          },
+          "issue": {
+            "type": "string",
+            "example": "must be one of low, normal, high, urgent"
+          }
+        },
+        "required": [
+          "field",
+          "issue"
+        ]
+      },
+      "ErrorBodyDto": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "malformed_request",
+              "invalid_filter",
+              "invalid_sort",
+              "invalid_cursor",
+              "unauthenticated",
+              "forbidden",
+              "not_found",
+              "conflict",
+              "idempotency_in_flight",
+              "validation_failed",
+              "idempotency_key_reused",
+              "rate_limited",
+              "internal_error",
+              "integration_dormant"
+            ],
+            "description": "Stable machine-readable code from the closed catalog at `GET /meta/error-codes`. Branch on this, never on `message`."
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable and safe to surface. Never contains internals."
+          },
+          "details": {
+            "description": "One entry per offending field. Present only on 422.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErrorDetailDto"
+            }
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ]
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/ErrorBodyDto"
+          }
+        },
+        "required": [
+          "error"
+        ]
+      },
+      "GoogleSignInDto": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "string",
+            "description": "Which tenant to sign in to. The Google identity binds against `(tenantId, email)`, so the same Google account at two tenants reaches two separate Users.",
+            "format": "uuid"
+          },
+          "code": {
+            "type": "string",
+            "description": "The one-time authorization code Google redirected back to the client with.",
+            "maxLength": 2048
+          },
+          "redirectUri": {
+            "type": "string",
+            "description": "The redirect URI the code was issued against. Google refuses any value not registered for this client, so this selects among the registered URIs rather than naming a new one.",
+            "example": "https://app.nivara.example/auth/google/callback"
+          }
+        },
+        "required": [
+          "tenantId",
+          "code",
+          "redirectUri"
+        ]
+      },
+      "PrincipalDto": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "user"
+            ],
+            "description": "Which kind of caller this is. Service tokens introduce a second value; clients should treat this as an open set."
+          },
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "tenantId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "agent",
+              "admin"
+            ]
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "userId",
+          "tenantId",
+          "role",
+          "email",
+          "name"
+        ]
+      },
+      "AuditAction": {
+        "type": "string",
+        "enum": [
+          "ticket.created",
+          "ticket.transitioned",
+          "ticket.assigned",
+          "ticket.priority_changed",
+          "sla.breached",
+          "token.minted",
+          "token.revoked",
+          "integration.failed"
+        ],
+        "description": "What happened. A closed catalog — `fromValue` and `toValue` are read according to this."
+      },
+      "ActorKind": {
+        "type": "string",
+        "enum": [
+          "user",
+          "contact",
+          "service",
+          "system"
+        ],
+        "description": "Who acted. Read from the credential, never from the request."
+      },
+      "AuditTargetKind": {
+        "type": "string",
+        "enum": [
+          "ticket",
+          "service_token",
+          "integration",
+          "contact"
+        ],
+        "description": "The kind of row this is about. Open in the database — the column is text, so an existing action can point at a new kind of row without a migration — but published as the closed set that actually occurs, so a client can switch on it."
+      },
+      "AuditEntryDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "action": {
+            "description": "What happened. A closed catalog — `fromValue` and `toValue` are read according to this.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AuditAction"
+              }
+            ]
+          },
+          "actorKind": {
+            "description": "Who acted. Read from the credential, never from the request.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ActorKind"
+              }
+            ]
+          },
+          "actorId": {
+            "type": "string",
+            "nullable": true,
+            "description": "Null exactly when `actorKind` is `system`, which is the one actor with no row to point at."
+          },
+          "targetKind": {
+            "description": "The kind of row this is about. Open in the database — the column is text, so an existing action can point at a new kind of row without a migration — but published as the closed set that actually occurs, so a client can switch on it.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AuditTargetKind"
+              }
+            ]
+          },
+          "targetId": {
+            "type": "string"
+          },
+          "ticketId": {
+            "type": "string",
+            "nullable": true,
+            "description": "The Ticket this belongs to, or null once that Ticket has been deleted — the entry outlives its subject."
+          },
+          "fromValue": {
+            "type": "string",
+            "nullable": true,
+            "description": "The value before the change, as text. Null when there was none."
+          },
+          "toValue": {
+            "type": "string",
+            "nullable": true,
+            "description": "The value after the change, as text. Null when there is none."
+          },
+          "metadata": {
+            "type": "object",
+            "nullable": true,
+            "description": "Action-specific extras — minted scopes, an SLA breach kind, an integration error."
+          },
+          "correlationId": {
+            "type": "string",
+            "nullable": true,
+            "description": "Ties one request’s cascade of entries together, when present."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "action",
+          "actorKind",
+          "actorId",
+          "targetKind",
+          "targetId",
+          "ticketId",
+          "fromValue",
+          "toValue",
+          "metadata",
+          "correlationId",
+          "createdAt"
+        ]
+      },
+      "InviteStaffDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email",
+            "example": "new.agent@meridian.test",
+            "description": "The address the invitee will sign in with. Unique within the tenant; the same address may hold a separate membership at another tenant."
+          },
+          "name": {
+            "type": "string",
+            "example": "Nadia Farouk",
+            "maxLength": 200
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "agent",
+              "admin"
+            ],
+            "description": "The authority the invitee will hold. Decided here by the admin, never chosen by the person accepting."
+          }
+        },
+        "required": [
+          "email",
+          "name",
+          "role"
+        ]
+      },
+      "InvitationDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "userId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The pending User this invitation provisioned."
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "agent",
+              "admin"
+            ]
+          },
+          "token": {
+            "type": "string",
+            "description": "The single-use secret, shown **once**. Only its hash is stored, so it cannot be recovered — a lost invitation is reissued, never looked up."
+          },
+          "expiresAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "After this, the invitation is refused and must be reissued."
+          }
+        },
+        "required": [
+          "id",
+          "userId",
+          "email",
+          "role",
+          "token",
+          "expiresAt"
+        ]
+      },
+      "AcceptInvitationDto": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The tenant the invitation was issued in."
+          },
+          "token": {
+            "type": "string",
+            "description": "The single-use secret from the invitation, shown to the admin exactly once at issue."
+          },
+          "password": {
+            "type": "string",
+            "format": "password",
+            "minLength": 12,
+            "maxLength": 256,
+            "description": "The password this staff member will sign in with."
+          }
+        },
+        "required": [
+          "tenantId",
+          "token",
+          "password"
+        ]
+      },
+      "TicketSource": {
+        "type": "string",
+        "enum": [
+          "portal",
+          "widget",
+          "slack"
+        ],
+        "description": "The channel this Ticket arrived on. Fixed at creation."
+      },
+      "CreateTicketDto": {
+        "type": "object",
+        "properties": {
+          "subject": {
+            "type": "string",
+            "description": "What the Ticket is about, in one line.",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "contactId": {
+            "type": "string",
+            "description": "The requester. Must be a Contact of this tenant — one belonging to another tenant is refused as nonexistent.",
+            "format": "uuid"
+          },
+          "source": {
+            "description": "The channel this Ticket arrived on. Fixed at creation.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TicketSource"
+              }
+            ]
+          }
+        },
+        "required": [
+          "subject",
+          "contactId",
+          "source"
+        ]
+      },
+      "TicketState": {
+        "type": "string",
+        "enum": [
+          "open",
+          "pending",
+          "on_hold",
+          "resolved",
+          "closed"
+        ]
+      },
+      "TicketPriority": {
+        "type": "string",
+        "enum": [
+          "low",
+          "normal",
+          "high",
+          "urgent"
+        ]
+      },
+      "TicketDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "contactId": {
+            "type": "string",
+            "description": "The requester."
+          },
+          "assigneeId": {
+            "type": "string",
+            "nullable": true,
+            "description": "The single User responsible, or null when untriaged."
+          },
+          "state": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TicketState"
+              }
+            ]
+          },
+          "priority": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TicketPriority"
+              }
+            ]
+          },
+          "source": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TicketSource"
+              }
+            ]
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "subject",
+          "contactId",
+          "assigneeId",
+          "state",
+          "priority",
+          "source",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "SetStateDto": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "description": "The state to move to. The request names a destination, not a transition: the origin is whatever the Ticket is in when the write lands, which is what makes a retry safe. An illegal move from that origin is a 409.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TicketState"
+              }
+            ]
+          }
+        },
+        "required": [
+          "state"
+        ]
+      },
+      "SetPriorityDto": {
+        "type": "object",
+        "properties": {
+          "priority": {
+            "description": "The new urgency. Independent of state — any priority is valid in any state.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TicketPriority"
+              }
+            ]
+          }
+        },
+        "required": [
+          "priority"
+        ]
+      },
+      "SetAssigneeDto": {
+        "type": "object",
+        "properties": {
+          "assigneeId": {
+            "type": "string",
+            "nullable": true,
+            "format": "uuid",
+            "description": "The User to make responsible, or null to unassign. Must be a User of this tenant."
+          }
+        },
+        "required": [
+          "assigneeId"
+        ]
+      },
+      "CreateMessageDto": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "string",
+            "description": "What to say, as plain text. Rendering is the client’s business — markup is stored verbatim, not interpreted.",
+            "minLength": 1,
+            "maxLength": 20000
+          }
+        },
+        "required": [
+          "body"
+        ]
+      },
+      "MessageDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "ticketId": {
+            "type": "string",
+            "description": "The Ticket this belongs to."
+          },
+          "body": {
+            "type": "string",
+            "description": "What was said, as plain text."
+          },
+          "authorKind": {
+            "description": "What kind of thing wrote this — a User, a Contact, a ServiceToken, or the system. Server-stamped from the writing credential and not settable.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ActorKind"
+              }
+            ]
+          },
+          "authorId": {
+            "type": "string",
+            "nullable": true,
+            "format": "uuid",
+            "description": "The author’s id, or null for `system` — the one actor with no row to point at. Polymorphic: read it against `authorKind` to know which table it names."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "ticketId",
+          "body",
+          "authorKind",
+          "authorId",
+          "createdAt"
+        ]
+      },
+      "CreateNoteDto": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "string",
+            "description": "The internal note, as plain text. Never delivered to a Contact by any endpoint.",
+            "minLength": 1,
+            "maxLength": 20000
+          }
+        },
+        "required": [
+          "body"
+        ]
+      },
+      "NoteDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "ticketId": {
+            "type": "string",
+            "description": "The Ticket this belongs to."
+          },
+          "body": {
+            "type": "string",
+            "description": "The internal note, as plain text. Never shown to a Contact."
+          },
+          "authorKind": {
+            "description": "What kind of thing wrote this. In practice a User or a ServiceToken — a Contact cannot hold `note:write`. Server-stamped and not settable.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ActorKind"
+              }
+            ]
+          },
+          "authorId": {
+            "type": "string",
+            "nullable": true,
+            "format": "uuid",
+            "description": "The author’s id, or null for `system`. Read it against `authorKind`."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "ticketId",
+          "body",
+          "authorKind",
+          "authorId",
+          "createdAt"
+        ]
+      },
+      "PortalSignInDto": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "string",
+            "description": "Which tenant’s portal to sign in to. Scoped to `(tenantId, email)`, so the same address at two tenants is two separate Contacts.",
+            "format": "uuid"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "example": "jules@example.test"
+          },
+          "password": {
+            "type": "string",
+            "format": "password",
+            "maxLength": 256
+          }
+        },
+        "required": [
+          "tenantId",
+          "email",
+          "password"
+        ]
+      },
+      "ContactPrincipalDto": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "contact"
+            ],
+            "description": "Always `contact` here. The staff surface answers `user`; a client holding one kind of token cannot reach the other’s endpoint."
+          },
+          "contactId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "tenantId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "nullable": true,
+            "description": "Null for a Contact that has never been identified — a widget visitor, say. A Contact that can sign in here necessarily has one."
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "verified": {
+            "type": "boolean",
+            "description": "Whether this Contact’s identity has been confirmed, as opposed to inferred from an anonymous session."
+          }
+        },
+        "required": [
+          "kind",
+          "contactId",
+          "tenantId",
+          "email",
+          "name",
+          "verified"
+        ]
+      },
+      "OpenTicketDto": {
+        "type": "object",
+        "properties": {
+          "subject": {
+            "type": "string",
+            "description": "What the Ticket is about, in one line.",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "subject"
+        ]
+      },
+      "StartWidgetSessionDto": {
+        "type": "object",
+        "properties": {
+          "tenantId": {
+            "type": "string",
+            "description": "Which tenant’s widget this is. Public — it is embedded in the widget snippet on the tenant’s own site — and it grants nothing on its own: the request is refused unless the `Origin` header is on that tenant’s allowlist.",
+            "format": "uuid"
+          }
+        },
+        "required": [
+          "tenantId"
+        ]
+      },
+      "WidgetSessionDto": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "Bearer credential for the widget surface, prefixed `nvw_`. Hold it in memory for the life of the page — persisting it to `localStorage` leaves a working session behind on a shared machine."
+          },
+          "expiresInSeconds": {
+            "type": "number",
+            "description": "Seconds until this session expires. Renew before it elapses at `POST /widget/sessions/renew`; renewal keeps the same session and therefore the same conversation.",
+            "example": 1800
+          }
+        },
+        "required": [
+          "token",
+          "expiresInSeconds"
+        ]
+      },
+      "OpenWidgetTicketDto": {
+        "type": "object",
+        "properties": {
+          "subject": {
+            "type": "string",
+            "description": "What the Ticket is about, in one line.",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "subject"
+        ]
+      },
+      "MintServiceTokenDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Triage assistant (production)",
+            "maxLength": 200,
+            "description": "What this credential is for, in your own words. The only reason to list tokens is to decide which one to revoke, and a page of uuids cannot answer that."
+          },
+          "scopes": {
+            "type": "array",
+            "example": [
+              "ticket:read",
+              "ticket:reply"
+            ],
+            "description": "Permissions this token may exercise, drawn from the same catalog staff roles are built from — there is one authority vocabulary, not two. `GET /service-tokens/scopes` lists what may be granted. Destructive, configuration, user-management and audit-read permissions are refused here: no machine credential can hold them.\n\nReply and note authority are separable, so an AI layer can run suggest-only — `note:write` without `ticket:reply` drafts internally without ever speaking to a customer.",
+            "items": {
+              "type": "string",
+              "enum": [
+                "ticket:read",
+                "ticket:create",
+                "ticket:reply",
+                "ticket:transition",
+                "ticket:assign",
+                "ticket:priority",
+                "note:read",
+                "note:write",
+                "contact:read",
+                "analytics:read",
+                "user:read"
+              ]
+            }
+          }
+        },
+        "required": [
+          "name",
+          "scopes"
+        ]
+      },
+      "MintedServiceTokenDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "example": "Triage assistant (production)"
+          },
+          "scopes": {
+            "example": [
+              "ticket:read",
+              "ticket:reply"
+            ],
+            "description": "The permissions this token actually carries — what it would be authorized for on its next request, not the raw stored column. The two differ only for a row written outside the mint path, and in that case this list is the honest one.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "createdById": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The User who minted it. Stamped by the server from their credential, so it cannot be forged."
+          },
+          "revokedAt": {
+            "type": "object",
+            "format": "date-time",
+            "nullable": true,
+            "description": "When it was revoked, or null while it is live. Revocation is final and takes effect on the token’s very next request — there is no cache in the authentication path."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "token": {
+            "type": "string",
+            "example": "nvk_live_0195c8e0-1a2b-7c3d-8e4f-5a6b7c8d9e0f.J8s...",
+            "description": "The credential, shown **once**. Only its hash is stored, so it cannot be recovered — a lost token is reminted, never looked up. Store it wherever your integration keeps secrets before leaving this response."
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "scopes",
+          "createdById",
+          "revokedAt",
+          "createdAt",
+          "token"
+        ]
+      },
+      "AssignableScopeDto": {
+        "type": "object",
+        "properties": {
+          "scope": {
+            "type": "string",
+            "example": "ticket:reply"
+          },
+          "description": {
+            "type": "string",
+            "example": "Post a customer-visible Message on a Ticket."
+          }
+        },
+        "required": [
+          "scope",
+          "description"
+        ]
+      },
+      "AssignableScopesDto": {
+        "type": "object",
+        "properties": {
+          "scopes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AssignableScopeDto"
+            }
+          }
+        },
+        "required": [
+          "scopes"
+        ]
+      },
+      "ServiceTokenDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "example": "Triage assistant (production)"
+          },
+          "scopes": {
+            "example": [
+              "ticket:read",
+              "ticket:reply"
+            ],
+            "description": "The permissions this token actually carries — what it would be authorized for on its next request, not the raw stored column. The two differ only for a row written outside the mint path, and in that case this list is the honest one.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "createdById": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The User who minted it. Stamped by the server from their credential, so it cannot be forged."
+          },
+          "revokedAt": {
+            "type": "object",
+            "format": "date-time",
+            "nullable": true,
+            "description": "When it was revoked, or null while it is live. Revocation is final and takes effect on the token’s very next request — there is no cache in the authentication path."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "scopes",
+          "createdById",
+          "revokedAt",
+          "createdAt"
+        ]
+      },
+      "RateDto": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "number",
+            "description": "The numerator — how many tickets this counts."
+          },
+          "rate": {
+            "type": "number",
+            "nullable": true,
+            "description": "The fraction of the cohort, in [0, 1], or null over an empty cohort."
+          }
+        },
+        "required": [
+          "count",
+          "rate"
+        ]
+      },
+      "DurationDto": {
+        "type": "object",
+        "properties": {
+          "p50": {
+            "type": "number",
+            "description": "Median (50th percentile), milliseconds."
+          },
+          "p90": {
+            "type": "number",
+            "description": "90th percentile, milliseconds."
+          }
+        },
+        "required": [
+          "p50",
+          "p90"
+        ]
+      },
+      "MetricsDto": {
+        "type": "object",
+        "properties": {
+          "cohortSize": {
+            "type": "number",
+            "description": "The shared denominator: Tickets created in the window. Every rate below is over this."
+          },
+          "deflection": {
+            "description": "Terminal Tickets with no agent touch — no user-authored Message or Note. Credits AI handling and self-service only.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RateDto"
+              }
+            ]
+          },
+          "resolution": {
+            "description": "Tickets that reached `resolved` or `closed`.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RateDto"
+              }
+            ]
+          },
+          "firstResponseBreach": {
+            "description": "Tickets whose first-response SLA latch is set — a slow start.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RateDto"
+              }
+            ]
+          },
+          "resolutionBreach": {
+            "description": "Tickets whose resolution SLA latch is set — a slow finish.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RateDto"
+              }
+            ]
+          },
+          "firstResponseMs": {
+            "nullable": true,
+            "description": "Time from creation to first agent-visible reply, over Tickets that got one.",
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/DurationDto"
+              }
+            ]
+          },
+          "resolutionMs": {
+            "nullable": true,
+            "description": "Pause-aware active time to terminal, over Tickets that reached one.",
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/DurationDto"
+              }
+            ]
+          }
+        },
+        "required": [
+          "cohortSize",
+          "deflection",
+          "resolution",
+          "firstResponseBreach",
+          "resolutionBreach",
+          "firstResponseMs",
+          "resolutionMs"
+        ]
+      },
+      "GroupMetricsDto": {
+        "type": "object",
+        "properties": {
+          "cohortSize": {
+            "type": "number",
+            "description": "The shared denominator: Tickets created in the window. Every rate below is over this."
+          },
+          "deflection": {
+            "description": "Terminal Tickets with no agent touch — no user-authored Message or Note. Credits AI handling and self-service only.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RateDto"
+              }
+            ]
+          },
+          "resolution": {
+            "description": "Tickets that reached `resolved` or `closed`.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RateDto"
+              }
+            ]
+          },
+          "firstResponseBreach": {
+            "description": "Tickets whose first-response SLA latch is set — a slow start.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RateDto"
+              }
+            ]
+          },
+          "resolutionBreach": {
+            "description": "Tickets whose resolution SLA latch is set — a slow finish.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RateDto"
+              }
+            ]
+          },
+          "firstResponseMs": {
+            "nullable": true,
+            "description": "Time from creation to first agent-visible reply, over Tickets that got one.",
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/DurationDto"
+              }
+            ]
+          },
+          "resolutionMs": {
+            "nullable": true,
+            "description": "Pause-aware active time to terminal, over Tickets that reached one.",
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/DurationDto"
+              }
+            ]
+          },
+          "key": {
+            "type": "string",
+            "description": "The group value — the priority, source, assignee id, or `YYYY-MM-DD` day this slice is for."
+          }
+        },
+        "required": [
+          "cohortSize",
+          "deflection",
+          "resolution",
+          "firstResponseBreach",
+          "resolutionBreach",
+          "firstResponseMs",
+          "resolutionMs",
+          "key"
+        ]
+      },
+      "AnalyticsReportDto": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The cohort window start (inclusive)."
+          },
+          "to": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The cohort window end (exclusive)."
+          },
+          "groupBy": {
+            "type": "string",
+            "nullable": true,
+            "enum": [
+              "priority",
+              "source",
+              "assignee",
+              "day"
+            ],
+            "description": "The axis the breakdown is over, or null for the ungrouped report."
+          },
+          "overall": {
+            "description": "The figures over the whole cohort.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MetricsDto"
+              }
+            ]
+          },
+          "groups": {
+            "nullable": true,
+            "description": "The per-group breakdown, or null when no group-by was asked for.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GroupMetricsDto"
+            }
+          }
+        },
+        "required": [
+          "from",
+          "to",
+          "groupBy",
+          "overall",
+          "groups"
+        ]
+      },
+      "LivenessDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok"
+            ],
+            "example": "ok"
+          },
+          "uptimeSeconds": {
+            "type": "number",
+            "description": "Seconds since the process started.",
+            "example": 42
+          }
+        },
+        "required": [
+          "status",
+          "uptimeSeconds"
+        ]
+      },
+      "DependencyDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok",
+              "unavailable"
+            ],
+            "example": "ok"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "RedisDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok",
+              "degraded",
+              "dormant"
+            ],
+            "description": "Neither `degraded` nor `dormant` fails the check. `dormant` means REDIS_URL is unset, which is a supported configuration; `degraded` means it is set and not answering. Both mean no rate-limit ceilings are being enforced, and every request is still served correctly.",
+            "example": "ok"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "TickDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "fast-drain"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok",
+              "stalled"
+            ],
+            "example": "ok"
+          },
+          "lastTickAt": {
+            "type": "object",
+            "nullable": true,
+            "description": "Null when the ticker has been started but has never fired.",
+            "example": "2026-07-19T12:00:00.000Z"
+          },
+          "ageSeconds": {
+            "type": "object",
+            "nullable": true,
+            "description": "Seconds since the last tick. Null when there has been none.",
+            "example": 1.4
+          }
+        },
+        "required": [
+          "name",
+          "status",
+          "lastTickAt",
+          "ageSeconds"
+        ]
+      },
+      "SchedulerDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok",
+              "stalled",
+              "disabled"
+            ],
+            "description": "`disabled` is healthy — it means RUN_SCHEDULER put no ticker in this process, which is the normal state for a web instance once the scheduler moves to its own service.",
+            "example": "ok"
+          },
+          "ticks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TickDto"
+            }
+          }
+        },
+        "required": [
+          "status",
+          "ticks"
+        ]
+      },
+      "ReadinessDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok",
+              "unavailable"
+            ],
+            "example": "ok"
+          },
+          "database": {
+            "$ref": "#/components/schemas/DependencyDto"
+          },
+          "redis": {
+            "$ref": "#/components/schemas/RedisDto"
+          },
+          "scheduler": {
+            "$ref": "#/components/schemas/SchedulerDto"
+          }
+        },
+        "required": [
+          "status",
+          "database",
+          "redis",
+          "scheduler"
+        ]
+      },
+      "ErrorCodeDto": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "malformed_request",
+              "invalid_filter",
+              "invalid_sort",
+              "invalid_cursor",
+              "unauthenticated",
+              "forbidden",
+              "not_found",
+              "conflict",
+              "idempotency_in_flight",
+              "validation_failed",
+              "idempotency_key_reused",
+              "rate_limited",
+              "internal_error",
+              "integration_dormant"
+            ],
+            "description": "The stable `snake_case` code clients branch on."
+          },
+          "status": {
+            "type": "number",
+            "description": "The HTTP status this code is always returned with.",
+            "example": 404
+          },
+          "description": {
+            "type": "string",
+            "description": "What this code means and when it is emitted."
+          }
+        },
+        "required": [
+          "code",
+          "status",
+          "description"
+        ]
+      },
+      "PaginationQuery": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "number",
+            "description": "Maximum rows to return. Defaults to 25.",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 25
+          },
+          "cursor": {
+            "type": "string",
+            "description": "Opaque cursor from a previous response's `nextCursor`. Treat as a black box — its contents are an implementation detail and its format may change. Changing `sort` invalidates it."
+          }
+        }
+      }
+    }
+  }
+}

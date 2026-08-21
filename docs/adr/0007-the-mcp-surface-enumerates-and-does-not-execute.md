@@ -1,0 +1,11 @@
+# The MCP surface enumerates the Tools and does not execute them
+
+Ticket 06 asks that the narrowed Tool surface become inspectable by anyone with an MCP client, so that "this service may do exactly three things to Nivara Desk" is a fact a reviewer reads off the wire rather than a claim they take from a README. Serving `tools/list` does that. **This decision is about `tools/call`, which is served alongside it by default and is refused here.**
+
+The reason is not caution about a demo. Every Tool acts on the Conversation its Turn is about, and that binding is the load-bearing part of the surface: no Tool takes an identifier, because the Conversation is a property of the Turn, bound by the caller, never chosen by the model (ADR-0005, ticket 05). An MCP client arriving from outside has no Turn. So a call reaching this endpoint has nothing to act on, and the only way to make it act would be to let it name a Conversation — which is precisely the **Cross-Conversation read** the Tool surface exists to withhold, reintroduced through the door built to prove it was withheld.
+
+**The alternative considered was executing against a Conversation supplied in the call.** It was rejected on the sentence above, and on a second ground: the Assistant token is this service's credential, not the caller's, so an executing MCP endpoint would be an unauthenticated way to spend it. Adding authentication to fix that would then make the surface un-enumerable by the reviewer it exists for, since the point is that anyone can look.
+
+**The cost accepted** is that this service's MCP endpoint is not a general-purpose MCP server: an agent host cannot drive Nivara Desk through it. That is a real limitation and it is the intended one — the surface is evidence, not an integration. `CONTEXT.md` records the distinction under **MCP surface**, with _Avoid_ entries for the two phrasings ("MCP integration", "exposing the tools") that would blur it back.
+
+The refusal is a wire-level fact rather than an omission: `tools/call` answers with a JSON-RPC error naming why, and `tests/mcp/test_discovery.py` asserts it. An omitted handler would have read as unfinished work, and would have been quietly reversible by the ticket that wires the agent loop.
