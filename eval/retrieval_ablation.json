@@ -1,0 +1,239 @@
+{
+  "meta": {
+    "generated_at": "2026-08-28",
+    "host": "Linux x86_64, Python 3.14.7",
+    "qdrant_version": "qdrant 1.19.0",
+    "corpus_documents": 80,
+    "corpus_chunks": 240,
+    "queries": 550,
+    "queries_ordinary": 400,
+    "queries_sensitive": 150,
+    "sample": null,
+    "encoder_footprint": [
+      {
+        "model": "python + fastembed",
+        "role": "interpreter + fastembed import, no model",
+        "resident_mb": 92.16015625
+      },
+      {
+        "model": "nomic-ai/nomic-embed-text-v1.5-Q",
+        "role": "dense encoder \u2014 resident, deployed",
+        "resident_mb": 135.15234375
+      },
+      {
+        "model": "nomic-ai/nomic-embed-text-v1.5",
+        "role": "dense encoder \u2014 full precision, dense-fp32 row only",
+        "resident_mb": 435.6953125
+      },
+      {
+        "model": "Qdrant/bm25",
+        "role": "sparse encoder \u2014 resident, deployed",
+        "resident_mb": 0.02734375
+      },
+      {
+        "model": "answerdotai/answerai-colbert-small-v1",
+        "role": "late-interaction query pass \u2014 resident, deployed",
+        "resident_mb": 126.33203125
+      },
+      {
+        "model": "Xenova/ms-marco-MiniLM-L-6-v2",
+        "role": "local cross-encoder \u2014 not deployed (ADR-0003)",
+        "resident_mb": 77.83984375
+      }
+    ]
+  },
+  "rows": [
+    {
+      "name": "exact-in-process",
+      "establishes": "arithmetic baseline \u2014 exact dense nearest-neighbour, no ANN graph",
+      "recall_at_1": 0.9291,
+      "recall_at_5": 0.9927,
+      "mrr": 0.9577,
+      "latency_p50_ms": 0.05,
+      "latency_mean_ms": 0.06,
+      "recall_at_5_ordinary": 0.995,
+      "recall_at_5_sensitive": 0.9867,
+      "queries": 550
+    },
+    {
+      "name": "dense-hnsw",
+      "establishes": "naive baseline \u2014 one dense vector over HNSW",
+      "recall_at_1": 0.9291,
+      "recall_at_5": 0.9927,
+      "mrr": 0.9577,
+      "latency_p50_ms": 3.64,
+      "latency_mean_ms": 3.76,
+      "recall_at_5_ordinary": 0.995,
+      "recall_at_5_sensitive": 0.9867,
+      "queries": 550
+    },
+    {
+      "name": "sparse-only",
+      "establishes": "BM25 alone, IDF applied server-side",
+      "recall_at_1": 0.8418,
+      "recall_at_5": 0.9636,
+      "mrr": 0.8966,
+      "latency_p50_ms": 2.88,
+      "latency_mean_ms": 3.05,
+      "recall_at_5_ordinary": 0.9625,
+      "recall_at_5_sensitive": 0.9667,
+      "queries": 550
+    },
+    {
+      "name": "hybrid-rrf",
+      "establishes": "dense + sparse fused with Reciprocal Rank Fusion",
+      "recall_at_1": 0.9345,
+      "recall_at_5": 0.9927,
+      "mrr": 0.9597,
+      "latency_p50_ms": 6.34,
+      "latency_mean_ms": 6.59,
+      "recall_at_5_ordinary": 0.9925,
+      "recall_at_5_sensitive": 0.9933,
+      "queries": 550
+    },
+    {
+      "name": "hybrid-dbsf",
+      "establishes": "dense + sparse fused with Distribution-Based Score Fusion \u2014 the deployed path",
+      "recall_at_1": 0.9418,
+      "recall_at_5": 0.9909,
+      "mrr": 0.9627,
+      "latency_p50_ms": 6.36,
+      "latency_mean_ms": 6.49,
+      "recall_at_5_ordinary": 0.99,
+      "recall_at_5_sensitive": 0.9933,
+      "queries": 550
+    },
+    {
+      "name": "hybrid-rerank-server",
+      "establishes": "the deployed path plus a late-interaction rescore inside Qdrant (ADR-0003)",
+      "recall_at_1": 0.9255,
+      "recall_at_5": 0.9909,
+      "mrr": 0.9542,
+      "latency_p50_ms": 8.83,
+      "latency_mean_ms": 9.16,
+      "recall_at_5_ordinary": 0.9925,
+      "recall_at_5_sensitive": 0.9867,
+      "queries": 550
+    },
+    {
+      "name": "hybrid-rerank-local-ce",
+      "establishes": "the same rescore run by a local cross-encoder on this host's CPU (ADR-0003)",
+      "recall_at_1": 0.9164,
+      "recall_at_5": 0.9891,
+      "mrr": 0.9476,
+      "latency_p50_ms": 903.89,
+      "latency_mean_ms": 948.24,
+      "recall_at_5_ordinary": 0.9875,
+      "recall_at_5_sensitive": 0.9933,
+      "queries": 550
+    },
+    {
+      "name": "contextual-off",
+      "establishes": "the deployed path with decision-22a chunk prefixes removed before embedding",
+      "recall_at_1": 0.8945,
+      "recall_at_5": 0.9818,
+      "mrr": 0.9334,
+      "latency_p50_ms": 6.3,
+      "latency_mean_ms": 6.56,
+      "recall_at_5_ordinary": 0.985,
+      "recall_at_5_sensitive": 0.9733,
+      "queries": 550
+    },
+    {
+      "name": "dense-fp32",
+      "establishes": "the deployed path with the full-precision dense encoder \u2014 quantisation as recall against memory",
+      "recall_at_1": 0.9418,
+      "recall_at_5": 0.9927,
+      "mrr": 0.9637,
+      "latency_p50_ms": 6.24,
+      "latency_mean_ms": 6.43,
+      "recall_at_5_ordinary": 0.9925,
+      "recall_at_5_sensitive": 0.9933,
+      "queries": 550
+    },
+    {
+      "name": "chunk-whole-document",
+      "establishes": "the deployed path over one chunk per Corpus document",
+      "recall_at_1": 0.9473,
+      "recall_at_5": 0.9945,
+      "mrr": 0.9658,
+      "latency_p50_ms": 6.26,
+      "latency_mean_ms": 6.43,
+      "recall_at_5_ordinary": 0.995,
+      "recall_at_5_sensitive": 0.9933,
+      "queries": 550
+    },
+    {
+      "name": "chunk-window-120",
+      "establishes": "the deployed path over ~120-word sliding windows",
+      "recall_at_1": 0.94,
+      "recall_at_5": 0.9927,
+      "mrr": 0.9626,
+      "latency_p50_ms": 6.41,
+      "latency_mean_ms": 6.57,
+      "recall_at_5_ordinary": 0.9925,
+      "recall_at_5_sensitive": 0.9933,
+      "queries": 550
+    },
+    {
+      "name": "ef-16",
+      "establishes": "the deployed path at HNSW ef=16 \u2014 recall against latency",
+      "recall_at_1": 0.9418,
+      "recall_at_5": 0.9909,
+      "mrr": 0.9627,
+      "latency_p50_ms": 6.32,
+      "latency_mean_ms": 6.42,
+      "recall_at_5_ordinary": 0.99,
+      "recall_at_5_sensitive": 0.9933,
+      "queries": 550
+    },
+    {
+      "name": "ef-32",
+      "establishes": "the deployed path at HNSW ef=32 \u2014 recall against latency",
+      "recall_at_1": 0.9418,
+      "recall_at_5": 0.9909,
+      "mrr": 0.9627,
+      "latency_p50_ms": 6.2,
+      "latency_mean_ms": 6.31,
+      "recall_at_5_ordinary": 0.99,
+      "recall_at_5_sensitive": 0.9933,
+      "queries": 550
+    },
+    {
+      "name": "ef-64",
+      "establishes": "the deployed path at HNSW ef=64 \u2014 recall against latency",
+      "recall_at_1": 0.9418,
+      "recall_at_5": 0.9909,
+      "mrr": 0.9627,
+      "latency_p50_ms": 6.17,
+      "latency_mean_ms": 6.29,
+      "recall_at_5_ordinary": 0.99,
+      "recall_at_5_sensitive": 0.9933,
+      "queries": 550
+    },
+    {
+      "name": "ef-128",
+      "establishes": "the deployed path at HNSW ef=128 \u2014 recall against latency",
+      "recall_at_1": 0.9418,
+      "recall_at_5": 0.9909,
+      "mrr": 0.9627,
+      "latency_p50_ms": 6.11,
+      "latency_mean_ms": 6.22,
+      "recall_at_5_ordinary": 0.99,
+      "recall_at_5_sensitive": 0.9933,
+      "queries": 550
+    },
+    {
+      "name": "ef-256",
+      "establishes": "the deployed path at HNSW ef=256 \u2014 recall against latency",
+      "recall_at_1": 0.9418,
+      "recall_at_5": 0.9909,
+      "mrr": 0.9627,
+      "latency_p50_ms": 6.34,
+      "latency_mean_ms": 6.46,
+      "recall_at_5_ordinary": 0.99,
+      "recall_at_5_sensitive": 0.9933,
+      "queries": 550
+    }
+  ]
+}

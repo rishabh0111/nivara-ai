@@ -1,0 +1,128 @@
+# `docker compose up` from a clean clone (with submodules) brings up the
+# Nivara API, a real Qdrant, and this service side by side — the promise
+# ticket 01 makes and everything downstream is measured against.
+#
+# The three repositories are one portfolio (ADR-0002), and locally that means
+# this file builds the API from the `nivara-api-nestjs` git submodule rather
+# than from a published image — there is no registry to pull from yet. A
+# submodule pins an exact commit rather than "whatever the sibling checkout
+# happens to be", so this stack is reproducible from `git clone
+# --recurse-submodules` alone; see the README for the exact command.
+#
+# postgres, redis, migrate and api are the same four services and the same
+# throwaway local defaults as `nivara-api-nestjs/docker-compose.yml`, kept in
+# step by hand until there is a published image to depend on instead.
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: nivara_owner
+      POSTGRES_PASSWORD: local_dev_only
+      POSTGRES_DB: nivara
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./nivara-api-nestjs/docker/postgres/init:/docker-entrypoint-initdb.d:ro,z
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U nivara_owner -d nivara']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  migrate:
+    build:
+      context: ./nivara-api-nestjs
+      target: build
+    pull_policy: build
+    command: ['sh', '-c', 'npm run release && npx prisma db seed']
+    environment:
+      MIGRATE_DATABASE_URL: postgres://nivara_owner:local_dev_only@postgres:5432/nivara
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  api:
+    build: ./nivara-api-nestjs
+    pull_policy: build
+    ports:
+      - '${API_PORT:-3000}:3000'
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      DATABASE_URL: postgres://app_user:local_dev_only@postgres:5432/nivara
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: local_dev_only_jwt_secret_not_for_real_use
+      WIDGET_SESSION_SECRET: local_dev_only_widget_secret_not_for_real_use
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+    healthcheck:
+      test:
+        ['CMD', 'node', '-e', "require('http').get('http://localhost:3000/health',r=>process.exit(r.statusCode===200?0:1)).on('error',()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Managed on the deployed instance; local Qdrant is the same image with no
+  # auth, so the retrieval-layer work runs against something real rather than
+  # a stub. One collection partitioned by Tenant, per ADR-0006 — created and
+  # filled by `python scripts/index_corpus.py` (ticket 10), a build step
+  # rather than something the request path does. Image kept in step with the
+  # `qdrant-client` pin in pyproject.toml; 1.19 is the floor because ticket
+  # 11 needs the per-Tenant `idf` corpus parameter and server-side
+  # late-interaction reranking.
+  qdrant:
+    image: qdrant/qdrant:v1.19.0
+    ports:
+      - '${QDRANT_PORT:-6333}:6333'
+    volumes:
+      - qdrant_data:/qdrant/storage
+    healthcheck:
+      test: ['CMD-SHELL', 'bash -c "exec 3<>/dev/tcp/127.0.0.1/6333"']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  ai:
+    build: .
+    pull_policy: build
+    ports:
+      - '${PORT:-8000}:8000'
+    environment:
+      NIVARA_PORT: 8000
+      # Resolved by compose network DNS, not hardcoded — a non-compose run
+      # (or a future deploy) points these at anything by overriding the env.
+      NIVARA_API_BASE_URL: http://api:3000
+      NIVARA_QDRANT_URL: http://qdrant:6333
+      # Unset by default: the seed mints the Assistant token fresh on every
+      # run and only prints it once, to the `migrate` service's log — see
+      # the README for how to fetch it and why readiness reports
+      # `unauthenticated` until it is set.
+      NIVARA_ASSISTANT_TOKEN: ${NIVARA_ASSISTANT_TOKEN:-}
+    depends_on:
+      api:
+        condition: service_healthy
+      qdrant:
+        condition: service_healthy
+    healthcheck:
+      test:
+        ['CMD', 'python', '-c', "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+  qdrant_data:
