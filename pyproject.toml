@@ -1,0 +1,55 @@
+[project]
+name = "nivara-ai"
+version = "0.1.0"
+description = "The AI support layer for Nivara Desk"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.32",
+    "pydantic-settings>=2.6",
+    "httpx>=0.27",
+    "mcp>=2.0",
+    # Kept in step with the Qdrant image in docker-compose.yml — the client
+    # refuses a server more than one minor version away. 1.19 is the floor
+    # because ticket 11's per-Tenant IDF corpus (the `idf` search parameter,
+    # ADR-0006) and server-side late-interaction reranking both need it.
+    "qdrant-client>=1.19,<1.20",
+    "fastembed>=0.4",
+    # Ticket 12's ablation computes the exact-nearest-neighbour baseline row
+    # in-process — the arithmetic a dot-product retriever tops out at — from
+    # the raw dense vectors. fastembed already pulls numpy; this makes the
+    # direct import in `nivara_ai.retrieval.ablation` an honest dependency.
+    "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=8.3",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+# The agent system prompt is read on the request path, so it ships inside the
+# package rather than from the repo-root `prompts/` tree (which is build-time
+# only). See `src/nivara_ai/turn/prompt.py`.
+"nivara_ai.turn" = ["system_prompt.md"]
+# The Gate's learned model and Sensitive category classifier are read on the
+# request path too (ticket 16). `eval/gate_calibration.{json,md}` is the
+# build-time table these were derived from and stays at the repo root, like
+# `eval/retrieval_ablation.*`.
+"nivara_ai.gate" = ["model.json", "sensitive_classifier.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = [
+    # fastembed prints this for a model whose HF card was touched upstream;
+    # the committed model id and its output are unchanged. See
+    # `src/nivara_ai/retrieval/embedding.py`.
+    "ignore:The model .* has been updated on HuggingFace:UserWarning",
+]

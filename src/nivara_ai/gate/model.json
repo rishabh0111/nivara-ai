@@ -1,0 +1,27 @@
+{
+  "signal_names": [
+    "retrieval_top_score",
+    "retrieval_margin",
+    "sensitive_score"
+  ],
+  "weights": [
+    -0.016108,
+    -0.294865,
+    3.235567
+  ],
+  "bias": -2.08391,
+  "feature_mean": [
+    2.158493,
+    0.293951,
+    0.272658
+  ],
+  "feature_std": [
+    0.260671,
+    0.254757,
+    0.433216
+  ],
+  "operating_point": 0.022712,
+  "band_lo": 0.022712,
+  "band_hi": 0.213017,
+  "calibration_sha": "d0052157cc6380ab"
+}
