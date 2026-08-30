@@ -1,0 +1,105 @@
+# The scoreboard job (ticket 23, decision 49).
+#
+# Runs on a schedule, holds the **Reporter token** from a secret, and does
+# three things the deployed service cannot:
+#
+#   1. reads live deflection over the Go-live Window with `analytics:read`
+#      (scripts/scoreboard.py) — the number this repository cannot fake;
+#   2. commits eval/scoreboard.{json,md} and a line to
+#      eval/scoreboard_rollups.jsonl, so a figure in the README outlives the
+#      Trace that produced it;
+#   3. touches the vector store so a quiet month does not let a managed Qdrant
+#      reap the collection out from under retrieval.
+#
+# Without NIVARA_REPORTER_TOKEN configured it prints the runbook and stops —
+# the score is never read with a stand-in credential.
+
+name: Scoreboard
+
+on:
+  schedule:
+    - cron: "17 6 * * *" # daily, 06:17 UTC — off the hour to dodge the rush
+  workflow_dispatch:
+
+concurrency:
+  group: scoreboard
+  cancel-in-progress: false
+
+jobs:
+  scoreboard:
+    name: publish the three columns
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # commits the refreshed artifact and the rollup
+    env:
+      HAS_REPORTER: ${{ secrets.NIVARA_REPORTER_TOKEN != '' }}
+      # When the deployed API URL is configured the job talks to it (and the
+      # managed Qdrant) directly and needs no local stack. Without it, it runs
+      # against a throwaway compose stack — the pending state.
+      USE_COMPOSE: ${{ vars.NIVARA_SCOREBOARD_API_URL == '' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -e ".[test]"
+
+      - name: Runbook (no Reporter token configured)
+        if: env.HAS_REPORTER != 'true'
+        run: |
+          echo "No NIVARA_REPORTER_TOKEN secret — the scoreboard job holds the"
+          echo "Reporter token (analytics:read alone) and no request-path"
+          echo "credential may stand in for it. Configure the secret from the"
+          echo "seed's 'Deflection reporter' token, then re-run."
+          echo
+          echo "Locally, against the compose stack:"
+          echo
+          echo "  NIVARA_REPORTER_TOKEN=nvk_live_... python scripts/scoreboard.py"
+
+      - name: Bring up the throwaway stack
+        if: ${{ env.HAS_REPORTER == 'true' && env.USE_COMPOSE == 'true' }}
+        run: docker compose up -d --wait
+
+      - name: Index the Corpus
+        if: ${{ env.HAS_REPORTER == 'true' && env.USE_COMPOSE == 'true' }}
+        run: python scripts/index_corpus.py
+
+      - name: Publish the scoreboard
+        if: env.HAS_REPORTER == 'true'
+        env:
+          NIVARA_REPORTER_TOKEN: ${{ secrets.NIVARA_REPORTER_TOKEN }}
+          # Point the job at the *deployed* API and the *managed* Qdrant by
+          # setting these repository variables. Without them the job runs
+          # against the freshly seeded compose stack — whose Go-live Window is
+          # empty by construction, so live deflection reads `pending` and the
+          # keep-alive touches an index that is torn down again. The managed
+          # Qdrant is the one retrieval actually depends on; keeping it alive
+          # needs its real URL here.
+          NIVARA_API_BASE_URL: ${{ vars.NIVARA_SCOREBOARD_API_URL || 'http://localhost:3000' }}
+          NIVARA_QDRANT_URL: ${{ vars.NIVARA_SCOREBOARD_QDRANT_URL || 'http://localhost:6333' }}
+        run: python scripts/scoreboard.py --fail-on-drift
+
+      - name: Commit the refreshed artifact and rollup
+        if: env.HAS_REPORTER == 'true'
+        run: |
+          git config user.name "nivara-scoreboard"
+          git config user.email "scoreboard@nivara.invalid"
+          git add eval/scoreboard.json eval/scoreboard.md eval/scoreboard_rollups.jsonl
+          if git diff --cached --quiet; then
+            echo "no change to commit"
+          else
+            git commit -m "chore: refresh the scoreboard"
+            git push
+          fi
+
+      - name: Stack logs on failure
+        if: ${{ failure() && env.HAS_REPORTER == 'true' && env.USE_COMPOSE == 'true' }}
+        run: docker compose logs --no-color
+
+      - name: Tear down
+        if: ${{ always() && env.HAS_REPORTER == 'true' && env.USE_COMPOSE == 'true' }}
+        run: docker compose down -v

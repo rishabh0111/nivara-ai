@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-08-30T20:48:20Z",
+  "trace_source": "traffic/turns.jsonl (260 Turns)",
+  "live_deflection": {
+    "count": 0,
+    "cohort_size": 0,
+    "rate": null,
+    "window_from": "2026-09-01T00:00:00.000Z",
+    "window_to": "2026-09-01T00:00:00.000Z",
+    "definition": "Terminal Tickets with no agent touch \u2014 no user-authored Message or Note. Credits AI handling and self-service only."
+  },
+  "ai_answered": {
+    "answered": 191,
+    "conversations": 260,
+    "rate": 0.7346153846153847
+  },
+  "phantom_deflection": {
+    "phantom": 0,
+    "conversations": 260,
+    "rate": 0.0
+  },
+  "drift": {
+    "live_rate": null,
+    "accounted_rate": 0.7346153846153847,
+    "delta": null,
+    "alert": false,
+    "note": "Pending \u2014 the Go-live Window has no Conversations yet, so there is no live figure to compare the offline one against."
+  }
+}

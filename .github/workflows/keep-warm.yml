@@ -1,0 +1,41 @@
+# Keep the free instance warm inside its spin-down window (ticket 27, user
+# story 32).
+#
+# A Render free web service spins down after 15 minutes with no inbound
+# traffic, and the cold start that follows is paid by whoever sends the next
+# request — which, for a demo, is a reviewer's first message. This pings
+# GET /health every ten minutes so that never happens.
+#
+# It does nothing unless `vars.NIVARA_AI_URL` is set to the deployed base URL —
+# a fork, or a checkout with no deploy, is a no-op rather than a failing job.
+
+name: Keep warm
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: keep-warm
+  cancel-in-progress: true
+
+jobs:
+  ping:
+    name: ping /health
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping the deployed instance
+        env:
+          URL: ${{ vars.NIVARA_AI_URL }}
+        run: |
+          if [ -z "$URL" ]; then
+            echo "vars.NIVARA_AI_URL is unset — nothing deployed to keep warm."
+            exit 0
+          fi
+          code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 "$URL/health" || echo 000)
+          echo "GET $URL/health -> $code"
+          # A cold start can take longer than one curl; a 000/5xx here is not a
+          # failure of this job, it is the ping doing its job of waking the
+          # instance for the next real caller.
+          exit 0
