@@ -1,0 +1,91 @@
+# CI for ticket 18 / ADR-0004. Nothing here spends model quota — the harness
+# replays committed Recordings (recordings/README.md).
+#
+# The two tiers ADR-0004 names both live in the `replay-gate` job:
+#
+#   Tier 1, every pull request — replay the frozen Recordings and fail on any
+#   per-category rise in False deflection (`ci_regression_gate.py`).
+#
+#   Tier 2, a model-facing pull request only — additionally require a fresh
+#   Record run of the sensitive slice and the regression cases
+#   (`ci_record_required.py`). The full set is re-recorded on a release
+#   cadence, not per change — see .github/workflows/record-cadence.yml.
+#
+# The `stack` job is not one of the tiers: it brings up the compose API, a real
+# Qdrant and this service and runs the whole suite over real HTTP, exercising
+# the Borrowed read, retrieval and the writes.
+
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  replay-gate:
+    name: key-free replay gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # ci_record_required.py diffs against the base ref
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -e ".[test]"
+
+      - name: Key-free test suite
+        # Everything that does not need the compose stack. The stack-bound
+        # tests skip cleanly here; the four modules that would error without an
+        # API or a live MCP mount are left to the `stack` job.
+        run: >
+          pytest -q
+          --ignore=tests/mcp
+          --ignore=tests/test_liveness.py
+          --ignore=tests/test_readiness.py
+          --ignore=tests/test_api_contract.py
+
+      - name: "Tier 1 — false-deflection regression gate"
+        run: python scripts/ci_regression_gate.py
+
+      - name: "Tier 2 — fresh Recording required for a model-facing change"
+        if: github.event_name == 'pull_request'
+        run: python scripts/ci_record_required.py --base "origin/${{ github.base_ref }}"
+
+  stack:
+    name: integration suite over the compose stack
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -e ".[test]"
+
+      - name: Bring up the stack
+        run: docker compose up -d --wait
+
+      - name: Index the Corpus
+        run: python scripts/index_corpus.py
+
+      - name: Full test suite
+        run: pytest -q
+
+      - name: Stack logs on failure
+        if: failure()
+        run: docker compose logs --no-color
+
+      - name: Tear down
+        if: always()
+        run: docker compose down -v
