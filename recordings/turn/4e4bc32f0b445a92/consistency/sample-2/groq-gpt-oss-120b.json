@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:48:38.354432Z",
+  "failure_detail": null,
+  "fingerprint": "f62defbeda4602884faef6deb6a2cc2e5f37edac3d656e6bb30a2fb7c047d561",
+  "outcome": "response",
+  "recording_id": "turn/4e4bc32f0b445a92/consistency/sample-2/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to decide if we can answer from policy excerpts. The user says: \"transfer paid, not applied, trace it\". They want to trace a bank transfer that has been paid but not applied. The policy excerpts DOC-070 provide guidance: describing that billing team can trace with transfer date, amount, reference. So we can answer: advise to provide transfer date, amount, reference to billing team; they will investigate. That seems to fully answer. No need to escalate. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! If your bank transfer has cleared on your side but hasn't been applied to your Meridian account, our billing team can trace it. Please send them the transfer date, amount, and the reference you used. With those details they can match the incoming transfer to the correct account and invoice and apply the payment.\\n\\nIf you need the contact details for the billing team, let us know and we\u2019ll provide them.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_a9fae39f-2163-4314-aa14-38b1fddfb41e",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454118,
+      "id": "chatcmpl-a1727fc3-9a60-4c38-a4fe-71e56202fa53",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_8ea50c0161",
+      "usage": {
+        "completion_time": 0.448528126,
+        "completion_tokens": 212,
+        "completion_tokens_details": {
+          "reasoning_tokens": 102
+        },
+        "prompt_time": 0.04682526,
+        "prompt_tokens": 1111,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.312179378,
+        "total_time": 0.495353386,
+        "total_tokens": 1323
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2r83ke6baw9v56t4ew977",
+        "seed": 377000835
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! If your bank transfer has cleared on your side but hasn't been applied to your Meridian account, our billing team can trace it. Please send them the transfer date, amount, and the reference you used. With those details they can match the incoming transfer to the correct account and invoice and apply the payment.\n\nIf you need the contact details for the billing team, let us know and we\u2019ll provide them."
+        },
+        "id": "fc_a9fae39f-2163-4314-aa14-38b1fddfb41e",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 212,
+      "prompt_tokens": 1111
+    }
+  },
+  "retry_after": null
+}

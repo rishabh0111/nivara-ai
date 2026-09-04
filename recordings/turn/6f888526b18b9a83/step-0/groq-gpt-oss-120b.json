@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:30:48.283281Z",
+  "failure_detail": null,
+  "fingerprint": "d2fd1f5171c91b0722645b38ad3d8c238262261f43bd0ffd9421cc305165d6d9",
+  "outcome": "response",
+  "recording_id": "turn/6f888526b18b9a83/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"I was charged in the wrong currency because of a stale billing region setting \u2014 can the difference be refunded?\" This is about billing currency correction, money movement. According to DOC-054 parts: region setting can be corrected forward, but correction to a charge already processed is not automatic; it's reviewed case by case, and the account owner should raise the specific invoice. So we can answer: they need to raise a request with billing team, it's reviewed case by case, not automatic refund. Provide guidance: contact billing, raise the invoice, etc. This is not a disputed charge? It's about wrong currency due to stale region. It's still a billing dispute, but not a fraudulent or identity issue. So we can answer using policy. Provide short answer: they need to submit a request, billing will review, not automatic.\n\nThus we can post_reply with answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there \u2013 the billing region setting can be updated in your billing settings, but any charge that\u2019s already been processed in the wrong currency can\u2019t be automatically reversed. Those cases are reviewed individually by our billing team. Please raise the specific invoice in question (or have your account owner or authorized billing contact do so) so the team can investigate and determine the appropriate resolution.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_3e460c61-f3c1-4d45-89bb-c9135d00a584",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453047,
+      "id": "chatcmpl-796dc89c-05c5-4752-b4f4-ff086834d37b",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_df9620fe21",
+      "usage": {
+        "completion_time": 0.67748552,
+        "completion_tokens": 285,
+        "completion_tokens_details": {
+          "reasoning_tokens": 186
+        },
+        "prompt_time": 0.164712819,
+        "prompt_tokens": 1095,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.281109579,
+        "total_time": 0.842198339,
+        "total_tokens": 1380
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1qjjjexytkkr6j5am1qt6",
+        "seed": 764638944
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there \u2013 the billing region setting can be updated in your billing settings, but any charge that\u2019s already been processed in the wrong currency can\u2019t be automatically reversed. Those cases are reviewed individually by our billing team. Please raise the specific invoice in question (or have your account owner or authorized billing contact do so) so the team can investigate and determine the appropriate resolution."
+        },
+        "id": "fc_3e460c61-f3c1-4d45-89bb-c9135d00a584",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 285,
+      "prompt_tokens": 1095
+    }
+  },
+  "retry_after": null
+}

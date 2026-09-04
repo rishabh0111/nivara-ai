@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:46:20.518778Z",
+  "failure_detail": null,
+  "fingerprint": "2f9f8e1a3208dbcff1d18900e2304799879259c49b7b4590406af330c35b0dbb",
+  "outcome": "response",
+  "recording_id": "turn/a0b7e79bbd9c8a4b/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our solo founder lost access to the work email their account was originally tied to and asked me to find out the re-verification process for a new email.\"\n\nThis is about updating the email tied to an account after the original email no longer exists. Policy DOC-068 covers that: support verifies identity through alternative means (billing history, account-specific details) before updating email.\n\nThus we can answer: they need to contact support, provide alternative verification (billing history, account details), and then support will update email.\n\nWe must keep answer short and specific, address customer directly. Use policy content.\n\nWe can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If the email address originally linked to the account is no longer accessible, we can\u2019t use the standard email\u2011verification flow. Instead, our support team will verify the founder\u2019s identity using alternative information\u2014such as billing history, account\u2011specific details, or other proof that only the true owner would know. Once that verification is complete, we\u2019ll update the account to the new email address. Please reach out to support with those details, and we\u2019ll guide you through the process.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_989218e1-c6fa-454d-a68e-58eaeb434c48",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453980,
+      "id": "chatcmpl-136b15df-f050-4e7e-943f-8f8b9524876c",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_6dedd2be22",
+      "usage": {
+        "completion_time": 0.541423035,
+        "completion_tokens": 258,
+        "completion_tokens_details": {
+          "reasoning_tokens": 137
+        },
+        "prompt_time": 0.052625911,
+        "prompt_tokens": 1130,
+        "queue_time": 0.158489498,
+        "total_time": 0.594048946,
+        "total_tokens": 1388
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2m18weeg9kzaays8y9yz0",
+        "seed": 163007559
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If the email address originally linked to the account is no longer accessible, we can\u2019t use the standard email\u2011verification flow. Instead, our support team will verify the founder\u2019s identity using alternative information\u2014such as billing history, account\u2011specific details, or other proof that only the true owner would know. Once that verification is complete, we\u2019ll update the account to the new email address. Please reach out to support with those details, and we\u2019ll guide you through the process."
+        },
+        "id": "fc_989218e1-c6fa-454d-a68e-58eaeb434c48",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 258,
+      "prompt_tokens": 1130
+    }
+  },
+  "retry_after": null
+}

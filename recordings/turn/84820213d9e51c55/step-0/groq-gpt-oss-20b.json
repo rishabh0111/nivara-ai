@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:34:56.568513Z",
+  "failure_detail": null,
+  "fingerprint": "d1246eeab98a6800f59faac32a329f5c19abb978c8c885c8a304ea499f66d7f2",
+  "outcome": "response",
+  "recording_id": "turn/84820213d9e51c55/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer question: \"outage caused downtime, uptime guarantee/credit?\" The user likely wants to know if they qualify for uptime credit. According to policy, we must refer to contract terms, and say that credit is calculated as percentage of billing period charges, scaled to how far actual uptime fell short, applied to future invoice. Also mention that they should reference their contract schedule and can ask support to confirm incident's measured uptime impact. So we can answer: yes, if outage caused downtime, you may be eligible for credit per your contract. Provide explanation. No mention of policy. Keep short.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! If the outage caused downtime, you may be eligible for an uptime service credit. The credit is calculated as a percentage of that billing period\u2019s charges, scaled to how far actual uptime fell short of the guarantee, and applied to a future invoice. To see the exact amount, check the uptime guarantee and credit schedule in your contract or order form, and let us know the incident details so we can confirm the measured uptime impact against it. Let me know if you\u2019d like us to look into a specific incident for you!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_56ecf2ff-eb06-43a4-9430-912c590b49cc",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460496,
+      "id": "chatcmpl-08dcfe60-bd71-4f49-932c-a138aec5f8ab",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_66891002f6",
+      "usage": {
+        "completion_time": 0.355948372,
+        "completion_tokens": 251,
+        "completion_tokens_details": {
+          "reasoning_tokens": 123
+        },
+        "prompt_time": 0.091741793,
+        "prompt_tokens": 1025,
+        "queue_time": 0.354735015,
+        "total_time": 0.447690165,
+        "total_tokens": 1276
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8twhtexmtas8c40hqdzg6",
+        "seed": 2090435032
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! If the outage caused downtime, you may be eligible for an uptime service credit. The credit is calculated as a percentage of that billing period\u2019s charges, scaled to how far actual uptime fell short of the guarantee, and applied to a future invoice. To see the exact amount, check the uptime guarantee and credit schedule in your contract or order form, and let us know the incident details so we can confirm the measured uptime impact against it. Let me know if you\u2019d like us to look into a specific incident for you!"
+        },
+        "id": "fc_56ecf2ff-eb06-43a4-9430-912c590b49cc",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 251,
+      "prompt_tokens": 1025
+    }
+  },
+  "retry_after": null
+}

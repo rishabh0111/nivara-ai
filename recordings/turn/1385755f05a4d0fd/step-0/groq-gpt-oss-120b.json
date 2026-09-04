@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:20:48.138144Z",
+  "failure_detail": null,
+  "fingerprint": "f193cd17cede7cc083fbf325192614986a7a86a3541ec8c43a3ee446f3c984f5",
+  "outcome": "response",
+  "recording_id": "turn/1385755f05a4d0fd/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: after fixing formatting problem, re-import file, concerned about duplicates for rows that already succeeded. Need to explain that importer matches by email or unique identifier, updates same record unless the matching field was corrected. If correction was to email or identifier, need to remove already succeeded rows before re-running. Also can re-run only corrected rows. So answer: duplicates won't happen if matching field unchanged; if you changed email/identifier, need to remove those rows or use unique ID. Provide guidance.\n\nWe have relevant excerpts: DOC-019 parts 1-3. Also maybe mention that you can re-run only corrected rows to avoid duplicates. Provide short answer.\n\nThus we can post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! When you re\u2011import a corrected file, Meridian\u2019s importer will match existing contacts by email (or by the unique ID you include) and update the matching record instead of creating a duplicate \u2013 as long as the field used for matching wasn\u2019t the one you changed.\u202fIf you corrected the email address or the identifier itself, the importer can\u2019t recognise the row as the same record, so the safest approach is to remove the rows that already succeeded from the file before you run the import again.\u202fAlternatively, you can re\u2011run the import with only the rows that need fixing. This will prevent duplicate records from being created.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_42721e67-1a45-4a58-9ab2-85013cc35da8",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373247,
+      "id": "chatcmpl-2372621a-ab15-4427-a3f2-3c036f0f64c0",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9241e9962b",
+      "usage": {
+        "completion_time": 0.647230006,
+        "completion_tokens": 303,
+        "completion_tokens_details": {
+          "reasoning_tokens": 149
+        },
+        "prompt_time": 0.153737212,
+        "prompt_tokens": 1072,
+        "queue_time": 0.373959308,
+        "total_time": 0.800967218,
+        "total_tokens": 1375
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnm8p1e7tb5e19azpnfxf2",
+        "seed": 40271821
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! When you re\u2011import a corrected file, Meridian\u2019s importer will match existing contacts by email (or by the unique ID you include) and update the matching record instead of creating a duplicate \u2013 as long as the field used for matching wasn\u2019t the one you changed.\u202fIf you corrected the email address or the identifier itself, the importer can\u2019t recognise the row as the same record, so the safest approach is to remove the rows that already succeeded from the file before you run the import again.\u202fAlternatively, you can re\u2011run the import with only the rows that need fixing. This will prevent duplicate records from being created."
+        },
+        "id": "fc_42721e67-1a45-4a58-9ab2-85013cc35da8",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 303,
+      "prompt_tokens": 1072
+    }
+  },
+  "retry_after": null
+}

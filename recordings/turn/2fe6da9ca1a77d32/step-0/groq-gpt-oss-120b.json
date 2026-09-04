@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:59:38.225376Z",
+  "failure_detail": null,
+  "fingerprint": "f6bff3827e1d864b3a8304819f53c77219f7e82dda9e43ce43297fea860440ce",
+  "outcome": "response",
+  "recording_id": "turn/2fe6da9ca1a77d32/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"When I try to attach a file to a reply, the upload bar just sits there and nothing happens, no error at all.\"\n\nWe need to see if any policy excerpt covers this. The excerpts are about import rows, webhook delivery status, SSO redirect loop, restoring access after suspension. None about file attachment upload issues. So we cannot answer from policy. Must escalate.\n\nCheck rules: Answer only from policy excerpts. If not contain answer, escalate. So we should use escalate with internal note summarizing.\n\nThus produce an escalation.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer reports that attaching a file to a reply results in the upload bar hanging with no error. None of the provided policy excerpts cover file upload issues or attachment problems. Therefore, I cannot provide a safe answer based on the available documentation and must escalate to a human support agent.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_6c26c26f-8e65-4610-b191-38380985b3ff",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454777,
+      "id": "chatcmpl-92fa4c56-76ec-4ab7-b707-599da78a48bb",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_dc4ca88fa4",
+      "usage": {
+        "completion_time": 0.528173933,
+        "completion_tokens": 203,
+        "completion_tokens_details": {
+          "reasoning_tokens": 121
+        },
+        "prompt_time": 0.428367223,
+        "prompt_tokens": 1097,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.308080603,
+        "total_time": 0.956541156,
+        "total_tokens": 1300
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m3cbrre478d0cbk5ag8d2w",
+        "seed": 1358723260
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer reports that attaching a file to a reply results in the upload bar hanging with no error. None of the provided policy excerpts cover file upload issues or attachment problems. Therefore, I cannot provide a safe answer based on the available documentation and must escalate to a human support agent."
+        },
+        "id": "fc_6c26c26f-8e65-4610-b191-38380985b3ff",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 203,
+      "prompt_tokens": 1097
+    }
+  },
+  "retry_after": null
+}

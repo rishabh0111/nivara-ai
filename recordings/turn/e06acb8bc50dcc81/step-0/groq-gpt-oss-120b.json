@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T17:50:50.266548Z",
+  "failure_detail": null,
+  "fingerprint": "b9cf3dcb2528e8ba9fa4472900942bdb78b344a4174c5a836eca6fcbcbc6330b",
+  "outcome": "response",
+  "recording_id": "turn/e06acb8bc50dcc81/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer the customer's question: \"Not sure where billing recipients even live in the settings.\"\n\nWe have policy excerpts: DOC-004 about changing who receives invoice emails. It says: \"To send invoices to a different address \u2014 a shared finance inbox, for example \u2014 open Settings \u2192 Billing \u2192 Recipients and add or replace the billing contact email. Multiple recipients can be added, so a shared inbox can be added alongside rather than instead of an individual's address.\"\n\nAlso earlier part says default invoice emails go to workspace's billing contact.\n\nThus answer: go to Settings > Billing > Recipients. Provide steps.\n\nWe must ensure not to mention policy. Provide short answer.\n\nThus we can post_reply with answer.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can find the billing recipients under **Settings \u2192 Billing \u2192 Recipients**. From there you can add, replace, or add additional email addresses that should receive invoice emails.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_18e03c25-551a-4475-a329-54f96da50b57",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371450,
+      "id": "chatcmpl-f5f86dbe-dc9b-494d-8e2f-467db10f2eee",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_60e4b492db",
+      "usage": {
+        "completion_time": 0.432379181,
+        "completion_tokens": 203,
+        "completion_tokens_details": {
+          "reasoning_tokens": 143
+        },
+        "prompt_time": 0.056595822,
+        "prompt_tokens": 1035,
+        "queue_time": 0.310608741,
+        "total_time": 0.488975003,
+        "total_tokens": 1238
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hkxdgtec6s80nfaggp3fnq",
+        "seed": 1284653013
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can find the billing recipients under **Settings \u2192 Billing \u2192 Recipients**. From there you can add, replace, or add additional email addresses that should receive invoice emails."
+        },
+        "id": "fc_18e03c25-551a-4475-a329-54f96da50b57",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 203,
+      "prompt_tokens": 1035
+    }
+  },
+  "retry_after": null
+}

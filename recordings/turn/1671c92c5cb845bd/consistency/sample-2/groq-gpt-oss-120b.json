@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:40:38.607908Z",
+  "failure_detail": null,
+  "fingerprint": "949ae57caacfd7e21efbd9a64c7c47745b542da4e4bf4723f542cc48025a8252",
+  "outcome": "response",
+  "recording_id": "turn/1671c92c5cb845bd/consistency/sample-2/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to decide what the customer is asking. The user says: \"webhook hijacked, data exposure risk\". Likely they have a webhook endpoint that was changed without authorization, risk of data exposure. The policy excerpts provide instructions: admin can disable or repoint the webhook immediately from Settings \u2192 Developer \u2192 Webhooks, and should report to support for investigation. Also note it's a security incident, investigated case by case.\n\nThus we can answer: instruct them to disable/repoint webhook, and report to support for investigation, mention that a reviewer will determine when changed, by which account, and what data was delivered. Provide steps.\n\nThe policy excerpts cover that. So we can answer with that info. It's within policy. So we should post_reply.\n\nWe need a concise answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"I\u2019m sorry to hear this happened.\u202fIf a webhook endpoint was repointed to a domain you don\u2019t control, it\u2019s considered a security incident.\u202fYou should immediately disable or repoint the webhook from **Settings \u2192 Developer \u2192 Webhooks** \u2013 this stops any further deliveries right away. Then, please report the incident to our support team so a reviewer can check when the endpoint was changed, which account made the change, and what data may have been sent to the unauthorized domain. We\u2019ll investigate the exposure based on your delivery logs.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f29c6845-d8a3-4940-8aab-0f57aea7bd3a",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453638,
+      "id": "chatcmpl-ba3ad81f-4a94-4ad1-8a06-71a990960f6d",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_626f3fc5e0",
+      "usage": {
+        "completion_time": 0.627681822,
+        "completion_tokens": 292,
+        "completion_tokens_details": {
+          "reasoning_tokens": 158
+        },
+        "prompt_time": 0.052759868,
+        "prompt_tokens": 1139,
+        "queue_time": 0.046424602,
+        "total_time": 0.68044169,
+        "total_tokens": 1431
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m29kgjet692efp4wsvzmdn",
+        "seed": 1201733794
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "I\u2019m sorry to hear this happened.\u202fIf a webhook endpoint was repointed to a domain you don\u2019t control, it\u2019s considered a security incident.\u202fYou should immediately disable or repoint the webhook from **Settings \u2192 Developer \u2192 Webhooks** \u2013 this stops any further deliveries right away. Then, please report the incident to our support team so a reviewer can check when the endpoint was changed, which account made the change, and what data may have been sent to the unauthorized domain. We\u2019ll investigate the exposure based on your delivery logs."
+        },
+        "id": "fc_f29c6845-d8a3-4940-8aab-0f57aea7bd3a",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 292,
+      "prompt_tokens": 1139
+    }
+  },
+  "retry_after": null
+}

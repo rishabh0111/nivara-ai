@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:21:45.107518Z",
+  "failure_detail": null,
+  "fingerprint": "d2826910c8842fa06840302fa68447dd071945bab897f7a66ab1dfb5128e951e",
+  "outcome": "response",
+  "recording_id": "turn/fd0a5f2b637ad97e/consistency/sample-4/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user: \"Our ops lead wants to move us to annual billing but asked me to confirm first whether that resets our billing date or just applies to the next cycle.\"\n\nWe need to answer. According to policy excerpt [DOC-002] part 2: Switching to annual takes effect immediately: the workspace is charged the annual rate on confirmation, prorated against any monthly charge already paid for the current period, and the renewal date resets to one year from the switch. It does not wait for the current monthly cycle to finish.\n\nThus, answer: resetting billing date to one year from switch. Also mention that it's immediate. Should be short.\n\nNo policy about money movement? It's about billing date change. Not money movement? It's a billing plan change. Not a disputed charge. It's allowed. So we can answer.\n\nWe must not mention policy. Provide answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Switching to annual billing takes effect immediately. You\u2019ll be charged the annual rate right away (prorated if you\u2019ve already paid for part of the month) and the renewal date will reset to one year from the day you make the switch, rather than waiting for the current monthly cycle to finish.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_195608e6-bdf6-4113-b88b-0c3d9f5397a0",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459705,
+      "id": "chatcmpl-bb3e791a-edc9-45e9-8a22-67cdae9e1f4c",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4a35f7bd1b",
+      "usage": {
+        "completion_time": 0.340106635,
+        "completion_tokens": 257,
+        "completion_tokens_details": {
+          "reasoning_tokens": 174
+        },
+        "prompt_time": 0.072223904,
+        "prompt_tokens": 1130,
+        "queue_time": 0.281742025,
+        "total_time": 0.412330539,
+        "total_tokens": 1387
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m82r2metx9a6hh7fsk7xn1",
+        "seed": 1097459185
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Switching to annual billing takes effect immediately. You\u2019ll be charged the annual rate right away (prorated if you\u2019ve already paid for part of the month) and the renewal date will reset to one year from the day you make the switch, rather than waiting for the current monthly cycle to finish."
+        },
+        "id": "fc_195608e6-bdf6-4113-b88b-0c3d9f5397a0",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 257,
+      "prompt_tokens": 1130
+    }
+  },
+  "retry_after": null
+}

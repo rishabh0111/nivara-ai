@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:08:53.652117Z",
+  "failure_detail": null,
+  "fingerprint": "39eeacfa1d153f73d3363ea7cb572954c298ebd7924b1b8480809d86a207f60d",
+  "outcome": "response",
+  "recording_id": "turn/4f2f8f605e8b58cf/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to infer context: Customer says \"This just happened and I need it back urgently, is there a recovery window before it's gone for good?\" Likely about a deleted project or something. The policy excerpt [DOC-037] about restoring a deleted project says: Past the thirty-day window, deletion is permanent and support has no way to recover it; the window exists specifically to cover this kind of accidental deletion, so acting within it is the only recovery path.\n\nThus answer: Yes, there is a 30-day recovery window; after that it's permanent. So respond accordingly.\n\nWe must post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes\u2014when a project is deleted you have a 30\u2011day recovery window. If you act within those 30 days you can restore it; after that the deletion is permanent and we can\u2019t recover it.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_0f23947b-908d-490d-b2fe-b6e5704a62ed",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451733,
+      "id": "chatcmpl-c40e6362-50e3-4e1c-b20b-b7b855a5f387",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9241e9962b",
+      "usage": {
+        "completion_time": 0.412454869,
+        "completion_tokens": 191,
+        "completion_tokens_details": {
+          "reasoning_tokens": 123
+        },
+        "prompt_time": 0.34869804,
+        "prompt_tokens": 1098,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.362960276,
+        "total_time": 0.761152909,
+        "total_tokens": 1289
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0fezyenmssrz7f6ez4qnt",
+        "seed": 1890747114
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes\u2014when a project is deleted you have a 30\u2011day recovery window. If you act within those 30 days you can restore it; after that the deletion is permanent and we can\u2019t recover it."
+        },
+        "id": "fc_0f23947b-908d-490d-b2fe-b6e5704a62ed",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 191,
+      "prompt_tokens": 1098
+    }
+  },
+  "retry_after": null
+}

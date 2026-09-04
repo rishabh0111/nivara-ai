@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:34:07.656787Z",
+  "failure_detail": null,
+  "fingerprint": "43e4c3ebb74c21e17ff53864db2d5cefceadc1ba63a8e24a3b3216d11a6d42e0",
+  "outcome": "response",
+  "recording_id": "turn/a86318040cd6ab8f/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user says: \"503s for a bit, known incident?\" They are asking if there's a known incident causing 503 errors. We need to answer based on policy excerpts. The policy says: status page lists incidents, including brief ones. Subscribing to updates surfaces incident as it is happening. Component-level breakdown distinguishes API vs dashboard. So we should direct them to check status page. Provide short answer: check status page, subscribe. No mention of policy. So we should post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! If you\u2019re seeing 503 errors, you can check our status page to see if there\u2019s a known incident. The page lists all incidents with start/end times and affected components, and you can subscribe to updates so you\u2019re notified in real time. Let me know if you need help navigating it!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_cb8f29d8-171c-4a87-ae14-0e9d32601859",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460447,
+      "id": "chatcmpl-2b3d0fd5-7348-40fa-a18f-e54c4589f017",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9b8528b477",
+      "usage": {
+        "completion_time": 0.195450796,
+        "completion_tokens": 185,
+        "completion_tokens_details": {
+          "reasoning_tokens": 101
+        },
+        "prompt_time": 0.334522289,
+        "prompt_tokens": 1018,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.275325359,
+        "total_time": 0.529973085,
+        "total_tokens": 1203
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8sd3seg1aj1q980tfwvbc",
+        "seed": 631548073
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! If you\u2019re seeing 503 errors, you can check our status page to see if there\u2019s a known incident. The page lists all incidents with start/end times and affected components, and you can subscribe to updates so you\u2019re notified in real time. Let me know if you need help navigating it!"
+        },
+        "id": "fc_cb8f29d8-171c-4a87-ae14-0e9d32601859",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 185,
+      "prompt_tokens": 1018
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:27:53.318633Z",
+  "failure_detail": null,
+  "fingerprint": "44858c53d50ba261a2cd6513e033ec264f0712d6f3d1bc025f28aab86b4a3144",
+  "outcome": "response",
+  "recording_id": "turn/8b22d63a6f85c665/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"Is there a grace period where both the old and new key work, or does rotation cut over instantly?\" This is about rotating an API key. The policy says generating a new API key does not automatically revoke the old one; both keys are valid until old is explicitly revoked. Also, overlap window exists so a key can be rotated without a moment of downtime: deploy new key, confirm it works, then revoke old key. So answer: yes, there is overlap; both keys work until you revoke old. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes. When you generate a new API key, the old key remains active until you explicitly revoke it. You can use both keys at the same time\u2014deploy the new key, confirm it works, and then revoke the old one. This overlap window lets you rotate keys without any downtime.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_173ad542-e481-4a6d-82d5-389bfb0a506d",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460073,
+      "id": "chatcmpl-5672a236-7856-4239-bb48-287cd85aaaa1",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c5a89987dc",
+      "usage": {
+        "completion_time": 0.20964783,
+        "completion_tokens": 199,
+        "completion_tokens_details": {
+          "reasoning_tokens": 119
+        },
+        "prompt_time": 0.066776485,
+        "prompt_tokens": 1035,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.043642245,
+        "total_time": 0.276424315,
+        "total_tokens": 1234
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8e00sew8bprvxyb859pn2",
+        "seed": 328762589
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes. When you generate a new API key, the old key remains active until you explicitly revoke it. You can use both keys at the same time\u2014deploy the new key, confirm it works, and then revoke the old one. This overlap window lets you rotate keys without any downtime."
+        },
+        "id": "fc_173ad542-e481-4a6d-82d5-389bfb0a506d",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 199,
+      "prompt_tokens": 1035
+    }
+  },
+  "retry_after": null
+}

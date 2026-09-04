@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:36:38.168462Z",
+  "failure_detail": null,
+  "fingerprint": "0e611b66cc1c29efc851954e750295a8c8ef4cbda86509fbb8549458e4abe321",
+  "outcome": "response",
+  "recording_id": "turn/edc12d46a7aef07d/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"Someone got into my account through a login I don't recognise and I need to know right now what they accessed.\"\n\nThis is about investigating an unrecognised sign-in. According to policy DOC-059 part 1 and part 3: It's a security matter, requires human reviewer, not exposed to user, outcome communicated after review. So we must respond that this requires a security review by our team and we will investigate, cannot provide details directly. According to rules: answer only from policy excerpts. So we can say we will investigate and will get back. Provide short answer.\n\nThus we should post_reply with appropriate answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"We treat an unrecognised sign\u2011in as a security incident that requires a manual review. Our security team will investigate the session to determine what was accessed and will follow up with you once the review is complete.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_a84a7aa4-8745-4e92-98c1-34c6ff4cf258",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453398,
+      "id": "chatcmpl-893ef511-b4c5-4e9a-abf5-a1171d7d6915",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_49bfac06f1",
+      "usage": {
+        "completion_time": 0.831878842,
+        "completion_tokens": 207,
+        "completion_tokens_details": {
+          "reasoning_tokens": 139
+        },
+        "prompt_time": 0.047285976,
+        "prompt_tokens": 1123,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.276299018,
+        "total_time": 0.879164818,
+        "total_tokens": 1330
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m228f1e92snz5ge370vhzw",
+        "seed": 1965894451
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "We treat an unrecognised sign\u2011in as a security incident that requires a manual review. Our security team will investigate the session to determine what was accessed and will follow up with you once the review is complete."
+        },
+        "id": "fc_a84a7aa4-8745-4e92-98c1-34c6ff4cf258",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 207,
+      "prompt_tokens": 1123
+    }
+  },
+  "retry_after": null
+}

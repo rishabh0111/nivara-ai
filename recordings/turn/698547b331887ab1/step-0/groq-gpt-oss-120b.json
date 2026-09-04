@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:06:44.523223Z",
+  "failure_detail": null,
+  "fingerprint": "71ec951f49f07afd5a46adc48fef15f90b8bb12e029b89046afd0fb8a9dbad45",
+  "outcome": "response",
+  "recording_id": "turn/698547b331887ab1/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Is search indexing delayed after creation, or should a brand-new record be searchable immediately?\" This matches DOC-035 about indexing delay. Provide answer: search may lag a few minutes, usually resolves within couple minutes; if still not after several minutes, report. So we can answer.\n\nWe must use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When a record is first created, the browse view shows it instantly, but the search index is updated a short time later. Under normal load you\u2019ll typically see the new record appear in search within a few minutes. If it\u2019s still missing after several minutes, that\u2019s not normal and you should report it.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_625cc284-d311-47f5-b93d-f849248c6584",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451604,
+      "id": "chatcmpl-8e5294cc-7883-4a94-a5bc-e3089cd1d397",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5781dfb07c",
+      "usage": {
+        "completion_time": 0.594775939,
+        "completion_tokens": 163,
+        "completion_tokens_details": {
+          "reasoning_tokens": 76
+        },
+        "prompt_time": 0.978919858,
+        "prompt_tokens": 1066,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.280363287,
+        "total_time": 1.573695797,
+        "total_tokens": 1229
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0bg2pephv087wx15gv38t",
+        "seed": 1357755432
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When a record is first created, the browse view shows it instantly, but the search index is updated a short time later. Under normal load you\u2019ll typically see the new record appear in search within a few minutes. If it\u2019s still missing after several minutes, that\u2019s not normal and you should report it."
+        },
+        "id": "fc_625cc284-d311-47f5-b93d-f849248c6584",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 163,
+      "prompt_tokens": 1066
+    }
+  },
+  "retry_after": null
+}

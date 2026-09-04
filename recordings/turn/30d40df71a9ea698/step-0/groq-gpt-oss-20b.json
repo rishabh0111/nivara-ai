@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:35:53.333202Z",
+  "failure_detail": null,
+  "fingerprint": "bc4b6eafd0ff9ceb8b37752d930ceccdcf21a8997271d0ab7aad84eee8aeaca2",
+  "outcome": "response",
+  "recording_id": "turn/30d40df71a9ea698/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: \"We would like to move to the annual plan before renewal.\" The policy says: Workspaces on a monthly plan can move to annual billing at any time from Settings \u2192 Billing \u2192 Plan. Switching to annual takes effect immediately: the workspace is charged the annual rate on confirmation, prorated against any monthly charge already paid for the current period, and the renewal date resets to one year from the switch. It does not wait for the current monthly cycle to finish.\n\nThus we can answer: Yes, you can switch at any time. Provide steps. Also mention that it will be charged immediately and renewal date resets. No need to mention policy. Just answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! You can switch to the annual plan at any time. Just go to Settings \u2192 Billing \u2192 Plan, select the annual option, and confirm. The change takes effect immediately: you\u2019ll be charged the annual rate right away (prorated against any monthly charge you\u2019ve already paid for the current period) and your renewal date will reset to one year from the switch. Let me know if you need any help with the process!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_82e546e7-7990-44ce-b2d1-cb5805cc870f",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460553,
+      "id": "chatcmpl-93e4f47b-60d3-4a78-8fcf-6e289d60fd83",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_8d13edce1d",
+      "usage": {
+        "completion_time": 0.280729485,
+        "completion_tokens": 246,
+        "completion_tokens_details": {
+          "reasoning_tokens": 137
+        },
+        "prompt_time": 0.107773213,
+        "prompt_tokens": 1060,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.277324365,
+        "total_time": 0.388502698,
+        "total_tokens": 1306
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8wmbje87b0k4ntr31ffxg",
+        "seed": 2003899433
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! You can switch to the annual plan at any time. Just go to Settings \u2192 Billing \u2192 Plan, select the annual option, and confirm. The change takes effect immediately: you\u2019ll be charged the annual rate right away (prorated against any monthly charge you\u2019ve already paid for the current period) and your renewal date will reset to one year from the switch. Let me know if you need any help with the process!"
+        },
+        "id": "fc_82e546e7-7990-44ce-b2d1-cb5805cc870f",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 246,
+      "prompt_tokens": 1060
+    }
+  },
+  "retry_after": null
+}

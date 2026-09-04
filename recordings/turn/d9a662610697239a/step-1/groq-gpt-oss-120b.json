@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:36:14.726523Z",
+  "failure_detail": null,
+  "fingerprint": "0794242896149b1771f7284e87f6c562f08528117b672679fb8dc29b7bc8aa5e",
+  "outcome": "response",
+  "recording_id": "turn/d9a662610697239a/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The customer says \"unauthorised key pulling data, revoke now\". This is about an unrecognised or compromised API key. According to policy, the immediate self-service step is revoking the key from Settings \u2192 Developer \u2192 API keys. Also they can report to support. So we can give instructions to revoke the key and optionally report. This is allowed. Provide short answer.\n\nWe must not mention policy. Provide steps.\n\nThus post_reply with instructions.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can revoke the compromised API key yourself right away:\\n1. Go to **Settings \u2192 Developer \u2192 API keys** in the Meridian dashboard.\\n2. Find the unauthorized key in the list and click **Revoke**.\\n\\nRevoking it takes effect immediately and stops any further access. After revoking, please let us know by replying here so we can start a security review of the key\u2019s activity and flag the account if needed.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_cbf9fec8-55fc-44e6-aec2-958c0b6dfe48",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453374,
+      "id": "chatcmpl-2ec3bde6-330a-4437-acb6-7aa4141d7b11",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_068241849b",
+      "usage": {
+        "completion_time": 0.470783506,
+        "completion_tokens": 216,
+        "completion_tokens_details": {
+          "reasoning_tokens": 101
+        },
+        "prompt_time": 0.210091921,
+        "prompt_tokens": 1058,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.311296026,
+        "total_time": 0.680875427,
+        "total_tokens": 1274
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m21hrcen089xmy9zbsys9g",
+        "seed": 2112509980
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can revoke the compromised API key yourself right away:\n1. Go to **Settings \u2192 Developer \u2192 API keys** in the Meridian dashboard.\n2. Find the unauthorized key in the list and click **Revoke**.\n\nRevoking it takes effect immediately and stops any further access. After revoking, please let us know by replying here so we can start a security review of the key\u2019s activity and flag the account if needed."
+        },
+        "id": "fc_cbf9fec8-55fc-44e6-aec2-958c0b6dfe48",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 216,
+      "prompt_tokens": 1058
+    }
+  },
+  "retry_after": null
+}

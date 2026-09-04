@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T17:56:09.364512Z",
+  "failure_detail": null,
+  "fingerprint": "a532e3e929ec3327c634d747e224b4f1c4d3c0fbea68de610baf9bdd3869aaad",
+  "outcome": "response",
+  "recording_id": "turn/fa0262f769b5f9c6/consistency/sample-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see the conversation. The user asks: \"Budget review is tomorrow and the summary invoice total doesn't tell me what's seats versus overage \u2014 I need the split urgently.\"\n\nWe have policy excerpts about reading an itemised invoice, which explain that invoice breaks total into seat charge, add-ons, usage overages. Also how to view breakdown: open invoice from Settings \u2192 Billing \u2192 Invoices and expand line item to see its own breakdown. Also downloadable PDF includes same breakdown.\n\nThus we can answer: explain how to view split: go to Settings \u2192 Billing \u2192 Invoices, open invoice, expand line items; seat charge shows number of seats and rate; overage line shows usage; also can download PDF for same breakdown. Provide steps.\n\nThat answers the question. It's not about money movement, disputed charge, identity, ambiguous. So we can post reply.\n\nWe'll use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! You can see the exact split between seats and usage overages right in the invoice view:\\n\\n1. Go to **Settings \u2192 Billing \u2192 Invoices**.\\n2. Open the invoice you need.\\n3. Click the arrow to **expand each line item**. The seat\u2011charge line will show how many seats were billed and the per\u2011seat rate, while any overage line will show the metered quantity that exceeded your plan\u2019s allowance.\\n4. If you prefer a portable version, click **Download PDF** \u2013 the PDF contains the same detailed breakdown, which you can attach to your budget review.\\n\\nThis will give you the seat\u2011vs\u2011overage numbers you need for your meeting. Let me know if anything else comes up!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_7e32fcf9-65ad-4376-9cb5-2e84d6ea330c",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371769,
+      "id": "chatcmpl-f44b2dae-d63e-4578-b18a-74973aabc069",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4200b3f836",
+      "usage": {
+        "completion_time": 0.758935024,
+        "completion_tokens": 362,
+        "completion_tokens_details": {
+          "reasoning_tokens": 179
+        },
+        "prompt_time": 0.066727431,
+        "prompt_tokens": 1103,
+        "queue_time": 0.310532223,
+        "total_time": 0.825662455,
+        "total_tokens": 1465
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hm74txesn8j4f9e4vfwpm1",
+        "seed": 611743414
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! You can see the exact split between seats and usage overages right in the invoice view:\n\n1. Go to **Settings \u2192 Billing \u2192 Invoices**.\n2. Open the invoice you need.\n3. Click the arrow to **expand each line item**. The seat\u2011charge line will show how many seats were billed and the per\u2011seat rate, while any overage line will show the metered quantity that exceeded your plan\u2019s allowance.\n4. If you prefer a portable version, click **Download PDF** \u2013 the PDF contains the same detailed breakdown, which you can attach to your budget review.\n\nThis will give you the seat\u2011vs\u2011overage numbers you need for your meeting. Let me know if anything else comes up!"
+        },
+        "id": "fc_7e32fcf9-65ad-4376-9cb5-2e84d6ea330c",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 362,
+      "prompt_tokens": 1103
+    }
+  },
+  "retry_after": null
+}

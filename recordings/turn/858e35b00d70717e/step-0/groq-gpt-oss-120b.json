@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:00:19.113590Z",
+  "failure_detail": null,
+  "fingerprint": "671d92a5702dac9ea9e069634cd4c6fec197cc0e51035341bfc89fcbb3c30342",
+  "outcome": "response",
+  "recording_id": "turn/858e35b00d70717e/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user says \"SSO loops back to login\". Likely they are experiencing redirect loop. The policy excerpts provide troubleshooting steps. So we can answer with steps: check callback URL mismatch, compare with IdP reply URL, ensure exact match, re-save. Provide concise answer.\n\nWe must ensure not to mention policy. Provide short specific answer.\n\nThus we will post_reply with answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"It sounds like the SSO redirect loop is caused by a mismatch in the callback URL.\\n\\n1. Open **Settings \u2192 Security \u2192 SSO \u2192 Configuration** and copy the callback URL exactly as shown.\\n2. In your identity provider\u2019s app settings, locate the **reply URL** (or redirect URI) and compare it character\u2011for\u2011character with the Meridian callback URL. Pay special attention to trailing slashes and the http/https scheme.\\n3. If anything differs, update the reply URL on the IdP side to match the Meridian URL, then save the changes (some providers require a re\u2011save to clear cached values).\\n4. Try signing in again \u2013 the loop should be resolved.\\n\\nIf the URLs already match and the loop persists, let us know and we\u2019ll investigate further.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_b27ebae0-cc66-4598-a3c3-a9590e61b2f9",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372019,
+      "id": "chatcmpl-a8d97ae3-4715-452d-b376-0e6c56e338eb",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c868cf1eaa",
+      "usage": {
+        "completion_time": 0.585693227,
+        "completion_tokens": 278,
+        "completion_tokens_details": {
+          "reasoning_tokens": 87
+        },
+        "prompt_time": 0.730611196,
+        "prompt_tokens": 1098,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.36327278,
+        "total_time": 1.316304423,
+        "total_tokens": 1376
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmer7zesj9dybyd894sras",
+        "seed": 897114024
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "It sounds like the SSO redirect loop is caused by a mismatch in the callback URL.\n\n1. Open **Settings \u2192 Security \u2192 SSO \u2192 Configuration** and copy the callback URL exactly as shown.\n2. In your identity provider\u2019s app settings, locate the **reply URL** (or redirect URI) and compare it character\u2011for\u2011character with the Meridian callback URL. Pay special attention to trailing slashes and the http/https scheme.\n3. If anything differs, update the reply URL on the IdP side to match the Meridian URL, then save the changes (some providers require a re\u2011save to clear cached values).\n4. Try signing in again \u2013 the loop should be resolved.\n\nIf the URLs already match and the loop persists, let us know and we\u2019ll investigate further."
+        },
+        "id": "fc_b27ebae0-cc66-4598-a3c3-a9590e61b2f9",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 278,
+      "prompt_tokens": 1098
+    }
+  },
+  "retry_after": null
+}

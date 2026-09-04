@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:46:02.702275Z",
+  "failure_detail": null,
+  "fingerprint": "48d2946eed761af3c1fe815adfe45a3212386f2b8fd5a2eed8dda20bb51a7a4c",
+  "outcome": "response",
+  "recording_id": "turn/798c5f568bc05b20/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The customer says: \"old work email gone, re-verify identity on new email\". They likely want to update email tied to account after old email no longer exists. According to DOC-068 parts: need human reviewer, alternative verification, contact support directly. So we should respond that they need to contact support, a human will verify identity via alternative means, etc. Provide short answer. Use policy. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"I\u2019m sorry you\u2019re having trouble with your old work email. Because the address on file can\u2019t receive the usual verification, we need to verify your identity another way (for example, using billing history or other account\u2011specific details). This is handled case\u2011by\u2011case by a human reviewer. Please contact our support team directly so we can securely update your account to a new email address.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_d5f4fd0c-908b-44d6-88d1-ec0d8eebe2d7",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453962,
+      "id": "chatcmpl-26cdbe62-09cf-4ea7-8550-fa6a5ab9b51b",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5d041d5b40",
+      "usage": {
+        "completion_time": 0.428839061,
+        "completion_tokens": 201,
+        "completion_tokens_details": {
+          "reasoning_tokens": 97
+        },
+        "prompt_time": 0.053347484,
+        "prompt_tokens": 1140,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.158131512,
+        "total_time": 0.482186545,
+        "total_tokens": 1341
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2kg6me44r73afbgah6hgf",
+        "seed": 1873044820
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "I\u2019m sorry you\u2019re having trouble with your old work email. Because the address on file can\u2019t receive the usual verification, we need to verify your identity another way (for example, using billing history or other account\u2011specific details). This is handled case\u2011by\u2011case by a human reviewer. Please contact our support team directly so we can securely update your account to a new email address."
+        },
+        "id": "fc_d5f4fd0c-908b-44d6-88d1-ec0d8eebe2d7",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 201,
+      "prompt_tokens": 1140
+    }
+  },
+  "retry_after": null
+}

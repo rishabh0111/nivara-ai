@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:39:25.133309Z",
+  "failure_detail": null,
+  "fingerprint": "94b1c8c7732b2e527b956c92627c8d50eec7dc813f29b02aa1d629ba773887f6",
+  "outcome": "response",
+  "recording_id": "turn/854a2e383d6ef829/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"webhook repointed to unknown domain, data leaking?\" This matches DOC-062 about reporting a webhook endpoint changed without authorization. Provide steps: disable/repoint, report to support, mention investigation. Also can mention checking delivery log. So answer: advise to immediately disable/repoint via Settings \u2192 Developer \u2192 Webhooks, check delivery log, and report to support for investigation. Provide concise answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If a webhook was repointed to a domain you don\u2019t control, that\u2019s a security incident.\u202fFirst, go to **Settings \u2192 Developer \u2192 Webhooks** and disable or change the webhook back to a safe endpoint \u2013 this stops any further deliveries right away. Then open a support ticket so our security team can review when the change happened, which account made it, and what data may have been sent to the unauthorized domain. You can also view the full delivery history in **Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log** to see each attempt, status codes, and response bodies.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_258daa2d-0149-4ece-a264-b566ab3800bd",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453565,
+      "id": "chatcmpl-d51c12a8-90b1-445f-af11-3906b56cd7b4",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5781dfb07c",
+      "usage": {
+        "completion_time": 0.499041691,
+        "completion_tokens": 235,
+        "completion_tokens_details": {
+          "reasoning_tokens": 92
+        },
+        "prompt_time": 0.056841501,
+        "prompt_tokens": 1107,
+        "queue_time": 0.280227113,
+        "total_time": 0.555883192,
+        "total_tokens": 1342
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m27bt6e4t9g5rpap4vb706",
+        "seed": 1773175053
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If a webhook was repointed to a domain you don\u2019t control, that\u2019s a security incident.\u202fFirst, go to **Settings \u2192 Developer \u2192 Webhooks** and disable or change the webhook back to a safe endpoint \u2013 this stops any further deliveries right away. Then open a support ticket so our security team can review when the change happened, which account made it, and what data may have been sent to the unauthorized domain. You can also view the full delivery history in **Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log** to see each attempt, status codes, and response bodies."
+        },
+        "id": "fc_258daa2d-0149-4ece-a264-b566ab3800bd",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 235,
+      "prompt_tokens": 1107
+    }
+  },
+  "retry_after": null
+}

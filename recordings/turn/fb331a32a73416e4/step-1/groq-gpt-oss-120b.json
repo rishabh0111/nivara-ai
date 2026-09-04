@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:37:01.720616Z",
+  "failure_detail": null,
+  "fingerprint": "2ccff3681a1e428ec22ea048a458d1fa4a52e53f5ec9e01d7112d0c7fdfadd87",
+  "outcome": "response",
+  "recording_id": "turn/fb331a32a73416e4/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"unrecognised login, what did they access\". This is about investigating an unrecognised sign-in. According to policy, determining what was accessed requires human review; not exposed to user. So we must respond that we need to review case by case and will investigate, outcome communicated later. That's allowed. Provide short answer. Use policy excerpt. So we can post_reply with answer: we will investigate, need human reviewer, will get back.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"We treat an unrecognised sign\u2011in as a security incident. Determining what was accessed during that session requires a manual review of the activity log by our security team. We\u2019ll investigate this case and get back to you with the findings once the review is complete.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_6823b788-c2f7-45f8-b214-47aa582067bc",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453421,
+      "id": "chatcmpl-96417885-fcc8-41cc-bd85-23b515058cb9",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4200b3f836",
+      "usage": {
+        "completion_time": 0.383735738,
+        "completion_tokens": 182,
+        "completion_tokens_details": {
+          "reasoning_tokens": 103
+        },
+        "prompt_time": 1.086739423,
+        "prompt_tokens": 1100,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.31153227,
+        "total_time": 1.470475161,
+        "total_tokens": 1282
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m22yw5e75bts5x1htmjkmb",
+        "seed": 2065072000
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "We treat an unrecognised sign\u2011in as a security incident. Determining what was accessed during that session requires a manual review of the activity log by our security team. We\u2019ll investigate this case and get back to you with the findings once the review is complete."
+        },
+        "id": "fc_6823b788-c2f7-45f8-b214-47aa582067bc",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 182,
+      "prompt_tokens": 1100
+    }
+  },
+  "retry_after": null
+}

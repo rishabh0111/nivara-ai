@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:35:30.911590Z",
+  "failure_detail": null,
+  "fingerprint": "46312661c1b0aa3c2b98388d25c10cf5f3a5de798e832923ff913b4e42cb54fd",
+  "outcome": "response",
+  "recording_id": "turn/788deea7e91c5ef9/consistency/sample-3/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer question: \"exec impersonation message, is it a scam?\" The customer is asking if an executive impersonation message is a scam. We have policy excerpts about executive impersonation requests. The policy says that an employee receiving such a request should verify it directly with the person it claims to be from, through a different channel, before taking action, and report the message to support. So we should answer that yes, it could be a scam, and advise to verify and report. We can use the policy. There's no mention of money movement or identity. It's a request for payment details. It's a fraudulent-communication. The policy says to verify and report. We can answer: yes, it could be a scam, you should verify with the executive via a different channel, do not comply, and forward to support. So we should post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"It could be a scam.  If you receive a message that looks like it\u2019s coming from an executive asking you to change payment details, don\u2019t act on it.  Verify the request directly with the person it claims to be from using a separate channel (for example, call or email them from a known address).  Then forward the message to our support team so we can check the account and flag any fraud.  Please let us know if you need help with that.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_5547c750-b577-49d8-8365-3980b669a7ad",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460530,
+      "id": "chatcmpl-d9d186e0-75ee-4ee0-9c89-0c68e4920c95",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4a35f7bd1b",
+      "usage": {
+        "completion_time": 0.309956345,
+        "completion_tokens": 293,
+        "completion_tokens_details": {
+          "reasoning_tokens": 175
+        },
+        "prompt_time": 0.061329198,
+        "prompt_tokens": 1103,
+        "queue_time": 0.281794011,
+        "total_time": 0.371285543,
+        "total_tokens": 1396
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8vyg5exbsz94nagr4vp96",
+        "seed": 219275199
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "It could be a scam.  If you receive a message that looks like it\u2019s coming from an executive asking you to change payment details, don\u2019t act on it.  Verify the request directly with the person it claims to be from using a separate channel (for example, call or email them from a known address).  Then forward the message to our support team so we can check the account and flag any fraud.  Please let us know if you need help with that."
+        },
+        "id": "fc_5547c750-b577-49d8-8365-3980b669a7ad",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 293,
+      "prompt_tokens": 1103
+    }
+  },
+  "retry_after": null
+}

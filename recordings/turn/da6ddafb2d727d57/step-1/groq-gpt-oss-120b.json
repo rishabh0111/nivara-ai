@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T17:57:32.104792Z",
+  "failure_detail": null,
+  "fingerprint": "34fd21cf36baa5b7a3ca7272bb066141467c6545b10c39ada65fc4c8a7b122e2",
+  "outcome": "response",
+  "recording_id": "turn/da6ddafb2d727d57/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Is a line-item breakdown something I can pull myself, or does someone need to generate that for us?\" This relates to reading an itemised invoice. The policy says: \"Open the invoice from Settings \u2192 Billing \u2192 Invoices and expand a line item to see its own breakdown \u2014 a seat charge, for example, itemises how many seats were billed and at what per-seat rate, and an overage line shows the metered quantity against the plan's included limit.\" Also earlier: \"Every invoice breaks its total down into three kinds of line item...\" So answer: Yes, you can pull it yourself via the UI. Provide steps. Use short answer. No need to escalate. So post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can view the line\u2011item breakdown yourself. Just go to **Settings \u2192 Billing \u2192 Invoices**, open the invoice you need, and expand each line item. It will show the seat charge details, any add\u2011ons, and usage overages right in the dashboard (you can also download the PDF for the same breakdown).\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_b31efce3-9bf5-440b-9f13-2cb44bb4f0b4",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371851,
+      "id": "chatcmpl-6336ff69-2cfc-4d8f-a9eb-e38d059bcd14",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_60e4b492db",
+      "usage": {
+        "completion_time": 0.627524901,
+        "completion_tokens": 247,
+        "completion_tokens_details": {
+          "reasoning_tokens": 155
+        },
+        "prompt_time": 1.300479755,
+        "prompt_tokens": 1069,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.311470856,
+        "total_time": 1.9280046560000001,
+        "total_tokens": 1316
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hm9mbaexstka1cv74e29jw",
+        "seed": 1345132680
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can view the line\u2011item breakdown yourself. Just go to **Settings \u2192 Billing \u2192 Invoices**, open the invoice you need, and expand each line item. It will show the seat charge details, any add\u2011ons, and usage overages right in the dashboard (you can also download the PDF for the same breakdown)."
+        },
+        "id": "fc_b31efce3-9bf5-440b-9f13-2cb44bb4f0b4",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 247,
+      "prompt_tokens": 1069
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:51:31.739188Z",
+  "failure_detail": null,
+  "fingerprint": "d3a251849228c35f83f69b89bc89c838189bf6fbbd658eabcecaa581164695b5",
+  "outcome": "response",
+  "recording_id": "turn/a29d136b896c6e84/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Before authorising a change to our payment method, can I get written confirmation of exactly how much will be debited and on what date?\" This matches DOC-074 parts. The policy says billing team can provide written confirmation, it's a reasonable request, handled case by case. So we can answer: Yes, you can request written confirmation; billing team can provide it, give them lead time, etc.\n\nWe must post_reply with answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 you can ask our billing team for written confirmation of the exact amount and the date the charge will hit your account before you authorise a payment\u2011method change. They\u2019ll pull the account\u2011specific figures (plan, seats, any overages, and your billing cycle) and send you the details in writing. Just give them a little lead time so they can review everything before the charge date.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_3545792a-4f4c-4b70-9f1f-e5e0d3550a83",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454291,
+      "id": "chatcmpl-6bbcd71f-f555-4128-8164-230eb6d693be",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_854fa9be4c",
+      "usage": {
+        "completion_time": 0.520041335,
+        "completion_tokens": 208,
+        "completion_tokens_details": {
+          "reasoning_tokens": 102
+        },
+        "prompt_time": 0.201089493,
+        "prompt_tokens": 1098,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.276615308,
+        "total_time": 0.721130828,
+        "total_tokens": 1306
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2xh8yegb9227zzb0h02xn",
+        "seed": 1587418865
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 you can ask our billing team for written confirmation of the exact amount and the date the charge will hit your account before you authorise a payment\u2011method change. They\u2019ll pull the account\u2011specific figures (plan, seats, any overages, and your billing cycle) and send you the details in writing. Just give them a little lead time so they can review everything before the charge date."
+        },
+        "id": "fc_3545792a-4f4c-4b70-9f1f-e5e0d3550a83",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 208,
+      "prompt_tokens": 1098
+    }
+  },
+  "retry_after": null
+}

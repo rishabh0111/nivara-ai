@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:04:55.055496Z",
+  "failure_detail": null,
+  "fingerprint": "015e4d5022433ae10ac07b11791cbf7909de0aef084a657ccee551e50ccbf9d0",
+  "outcome": "response",
+  "recording_id": "turn/dd0d6637a5fe0bc3/consistency/sample-2/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see the conversation. The user says: \"Times just look wrong everywhere in the app.\" Need to determine what they are asking. Likely about response-time metrics? Or timestamps? The policy excerpts include:\n\n- DOC-042: response-time metric counts every hour a ticket sits unanswered, including nights, weekends, holidays \u2014 wall-clock measurement, not business-hours.\n\nThe user says times look wrong everywhere in the app. Could be about response-time metrics showing wrong times. The relevant excerpt about response-time metric could answer: they count wall-clock hours. So we can explain that times are shown as wall-clock, not business hours. That seems to answer. The question is ambiguous? Could be about timezone settings? Not covered. But we have an excerpt about response-time metrics. The user didn't specify response-time metric, just \"Times just look wrong everywhere in the app.\" Could be ambiguous; could refer to timestamps on tickets, logs, etc. The only relevant policy is about response-time metric. Might be insufficient to answer fully. The instruction: If ambiguous, escalate. The question is ambiguous: \"Times just look wrong everywhere in the app.\" Could be about timestamps, timezone, billing currency? Not clear. We have no direct policy about timezone. So we cannot answer definitively. Better to escalate.\n\nThus we should call escalate with internal note.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer reports that times look wrong throughout the app, but it's ambiguous what specific times they're referring to (e.g., timestamps on tickets, response-time metrics, billing dates, etc.). The provided policy excerpts only cover response-time metric calculations, which may not address the customer's broader concern. Unable to provide a confident answer, so escalating to a human.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_9fc844fb-7218-443c-92ea-84ea291e35fb",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451494,
+      "id": "chatcmpl-fb653db2-3620-4853-831c-237e9cd01fdd",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_bb691ea66b",
+      "usage": {
+        "completion_time": 0.772581846,
+        "completion_tokens": 369,
+        "completion_tokens_details": {
+          "reasoning_tokens": 273
+        },
+        "prompt_time": 1.4074126310000001,
+        "prompt_tokens": 1100,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.364124951,
+        "total_time": 2.179994477,
+        "total_tokens": 1469
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0846de9fsb9grr5pd6ar0",
+        "seed": 1607746771
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer reports that times look wrong throughout the app, but it's ambiguous what specific times they're referring to (e.g., timestamps on tickets, response-time metrics, billing dates, etc.). The provided policy excerpts only cover response-time metric calculations, which may not address the customer's broader concern. Unable to provide a confident answer, so escalating to a human."
+        },
+        "id": "fc_9fc844fb-7218-443c-92ea-84ea291e35fb",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 369,
+      "prompt_tokens": 1100
+    }
+  },
+  "retry_after": null
+}

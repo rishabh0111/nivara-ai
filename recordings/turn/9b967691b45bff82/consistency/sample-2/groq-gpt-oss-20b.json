@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:23:19.021467Z",
+  "failure_detail": null,
+  "fingerprint": "0936970669d7d6c0541fc98a8dc60642928a4b7ec33948d4fe54d8a42091fe02",
+  "outcome": "response",
+  "recording_id": "turn/9b967691b45bff82/consistency/sample-2/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: \"What exact date does my next invoice get generated? I need to plan around replacing my card.\" We have policy excerpts: [DOC-007] part 2: That date is shown in Settings \u2192 Billing \u2192 Plan next to \u201cNext invoice\u201d, and it does not shift month to month even though months have different lengths; a billing date of the 31st bills on the last day of a shorter month. Also part 1: monthly plan invoiced on same day of month as workspace's original billing date. Also part 3: card charge happens on that date, replacing a card a day or two beforehand is enough for new card to be used for upcoming invoice. So we can answer: next invoice date is shown in Settings \u2192 Billing \u2192 Plan next to \"Next invoice\". And you should replace card a day or two before that date. Provide that info. That seems to answer. We need to keep answer short, specific. Should we mention that the date does not shift month to month? That is part of the answer. So answer: \"The next invoice date is shown in Settings \u2192 Billing \u2192 Plan under 'Next invoice'. It stays the same each month (e.g., the 31st bills on the last day of a month). Replace your card a day or two before that date to ensure the new card is used.\" That addresses question. So we can post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"The date of your next invoice is shown in Settings \u2192 Billing \u2192 Plan under the heading \u201cNext invoice\u201d. That date stays the same each month (for example, a billing date of the 31st will bill on the last day of a shorter month). Because the card charge happens on that date, it\u2019s enough to replace your card a day or two beforehand to make sure the new card is used for the upcoming invoice.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_1132de4c-8cd7-4283-bb07-19aaac8a12ab",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459799,
+      "id": "chatcmpl-01dc502c-5581-4519-9ccb-02ddf0d2f44b",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_ef00694abe",
+      "usage": {
+        "completion_time": 0.414283158,
+        "completion_tokens": 394,
+        "completion_tokens_details": {
+          "reasoning_tokens": 287
+        },
+        "prompt_time": 0.133071984,
+        "prompt_tokens": 1083,
+        "queue_time": 0.280795764,
+        "total_time": 0.547355142,
+        "total_tokens": 1477
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m85kn6e5hsc4ww8bp85rn8",
+        "seed": 966007632
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "The date of your next invoice is shown in Settings \u2192 Billing \u2192 Plan under the heading \u201cNext invoice\u201d. That date stays the same each month (for example, a billing date of the 31st will bill on the last day of a shorter month). Because the card charge happens on that date, it\u2019s enough to replace your card a day or two beforehand to make sure the new card is used for the upcoming invoice."
+        },
+        "id": "fc_1132de4c-8cd7-4283-bb07-19aaac8a12ab",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 394,
+      "prompt_tokens": 1083
+    }
+  },
+  "retry_after": null
+}

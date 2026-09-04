@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T17:55:14.429400Z",
+  "failure_detail": null,
+  "fingerprint": "6b62fbe5d0dee5dbad96a06eaaa99caf971ca5d16ca5c3d8fcf64968b1048893",
+  "outcome": "response",
+  "recording_id": "turn/c333048b87c99c5e/consistency/sample-3/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see the conversation. The user says: \"wire transfer ok?\" Very short ambiguous. Likely they are asking if a wire transfer is okay, maybe they want to know if they can do a wire transfer for payment. This is ambiguous. Also policy about fraudulent billing emails says Meridian never asks a customer to wire funds to a bank account communicated by email. But the user is just asking \"wire transfer ok?\" Could be about payment method. Could be about whether they can use wire transfer. The policy excerpt about tracing a bank transfer payment that hasn't been applied is about if they made a bank transfer. The question is ambiguous. Could be about verifying a wire transfer they made, or asking if they can use wire transfer. There's no direct answer in excerpts. There's policy about not asking to wire funds, but not about if it's allowed. The safe route is to escalate because ambiguous and possibly about money movement. Indeed rule: If the question is about money movement, a disputed or fraudulent charge, or identity or account-recovery documents, escalate. This is about money movement (wire transfer). So we should escalate.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer asked \\\"wire transfer ok?\\\" which is about a money movement method. This falls under the rule to escalate any question about wire transfers or payment methods, especially given the ambiguity and potential fraud concerns. No definitive answer can be provided from the provided policy excerpts.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_8b137301-bc2c-4ca5-801f-9486aee95999",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371714,
+      "id": "chatcmpl-a41d0f21-4ea0-4301-8aae-c301e25ce5cc",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5d041d5b40",
+      "usage": {
+        "completion_time": 0.796161732,
+        "completion_tokens": 306,
+        "completion_tokens_details": {
+          "reasoning_tokens": 226
+        },
+        "prompt_time": 0.216188065,
+        "prompt_tokens": 1123,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.162451039,
+        "total_time": 1.012349797,
+        "total_tokens": 1429
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hm5f5wegnakn5be6sv1kdv",
+        "seed": 1635187918
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer asked \"wire transfer ok?\" which is about a money movement method. This falls under the rule to escalate any question about wire transfers or payment methods, especially given the ambiguity and potential fraud concerns. No definitive answer can be provided from the provided policy excerpts."
+        },
+        "id": "fc_8b137301-bc2c-4ca5-801f-9486aee95999",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 306,
+      "prompt_tokens": 1123
+    }
+  },
+  "retry_after": null
+}

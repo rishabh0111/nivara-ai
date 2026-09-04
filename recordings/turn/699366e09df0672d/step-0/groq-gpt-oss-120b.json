@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:15:23.755262Z",
+  "failure_detail": null,
+  "fingerprint": "8bcdbe6789114faeaf280da3c3817c9c37fd50fd5f85a86a5708eddf9c0a49b7",
+  "outcome": "response",
+  "recording_id": "turn/699366e09df0672d/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"I have a spreadsheet of a few hundred contacts I want to bulk import, but I don't see documented anywhere which column names the importer actually expects \u2014 name, email, something else?\" This is about column headers expected by contact importer. The policy excerpts provide answer: required headers are email, name, company; optional include phone, title, custom fields. Also importer matches by header name, order doesn't matter. Also can download sample template. So we can answer with that info.\n\nWe must post_reply with concise answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! The contact importer looks for specific column headers in your CSV file:\\n\\n**Required headers**: `email`, `name`, and `company`.\\n\\n**Optional headers** you can include: `phone`, `title`, and any custom field you\u2019ve already defined in your workspace (use the exact custom field name as the header).\\n\\nThe importer matches columns by header name, not by position, so the columns can be in any order. If you add extra columns with unrecognised headers, they\u2019ll simply be ignored and won\u2019t block the import.\\n\\nIf you want the exact header spelling, you can download the sample template from the import screen \u2013 it\u2019s the quickest way to get the correct format.\\n\\nLet me know if you need any more help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_dafb7474-4e53-4b39-ac55-46f82c1668da",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372923,
+      "id": "chatcmpl-97e875e7-7014-4476-b344-08ef3210137a",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_6dedd2be22",
+      "usage": {
+        "completion_time": 0.698655899,
+        "completion_tokens": 303,
+        "completion_tokens_details": {
+          "reasoning_tokens": 117
+        },
+        "prompt_time": 0.245428075,
+        "prompt_tokens": 1051,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.158072433,
+        "total_time": 0.944083974,
+        "total_tokens": 1354
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnac83ee1952yt5cextzsp",
+        "seed": 2053552664
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! The contact importer looks for specific column headers in your CSV file:\n\n**Required headers**: `email`, `name`, and `company`.\n\n**Optional headers** you can include: `phone`, `title`, and any custom field you\u2019ve already defined in your workspace (use the exact custom field name as the header).\n\nThe importer matches columns by header name, not by position, so the columns can be in any order. If you add extra columns with unrecognised headers, they\u2019ll simply be ignored and won\u2019t block the import.\n\nIf you want the exact header spelling, you can download the sample template from the import screen \u2013 it\u2019s the quickest way to get the correct format.\n\nLet me know if you need any more help!"
+        },
+        "id": "fc_dafb7474-4e53-4b39-ac55-46f82c1668da",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 303,
+      "prompt_tokens": 1051
+    }
+  },
+  "retry_after": null
+}

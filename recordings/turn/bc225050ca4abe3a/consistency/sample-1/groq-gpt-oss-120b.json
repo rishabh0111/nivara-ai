@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:07:16.823508Z",
+  "failure_detail": null,
+  "fingerprint": "a5eb20ba39d8fed865c5465e67e0b9d3f2d79853c7fac76d115c469426ae4c4a",
+  "outcome": "response",
+  "recording_id": "turn/bc225050ca4abe3a/consistency/sample-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to infer the customer's question: \"new phone, 2FA codes wrong now\". They likely have a new phone, installed authenticator app, codes are wrong. They need to re-enroll two-factor authentication. The policy excerpts include instructions for re-enrolling after losing access to the app: choose Reset and re-enroll, scanning new QR code, using recovery code if needed. So we can answer with that info.\n\nCheck if any rule about money movement etc. Not relevant. The question is about 2FA codes wrong after phone upgrade. The excerpts provide solution. So we can post reply with steps.\n\nWe should not mention policy. Provide short specific answer.\n\nThus we will use post_reply with instructions: go to Settings \u2192 Security \u2192 Two-factor authentication, choose Reset, re-enroll scanning new QR code, use saved recovery code if can't access settings. Also note that old codes won't work because secret tied to old install.\n\nLet's craft answer.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When you install the authenticator app on a new phone, the codes it generates no longer match the secret Meridian has on file, so the old 2FA codes will be rejected. To fix this, open the app on your new device and then:\\n\\n1. In Meridian, go to **Settings \u2192 Security \u2192 Two\u2011factor authentication**.\\n2. Choose **Reset**.\\n3. Follow the setup flow to scan the new QR code with your authenticator app and confirm the fresh six\u2011digit code.\\n\\nIf you can\u2019t reach the settings page because you don\u2019t have a working code, you can use a saved recovery code from the original enrollment to sign in and then reset the 2FA from there.\\n\\nAfter resetting, the codes generated on your new phone will work correctly.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_5d565d08-3669-44a8-b752-520f1a52f356",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372436,
+      "id": "chatcmpl-00a5a256-5400-495c-96e8-56d046f7bd29",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4200b3f836",
+      "usage": {
+        "completion_time": 1.289549655,
+        "completion_tokens": 384,
+        "completion_tokens_details": {
+          "reasoning_tokens": 194
+        },
+        "prompt_time": 0.751622737,
+        "prompt_tokens": 1156,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.305995439,
+        "total_time": 2.041172392,
+        "total_tokens": 1540
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmvfdaeag97zz6vpaccs2c",
+        "seed": 1479458158
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When you install the authenticator app on a new phone, the codes it generates no longer match the secret Meridian has on file, so the old 2FA codes will be rejected. To fix this, open the app on your new device and then:\n\n1. In Meridian, go to **Settings \u2192 Security \u2192 Two\u2011factor authentication**.\n2. Choose **Reset**.\n3. Follow the setup flow to scan the new QR code with your authenticator app and confirm the fresh six\u2011digit code.\n\nIf you can\u2019t reach the settings page because you don\u2019t have a working code, you can use a saved recovery code from the original enrollment to sign in and then reset the 2FA from there.\n\nAfter resetting, the codes generated on your new phone will work correctly."
+        },
+        "id": "fc_5d565d08-3669-44a8-b752-520f1a52f356",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 384,
+      "prompt_tokens": 1156
+    }
+  },
+  "retry_after": null
+}

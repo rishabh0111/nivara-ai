@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:29:58.131395Z",
+  "failure_detail": null,
+  "fingerprint": "46bd0c68e2d02a99305b3ff4bfee804dccbd3dbe41f8e7b5ab754a0ae7b7b012",
+  "outcome": "response",
+  "recording_id": "turn/2e474c244778e155/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Does a test event look identical to a real one, or is it flagged differently so we can tell them apart in our logs?\" The policy excerpts include DOC-025 parts 1-3. They say test events are marked as test deliveries in the delivery log, and they use same schema and headers as live, including signing header. So answer: test events use same schema and headers, but delivery log marks them as test deliveries, so you can differentiate. Provide short answer. No need to escalate. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Test webhook events use the exact same payload schema and headers (including the signing header) as live events, so a handler that passes the test will handle a real one the same way. In the delivery log, however, they\u2019re labeled as \u201ctest deliveries,\u201d which lets you distinguish them from real events.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_542dd869-6c4a-4983-91ae-5ee29080bc3e",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373797,
+      "id": "chatcmpl-b19666b7-2173-43c1-ab1b-b743d0d5aa8c",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5082008e34",
+      "usage": {
+        "completion_time": 0.475903619,
+        "completion_tokens": 205,
+        "completion_tokens_details": {
+          "reasoning_tokens": 119
+        },
+        "prompt_time": 0.062739266,
+        "prompt_tokens": 1074,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.283933943,
+        "total_time": 0.538642885,
+        "total_tokens": 1279
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hp521semhsgyhcqrqmbjp1",
+        "seed": 106161791
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Test webhook events use the exact same payload schema and headers (including the signing header) as live events, so a handler that passes the test will handle a real one the same way. In the delivery log, however, they\u2019re labeled as \u201ctest deliveries,\u201d which lets you distinguish them from real events."
+        },
+        "id": "fc_542dd869-6c4a-4983-91ae-5ee29080bc3e",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 205,
+      "prompt_tokens": 1074
+    }
+  },
+  "retry_after": null
+}

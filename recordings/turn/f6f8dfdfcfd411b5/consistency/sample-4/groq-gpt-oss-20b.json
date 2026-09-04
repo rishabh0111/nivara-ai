@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:37:21.891124Z",
+  "failure_detail": null,
+  "fingerprint": "3afcc49c83af164ad6b7a113e1cacbf1a70806af149aa0fe947b9e3d61c02997",
+  "outcome": "response",
+  "recording_id": "turn/f6f8dfdfcfd411b5/consistency/sample-4/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see if we can answer from policy. The user says a project was deleted this morning, need it back. We have policy excerpt about restoring a deleted project: a deleted project is held recoverable for 30 days, can be restored from Settings \u2192 Data \u2192 Deleted items by an admin. So answer: instruct them to restore within 30 days. Provide steps. This is allowed. No money movement or identity. So we can answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! I\u2019m sorry to hear about the deletion. If it was deleted within the last 30\u202fdays, you can recover it. As an admin, go to **Settings \u2192 Data \u2192 Deleted items**, find the project, and click \u201cRestore\u201d. The project will come back with all its records, configuration and automation rules exactly as it was. Let me know if you need any help with that!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_112120d7-ddfe-425f-a19a-39905d613a76",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460641,
+      "id": "chatcmpl-b5e8faf1-eb88-4eb3-a4dd-1a842143e63f",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_d3e146e1a5",
+      "usage": {
+        "completion_time": 0.204057092,
+        "completion_tokens": 199,
+        "completion_tokens_details": {
+          "reasoning_tokens": 96
+        },
+        "prompt_time": 0.062819696,
+        "prompt_tokens": 1067,
+        "queue_time": 0.294664237,
+        "total_time": 0.266876788,
+        "total_tokens": 1266
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8zanseznbrxjrs22sv23c",
+        "seed": 2079391660
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! I\u2019m sorry to hear about the deletion. If it was deleted within the last 30\u202fdays, you can recover it. As an admin, go to **Settings \u2192 Data \u2192 Deleted items**, find the project, and click \u201cRestore\u201d. The project will come back with all its records, configuration and automation rules exactly as it was. Let me know if you need any help with that!"
+        },
+        "id": "fc_112120d7-ddfe-425f-a19a-39905d613a76",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 199,
+      "prompt_tokens": 1067
+    }
+  },
+  "retry_after": null
+}

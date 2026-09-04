@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:56:38.667321Z",
+  "failure_detail": null,
+  "fingerprint": "927619e3133dcc3a62b357f82f26b4cff1fbc9afb8cf32d23637694d0097a95d",
+  "outcome": "response",
+  "recording_id": "turn/788deea7e91c5ef9/consistency/sample-3/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see the conversation: The user asks \"exec impersonation message, is it a scam?\" Likely they received a message impersonating an executive asking to change payment details. According to policy, we should advise to verify directly via other channel, not act, and forward to support. So we can answer based on the excerpts: It's likely a scam, they should verify with the person via another channel, and forward the message to support. That is within policy. So we can post_reply.\n\nWe need to keep answer short and specific, address the customer directly, no mention of policy. Provide guidance: Yes it's likely a scam, follow verification steps, forward to support.\n\nThus use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"It\u2019s very likely a scam.\u202fRequests to change payment details that appear to come from an executive should always be verified through a separate, trusted channel (e.g., a phone call or official email) before taking any action.\u202fPlease forward the suspicious message to our support team so we can check it against your account and flag it if it\u2019s fraudulent.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_97b1135f-28da-43e6-90b2-0e7fa2e33eee",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454598,
+      "id": "chatcmpl-977815f7-612e-4049-992f-991e7809227d",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5781dfb07c",
+      "usage": {
+        "completion_time": 0.503822851,
+        "completion_tokens": 240,
+        "completion_tokens_details": {
+          "reasoning_tokens": 143
+        },
+        "prompt_time": 0.333829006,
+        "prompt_tokens": 1103,
+        "prompt_tokens_details": {
+          "cached_tokens": 1024
+        },
+        "queue_time": 0.279116151,
+        "total_time": 0.837651857,
+        "total_tokens": 1343
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m36wwbecaatv76fpdmjq65",
+        "seed": 1953698652
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "It\u2019s very likely a scam.\u202fRequests to change payment details that appear to come from an executive should always be verified through a separate, trusted channel (e.g., a phone call or official email) before taking any action.\u202fPlease forward the suspicious message to our support team so we can check it against your account and flag it if it\u2019s fraudulent."
+        },
+        "id": "fc_97b1135f-28da-43e6-90b2-0e7fa2e33eee",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 240,
+      "prompt_tokens": 1103
+    }
+  },
+  "retry_after": null
+}

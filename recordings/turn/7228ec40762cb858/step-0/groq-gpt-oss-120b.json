@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:01:11.762622Z",
+  "failure_detail": null,
+  "fingerprint": "0ff65c4ea797330881e8b6c77481d3bfb31216895517ff47d7598cc2f5db54c7",
+  "outcome": "response",
+  "recording_id": "turn/7228ec40762cb858/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer the customer's question. The user says \"SSO redirect loop?\" Likely they are experiencing an SSO redirect loop. We have policy excerpts about troubleshooting an SSO redirect loop. We can provide steps: check callback URL matches reply URL exactly, ensure no trailing slash mismatch, re-save identity provider config, etc.\n\nWe must ensure we answer only from policy excerpts. The excerpts provide guidance. We can summarize: It's usually a redirect URL mismatch; check callback URL in Meridian settings, compare with IdP reply URL, ensure exact match, re-save IdP app. Also mention that an admin can revert SSO config if unrecognized change.\n\nThe question is ambiguous? It's just \"SSO redirect loop?\" Likely they want help. We have relevant policy. So we can answer.\n\nWe must post_reply with concise answer.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"A sign\u2011in that immediately returns to the login page is almost always caused by a redirect URL mismatch, not a credential issue. To fix it:\\n\\n1. Open **Settings \u2192 Security \u2192 SSO \u2192 Configuration** in Meridian and copy the **callback URL** exactly as shown.\\n2. In your identity provider\u2019s app settings, locate the **reply URL** (or redirect URI) and compare it character\u2011for\u2011character with the callback URL you just copied. Pay special attention to trailing slashes and the http/https scheme.\\n3. If any difference exists, update the reply URL on the IdP side to match exactly, then **re\u2011save** the IdP application (some providers cache the old value until it\u2019s saved again).\\n\\nAfter the URLs match, the redirect loop should stop and sign\u2011in will proceed normally.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_d3ea42bc-660a-4c0d-8377-62d9950b34ca",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372071,
+      "id": "chatcmpl-b7e63fa8-c900-4e08-92e3-f3910cf41575",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_f640395b96",
+      "usage": {
+        "completion_time": 0.961598444,
+        "completion_tokens": 369,
+        "completion_tokens_details": {
+          "reasoning_tokens": 170
+        },
+        "prompt_time": 0.13641981,
+        "prompt_tokens": 1097,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.305540047,
+        "total_time": 1.098018254,
+        "total_tokens": 1466
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmgbg7ebfta1qmn6yq28vc",
+        "seed": 747046853
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "A sign\u2011in that immediately returns to the login page is almost always caused by a redirect URL mismatch, not a credential issue. To fix it:\n\n1. Open **Settings \u2192 Security \u2192 SSO \u2192 Configuration** in Meridian and copy the **callback URL** exactly as shown.\n2. In your identity provider\u2019s app settings, locate the **reply URL** (or redirect URI) and compare it character\u2011for\u2011character with the callback URL you just copied. Pay special attention to trailing slashes and the http/https scheme.\n3. If any difference exists, update the reply URL on the IdP side to match exactly, then **re\u2011save** the IdP application (some providers cache the old value until it\u2019s saved again).\n\nAfter the URLs match, the redirect loop should stop and sign\u2011in will proceed normally."
+        },
+        "id": "fc_d3ea42bc-660a-4c0d-8377-62d9950b34ca",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 369,
+      "prompt_tokens": 1097
+    }
+  },
+  "retry_after": null
+}

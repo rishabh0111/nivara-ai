@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:26:09.936414Z",
+  "failure_detail": null,
+  "fingerprint": "a912adebf977ec724a978da21369e87702bfd4d96c549dd639a9287749c1ff94",
+  "outcome": "response",
+  "recording_id": "turn/740f39fac9e5b57e/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer about scheduling recurring export. The policy says recurring exports are configured from Settings \u2192 Data \u2192 Scheduled exports, separately from one-off export button. So we can explain steps. Also mention that you can choose recurrence daily, weekly, monthly. So answer: go to Settings > Data > Scheduled exports, set up weekly, choose format, connect cloud storage. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! To set up an automated weekly export:\\n1. Go to **Settings \u2192 Data \u2192 Scheduled exports**.\\n2. Click \u201cAdd schedule\u201d (or similar) and choose the data you want to export.\\n3. Pick **Weekly** as the recurrence.\\n4. Select the export format you need (CSV, native tool format, etc.).\\n5. Connect a cloud storage destination via the OAuth link (Google Drive, Dropbox, etc.).\\n6. Save the schedule.\\nThat will automatically run the export every week and drop the file into your chosen cloud folder. Let me know if you need help with any of the steps!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_81827d2e-9704-4090-ad80-95aaec025da1",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459969,
+      "id": "chatcmpl-4946731b-84d6-470f-a7ad-431df43c443a",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_d3e146e1a5",
+      "usage": {
+        "completion_time": 0.364680183,
+        "completion_tokens": 235,
+        "completion_tokens_details": {
+          "reasoning_tokens": 78
+        },
+        "prompt_time": 0.095025447,
+        "prompt_tokens": 1015,
+        "queue_time": 0.282018136,
+        "total_time": 0.45970563,
+        "total_tokens": 1250
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8atmsejtb5x7ejxx92xzd",
+        "seed": 1032413220
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! To set up an automated weekly export:\n1. Go to **Settings \u2192 Data \u2192 Scheduled exports**.\n2. Click \u201cAdd schedule\u201d (or similar) and choose the data you want to export.\n3. Pick **Weekly** as the recurrence.\n4. Select the export format you need (CSV, native tool format, etc.).\n5. Connect a cloud storage destination via the OAuth link (Google Drive, Dropbox, etc.).\n6. Save the schedule.\nThat will automatically run the export every week and drop the file into your chosen cloud folder. Let me know if you need help with any of the steps!"
+        },
+        "id": "fc_81827d2e-9704-4090-ad80-95aaec025da1",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 235,
+      "prompt_tokens": 1015
+    }
+  },
+  "retry_after": null
+}

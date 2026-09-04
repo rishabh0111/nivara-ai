@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:31:27.202212Z",
+  "failure_detail": null,
+  "fingerprint": "c476838a9938f031b1234eefe21953a282c4fc238c54fb56ae480591277a7351",
+  "outcome": "response",
+  "recording_id": "turn/c10c181949cfad8b/consistency/sample-4/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user: \"I'm getting flooded with irrelevant notifications right now and need this narrowed down immediately.\"\n\nWe have policy excerpts about reducing notification email volume. The question is about reducing notifications. The policy says notifications are per person, in Profile \u2192 Notifications, separate from workspace-wide notification rules. Each notification type can be turned off independently. So we can answer: go to Profile \u2192 Notifications, adjust. The user wants immediate narrowing. We can give instructions: go to Profile > Notifications, turn off irrelevant types. Also mention assignment notifications on, others off.\n\nWe should answer from policy. Provide short answer. No mention of policy. Provide instructions.\n\nThus we should post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! You can reduce the emails you receive by adjusting your personal notification settings.\\n\\n1. Click your profile icon and choose **Profile \u2192 Notifications**.\\n2. Each notification type (assignment, mention, status change, digest, etc.) can be toggled on or off.\\n3. Keep the **Assignment** notifications on (so you only get alerts for items assigned to you) and turn off the other types.\\n\\nThese changes apply instantly to your account and don\u2019t affect anyone else\u2019s settings.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_18a84220-b775-43b7-b166-17841ce28612",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460287,
+      "id": "chatcmpl-4ef32461-b8e3-4947-bbc5-83e53a71d3a1",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_d6de37e6be",
+      "usage": {
+        "completion_time": 0.267352427,
+        "completion_tokens": 261,
+        "completion_tokens_details": {
+          "reasoning_tokens": 134
+        },
+        "prompt_time": 0.896210237,
+        "prompt_tokens": 1048,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.329789988,
+        "total_time": 1.163562664,
+        "total_tokens": 1309
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8mfneexxs45s3bzncdvqs",
+        "seed": 703763546
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! You can reduce the emails you receive by adjusting your personal notification settings.\n\n1. Click your profile icon and choose **Profile \u2192 Notifications**.\n2. Each notification type (assignment, mention, status change, digest, etc.) can be toggled on or off.\n3. Keep the **Assignment** notifications on (so you only get alerts for items assigned to you) and turn off the other types.\n\nThese changes apply instantly to your account and don\u2019t affect anyone else\u2019s settings."
+        },
+        "id": "fc_18a84220-b775-43b7-b166-17841ce28612",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 261,
+      "prompt_tokens": 1048
+    }
+  },
+  "retry_after": null
+}

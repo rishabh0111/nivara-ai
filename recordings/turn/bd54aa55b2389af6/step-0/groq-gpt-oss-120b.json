@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:12:02.859095Z",
+  "failure_detail": null,
+  "fingerprint": "0cead5915e62c635fb9434d6fdeaee514890cca409e31548ad17dc79d32a9074",
+  "outcome": "response",
+  "recording_id": "turn/bd54aa55b2389af6/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: wants to know which DNS records needed for custom domain: CNAME and TXT. Provide answer. Use policy excerpts. So we can post_reply with concise answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! To point a custom domain at your Meridian support portal you need two DNS records added at your DNS provider:\\n1. **CNAME** \u2013 points the subdomain you want to use (e.g., support.yourcompany.com) to Meridian\u2019s portal address.\\n2. **TXT** \u2013 used to verify that you own the domain before the custom domain is activated.\\nBoth records are created outside of Meridian (in your DNS host), and after they\u2019re added the verification runs automatically (it may take up to your DNS provider\u2019s propagation time).\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f4ffa645-f105-4325-88b5-17f39a6bc7ad",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451922,
+      "id": "chatcmpl-41d83306-cb1d-4c48-8ed6-6c705a2b57e3",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5781dfb07c",
+      "usage": {
+        "completion_time": 0.391464673,
+        "completion_tokens": 184,
+        "completion_tokens_details": {
+          "reasoning_tokens": 45
+        },
+        "prompt_time": 0.252414834,
+        "prompt_tokens": 1096,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.281253354,
+        "total_time": 0.643879507,
+        "total_tokens": 1280
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0n7zqex4b1ntx6dp197d9",
+        "seed": 764969849
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! To point a custom domain at your Meridian support portal you need two DNS records added at your DNS provider:\n1. **CNAME** \u2013 points the subdomain you want to use (e.g., support.yourcompany.com) to Meridian\u2019s portal address.\n2. **TXT** \u2013 used to verify that you own the domain before the custom domain is activated.\nBoth records are created outside of Meridian (in your DNS host), and after they\u2019re added the verification runs automatically (it may take up to your DNS provider\u2019s propagation time)."
+        },
+        "id": "fc_f4ffa645-f105-4325-88b5-17f39a6bc7ad",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 184,
+      "prompt_tokens": 1096
+    }
+  },
+  "retry_after": null
+}

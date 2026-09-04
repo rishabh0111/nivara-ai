@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T17:56:43.868331Z",
+  "failure_detail": null,
+  "fingerprint": "a532e3e929ec3327c634d747e224b4f1c4d3c0fbea68de610baf9bdd3869aaad",
+  "outcome": "response",
+  "recording_id": "turn/fa0262f769b5f9c6/consistency/sample-4/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer the question: The customer wants the split of seats vs overage on the invoice. The policy excerpts include how to read itemised invoice: breakdown includes seat charge, add-ons, usage overages. Also how to view breakdown in the UI and PDF. So we can answer: go to Settings \u2192 Billing \u2192 Invoices, expand line items to see seat charge and overage breakdown, also PDF includes same breakdown. Provide steps. That answers the question.\n\nWe must ensure not to violate rules: not about money movement, not disputed charge, not ambiguous. This is about invoice details, we have policy excerpts. So we can post_reply.\n\nWrite a concise answer addressing the request, referencing steps.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there!\u202fYou can see the exact seat\u2011vs\u2011overage split right in the itemised view of your invoice.\\n\\n1. Go to **Settings \u2192 Billing \u2192 Invoices** and open the invoice you need.\\n2. Click the arrow to **expand each line item** \u2013 the seat charge line will break down the number of seats and the per\u2011seat rate, and any overage line will show the metered quantity that exceeded the plan\u2019s allowance.\\n3. If you prefer a PDF, download it from the same page \u2013 the PDF contains the identical breakdown, so you can attach it to your budget review without sharing dashboard access.\\n\\nThis will give you the separate totals for seats and any usage overages instantly.\\n\\nLet me know if you need anything else!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_6dc16a8a-e9a9-4b33-b849-3c1a31eff3f5",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371803,
+      "id": "chatcmpl-a419902e-87b5-495e-8147-d105d6441b48",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_87b3c396db",
+      "usage": {
+        "completion_time": 0.692614206,
+        "completion_tokens": 332,
+        "completion_tokens_details": {
+          "reasoning_tokens": 144
+        },
+        "prompt_time": 0.056361192,
+        "prompt_tokens": 1103,
+        "queue_time": 0.278320792,
+        "total_time": 0.748975398,
+        "total_tokens": 1435
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hm86nhes9bravdhhhez2s1",
+        "seed": 1565324635
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there!\u202fYou can see the exact seat\u2011vs\u2011overage split right in the itemised view of your invoice.\n\n1. Go to **Settings \u2192 Billing \u2192 Invoices** and open the invoice you need.\n2. Click the arrow to **expand each line item** \u2013 the seat charge line will break down the number of seats and the per\u2011seat rate, and any overage line will show the metered quantity that exceeded the plan\u2019s allowance.\n3. If you prefer a PDF, download it from the same page \u2013 the PDF contains the identical breakdown, so you can attach it to your budget review without sharing dashboard access.\n\nThis will give you the separate totals for seats and any usage overages instantly.\n\nLet me know if you need anything else!"
+        },
+        "id": "fc_6dc16a8a-e9a9-4b33-b849-3c1a31eff3f5",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 332,
+      "prompt_tokens": 1103
+    }
+  },
+  "retry_after": null
+}

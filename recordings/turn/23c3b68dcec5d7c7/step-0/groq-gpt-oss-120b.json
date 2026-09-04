@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:28:56.857520Z",
+  "failure_detail": null,
+  "fingerprint": "3847ce4f025718ec1d87cdbabfd1627704f4b4dab72e4a78ba9384f51b81a51c",
+  "outcome": "response",
+  "recording_id": "turn/23c3b68dcec5d7c7/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy. The question: duplicate charges, wants reversal. According to DOC-051 parts: duplicate charges are reviewed by billing team, not automatically reversed. So we can explain that they need to raise a dispute with billing team, and that the team will review. Provide steps? The policy says review starts once account owner or authorized billing contact raises it. So we can tell them to contact billing team, they will review. We can answer accordingly. It's not about money movement? It's about duplicate charges, which is a billing dispute. According to policy, we can answer. Provide short answer.\n\nThus we should post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"I\u2019m sorry you\u2019re seeing duplicate charges. Our billing team handles these cases manually \u2013 they\u2019ll review the payment processor\u2019s records and our own billing data before any reversal is made. Please have the account owner or an authorized billing contact submit a dispute request to our billing team, and they\u2019ll investigate the duplicate and let you know the outcome.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_65552d8d-92ff-4537-b401-a8f44b52ef5a",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452936,
+      "id": "chatcmpl-8f59f5b6-934d-4945-a25f-fcd673dd7fea",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_77b12279f9",
+      "usage": {
+        "completion_time": 0.479866973,
+        "completion_tokens": 224,
+        "completion_tokens_details": {
+          "reasoning_tokens": 131
+        },
+        "prompt_time": 1.196810665,
+        "prompt_tokens": 1119,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.306936327,
+        "total_time": 1.6766776380000001,
+        "total_tokens": 1343
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1m4w8ewvsttpjp7djm6f0",
+        "seed": 1394254765
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "I\u2019m sorry you\u2019re seeing duplicate charges. Our billing team handles these cases manually \u2013 they\u2019ll review the payment processor\u2019s records and our own billing data before any reversal is made. Please have the account owner or an authorized billing contact submit a dispute request to our billing team, and they\u2019ll investigate the duplicate and let you know the outcome."
+        },
+        "id": "fc_65552d8d-92ff-4537-b401-a8f44b52ef5a",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 224,
+      "prompt_tokens": 1119
+    }
+  },
+  "retry_after": null
+}

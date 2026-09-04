@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:35:41.659250Z",
+  "failure_detail": null,
+  "fingerprint": "c22c701a0b2b489de60bbd36dcab92fffa32e0162616505c3494cffa4fcbd041",
+  "outcome": "response",
+  "recording_id": "turn/9c10c6ae92648ff5/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"A thread we imported from an old Slack channel is missing a couple of replies that I know were posted.\" They imported a thread from Slack, missing replies. We need to refer to policy excerpts. The relevant policy: DOC-016 about import rejecting rows with no visible error. It says imports may silently drop rows due to per-row validation errors. Also after import, open Import history to see per-row results. So answer: check import history, see flagged rows, re-run import for those rows. Also mention that missing replies may be due to validation errors like missing required field, malformed email, duplicate. So we can advise to check import history, fix flagged rows, re-run import for those rows. Also mention that re-running only those rows avoids reprocessing succeeded rows. So answer accordingly.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! It looks like the missing replies were probably skipped during the import because of a per\u2011row validation issue (for example a missing required field or a duplicate). After the import finishes you can view the details in Settings\u202f\u2192\u202fData\u202f\u2192\u202fImport history \u2013 each row that didn\u2019t import will have a reason listed. Fix the flagged rows (e.g. add any missing data or resolve duplicates) and then re\u2011run the import for just those rows. That will bring the missing replies back without re\u2011processing the ones that already succeeded. Let me know if you need help locating the import history or fixing the rows!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_4d465da5-2eff-400c-b582-59c6b534b302",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460541,
+      "id": "chatcmpl-bef3bb45-ec18-45bd-b1c0-7c047ab5c168",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_1074f9ce08",
+      "usage": {
+        "completion_time": 0.3490357,
+        "completion_tokens": 318,
+        "completion_tokens_details": {
+          "reasoning_tokens": 169
+        },
+        "prompt_time": 0.225519663,
+        "prompt_tokens": 1057,
+        "queue_time": 0.309031594,
+        "total_time": 0.574555363,
+        "total_tokens": 1375
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8w8tfeb99p54rwn20ebpg",
+        "seed": 684134613
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! It looks like the missing replies were probably skipped during the import because of a per\u2011row validation issue (for example a missing required field or a duplicate). After the import finishes you can view the details in Settings\u202f\u2192\u202fData\u202f\u2192\u202fImport history \u2013 each row that didn\u2019t import will have a reason listed. Fix the flagged rows (e.g. add any missing data or resolve duplicates) and then re\u2011run the import for just those rows. That will bring the missing replies back without re\u2011processing the ones that already succeeded. Let me know if you need help locating the import history or fixing the rows!"
+        },
+        "id": "fc_4d465da5-2eff-400c-b582-59c6b534b302",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 318,
+      "prompt_tokens": 1057
+    }
+  },
+  "retry_after": null
+}

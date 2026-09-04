@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:36:00.485224Z",
+  "failure_detail": null,
+  "fingerprint": "8ffcf615abb8b89523d256d7870fcc5eacafe3c37eb57f66aa30051863e464d8",
+  "outcome": "response",
+  "recording_id": "turn/4f2ebe389e78bd2c/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user wants to revoke an unrecognised API key and have it investigated. According to DOC-058 part 2: immediate self-service step is revoking the key via Settings \u2192 Developer \u2192 API keys. Also part 3: reporting it to support alongside revoking starts investigation, and support can flag/restrict account. So we should instruct them to revoke the key and report to support. Provide steps. This is within policy. So we can post reply.\n\nWe must keep answer short and specific. Provide steps: go to Settings \u2192 Developer \u2192 API keys, revoke the key, then contact support (maybe via help widget) to report and request investigation. Also mention that support can flag/restrict account. Provide that.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can handle this in two steps:\\n1. **Revoke the key immediately** \u2013 go to **Settings \u2192 Developer \u2192 API keys**, find the unrecognised key and click *Revoke*. This stops any further use right away.\\n2. **Report it to support** \u2013 reply to this thread (or open a new support ticket) and let us know the key was unrecognised and is pulling large volumes of data. We'll start a security review, investigate how the key was created and what data was accessed, and we can flag or restrict the account further if needed.\\nLet us know once the key is revoked and we\u2019ll begin the investigation.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_20115ffc-2c13-4405-8fb0-2bfda429fcc1",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453360,
+      "id": "chatcmpl-fe32b782-590e-4eb4-b816-e82611fcf9f9",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5781dfb07c",
+      "usage": {
+        "completion_time": 0.802273096,
+        "completion_tokens": 320,
+        "completion_tokens_details": {
+          "reasoning_tokens": 160
+        },
+        "prompt_time": 0.088016376,
+        "prompt_tokens": 1065,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.279554782,
+        "total_time": 0.890289472,
+        "total_tokens": 1385
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m213fwec29rj7xqcgdhft0",
+        "seed": 118016201
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can handle this in two steps:\n1. **Revoke the key immediately** \u2013 go to **Settings \u2192 Developer \u2192 API keys**, find the unrecognised key and click *Revoke*. This stops any further use right away.\n2. **Report it to support** \u2013 reply to this thread (or open a new support ticket) and let us know the key was unrecognised and is pulling large volumes of data. We'll start a security review, investigate how the key was created and what data was accessed, and we can flag or restrict the account further if needed.\nLet us know once the key is revoked and we\u2019ll begin the investigation."
+        },
+        "id": "fc_20115ffc-2c13-4405-8fb0-2bfda429fcc1",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 320,
+      "prompt_tokens": 1065
+    }
+  },
+  "retry_after": null
+}

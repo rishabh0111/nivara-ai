@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:30:24.306415Z",
+  "failure_detail": null,
+  "fingerprint": "0fd47e78d11eac1a10f1f36a2c48ef2f94731e52b49e21b95f5c668a6683e099",
+  "outcome": "response",
+  "recording_id": "turn/bcc28d4d63509a20/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy. The user wants to dispute an overage charge, wants it investigated and reversed. According to policy, overage charge disputes are handled by billing team, need human review, not reversed automatically. We can respond with guidance: they need to contact billing team, they can raise dispute, but we cannot reverse automatically. Provide steps: ask them to submit a dispute via support, mention that a human will review raw usage. That's allowed. The policy says account owner or billing contact can raise it. So we can answer.\n\nWe must not mention policy. Provide short specific answer.\n\nThus we will post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"I\u2019m sorry you\u2019re seeing an unexpected overage charge. To have this investigated, please submit a formal dispute through our billing support channel (or reply here with the invoice number and the account email). Our billing team will review the raw usage data against the charge and get back to you with their findings. They\u2019ll let you know if a reversal is appropriate once the review is complete.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_984e130c-49fa-43b7-9fce-8a363f42ba53",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453024,
+      "id": "chatcmpl-9220c9e0-9c38-4ea4-84f9-fd2651861b67",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9241e9962b",
+      "usage": {
+        "completion_time": 1.040208139,
+        "completion_tokens": 231,
+        "completion_tokens_details": {
+          "reasoning_tokens": 129
+        },
+        "prompt_time": 1.090993405,
+        "prompt_tokens": 1101,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.576969933,
+        "total_time": 2.131201544,
+        "total_tokens": 1332
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1pstxez3vtqedfj9mw614",
+        "seed": 2056104961
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "I\u2019m sorry you\u2019re seeing an unexpected overage charge. To have this investigated, please submit a formal dispute through our billing support channel (or reply here with the invoice number and the account email). Our billing team will review the raw usage data against the charge and get back to you with their findings. They\u2019ll let you know if a reversal is appropriate once the review is complete."
+        },
+        "id": "fc_984e130c-49fa-43b7-9fce-8a363f42ba53",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 231,
+      "prompt_tokens": 1101
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:15:51.892801Z",
+  "failure_detail": null,
+  "fingerprint": "c739a9b8680cc91349143a9ac0136895c035dd15278ddc8c367d560a6d75a2e1",
+  "outcome": "response",
+  "recording_id": "turn/ae6ba7907144e7e1/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer using policy excerpts. The question: \"About half my bulk import is getting rejected with no error message \u2014 how do I find out which rows failed and why?\" This matches DOC-016 parts. Provide answer: go to Settings \u2192 Data \u2192 Import history, select run, see per-row result with reasons. Then fix flagged rows and re-run import for those rows. Also mention that silent drops are due to per-row validation like missing required fields, malformed email, duplicate. Provide steps.\n\nWe must post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When an import finishes, you can see exactly which rows were skipped and why by opening **Settings \u2192 Data \u2192 Import history** and selecting the specific run. The history view shows a per\u2011row result with a reason for every row that didn\u2019t import (e.g., missing required field, malformed email, duplicate, etc.).\\n\\nFix the issues in the flagged rows and then re\u2011run the import using only those rows (you don\u2019t need to re\u2011process the rows that already succeeded).\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_077cfb54-2b75-402c-aed6-b0a2ed79a1b7",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372951,
+      "id": "chatcmpl-743154a1-90b3-45a3-bfe7-844310db013c",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_d1bc601726",
+      "usage": {
+        "completion_time": 0.524639717,
+        "completion_tokens": 234,
+        "completion_tokens_details": {
+          "reasoning_tokens": 107
+        },
+        "prompt_time": 1.105249118,
+        "prompt_tokens": 1085,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.044844401,
+        "total_time": 1.629888835,
+        "total_tokens": 1319
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnb6x8ed480k66p150ecyk",
+        "seed": 1886940663
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When an import finishes, you can see exactly which rows were skipped and why by opening **Settings \u2192 Data \u2192 Import history** and selecting the specific run. The history view shows a per\u2011row result with a reason for every row that didn\u2019t import (e.g., missing required field, malformed email, duplicate, etc.).\n\nFix the issues in the flagged rows and then re\u2011run the import using only those rows (you don\u2019t need to re\u2011process the rows that already succeeded)."
+        },
+        "id": "fc_077cfb54-2b75-402c-aed6-b0a2ed79a1b7",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 234,
+      "prompt_tokens": 1085
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:52:50.978107Z",
+  "failure_detail": null,
+  "fingerprint": "d240b827f2209815e4d8fbfacc013b05c79a20d271b19a75b606456e26ed53e9",
+  "outcome": "response",
+  "recording_id": "turn/a1ef8ae63d9c8a88/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"is this billing wire email real?\" They likely have a suspicious email about wiring money. According to policy, we should advise them not to act, check billing in settings, and forward the email to support. So we can give answer: do not reply, do not click, check billing, forward email. That's allowed. Provide short answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there \u2013 If you received an email asking you to wire money, it\u2019s likely not a legitimate Meridian request.\u202fMeridian never asks customers to wire funds via email and only accepts payments through the methods set in your account\u2019s Billing settings.\u202fPlease do not reply, click any links, or make a payment. Instead, compare the invoice details with what you see in Settings\u202f\u2192\u202fBilling, and forward the suspicious email to our support team so we can verify it against your actual billing record.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_182793a5-e5da-4fd8-82eb-aaf6fd804009",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454370,
+      "id": "chatcmpl-2d0aa156-0866-458c-872d-e54272dc1fba",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_90620edd96",
+      "usage": {
+        "completion_time": 0.71874664,
+        "completion_tokens": 213,
+        "completion_tokens_details": {
+          "reasoning_tokens": 87
+        },
+        "prompt_time": 0.150469857,
+        "prompt_tokens": 1031,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.36495095,
+        "total_time": 0.869216497,
+        "total_tokens": 1244
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2zy9ge3ksh176b80vf520",
+        "seed": 980556519
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there \u2013 If you received an email asking you to wire money, it\u2019s likely not a legitimate Meridian request.\u202fMeridian never asks customers to wire funds via email and only accepts payments through the methods set in your account\u2019s Billing settings.\u202fPlease do not reply, click any links, or make a payment. Instead, compare the invoice details with what you see in Settings\u202f\u2192\u202fBilling, and forward the suspicious email to our support team so we can verify it against your actual billing record."
+        },
+        "id": "fc_182793a5-e5da-4fd8-82eb-aaf6fd804009",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 213,
+      "prompt_tokens": 1031
+    }
+  },
+  "retry_after": null
+}

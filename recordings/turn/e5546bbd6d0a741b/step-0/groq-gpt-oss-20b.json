@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:36:15.565419Z",
+  "failure_detail": null,
+  "fingerprint": "7cb8c6ebaeee87dcb240618949ce20f57436052ba1a7ad96abdb0836e3e22265",
+  "outcome": "response",
+  "recording_id": "turn/e5546bbd6d0a741b/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"Every scheduled call from a ticket is showing up twice on my calendar after connecting the calendar integration.\" This is about calendar integration, scheduled calls from a ticket. The policy excerpts provided are about scheduled reports, scheduled exports, response-time metrics, webhook delivery status. None mention calendar integration or scheduled calls. So we cannot answer from policy. According to rules: If the question is about money movement, disputed or fraudulent charge, identity or account-recovery documents, we must escalate. But this is not those. If the request is ambiguous or not covered by policy, we should also escalate. The question is about calendar integration showing duplicates. Not covered by policy. So we should escalated.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer reports that scheduled calls from a ticket are appearing twice on their calendar after connecting the calendar integration. The policy excerpts provided do not contain information about calendar integration or duplicate scheduled calls. Therefore, I cannot provide an accurate answer based on the available policy content. Escalating to a human for further assistance.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_98b48935-77fb-4330-8080-8c60e5b176cc",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460575,
+      "id": "chatcmpl-022b3e21-8bbf-48cd-876e-3a9deb4846d8",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_24bfb4a850",
+      "usage": {
+        "completion_time": 0.241578601,
+        "completion_tokens": 234,
+        "completion_tokens_details": {
+          "reasoning_tokens": 149
+        },
+        "prompt_time": 0.056831939,
+        "prompt_tokens": 1019,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.28322451,
+        "total_time": 0.29841054,
+        "total_tokens": 1253
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8xa1ke1ds7mdtbhfja5g3",
+        "seed": 1270422824
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer reports that scheduled calls from a ticket are appearing twice on their calendar after connecting the calendar integration. The policy excerpts provided do not contain information about calendar integration or duplicate scheduled calls. Therefore, I cannot provide an accurate answer based on the available policy content. Escalating to a human for further assistance."
+        },
+        "id": "fc_98b48935-77fb-4330-8080-8c60e5b176cc",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 234,
+      "prompt_tokens": 1019
+    }
+  },
+  "retry_after": null
+}

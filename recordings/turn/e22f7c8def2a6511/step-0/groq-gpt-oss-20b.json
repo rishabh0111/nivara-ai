@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:29:41.513460Z",
+  "failure_detail": null,
+  "fingerprint": "c7750da563e6b09485dc084a7c7035946d6416e22f5f4568f75f438f2a3182ae",
+  "outcome": "response",
+  "recording_id": "turn/e22f7c8def2a6511/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"Does the next tier only change the seat limit, or does it also unlock other features worth factoring into the decision?\" We have policy excerpts about comparing plan tiers, seat limits, integrations changes, data when downgrading. The answer: The next tier includes more than seat limit: includes integrations, retention window, support level, tier-gated automation features, etc. So we should answer that the next tier unlocks other features beyond seat limit. Provide short answer referencing that Settings \u2192 Billing \u2192 Plan shows full feature comparison across tiers. Also mention integrations and support level. So we can answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! The next tier does more than just raise the seat limit. In Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan you\u2019ll see a side\u2011by\u2011side comparison of every tier \u2013 it lists the included seats, the integrations you can use, the data retention window, the support level, and any tier\u2011gated automation features. So when you\u2019re deciding whether to upgrade, you should look at all those differences, not just the seat count.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_5b7c7998-7e31-47d4-8ead-ebb9739b29f6",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460181,
+      "id": "chatcmpl-d96dd2be-14e6-45ba-ad59-af86219d7c59",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_7d448090ba",
+      "usage": {
+        "completion_time": 0.265159113,
+        "completion_tokens": 244,
+        "completion_tokens_details": {
+          "reasoning_tokens": 131
+        },
+        "prompt_time": 0.05393103,
+        "prompt_tokens": 1058,
+        "queue_time": 0.305643148,
+        "total_time": 0.319090143,
+        "total_tokens": 1302
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8h9cdeprr3raaxcy9bx72",
+        "seed": 1435749359
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! The next tier does more than just raise the seat limit. In Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan you\u2019ll see a side\u2011by\u2011side comparison of every tier \u2013 it lists the included seats, the integrations you can use, the data retention window, the support level, and any tier\u2011gated automation features. So when you\u2019re deciding whether to upgrade, you should look at all those differences, not just the seat count."
+        },
+        "id": "fc_5b7c7998-7e31-47d4-8ead-ebb9739b29f6",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 244,
+      "prompt_tokens": 1058
+    }
+  },
+  "retry_after": null
+}

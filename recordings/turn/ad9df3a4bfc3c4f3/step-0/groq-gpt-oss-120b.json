@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T15:42:46.474278Z",
+  "failure_detail": null,
+  "fingerprint": "7bc32e32648c6d15dceefe43bbb809af80a52c109bd7d198021bb917b95aba91",
+  "outcome": "response",
+  "recording_id": "turn/ad9df3a4bfc3c4f3/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"We only noticed today, but it looks like our internal dashboard has been missing any record beyond the first page of results for weeks, which suggests our integration isn't handling pagination correctly \u2014 what should the correct pagination flow look like?\" This is about API pagination. The policy excerpts provide guidance: list endpoints return one page with next_cursor; need to follow next_cursor until absent; implement loop pattern. So we can answer with description of correct flow: request first page, check next_cursor, if present request next page with that cursor, repeat until no next_cursor. Also mention that ignoring pagination will silently stop at first page. Provide short answer.\n\nWe must use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When using Meridian\u2019s list endpoints you need to follow the pagination cursor on every request. The typical flow is:\\n1. Call the endpoint without a cursor (or with the initial cursor) to get the first page.\\n2. Inspect the response for a `next_cursor` field.\\n3. If `next_cursor` is present, make another request passing that cursor to retrieve the next page.\\n4. Repeat steps\u202f2\u20113 until the response contains **no** `next_cursor` \u2013 that indicates you\u2019ve reached the final page.\\n\\nSkipping the `next_cursor` check will cause the integration to stop after the first page, which is why you only see the initial set of records.\\n\\nImplementing this loop ensures you capture the full result set regardless of workspace size.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_23faea46-f769-4257-b97a-bcd0142684d4",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788450166,
+      "id": "chatcmpl-f4e43b3b-49ee-4972-8062-ecf437f3c927",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_bb691ea66b",
+      "usage": {
+        "completion_time": 0.700333868,
+        "completion_tokens": 332,
+        "completion_tokens_details": {
+          "reasoning_tokens": 146
+        },
+        "prompt_time": 0.056883166,
+        "prompt_tokens": 1111,
+        "queue_time": 0.410560782,
+        "total_time": 0.757217034,
+        "total_tokens": 1443
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kyzm60e109kaa0qjsxbbqn",
+        "seed": 1270850593
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When using Meridian\u2019s list endpoints you need to follow the pagination cursor on every request. The typical flow is:\n1. Call the endpoint without a cursor (or with the initial cursor) to get the first page.\n2. Inspect the response for a `next_cursor` field.\n3. If `next_cursor` is present, make another request passing that cursor to retrieve the next page.\n4. Repeat steps\u202f2\u20113 until the response contains **no** `next_cursor` \u2013 that indicates you\u2019ve reached the final page.\n\nSkipping the `next_cursor` check will cause the integration to stop after the first page, which is why you only see the initial set of records.\n\nImplementing this loop ensures you capture the full result set regardless of workspace size."
+        },
+        "id": "fc_23faea46-f769-4257-b97a-bcd0142684d4",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 332,
+      "prompt_tokens": 1111
+    }
+  },
+  "retry_after": null
+}

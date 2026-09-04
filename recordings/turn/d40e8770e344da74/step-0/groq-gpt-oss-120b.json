@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:38:10.435971Z",
+  "failure_detail": null,
+  "fingerprint": "eabd16238f50a588a715b52a752ba66cfbfb35639bc3b4044d11278869a96e8c",
+  "outcome": "response",
+  "recording_id": "turn/d40e8770e344da74/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The user says: \"Our IT director noticed the SSO configuration now points at an unrecognised identity provider domain and asked me to escalate before more staff sign in through it.\"\n\nWe have policy excerpts about reporting an unrecognised change to SSO configuration. The answer should advise that an admin can revert the SSO config and report to support. So we can give steps: go to Settings \u2192 Security \u2192 SSO, revert or point back, and report change to support. Provide guidance.\n\nWe must answer using only policy excerpts. The relevant excerpts: DOC-061 part 1 and part 2. Provide short answer.\n\nThus we should post_reply with guidance.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If the SSO configuration now points to an identity\u2011provider domain you don\u2019t recognise, treat it as a possible admin\u2011level compromise. An admin who still has access should immediately revert the SSO setting (or disable it) in **Settings \u2192 Security \u2192 SSO** to point back at the correct provider. After doing that, report the change to Meridian support so a reviewer can investigate when and how the setting was altered and which account made the change.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_263d8c3d-f75d-46c3-9831-2ebe28968b1c",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453490,
+      "id": "chatcmpl-3bcbce1f-7cf2-4646-86c6-df39645bb783",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_93703442d9",
+      "usage": {
+        "completion_time": 0.547216062,
+        "completion_tokens": 257,
+        "completion_tokens_details": {
+          "reasoning_tokens": 140
+        },
+        "prompt_time": 0.060874739,
+        "prompt_tokens": 1131,
+        "queue_time": 0.366920439,
+        "total_time": 0.608090801,
+        "total_tokens": 1388
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m252qaeke8me9sx5k3vqzr",
+        "seed": 1102471421
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If the SSO configuration now points to an identity\u2011provider domain you don\u2019t recognise, treat it as a possible admin\u2011level compromise. An admin who still has access should immediately revert the SSO setting (or disable it) in **Settings \u2192 Security \u2192 SSO** to point back at the correct provider. After doing that, report the change to Meridian support so a reviewer can investigate when and how the setting was altered and which account made the change."
+        },
+        "id": "fc_263d8c3d-f75d-46c3-9831-2ebe28968b1c",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 257,
+      "prompt_tokens": 1131
+    }
+  },
+  "retry_after": null
+}

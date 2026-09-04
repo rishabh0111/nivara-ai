@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T15:44:36.235116Z",
+  "failure_detail": null,
+  "fingerprint": "a37377068daf9cee97745f40a5a7e78fbd4a8ebabbb4f8bb0a93353338522fdb",
+  "outcome": "response",
+  "recording_id": "turn/c9353cff0ab92279/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: \"stable endpoints list?\" The user asks for a list of stable endpoints. The policy excerpts talk about stable endpoints being marked in API reference, but do not provide a list. The policy says answer only from policy excerpts. Since we don't have a list, we cannot answer. Should we escalate? The question is not about money, identity, etc. It's about stable endpoints list. The policy does not contain the list. So we must either say we cannot answer because not in policy, so we must escalate. According to rules: If the policy excerpts do not contain the answer, we must escalate. So we should escalate with internal note.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer asked for a list of stable API endpoints. The provided policy excerpts explain how stability tags work and how to identify stable endpoints in the API reference, but they do not contain an actual list of stable endpoints. Since the answer cannot be derived from the given excerpts, I must escalate the conversation.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_d038c00a-83a3-456a-a3c2-a625e4e3acc9",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788450276,
+      "id": "chatcmpl-c329b6de-bb02-4d9e-89c9-10969616192e",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_df9620fe21",
+      "usage": {
+        "completion_time": 0.463578216,
+        "completion_tokens": 220,
+        "completion_tokens_details": {
+          "reasoning_tokens": 134
+        },
+        "prompt_time": 0.056240803,
+        "prompt_tokens": 1033,
+        "queue_time": 0.281951915,
+        "total_time": 0.519819019,
+        "total_tokens": 1253
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kz2zznehfrgpxbxbf02drq",
+        "seed": 1114350564
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer asked for a list of stable API endpoints. The provided policy excerpts explain how stability tags work and how to identify stable endpoints in the API reference, but they do not contain an actual list of stable endpoints. Since the answer cannot be derived from the given excerpts, I must escalate the conversation."
+        },
+        "id": "fc_d038c00a-83a3-456a-a3c2-a625e4e3acc9",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 220,
+      "prompt_tokens": 1033
+    }
+  },
+  "retry_after": null
+}

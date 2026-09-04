@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:25:04.934423Z",
+  "failure_detail": null,
+  "fingerprint": "34f9e9aa69235535dca588f06c6a2f8273f7c7fa339cbf0b775cdb16a58ff7af",
+  "outcome": "response",
+  "recording_id": "turn/61d8abd22fd4c79b/consistency/sample-3/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user: \"I'm locked out of two-factor after switching phones and I need back in urgently \u2014 how do I re-enrol without losing access entirely?\"\n\nWe have policy excerpts that cover re-enrolling two-factor authentication after losing access to the app. The question is specifically about re-enrolling after switching phones and being locked out. The policy says:\n\n- In Settings \u2192 Security \u2192 Two-factor authentication, choose \u201cReset\u201d and re-enrol the same way as a first-time setup \u2014 scanning a new QR code and confirming with a fresh six-digit code. A saved recovery code from the original enrolment can also be used to sign in and reset from there if the settings page itself is not reachable without a working code.\n\n- Re-enrolling invalidates the old QR code entirely; only the newly scanned one will generate valid codes afterward.\n\nSo the answer: explain that they need to go to Settings > Security > Two-factor authentication, choose Reset, then re-enrol by scanning the new QR code and entering the six-digit code. If they have a recovery code from original enrollment, they can use that to sign in and reset if they can't reach settings page. Also note that old QR code will be invalidated.\n\nThe user is locked out and wants urgent access. The policy says that re-enrolling will invalidate old QR code. But the user is locked out; presumably they cannot sign in to settings. They might use the recovery code if they have it. The policy says if the settings page is not reachable without a working code, a saved recovery code can be used to sign in and reset from there. So answer: if you have a recovery code, use it. If not, you might need support. But the policy says re-enrolling invalidates the old QR code entirely. The user wants to re-enrol without losing access entirely. But the policy says re-enrolling will invalidate old QR code. But that is normal. They just need to re-enrol.\n\nThus we can answer with the steps.\n\nThe question: \"I'm locked out of two-factor after switching phones and I need back in urgently \u2014 how do I re-enrol without losing access entirely?\" The policy says: \"If you have a recovery code, you can sign in and reset from there. If you don't have it, you may need support.\" But we are not to mention that. The policy says we can answer. There's no mention of money or fraud. So we can post reply.\n\nWe should keep answer short and specific. Let's do that.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! To re\u2011enrol your 2\u2011FA after switching phones:\\n\\n1. In the app, go to **Settings \u2192 Security \u2192 Two\u2011factor authentication**.\\n2. Tap **Reset**.\\n3. Scan the new QR code that appears and enter the six\u2011digit code shown by your authenticator app.\\n4. Save the new recovery codes that are displayed.\\n\\nIf you can\u2019t reach the Settings page because you\u2019re locked out, use a recovery code you saved from the original enrolment to sign in and then reset as above. The old QR code will be invalidated once you complete the reset, but you\u2019ll have a fresh one that works. Let me know if you run into any trouble!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_44724333-9300-4e4c-b9cd-2bccdb60a427",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459904,
+      "id": "chatcmpl-df8c4ece-d446-4e17-8c8f-25b9f31f782a",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e99e93f2ac",
+      "usage": {
+        "completion_time": 0.975130814,
+        "completion_tokens": 682,
+        "completion_tokens_details": {
+          "reasoning_tokens": 509
+        },
+        "prompt_time": 0.404255196,
+        "prompt_tokens": 1144,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.042819862,
+        "total_time": 1.37938601,
+        "total_tokens": 1826
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m88tageb9s5666p82p3dmy",
+        "seed": 1790868163
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! To re\u2011enrol your 2\u2011FA after switching phones:\n\n1. In the app, go to **Settings \u2192 Security \u2192 Two\u2011factor authentication**.\n2. Tap **Reset**.\n3. Scan the new QR code that appears and enter the six\u2011digit code shown by your authenticator app.\n4. Save the new recovery codes that are displayed.\n\nIf you can\u2019t reach the Settings page because you\u2019re locked out, use a recovery code you saved from the original enrolment to sign in and then reset as above. The old QR code will be invalidated once you complete the reset, but you\u2019ll have a fresh one that works. Let me know if you run into any trouble!"
+        },
+        "id": "fc_44724333-9300-4e4c-b9cd-2bccdb60a427",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 682,
+      "prompt_tokens": 1144
+    }
+  },
+  "retry_after": null
+}

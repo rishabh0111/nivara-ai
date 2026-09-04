@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:28:47.171013Z",
+  "failure_detail": null,
+  "fingerprint": "4acbe9a6b50a7c8e7bb9736cb93738003b28d9c9b4216de5067bc725c4eb914e",
+  "outcome": "response",
+  "recording_id": "turn/f81683b6abd5de5f/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"Our backend team suspects webhook payloads are being capped and asked me to find out the real limit so they can batch large records properly.\"\n\nWe have policy excerpts about webhook payload size: It says payload is capped at a fixed size, and large records are delivered as reference with truncated flag. But does it give the exact limit? The excerpt does not specify the numeric limit. It only says it's capped at a fixed size, and suggests using .changed event to fetch full record, and that batching is not configurable. The user asks for the real limit. The policy does not provide the numeric limit. So we cannot answer with a specific limit. According to rules, if the answer is not in the policy, we must escalate. Also ambiguous? Not ambiguous, but we lack the exact limit. So we must escalate.\n\nThus we will use the escalate tool with internal note.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer asks for the exact webhook payload size limit. The provided policy excerpts only state that payloads are capped at a fixed size and describe behavior when exceeding the cap, but they do not specify the numeric limit. Since the answer is not available in the policy, we must escalate.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_5b6c96f1-130d-46a2-9af3-ddf77664c50c",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373726,
+      "id": "chatcmpl-e9552a36-6eca-4ebf-b698-249b65a792e8",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_854fa9be4c",
+      "usage": {
+        "completion_time": 1.897460605,
+        "completion_tokens": 272,
+        "completion_tokens_details": {
+          "reasoning_tokens": 189
+        },
+        "prompt_time": 0.118421596,
+        "prompt_tokens": 1045,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.275895837,
+        "total_time": 2.015882201,
+        "total_tokens": 1317
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hp2v76e668ajgyxmp07gm8",
+        "seed": 71786163
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer asks for the exact webhook payload size limit. The provided policy excerpts only state that payloads are capped at a fixed size and describe behavior when exceeding the cap, but they do not specify the numeric limit. Since the answer is not available in the policy, we must escalate."
+        },
+        "id": "fc_5b6c96f1-130d-46a2-9af3-ddf77664c50c",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 272,
+      "prompt_tokens": 1045
+    }
+  },
+  "retry_after": null
+}

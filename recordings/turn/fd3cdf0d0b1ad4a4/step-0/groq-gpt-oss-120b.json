@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:25:10.436632Z",
+  "failure_detail": null,
+  "fingerprint": "3abd0009bb94a525d50364b35d53443f58e78f8adb166d8b541b495d61a26f43",
+  "outcome": "response",
+  "recording_id": "turn/fd3cdf0d0b1ad4a4/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer using policy excerpts. The question: \"Our support lead asked me to find out how to subscribe the team to incident notifications so we're not caught off guard.\"\n\nWe have relevant excerpts: DOC-048 parts 1-3 about subscribing to incident notifications: status page Subscribe option offering email, SMS, webhook; can be scoped to specific components; webhook fastest way; subscribing surfaces incident as it is happening.\n\nWe need to give short specific answer: explain how to subscribe via status page, options, component scoping, webhook.\n\nWe must post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can subscribe to incident notifications directly from our status page. Click the **Subscribe** button and choose the delivery method that works best for your team\u2014email, SMS, or a webhook. \\n\\n- **Email or SMS**: You\u2019ll receive a message as soon as an incident is opened, updated, or resolved.\\n- **Webhook**: This is the fastest option; it pushes real\u2011time updates into any on\u2011call or alerting tool you already use.\\n\\nIf your team only needs alerts for certain parts of the platform, you can scope the subscription to specific components so you won\u2019t be paged for unrelated incidents. Once set up, the notifications will surface incidents as they happen, keeping your team ahead of any issues.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_35da92b9-4a55-45cb-802c-55a8b79d03e7",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452710,
+      "id": "chatcmpl-b4a873fa-98fa-4f20-a4b7-caa6be614cb8",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_60e4b492db",
+      "usage": {
+        "completion_time": 0.98613351,
+        "completion_tokens": 291,
+        "completion_tokens_details": {
+          "reasoning_tokens": 114
+        },
+        "prompt_time": 0.265093778,
+        "prompt_tokens": 995,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.31075183,
+        "total_time": 1.251227288,
+        "total_tokens": 1286
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1d88qe4zsxd8mkv344jq7",
+        "seed": 717164755
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can subscribe to incident notifications directly from our status page. Click the **Subscribe** button and choose the delivery method that works best for your team\u2014email, SMS, or a webhook. \n\n- **Email or SMS**: You\u2019ll receive a message as soon as an incident is opened, updated, or resolved.\n- **Webhook**: This is the fastest option; it pushes real\u2011time updates into any on\u2011call or alerting tool you already use.\n\nIf your team only needs alerts for certain parts of the platform, you can scope the subscription to specific components so you won\u2019t be paged for unrelated incidents. Once set up, the notifications will surface incidents as they happen, keeping your team ahead of any issues."
+        },
+        "id": "fc_35da92b9-4a55-45cb-802c-55a8b79d03e7",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 291,
+      "prompt_tokens": 995
+    }
+  },
+  "retry_after": null
+}

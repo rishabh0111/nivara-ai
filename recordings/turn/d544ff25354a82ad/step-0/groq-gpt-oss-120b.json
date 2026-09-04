@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:58:01.554877Z",
+  "failure_detail": null,
+  "fingerprint": "488887970db9d30be3da36c5c916d9a87ce32bfa3dca35b644a07b9c94a6c1fe",
+  "outcome": "response",
+  "recording_id": "turn/d544ff25354a82ad/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: employee found a lookalike sign-in page reached from unsolicited email, asks to confirm whether that could have exposed their real account credentials. According to DOC-080 part 1: such page should be treated as untrusted. Part 2: if credentials were entered, they should be treated as exposed; password change immediately, reset 2FA. So answer: Yes, if they entered credentials, they are exposed; advise to change password, reset 2FA, and report to support. Provide short answer. No need to escalate. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 a sign\u2011in page that looks like Meridian\u2019s but was reached via an unsolicited email is considered untrusted. If any credentials (including a password or one\u2011time code) were entered on that page, they should be treated as exposed. Change the password immediately from the real Meridian sign\u2011in page and reset two\u2011factor authentication if it\u2019s enabled. You should also report the incident to support so they can review recent sign\u2011in activity for any unauthorized use.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f197eb34-573c-47f5-bb96-c20e2e319ce6",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454681,
+      "id": "chatcmpl-832ed193-a477-49bc-ae42-d9a99772fde5",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_93703442d9",
+      "usage": {
+        "completion_time": 0.516811397,
+        "completion_tokens": 245,
+        "completion_tokens_details": {
+          "reasoning_tokens": 125
+        },
+        "prompt_time": 1.584295511,
+        "prompt_tokens": 1168,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.36941562,
+        "total_time": 2.101106908,
+        "total_tokens": 1413
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m39c51e9kr1h9j2annnkq1",
+        "seed": 173455309
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 a sign\u2011in page that looks like Meridian\u2019s but was reached via an unsolicited email is considered untrusted. If any credentials (including a password or one\u2011time code) were entered on that page, they should be treated as exposed. Change the password immediately from the real Meridian sign\u2011in page and reset two\u2011factor authentication if it\u2019s enabled. You should also report the incident to support so they can review recent sign\u2011in activity for any unauthorized use."
+        },
+        "id": "fc_f197eb34-573c-47f5-bb96-c20e2e319ce6",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 245,
+      "prompt_tokens": 1168
+    }
+  },
+  "retry_after": null
+}

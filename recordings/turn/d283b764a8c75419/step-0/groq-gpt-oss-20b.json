@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:33:39.749888Z",
+  "failure_detail": null,
+  "fingerprint": "41be073cd8399720f1c859d67e2dc05b199daa1aaa533990c323c30927066d84",
+  "outcome": "response",
+  "recording_id": "turn/d283b764a8c75419/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"Trying to share a dashboard with someone outside the workspace.\" The policy says: Any dashboard can be shared as a read-only public link from the dashboard's own Share menu, which does not require the recipient to have a Meridian account or sign in at all. So answer: Use the Share menu to create a public link. Also mention that link updates in real time and can be revoked. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can share the dashboard by clicking the Share button on the dashboard and selecting the public link option. This creates a read\u2011only link that anyone can open without needing a Meridian account. The link stays live and updates in real time, and you can revoke it at any time from the same Share menu.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_7ab61979-058c-4c8a-ade1-1009fd336ce4",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460419,
+      "id": "chatcmpl-cb831806-a93f-4247-9f5a-85151159a119",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_8b41efc9a3",
+      "usage": {
+        "completion_time": 0.192349966,
+        "completion_tokens": 177,
+        "completion_tokens_details": {
+          "reasoning_tokens": 94
+        },
+        "prompt_time": 0.118766398,
+        "prompt_tokens": 1038,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.3607281,
+        "total_time": 0.311116364,
+        "total_tokens": 1215
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8rhzre9qrk1fngc53kdh2",
+        "seed": 736028375
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can share the dashboard by clicking the Share button on the dashboard and selecting the public link option. This creates a read\u2011only link that anyone can open without needing a Meridian account. The link stays live and updates in real time, and you can revoke it at any time from the same Share menu."
+        },
+        "id": "fc_7ab61979-058c-4c8a-ade1-1009fd336ce4",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 177,
+      "prompt_tokens": 1038
+    }
+  },
+  "retry_after": null
+}

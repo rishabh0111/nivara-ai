@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:46:10.690704Z",
+  "failure_detail": null,
+  "fingerprint": "f752a8f237938f209ce6acaf40bba79773566bf04ca0c2b8fd2c195e10f60c8d",
+  "outcome": "response",
+  "recording_id": "turn/e5cb0d6658b1c171/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user says: \"I've completely lost access to the email tied to my account and need this re-verified urgently.\" This is about updating email tied to account after it no longer exists. Policy says: need to contact support directly, identity verification case by case. So we can respond with guidance: they need to contact support, provide alternative verification like billing history, etc. Provide short answer. Use post_reply.\n\nWe must not mention policy. Provide answer: explain that because email no longer exists, we can't do standard reset; they must contact support, provide account details for verification, and we will update email after verification.\n\nLet's craft.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"I\u2019m sorry you\u2019ve lost access to the email on your account. Because the registered address is no longer reachable, we can\u2019t use the normal email\u2011verification flow. Please get in touch with our support team directly and provide alternative proof of ownership (such as billing history, recent account activity, or other identifying details). Once we verify your identity, we\u2019ll update the account to a new email address for you.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_5c3a3f22-709c-4788-b1e0-47627b7d7ca2",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453970,
+      "id": "chatcmpl-0b9396c7-b121-47f8-a9e1-fd8f8900fb60",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4727af4560",
+      "usage": {
+        "completion_time": 0.522295416,
+        "completion_tokens": 246,
+        "completion_tokens_details": {
+          "reasoning_tokens": 138
+        },
+        "prompt_time": 0.057783888,
+        "prompt_tokens": 1101,
+        "queue_time": 0.158910988,
+        "total_time": 0.580079304,
+        "total_tokens": 1347
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2kqbgebbbqkf02qkfvzdd",
+        "seed": 1907116364
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "I\u2019m sorry you\u2019ve lost access to the email on your account. Because the registered address is no longer reachable, we can\u2019t use the normal email\u2011verification flow. Please get in touch with our support team directly and provide alternative proof of ownership (such as billing history, recent account activity, or other identifying details). Once we verify your identity, we\u2019ll update the account to a new email address for you."
+        },
+        "id": "fc_5c3a3f22-709c-4788-b1e0-47627b7d7ca2",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 246,
+      "prompt_tokens": 1101
+    }
+  },
+  "retry_after": null
+}

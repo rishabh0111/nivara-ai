@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:37:32.054140Z",
+  "failure_detail": null,
+  "fingerprint": "f81cd8d644d15674c4068a0af0d8a4c45e95b9e8c79cab737ac4434e52adb166",
+  "outcome": "response",
+  "recording_id": "turn/59dc1b1b6e2de155/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user says: \"We stopped receiving webhooks around 02:00 and nothing has arrived since.\" We need to check if this is about money movement, disputed charge, identity, etc. It's about webhook delivery. We can answer from policy. The policy says: If webhook endpoint stops receiving events with nothing surfaced in receiving system logs, it could be TLS cert expired, firewall change, or endpoint returning non-2xx status. Also can check delivery log. So we should advise them to check the delivery log, see status, and check TLS cert, firewall, etc. Also mention that deliveries that fail are retried on backoff schedule for limited window; after that need manual replay. So answer: check Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log. Look at status. If non-2xx, fix. If TLS expired, renew. If firewall, adjust. Also mention that if endpoint changed unauthorized, disable repoint. But not needed. So answer accordingly.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! It sounds like your webhook endpoint is no longer receiving events. Here\u2019s what you can do:\\n\\n1. **Check the Delivery Log** \u2013 In Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log you\u2019ll see every attempt Meridian made, the HTTP status returned and the response body. This will tell you whether the requests are reaching your server and, if not, why they\u2019re failing.\\n\\n2. **Common causes** \u2013 A non\u20112xx response, an expired TLS certificate, or a firewall change can all stop deliveries before they hit your system. If the log shows a 4xx/5xx status, fix the endpoint or certificate. If the status is 200 but you still see no data, double\u2011check that your server is actually logging the payload.\\n\\n3. **Retries** \u2013 Failed deliveries are retried on a back\u2011off schedule for a limited window. Once that window passes, the event won\u2019t be retried automatically; you\u2019ll need to replay it manually from the delivery log.\\n\\nIf you can\u2019t resolve the issue after checking the log and the above points, let us know and we\u2019ll dig deeper for you. Happy to help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_b74e5f29-5c18-489c-b021-d6100de75699",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460651,
+      "id": "chatcmpl-4c65866c-3e2e-4bd8-8fa1-7b085b414ef8",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_a8c584dda7",
+      "usage": {
+        "completion_time": 0.582229478,
+        "completion_tokens": 470,
+        "completion_tokens_details": {
+          "reasoning_tokens": 206
+        },
+        "prompt_time": 0.052645378,
+        "prompt_tokens": 1050,
+        "queue_time": 0.156321901,
+        "total_time": 0.634874856,
+        "total_tokens": 1520
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8zmnwejv9gajrwta3wrpa",
+        "seed": 1070513164
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! It sounds like your webhook endpoint is no longer receiving events. Here\u2019s what you can do:\n\n1. **Check the Delivery Log** \u2013 In Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log you\u2019ll see every attempt Meridian made, the HTTP status returned and the response body. This will tell you whether the requests are reaching your server and, if not, why they\u2019re failing.\n\n2. **Common causes** \u2013 A non\u20112xx response, an expired TLS certificate, or a firewall change can all stop deliveries before they hit your system. If the log shows a 4xx/5xx status, fix the endpoint or certificate. If the status is 200 but you still see no data, double\u2011check that your server is actually logging the payload.\n\n3. **Retries** \u2013 Failed deliveries are retried on a back\u2011off schedule for a limited window. Once that window passes, the event won\u2019t be retried automatically; you\u2019ll need to replay it manually from the delivery log.\n\nIf you can\u2019t resolve the issue after checking the log and the above points, let us know and we\u2019ll dig deeper for you. Happy to help!"
+        },
+        "id": "fc_b74e5f29-5c18-489c-b021-d6100de75699",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 470,
+      "prompt_tokens": 1050
+    }
+  },
+  "retry_after": null
+}

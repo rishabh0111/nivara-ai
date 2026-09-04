@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:27:26.540701Z",
+  "failure_detail": null,
+  "fingerprint": "9cfe83fff5cda3a3fb03cb03933555444a3a3ca623f90f681e5782a1a3dab72a",
+  "outcome": "response",
+  "recording_id": "turn/67b3da3c8f1c63ff/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"I need to rotate this key today as part of a security audit but I can't risk downtime \u2014 does the old key stop working the instant I rotate?\" They want to know if old key stops working instantly. According to policy: generating new key does not automatically revoke old one; both keys valid until old one explicitly revoked. Rotating key: you can deploy new key, confirm works, then revoke old key. So answer: No, old key remains active until you revoke it. Provide steps. Also mention overlap window. So we can answer. No money movement or fraud. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"No, the old key stays active until you explicitly revoke it. When you generate a new key it doesn\u2019t automatically disable the old one \u2013 both keys can be used at the same time. The usual practice is to deploy the new key, confirm it works, and then revoke the old key from Settings \u2192 Developer \u2192 API keys. That way you avoid any downtime.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_b1fd70cb-a6c0-415f-9ddc-090734389ca3",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460046,
+      "id": "chatcmpl-131e38de-fe89-4a2c-a1a1-e3e6b2dadf99",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_8b41efc9a3",
+      "usage": {
+        "completion_time": 0.246713973,
+        "completion_tokens": 226,
+        "completion_tokens_details": {
+          "reasoning_tokens": 131
+        },
+        "prompt_time": 0.064196484,
+        "prompt_tokens": 1071,
+        "queue_time": 0.363249228,
+        "total_time": 0.310910457,
+        "total_tokens": 1297
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8d58zeazsyc6wytrfk67f",
+        "seed": 1262819134
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "No, the old key stays active until you explicitly revoke it. When you generate a new key it doesn\u2019t automatically disable the old one \u2013 both keys can be used at the same time. The usual practice is to deploy the new key, confirm it works, and then revoke the old key from Settings \u2192 Developer \u2192 API keys. That way you avoid any downtime."
+        },
+        "id": "fc_b1fd70cb-a6c0-415f-9ddc-090734389ca3",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 226,
+      "prompt_tokens": 1071
+    }
+  },
+  "retry_after": null
+}

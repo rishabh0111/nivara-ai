@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:37:39.147918Z",
+  "failure_detail": null,
+  "fingerprint": "67f2a150c0af3a4fe8f0e572ebd456f2066b7590af6b612a43a9434e9432b537",
+  "outcome": "response",
+  "recording_id": "turn/fbf2818fdef83b8e/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"Signing in with our identity provider bounces straight back to the login screen.\" This is a redirect loop. According to policy: sign-in returns to login page immediately after identity provider approves is almost always redirect URL mismatch. Also need to check callback URL matches. So answer: check redirect URL mismatch, ensure callback URL matches exactly, trailing slash, http/https. Also ensure SSO domain configured. Provide steps. Use policy excerpts. So we can answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"It sounds like you\u2019re hitting a redirect\u2011loop. That usually happens when the callback URL that Meridian expects doesn\u2019t match the URL the identity provider is sending the assertion to.\\n\\n1. In your Meridian admin console go to **Settings \u2192 Security \u2192 SSO \u2192 Configuration** and copy the exact callback URL shown there.\\n2. Log into your identity\u2011provider admin panel and check the \u201creply URL\u201d or \u201credirect URI\u201d that you\u2019ve configured for Meridian. It must match the callback URL **character for character** \u2013 no extra slash, no http/https mismatch.\\n3. Save any changes and try signing in again.\\n\\nIf the URLs match and you\u2019re still stuck, let us know and we\u2019ll dig deeper. Happy to help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_96372cd3-ce63-43d3-bf0c-bc4b27ec46c0",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460658,
+      "id": "chatcmpl-a75bc1b1-1a57-41e2-baa4-9367924d70ce",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_8d13edce1d",
+      "usage": {
+        "completion_time": 0.295855491,
+        "completion_tokens": 277,
+        "completion_tokens_details": {
+          "reasoning_tokens": 101
+        },
+        "prompt_time": 0.271578721,
+        "prompt_tokens": 1081,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.274354406,
+        "total_time": 0.567434212,
+        "total_tokens": 1358
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8zv8hezcavpxn23mvkcc1",
+        "seed": 1787963303
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "It sounds like you\u2019re hitting a redirect\u2011loop. That usually happens when the callback URL that Meridian expects doesn\u2019t match the URL the identity provider is sending the assertion to.\n\n1. In your Meridian admin console go to **Settings \u2192 Security \u2192 SSO \u2192 Configuration** and copy the exact callback URL shown there.\n2. Log into your identity\u2011provider admin panel and check the \u201creply URL\u201d or \u201credirect URI\u201d that you\u2019ve configured for Meridian. It must match the callback URL **character for character** \u2013 no extra slash, no http/https mismatch.\n3. Save any changes and try signing in again.\n\nIf the URLs match and you\u2019re still stuck, let us know and we\u2019ll dig deeper. Happy to help!"
+        },
+        "id": "fc_96372cd3-ce63-43d3-bf0c-bc4b27ec46c0",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 277,
+      "prompt_tokens": 1081
+    }
+  },
+  "retry_after": null
+}

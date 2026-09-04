@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:19:29.697089Z",
+  "failure_detail": null,
+  "fingerprint": "33caa1426750b351ce4feedfee73f8ac583f56d95f7a36b74033398534a584f0",
+  "outcome": "response",
+  "recording_id": "turn/11a8878c353b2617/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our compliance officer asked me to confirm whether an export pulls in archived and closed records too, or only the live queue.\"\n\nWe have relevant excerpts from DOC-018: part 1 says \"A standard export from the dashboard includes every record in the current view, including archived and closed ones, unless a filter on the export screen narrows it to a status.\" Also part 2 says export screen filter independent. So answer: Yes, standard export includes archived and closed records unless you filter them out. Provide brief answer.\n\nWe can answer directly. No need to read conversation. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"A standard export from the dashboard pulls in **all** records that are in the current view \u2013 that means archived and closed records are included by default. Only if you apply a filter on the export screen to limit the status will those records be excluded.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_48f6b944-c685-4f59-9bd0-e989d40c5bc9",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373169,
+      "id": "chatcmpl-a017b789-6bb2-4c56-a60d-a611bc9ebc93",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_d81b3304b3",
+      "usage": {
+        "completion_time": 0.441650779,
+        "completion_tokens": 208,
+        "completion_tokens_details": {
+          "reasoning_tokens": 133
+        },
+        "prompt_time": 0.04343444,
+        "prompt_tokens": 1027,
+        "queue_time": 0.04550357,
+        "total_time": 0.485085219,
+        "total_tokens": 1235
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnhwxqekrvmsp5js6v0q8f",
+        "seed": 1854876156
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "A standard export from the dashboard pulls in **all** records that are in the current view \u2013 that means archived and closed records are included by default. Only if you apply a filter on the export screen to limit the status will those records be excluded."
+        },
+        "id": "fc_48f6b944-c685-4f59-9bd0-e989d40c5bc9",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 208,
+      "prompt_tokens": 1027
+    }
+  },
+  "retry_after": null
+}

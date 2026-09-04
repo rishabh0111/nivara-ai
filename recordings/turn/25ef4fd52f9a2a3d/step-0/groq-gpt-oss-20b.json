@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:27:37.014970Z",
+  "failure_detail": null,
+  "fingerprint": "a4fd6fd5bc7253cbf37d9b24a128cf4a2f28ddcf54e0a13d3261aa6e9faa8fe3",
+  "outcome": "response",
+  "recording_id": "turn/25ef4fd52f9a2a3d/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"Our platform engineer wants to rotate a long-lived API key and asked me to confirm whether that invalidates the old key immediately or allows an overlap.\" According to policy: generating a new API key does not automatically revoke old one; both keys valid until old is explicitly revoked. Overlap window exists to rotate without downtime. So answer: old key remains valid until revoked; you can overlap. Provide guidance. No money or security incident. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Both keys stay active until you explicitly revoke the old one. When you generate a new key it doesn\u2019t automatically invalidate the previous key, so you can use the new key while the old one is still valid and then revoke the old key when you\u2019re ready. This gives you an overlap window to avoid any downtime.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_43528f76-89e6-4f87-9c30-af673f387ba8",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460056,
+      "id": "chatcmpl-85c013ab-8fd7-4f6c-a40f-873ba5012b45",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_24bfb4a850",
+      "usage": {
+        "completion_time": 0.26214865,
+        "completion_tokens": 190,
+        "completion_tokens_details": {
+          "reasoning_tokens": 105
+        },
+        "prompt_time": 0.053913873,
+        "prompt_tokens": 1070,
+        "queue_time": 0.88157935,
+        "total_time": 0.316062523,
+        "total_tokens": 1260
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8df74ecwb3vv5qaqm4xbh",
+        "seed": 1919345034
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Both keys stay active until you explicitly revoke the old one. When you generate a new key it doesn\u2019t automatically invalidate the previous key, so you can use the new key while the old one is still valid and then revoke the old key when you\u2019re ready. This gives you an overlap window to avoid any downtime."
+        },
+        "id": "fc_43528f76-89e6-4f87-9c30-af673f387ba8",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 190,
+      "prompt_tokens": 1070
+    }
+  },
+  "retry_after": null
+}

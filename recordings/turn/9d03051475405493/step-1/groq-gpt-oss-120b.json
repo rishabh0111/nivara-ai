@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T17:59:27.104498Z",
+  "failure_detail": null,
+  "fingerprint": "e8111ccd5076c590d900d8e4b3d1a4e0bf3fa6c766f75927914e8985f3d3341a",
+  "outcome": "response",
+  "recording_id": "turn/9d03051475405493/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to interpret the customer's request. They say: \"Just trying to time a card swap right.\" Likely they want to know when to replace a card to affect billing/invoice. The policy excerpts include info about timing a card replacement before an invoice: DOC-007 says because the card charge happens on that date, replacing a card a day or two beforehand is enough for the new card to be used for the upcoming invoice. Also DOC-069 about adding a new card after failed payment. The question is ambiguous? They just say \"Just trying to time a card swap right.\" Could be about ensuring new card is used for upcoming invoice. That's covered by DOC-007. So we can answer: replace card a day or two before the invoice date to have new card used. Provide short answer.\n\nThus we can post_reply with that info.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If you want the new card to be used for the next invoice, just replace the old card a day or two before the invoice date. The charge is processed on the invoice date, so the new card will be picked up in time.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_4871cbc3-adb2-44fc-b0a7-5ef3f6591a79",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371966,
+      "id": "chatcmpl-6fffa341-0f9a-4e83-b6da-b94646b488fb",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e5b4e54fbb",
+      "usage": {
+        "completion_time": 0.664736738,
+        "completion_tokens": 245,
+        "completion_tokens_details": {
+          "reasoning_tokens": 172
+        },
+        "prompt_time": 0.048354744,
+        "prompt_tokens": 1122,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.362295805,
+        "total_time": 0.713091482,
+        "total_tokens": 1367
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmd5yje9494he6bxxts40e",
+        "seed": 1479002868
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If you want the new card to be used for the next invoice, just replace the old card a day or two before the invoice date. The charge is processed on the invoice date, so the new card will be picked up in time."
+        },
+        "id": "fc_4871cbc3-adb2-44fc-b0a7-5ef3f6591a79",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 245,
+      "prompt_tokens": 1122
+    }
+  },
+  "retry_after": null
+}

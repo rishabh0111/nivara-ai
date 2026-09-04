@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:02:24.705527Z",
+  "failure_detail": null,
+  "fingerprint": "b3dc37e88e4dd93e27094a508e8592e928cade6289eda176a6726ad467ed7ed5",
+  "outcome": "response",
+  "recording_id": "turn/ec9800f11fcc79d4/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our team lead asked me to check whether converting someone from agent to observer keeps their past ticket assignments intact.\"\n\nWe have relevant policy excerpts: DOC-033 parts 1 and 2. Part 2 says: \"Assignment history is attached to the person's account, not to their current role, so records previously assigned to someone moving to observer remain assigned to them and remain visible in that history; an observer role only changes what the person can do going forward, specifically that new work cannot be assigned to them and they cannot take actions requiring an agent or admin role.\"\n\nThus answer: Yes, past assignments remain intact and visible; only future assignments are prevented.\n\nWe can answer directly. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 when you change a seat from agent to observer, the person\u2019s assignment history stays with their account. All tickets they were previously assigned to remain recorded and visible in their history. The observer role only affects what they can do going forward (no new work can be assigned and they can\u2019t perform agent/admin actions).\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c7f666d5-4f3c-4168-82e7-0482ff692e96",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451344,
+      "id": "chatcmpl-491e61d4-79fa-4deb-8a63-33e760021e6c",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_8ea50c0161",
+      "usage": {
+        "completion_time": 0.98419086,
+        "completion_tokens": 243,
+        "completion_tokens_details": {
+          "reasoning_tokens": 153
+        },
+        "prompt_time": 0.243606448,
+        "prompt_tokens": 1072,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.310666592,
+        "total_time": 1.227797308,
+        "total_tokens": 1315
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m03js8evqr9eq89qtx8mdp",
+        "seed": 702421858
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 when you change a seat from agent to observer, the person\u2019s assignment history stays with their account. All tickets they were previously assigned to remain recorded and visible in their history. The observer role only affects what they can do going forward (no new work can be assigned and they can\u2019t perform agent/admin actions)."
+        },
+        "id": "fc_c7f666d5-4f3c-4168-82e7-0482ff692e96",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 243,
+      "prompt_tokens": 1072
+    }
+  },
+  "retry_after": null
+}

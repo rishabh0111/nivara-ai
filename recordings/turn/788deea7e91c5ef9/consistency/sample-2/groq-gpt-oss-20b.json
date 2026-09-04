@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:35:22.235905Z",
+  "failure_detail": null,
+  "fingerprint": "46312661c1b0aa3c2b98388d25c10cf5f3a5de798e832923ff913b4e42cb54fd",
+  "outcome": "response",
+  "recording_id": "turn/788deea7e91c5ef9/consistency/sample-2/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We have a user: \"exec impersonation message, is it a scam?\" They are asking if an executive impersonation message is a scam. The policy excerpts: They talk about executive impersonation requests about payment details. The question is about an executive impersonation message. The policy says: It's a common fraud pattern. So we should respond that it likely is a scam, and advise to verify and forward to support. The policy says: \"A message that impersonates an executive and asks an employee to urgently change payment details is a common fraud pattern, and referencing real, correct account details in the message does not make the request more legitimate.\" So we should answer that it's likely a scam. The question: \"exec impersonation message, is it a scam?\" The policy says it's a common fraud pattern. So yes, it's likely a scam. We should advise to verify via other channel, and forward to support. According to policy, we should not mention policy, just give short answer. So we should post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"It\u2019s very likely a scam. Executive\u2011impersonation requests that ask for urgent changes to payment details are a common fraud pattern. Verify the request directly with the person it claims to be from using an independent channel, and forward the message to support so we can check for any related activity. If you\u2019re unsure, just let us know and we\u2019ll help you confirm its legitimacy.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_90d527e6-e07e-4d2e-a4e5-e4f99f847b5c",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460522,
+      "id": "chatcmpl-9ef456cf-d3fc-481f-a01a-744183db3c57",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_66f3850a1a",
+      "usage": {
+        "completion_time": 0.319041737,
+        "completion_tokens": 305,
+        "completion_tokens_details": {
+          "reasoning_tokens": 206
+        },
+        "prompt_time": 0.239142809,
+        "prompt_tokens": 1103,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.306193741,
+        "total_time": 0.558184546,
+        "total_tokens": 1408
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8vnwdef9a1s3tkexex1cs",
+        "seed": 2093597686
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "It\u2019s very likely a scam. Executive\u2011impersonation requests that ask for urgent changes to payment details are a common fraud pattern. Verify the request directly with the person it claims to be from using an independent channel, and forward the message to support so we can check for any related activity. If you\u2019re unsure, just let us know and we\u2019ll help you confirm its legitimacy."
+        },
+        "id": "fc_90d527e6-e07e-4d2e-a4e5-e4f99f847b5c",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 305,
+      "prompt_tokens": 1103
+    }
+  },
+  "retry_after": null
+}

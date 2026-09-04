@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T15:58:19.787145Z",
+  "failure_detail": null,
+  "fingerprint": "1656ee9c927261bfbc295f2dbb129d40934c6038ff617136dfe38c42813202ed",
+  "outcome": "response",
+  "recording_id": "turn/54d1382ad5bb6dfb/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"Finance needs this comparison today before they'll approve the upgrade spend \u2014 what exactly changes on the next tier?\" They want a comparison of plan tiers. The policy excerpts provide that Settings \u2192 Billing \u2192 Plan includes a full feature comparison across every tier, showing seats, integrations, retention window, support level. Also that comparison page does not commit anything until upgrade confirmed, can be reviewed and shared. Also that you can downgrade back within short window with no charge. So answer: you can view comparison in Settings \u2192 Billing \u2192 Plan, includes seats, integrations, retention, support. No changes automatically; you can review before confirming; you can downgrade later if not needed. Provide that info. Ensure short answer. Use policy excerpts only. No other knowledge. Provide answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can see a full side\u2011by\u2011side comparison of every tier in **Settings \u2192 Billing \u2192 Plan**. The page lists each tier\u2019s included seat count, available integrations, data\u2011retention window, and support level, so you can see exactly what you\u2019d gain by moving up. Importantly, viewing the comparison doesn\u2019t change anything in your workspace \u2013 no data or configuration is altered until you explicitly confirm an upgrade. If you decide the upgrade isn\u2019t needed, you can downgrade again within a short window at no charge.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_383a7354-22a6-4452-b156-e4137a1a1648",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451099,
+      "id": "chatcmpl-5b1bba5e-19e0-431b-a062-805e6ddb8c81",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c868cf1eaa",
+      "usage": {
+        "completion_time": 0.627307485,
+        "completion_tokens": 297,
+        "completion_tokens_details": {
+          "reasoning_tokens": 165
+        },
+        "prompt_time": 0.941349667,
+        "prompt_tokens": 1057,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 1.155163004,
+        "total_time": 1.568657152,
+        "total_tokens": 1354
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kzw2cqevvvbx3dzwq9ne6c",
+        "seed": 1767252956
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can see a full side\u2011by\u2011side comparison of every tier in **Settings \u2192 Billing \u2192 Plan**. The page lists each tier\u2019s included seat count, available integrations, data\u2011retention window, and support level, so you can see exactly what you\u2019d gain by moving up. Importantly, viewing the comparison doesn\u2019t change anything in your workspace \u2013 no data or configuration is altered until you explicitly confirm an upgrade. If you decide the upgrade isn\u2019t needed, you can downgrade again within a short window at no charge."
+        },
+        "id": "fc_383a7354-22a6-4452-b156-e4137a1a1648",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 297,
+      "prompt_tokens": 1057
+    }
+  },
+  "retry_after": null
+}

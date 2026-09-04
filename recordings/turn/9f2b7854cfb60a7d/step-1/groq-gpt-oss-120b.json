@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:23:23.591779Z",
+  "failure_detail": null,
+  "fingerprint": "e2d1a323a45b4f00aca9151fb7a49ddbc03e3b33b3c6011fd2cc76be45dab52e",
+  "outcome": "response",
+  "recording_id": "turn/9f2b7854cfb60a7d/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The customer says: \"429s under the documented limit, why\". They are experiencing HTTP 429 Too Many Requests errors even though they think they are under the documented limit. According to DOC-021 parts: rate limit is per API key, rolling window, bursts can cause 429 even if under per-minute figure. Also headers X-RateLimit-Remaining and X-RateLimit-Reset show actual count. So answer: explain that limit is per key, rolling window, bursts cause 429, check headers. Provide guidance.\n\nWe must not mention policy. Just answer. Use short specific answer. Use post_reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"The 429 responses you\u2019re seeing are expected behavior for Meridian\u2019s API rate limiting. The limit is applied per API key on a rolling 60\u2011second window, not as a simple per\u2011minute bucket. If a burst of requests arrives close together, the rolling window can count them as exceeding the limit even though the average rate looks below the headline figure. You can see the exact remaining quota and when it resets in the `X-RateLimit-Remaining` and `X-RateLimit-Reset` response headers, which is the most reliable way to track usage.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_3584438e-d8c8-46ea-9216-43ea6de9ce3b",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373403,
+      "id": "chatcmpl-dba6788d-ab81-4053-a423-b149a638249f",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_8db49de948",
+      "usage": {
+        "completion_time": 0.589808907,
+        "completion_tokens": 275,
+        "completion_tokens_details": {
+          "reasoning_tokens": 135
+        },
+        "prompt_time": 0.04691965,
+        "prompt_tokens": 1073,
+        "queue_time": 0.04524833,
+        "total_time": 0.636728557,
+        "total_tokens": 1348
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hns184e269j3g4qsb8hbp3",
+        "seed": 142016322
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "The 429 responses you\u2019re seeing are expected behavior for Meridian\u2019s API rate limiting. The limit is applied per API key on a rolling 60\u2011second window, not as a simple per\u2011minute bucket. If a burst of requests arrives close together, the rolling window can count them as exceeding the limit even though the average rate looks below the headline figure. You can see the exact remaining quota and when it resets in the `X-RateLimit-Remaining` and `X-RateLimit-Reset` response headers, which is the most reliable way to track usage."
+        },
+        "id": "fc_3584438e-d8c8-46ea-9216-43ea6de9ce3b",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 275,
+      "prompt_tokens": 1073
+    }
+  },
+  "retry_after": null
+}

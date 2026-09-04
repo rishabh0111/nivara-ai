@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:21:30.081059Z",
+  "failure_detail": null,
+  "fingerprint": "9ca9fc201ddc0b11d2e67937f88ab69509a235f00360766e5067c6d7c96e4944",
+  "outcome": "response",
+  "recording_id": "turn/66357512e5fe6ea5/consistency/sample-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see the conversation to know context. The user says: \"We're still assessing impact from this and need to know right away whether this was a known platform incident.\" Likely they are asking if a particular issue they experienced was a known incident. According to policy excerpts, we can answer about checking status page for known incident, and how to determine if platform-wide slowdown etc. So we can answer: instruct them to check the status page, component breakdown, history, etc. The excerpts provide guidance. So we can answer.\n\nWe must not call read_conversation. We have enough context. Provide a short answer: advise to check status page, look at component breakdown, time windows, etc. Also mention that they can subscribe to notifications. So answer.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can confirm whether the issue you\u2019re seeing was a known platform incident by checking Meridian\u2019s status page:\\n\\n1. Open the status page and look at the list of incidents. It shows every incident (including brief ones) with exact start and end times and the components affected.\\n2. Use the component\u2011level breakdown to see if the API, dashboard, or any other part matches the symptom you experienced.\\n3. If the incident happened earlier in the day, you can still view it in the page\u2019s history to verify the time window.\\n\\nIf you need ongoing alerts, you can subscribe to notifications scoped to the specific components you care about, so you\u2019ll be notified only for relevant incidents.\\n\\nLet us know if you need any further help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_fe56af02-ce90-4bf9-a98f-e4814bf25469",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452489,
+      "id": "chatcmpl-7df9e478-cb60-4ead-8dfe-acd01b5d9617",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_90620edd96",
+      "usage": {
+        "completion_time": 0.717776486,
+        "completion_tokens": 340,
+        "completion_tokens_details": {
+          "reasoning_tokens": 159
+        },
+        "prompt_time": 0.051588679,
+        "prompt_tokens": 1094,
+        "queue_time": 0.366168903,
+        "total_time": 0.769365165,
+        "total_tokens": 1434
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m16hk5ekkbe0a63yz6g9rs",
+        "seed": 1812829421
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can confirm whether the issue you\u2019re seeing was a known platform incident by checking Meridian\u2019s status page:\n\n1. Open the status page and look at the list of incidents. It shows every incident (including brief ones) with exact start and end times and the components affected.\n2. Use the component\u2011level breakdown to see if the API, dashboard, or any other part matches the symptom you experienced.\n3. If the incident happened earlier in the day, you can still view it in the page\u2019s history to verify the time window.\n\nIf you need ongoing alerts, you can subscribe to notifications scoped to the specific components you care about, so you\u2019ll be notified only for relevant incidents.\n\nLet us know if you need any further help!"
+        },
+        "id": "fc_fe56af02-ce90-4bf9-a98f-e4814bf25469",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 340,
+      "prompt_tokens": 1094
+    }
+  },
+  "retry_after": null
+}

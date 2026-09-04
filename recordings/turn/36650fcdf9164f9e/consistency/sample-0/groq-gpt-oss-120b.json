@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:33:41.132150Z",
+  "failure_detail": null,
+  "fingerprint": "158146a743c3ec120965dbfe68e1d93e1be8ff38f05dfa67348e86c2f5d51baf",
+  "outcome": "response",
+  "recording_id": "turn/36650fcdf9164f9e/consistency/sample-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to decide based on policy excerpts. The user says \"renewal priced wrong, fix it\". This is a billing dispute about renewal price. The policy says: For renewal pricing questions, the billing team checks account's contract or order form against what was charged. It says the account owner or billing contact should raise it referencing the original quote so it can be checked. The policy excerpt suggests we can answer: explain that they need to contact billing team, reference original quote, etc. That seems to fully answer: they need to raise it referencing original quote. The question: \"renewal priced wrong, fix it\". We can respond with guidance: they should have account owner or billing contact raise a case referencing original quote, and billing will investigate. That seems covered by policy.\n\nThus we can post a reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"I\u2019m sorry you\u2019re seeing an unexpected renewal price. Our billing team will need to compare the charge to the original quote and the contract terms for your account. Please have the account owner or billing contact open a support request and reference the original quote so we can verify the correct price and make any necessary adjustments.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_cd019607-7d92-4d30-b779-2b7a85b9a860",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453220,
+      "id": "chatcmpl-f41d561b-8b3a-42d9-9b64-fb687d839657",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_fe269835c7",
+      "usage": {
+        "completion_time": 0.578831628,
+        "completion_tokens": 252,
+        "completion_tokens_details": {
+          "reasoning_tokens": 165
+        },
+        "prompt_time": 0.061994824,
+        "prompt_tokens": 1112,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.311254114,
+        "total_time": 0.640826452,
+        "total_tokens": 1364
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1wvgpe0e9gg1fzbyka1vd",
+        "seed": 784504793
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "I\u2019m sorry you\u2019re seeing an unexpected renewal price. Our billing team will need to compare the charge to the original quote and the contract terms for your account. Please have the account owner or billing contact open a support request and reference the original quote so we can verify the correct price and make any necessary adjustments."
+        },
+        "id": "fc_cd019607-7d92-4d30-b779-2b7a85b9a860",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 252,
+      "prompt_tokens": 1112
+    }
+  },
+  "retry_after": null
+}

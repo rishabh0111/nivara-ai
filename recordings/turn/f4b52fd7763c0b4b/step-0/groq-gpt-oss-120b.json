@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T15:51:17.129696Z",
+  "failure_detail": null,
+  "fingerprint": "4dd5f9044d2c7b74d2cb5ce1deae96820344f54f2acb3de2200775286e354700",
+  "outcome": "response",
+  "recording_id": "turn/f4b52fd7763c0b4b/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer using policy excerpts. The question: \"How do I remove a departed employee's seat and reassign it to a new hire without paying for both in the same billing cycle?\" This matches DOC-029 parts. Provide steps: remove person from Settings \u2192 People, then invite new person before or after? The policy says remove before inviting to avoid overage. So answer: go to Settings \u2192 People, remove departed employee, seat freed immediately, then invite new hire within same billing cycle; seat count will not exceed, no extra charge; next invoice will show one seat. Provide concise answer. Use only policy content. No need to escalate. Provide final answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! To reassign a seat without being charged for two at once, follow these steps:\\n1. Open **Settings \u2192 People**.\\n2. Find the departed employee and **remove** them. This frees the seat immediately.\\n3. While you\u2019re still in the same billing cycle, **invite** the new hire to fill that freed seat.\\nBecause the seat was removed before the new person is added, the occupied count never exceeds your paid seat count, so you won\u2019t trigger an over\u2011age charge. The next invoice will still show only one seat for that period.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_e3ee2592-c294-4d8a-a5fb-6a958614deea",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788450677,
+      "id": "chatcmpl-05a8f6ae-c455-4370-a2d8-875fadc0d480",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_803c0ba83d",
+      "usage": {
+        "completion_time": 0.696869414,
+        "completion_tokens": 282,
+        "completion_tokens_details": {
+          "reasoning_tokens": 137
+        },
+        "prompt_time": 1.4323972,
+        "prompt_tokens": 1077,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.966610039,
+        "total_time": 2.129266614,
+        "total_tokens": 1359
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kzf5aqes0a1er3t1egwq4f",
+        "seed": 1184154963
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! To reassign a seat without being charged for two at once, follow these steps:\n1. Open **Settings \u2192 People**.\n2. Find the departed employee and **remove** them. This frees the seat immediately.\n3. While you\u2019re still in the same billing cycle, **invite** the new hire to fill that freed seat.\nBecause the seat was removed before the new person is added, the occupied count never exceeds your paid seat count, so you won\u2019t trigger an over\u2011age charge. The next invoice will still show only one seat for that period."
+        },
+        "id": "fc_e3ee2592-c294-4d8a-a5fb-6a958614deea",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 282,
+      "prompt_tokens": 1077
+    }
+  },
+  "retry_after": null
+}

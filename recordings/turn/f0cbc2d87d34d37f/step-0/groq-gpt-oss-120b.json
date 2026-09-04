@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:13:43.674510Z",
+  "failure_detail": null,
+  "fingerprint": "b84c7bae4122dd58c7450a4743a08aae6d32089276dfa5d4b959b1dcc963be77",
+  "outcome": "response",
+  "recording_id": "turn/f0cbc2d87d34d37f/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Can I get a copy of last quarter's usage data for an internal audit, or does it need to be requested separately?\" This is about usage data for a specific quarter. According to DOC-041 part 3: For an audit needing a specific quarter, exporting with that quarter's exact date range from the usage screen produces the same data a request to support would, without the wait. So answer: they can export themselves via usage screen with custom date range for that quarter. Provide steps: Settings \u2192 Billing \u2192 Usage, export CSV with custom date range covering last quarter. Also note that usage older than two most recent billing periods is retained but not shown by default; can still be pulled with custom date range as long as within retention window. So answer accordingly. No need to escalate. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can download the data yourself \u2013 just go to **Settings \u2192 Billing \u2192 Usage** and export a CSV using a custom date range that covers last quarter. That export will give you the same information a support request would, so you don\u2019t need to ask us separately (as long as the quarter falls within your workspace\u2019s data\u2011retention window).\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_6a17fd8a-6469-4b8a-a9cb-84f80b01a225",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452023,
+      "id": "chatcmpl-0eb231d6-bfa2-4eb3-ba59-f43a37d7dd61",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_49bfac06f1",
+      "usage": {
+        "completion_time": 0.579195793,
+        "completion_tokens": 272,
+        "completion_tokens_details": {
+          "reasoning_tokens": 176
+        },
+        "prompt_time": 0.086227223,
+        "prompt_tokens": 1011,
+        "queue_time": 0.303382589,
+        "total_time": 0.665423016,
+        "total_tokens": 1283
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0racveq29sh8sytzky91x",
+        "seed": 1969494874
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can download the data yourself \u2013 just go to **Settings \u2192 Billing \u2192 Usage** and export a CSV using a custom date range that covers last quarter. That export will give you the same information a support request would, so you don\u2019t need to ask us separately (as long as the quarter falls within your workspace\u2019s data\u2011retention window)."
+        },
+        "id": "fc_6a17fd8a-6469-4b8a-a9cb-84f80b01a225",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 272,
+      "prompt_tokens": 1011
+    }
+  },
+  "retry_after": null
+}

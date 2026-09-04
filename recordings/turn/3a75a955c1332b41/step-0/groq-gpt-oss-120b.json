@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:25:36.398359Z",
+  "failure_detail": null,
+  "fingerprint": "2c230b7c6a57c88571fdd4733f783d7c1fa8b3539f47b36bfa60536d6fbab270",
+  "outcome": "response",
+  "recording_id": "turn/3a75a955c1332b41/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"Would a stopped endpoint show as disabled somewhere, or would deliveries just silently stop with no indication either side?\" This is about webhook endpoint stopped. We have relevant docs: DOC-022 parts 1 and 2 about checking webhook delivery status. Also DOC-062 about reporting a webhook endpoint changed without authorization, mentions admin can disable or repoint the webhook from Settings \u2192 Developer \u2192 Webhooks, which stops further deliveries right away. The question: would a stopped endpoint show as disabled somewhere, or would deliveries just silently stop with no indication either side? According to docs: Delivery log shows attempts and status. If endpoint stops receiving events with nothing in receiving system logs, usually means deliveries failing before they reach system (TLS expired, firewall, non-2xx). So there is indication via Delivery log. Also Settings \u2192 Developer \u2192 Webhooks shows the webhook config; if disabled, it would be shown. The question: \"Would a stopped endpoint show as disabled somewhere, or would deliveries just silently stop with no indication either side?\" Answer: The endpoint can be disabled in Settings \u2192 Developer \u2192 Webhooks, and the Delivery log will show attempts and status. If it's just failing, deliveries may silently stop on the receiving side but you can see failures in the Delivery log. So answer accordingly.\n\nWe must use only policy excerpts. Provide short answer. Use post_reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If a webhook has been disabled, you\u2019ll see that status in Settings \u2192 Developer \u2192 Webhooks. Even when the endpoint itself stops receiving events, Meridian still records each delivery attempt in Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log, showing the HTTP status and any error response. So a disabled webhook is visible in the settings, and silent\u2011stop deliveries are still reflected in the delivery log on the Meridian side.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_e4da2271-7126-4cce-9564-e0157347a8a7",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373536,
+      "id": "chatcmpl-6ec948aa-586d-4308-a6b6-2dae7172e4f0",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e5b4e54fbb",
+      "usage": {
+        "completion_time": 1.013378467,
+        "completion_tokens": 393,
+        "completion_tokens_details": {
+          "reasoning_tokens": 286
+        },
+        "prompt_time": 0.466612381,
+        "prompt_tokens": 1086,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.365585762,
+        "total_time": 1.479990848,
+        "total_tokens": 1479
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnx1rke1crqcvejnr68jdh",
+        "seed": 286117097
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If a webhook has been disabled, you\u2019ll see that status in Settings \u2192 Developer \u2192 Webhooks. Even when the endpoint itself stops receiving events, Meridian still records each delivery attempt in Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log, showing the HTTP status and any error response. So a disabled webhook is visible in the settings, and silent\u2011stop deliveries are still reflected in the delivery log on the Meridian side."
+        },
+        "id": "fc_e4da2271-7126-4cce-9564-e0157347a8a7",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 393,
+      "prompt_tokens": 1086
+    }
+  },
+  "retry_after": null
+}

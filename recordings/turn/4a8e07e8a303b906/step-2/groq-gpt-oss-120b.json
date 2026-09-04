@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:20:00.278843Z",
+  "failure_detail": null,
+  "fingerprint": "a4f5d972fdfde6f1f947134309feafe7c58a3821eec244ad2fa2ada1b84a5e4f",
+  "outcome": "response",
+  "recording_id": "turn/4a8e07e8a303b906/step-2/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"archived tickets in export?\" Likely they ask whether archived tickets are included in export. According to DOC-018 part 1: A standard export includes every record in the current view, including archived and closed ones, unless a filter narrows it. Also note that active queue view hides closed records but export filter independent. So answer: Yes, standard export includes archived tickets unless you filter them out. Also can verify row count. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 a standard export pulls every record that\u2019s in the current view, which includes archived (and closed) tickets unless you apply a filter on the export screen that excludes them. You can double\u2011check what was exported by comparing the row count shown before the export with the total record count (including archives) shown in Settings \u2192 Data \u2192 Overview.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_2a1bde58-10c7-480b-931e-7b4c53a5d795",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373200,
+      "id": "chatcmpl-3c43d954-d80b-42e2-b321-794978644530",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c800245357",
+      "usage": {
+        "completion_time": 0.419676614,
+        "completion_tokens": 199,
+        "completion_tokens_details": {
+          "reasoning_tokens": 105
+        },
+        "prompt_time": 0.04996687,
+        "prompt_tokens": 1044,
+        "queue_time": 0.272269364,
+        "total_time": 0.469643484,
+        "total_tokens": 1243
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnjtgceqxrcdqamb9ng1sq",
+        "seed": 308834474
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 a standard export pulls every record that\u2019s in the current view, which includes archived (and closed) tickets unless you apply a filter on the export screen that excludes them. You can double\u2011check what was exported by comparing the row count shown before the export with the total record count (including archives) shown in Settings \u2192 Data \u2192 Overview."
+        },
+        "id": "fc_2a1bde58-10c7-480b-931e-7b4c53a5d795",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 199,
+      "prompt_tokens": 1044
+    }
+  },
+  "retry_after": null
+}

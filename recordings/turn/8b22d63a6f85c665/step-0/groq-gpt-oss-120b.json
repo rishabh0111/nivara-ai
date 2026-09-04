@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:27:30.369181Z",
+  "failure_detail": null,
+  "fingerprint": "6aeffa70674cf6cb994fbce0c115cc06b78c98924ac86415d2c13520bd4f1595",
+  "outcome": "response",
+  "recording_id": "turn/8b22d63a6f85c665/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Is there a grace period where both the old and new key work, or does rotation cut over instantly?\" This is about API key rotation. The policy excerpts say: generating a new API key does not automatically revoke the old one \u2014 both keys are valid at the same time until the old one is explicitly revoked. Also there is an overlap window to rotate without downtime: deploy new key, confirm works, then revoke old key. So answer: there is an overlap window; both keys work until you revoke old one. Provide short answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When you generate a new API key, the old key remains active until you explicitly revoke it. This creates an overlap window so you can deploy the new key, verify everything works, and then retire the old one\u2014there\u2019s no instant cut\u2011over unless you choose to revoke the previous key right away.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_aea4d4bd-0fbe-41f2-a978-2b72a84a84b8",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373650,
+      "id": "chatcmpl-77750983-bc78-4ad3-b638-e325643e35db",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5a93aea882",
+      "usage": {
+        "completion_time": 0.442286109,
+        "completion_tokens": 211,
+        "completion_tokens_details": {
+          "reasoning_tokens": 125
+        },
+        "prompt_time": 0.045678862,
+        "prompt_tokens": 1035,
+        "queue_time": 0.159601987,
+        "total_time": 0.487964971,
+        "total_tokens": 1246
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hp0j8je3hrb30xtx2bc67t",
+        "seed": 817943162
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When you generate a new API key, the old key remains active until you explicitly revoke it. This creates an overlap window so you can deploy the new key, verify everything works, and then retire the old one\u2014there\u2019s no instant cut\u2011over unless you choose to revoke the previous key right away."
+        },
+        "id": "fc_aea4d4bd-0fbe-41f2-a978-2b72a84a84b8",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 211,
+      "prompt_tokens": 1035
+    }
+  },
+  "retry_after": null
+}

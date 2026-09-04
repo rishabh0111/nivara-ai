@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:08:20.410911Z",
+  "failure_detail": null,
+  "fingerprint": "c8e7ec66ef2a9198477a81b4b105e247421c7e795ffbd13e6a393681fc433a26",
+  "outcome": "response",
+  "recording_id": "turn/61d8abd22fd4c79b/consistency/sample-2/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user: \"I'm locked out of two-factor after switching phones and I need back in urgently \u2014 how do I re-enrol without losing access entirely?\" This is about re-enrolling two-factor authentication after losing access to the app. The policy excerpts provide steps: from Settings \u2192 Security \u2192 Two-factor authentication, choose \u201cReset\u201d and re-enrol same way as first-time setup \u2014 scanning a new QR code and confirming with a fresh six-digit code. Also mention using saved recovery code if settings page not reachable. Also note that re-enrolling invalidates old QR code.\n\nThus we can answer: go to Settings \u2192 Security \u2192 Two-factor authentication, select Reset, then enable again, scan new QR, enter code, save recovery codes. Also if you have recovery code, can sign in with that and reset.\n\nWe need to keep answer short and specific, address the customer directly. No mention of policies.\n\nThus we can post_reply with answer.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"To get back in, open Settings \u2192 Security \u2192 Two\u2011factor authentication and tap **Reset**. Then enable 2FA again just like a first\u2011time setup: scan the new QR code with your authenticator app, enter the six\u2011digit code it generates, and be sure to save the new recovery codes. If you can\u2019t reach the settings page, you can sign in with a saved recovery code and reset from there.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_1fe805a2-9644-4c4b-bca2-831cae2549b3",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372500,
+      "id": "chatcmpl-f67f681f-7443-47db-8985-6079c68806f7",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e5b4e54fbb",
+      "usage": {
+        "completion_time": 1.633552404,
+        "completion_tokens": 312,
+        "completion_tokens_details": {
+          "reasoning_tokens": 200
+        },
+        "prompt_time": 0.156994288,
+        "prompt_tokens": 1144,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.362869521,
+        "total_time": 1.790546692,
+        "total_tokens": 1456
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmxdqdeshssxq07a5q5dv5",
+        "seed": 1728496048
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "To get back in, open Settings \u2192 Security \u2192 Two\u2011factor authentication and tap **Reset**. Then enable 2FA again just like a first\u2011time setup: scan the new QR code with your authenticator app, enter the six\u2011digit code it generates, and be sure to save the new recovery codes. If you can\u2019t reach the settings page, you can sign in with a saved recovery code and reset from there."
+        },
+        "id": "fc_1fe805a2-9644-4c4b-bca2-831cae2549b3",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 312,
+      "prompt_tokens": 1144
+    }
+  },
+  "retry_after": null
+}

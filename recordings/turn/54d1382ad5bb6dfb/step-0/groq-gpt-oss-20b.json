@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:29:32.982480Z",
+  "failure_detail": null,
+  "fingerprint": "1b816dbc697d38f11d153de7c5dcd2c828a75595b01d00c7828b3f64dfc04fa8",
+  "outcome": "response",
+  "recording_id": "turn/54d1382ad5bb6dfb/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: \"Finance needs this comparison today before they'll approve the upgrade spend \u2014 what exactly changes on the next tier?\" The policy excerpts: The article \"Comparing plan tiers before upgrading\" includes details: part 1: Settings \u2192 Billing \u2192 Plan includes a full feature comparison across every tier, not just seat limits \u2014 each tier's included seats, integrations, retention window and support level are shown side by side. Part 2: Nothing about existing data or configuration changes automatically as part of comparing tiers; the comparison page does not commit to anything until an upgrade is explicitly confirmed, so it can be reviewed and shared internally before authorising the spend. Part 3: A workspace that upgrades to see the comparison more clearly can also downgrade back within a short window with no charge, if the upgrade turns out not to be needed yet.\n\nThus answer: The comparison page shows included seats, integrations, retention window, support level. No changes to existing data or config until upgrade confirmed. Also can downgrade within short window with no charge. So answer: The next tier includes more seats, more integrations, longer retention, higher support level. No automatic changes until upgrade confirmed. And can downgrade within short window.\n\nWe need to keep answer short and specific. Provide that.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! On the comparison page (Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan) you\u2019ll see a side\u2011by\u2011side list of every tier. It shows the number of seats included, the integrations you get, the data\u2011retention window, and the support level. No data or configuration is changed automatically \u2013 the comparison is just for review. If you decide to upgrade, you can still downgrade back within a short window at no extra cost if you change your mind. Let me know if you need anything else!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f2285f6c-7ae7-4ccb-a501-06fdd645c682",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460172,
+      "id": "chatcmpl-ad5341fd-9c76-40af-b4b5-2b172ec5433e",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_a4315eb300",
+      "usage": {
+        "completion_time": 0.450412135,
+        "completion_tokens": 382,
+        "completion_tokens_details": {
+          "reasoning_tokens": 255
+        },
+        "prompt_time": 0.078349668,
+        "prompt_tokens": 1057,
+        "queue_time": 0.313227115,
+        "total_time": 0.528761803,
+        "total_tokens": 1439
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8h0njeg897gh3jnvwbyj3",
+        "seed": 1081356511
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! On the comparison page (Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan) you\u2019ll see a side\u2011by\u2011side list of every tier. It shows the number of seats included, the integrations you get, the data\u2011retention window, and the support level. No data or configuration is changed automatically \u2013 the comparison is just for review. If you decide to upgrade, you can still downgrade back within a short window at no extra cost if you change your mind. Let me know if you need anything else!"
+        },
+        "id": "fc_f2285f6c-7ae7-4ccb-a501-06fdd645c682",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 382,
+      "prompt_tokens": 1057
+    }
+  },
+  "retry_after": null
+}

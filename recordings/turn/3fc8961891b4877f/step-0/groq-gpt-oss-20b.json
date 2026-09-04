@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:29:23.803320Z",
+  "failure_detail": null,
+  "fingerprint": "89a78d4941f803fa322e1fcb03cb974877cec8cabdab2070135b5b4ed7c5929c",
+  "outcome": "response",
+  "recording_id": "turn/3fc8961891b4877f/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer question: \"swap seat between employees, avoid double charge\". Likely about reassigning seat without paying for two at once. The policy says remove person first then invite new. So answer: remove from Settings \u2192 People, then invite new. That keeps seat count same. Also mention seat count is highest number at any point. Provide guidance. No mention of policy. Just answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! To swap a seat between two employees without incurring a double charge, follow these steps:\\n\\n1. **Remove the current employee** \u2013 Go to Settings\u202f\u2192\u202fPeople, find the employee who is leaving the seat, and click **Remove**. This frees the seat immediately.\\n2. **Invite the new employee** \u2013 Still within the same billing cycle, invite the new person to that freed seat. Because the seat was already freed before the new invite, the seat count stays at one.\\n\\nMeridian\u2019s billing counts the highest number of seats occupied at any point in a cycle. By removing first and inviting second, you keep that peak at one seat, so the next invoice will show only a single seat charge. If you need to confirm the seat count on an invoice, open Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fInvoices, expand the seat line item, and you\u2019ll see the breakdown.\\n\\nLet me know if you\u2019d like a quick walkthrough of the steps or if anything else comes up!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_da80ea43-b6b8-446e-b09e-3e910d83fd65",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460163,
+      "id": "chatcmpl-dba48aef-8f50-4138-90bb-518b1e8104e6",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e189667b30",
+      "usage": {
+        "completion_time": 0.386776798,
+        "completion_tokens": 313,
+        "completion_tokens_details": {
+          "reasoning_tokens": 82
+        },
+        "prompt_time": 0.054585568,
+        "prompt_tokens": 1081,
+        "queue_time": 0.316196085,
+        "total_time": 0.441362366,
+        "total_tokens": 1394
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8gqjges8aj0f82xdjhtkx",
+        "seed": 1371302804
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! To swap a seat between two employees without incurring a double charge, follow these steps:\n\n1. **Remove the current employee** \u2013 Go to Settings\u202f\u2192\u202fPeople, find the employee who is leaving the seat, and click **Remove**. This frees the seat immediately.\n2. **Invite the new employee** \u2013 Still within the same billing cycle, invite the new person to that freed seat. Because the seat was already freed before the new invite, the seat count stays at one.\n\nMeridian\u2019s billing counts the highest number of seats occupied at any point in a cycle. By removing first and inviting second, you keep that peak at one seat, so the next invoice will show only a single seat charge. If you need to confirm the seat count on an invoice, open Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fInvoices, expand the seat line item, and you\u2019ll see the breakdown.\n\nLet me know if you\u2019d like a quick walkthrough of the steps or if anything else comes up!"
+        },
+        "id": "fc_da80ea43-b6b8-446e-b09e-3e910d83fd65",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 313,
+      "prompt_tokens": 1081
+    }
+  },
+  "retry_after": null
+}

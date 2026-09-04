@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:17:46.992216Z",
+  "failure_detail": null,
+  "fingerprint": "28339314117b370f4208cd687e0f558b5f9688dbb5fa3394c9ddd6fdca90e2a2",
+  "outcome": "response",
+  "recording_id": "turn/740f39fac9e5b57e/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user wants automated weekly exports. The policy says scheduling recurring export: steps: choose what to export and recurrence daily/weekly/monthly, connect cloud storage destination via OAuth, save schedule. Also note that recurring exports are configured from Settings \u2192 Data \u2192 Scheduled exports, separate from one-off export button.\n\nThus we can give instructions: go to Settings > Data > Scheduled exports, click new schedule, select weekly, choose export content, connect cloud storage (e.g., Google Drive, Dropbox, etc.) via OAuth, save.\n\nWe should keep answer short and specific. No need to mention policy. Provide steps.\n\nThus we will post_reply with answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! To set up an automated weekly export:\\n1. Open **Settings \u2192 Data \u2192 Scheduled exports**.\\n2. Click **Create new schedule**.\\n3. Choose the data you want to export.\\n4. Set the recurrence to **Weekly**.\\n5. Connect a cloud\u2011storage destination (e.g., Google Drive, Dropbox, OneDrive) via the OAuth prompt \u2013 you only need to do this once per destination.\\n6. Save the schedule.\\nThe export will now run automatically each week and drop the file into the connected storage, so you won\u2019t need to download it manually.\\nIf you need any help picking a storage provider or selecting the export format, just let me know!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_874368a5-c466-4b3f-a7ca-b23537f0f6a2",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373066,
+      "id": "chatcmpl-dc6b686c-4220-49a6-8d3f-5aa35411c06f",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e5b4e54fbb",
+      "usage": {
+        "completion_time": 0.656190519,
+        "completion_tokens": 312,
+        "completion_tokens_details": {
+          "reasoning_tokens": 140
+        },
+        "prompt_time": 0.053279055,
+        "prompt_tokens": 1015,
+        "queue_time": 0.362100947,
+        "total_time": 0.709469574,
+        "total_tokens": 1327
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hneqyvej0s47s5kcpp6ay9",
+        "seed": 1059748124
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! To set up an automated weekly export:\n1. Open **Settings \u2192 Data \u2192 Scheduled exports**.\n2. Click **Create new schedule**.\n3. Choose the data you want to export.\n4. Set the recurrence to **Weekly**.\n5. Connect a cloud\u2011storage destination (e.g., Google Drive, Dropbox, OneDrive) via the OAuth prompt \u2013 you only need to do this once per destination.\n6. Save the schedule.\nThe export will now run automatically each week and drop the file into the connected storage, so you won\u2019t need to download it manually.\nIf you need any help picking a storage provider or selecting the export format, just let me know!"
+        },
+        "id": "fc_874368a5-c466-4b3f-a7ca-b23537f0f6a2",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 312,
+      "prompt_tokens": 1015
+    }
+  },
+  "retry_after": null
+}

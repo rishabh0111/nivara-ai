@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:03:48.228274Z",
+  "failure_detail": null,
+  "fingerprint": "6835d271a064ec6ba841361c029318cfa6316380eac8bbdd2df1570855f20f50",
+  "outcome": "response",
+  "recording_id": "turn/d416065ac3db8a51/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to determine appropriate action. The user says: \"It's my first day and I can't get into anything because there's no SSO option showing on the login page \u2014 please check if I was actually provisioned.\"\n\nThis is a request to check if they were provisioned. According to policy: \"An admin can check whether the account exists from Settings \u2192 People, where an SSO-provisioned account is marked with the identity provider it came from; its absence means the sync has not created it yet.\" The user is asking the support assistant to check if they were provisioned. The assistant is not an admin; they cannot check. The policy says we can answer based on policy excerpts. We could explain that only an admin can check in Settings \u2192 People. The user asks to check if they were provisioned. We can respond with guidance: they need to ask an admin to verify in Settings \u2192 People. That is allowed. The policy excerpt says that the SSO option only appears for an email domain configured and after the identity provider sync has created the account. So we can explain that.\n\nWe must not do anything beyond policy. It's not about money, fraud, identity docs. It's about SSO provisioning. So we can answer.\n\nWe need to keep answer short and specific, address the customer directly. Provide guidance: check with admin, they can verify in Settings \u2192 People. Also note that SSO option appears only after provisioning.\n\nThus we will post_reply with answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! The SSO sign\u2011in button only shows up once your account has been created by the identity\u2011provider sync. An admin can confirm whether your account exists by going to Settings \u2192 People \u2013 SSO\u2011provisioned accounts are listed there with the identity provider shown. If you don\u2019t see your account, it means the sync hasn\u2019t created it yet, and an admin will need to provision you before SSO will appear.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_ab013159-be33-427b-ad8d-aac435620b6f",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372227,
+      "id": "chatcmpl-b7a99c12-1a3c-4511-bb3f-3b580119da5c",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_3166198c1d",
+      "usage": {
+        "completion_time": 0.869118877,
+        "completion_tokens": 412,
+        "completion_tokens_details": {
+          "reasoning_tokens": 298
+        },
+        "prompt_time": 0.046126219,
+        "prompt_tokens": 1026,
+        "queue_time": 0.321611895,
+        "total_time": 0.915245096,
+        "total_tokens": 1438
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmn4cve2a8c2ece82atyrt",
+        "seed": 1970847976
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! The SSO sign\u2011in button only shows up once your account has been created by the identity\u2011provider sync. An admin can confirm whether your account exists by going to Settings \u2192 People \u2013 SSO\u2011provisioned accounts are listed there with the identity provider shown. If you don\u2019t see your account, it means the sync hasn\u2019t created it yet, and an admin will need to provision you before SSO will appear."
+        },
+        "id": "fc_ab013159-be33-427b-ad8d-aac435620b6f",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 412,
+      "prompt_tokens": 1026
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:53:55.918404Z",
+  "failure_detail": null,
+  "fingerprint": "27cc27851f8a82a05ed20c862fa700c7526fe55ed913479084c879430539a1e1",
+  "outcome": "response",
+  "recording_id": "turn/b6b5c87bb4763cff/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The customer says: \"invoice email doesn't match our billing history, real?\" They are asking if the invoice email is real. According to DOC-077 parts: genuine invoices are in Settings \u2192 Billing \u2192 Invoices; if email doesn't match anything shown there, treat as unverified. So answer: advise to check in Settings \u2192 Billing \u2192 Invoices, compare, and if not present, treat as suspicious, don't pay, contact support. Provide steps. This is allowed. Not about money movement directly, just verification. So we can answer.\n\nWe must post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! If the invoice you received by email doesn\u2019t match anything in your account\u2019s billing history, it\u2019s a good idea to treat it as unverified. Every genuine Meridian invoice is also listed in your workspace under **Settings \u2192 Billing \u2192 Invoices**. Compare the amount, due date, and invoice number in the email with what you see there. If you can\u2019t find a matching entry, don\u2019t pay the invoice until you\u2019ve confirmed it\u2019s legitimate\u2014either by checking with the billing contact listed in your workspace or by reaching out to our support team for further verification.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_108d6fc1-a130-4fe4-9cec-e1e345ea101a",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454435,
+      "id": "chatcmpl-80590bec-1fbc-4c89-a990-329193100b1a",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_803c0ba83d",
+      "usage": {
+        "completion_time": 1.069451245,
+        "completion_tokens": 265,
+        "completion_tokens_details": {
+          "reasoning_tokens": 123
+        },
+        "prompt_time": 0.057362048,
+        "prompt_tokens": 1044,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "queue_time": 0.36589443,
+        "total_time": 1.126813293,
+        "total_tokens": 1309
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m31xkdeg09dpdvtesmr7vx",
+        "seed": 899083793
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! If the invoice you received by email doesn\u2019t match anything in your account\u2019s billing history, it\u2019s a good idea to treat it as unverified. Every genuine Meridian invoice is also listed in your workspace under **Settings \u2192 Billing \u2192 Invoices**. Compare the amount, due date, and invoice number in the email with what you see there. If you can\u2019t find a matching entry, don\u2019t pay the invoice until you\u2019ve confirmed it\u2019s legitimate\u2014either by checking with the billing contact listed in your workspace or by reaching out to our support team for further verification."
+        },
+        "id": "fc_108d6fc1-a130-4fe4-9cec-e1e345ea101a",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 265,
+      "prompt_tokens": 1044
+    }
+  },
+  "retry_after": null
+}

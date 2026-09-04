@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:37:28.468436Z",
+  "failure_detail": null,
+  "fingerprint": "394037da78ec45503b6bcd7b8bb3d9d4974769c8f7de7dde0b28ae8d0c73cc32",
+  "outcome": "response",
+  "recording_id": "turn/381cb530a8833f18/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"Every timestamp in the dashboard is three hours behind for our team.\" They likely have timezone issues. Policy excerpts: DOC-034 explains timestamps stored UTC, displayed converted to timezone based on workspace default and personal timezone. If no personal timezone set, falls back to workspace default. So answer: check personal timezone settings, or workspace default. Also mention that if no personal timezone set, fallback to workspace default. So we can explain that. Also mention that timestamps are stored UTC. So answer: adjust timezone settings. Provide steps: go to Settings \u2192 General for workspace default, or Settings \u2192 Profile for personal timezone. Also mention that if they are all behind by 3 hours, likely workspace default is 3 hours behind. So adjust. Also mention that if they have personal timezone set incorrectly, adjust. So answer accordingly.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! The timestamps you see are converted from UTC to a timezone. If they\u2019re all three hours behind, it\u2019s usually because the workspace default or your personal timezone is set that way. Check the workspace default in Settings\u202f\u2192\u202fGeneral and your own timezone in Settings\u202f\u2192\u202fProfile. Adjusting either of those will bring the dashboard times in line with your local time.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f233f6e0-c1db-4728-bf58-079444cb0b6a",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460648,
+      "id": "chatcmpl-0068c2c0-54fd-476f-a723-6716bdf0c020",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_66f3850a1a",
+      "usage": {
+        "completion_time": 0.322746824,
+        "completion_tokens": 271,
+        "completion_tokens_details": {
+          "reasoning_tokens": 173
+        },
+        "prompt_time": 0.058611693,
+        "prompt_tokens": 1043,
+        "queue_time": 0.305791166,
+        "total_time": 0.381358517,
+        "total_tokens": 1314
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8zh4pe2hazygfnd5m49e2",
+        "seed": 478658503
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! The timestamps you see are converted from UTC to a timezone. If they\u2019re all three hours behind, it\u2019s usually because the workspace default or your personal timezone is set that way. Check the workspace default in Settings\u202f\u2192\u202fGeneral and your own timezone in Settings\u202f\u2192\u202fProfile. Adjusting either of those will bring the dashboard times in line with your local time."
+        },
+        "id": "fc_f233f6e0-c1db-4728-bf58-079444cb0b6a",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 271,
+      "prompt_tokens": 1043
+    }
+  },
+  "retry_after": null
+}

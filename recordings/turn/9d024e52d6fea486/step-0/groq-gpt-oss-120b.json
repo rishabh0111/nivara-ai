@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:59:46.446801Z",
+  "failure_detail": null,
+  "fingerprint": "08878766aa1eaf74c7360e609332b9682d7fb2c67922ea74e2a113cb7a17df8d",
+  "outcome": "response",
+  "recording_id": "turn/9d024e52d6fea486/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"A customer says they only sent one email but we ended up with two tickets from it, and they are confused getting two replies.\" This is about duplicate tickets from a single email. Not covered in provided excerpts. The excerpts are about fraudulent billing emails, two-factor codes, seat reassignment billing, forwarding suspicious email, etc. No relevant policy. So we must escalate. Also not about money movement, fraud, etc. But ambiguous? Not covered. So per rules, if not in policy, we must escalate.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"Customer reports receiving two tickets/replies from a single email, causing confusion. The provided policy excerpts do not cover ticket duplication or email handling procedures, so I cannot safely answer from the policy. Escalating to a human support agent.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_d6c8052a-ec9f-4092-a7a1-240f16ced175",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454786,
+      "id": "chatcmpl-ef23fb04-d509-4346-ba2d-f9d01914b043",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_96d96a151c",
+      "usage": {
+        "completion_time": 0.586961461,
+        "completion_tokens": 190,
+        "completion_tokens_details": {
+          "reasoning_tokens": 117
+        },
+        "prompt_time": 0.261167485,
+        "prompt_tokens": 1066,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.280710793,
+        "total_time": 0.848128946,
+        "total_tokens": 1256
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m3cm2teeh86axysd7es387",
+        "seed": 690266450
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "Customer reports receiving two tickets/replies from a single email, causing confusion. The provided policy excerpts do not cover ticket duplication or email handling procedures, so I cannot safely answer from the policy. Escalating to a human support agent."
+        },
+        "id": "fc_d6c8052a-ec9f-4092-a7a1-240f16ced175",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 190,
+      "prompt_tokens": 1066
+    }
+  },
+  "retry_after": null
+}

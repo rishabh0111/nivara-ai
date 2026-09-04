@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:15:41.042558Z",
+  "failure_detail": null,
+  "fingerprint": "8a2f6c5588a8790473d1c82b5738c69a345e04c1963e6490ae9055cf042bf69c",
+  "outcome": "response",
+  "recording_id": "turn/bff972363d4f7313/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer the customer's question: \"required import columns?\" Likely they ask what columns are required for contact import. We have policy excerpts about required headers: email, name, company are required; optional include phone, title, custom fields. Also note that importer matches by header name, order doesn't matter. So answer: required columns are email, name, company. Also mention optional and that extra columns ignored. Keep short. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"For a contact import the only required columns are\u202f`email`,\u202f`name`\u202fand\u202f`company`. Any other columns (e.g.,\u202f`phone`,\u202f`title`, or custom\u2011field names) are optional, and extra columns that aren\u2019t recognised are simply ignored.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_d14fc030-5cca-42a6-a729-aa66ed8db6ab",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372940,
+      "id": "chatcmpl-3cb1084a-666f-471c-bfb0-9b78af7488e7",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_d1bc601726",
+      "usage": {
+        "completion_time": 0.369672832,
+        "completion_tokens": 175,
+        "completion_tokens_details": {
+          "reasoning_tokens": 92
+        },
+        "prompt_time": 0.048256943,
+        "prompt_tokens": 1031,
+        "queue_time": 0.044604949,
+        "total_time": 0.417929775,
+        "total_tokens": 1206
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnaxmkej8vyswsjf6pdg5s",
+        "seed": 1590245567
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "For a contact import the only required columns are\u202f`email`,\u202f`name`\u202fand\u202f`company`. Any other columns (e.g.,\u202f`phone`,\u202f`title`, or custom\u2011field names) are optional, and extra columns that aren\u2019t recognised are simply ignored."
+        },
+        "id": "fc_d14fc030-5cca-42a6-a729-aa66ed8db6ab",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 175,
+      "prompt_tokens": 1031
+    }
+  },
+  "retry_after": null
+}

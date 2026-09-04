@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:49:41.430112Z",
+  "failure_detail": null,
+  "fingerprint": "03afea34a5c9fb2b2d5befb57b61457a9777d37b1e44a58bb58bfb27eab5ef12",
+  "outcome": "response",
+  "recording_id": "turn/975c4d7295f12e24/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: admin reported a lost-card incident and wants old payment method fully removed with confirmation it can't be charged again. According to DOC-071 parts 2 and 3: removal trace fully gone is confirmed by billing team case by case; account owner or billing contact should raise it after removing the method themselves. So we should tell them they need to contact billing team, request confirmation, and that it's handled case by case. Provide steps: remove via settings, then request billing team to confirm removal. That's within policy. So we can answer.\n\nWe must not mention policy excerpts. Provide short specific answer.\n\nThus we will post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can delete the lost card yourself in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPayment method (as long as another valid method remains on the account). After you\u2019ve removed it, please ask the billing team to confirm that the card has been fully cleared from the billing records and can no longer be charged. This request is handled case\u2011by\u2011case by billing, so they\u2019ll provide the final confirmation you need.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_ace040e5-bbc7-411d-85cd-b5184b5a1da3",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454181,
+      "id": "chatcmpl-db02e230-5b1e-4e22-8f98-5ff8cfe6234c",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_19b184c447",
+      "usage": {
+        "completion_time": 0.514895853,
+        "completion_tokens": 246,
+        "completion_tokens_details": {
+          "reasoning_tokens": 138
+        },
+        "prompt_time": 0.984555366,
+        "prompt_tokens": 1106,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.366127057,
+        "total_time": 1.499451219,
+        "total_tokens": 1352
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2t4jneqc8ser26qc39qwj",
+        "seed": 274654436
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can delete the lost card yourself in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPayment method (as long as another valid method remains on the account). After you\u2019ve removed it, please ask the billing team to confirm that the card has been fully cleared from the billing records and can no longer be charged. This request is handled case\u2011by\u2011case by billing, so they\u2019ll provide the final confirmation you need."
+        },
+        "id": "fc_ace040e5-bbc7-411d-85cd-b5184b5a1da3",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 246,
+      "prompt_tokens": 1106
+    }
+  },
+  "retry_after": null
+}

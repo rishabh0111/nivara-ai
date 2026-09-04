@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T17:55:03.830845Z",
+  "failure_detail": null,
+  "fingerprint": "6b62fbe5d0dee5dbad96a06eaaa99caf971ca5d16ca5c3d8fcf64968b1048893",
+  "outcome": "response",
+  "recording_id": "turn/c333048b87c99c5e/consistency/sample-2/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to determine the customer's question. The user says \"wire transfer ok?\" Very vague. Could be asking if a wire transfer is okay, maybe about sending a wire transfer to pay. This is ambiguous. Also the policy excerpts include info about tracing a bank transfer payment that hasn't been applied, and about fraudulent billing emails: Meridian never asks to wire funds to a bank account via email. The question \"wire transfer ok?\" could be asking if it's okay to do a wire transfer to pay for something, which might be a fraudulent request. According to rules: If request ambiguous, escalate. Also if about money movement, disputed or fraudulent charge, or identity/account-recovery documents, we must escalate. This is about a wire transfer, which is money movement. So we must escalate. So we should call `escalate` with appropriate note.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer asked 'wire transfer ok?' which is ambiguous and concerns a wire transfer (money movement). According to policy, any request about money movement, especially wire transfers, should be escalated to a human. Unable to safely answer from provided excerpts.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_c848f105-adeb-40df-aaa6-dc0f18e73992",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371703,
+      "id": "chatcmpl-588edf79-a05e-4774-9374-0ae246eca711",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_93703442d9",
+      "usage": {
+        "completion_time": 0.522840007,
+        "completion_tokens": 247,
+        "completion_tokens_details": {
+          "reasoning_tokens": 171
+        },
+        "prompt_time": 0.062063943,
+        "prompt_tokens": 1123,
+        "queue_time": 0.361314149,
+        "total_time": 0.58490395,
+        "total_tokens": 1370
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hm54p0ejy823jsh2cetzk5",
+        "seed": 193703157
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer asked 'wire transfer ok?' which is ambiguous and concerns a wire transfer (money movement). According to policy, any request about money movement, especially wire transfers, should be escalated to a human. Unable to safely answer from provided excerpts."
+        },
+        "id": "fc_c848f105-adeb-40df-aaa6-dc0f18e73992",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 247,
+      "prompt_tokens": 1123
+    }
+  },
+  "retry_after": null
+}

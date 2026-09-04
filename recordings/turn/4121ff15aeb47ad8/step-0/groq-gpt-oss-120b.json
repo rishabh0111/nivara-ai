@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:05:15.480860Z",
+  "failure_detail": null,
+  "fingerprint": "6433c45c940b08297296c579f40a9d9352625151e0a57b46b4f550385290e7af",
+  "outcome": "response",
+  "recording_id": "turn/4121ff15aeb47ad8/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"I'm looking through account settings for a two-factor or MFA option to enrol my authenticator app but can't immediately spot where it lives.\"\n\nWe have policy excerpts: Setting up two-factor authentication: Open Settings \u2192 Security \u2192 Two-factor authentication and select \u201cEnable\u201d. So answer: go to Settings > Security > Two-factor authentication, enable, then scan QR etc.\n\nWe should give short specific answer. No need to mention policy. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can enable it from your account settings. Go to **Settings \u2192 Security \u2192 Two\u2011factor authentication**, then click **Enable**. From there you can scan the QR code with your authenticator app and finish the enrolment.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_44b80b5b-953e-4c9a-a3c9-0e1f8d0d4a6f",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372315,
+      "id": "chatcmpl-3d326f4d-da8e-401c-a736-3418bf582d8d",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c868cf1eaa",
+      "usage": {
+        "completion_time": 0.364012244,
+        "completion_tokens": 173,
+        "completion_tokens_details": {
+          "reasoning_tokens": 102
+        },
+        "prompt_time": 0.753830619,
+        "prompt_tokens": 1069,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.362081022,
+        "total_time": 1.117842863,
+        "total_tokens": 1242
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmqstaefh9q7qavjgsnnvc",
+        "seed": 1913133
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can enable it from your account settings. Go to **Settings \u2192 Security \u2192 Two\u2011factor authentication**, then click **Enable**. From there you can scan the QR code with your authenticator app and finish the enrolment."
+        },
+        "id": "fc_44b80b5b-953e-4c9a-a3c9-0e1f8d0d4a6f",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 173,
+      "prompt_tokens": 1069
+    }
+  },
+  "retry_after": null
+}

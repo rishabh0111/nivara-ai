@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:26:52.436566Z",
+  "failure_detail": null,
+  "fingerprint": "d44bbfc693ad680c5e83be4b9ee251d69b1ac25ba2d43788f5d76590f0ea5359",
+  "outcome": "response",
+  "recording_id": "turn/25ef4fd52f9a2a3d/consistency/sample-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our platform engineer wants to rotate a long-lived API key and asked me to confirm whether that invalidates the old key immediately or allows an overlap.\"\n\nFrom DOC-023 parts: Generating a new API key does not automatically revoke the old one; both keys valid until old revoked. Overlap window exists to rotate without downtime: deploy new key, confirm, then revoke old.\n\nThus answer: Overlap allowed; old key remains valid until you revoke it. Provide steps. So we can post_reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When you generate a new API key in Settings \u2192 Developer \u2192 API keys, the old key is **not** revoked automatically. Both keys stay active at the same time, giving you an overlap window so you can deploy the new key, verify everything works, and only then revoke the old key from the same screen. This lets you rotate the key without any downtime.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_ce2acf2e-5ccd-4c03-ba8c-7080fef34f1e",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373612,
+      "id": "chatcmpl-14938dd8-9499-4aa9-b3e7-b9ee3b38fc91",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_6c36ac20de",
+      "usage": {
+        "completion_time": 0.959849117,
+        "completion_tokens": 212,
+        "completion_tokens_details": {
+          "reasoning_tokens": 114
+        },
+        "prompt_time": 1.082736486,
+        "prompt_tokens": 1119,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.312232199,
+        "total_time": 2.042585603,
+        "total_tokens": 1331
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnzbhyew8vy4mhye5ncd5z",
+        "seed": 47987681
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When you generate a new API key in Settings \u2192 Developer \u2192 API keys, the old key is **not** revoked automatically. Both keys stay active at the same time, giving you an overlap window so you can deploy the new key, verify everything works, and only then revoke the old key from the same screen. This lets you rotate the key without any downtime."
+        },
+        "id": "fc_ce2acf2e-5ccd-4c03-ba8c-7080fef34f1e",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 212,
+      "prompt_tokens": 1119
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:00:26.091637Z",
+  "failure_detail": null,
+  "fingerprint": "6f756e465b1658fd92fb840c99cd2600f112c0da6e5a788e295d169c7b75d92c",
+  "outcome": "response",
+  "recording_id": "turn/fb35b0c717fc572f/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to read conversation to see context. Probably the user is reporting SSO redirect loop. The policy excerpts include troubleshooting steps. We can answer with steps: check callback URL matches reply URL, ensure no trailing slash mismatch, re-save IdP config. Provide concise answer.\n\nWe must ensure not to mention policies. Provide short specific answer.\n\nWe should post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"It sounds like the SSO redirect loop is caused by a mismatch between Meridian\u2019s callback URL and the reply URL you\u2019ve set in your identity provider. Please:\\n1. Open Settings \u2192 Security \u2192 SSO \u2192 Configuration in Meridian and copy the exact callback URL.\\n2. In your IdP\u2019s application settings, compare the reply/redirect URI to that callback URL \u2013 make sure they match character\u2011for\u2011character (including http vs https and any trailing slash).\\n3. Save the IdP configuration again (some providers cache the old value until you re\u2011save).\\nAfter the URLs match, try signing in again; the loop should be resolved.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_986d09a5-905b-4195-a8ab-d047dbb3687b",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372025,
+      "id": "chatcmpl-5c8ccc93-d208-4092-aac7-465e97c33afe",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_dc4ca88fa4",
+      "usage": {
+        "completion_time": 0.682587038,
+        "completion_tokens": 232,
+        "completion_tokens_details": {
+          "reasoning_tokens": 74
+        },
+        "prompt_time": 0.259520701,
+        "prompt_tokens": 1094,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.310469887,
+        "total_time": 0.942107739,
+        "total_tokens": 1326
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmez5gex7ad85t062cghzk",
+        "seed": 165397919
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "It sounds like the SSO redirect loop is caused by a mismatch between Meridian\u2019s callback URL and the reply URL you\u2019ve set in your identity provider. Please:\n1. Open Settings \u2192 Security \u2192 SSO \u2192 Configuration in Meridian and copy the exact callback URL.\n2. In your IdP\u2019s application settings, compare the reply/redirect URI to that callback URL \u2013 make sure they match character\u2011for\u2011character (including http vs https and any trailing slash).\n3. Save the IdP configuration again (some providers cache the old value until you re\u2011save).\nAfter the URLs match, try signing in again; the loop should be resolved."
+        },
+        "id": "fc_986d09a5-905b-4195-a8ab-d047dbb3687b",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 232,
+      "prompt_tokens": 1094
+    }
+  },
+  "retry_after": null
+}

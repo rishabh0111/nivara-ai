@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T17:00:02.190489Z",
+  "failure_detail": null,
+  "fingerprint": "e3144fb6e636a12964fd7238d08eb429f9c1cef4251e5529a76d1e874936ed3e",
+  "outcome": "response",
+  "recording_id": "turn/aed868b234167d60/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"We are trying to install the calendar app from the integrations marketplace and it gets stuck on the authorization step every time.\"\n\nWe have policy excerpts about two-factor authentication and API pagination. Nothing about integrations marketplace or calendar app installation. So we cannot answer from provided excerpts. According to rules: If the policy excerpts do not contain answer, we must escalate. Also it's not about money movement, disputed charge, identity, etc. So we should escalate.\n\nWe need to provide internal note: what the customer asked, what we found, why we stopped.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer is experiencing an issue installing the calendar app from the integrations marketplace, which gets stuck on the authorization step. The provided policy excerpts only cover two-factor authentication and API pagination, and do not contain information relevant to integration app installation or troubleshooting. Since we cannot answer the question from the available policy content, we need to escalate to a human support agent.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_53bc35f4-6bf9-45fa-abf9-70db546585c1",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454802,
+      "id": "chatcmpl-2e024a42-0a42-4840-a0c7-9227a6402f8c",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5a93aea882",
+      "usage": {
+        "completion_time": 0.484612735,
+        "completion_tokens": 219,
+        "completion_tokens_details": {
+          "reasoning_tokens": 122
+        },
+        "prompt_time": 0.907784358,
+        "prompt_tokens": 1023,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.767110611,
+        "total_time": 1.392397093,
+        "total_tokens": 1242
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m3d2m8e4wsy6c2n4z2pm7t",
+        "seed": 1756095490
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer is experiencing an issue installing the calendar app from the integrations marketplace, which gets stuck on the authorization step. The provided policy excerpts only cover two-factor authentication and API pagination, and do not contain information relevant to integration app installation or troubleshooting. Since we cannot answer the question from the available policy content, we need to escalate to a human support agent."
+        },
+        "id": "fc_53bc35f4-6bf9-45fa-abf9-70db546585c1",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 219,
+      "prompt_tokens": 1023
+    }
+  },
+  "retry_after": null
+}

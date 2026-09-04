@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:26:21.671401Z",
+  "failure_detail": null,
+  "fingerprint": "d5f80bcb7a14180bc7b7fc3c43b6fdbef652a87cda718a692ddbbd4938f1fb2f",
+  "outcome": "response",
+  "recording_id": "turn/b08e89ea92e88993/step-1/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user: \"Looking for a way to stop doing this export manually.\" They want to stop doing export manually. We have policy excerpts about export formats, scheduled reports, etc. The question: \"Looking for a way to stop doing this export manually.\" They likely want to automate export or schedule it. The policy excerpts mention scheduled reports and export formats. There's no direct answer about automating export. The policy says: \"For a one-off download destined for a specific tool, picking that tool's native format avoids a manual reformatting step CSV would otherwise require.\" That doesn't answer. There's no mention of automating export. So we cannot answer. We should escalate.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer is asking how to stop doing the export manually. The policy excerpts provided do not contain information on automating or scheduling exports. Therefore, I cannot provide a correct answer from the policy. Escalate to a human.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_77df98e8-d861-4a81-9d08-31fecf612a81",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459981,
+      "id": "chatcmpl-8479c139-0466-4ce8-90b1-a0b082b4667b",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9340e7d14d",
+      "usage": {
+        "completion_time": 0.499792493,
+        "completion_tokens": 205,
+        "completion_tokens_details": {
+          "reasoning_tokens": 136
+        },
+        "prompt_time": 0.07802523,
+        "prompt_tokens": 1061,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.280757964,
+        "total_time": 0.577817723,
+        "total_tokens": 1266
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8b5zfe95vzwtca8tr835d",
+        "seed": 1057897291
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer is asking how to stop doing the export manually. The policy excerpts provided do not contain information on automating or scheduling exports. Therefore, I cannot provide a correct answer from the policy. Escalate to a human."
+        },
+        "id": "fc_77df98e8-d861-4a81-9d08-31fecf612a81",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 205,
+      "prompt_tokens": 1061
+    }
+  },
+  "retry_after": null
+}

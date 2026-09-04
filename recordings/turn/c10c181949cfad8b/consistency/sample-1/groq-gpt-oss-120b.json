@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:07:36.563420Z",
+  "failure_detail": null,
+  "fingerprint": "2050beb22ac6c32cb51e72ccd7728f105c2ba79df2bdf5126ce9cfe3dc2c5f87",
+  "outcome": "response",
+  "recording_id": "turn/c10c181949cfad8b/consistency/sample-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user wants to narrow down irrelevant notifications. The excerpts explain how to reduce notification email volume: per person settings, can turn off types, changes immediate, only affect own account, not need admin.\n\nThus we can provide instructions: go to Profile \u2192 Notifications, turn off mention, status change, digest, keep assignment. Mention changes immediate. Provide guidance.\n\nWe have sufficient info, no disallowed topics. So we should post_reply with answer.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure thing! You can trim your notifications right from your own profile:\\n\\n1. Open **Profile \u2192 Notifications**.\\n2. You\u2019ll see each notification type listed separately (assignment, mention, status\u2011change, digest, etc.).\\n3. Turn **off** the ones you don\u2019t need \u2013 for example, disable mentions, status\u2011change and digest emails while leaving **assignment** notifications on if you only want alerts for items assigned to you.\\n4. Save your changes. The updates take effect immediately and only affect your account; no admin changes are required.\\n\\nThis will stop the irrelevant emails and keep you only notified about the items that matter to you.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_94dab09a-7e1c-4dc5-a32c-6c411fe4d237",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451656,
+      "id": "chatcmpl-16a4ad72-8107-444f-8fa9-7dbafd1321c3",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_96d96a151c",
+      "usage": {
+        "completion_time": 0.676407369,
+        "completion_tokens": 263,
+        "completion_tokens_details": {
+          "reasoning_tokens": 99
+        },
+        "prompt_time": 2.219721506,
+        "prompt_tokens": 1048,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.282270706,
+        "total_time": 2.896128875,
+        "total_tokens": 1311
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0d1n1ejpts0fhdtxmbb1v",
+        "seed": 818787677
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure thing! You can trim your notifications right from your own profile:\n\n1. Open **Profile \u2192 Notifications**.\n2. You\u2019ll see each notification type listed separately (assignment, mention, status\u2011change, digest, etc.).\n3. Turn **off** the ones you don\u2019t need \u2013 for example, disable mentions, status\u2011change and digest emails while leaving **assignment** notifications on if you only want alerts for items assigned to you.\n4. Save your changes. The updates take effect immediately and only affect your account; no admin changes are required.\n\nThis will stop the irrelevant emails and keep you only notified about the items that matter to you."
+        },
+        "id": "fc_94dab09a-7e1c-4dc5-a32c-6c411fe4d237",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 263,
+      "prompt_tokens": 1048
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:13:47.848885Z",
+  "failure_detail": null,
+  "fingerprint": "4f54c56b227a21db946537f4326b4a5755d50b98b25dbdc8706e75c83b5530fe",
+  "outcome": "response",
+  "recording_id": "turn/b8eea0a1938e42b3/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our auditor needs this data by end of week \u2014 can I pull it myself right now or do I need to request it?\" Likely about historical usage data. The policy says: For an audit needing a specific quarter, exporting with that quarter's exact date range from the usage screen produces the same data a request to support would, without the wait. Also usage data for current and prior billing period is available directly from Settings \u2192 Billing \u2192 Usage, exportable as CSV. Usage older than two most recent billing periods can be pulled with custom date range from same export, as long as within retention window. So answer: Yes, you can pull it yourself via Settings \u2192 Billing \u2192 Usage, export CSV with appropriate date range; no need to request support. Provide steps. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can pull the data yourself \u2013 no support request is needed. Just go to **Settings \u2192 Billing \u2192 Usage**, set a custom date range that matches the period your auditor needs (you can select the exact quarter), and export the CSV. This gives you the same data a support request would provide, and it\u2019s available instantly.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_d01da4c7-9a6f-4ebc-bb1c-3f605256483b",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452027,
+      "id": "chatcmpl-84f7fe89-bbba-46cc-8a09-9319eab5563f",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_93703442d9",
+      "usage": {
+        "completion_time": 0.55415228,
+        "completion_tokens": 264,
+        "completion_tokens_details": {
+          "reasoning_tokens": 173
+        },
+        "prompt_time": 0.065008216,
+        "prompt_tokens": 1080,
+        "queue_time": 0.366584792,
+        "total_time": 0.619160496,
+        "total_tokens": 1344
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0rebye8qs6x4y87zt2y60",
+        "seed": 121160436
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can pull the data yourself \u2013 no support request is needed. Just go to **Settings \u2192 Billing \u2192 Usage**, set a custom date range that matches the period your auditor needs (you can select the exact quarter), and export the CSV. This gives you the same data a support request would provide, and it\u2019s available instantly."
+        },
+        "id": "fc_d01da4c7-9a6f-4ebc-bb1c-3f605256483b",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 264,
+      "prompt_tokens": 1080
+    }
+  },
+  "retry_after": null
+}

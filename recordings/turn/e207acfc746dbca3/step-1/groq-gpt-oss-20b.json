@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:22:27.100260Z",
+  "failure_detail": null,
+  "fingerprint": "5a08a6de6bd1f18019dd7a13f08d2ba94a4f22c8b81a25835bbee44123f97cb3",
+  "outcome": "response",
+  "recording_id": "turn/e207acfc746dbca3/step-1/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user says: \"Checking on payment methods before we commit to anything.\" They want to check payment methods before committing. Likely they want to know how to remove a payment method or change to invoiced billing, or get written confirmation. The policy excerpts mention removing a payment method after a lost card, getting written confirmation before a payment method change, confirming a change from card to invoiced billing. The user didn't specify a specific action. They just say \"Checking on payment methods before we commit to anything.\" That is ambiguous. They might want to know how to remove a payment method, or how to get confirmation before a change. The policy says: If the request is ambiguous \u2014 it could mean more than one thing and the answers differ \u2014 `escalate` rather than guessing. So we should probably ask for clarification or we can interpret. But the policy says: \"If the request is ambiguous \u2014 it could mean more than one thing and the answers differ \u2014 `escalate` rather than guessing.\" So we should escalated. But maybe we can interpret: They want to check payment methods before committing to anything. That could be about removing a payment method or changing to invoiced billing. But we don't know. So we should ask for clarification. But we can't ask. We must either answer or escalated. The policy says if ambiguous, escalated. So we should escalated.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer\u2019s request is ambiguous: they say they want to check payment methods before committing to anything, but it\u2019s unclear whether they want to remove a payment method, change to invoiced billing, or obtain written confirmation of an upcoming charge. The policy advises escalating ambiguous requests rather than guessing.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_2f12ec86-a90b-4660-9c6c-9233d2e64438",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459747,
+      "id": "chatcmpl-3a9f2504-1ed5-4d3d-8131-19b42cb4e2c6",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e23fc997ca",
+      "usage": {
+        "completion_time": 0.478111538,
+        "completion_tokens": 363,
+        "completion_tokens_details": {
+          "reasoning_tokens": 282
+        },
+        "prompt_time": 0.098126767,
+        "prompt_tokens": 1109,
+        "queue_time": 0.156991912,
+        "total_time": 0.576238305,
+        "total_tokens": 1472
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8411je1yvd8z8zym89fw2",
+        "seed": 477074391
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer\u2019s request is ambiguous: they say they want to check payment methods before committing to anything, but it\u2019s unclear whether they want to remove a payment method, change to invoiced billing, or obtain written confirmation of an upcoming charge. The policy advises escalating ambiguous requests rather than guessing."
+        },
+        "id": "fc_2f12ec86-a90b-4660-9c6c-9233d2e64438",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 363,
+      "prompt_tokens": 1109
+    }
+  },
+  "retry_after": null
+}

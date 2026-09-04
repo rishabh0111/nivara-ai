@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:21:21.603907Z",
+  "failure_detail": null,
+  "fingerprint": "9ca9fc201ddc0b11d2e67937f88ab69509a235f00360766e5067c6d7c96e4944",
+  "outcome": "response",
+  "recording_id": "turn/66357512e5fe6ea5/consistency/sample-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see the conversation context. The user says: \"We're still assessing impact from this and need to know right away whether this was a known platform incident.\" They want to know if there was a known platform incident. According to policy excerpts, we can guide them to check the status page. The excerpts describe how to check status page for known incident, component-level breakdown, etc. So we can answer: they can check the status page, it lists incidents with start/end times, component breakdown. Also can view history. So we can answer with that info.\n\nNo need to escalate. Provide short answer: go to status page, look for incident matching timeframe, component breakdown, history. Also mention they can subscribe to notifications. But the question is about knowing right away if this was a known platform incident. So answer: check status page, etc.\n\nThus we will post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can confirm whether this was a known platform incident by checking Meridian\u2019s status page. The page lists every incident\u2014including brief ones\u2014with exact start and end times and shows which components (API, dashboard, etc.) were affected. You can also view the history to see incidents from earlier in the day. If the timing and component match what you\u2019re experiencing, it was a recorded platform incident.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_cef29184-6397-4517-a4cb-4cbe4c3dba58",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452481,
+      "id": "chatcmpl-6394c1ac-ae1e-4c9f-9ad0-59581a9746a6",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c800245357",
+      "usage": {
+        "completion_time": 0.888997843,
+        "completion_tokens": 282,
+        "completion_tokens_details": {
+          "reasoning_tokens": 179
+        },
+        "prompt_time": 0.521030232,
+        "prompt_tokens": 1094,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.278687913,
+        "total_time": 1.410028075,
+        "total_tokens": 1376
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m168v9egbt1y01sfsn6mdd",
+        "seed": 323036735
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can confirm whether this was a known platform incident by checking Meridian\u2019s status page. The page lists every incident\u2014including brief ones\u2014with exact start and end times and shows which components (API, dashboard, etc.) were affected. You can also view the history to see incidents from earlier in the day. If the timing and component match what you\u2019re experiencing, it was a recorded platform incident."
+        },
+        "id": "fc_cef29184-6397-4517-a4cb-4cbe4c3dba58",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 282,
+      "prompt_tokens": 1094
+    }
+  },
+  "retry_after": null
+}

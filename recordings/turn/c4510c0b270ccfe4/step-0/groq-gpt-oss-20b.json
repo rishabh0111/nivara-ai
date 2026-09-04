@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:32:57.408545Z",
+  "failure_detail": null,
+  "fingerprint": "2cb83ccc8b941b69da04167dfcf4ab869d346d5d992528209da2922de2f40b95",
+  "outcome": "response",
+  "recording_id": "turn/c4510c0b270ccfe4/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"For an internal audit I need a copy of our usage data covering last quarter specifically, and I'm not sure whether that's something I can export myself from the dashboard or something I need to formally request.\"\n\nWe have policy excerpts. Let's parse:\n\n- DOC-041 part 3: \"For an audit needing a specific quarter, exporting with that quarter's exact date range from the usage screen produces the same data a request to support would, without the wait.\" So you can export yourself by selecting date range for that quarter.\n\n- DOC-041 part 1: \"Usage data for the current and prior billing period is available directly from Settings \u2192 Billing \u2192 Usage, exportable as CSV from that screen without needing to request anything.\" That covers current and prior billing period. But last quarter might be older than two most recent billing periods? Let's see: last quarter might be older than two most recent billing periods. But DOC-041 part 2: \"Usage older than the two most recent billing periods is retained but not shown on that screen by default; it can still be pulled with a custom date range from the same export, as long as the range falls within the workspace's overall data retention window.\" So you can still pull older usage with custom date range.\n\nThus answer: Yes, you can export yourself by selecting date range for last quarter from usage screen. No need to request support. Provide instructions: go to Settings \u2192 Billing \u2192 Usage, set date range to last quarter, export CSV. If data older than two most recent billing periods, still available with custom date range. So answer accordingly.\n\nWe must keep answer short and specific. Let's produce.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! You can export the data yourself. Go to Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fUsage, set the date range to the exact dates of last quarter, and click Export CSV. That will give you the same data a support request would, so no formal request is needed. If the quarter is older than the two most recent billing periods, you can still pull it with a custom date range as long as it\u2019s within the workspace\u2019s retention window. Let me know if you need any help with the export!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_b9acfb3f-a5a3-461f-9ec8-0d01518ef606",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460376,
+      "id": "chatcmpl-4f080fd2-5502-407a-a034-e23d3f4a4598",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_feb9b278f1",
+      "usage": {
+        "completion_time": 0.568777301,
+        "completion_tokens": 466,
+        "completion_tokens_details": {
+          "reasoning_tokens": 340
+        },
+        "prompt_time": 0.059895373,
+        "prompt_tokens": 1030,
+        "queue_time": 0.308559025,
+        "total_time": 0.628672674,
+        "total_tokens": 1496
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8q7f1egg9bcv98b0advgc",
+        "seed": 1551149007
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! You can export the data yourself. Go to Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fUsage, set the date range to the exact dates of last quarter, and click Export CSV. That will give you the same data a support request would, so no formal request is needed. If the quarter is older than the two most recent billing periods, you can still pull it with a custom date range as long as it\u2019s within the workspace\u2019s retention window. Let me know if you need any help with the export!"
+        },
+        "id": "fc_b9acfb3f-a5a3-461f-9ec8-0d01518ef606",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 466,
+      "prompt_tokens": 1030
+    }
+  },
+  "retry_after": null
+}

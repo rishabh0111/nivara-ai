@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T17:41:42.745490Z",
+  "failure_detail": null,
+  "fingerprint": "07c61d48db57ae795a2b96d5fde2f5eaf87b2be7fbb979a8ca5c14ff1cfc8cf3",
+  "outcome": "response",
+  "recording_id": "turn/dcf34bec312a4da6/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer using policy excerpts. The user wants past invoices PDFs. According to DOC-001 part 2: open Settings \u2192 Billing \u2192 Invoices to see full list, ordered by billing date with most recent at top. The billing tab's default view only surfaces current month invoice on summary card; the invoices table below holds every prior one. Also DOC-001 part 3: each row links to a PDF you can download or forward. If a specific month missing, maybe no invoice generated. So answer: go to Settings \u2192 Billing \u2192 Invoices, scroll down to table, find prior months, click PDF link. If missing, maybe no invoice due to credit. Provide steps. Should be short.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! To view and download the PDFs for the three previous invoices:\\n1. Open **Settings \u2192 Billing \u2192 Invoices**.\\n2. Below the summary card for the current month, you\u2019ll see a table that lists all prior invoices, ordered with the most recent at the top.\\n3. Each row in that table has a link to the PDF \u2013 click the link for the month you need and you can download or forward it for expense reporting.\\n\\nIf a month isn\u2019t listed, it means no paid invoice was generated for that period (e.g., the month was fully covered by a credit). Let me know if you run into any issues!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_4e3e5da9-b9e1-47c9-8ceb-b24526c41e40",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788370902,
+      "id": "chatcmpl-31a8ef86-4303-4431-9ed0-9b10ce05f574",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4140daa9c2",
+      "usage": {
+        "completion_time": 0.657398212,
+        "completion_tokens": 305,
+        "completion_tokens_details": {
+          "reasoning_tokens": 144
+        },
+        "prompt_time": 0.050843698,
+        "prompt_tokens": 1054,
+        "queue_time": 0.308183801,
+        "total_time": 0.70824191,
+        "total_tokens": 1359
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hkcpg3e3c9hg8r5d6j2t4v",
+        "seed": 1772471109
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! To view and download the PDFs for the three previous invoices:\n1. Open **Settings \u2192 Billing \u2192 Invoices**.\n2. Below the summary card for the current month, you\u2019ll see a table that lists all prior invoices, ordered with the most recent at the top.\n3. Each row in that table has a link to the PDF \u2013 click the link for the month you need and you can download or forward it for expense reporting.\n\nIf a month isn\u2019t listed, it means no paid invoice was generated for that period (e.g., the month was fully covered by a credit). Let me know if you run into any issues!"
+        },
+        "id": "fc_4e3e5da9-b9e1-47c9-8ceb-b24526c41e40",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 305,
+      "prompt_tokens": 1054
+    }
+  },
+  "retry_after": null
+}

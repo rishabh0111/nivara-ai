@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:31:13.582124Z",
+  "failure_detail": null,
+  "fingerprint": "09e8c7a02f62c51ecb703956aa987a7b30613901ed97126edce0300eee6cec23",
+  "outcome": "response",
+  "recording_id": "turn/c10c181949cfad8b/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"I'm getting flooded with irrelevant notifications right now and need this narrowed down immediately.\" They want to reduce notification email volume. The policy says notification email settings are per person, in Profile \u2192 Notifications, separate from workspace-wide rules. Each notification type can be turned off independently. So we can advise them to go to Profile \u2192 Notifications and adjust. Also mention that changes take effect immediately. So we can answer: \"Go to your profile, notifications, turn off assignment, mention, status change, digest etc.\" Provide guidance. No money or identity. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! You can trim the emails yourself in your own settings. Open your Profile \u2192 Notifications and toggle off the types you don\u2019t want (mentions, status changes, digests, etc.). Leave assignment notifications on if you still want to be notified when something is assigned to you. The changes take effect immediately and only affect your own account. Let me know if you need help locating the settings!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_470408eb-39af-4bc7-afbb-28337197cc8b",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460273,
+      "id": "chatcmpl-36057823-8964-498b-a91b-99471301f332",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5979a0e1b7",
+      "usage": {
+        "completion_time": 0.261505031,
+        "completion_tokens": 228,
+        "completion_tokens_details": {
+          "reasoning_tokens": 127
+        },
+        "prompt_time": 0.049871954,
+        "prompt_tokens": 999,
+        "queue_time": 0.810165502,
+        "total_time": 0.311376985,
+        "total_tokens": 1227
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8m2r9e3sskwmmkk2h7fj3",
+        "seed": 779072311
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! You can trim the emails yourself in your own settings. Open your Profile \u2192 Notifications and toggle off the types you don\u2019t want (mentions, status changes, digests, etc.). Leave assignment notifications on if you still want to be notified when something is assigned to you. The changes take effect immediately and only affect your own account. Let me know if you need help locating the settings!"
+        },
+        "id": "fc_470408eb-39af-4bc7-afbb-28337197cc8b",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 228,
+      "prompt_tokens": 999
+    }
+  },
+  "retry_after": null
+}

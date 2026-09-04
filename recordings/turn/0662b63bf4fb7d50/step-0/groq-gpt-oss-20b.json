@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:36:50.562328Z",
+  "failure_detail": null,
+  "fingerprint": "ffcdbb53078ffbcb70ab0f9cc32f7afb93ac2461742fa9eef74aba62e9939e07",
+  "outcome": "response",
+  "recording_id": "turn/0662b63bf4fb7d50/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our export has all the standard columns but none of the custom fields we added show up.\" They want to know why custom fields not included. Policy says: standard export includes every record in current view, including archived and closed ones, unless filter. But custom fields? The policy excerpt about custom fields: In import, optional headers include any custom field already defined on the workspace, matched by the custom field's own name. But export? The policy excerpt doesn't mention export including custom fields. The question: export has all standard columns but none of custom fields added show up. The policy doesn't mention that custom fields are included in export. So likely answer: custom fields are not included in standard export; you need to use a custom export or include them via custom field selection. But policy doesn't mention that. We need to answer only from policy excerpts. There's no mention of custom fields in export. So we cannot answer. According to rules: If the question is about money movement, disputed charge, identity, etc, we would escalate. But this is about export. It's ambiguous? The policy doesn't cover custom fields in export. So we should probably ask for clarification? But guidelines: If ambiguous, we should escalate. But is it ambiguous? The user says \"Our export has all the standard columns but none of the custom fields we added show up.\" They want to know why. The policy doesn't mention custom fields in export. So we cannot answer. So we should escalate.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The user asks why custom fields are missing from an export. The policy excerpts provided do not cover whether custom fields are included in standard exports, so I cannot answer based on the available policy. Escalate to a human for further assistance.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_87606215-ad6c-424d-b99a-e8849131e229",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460610,
+      "id": "chatcmpl-1937ff63-f18d-4eae-92d6-3d888b2cf2c3",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_976a85d17a",
+      "usage": {
+        "completion_time": 0.426184858,
+        "completion_tokens": 379,
+        "completion_tokens_details": {
+          "reasoning_tokens": 308
+        },
+        "prompt_time": 0.060363179,
+        "prompt_tokens": 1036,
+        "queue_time": 0.31299058,
+        "total_time": 0.486548037,
+        "total_tokens": 1415
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8yc6petgstc8fm2dzkc6y",
+        "seed": 1549191691
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The user asks why custom fields are missing from an export. The policy excerpts provided do not cover whether custom fields are included in standard exports, so I cannot answer based on the available policy. Escalate to a human for further assistance."
+        },
+        "id": "fc_87606215-ad6c-424d-b99a-e8849131e229",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 379,
+      "prompt_tokens": 1036
+    }
+  },
+  "retry_after": null
+}

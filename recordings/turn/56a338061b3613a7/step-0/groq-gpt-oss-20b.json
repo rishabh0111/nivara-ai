@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:36:47.083713Z",
+  "failure_detail": null,
+  "fingerprint": "7c996068470438aa611e9e46972688bdc3dbff79000167d62495e638061cba4a",
+  "outcome": "response",
+  "recording_id": "turn/56a338061b3613a7/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"I set up a rule to auto-assign tickets tagged 'billing' to one agent, but they are landing unassigned.\" We need to see policy. The relevant policy excerpt: [DOC-043] about custom report grouping by tag. Not relevant. [DOC-033] about assignment history. Not relevant. [DOC-029] about seats. Not relevant. [DOC-069] about payment. Not relevant. [DOC-055] about charges. Not relevant.\n\nWe need to find policy about auto-assign rules. Not present. So we cannot answer. According to instructions: If the question is about money movement, disputed or fraudulent charge, identity or account-recovery documents, we must escalate. But this is about auto-assign rule. Not those categories. But we don't have policy excerpt covering auto-assign. So we must not answer from general knowledge. We should \"escalate\" because we cannot answer from policy. The instruction: \"Answer only from the policy excerpts provided. If they do not contain the answer, `escalate`.\" So we must call `escalate`. Provide internal note: what the customer asked, what we found, and why we stopped.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"Customer is asking why tickets tagged \\\"billing\\\" are landing unassigned after setting up an auto-assign rule. The policy excerpts provided do not contain information about auto-assign rules or troubleshooting unassigned tickets. Therefore I cannot answer from policy and must hand this over to a human colleague.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_35bef521-a087-4d26-9df3-29b1bd32860a",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460607,
+      "id": "chatcmpl-dc14de4c-37ec-4215-93b7-c971dca30ca1",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c5a89987dc",
+      "usage": {
+        "completion_time": 0.480882254,
+        "completion_tokens": 333,
+        "completion_tokens_details": {
+          "reasoning_tokens": 253
+        },
+        "prompt_time": 0.149800752,
+        "prompt_tokens": 1170,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.043561967,
+        "total_time": 0.630683006,
+        "total_tokens": 1503
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8y8xresmsb2dgzes2at4p",
+        "seed": 1838446890
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "Customer is asking why tickets tagged \"billing\" are landing unassigned after setting up an auto-assign rule. The policy excerpts provided do not contain information about auto-assign rules or troubleshooting unassigned tickets. Therefore I cannot answer from policy and must hand this over to a human colleague."
+        },
+        "id": "fc_35bef521-a087-4d26-9df3-29b1bd32860a",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 333,
+      "prompt_tokens": 1170
+    }
+  },
+  "retry_after": null
+}

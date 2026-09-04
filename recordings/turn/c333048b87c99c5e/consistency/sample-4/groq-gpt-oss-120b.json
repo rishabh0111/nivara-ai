@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T17:55:24.108361Z",
+  "failure_detail": null,
+  "fingerprint": "6b62fbe5d0dee5dbad96a06eaaa99caf971ca5d16ca5c3d8fcf64968b1048893",
+  "outcome": "response",
+  "recording_id": "turn/c333048b87c99c5e/consistency/sample-4/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to determine the customer's question. The user says: \"wire transfer ok?\" Very short. Likely they are asking whether a wire transfer is okay? Could be about whether they can do a wire transfer to pay? Or maybe they are asking about a wire transfer they made? The policy excerpts are about tracing a bank transfer payment that hasn't been applied, fraudulent billing emails, transferring workspace ownership, etc.\n\nGiven the short ambiguous question \"wire transfer ok?\" It's ambiguous: could be asking if a wire transfer is acceptable as a payment method (maybe they received a request to wire money). Could be about whether a wire transfer they made is okay.\n\nWe have to see if we can answer from policy excerpts. The policy includes that Meridian never asks a customer to wire funds to a bank account communicated by email, and never asks for payment outside of payment methods configured directly in the account's billing settings. That is about fraudulent communications. Also about tracing a bank transfer payment that hasn't been applied: need to provide transfer date, amount, reference to billing team.\n\nBut the question is ambiguous. Could be about whether a wire transfer is okay (maybe they want to know if they can pay via wire). The policy says Meridian never asks to wire funds, and payment methods are configured in billing settings. So likely the answer: Meridian does not accept wire transfers; you should use payment methods in billing settings.\n\nBut is that covered? The policy says \"Meridian never asks a customer to wire funds to a bank account communicated by email, and never asks for payment outside of the payment methods configured directly in the account's own billing settings\". That suggests they do not accept wire transfers. So we could answer: No, we don't accept wire transfers; use your billing settings.\n\nBut the question \"wire transfer ok?\" could be about a wire transfer they made that hasn't been applied. The policy says if a bank transfer has cleared on the paying company's side but not applied, you need to provide transfer date, amount, reference to billing team.\n\nBut we don't have enough context. It's ambiguous. According to rule: If ambiguous, escalate. The question is ambiguous; we can't be sure what they want. So we should escalate.\n\nThus we should call `escalate` with reason.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer asked 'wire transfer ok?' which is ambiguous. It could be asking whether a wire transfer is an acceptable payment method, or about a specific wire transfer they made. The policy excerpts provide guidance on both payment method restrictions and tracing bank transfers, but we cannot determine the exact intent without clarification. Therefore, we must escalate to a human.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_0549dfbc-220e-4d76-b7b0-c1d6df72c9ee",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371723,
+      "id": "chatcmpl-ec375c60-7723-4148-8df9-6537d86aee74",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c800245357",
+      "usage": {
+        "completion_time": 1.354468995,
+        "completion_tokens": 550,
+        "completion_tokens_details": {
+          "reasoning_tokens": 455
+        },
+        "prompt_time": 0.578960654,
+        "prompt_tokens": 1123,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.274958463,
+        "total_time": 1.933429649,
+        "total_tokens": 1673
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hm5qcpev2ty7r495j4na4g",
+        "seed": 2122865457
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer asked 'wire transfer ok?' which is ambiguous. It could be asking whether a wire transfer is an acceptable payment method, or about a specific wire transfer they made. The policy excerpts provide guidance on both payment method restrictions and tracing bank transfers, but we cannot determine the exact intent without clarification. Therefore, we must escalate to a human."
+        },
+        "id": "fc_0549dfbc-220e-4d76-b7b0-c1d6df72c9ee",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 550,
+      "prompt_tokens": 1123
+    }
+  },
+  "retry_after": null
+}

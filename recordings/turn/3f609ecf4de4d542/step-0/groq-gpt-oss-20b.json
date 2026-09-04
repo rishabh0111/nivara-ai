@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:24:35.146891Z",
+  "failure_detail": null,
+  "fingerprint": "6a59f17f01477744654c289fc468a1b5eb4a55fc518570ba3603b0f0d67fa7db",
+  "outcome": "response",
+  "recording_id": "turn/3f609ecf4de4d542/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"How do I set up two-factor authentication on my own account?\" We have policy excerpts that explain steps. We can answer. It's not about money, fraud, etc. So we can post reply. Use the steps from DOC-011 parts 1-3. Provide concise instructions.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! Here\u2019s how to enable two\u2011factor authentication on your account:\\n\\n1. Go to **Settings \u2192 Security \u2192 Two\u2011factor authentication** and click **Enable**.\\n2. Scan the QR code that appears with your authenticator app (Google Authenticator, Authy, etc.).\\n3. Enter the six\u2011digit code the app generates to confirm enrolment.\\n4. Save the recovery codes that are shown \u2013 they\u2019re the only way to regain access if you lose your device.\\n\\nOnce enabled, every new sign\u2011in will ask for a code from the app after you enter your password. Let me know if you need any help with the steps!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_3b1544ab-fbca-4713-ab71-cad6dcf150c6",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459874,
+      "id": "chatcmpl-53c531b0-01a5-41ba-866b-8af1ada2888c",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_3cdd24b83b",
+      "usage": {
+        "completion_time": 0.268236322,
+        "completion_tokens": 232,
+        "completion_tokens_details": {
+          "reasoning_tokens": 70
+        },
+        "prompt_time": 0.057615667,
+        "prompt_tokens": 1058,
+        "queue_time": 0.281220471,
+        "total_time": 0.325851989,
+        "total_tokens": 1290
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m87xzxe98vygydsv3mgw0k",
+        "seed": 1721020162
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! Here\u2019s how to enable two\u2011factor authentication on your account:\n\n1. Go to **Settings \u2192 Security \u2192 Two\u2011factor authentication** and click **Enable**.\n2. Scan the QR code that appears with your authenticator app (Google Authenticator, Authy, etc.).\n3. Enter the six\u2011digit code the app generates to confirm enrolment.\n4. Save the recovery codes that are shown \u2013 they\u2019re the only way to regain access if you lose your device.\n\nOnce enabled, every new sign\u2011in will ask for a code from the app after you enter your password. Let me know if you need any help with the steps!"
+        },
+        "id": "fc_3b1544ab-fbca-4713-ab71-cad6dcf150c6",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 232,
+      "prompt_tokens": 1058
+    }
+  },
+  "retry_after": null
+}

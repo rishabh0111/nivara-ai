@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:28:38.835834Z",
+  "failure_detail": null,
+  "fingerprint": "06aaaf2ae25f51f89ff0017d75903a5a9efe72b04b249f0968b5ce53b1ce9bcf",
+  "outcome": "response",
+  "recording_id": "turn/c4c429d4ebec9fae/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to determine if we can answer based on policy. The customer says \"double charged this month, refund the duplicate now\". This is a request about a disputed or duplicate charge and wants a refund. According to policy, duplicate charges are reviewed by billing team, not automatically reversed. Also policy says we must not handle money movement, disputed or fraudulent charge, must escalate. Indeed rule: If the question is about money movement, a disputed or fraudulent charge, or identity/account-recovery docs, escalate. So we must escalate. Provide internal note: what the customer asked, what we found, why we stopped.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer reports being double charged this month and requests an immediate refund of the duplicate. This is a disputed charge involving money movement, which according to policy must be handled by the billing team and escalated to a human. I cannot provide a direct answer per the guidelines.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_a7acb473-f716-45c6-b536-49e3fc9714e1",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452918,
+      "id": "chatcmpl-22dfe017-c8b5-4eac-a505-0ff6f60ecb75",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_803c0ba83d",
+      "usage": {
+        "completion_time": 0.44506496,
+        "completion_tokens": 204,
+        "completion_tokens_details": {
+          "reasoning_tokens": 124
+        },
+        "prompt_time": 0.279237807,
+        "prompt_tokens": 1109,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.36512896,
+        "total_time": 0.724302767,
+        "total_tokens": 1313
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1kkyveqcv5s0s89d7ctbv",
+        "seed": 469880501
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer reports being double charged this month and requests an immediate refund of the duplicate. This is a disputed charge involving money movement, which according to policy must be handled by the billing team and escalated to a human. I cannot provide a direct answer per the guidelines."
+        },
+        "id": "fc_a7acb473-f716-45c6-b536-49e3fc9714e1",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 204,
+      "prompt_tokens": 1109
+    }
+  },
+  "retry_after": null
+}

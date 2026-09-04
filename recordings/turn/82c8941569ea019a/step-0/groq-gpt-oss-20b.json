@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:30:20.734685Z",
+  "failure_detail": null,
+  "fingerprint": "d42685a51e0bee8dda5a43fb3bde06befca601f1f67428c32dcacd054dc8c73a",
+  "outcome": "response",
+  "recording_id": "turn/82c8941569ea019a/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"How do I convert a seat from an agent role to a read-only observer role without losing that person's assignment history?\" The policy says: Changing seat role from Settings \u2192 People, no removal, identity/history unaffected. So answer: go to Settings \u2192 People, edit seat role to observer, save. No need to sign out. History remains. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"To change a seat from an agent to an observer without affecting the person\u2019s assignment history, go to **Settings \u2192 People**, select the seat, change the role to **Observer**, and click **Save**. The change takes effect immediately and the person\u2019s past assignments stay in their history. No sign\u2011out is required.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_435037fc-5928-4d03-bdc1-f911207f83e9",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460220,
+      "id": "chatcmpl-222b17a0-cad7-46e7-a887-926fdb6a4606",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_80501ff3a1",
+      "usage": {
+        "completion_time": 0.176766886,
+        "completion_tokens": 172,
+        "completion_tokens_details": {
+          "reasoning_tokens": 85
+        },
+        "prompt_time": 0.05052536,
+        "prompt_tokens": 1058,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.04335396,
+        "total_time": 0.227292246,
+        "total_tokens": 1230
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8jfyveefve84y81rn92jt",
+        "seed": 810696865
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "To change a seat from an agent to an observer without affecting the person\u2019s assignment history, go to **Settings \u2192 People**, select the seat, change the role to **Observer**, and click **Save**. The change takes effect immediately and the person\u2019s past assignments stay in their history. No sign\u2011out is required."
+        },
+        "id": "fc_435037fc-5928-4d03-bdc1-f911207f83e9",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 172,
+      "prompt_tokens": 1058
+    }
+  },
+  "retry_after": null
+}

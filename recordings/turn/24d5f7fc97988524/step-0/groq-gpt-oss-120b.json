@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:34:22.336843Z",
+  "failure_detail": null,
+  "fingerprint": "5ef8bc6845238f47dd418388e8b3205133f334aa8363e851e5c43f7547edd71f",
+  "outcome": "response",
+  "recording_id": "turn/24d5f7fc97988524/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"We saw a login from a country none of our staff operate in, followed by a change to our billing contact email \u2014 has our account been compromised?\" This matches DOC-057: login from unfamiliar location followed by change to sensitive account details is pattern for security review, handled by human reviewer. So we should advise to contact support for review, maybe change password, reset 2FA. The policy says it's handled by human reviewer, not resolved automatically. So we should tell them to contact support to request activity review. Also advise to change password and reset 2FA. Use short answer. No escalation needed because we have policy. Provide guidance.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"That pattern matches a potential compromise. Please change your password and, if possible, reset your two\u2011factor authentication right away. Then contact our support team and request a security review of the recent activity \u2013 a human reviewer will investigate the login and the billing\u2011email change for you.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f76e2b5e-cc57-444d-b2ce-012c23f59ff1",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453262,
+      "id": "chatcmpl-6eda45a7-6ad0-4392-afe5-0ad4ce2d3113",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e5b4e54fbb",
+      "usage": {
+        "completion_time": 0.559653312,
+        "completion_tokens": 224,
+        "completion_tokens_details": {
+          "reasoning_tokens": 143
+        },
+        "prompt_time": 0.051986939,
+        "prompt_tokens": 1093,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.365808259,
+        "total_time": 0.611640251,
+        "total_tokens": 1317
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1y3ygeqxs9hy4z7aa9hg0",
+        "seed": 18925375
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "That pattern matches a potential compromise. Please change your password and, if possible, reset your two\u2011factor authentication right away. Then contact our support team and request a security review of the recent activity \u2013 a human reviewer will investigate the login and the billing\u2011email change for you."
+        },
+        "id": "fc_f76e2b5e-cc57-444d-b2ce-012c23f59ff1",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 224,
+      "prompt_tokens": 1093
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:31:04.550098Z",
+  "failure_detail": null,
+  "fingerprint": "b2eda9824d78cd71e6e0cebba14389ab2cd9676d3faa1a454232960ddb26650c",
+  "outcome": "response",
+  "recording_id": "turn/110c45e533cb0ec2/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The customer says \"wrong currency charged, refund the difference\". This is about billing currency correction. According to policy: region setting can be corrected going forward, but correction to a charge already processed is not automatic; must be reviewed case by case by billing team. So we should tell them to raise the specific invoice with billing contact, and that billing team will review. Provide guidance. This is not money movement? It's about refund difference, which is money movement. However policy says for disputed or duplicate charges, they need to be reviewed by billing team. The question is about wrong currency charged, refund difference. This is a billing dispute, not necessarily fraudulent. According to rules: If question is about money movement, a disputed or fraudulent charge, or identity/account-recovery docs, we must escalate. The question is about refund difference, which is money movement. The policy says they need to raise with billing team. The rule says: \"If the question is about money movement, a disputed or fraudulent charge, or identity or account-recovery documents, `escalate`.\" This is about money movement (refund). So we must escalate. Indeed we cannot answer directly; we must hand to human. So we should use `escalate`.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"Customer reports being charged in the wrong currency and requests a refund of the difference. This involves a disputed charge and potential money movement (refund), which per policy requires escalation to the billing team. The assistant must not provide a direct answer and should hand off to a human.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_3442e587-a7b0-4bc2-aaa4-73e3cdd49807",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453064,
+      "id": "chatcmpl-24dfd213-79e6-442f-9fa1-bd59ec43675d",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_bb691ea66b",
+      "usage": {
+        "completion_time": 0.703299076,
+        "completion_tokens": 339,
+        "completion_tokens_details": {
+          "reasoning_tokens": 259
+        },
+        "prompt_time": 0.815338197,
+        "prompt_tokens": 1113,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.934602389,
+        "total_time": 1.518637273,
+        "total_tokens": 1452
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1r17vearrr76rw2kf3fww",
+        "seed": 1289028273
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "Customer reports being charged in the wrong currency and requests a refund of the difference. This involves a disputed charge and potential money movement (refund), which per policy requires escalation to the billing team. The assistant must not provide a direct answer and should hand off to a human."
+        },
+        "id": "fc_3442e587-a7b0-4bc2-aaa4-73e3cdd49807",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 339,
+      "prompt_tokens": 1113
+    }
+  },
+  "retry_after": null
+}

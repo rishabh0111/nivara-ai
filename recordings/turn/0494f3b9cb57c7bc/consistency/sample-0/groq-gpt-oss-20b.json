@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:31:46.448123Z",
+  "failure_detail": null,
+  "fingerprint": "ab7a4211f4c3c0857c0be6c7c0d85251fdc06944727a94810adee687919c59d6",
+  "outcome": "response",
+  "recording_id": "turn/0494f3b9cb57c7bc/consistency/sample-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: \"One of our admins accidentally deleted a project and asked me to find out whether \u2014 and for how long \u2014 it can still be restored.\" According to policy excerpts: deleted project held in recoverable state for 30 days, can be restored within that window. So answer: yes, can be restored for 30 days from deletion, via Settings \u2192 Data \u2192 Deleted items. Provide that info. No policy about money, identity, etc. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes, a deleted project can be recovered. It stays in a recoverable state for 30 days after deletion. Within that window an admin can restore it from Settings\u202f\u2192\u202fData\u202f\u2192\u202fDeleted items, and all its records, configuration and automation rules will return exactly as they were at the time of deletion.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_48f7a0c6-b4db-43ef-b1d4-e2df7fcee008",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460306,
+      "id": "chatcmpl-581881f8-264f-4553-845d-64f3d61d1016",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9340e7d14d",
+      "usage": {
+        "completion_time": 0.197344969,
+        "completion_tokens": 186,
+        "completion_tokens_details": {
+          "reasoning_tokens": 100
+        },
+        "prompt_time": 3.6008405310000002,
+        "prompt_tokens": 1115,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.282887262,
+        "total_time": 3.7981854999999998,
+        "total_tokens": 1301
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8mzydep8rz76fhr3tj2a1",
+        "seed": 834341360
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes, a deleted project can be recovered. It stays in a recoverable state for 30 days after deletion. Within that window an admin can restore it from Settings\u202f\u2192\u202fData\u202f\u2192\u202fDeleted items, and all its records, configuration and automation rules will return exactly as they were at the time of deletion."
+        },
+        "id": "fc_48f7a0c6-b4db-43ef-b1d4-e2df7fcee008",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 186,
+      "prompt_tokens": 1115
+    }
+  },
+  "retry_after": null
+}

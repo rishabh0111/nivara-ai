@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:47:25.133208Z",
+  "failure_detail": null,
+  "fingerprint": "f57e6dbffced188b59d9af1401479aec06dfd938bb5f4c524d1143c73f30adb4",
+  "outcome": "response",
+  "recording_id": "turn/db894adc06f774c7/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The customer asks: \"suspended for expired card, restore access now\". This is about restoring access after suspension due to failed payment (expired card). According to DOC-069 parts, adding a new card triggers review by billing team; restoration is not instant, processed within short window after new card added. The answer should explain that they need to add a new payment method in Settings \u2192 Billing \u2192 Payment method, and then billing team will review and restore access, which may take a short time, not immediate. Provide guidance. This is within policy, not about money movement dispute, not ambiguous. So we can answer.\n\nWe need to post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! When a workspace is suspended because the card on file has expired, the first step is to add a new payment method (Settings \u2192\u202fBilling \u2192\u202fPayment method). Once the new card is saved, our billing team will retry the failed charge and review the account. Restoration isn\u2019t instant \u2013 it usually happens within a short window after the new card is added, once the charge is confirmed. If you\u2019ve already added a new card, please allow a little time for the team to process the update. Let us know if you don\u2019t see access restored after a short while.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_6a67668d-469e-4f2e-8553-804c718feb96",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454045,
+      "id": "chatcmpl-a436c213-7c88-4d5c-b9b4-0eccd270c0ea",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_f640395b96",
+      "usage": {
+        "completion_time": 0.639821799,
+        "completion_tokens": 283,
+        "completion_tokens_details": {
+          "reasoning_tokens": 140
+        },
+        "prompt_time": 0.685812397,
+        "prompt_tokens": 1128,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.310567188,
+        "total_time": 1.325634196,
+        "total_tokens": 1411
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2nztee50bbhpmasme18ks",
+        "seed": 614717258
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! When a workspace is suspended because the card on file has expired, the first step is to add a new payment method (Settings \u2192\u202fBilling \u2192\u202fPayment method). Once the new card is saved, our billing team will retry the failed charge and review the account. Restoration isn\u2019t instant \u2013 it usually happens within a short window after the new card is added, once the charge is confirmed. If you\u2019ve already added a new card, please allow a little time for the team to process the update. Let us know if you don\u2019t see access restored after a short while."
+        },
+        "id": "fc_6a67668d-469e-4f2e-8553-804c718feb96",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 283,
+      "prompt_tokens": 1128
+    }
+  },
+  "retry_after": null
+}

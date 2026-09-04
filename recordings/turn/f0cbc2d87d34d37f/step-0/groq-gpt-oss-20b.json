@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:32:45.130524Z",
+  "failure_detail": null,
+  "fingerprint": "e3ed556b82d6646d253faed2a4fdcbc3a3f8659ed6689cc265832da1d710f152",
+  "outcome": "response",
+  "recording_id": "turn/f0cbc2d87d34d37f/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"Can I get a copy of last quarter's usage data for an internal audit, or does it need to be requested separately?\" According to policy excerpts: For an audit needing a specific quarter, exporting with that quarter's exact date range from the usage screen produces the same data a request to support would, without the wait. Also usage older than two most recent billing periods is retained but not shown by default; can still be pulled with custom date range from same export, as long as within retention window. So answer: Yes, you can export it yourself by selecting the date range for last quarter from the usage screen. No need to request support. Provide instructions. Also mention that if data older than two periods, still available via custom date range. So answer accordingly.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! You can export last quarter\u2019s usage data directly from the Usage screen. Just set the date range to cover that quarter and hit the export button \u2013 it will give you the same data you\u2019d get from a support request, so no extra wait. If the quarter is older than the two most recent billing periods, it\u2019s still available as long as it falls within the workspace\u2019s retention window. Let me know if you need help setting the date range!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_ac93af31-ffa8-4ee3-95ab-dd1e0d2ca7fc",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460365,
+      "id": "chatcmpl-bf8afd74-6f40-44a0-ac75-89089b192c3c",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_334cc21c60",
+      "usage": {
+        "completion_time": 0.315771327,
+        "completion_tokens": 277,
+        "completion_tokens_details": {
+          "reasoning_tokens": 163
+        },
+        "prompt_time": 0.072035271,
+        "prompt_tokens": 1011,
+        "queue_time": 0.704168455,
+        "total_time": 0.387806598,
+        "total_tokens": 1288
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8pw5mecx8y0djmmv1hggv",
+        "seed": 531595479
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! You can export last quarter\u2019s usage data directly from the Usage screen. Just set the date range to cover that quarter and hit the export button \u2013 it will give you the same data you\u2019d get from a support request, so no extra wait. If the quarter is older than the two most recent billing periods, it\u2019s still available as long as it falls within the workspace\u2019s retention window. Let me know if you need help setting the date range!"
+        },
+        "id": "fc_ac93af31-ffa8-4ee3-95ab-dd1e0d2ca7fc",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 277,
+      "prompt_tokens": 1011
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:33:13.773664Z",
+  "failure_detail": null,
+  "fingerprint": "78ce719951108d7cd075b81185080d2f3c4aa0dd5b3f9ef18e46073be1b4a410",
+  "outcome": "response",
+  "recording_id": "turn/17c1cdb5d611434f/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer question: \"I'm reporting this number up the chain today and need to know now whether weekends are inflating it unfairly.\" They want to know if weekends are counted in response-time metrics. The policy excerpt says: By default, the response-time metric counts every hour a ticket sits unanswered, including nights, weekends and holidays \u2014 wall-clock measurement. So answer: yes, weekends are included. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 by default the response\u2011time metric counts every hour a ticket sits unanswered, including nights, weekends and holidays. It\u2019s a wall\u2011clock measurement, not a business\u2011hours one.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_14f79cbd-2fbf-4b42-931f-9c3c9425cd51",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460393,
+      "id": "chatcmpl-362f15b2-2702-410d-91d9-15d62960c4e7",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_3023a70d60",
+      "usage": {
+        "completion_time": 0.177664917,
+        "completion_tokens": 148,
+        "completion_tokens_details": {
+          "reasoning_tokens": 87
+        },
+        "prompt_time": 0.062689421,
+        "prompt_tokens": 1033,
+        "queue_time": 0.376603937,
+        "total_time": 0.240354338,
+        "total_tokens": 1181
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8qrkmeqz87mn1qg3beqx7",
+        "seed": 533664992
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 by default the response\u2011time metric counts every hour a ticket sits unanswered, including nights, weekends and holidays. It\u2019s a wall\u2011clock measurement, not a business\u2011hours one."
+        },
+        "id": "fc_14f79cbd-2fbf-4b42-931f-9c3c9425cd51",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 148,
+      "prompt_tokens": 1033
+    }
+  },
+  "retry_after": null
+}

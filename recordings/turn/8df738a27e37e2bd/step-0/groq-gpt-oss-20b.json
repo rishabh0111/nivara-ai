@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:24:48.837060Z",
+  "failure_detail": null,
+  "fingerprint": "bd8de519958a563bc1f5ace3540eeddeb5d18b3ed30b366cec534a8554fc2ceb",
+  "outcome": "response",
+  "recording_id": "turn/8df738a27e37e2bd/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"My authenticator app was reinstalled after a phone upgrade and the codes no longer match \u2014 how do I re-enrol?\" This is about re-enrolling two-factor authentication after losing access to the app. The policy says: from DOC-012 part 2: \"From Settings \u2192 Security \u2192 Two-factor authentication, choose \u201cReset\u201d and re-enrol the same way as a first-time setup \u2014 scanning a new QR code and confirming with a fresh six-digit code. A saved recovery code from the original enrolment can also be used to sign in and reset from there if the settings page itself is not reachable without a working code.\" Also part 3: \"Re-enrolling invalidates the old QR code entirely; only the newly scanned one will generate valid codes afterward.\" So answer: go to Settings \u2192 Security \u2192 Two-factor authentication, click Reset, then re-enrol by scanning new QR code, enter code, save recovery codes. If can't reach settings, use recovery code to sign in and reset. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"To re\u2011enrol, go to Settings\u202f\u2192\u202fSecurity\u202f\u2192\u202fTwo\u2011factor authentication and tap \u201cReset\u201d. Then follow the first\u2011time set\u2011up steps: scan the new QR code, enter the six\u2011digit code the app shows, and save the new recovery codes. If you can\u2019t reach the settings page, use a recovery code you saved earlier to sign in and then reset from there. Once you\u2019ve reset, the old QR code is invalidated and only the new one will work.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_89b08bd9-a3ff-405d-acda-34145b7326bd",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459888,
+      "id": "chatcmpl-40d07148-7ecd-41cb-9a45-9af4258f1573",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_ef00694abe",
+      "usage": {
+        "completion_time": 0.371162634,
+        "completion_tokens": 345,
+        "completion_tokens_details": {
+          "reasoning_tokens": 219
+        },
+        "prompt_time": 0.532095271,
+        "prompt_tokens": 1059,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.291080665,
+        "total_time": 0.903257905,
+        "total_tokens": 1404
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m88b0ae0dta93gw4m71864",
+        "seed": 72495872
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "To re\u2011enrol, go to Settings\u202f\u2192\u202fSecurity\u202f\u2192\u202fTwo\u2011factor authentication and tap \u201cReset\u201d. Then follow the first\u2011time set\u2011up steps: scan the new QR code, enter the six\u2011digit code the app shows, and save the new recovery codes. If you can\u2019t reach the settings page, use a recovery code you saved earlier to sign in and then reset from there. Once you\u2019ve reset, the old QR code is invalidated and only the new one will work."
+        },
+        "id": "fc_89b08bd9-a3ff-405d-acda-34145b7326bd",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 345,
+      "prompt_tokens": 1059
+    }
+  },
+  "retry_after": null
+}

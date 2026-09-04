@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:28:04.997225Z",
+  "failure_detail": null,
+  "fingerprint": "9c379d0ec76d60dbc760d9936162d8c87bd1a61a963a7819454a6d7a9163151d",
+  "outcome": "response",
+  "recording_id": "turn/153857efb66b5935/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer question: \"webhook payload truncated, what's the real size limit\". We have policy excerpts about webhook payload size and batching large records. They say: \"A webhook payload is capped at a fixed size, and a record whose full content would exceed it is delivered as a reference \u2014 an id and a truncated: true flag \u2014 rather than a truncated version of the content itself, so a consuming system should treat that flag as a signal to fetch the full record via the API rather than trust a partial payload.\" But they don't give the exact size limit. The policy excerpt doesn't specify the numeric limit. The question: \"webhook payload truncated, what's the real size limit\". The policy doesn't provide the numeric limit. According to instructions: If the answer is not in policy, we must not answer from general knowledge. We should either ask for clarification or we should \"escalate\" because we cannot answer. The question is ambiguous: they want the real size limit. The policy doesn't provide it. So we should \"escalate\".",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The policy excerpts do not specify the exact numeric size limit for webhook payloads. The customer is asking for that specific limit, which is not provided in the available policy content. Therefore, I cannot answer this question from the policy and should hand it over to a human.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_1c742594-b0fe-4aff-944f-78d5a91a2ef1",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460084,
+      "id": "chatcmpl-cf420c54-98d0-478e-b5c9-9fc1f96ff1ca",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_8d13edce1d",
+      "usage": {
+        "completion_time": 0.307030206,
+        "completion_tokens": 289,
+        "completion_tokens_details": {
+          "reasoning_tokens": 212
+        },
+        "prompt_time": 0.363660628,
+        "prompt_tokens": 1048,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.274354901,
+        "total_time": 0.670690834,
+        "total_tokens": 1337
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8easzeywtzf2ztxfej475",
+        "seed": 1091873226
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The policy excerpts do not specify the exact numeric size limit for webhook payloads. The customer is asking for that specific limit, which is not provided in the available policy content. Therefore, I cannot answer this question from the policy and should hand it over to a human."
+        },
+        "id": "fc_1c742594-b0fe-4aff-944f-78d5a91a2ef1",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 289,
+      "prompt_tokens": 1048
+    }
+  },
+  "retry_after": null
+}

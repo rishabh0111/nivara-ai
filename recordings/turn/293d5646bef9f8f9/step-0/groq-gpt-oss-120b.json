@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:29:56.464074Z",
+  "failure_detail": null,
+  "fingerprint": "beb89390b66418ba9544a2d381fb8ac94ed5c213d425f4d473bf9a2caaa9a5b5",
+  "outcome": "response",
+  "recording_id": "turn/293d5646bef9f8f9/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"refund for cancelled seats\". This is about seats cancelled partway through a billing cycle. According to DOC-052: Seats cancelled partway through a billing cycle are not automatically prorated on standard plans; seat removed mid-cycle stops being billed starting next cycle rather than being refunded for remainder, though contract terms can vary.\n\nThus we can answer: refunds are not automatic; you won't get a prorated refund; billing stops next cycle; if contract differs, contact support. Provide short answer.\n\nWe must not mention policy. Just answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! On our standard plans, seats that are cancelled part\u2011way through a billing cycle aren\u2019t prorated or refunded for the remaining days. The seat will simply stop being billed starting with the next cycle. If your account has a different contract term that might allow a refund, you\u2019ll need to check your agreement or reach out to your account manager for clarification.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_3b7b232d-2ddf-4894-bc38-7954749f45ab",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452996,
+      "id": "chatcmpl-ce74e48d-0e69-4a31-a369-f74c6d661ca4",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_803c0ba83d",
+      "usage": {
+        "completion_time": 0.740243093,
+        "completion_tokens": 224,
+        "completion_tokens_details": {
+          "reasoning_tokens": 125
+        },
+        "prompt_time": 0.128352454,
+        "prompt_tokens": 1026,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.361701624,
+        "total_time": 0.868595547,
+        "total_tokens": 1250
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1p01qet7rcdp5g75kcjwf",
+        "seed": 525461248
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! On our standard plans, seats that are cancelled part\u2011way through a billing cycle aren\u2019t prorated or refunded for the remaining days. The seat will simply stop being billed starting with the next cycle. If your account has a different contract term that might allow a refund, you\u2019ll need to check your agreement or reach out to your account manager for clarification."
+        },
+        "id": "fc_3b7b232d-2ddf-4894-bc38-7954749f45ab",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 224,
+      "prompt_tokens": 1026
+    }
+  },
+  "retry_after": null
+}

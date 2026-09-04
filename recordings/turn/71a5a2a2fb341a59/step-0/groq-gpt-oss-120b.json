@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:01:28.347886Z",
+  "failure_detail": null,
+  "fingerprint": "b5bb67e619ddc599f06dcce4af91a899fcc4493e945d00a90061c35be5e980aa",
+  "outcome": "response",
+  "recording_id": "turn/71a5a2a2fb341a59/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"does SSO turning on kill password login instantly\". They ask if enabling SSO disables password login instantly. According to DOC-009 part 1: Enabling SSO does not immediately disable password sign-in for existing staff. Both methods coexist until admin separately turns password sign-in off in Settings \u2192 Security \u2192 SSO \u2192 Require SSO. And part 3: Once every staff member has confirmed they can sign in through SSO, enabling \u201cRequire SSO\u201d turns off password sign-in for the whole workspace in one step.\n\nThus answer: No, turning on SSO does not instantly kill password login; you need to enable Require SSO after confirming. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"No \u2013 simply enabling SSO leaves password sign\u2011in active. Password login is only disabled when you later turn on **Require SSO** (Settings \u2192 Security \u2192 SSO \u2192 Require SSO) after confirming everyone can sign in via SSO.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_74c50d9e-1cc0-4312-953e-7b07f133a8b5",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372088,
+      "id": "chatcmpl-5631ce13-7ac1-4352-aa8b-6b5706299569",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c868cf1eaa",
+      "usage": {
+        "completion_time": 0.465970626,
+        "completion_tokens": 225,
+        "completion_tokens_details": {
+          "reasoning_tokens": 150
+        },
+        "prompt_time": 0.060316617,
+        "prompt_tokens": 993,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.365307716,
+        "total_time": 0.526287243,
+        "total_tokens": 1218
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmgwjqegsafvv3tgf11wvs",
+        "seed": 1031347994
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "No \u2013 simply enabling SSO leaves password sign\u2011in active. Password login is only disabled when you later turn on **Require SSO** (Settings \u2192 Security \u2192 SSO \u2192 Require SSO) after confirming everyone can sign in via SSO."
+        },
+        "id": "fc_74c50d9e-1cc0-4312-953e-7b07f133a8b5",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 225,
+      "prompt_tokens": 993
+    }
+  },
+  "retry_after": null
+}

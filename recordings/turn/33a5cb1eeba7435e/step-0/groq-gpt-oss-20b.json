@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:28:33.099618Z",
+  "failure_detail": null,
+  "fingerprint": "8ff59a547ce47e5b001ec94e1845a08c6d638de3b32174f4111849d25e388c39",
+  "outcome": "response",
+  "recording_id": "turn/33a5cb1eeba7435e/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer about pagination behavior. The question: \"This has been silently broken for weeks and a stakeholder just caught it \u2014 I need to understand the pagination behaviour urgently so we can fix our sync.\"\n\nWe have policy excerpts about pagination. We should explain that list endpoints return one page, with next_cursor, and you must follow next_cursor until absent. Also mention that if you only read first page, you'll miss records once result set grows past a single page. So answer: explain that you need to implement loop following next_cursor. Provide guidance. No mention of policy. Just short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! The issue is most likely due to how pagination is handled. Every list endpoint returns a single page of results and includes a `next_cursor` field when more data is available. If your integration only reads the first page and never checks for that cursor, it will silently stop once the result set grows beyond one page. The correct pattern is to loop: fetch a page, process the data, then call the endpoint again with the `next_cursor` value until the response no longer contains a `next_cursor`. This ensures you retrieve the full dataset. Let me know if you need help implementing that loop or debugging your current code!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_3f01f482-037b-45ae-8d8c-2bb93791d1d8",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460113,
+      "id": "chatcmpl-6b20ccee-d6d6-4ad3-84aa-59c856060696",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9340e7d14d",
+      "usage": {
+        "completion_time": 0.407345797,
+        "completion_tokens": 269,
+        "completion_tokens_details": {
+          "reasoning_tokens": 120
+        },
+        "prompt_time": 0.071850132,
+        "prompt_tokens": 1078,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.279490227,
+        "total_time": 0.479195929,
+        "total_tokens": 1347
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8f6cqebsbs0y99gpa889w",
+        "seed": 1786943331
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! The issue is most likely due to how pagination is handled. Every list endpoint returns a single page of results and includes a `next_cursor` field when more data is available. If your integration only reads the first page and never checks for that cursor, it will silently stop once the result set grows beyond one page. The correct pattern is to loop: fetch a page, process the data, then call the endpoint again with the `next_cursor` value until the response no longer contains a `next_cursor`. This ensures you retrieve the full dataset. Let me know if you need help implementing that loop or debugging your current code!"
+        },
+        "id": "fc_3f01f482-037b-45ae-8d8c-2bb93791d1d8",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 269,
+      "prompt_tokens": 1078
+    }
+  },
+  "retry_after": null
+}

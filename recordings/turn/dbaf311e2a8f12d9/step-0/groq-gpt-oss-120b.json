@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T17:49:27.577378Z",
+  "failure_detail": null,
+  "fingerprint": "fea26d68d7dff9fd906f12f9d90d0126f6560ea4421a04bd95ef348ede3950ae",
+  "outcome": "response",
+  "recording_id": "turn/dbaf311e2a8f12d9/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user says \"need our legal name fixed on invoices\". This is about correcting billing details on invoices. According to DOC-003 part 1: legal name set in Settings \u2192 Billing \u2192 Company details and pulled onto every invoice generated after the change. Part 2: Meridian does not reissue invoices already generated; correction applies forward only. Part 3: Customers who need a corrected copy of a past invoice for their own records, rather than a reissue, can request one through support.\n\nThus answer: instruct to update legal name in Settings \u2192 Billing \u2192 Company details; note that past invoices won't be reissued, only future ones will have corrected name; if they need a corrected copy of a past invoice, they can request via support.\n\nWe can provide that. It's within policy. So we post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! To update the legal name that appears on your invoices, go to **Settings \u2192 Billing \u2192 Company details** and edit the legal name there. The change will be applied to all invoices generated after you save the update.\\n\\nPlease note that we don\u2019t re\u2011issue invoices that have already been created \u2013 the corrected name will only show on future invoices. If you need a corrected copy of a past invoice for your records, just let us know and we can provide one through support.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_2d8f7e4e-7798-42fc-8225-7bdf86b911db",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371367,
+      "id": "chatcmpl-b5f4a236-16c2-45b9-a4a7-9308e278446b",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_77b12279f9",
+      "usage": {
+        "completion_time": 0.632292538,
+        "completion_tokens": 298,
+        "completion_tokens_details": {
+          "reasoning_tokens": 173
+        },
+        "prompt_time": 0.298275398,
+        "prompt_tokens": 988,
+        "queue_time": 0.31201881,
+        "total_time": 0.930567936,
+        "total_tokens": 1286
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hktw9gegp933qv7285jkgw",
+        "seed": 847423589
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! To update the legal name that appears on your invoices, go to **Settings \u2192 Billing \u2192 Company details** and edit the legal name there. The change will be applied to all invoices generated after you save the update.\n\nPlease note that we don\u2019t re\u2011issue invoices that have already been created \u2013 the corrected name will only show on future invoices. If you need a corrected copy of a past invoice for your records, just let us know and we can provide one through support."
+        },
+        "id": "fc_2d8f7e4e-7798-42fc-8225-7bdf86b911db",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 298,
+      "prompt_tokens": 988
+    }
+  },
+  "retry_after": null
+}

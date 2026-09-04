@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:22:01.930755Z",
+  "failure_detail": null,
+  "fingerprint": "9ca9fc201ddc0b11d2e67937f88ab69509a235f00360766e5067c6d7c96e4944",
+  "outcome": "response",
+  "recording_id": "turn/66357512e5fe6ea5/consistency/sample-4/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see conversation context. The user asks: \"We're still assessing impact from this and need to know right away whether this was a known platform incident.\"\n\nWe have policy excerpts about checking status page for known incident, component-level breakdown, etc. The question: they want to know if there was a known platform incident. According to policy, we can guide them to check the status page. The excerpts provide info: status page lists every incident, includes start/end time, component breakdown, history goes back earlier, etc. So answer: instruct to check status page, maybe link. Provide steps. That's covered by policy. So we can post reply.\n\nWe must not mention policy. Provide short specific answer.\n\nThus use post_reply with guidance.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can confirm whether the issue you\u2019re seeing was a known incident by checking Meridian\u2019s status page. The page lists all incidents\u2014including brief ones\u2014with start and end times and shows which components (API, dashboard, etc.) were affected. It also retains a history, so you can look at earlier windows in the day if needed. If the incident appears there, it\u2019s a platform\u2011wide event; if not, it\u2019s likely a local issue.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c9d44936-9393-4de8-969b-5a548b74e638",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452521,
+      "id": "chatcmpl-1d3c9661-95f8-495f-aecc-c47397ac7fa3",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_dee443f41b",
+      "usage": {
+        "completion_time": 1.080118121,
+        "completion_tokens": 265,
+        "completion_tokens_details": {
+          "reasoning_tokens": 150
+        },
+        "prompt_time": 0.179720412,
+        "prompt_tokens": 1094,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.317086276,
+        "total_time": 1.259838533,
+        "total_tokens": 1359
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m17gazew68kwg8s0g65bsf",
+        "seed": 448235661
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can confirm whether the issue you\u2019re seeing was a known incident by checking Meridian\u2019s status page. The page lists all incidents\u2014including brief ones\u2014with start and end times and shows which components (API, dashboard, etc.) were affected. It also retains a history, so you can look at earlier windows in the day if needed. If the incident appears there, it\u2019s a platform\u2011wide event; if not, it\u2019s likely a local issue."
+        },
+        "id": "fc_c9d44936-9393-4de8-969b-5a548b74e638",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 265,
+      "prompt_tokens": 1094
+    }
+  },
+  "retry_after": null
+}

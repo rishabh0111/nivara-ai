@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:12:11.151499Z",
+  "failure_detail": null,
+  "fingerprint": "7ec384bac043a4794844acef93c79f0aa6472636e576b00c2ba2ae32c5433320",
+  "outcome": "response",
+  "recording_id": "turn/bbeb3f9b43879af2/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"Not sure what DNS changes a custom domain needs.\" This is about setting up a custom domain. The policy excerpts provide info: need to add CNAME and TXT records, and the custom domain settings page shows DNS records to add. Also verification runs automatically.\n\nThus we can answer: go to Settings \u2192 General \u2192 Custom domain, enter domain, then add two DNS records: a CNAME pointing subdomain to Meridian's portal address, and a TXT record for verification. After adding, verification may take up to DNS propagation time; status will show pending or verified.\n\nWe must post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"To set up a custom domain for your support portal, go to **Settings \u2192 General \u2192 Custom domain** and enter the domain you want to use. The page will display the exact DNS records you need to add at your DNS provider:\\n\\n1. **CNAME record** \u2013 points the subdomain you chose (e.g.,\u202fsupport.yourcompany.com) to Meridian\u2019s portal address.\\n2. **TXT record** \u2013 used to verify that you own the domain before the custom domain is activated.\\n\\nAdd both records with your DNS host. Verification runs automatically and may take up to your provider\u2019s propagation time; you\u2019ll see a \u201cpending\u201d or \u201cverified\u201d status on the custom domain settings page.\\n\\nIf you need any further help, just let us know!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_55e37ed7-5304-4a8c-8242-7aa69ff1affb",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451930,
+      "id": "chatcmpl-5af64656-fe83-41bc-80ac-c41a60093ffa",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_bb691ea66b",
+      "usage": {
+        "completion_time": 0.723025042,
+        "completion_tokens": 317,
+        "completion_tokens_details": {
+          "reasoning_tokens": 132
+        },
+        "prompt_time": 0.162250393,
+        "prompt_tokens": 1044,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.363151125,
+        "total_time": 0.885275435,
+        "total_tokens": 1361
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0nfg6eaptgs6999pjtf8t",
+        "seed": 2104886508
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "To set up a custom domain for your support portal, go to **Settings \u2192 General \u2192 Custom domain** and enter the domain you want to use. The page will display the exact DNS records you need to add at your DNS provider:\n\n1. **CNAME record** \u2013 points the subdomain you chose (e.g.,\u202fsupport.yourcompany.com) to Meridian\u2019s portal address.\n2. **TXT record** \u2013 used to verify that you own the domain before the custom domain is activated.\n\nAdd both records with your DNS host. Verification runs automatically and may take up to your provider\u2019s propagation time; you\u2019ll see a \u201cpending\u201d or \u201cverified\u201d status on the custom domain settings page.\n\nIf you need any further help, just let us know!"
+        },
+        "id": "fc_55e37ed7-5304-4a8c-8242-7aa69ff1affb",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 317,
+      "prompt_tokens": 1044
+    }
+  },
+  "retry_after": null
+}

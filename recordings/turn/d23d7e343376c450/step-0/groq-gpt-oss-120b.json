@@ -1,0 +1,78 @@
+{
+  "captured_at": "2026-09-03T16:09:09.017256Z",
+  "failure_detail": null,
+  "fingerprint": "02e9365ef21713b121dfc3242c97ca61ba65c081e5cbba8dfd914dbfc0c7d4ba",
+  "outcome": "response",
+  "recording_id": "turn/d23d7e343376c450/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to read conversation to see context.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{}",
+                  "name": "read_conversation"
+                },
+                "id": "fc_5bb194f7-c968-4c32-9762-433ce824297b",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451748,
+      "id": "chatcmpl-b42f75c5-03c8-447a-a8f1-60bedbe43cfd",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e5b4e54fbb",
+      "usage": {
+        "completion_time": 0.062934994,
+        "completion_tokens": 30,
+        "completion_tokens_details": {
+          "reasoning_tokens": 10
+        },
+        "prompt_time": 0.787256974,
+        "prompt_tokens": 1048,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.363703214,
+        "total_time": 0.850191968,
+        "total_tokens": 1078
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0fxc1e5ptdnykzhfvvtz6",
+        "seed": 2056621427
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {},
+        "id": "fc_5bb194f7-c968-4c32-9762-433ce824297b",
+        "name": "read_conversation"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 30,
+      "prompt_tokens": 1048
+    }
+  },
+  "retry_after": null
+}

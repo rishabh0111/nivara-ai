@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:01:32.505554Z",
+  "failure_detail": null,
+  "fingerprint": "f93a90e6a991f5fb6cc8bc88feb6d3abd2c8f62055b22ebb6a3a2b146c2e7d32",
+  "outcome": "response",
+  "recording_id": "turn/cebf7d9bbeb0d73a/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Do automation rules and integrations migrate automatically with the plan change, or do they need to be manually reconfigured afterward?\" This matches DOC-032 about plan migration: moving a workspace to a new plan does not interrupt existing API keys, webhooks or automation rules\u2014they continue running, tied to workspace. Also tier-gated automation feature may pause if not available. So answer: they migrate automatically, no manual reconfiguration needed, except tier-gated features may pause. Provide short answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When you move a workspace to a different plan, all existing API keys, webhooks and automation rules keep working automatically \u2013 they\u2019re tied to the workspace, not the plan tier, so you don\u2019t need to re\u2011configure anything after the migration. The only exception is a rule that relies on a feature that\u2019s only available in the destination tier; such a rule will be paused (not deleted) until the workspace is on a tier that includes that capability.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_221e8280-f478-48dd-8f76-89dc5662fd9b",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451292,
+      "id": "chatcmpl-c5577e8c-1441-476c-94d8-f1e21046c59a",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5d041d5b40",
+      "usage": {
+        "completion_time": 0.493632275,
+        "completion_tokens": 231,
+        "completion_tokens_details": {
+          "reasoning_tokens": 114
+        },
+        "prompt_time": 1.324448119,
+        "prompt_tokens": 1052,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.158940904,
+        "total_time": 1.8180803939999999,
+        "total_tokens": 1283
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m01yzdes9a4jbr8q0b4q6s",
+        "seed": 1578023971
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When you move a workspace to a different plan, all existing API keys, webhooks and automation rules keep working automatically \u2013 they\u2019re tied to the workspace, not the plan tier, so you don\u2019t need to re\u2011configure anything after the migration. The only exception is a rule that relies on a feature that\u2019s only available in the destination tier; such a rule will be paused (not deleted) until the workspace is on a tier that includes that capability."
+        },
+        "id": "fc_221e8280-f478-48dd-8f76-89dc5662fd9b",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 231,
+      "prompt_tokens": 1052
+    }
+  },
+  "retry_after": null
+}

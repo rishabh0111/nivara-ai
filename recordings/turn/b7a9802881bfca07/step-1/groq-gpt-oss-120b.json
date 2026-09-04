@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:22:33.098918Z",
+  "failure_detail": null,
+  "fingerprint": "d91af3d8e22df1cf1a908e0fc4a04b41fe6a4ac3adbd073042793a8d1865b686",
+  "outcome": "response",
+  "recording_id": "turn/b7a9802881bfca07/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The customer says \"Not sure which export option to pick.\" Likely they need guidance on choosing export format. We have policy excerpts about choosing export format: CSV is safest default, but loses column types; native formats preserve column types and avoid reformatting. Also for one-off download destined for a specific tool, pick that tool's native format to avoid manual reformatting.\n\nThus answer: recommend using native format for the tool you plan to import into; otherwise CSV is safe default. Keep short.\n\nProceed to post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If you\u2019re exporting for a specific spreadsheet tool (e.g., Excel or Google Sheets), choose that tool\u2019s native format from the dropdown \u2013 it keeps dates, numbers and other column types intact and saves you a re\u2011formatting step. If you\u2019re not sure which program you\u2019ll use, CSV is the safest default because it works with any tool, though you\u2019ll need to re\u2011format dates and numbers after import.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_2bf6a47c-adc3-4799-afa1-59f81149d2b8",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373352,
+      "id": "chatcmpl-25489d05-1405-473a-be78-ab4dc592223d",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5781dfb07c",
+      "usage": {
+        "completion_time": 1.241606719,
+        "completion_tokens": 226,
+        "completion_tokens_details": {
+          "reasoning_tokens": 116
+        },
+        "prompt_time": 0.056521475,
+        "prompt_tokens": 1045,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.275019034,
+        "total_time": 1.298128194,
+        "total_tokens": 1271
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnqevrezatm37k8xt7mnc5",
+        "seed": 397182991
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If you\u2019re exporting for a specific spreadsheet tool (e.g., Excel or Google Sheets), choose that tool\u2019s native format from the dropdown \u2013 it keeps dates, numbers and other column types intact and saves you a re\u2011formatting step. If you\u2019re not sure which program you\u2019ll use, CSV is the safest default because it works with any tool, though you\u2019ll need to re\u2011format dates and numbers after import."
+        },
+        "id": "fc_2bf6a47c-adc3-4799-afa1-59f81149d2b8",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 226,
+      "prompt_tokens": 1045
+    }
+  },
+  "retry_after": null
+}

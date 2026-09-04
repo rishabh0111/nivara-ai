@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:28:16.227103Z",
+  "failure_detail": null,
+  "fingerprint": "04a3daa90680507274e7c169c677d96ba9d2e0c51031b1a62667221bd078513c",
+  "outcome": "response",
+  "recording_id": "turn/acf387b51d7fa649/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user asks: \"trigger test webhook manually?\" They want to know how to trigger a test webhook manually. According to policy excerpts: DOC-025 part 1 says: Settings \u2192 Developer \u2192 Webhooks \u2192 Send test event fires a realistic sample payload at a configured endpoint on demand. So answer: go to Settings > Developer > Webhooks, click Send test event. Also mention that test event uses same schema and headers, and delivery log records test events. So we can answer. No policy about money or identity. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! To trigger a test webhook manually, go to your account\u2019s Settings \u2192 Developer \u2192 Webhooks. From there you\u2019ll see a **Send test event** button. Clicking it will fire a realistic sample payload to the endpoint you\u2019ve configured, using the same schema, headers, and signing header as a live delivery. The delivery will be logged in the webhook delivery log and marked as a test delivery, so you can confirm the endpoint responded with a 2xx before you enable production traffic.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c9a0cb27-267c-4a57-a4f5-100dcca6e53b",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460096,
+      "id": "chatcmpl-e935d2b4-fb68-4d05-81de-44436b45fc3c",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_75c733514d",
+      "usage": {
+        "completion_time": 0.257193517,
+        "completion_tokens": 232,
+        "completion_tokens_details": {
+          "reasoning_tokens": 111
+        },
+        "prompt_time": 0.047691267,
+        "prompt_tokens": 1015,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.156753142,
+        "total_time": 0.304884784,
+        "total_tokens": 1247
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8ep83e84bhh4w9j356qpy",
+        "seed": 1688398342
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! To trigger a test webhook manually, go to your account\u2019s Settings \u2192 Developer \u2192 Webhooks. From there you\u2019ll see a **Send test event** button. Clicking it will fire a realistic sample payload to the endpoint you\u2019ve configured, using the same schema, headers, and signing header as a live delivery. The delivery will be logged in the webhook delivery log and marked as a test delivery, so you can confirm the endpoint responded with a 2xx before you enable production traffic."
+        },
+        "id": "fc_c9a0cb27-267c-4a57-a4f5-100dcca6e53b",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 232,
+      "prompt_tokens": 1015
+    }
+  },
+  "retry_after": null
+}

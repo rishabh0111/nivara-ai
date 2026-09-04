@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:24:30.965222Z",
+  "failure_detail": null,
+  "fingerprint": "2ce7684c42759f443733ded7b1153cd0dec356e4e7b301c737019e12e7355d15",
+  "outcome": "response",
+  "recording_id": "turn/c62f4199e2f7f851/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer using policy excerpts. The question: \"Our webhook deliveries just stopped arriving overnight with nothing in our own logs \u2014 how do I check delivery status on your side?\" This matches DOC-022 parts. We should explain to go to Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log to see attempts, status, etc. Also mention possible causes: TLS cert expired, firewall, non-2xx. Provide steps. Use short answer.\n\nWe have to post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! You can view what Meridian sees for your webhook by opening **Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log**. The log shows every delivery attempt, the HTTP status returned and the response body, even if nothing was logged on your side. If you see failures there, common reasons include an expired TLS certificate, a firewall change, or your endpoint returning a non\u20112xx status. Those failures are logged on our side even when your own logs stay empty.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_40409cb2-f155-43ad-b9eb-152a1556e8be",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373470,
+      "id": "chatcmpl-b62a8920-6a87-42c2-8b7f-a822106e7ed3",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_803c0ba83d",
+      "usage": {
+        "completion_time": 0.459017986,
+        "completion_tokens": 216,
+        "completion_tokens_details": {
+          "reasoning_tokens": 96
+        },
+        "prompt_time": 0.848024881,
+        "prompt_tokens": 1046,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.365510587,
+        "total_time": 1.307042867,
+        "total_tokens": 1262
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnv1v0e1zvs4q1rbk8d899",
+        "seed": 920864066
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! You can view what Meridian sees for your webhook by opening **Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log**. The log shows every delivery attempt, the HTTP status returned and the response body, even if nothing was logged on your side. If you see failures there, common reasons include an expired TLS certificate, a firewall change, or your endpoint returning a non\u20112xx status. Those failures are logged on our side even when your own logs stay empty."
+        },
+        "id": "fc_40409cb2-f155-43ad-b9eb-152a1556e8be",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 216,
+      "prompt_tokens": 1046
+    }
+  },
+  "retry_after": null
+}

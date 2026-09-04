@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:12:42.426454Z",
+  "failure_detail": null,
+  "fingerprint": "1261bd508529e21c28ae011573a4801ed0c6d63d1c72ea66a41f6569b649c900",
+  "outcome": "response",
+  "recording_id": "turn/a02cc7ab70ed750a/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer using policy excerpts. The question: \"My scheduled weekly report stopped arriving with no error \u2014 how do I check whether it's still set up correctly?\" This is about scheduled reports. The policy excerpts DOC-040 provide guidance: go to Settings \u2192 Reports \u2192 Scheduled to see run history, check outcome, see if disabled, check recipient list for bouncing, check run history distinguishes between not running and failing delivery. So we can answer with steps.\n\nWe must not mention policy. Provide short specific answer. Use post_reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! To see why your weekly report stopped arriving:\\n1. Open **Settings \u2192 Reports \u2192 Scheduled**. You\u2019ll see each scheduled report and its run history, including the result of the most recent run. If the report is disabled or shows a failed run, that\u2019s shown there.\\n2. Check the **run history** details. It tells you whether the report didn\u2019t run at all or ran but failed to deliver.\\n3. Look at the **recipient list**. If an address is bouncing, Meridian will pause delivery to that address after repeated failures, which can make it seem like the whole report stopped.\\nIf the run history shows a successful run and the recipients are all valid, the schedule is still active; otherwise you\u2019ll see why it was paused or failed.\\nLet me know if you need help updating the recipient list or re\u2011enabling the report!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_4ff44b5f-806d-4404-b5dc-d26835cc11f4",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451962,
+      "id": "chatcmpl-e68664c1-4258-4bb7-8225-df40470c15b5",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9241e9962b",
+      "usage": {
+        "completion_time": 0.739113088,
+        "completion_tokens": 313,
+        "completion_tokens_details": {
+          "reasoning_tokens": 107
+        },
+        "prompt_time": 0.047637821,
+        "prompt_tokens": 1055,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.366617058,
+        "total_time": 0.786750909,
+        "total_tokens": 1368
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0ped1ek8sd9rz5ek8e5my",
+        "seed": 794872775
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! To see why your weekly report stopped arriving:\n1. Open **Settings \u2192 Reports \u2192 Scheduled**. You\u2019ll see each scheduled report and its run history, including the result of the most recent run. If the report is disabled or shows a failed run, that\u2019s shown there.\n2. Check the **run history** details. It tells you whether the report didn\u2019t run at all or ran but failed to deliver.\n3. Look at the **recipient list**. If an address is bouncing, Meridian will pause delivery to that address after repeated failures, which can make it seem like the whole report stopped.\nIf the run history shows a successful run and the recipients are all valid, the schedule is still active; otherwise you\u2019ll see why it was paused or failed.\nLet me know if you need help updating the recipient list or re\u2011enabling the report!"
+        },
+        "id": "fc_4ff44b5f-806d-4404-b5dc-d26835cc11f4",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 313,
+      "prompt_tokens": 1055
+    }
+  },
+  "retry_after": null
+}

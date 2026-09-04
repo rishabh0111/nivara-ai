@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:39:09.131945Z",
+  "failure_detail": null,
+  "fingerprint": "7d94a97885128d8077a95f591509f72d651d8e16e3b3d732e1e5af7e814658ac",
+  "outcome": "response",
+  "recording_id": "turn/5ed19b1b64b21674/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"A webhook endpoint on our account was silently repointed to a domain we don't control \u2014 has our customer data been leaving our workspace to a third party?\" This is about suspicious webhook change. According to DOC-062 part 1: repointed to domain not controlled means data delivered outside workspace, a security incident. So answer: Yes, data likely was delivered to that unauthorized domain during the period. Also advise to disable/repoint and report to support for investigation. Provide short answer. Use policy. No need to escalate. Provide answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes. When a webhook endpoint is repointed to a domain you don\u2019t control, the data the webhook sends is delivered to that external domain for as long as the change was in effect. This is treated as a security incident because customer data has left your workspace. We recommend you immediately disable or repoint the webhook in Settings\u202f\u2192\u202fDeveloper\u202f\u2192\u202fWebhooks and report the incident to support so a reviewer can determine when the change occurred, which account made it, and what data was sent during that window.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_d233aa73-f5f8-4d51-99da-d49eb7bfcc8b",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453549,
+      "id": "chatcmpl-aca85471-51ac-4f42-aae3-514eca42c120",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c868cf1eaa",
+      "usage": {
+        "completion_time": 0.672442487,
+        "completion_tokens": 250,
+        "completion_tokens_details": {
+          "reasoning_tokens": 121
+        },
+        "prompt_time": 0.203079078,
+        "prompt_tokens": 1124,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.728309984,
+        "total_time": 0.875521565,
+        "total_tokens": 1374
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m26vdeehhbd9x5h4pad69x",
+        "seed": 2099732240
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes. When a webhook endpoint is repointed to a domain you don\u2019t control, the data the webhook sends is delivered to that external domain for as long as the change was in effect. This is treated as a security incident because customer data has left your workspace. We recommend you immediately disable or repoint the webhook in Settings\u202f\u2192\u202fDeveloper\u202f\u2192\u202fWebhooks and report the incident to support so a reviewer can determine when the change occurred, which account made it, and what data was sent during that window."
+        },
+        "id": "fc_d233aa73-f5f8-4d51-99da-d49eb7bfcc8b",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 250,
+      "prompt_tokens": 1124
+    }
+  },
+  "retry_after": null
+}

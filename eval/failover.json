@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "generated": "2026-08-31",
+    "injected_via": "ReplayTransport",
+    "modes": [
+      "rate_limited",
+      "timeout",
+      "malformed_tool_call"
+    ],
+    "rungs": [
+      "groq-gpt-oss-120b",
+      "groq-gpt-oss-20b",
+      "gemini-3.5-flash-lite"
+    ]
+  },
+  "rows": [
+    {
+      "escalated": false,
+      "handed_off_to": "groq-gpt-oss-20b",
+      "injected": "rate_limited",
+      "rung": "groq-gpt-oss-120b"
+    },
+    {
+      "escalated": false,
+      "handed_off_to": "groq-gpt-oss-20b",
+      "injected": "timeout",
+      "rung": "groq-gpt-oss-120b"
+    },
+    {
+      "escalated": false,
+      "handed_off_to": "groq-gpt-oss-20b",
+      "injected": "malformed_tool_call",
+      "rung": "groq-gpt-oss-120b"
+    },
+    {
+      "escalated": false,
+      "handed_off_to": "gemini-3.5-flash-lite",
+      "injected": "rate_limited",
+      "rung": "groq-gpt-oss-20b"
+    },
+    {
+      "escalated": false,
+      "handed_off_to": "gemini-3.5-flash-lite",
+      "injected": "timeout",
+      "rung": "groq-gpt-oss-20b"
+    },
+    {
+      "escalated": false,
+      "handed_off_to": "gemini-3.5-flash-lite",
+      "injected": "malformed_tool_call",
+      "rung": "groq-gpt-oss-20b"
+    },
+    {
+      "escalated": true,
+      "handed_off_to": null,
+      "injected": "rate_limited",
+      "rung": "gemini-3.5-flash-lite"
+    },
+    {
+      "escalated": true,
+      "handed_off_to": null,
+      "injected": "timeout",
+      "rung": "gemini-3.5-flash-lite"
+    },
+    {
+      "escalated": true,
+      "handed_off_to": null,
+      "injected": "malformed_tool_call",
+      "rung": "gemini-3.5-flash-lite"
+    }
+  ]
+}

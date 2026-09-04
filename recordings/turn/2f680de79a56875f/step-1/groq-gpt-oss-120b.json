@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T17:30:43.409832Z",
+  "failure_detail": null,
+  "fingerprint": "9933edfc42f701fac170790c2e30c5e0a9eeb5cc2e33260991a1fef84b3e5b75",
+  "outcome": "response",
+  "recording_id": "turn/2f680de79a56875f/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to determine what the customer is asking. They say \"Our admin\u2019s authenticator codes stopped working this week.\" Likely they need help re-enrolling two-factor authentication after losing access to the app. The policy excerpts cover re-enrolling two-factor authentication after losing access to the app. The answer: go to Settings \u2192 Security \u2192 Two-factor authentication, choose Reset, re-enrol scanning new QR code, confirm with six-digit code. Also can use saved recovery code if settings page not reachable.\n\nThus we can answer using those excerpts. It's not about money movement, disputed charge, identity docs. It's about 2FA. So we can answer.\n\nWe must keep answer short and specific, address the customer directly. Provide steps.\n\nThus we will post_reply with answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If the authenticator codes have stopped working, you\u2019ll need to reset and re\u2011enrol two\u2011factor authentication:\\n1. In the admin portal go to **Settings \u2192 Security \u2192 Two\u2011factor authentication**.\\n2. Choose **Reset**.\\n3. Follow the normal setup flow \u2013 scan the new QR code with your authenticator app and enter the fresh six\u2011digit code to confirm.\\nIf you can\u2019t reach the settings page because you don\u2019t have a working code, you can sign in with a saved recovery code and then reset from there.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_a1449270-b530-4e79-b378-dd0d0c7005f3",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788456643,
+      "id": "chatcmpl-ab68dd5e-d3d8-4d3b-bb45-c58047a2272b",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_bb691ea66b",
+      "usage": {
+        "completion_time": 1.296419324,
+        "completion_tokens": 297,
+        "completion_tokens_details": {
+          "reasoning_tokens": 157
+        },
+        "prompt_time": 2.23032766,
+        "prompt_tokens": 1081,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.36251329,
+        "total_time": 3.526746984,
+        "total_tokens": 1378
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m5570rer09wrz5bhhsjcey",
+        "seed": 628573144
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If the authenticator codes have stopped working, you\u2019ll need to reset and re\u2011enrol two\u2011factor authentication:\n1. In the admin portal go to **Settings \u2192 Security \u2192 Two\u2011factor authentication**.\n2. Choose **Reset**.\n3. Follow the normal setup flow \u2013 scan the new QR code with your authenticator app and enter the fresh six\u2011digit code to confirm.\nIf you can\u2019t reach the settings page because you don\u2019t have a working code, you can sign in with a saved recovery code and then reset from there."
+        },
+        "id": "fc_a1449270-b530-4e79-b378-dd0d0c7005f3",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 297,
+      "prompt_tokens": 1081
+    }
+  },
+  "retry_after": null
+}

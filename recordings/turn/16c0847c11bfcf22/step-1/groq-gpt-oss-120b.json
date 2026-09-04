@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:15:20.570989Z",
+  "failure_detail": null,
+  "fingerprint": "67d0702135e42329409f08747e945e14b53278548276290a3f662a3540403871",
+  "outcome": "response",
+  "recording_id": "turn/16c0847c11bfcf22/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see the conversation. The user says \"import column headers?\" Likely they ask about what column headers the contact importer expects. The policy excerpts provide answer. So we can answer: required headers email, name, company; optional phone, title, any custom fields defined; order doesn't matter; extra columns ignored; can download sample template. Provide concise answer.\n\nWe must post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! The contact importer expects at least three required columns:\\n- **email**\\n- **name**\\n- **company**\\n\\nYou can also include optional columns such as **phone**, **title**, and any custom fields you\u2019ve already defined in your workspace (use the exact custom\u2011field name as the header). The importer matches columns by header name, so the order doesn\u2019t matter, and any extra columns that aren\u2019t recognized are simply ignored.\\n\\nIf you want the exact header spelling, you can download the sample template from the import screen \u2013 it\u2019s the quickest way to get the correct format.\\n\\nLet me know if you need any more help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_85377524-43c4-49c3-a62f-a2caebc987bf",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372920,
+      "id": "chatcmpl-8310921a-28b6-4caf-9fbe-82dd68029043",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4727af4560",
+      "usage": {
+        "completion_time": 0.521219664,
+        "completion_tokens": 245,
+        "completion_tokens_details": {
+          "reasoning_tokens": 80
+        },
+        "prompt_time": 0.043203131,
+        "prompt_tokens": 1039,
+        "queue_time": 0.158199835,
+        "total_time": 0.564422795,
+        "total_tokens": 1284
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hna9cke6ab7cq033dsr2xg",
+        "seed": 2092768802
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! The contact importer expects at least three required columns:\n- **email**\n- **name**\n- **company**\n\nYou can also include optional columns such as **phone**, **title**, and any custom fields you\u2019ve already defined in your workspace (use the exact custom\u2011field name as the header). The importer matches columns by header name, so the order doesn\u2019t matter, and any extra columns that aren\u2019t recognized are simply ignored.\n\nIf you want the exact header spelling, you can download the sample template from the import screen \u2013 it\u2019s the quickest way to get the correct format.\n\nLet me know if you need any more help!"
+        },
+        "id": "fc_85377524-43c4-49c3-a62f-a2caebc987bf",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 245,
+      "prompt_tokens": 1039
+    }
+  },
+  "retry_after": null
+}

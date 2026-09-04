@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T17:17:04.330037Z",
+  "failure_detail": null,
+  "fingerprint": "b7e09397f92a2860a2b2191a5e5aadb4aea1c5338a9e493e7ea9f0ba695c3842",
+  "outcome": "response",
+  "recording_id": "turn/f5db9bb93caf89c9/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"New tickets used to show up in our Slack channel automatically and now nothing posts, with no error anywhere.\" This is about webhook delivery to Slack channel. The relevant policy excerpt is DOC-022 about webhook delivery status: failures could be TLS cert expired, firewall change, endpoint returning non-2xx status. So answer: check webhook endpoint logs, TLS cert, firewall, response status. Provide guidance. Use that excerpt. Provide short specific answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If your Slack channel stopped receiving tickets without any logged errors, the webhook deliveries are likely failing before they reach Slack. Common causes are an expired TLS certificate, a firewall change that blocks outbound requests, or the endpoint returning a non\u20112xx HTTP status (which wouldn\u2019t appear as an error in your own logs). Check the webhook endpoint\u2019s TLS cert, any recent network or firewall changes, and verify that the endpoint returns a successful 2xx response for each delivery.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_324b904e-0ba5-44ea-b0f3-81b18de6a5ff",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788455824,
+      "id": "chatcmpl-5e15eb65-a2e7-45a4-8084-f077048ed3af",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_068241849b",
+      "usage": {
+        "completion_time": 0.471041649,
+        "completion_tokens": 222,
+        "completion_tokens_details": {
+          "reasoning_tokens": 103
+        },
+        "prompt_time": 0.059673531,
+        "prompt_tokens": 1099,
+        "queue_time": 0.312372427,
+        "total_time": 0.53071518,
+        "total_tokens": 1321
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m4ca0ze02b8ckj87asd2rw",
+        "seed": 861263884
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If your Slack channel stopped receiving tickets without any logged errors, the webhook deliveries are likely failing before they reach Slack. Common causes are an expired TLS certificate, a firewall change that blocks outbound requests, or the endpoint returning a non\u20112xx HTTP status (which wouldn\u2019t appear as an error in your own logs). Check the webhook endpoint\u2019s TLS cert, any recent network or firewall changes, and verify that the endpoint returns a successful 2xx response for each delivery."
+        },
+        "id": "fc_324b904e-0ba5-44ea-b0f3-81b18de6a5ff",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 222,
+      "prompt_tokens": 1099
+    }
+  },
+  "retry_after": null
+}

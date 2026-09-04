@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:32:32.718275Z",
+  "failure_detail": null,
+  "fingerprint": "cc4703939ccfbd4f653775b35166ec977219cb77aed5f45b10aab769718c863f",
+  "outcome": "response",
+  "recording_id": "turn/897ce0245662eaf8/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our office manager cancelled a subscription ahead of renewal but was billed regardless, and asked me to get the charge reversed and renewal stopped.\"\n\nThis is about a charge after cancellation. According to DOC-055 parts: cancellation should stop next renewal, but charge after cancellation is a billing discrepancy, billing team investigates. Review checks timing, etc. The account owner or billing contact should raise it with the date cancellation was submitted. So we can respond: advise them to contact billing team, provide cancellation date, they will investigate and reverse if appropriate. We can give steps.\n\nWe are allowed to answer using policy. Not about money movement? It's about a charge reversal, which is a billing discrepancy. Not a disputed fraudulent charge? It's a billing dispute. According to policy, we can give guidance: they need to raise with billing team, include cancellation date. So we can answer.\n\nWe must keep answer short and specific, address customer directly. Provide that they need to contact billing team, include date, etc.\n\nThus we will post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"I\u2019m sorry you were charged after cancelling. This is treated as a billing discrepancy and our billing team will need to review the timing of the cancellation and the charge. Please have the account owner or billing contact raise a request with the date the cancellation was submitted, and we\u2019ll investigate the charge and ensure the renewal is stopped.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_2612aed2-da77-45d8-b13b-470ce2e059c2",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453152,
+      "id": "chatcmpl-ac6b5ea3-ba3c-409f-922e-b8d4b4f15820",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_90620edd96",
+      "usage": {
+        "completion_time": 0.939797966,
+        "completion_tokens": 309,
+        "completion_tokens_details": {
+          "reasoning_tokens": 219
+        },
+        "prompt_time": 0.044066901,
+        "prompt_tokens": 1055,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.366811197,
+        "total_time": 0.983864867,
+        "total_tokens": 1364
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1tr0re9zttnyw4p9yn48p",
+        "seed": 1265094329
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "I\u2019m sorry you were charged after cancelling. This is treated as a billing discrepancy and our billing team will need to review the timing of the cancellation and the charge. Please have the account owner or billing contact raise a request with the date the cancellation was submitted, and we\u2019ll investigate the charge and ensure the renewal is stopped."
+        },
+        "id": "fc_2612aed2-da77-45d8-b13b-470ce2e059c2",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 309,
+      "prompt_tokens": 1055
+    }
+  },
+  "retry_after": null
+}

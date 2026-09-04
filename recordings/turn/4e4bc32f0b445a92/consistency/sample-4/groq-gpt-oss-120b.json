@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:48:57.127708Z",
+  "failure_detail": null,
+  "fingerprint": "f62defbeda4602884faef6deb6a2cc2e5f37edac3d656e6bb30a2fb7c047d561",
+  "outcome": "response",
+  "recording_id": "turn/4e4bc32f0b445a92/consistency/sample-4/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to decide if we can answer from policy excerpts. The user says \"transfer paid, not applied, trace it\". They want to trace a bank transfer payment that hasn't been applied. The policy excerpts (DOC-070) describe the process: provide transfer date, amount, reference to billing team; billing team investigates; bank transfers take longer; they need details. So we can answer with that info.\n\nWe need to give short specific answer: ask to provide transfer date, amount, reference to billing team, they will trace. Also note that billing team will investigate because it's not something they can do themselves. So we can answer.\n\nThus we will post_reply with answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! If your bank transfer has cleared on your side but hasn\u2019t shown up in your Meridian account, our billing team needs a few details to trace it:\\n\\n1. The exact transfer date\\n2. The amount transferred\\n3. The reference/description used on the transfer\\n\\nPlease send those details to our billing team (support@meridian.com or via the help widget). They\u2019ll match the incoming payment to the correct invoice and apply it to your account. Bank transfers can take a bit longer to reconcile than card payments, so this investigation is handled case\u2011by\u2011case.\\n\\nLet us know if you need anything else!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_e43116c7-1148-4e02-8380-dbe16ea6c9a1",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454137,
+      "id": "chatcmpl-280ab859-51b0-47b2-a271-aed0508154eb",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5781dfb07c",
+      "usage": {
+        "completion_time": 0.629116824,
+        "completion_tokens": 294,
+        "completion_tokens_details": {
+          "reasoning_tokens": 137
+        },
+        "prompt_time": 0.615308224,
+        "prompt_tokens": 1111,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.280110532,
+        "total_time": 1.244425048,
+        "total_tokens": 1405
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2rspre02s2vbk2rtxyzqq",
+        "seed": 285813322
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! If your bank transfer has cleared on your side but hasn\u2019t shown up in your Meridian account, our billing team needs a few details to trace it:\n\n1. The exact transfer date\n2. The amount transferred\n3. The reference/description used on the transfer\n\nPlease send those details to our billing team (support@meridian.com or via the help widget). They\u2019ll match the incoming payment to the correct invoice and apply it to your account. Bank transfers can take a bit longer to reconcile than card payments, so this investigation is handled case\u2011by\u2011case.\n\nLet us know if you need anything else!"
+        },
+        "id": "fc_e43116c7-1148-4e02-8380-dbe16ea6c9a1",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 294,
+      "prompt_tokens": 1111
+    }
+  },
+  "retry_after": null
+}

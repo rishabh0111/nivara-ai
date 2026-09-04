@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:26:48.751341Z",
+  "failure_detail": null,
+  "fingerprint": "86bb74fef9ac5d4b5cab8a2f91dce5160a5eb15f5e751e8e0c410aede15cc068",
+  "outcome": "response",
+  "recording_id": "turn/cf12ad41c4d2d0d0/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: which format opens properly in the spreadsheet software the team uses. The user didn't specify which spreadsheet software. The policy says: exports are offered in CSV, and in a spreadsheet-native format for the two most common spreadsheet tools, selectable from a dropdown on the export screen. So we can say: choose the native format for your spreadsheet tool (e.g., Excel or Google Sheets). If they use Excel, choose .xlsx; if Google Sheets, choose .gsheet? But we don't know. The user says \"which format actually opens properly in the spreadsheet software our team uses?\" We don't know which software. The policy says: For a one-off download destined for a specific tool, picking that tool's native format avoids a manual reformatting step CSV would otherwise require. So we can advise: choose the native format for your tool. If they use Excel, choose the Excel format; if Google Sheets, choose the Google Sheets format. We can mention that CSV is safe but loses column types. So answer: pick the native format for your spreadsheet tool. Provide guidance. That is allowed. No policy conflict. So we can answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! For the best experience, choose the native export format for the spreadsheet tool your team uses. If you\u2019re working in Excel, pick the Excel format; if you\u2019re using Google Sheets, pick the Google\u2011Sheets format. These keep column types and avoid any re\u2011formatting that CSV would need. Let me know if you need help locating the dropdown or anything else!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_dbe3531f-b31a-492c-a8e0-a58badda6e06",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460008,
+      "id": "chatcmpl-b815e8bb-9e39-4398-8b91-7858ce196f4a",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e23fc997ca",
+      "usage": {
+        "completion_time": 0.412525682,
+        "completion_tokens": 331,
+        "completion_tokens_details": {
+          "reasoning_tokens": 233
+        },
+        "prompt_time": 0.06131855,
+        "prompt_tokens": 1045,
+        "queue_time": 0.162371259,
+        "total_time": 0.473844232,
+        "total_tokens": 1376
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8c0n6ewcah6rzat335qkk",
+        "seed": 1000770586
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! For the best experience, choose the native export format for the spreadsheet tool your team uses. If you\u2019re working in Excel, pick the Excel format; if you\u2019re using Google Sheets, pick the Google\u2011Sheets format. These keep column types and avoid any re\u2011formatting that CSV would need. Let me know if you need help locating the dropdown or anything else!"
+        },
+        "id": "fc_dbe3531f-b31a-492c-a8e0-a58badda6e06",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 331,
+      "prompt_tokens": 1045
+    }
+  },
+  "retry_after": null
+}

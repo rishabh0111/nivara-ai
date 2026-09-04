@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:09:48.786716Z",
+  "failure_detail": null,
+  "fingerprint": "71a24401f6462982d70128fb2a6ca190472f314d4ef02245fd7a95fbcfc39a3c",
+  "outcome": "response",
+  "recording_id": "turn/a1f3790c32a373f9/consistency/sample-3/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to decide whether we can answer from policy excerpts. The question: \"Do I need to fully remove the old two-factor enrolment before adding the new device, or can I just re-scan a new code?\" This is about two-factor authentication re-enrollment. The policy excerpts include info: DOC-012 part 1: \"An authenticator app reinstalled after a phone upgrade starts generating new codes that no longer match what Meridian has on file, because the original enrolment's secret was tied to the old install.\" Part 2: \"From Settings \u2192 Security \u2192 Two-factor authentication, choose \u201cReset\u201d and re-enrol the same way as a first-time setup \u2014 scanning a new QR code and confirming with a fresh six-digit code. A saved recovery code from the original enrolment can also be used to sign in and reset from there if the settings page itself is not reachable without a working code.\" Part 3: \"Re-enrolling invalidates the old QR code entirely; only the newly scanned one will generate valid codes afterward.\"\n\nThus answer: You need to reset (remove) the old enrollment; re-scanning a new code after reset will invalidate the old one. So you must reset (remove) the old enrollment, then re-enroll. So answer: Yes, you need to reset; re-scanning a new code without resetting will not work because the old QR code remains active? Actually the policy says re-enrolling invalidates the old QR code entirely; only the newly scanned one will generate valid codes afterwards. That suggests you can just reset and re-enroll; you don't need to manually delete old enrollment beyond using Reset. So answer: Use Settings \u2192 Security \u2192 Two-factor authentication \u2192 Reset, then scan new QR; that will invalidate old enrollment. So you don't need to manually remove first, just reset.\n\nThus we can answer with that info. Provide concise instructions. Use policy excerpts. So we can post reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You should reset the existing two\u2011factor setup first. Go to Settings \u2192 Security \u2192 Two\u2011factor authentication, tap \u201cReset\u201d, then enrol again just like a first\u2011time setup: scan the new QR code and confirm the six\u2011digit code. Resetting automatically invalidates the old QR code, so the previous enrolment will no longer work and only the new one will generate valid codes.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_df83c3be-c959-42ba-a0de-b869ab0aafbe",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372588,
+      "id": "chatcmpl-4b7092af-aa17-43f5-81f1-3a027b03b298",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_96d96a151c",
+      "usage": {
+        "completion_time": 1.424503315,
+        "completion_tokens": 498,
+        "completion_tokens_details": {
+          "reasoning_tokens": 394
+        },
+        "prompt_time": 0.669703924,
+        "prompt_tokens": 1146,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.276347663,
+        "total_time": 2.094207239,
+        "total_tokens": 1644
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hn03sge1yb79ptawqm6qdq",
+        "seed": 1208175222
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You should reset the existing two\u2011factor setup first. Go to Settings \u2192 Security \u2192 Two\u2011factor authentication, tap \u201cReset\u201d, then enrol again just like a first\u2011time setup: scan the new QR code and confirm the six\u2011digit code. Resetting automatically invalidates the old QR code, so the previous enrolment will no longer work and only the new one will generate valid codes."
+        },
+        "id": "fc_df83c3be-c959-42ba-a0de-b869ab0aafbe",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 498,
+      "prompt_tokens": 1146
+    }
+  },
+  "retry_after": null
+}

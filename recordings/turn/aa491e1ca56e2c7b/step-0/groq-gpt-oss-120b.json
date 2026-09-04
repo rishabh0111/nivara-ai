@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:24:01.531588Z",
+  "failure_detail": null,
+  "fingerprint": "486f343525710054acf56f13eaf39f9664ef0d752d30e12c835a683d010f8e99",
+  "outcome": "response",
+  "recording_id": "turn/aa491e1ca56e2c7b/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Would a platform-wide slowdown like that show up on the status page, or only full outages get posted there?\" This is about checking status page for slowdown vs outage. The policy excerpts cover that: DOC-047 parts say brief slower page loads that resolve on its own are worth checking status page; a platform-wide degradation, even short not severe enough to be called a full incident, is usually listed there with start and end time. Also DOC-046 says status page lists every incident affecting platform, including brief ones, with exact start and end time; a widespread 503 response, even short, appears there rather than unrecorded. So answer: Yes, platform-wide slowdown will show up; status page lists brief incidents, not only full outages. Provide guidance to check status page. Keep short.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 the status page records any platform\u2011wide degradation, even brief slowdowns, not just full outages. It lists the exact start and end times (and affected components) for short incidents, so you can verify whether a slowdown was a platform issue by checking the page\u2019s history.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_6f862aeb-6c4c-4b51-ad9c-5ea9749d2a92",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452641,
+      "id": "chatcmpl-431fe3e6-927d-4cf7-b232-519ca0d94f72",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_6dedd2be22",
+      "usage": {
+        "completion_time": 0.615556159,
+        "completion_tokens": 256,
+        "completion_tokens_details": {
+          "reasoning_tokens": 174
+        },
+        "prompt_time": 0.041468254,
+        "prompt_tokens": 1061,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.158152915,
+        "total_time": 0.657024413,
+        "total_tokens": 1317
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1b5wfe6styxm8nwxwhrbr",
+        "seed": 832231298
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 the status page records any platform\u2011wide degradation, even brief slowdowns, not just full outages. It lists the exact start and end times (and affected components) for short incidents, so you can verify whether a slowdown was a platform issue by checking the page\u2019s history."
+        },
+        "id": "fc_6f862aeb-6c4c-4b51-ad9c-5ea9749d2a92",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 1061
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:47:49.132419Z",
+  "failure_detail": null,
+  "fingerprint": "0681acc2411016cc78f37a5c3cdc5792c0c90393bd5d496b0b8b5574b394fdc8",
+  "outcome": "response",
+  "recording_id": "turn/fbe2faf1a001735b/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"bank transfer cleared, still shows unpaid, trace it\". This matches DOC-070 about tracing a bank transfer payment that hasn't been applied. The answer: instruct to provide transfer date, amount, reference to billing team, they will trace and apply. Also explain that bank transfers can take longer to reconcile, need details only paying company has. So we can give that info. Provide steps: contact support with those details. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there,\\n\\nIf a bank transfer has cleared on your side but still appears as unpaid, our billing team needs a few details to locate and apply it:\\n\\n1. The date the transfer was sent\\n2. The exact amount transferred\\n3. The reference or description used on the transfer\\n\\nPlease send these details to our support team (or reply here), and we\u2019ll trace the payment against our incoming transfers and apply it to your account. Bank transfers can take longer to reconcile than card payments because they arrive through a separate banking channel and often require the reference you used to match them correctly.\\n\\nThanks for your patience \u2013 we\u2019ll get this sorted as quickly as possible.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_55c44560-a6a6-48e6-835d-51e05aa300dd",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454068,
+      "id": "chatcmpl-720d99ba-e273-453a-9a56-64ce56619a44",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_854fa9be4c",
+      "usage": {
+        "completion_time": 0.582456276,
+        "completion_tokens": 268,
+        "completion_tokens_details": {
+          "reasoning_tokens": 103
+        },
+        "prompt_time": 0.050501796,
+        "prompt_tokens": 1116,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.276153468,
+        "total_time": 0.632958072,
+        "total_tokens": 1384
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2pqrdeedap9v51wb4k58h",
+        "seed": 926772098
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there,\n\nIf a bank transfer has cleared on your side but still appears as unpaid, our billing team needs a few details to locate and apply it:\n\n1. The date the transfer was sent\n2. The exact amount transferred\n3. The reference or description used on the transfer\n\nPlease send these details to our support team (or reply here), and we\u2019ll trace the payment against our incoming transfers and apply it to your account. Bank transfers can take longer to reconcile than card payments because they arrive through a separate banking channel and often require the reference you used to match them correctly.\n\nThanks for your patience \u2013 we\u2019ll get this sorted as quickly as possible."
+        },
+        "id": "fc_55c44560-a6a6-48e6-835d-51e05aa300dd",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 268,
+      "prompt_tokens": 1116
+    }
+  },
+  "retry_after": null
+}

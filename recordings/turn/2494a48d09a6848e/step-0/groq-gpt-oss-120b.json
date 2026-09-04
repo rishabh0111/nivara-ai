@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:23:40.274485Z",
+  "failure_detail": null,
+  "fingerprint": "32bae7160aaae76d63e75739ebefde1b7d7bef84f8072126531f9b49969e0527",
+  "outcome": "response",
+  "recording_id": "turn/2494a48d09a6848e/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"According to the API reference our rate limit should give us plenty of headroom, but we're seeing 429 responses at roughly half that documented ceiling \u2014 is something other than raw request count being measured?\" This is about API rate limit behavior. The policy excerpts explain that rate limit is per API key, rolling window, bursts can cause 429 even if under per-minute figure, and that X-RateLimit-Remaining and Reset headers show actual count. So answer: Yes, it's measured as rolling window and bursts can cause 429; also you can check headers. Provide short answer. No need to escalate. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! The limit is applied per API key on a rolling 60\u2011second window, not as a simple per\u2011minute bucket. That means a burst of requests can exceed the window\u2019s allowance even if the average rate looks below the documented ceiling, resulting in 429 responses. You can see the exact remaining quota and when it resets in the `X-RateLimit-Remaining` and `X-RateLimit-Reset` response headers, which give the most reliable view of what\u2019s being counted.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_1bc74ce9-93eb-44d5-923f-0d85ca9097e3",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373420,
+      "id": "chatcmpl-380242f7-d86a-49c7-8853-2a685dd2e4d6",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4a19b1544c",
+      "usage": {
+        "completion_time": 0.589902562,
+        "completion_tokens": 266,
+        "completion_tokens_details": {
+          "reasoning_tokens": 139
+        },
+        "prompt_time": 0.063461201,
+        "prompt_tokens": 1049,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.044862379,
+        "total_time": 0.653363763,
+        "total_tokens": 1315
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnshevesyaterfyjzzyps5",
+        "seed": 92336571
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! The limit is applied per API key on a rolling 60\u2011second window, not as a simple per\u2011minute bucket. That means a burst of requests can exceed the window\u2019s allowance even if the average rate looks below the documented ceiling, resulting in 429 responses. You can see the exact remaining quota and when it resets in the `X-RateLimit-Remaining` and `X-RateLimit-Reset` response headers, which give the most reliable view of what\u2019s being counted."
+        },
+        "id": "fc_1bc74ce9-93eb-44d5-923f-0d85ca9097e3",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 266,
+      "prompt_tokens": 1049
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T17:49:25.917690Z",
+  "failure_detail": null,
+  "fingerprint": "5eced53a5313aacba83fd827a75c8a8fa7f63106267a8a3af040646c02ad47c1",
+  "outcome": "response",
+  "recording_id": "turn/cfa54653a727d704/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"We renamed our company legally \u2014 how do I get that corrected on our invoices, and can past ones be fixed too?\" This is about correcting billing details on invoices. The policy says:\n\n- Legal name, billing address, tax ID are set in Settings \u2192 Billing \u2192 Company details and are pulled onto every invoice generated after the change. (DOC-003 part 1)\n- Meridian does not reissue invoices that have already been generated \u2014 a correction applies to invoices from that point forward only. (DOC-003 part 2)\n- Customers who need a corrected copy of a past invoice for their own records, rather than a reissue, can request one through support. (DOC-003 part 3)\n\nThus answer: go to Settings \u2192 Billing \u2192 Company details to update legal name; future invoices will have new name. Past invoices cannot be reissued; you can request a corrected copy via support. Provide concise answer.\n\nWe can answer directly. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! To update your legal company name on invoices, go to **Settings \u2192 Billing \u2192 Company details** and edit the legal name there. Any invoices generated after you save the change will show the new name.\\n\\nFor invoices that were already issued, Meridian doesn\u2019t re\u2011issue them with the updated name. If you need a corrected copy of a past invoice for your records, you can request one through our support team.\\n\\nLet us know if you need any help with the settings change!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_4418e50e-688b-4f88-85d7-0f5e9805c54a",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371365,
+      "id": "chatcmpl-2a9893fe-dba4-4e5c-b284-35766118af93",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9d1f936695",
+      "usage": {
+        "completion_time": 0.725552866,
+        "completion_tokens": 335,
+        "completion_tokens_details": {
+          "reasoning_tokens": 208
+        },
+        "prompt_time": 0.051619247,
+        "prompt_tokens": 1000,
+        "queue_time": 0.500606452,
+        "total_time": 0.777172113,
+        "total_tokens": 1335
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hkttkhe5t87fhx3ct4206z",
+        "seed": 926695179
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! To update your legal company name on invoices, go to **Settings \u2192 Billing \u2192 Company details** and edit the legal name there. Any invoices generated after you save the change will show the new name.\n\nFor invoices that were already issued, Meridian doesn\u2019t re\u2011issue them with the updated name. If you need a corrected copy of a past invoice for your records, you can request one through our support team.\n\nLet us know if you need any help with the settings change!"
+        },
+        "id": "fc_4418e50e-688b-4f88-85d7-0f5e9805c54a",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 335,
+      "prompt_tokens": 1000
+    }
+  },
+  "retry_after": null
+}

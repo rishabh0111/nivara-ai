@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:57:50.604988Z",
+  "failure_detail": null,
+  "fingerprint": "e71a165f5964896a9abebeda66356e0494fa7e340f049a76b6dbc44ecd0ece8d",
+  "outcome": "response",
+  "recording_id": "turn/8842ef9f8972fd4b/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user says they might have entered something on a fake-looking page and need to know urgently whether account is exposed. According to DOC-080 part 2: If credentials were entered on such a page, they should be treated as exposed: password should be changed immediately, and two-factor reset. Also part 3: Reporting incident to support lets recent sign-in activity be checked for any sign credentials were used before password change. So we can advise them to change password immediately, reset 2FA, and report to support for checking activity. Provide short answer. No need to escalate because not about money movement, fraud charge, identity docs. It's about potential credential exposure, which policy covers. So we can answer.\n\nWe must post_reply with concise answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If you entered any credentials on that look\u2011alike sign\u2011in page, treat them as exposed. Change your Meridian password right away from the official sign\u2011in page and reset two\u2011factor authentication if you use it. Then let us know you\u2019ve reported the incident so we can review your recent sign\u2011in activity for any signs the credentials were used before the password change.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c89fccb3-ad4d-4d69-9560-07d0f08b4507",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454670,
+      "id": "chatcmpl-0d7a2418-2a9d-40e5-89c6-1e1108b1036c",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_19b184c447",
+      "usage": {
+        "completion_time": 0.565683242,
+        "completion_tokens": 262,
+        "completion_tokens_details": {
+          "reasoning_tokens": 161
+        },
+        "prompt_time": 0.251729637,
+        "prompt_tokens": 1139,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.36463111,
+        "total_time": 0.817412879,
+        "total_tokens": 1401
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m392xdez7sq660dza2vr2v",
+        "seed": 1666850505
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If you entered any credentials on that look\u2011alike sign\u2011in page, treat them as exposed. Change your Meridian password right away from the official sign\u2011in page and reset two\u2011factor authentication if you use it. Then let us know you\u2019ve reported the incident so we can review your recent sign\u2011in activity for any signs the credentials were used before the password change."
+        },
+        "id": "fc_c89fccb3-ad4d-4d69-9560-07d0f08b4507",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 262,
+      "prompt_tokens": 1139
+    }
+  },
+  "retry_after": null
+}

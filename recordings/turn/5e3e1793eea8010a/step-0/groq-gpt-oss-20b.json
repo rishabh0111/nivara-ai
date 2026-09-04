@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:30:04.371892Z",
+  "failure_detail": null,
+  "fingerprint": "e83b377493e9f9778bf3e3d420b41ed1b5c12cbf31ac1601b6cde3defef30168",
+  "outcome": "response",
+  "recording_id": "turn/5e3e1793eea8010a/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"Is downgrade data loss immediate, or is there a grace period before anything tied to the higher tier is actually removed?\" We have policy excerpts: Downgrading a plan does not delete anything. Features and data tied to a higher tier are hidden rather than removed \u2014 a downgraded workspace stops being able to use the feature, but the underlying data is preserved and becomes visible again immediately if the workspace upgrades back. So data is not removed immediately; it's hidden. There's no grace period for deletion; data is preserved. The retention window exception: older records may age out over time if retention period is shorter. So answer: No immediate deletion; data is hidden, preserved, and only removed if retention window passes. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! When you downgrade, nothing is deleted right away. The data stays in your workspace \u2013 it\u2019s just hidden because the feature isn\u2019t available on the lower tier. If you upgrade again, the data becomes visible immediately. The only time data can be removed is if it falls outside the new tier\u2019s retention window, and that happens gradually over time, not at the moment of downgrade. Let me know if you\u2019d like more details!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_de8b8554-3a01-4067-b897-5e8702f82373",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460204,
+      "id": "chatcmpl-c4e49721-58a9-41ab-a839-f04c610f37e1",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_a4315eb300",
+      "usage": {
+        "completion_time": 0.35114849,
+        "completion_tokens": 269,
+        "completion_tokens_details": {
+          "reasoning_tokens": 159
+        },
+        "prompt_time": 0.063325171,
+        "prompt_tokens": 1048,
+        "queue_time": 0.308846507,
+        "total_time": 0.414473661,
+        "total_tokens": 1317
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8hzkde6tssqjvbmxs0f8e",
+        "seed": 1842867351
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! When you downgrade, nothing is deleted right away. The data stays in your workspace \u2013 it\u2019s just hidden because the feature isn\u2019t available on the lower tier. If you upgrade again, the data becomes visible immediately. The only time data can be removed is if it falls outside the new tier\u2019s retention window, and that happens gradually over time, not at the moment of downgrade. Let me know if you\u2019d like more details!"
+        },
+        "id": "fc_de8b8554-3a01-4067-b897-5e8702f82373",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 269,
+      "prompt_tokens": 1048
+    }
+  },
+  "retry_after": null
+}

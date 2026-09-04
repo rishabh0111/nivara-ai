@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:01:03.534132Z",
+  "failure_detail": null,
+  "fingerprint": "9b544cc33722823d67d7246f5128d9b8e0036095fb6f3a6730c20585b1bfddf1",
+  "outcome": "response",
+  "recording_id": "turn/d0a3545db6c7a198/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"As we move our whole workspace onto a new plan, I want to understand specifically what happens to integrations and automation rules already configured \u2014 do they carry over untouched, need reconfiguring, or risk breaking during the migration?\" This matches DOC-032 about plan migration: API keys, webhooks, automation rules continue running, tied to workspace. Tier-gated automation feature may be paused if not available. Also can view status in Settings \u2192 Automation \u2192 Rules. So answer: integrations continue unchanged, no reconfiguration needed; automation rules continue, but if they use tier-gated features not in new tier they will be paused, not deleted, and will reactivate if upgrade. Provide guidance to check status. So we can answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Moving your workspace to a new plan won\u2019t break your existing integrations \u2013 API keys, webhooks and any automation rules stay linked to the workspace\u2019s underlying ID, so they keep running without any re\u2011configuration.\\n\\nThe only thing that can change is a rule that relies on a feature that\u2019s only available on the destination tier. In that case the rule is automatically paused (not deleted) and will reactivate if you later move back to a tier that includes the feature. You can see the status of every rule before you confirm the migration in **Settings \u2192 Automation \u2192 Rules**.\\n\\nSo, integrations carry over untouched, and automation rules generally continue unchanged unless they depend on a tier\u2011gated capability that isn\u2019t included in the new plan.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_685d1be1-69cd-4352-b3bf-223044c4b487",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451263,
+      "id": "chatcmpl-4b1c6c9f-677b-4bb3-ba46-ff56d5b394fe",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_19b184c447",
+      "usage": {
+        "completion_time": 0.72254353,
+        "completion_tokens": 340,
+        "completion_tokens_details": {
+          "reasoning_tokens": 163
+        },
+        "prompt_time": 0.065908715,
+        "prompt_tokens": 1088,
+        "queue_time": 0.459699973,
+        "total_time": 0.788452245,
+        "total_tokens": 1428
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m013sqe1kvf564pp070js3",
+        "seed": 508445630
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Moving your workspace to a new plan won\u2019t break your existing integrations \u2013 API keys, webhooks and any automation rules stay linked to the workspace\u2019s underlying ID, so they keep running without any re\u2011configuration.\n\nThe only thing that can change is a rule that relies on a feature that\u2019s only available on the destination tier. In that case the rule is automatically paused (not deleted) and will reactivate if you later move back to a tier that includes the feature. You can see the status of every rule before you confirm the migration in **Settings \u2192 Automation \u2192 Rules**.\n\nSo, integrations carry over untouched, and automation rules generally continue unchanged unless they depend on a tier\u2011gated capability that isn\u2019t included in the new plan."
+        },
+        "id": "fc_685d1be1-69cd-4352-b3bf-223044c4b487",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 340,
+      "prompt_tokens": 1088
+    }
+  },
+  "retry_after": null
+}

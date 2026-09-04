@@ -1,0 +1,75 @@
+{
+  "captured_at": "2026-09-03T18:26:58.890690Z",
+  "failure_detail": null,
+  "fingerprint": "b1e8c95ebe43b8ed898e8d04ec02f448e6861725fb48405ac0966b6250fe9538",
+  "outcome": "response",
+  "recording_id": "turn/9f2b7854cfb60a7d/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to read conversation.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{}",
+                  "name": "read_conversation"
+                },
+                "id": "fc_d5ea50d7-9761-4bb1-9032-df983d388c36",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460018,
+      "id": "chatcmpl-09f783a9-d9c1-4fe8-aed7-f8bf7a3526b1",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9b8528b477",
+      "usage": {
+        "completion_time": 0.030507745,
+        "completion_tokens": 27,
+        "completion_tokens_details": {
+          "reasoning_tokens": 7
+        },
+        "prompt_time": 0.062581143,
+        "prompt_tokens": 1039,
+        "queue_time": 0.279482515,
+        "total_time": 0.093088888,
+        "total_tokens": 1066
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8cajcevstxrpw2x061sgr",
+        "seed": 6690238
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {},
+        "id": "fc_d5ea50d7-9761-4bb1-9032-df983d388c36",
+        "name": "read_conversation"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 27,
+      "prompt_tokens": 1039
+    }
+  },
+  "retry_after": null
+}

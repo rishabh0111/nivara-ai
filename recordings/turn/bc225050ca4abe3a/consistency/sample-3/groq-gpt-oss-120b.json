@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:07:33.612454Z",
+  "failure_detail": null,
+  "fingerprint": "a5eb20ba39d8fed865c5465e67e0b9d3f2d79853c7fac76d115c469426ae4c4a",
+  "outcome": "response",
+  "recording_id": "turn/bc225050ca4abe3a/consistency/sample-3/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to infer the customer's question. The user says: \"new phone, 2FA codes wrong now\". Likely they upgraded phone, reinstalled authenticator app, codes don't match Meridian's records. They need to re-enroll two-factor authentication. The policy excerpts include guidance on re-enrolling after losing access: steps to reset via Settings \u2192 Security \u2192 Two-factor authentication, choose \u201cReset\u201d and re-enrol, scanning new QR code, confirming with fresh six-digit code. Also mentions using saved recovery code.\n\nThus we can answer: explain that after phone upgrade the codes will be wrong, need to reset 2FA in settings, can use recovery code if needed. Provide steps.\n\nWe must not mention policy, just answer. So we can post reply with instructions.\n\nCheck if any rule about money movement etc? No. It's about 2FA codes. The excerpts cover it. So we can answer.\n\nThus we will call post_reply with a concise answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When you switch to a new phone and reinstall the authenticator app, the codes it generates will no longer match the ones Meridian has because the original secret was tied to the old install. To fix this, go to Settings \u2192 Security \u2192 Two\u2011factor authentication, tap **Reset**, and set up 2FA again just like a first\u2011time enrollment \u2013 scan the new QR code and confirm with the fresh six\u2011digit code. If you still have a recovery code from the original setup, you can use it to sign in and reset the 2FA from the settings page.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_138475b2-79cc-4e76-a0a5-d6b5aa22dd58",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372453,
+      "id": "chatcmpl-d09d8c5c-2da6-472d-b796-2e9c1dd4d05d",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_93703442d9",
+      "usage": {
+        "completion_time": 0.953290574,
+        "completion_tokens": 338,
+        "completion_tokens_details": {
+          "reasoning_tokens": 197
+        },
+        "prompt_time": 0.183613332,
+        "prompt_tokens": 1156,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.361333694,
+        "total_time": 1.136903906,
+        "total_tokens": 1494
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmw0kyerhsyebp1drgxgzt",
+        "seed": 595129903
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When you switch to a new phone and reinstall the authenticator app, the codes it generates will no longer match the ones Meridian has because the original secret was tied to the old install. To fix this, go to Settings \u2192 Security \u2192 Two\u2011factor authentication, tap **Reset**, and set up 2FA again just like a first\u2011time enrollment \u2013 scan the new QR code and confirm with the fresh six\u2011digit code. If you still have a recovery code from the original setup, you can use it to sign in and reset the 2FA from the settings page."
+        },
+        "id": "fc_138475b2-79cc-4e76-a0a5-d6b5aa22dd58",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 338,
+      "prompt_tokens": 1156
+    }
+  },
+  "retry_after": null
+}

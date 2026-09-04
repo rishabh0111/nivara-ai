@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:49:13.883834Z",
+  "failure_detail": null,
+  "fingerprint": "e6ca4bbbf5d0d7bd576f6e946ca4d7deb8da72d0844fccf91d369fd779dc9bab",
+  "outcome": "response",
+  "recording_id": "turn/bfa3d32cd30b7cf2/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"remove old card after loss, confirm it can't be charged again\". This is about removing a payment method after a lost card and confirming that it can't be charged again. The policy says removal is possible via settings, but confirming that the card is fully removed from billing system is handled case by case by billing team; the account owner should raise request after removing method themselves. So we can answer: you can remove the card via Settings \u2192 Billing \u2192 Payment method, but to confirm that it's fully removed from billing records you need to contact billing team; they handle case by case. Provide guidance to raise request. That is within policy. So we can post reply.\n\nWe must keep answer short and specific, address customer directly. Provide steps and note that billing team will confirm.\n\nThus we will use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can delete the lost card yourself in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPayment method (as long as there\u2019s another valid method on file).\u202fHowever, confirming that the card is completely removed from our billing records \u2013 not just hidden in the UI \u2013 is handled case\u2011by\u2011case by our billing team. After you\u2019ve removed the card, please raise a request with the billing team (or your account\u2019s billing contact) to have them verify that the card can no longer be charged.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_1f50bbcb-ea16-4549-9b2f-f64161344b94",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454153,
+      "id": "chatcmpl-b23a0228-3a5d-4747-bdb6-1ed0568b72f1",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_1d982b31b2",
+      "usage": {
+        "completion_time": 0.637600969,
+        "completion_tokens": 300,
+        "completion_tokens_details": {
+          "reasoning_tokens": 175
+        },
+        "prompt_time": 0.067590441,
+        "prompt_tokens": 1092,
+        "queue_time": 0.311545672,
+        "total_time": 0.70519141,
+        "total_tokens": 1392
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2sahaem6rqj83yfh9twn1",
+        "seed": 2056003664
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can delete the lost card yourself in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPayment method (as long as there\u2019s another valid method on file).\u202fHowever, confirming that the card is completely removed from our billing records \u2013 not just hidden in the UI \u2013 is handled case\u2011by\u2011case by our billing team. After you\u2019ve removed the card, please raise a request with the billing team (or your account\u2019s billing contact) to have them verify that the card can no longer be charged."
+        },
+        "id": "fc_1f50bbcb-ea16-4549-9b2f-f64161344b94",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 300,
+      "prompt_tokens": 1092
+    }
+  },
+  "retry_after": null
+}

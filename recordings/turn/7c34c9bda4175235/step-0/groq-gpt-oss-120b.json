@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T17:41:38.343529Z",
+  "failure_detail": null,
+  "fingerprint": "197ae04b3e768d0f00e323a699f09f7bf59fac0f3395a5a22ee3805853987e93",
+  "outcome": "response",
+  "recording_id": "turn/7c34c9bda4175235/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer using policy excerpts. The question: \"How do I see invoices from before this month? The billing page only shows the current one.\"\n\nRelevant policy: DOC-001 part 2: \"Open Settings \u2192 Billing \u2192 Invoices to see the full list, ordered by billing date with the most recent at the top. The billing tab's default view only surfaces the current month's invoice on the summary card; the invoices table below it holds every prior one.\"\n\nAlso DOC-001 part 3: \"Each row links to a PDF you can download... If a specific month is missing... plan may not have generated a paid invoice...\"\n\nThus answer: go to Settings > Billing > Invoices, scroll down the table, etc.\n\nWe must post_reply with concise answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! To view invoices from previous months, open **Settings \u2192 Billing \u2192 Invoices**. The summary card at the top only shows the current month\u2019s invoice, but the table below lists every prior invoice (most recent at the top). Click any row to download the PDF. If a month is missing, it likely means no paid invoice was generated for that period (e.g., it was fully covered by a credit).\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_059991ca-2df9-4ec1-a462-7cce7edf5b79",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788370898,
+      "id": "chatcmpl-58ba58d8-4f79-4290-95ec-e06ead71db51",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_fe269835c7",
+      "usage": {
+        "completion_time": 0.571895156,
+        "completion_tokens": 268,
+        "completion_tokens_details": {
+          "reasoning_tokens": 157
+        },
+        "prompt_time": 0.051632829,
+        "prompt_tokens": 1045,
+        "queue_time": 0.3151798,
+        "total_time": 0.623527985,
+        "total_tokens": 1313
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hkcjcpe1zb3jch6a4nqzzd",
+        "seed": 1382032116
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! To view invoices from previous months, open **Settings \u2192 Billing \u2192 Invoices**. The summary card at the top only shows the current month\u2019s invoice, but the table below lists every prior invoice (most recent at the top). Click any row to download the PDF. If a month is missing, it likely means no paid invoice was generated for that period (e.g., it was fully covered by a credit)."
+        },
+        "id": "fc_059991ca-2df9-4ec1-a462-7cce7edf5b79",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 268,
+      "prompt_tokens": 1045
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:04:07.115361Z",
+  "failure_detail": null,
+  "fingerprint": "c157292832e56392bc31cc54aa8973ee2807fa1a375cb0f8027247dd266b80f9",
+  "outcome": "response",
+  "recording_id": "turn/bc1190fd19bd94ea/consistency/sample-4/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see conversation. The user says: \"This is confusing my whole team right now and causing missed deadlines \u2014 how do I fix the timezone immediately?\" The policy excerpts are about timestamps displayed, timezone settings: workspace default, personal timezone. So the answer likely: set personal timezone in profile settings to override workspace default. Also can change workspace default in Settings \u2192 General. To fix immediately, each user can set their personal timezone in Profile settings. Also admin can change workspace default. Provide steps.\n\nWe have relevant excerpts: DOC-034 parts. So we can answer using those.\n\nThus we should post a reply with instructions: go to Settings \u2192 General to change workspace default, or each user go to personal Settings \u2192 Profile to set timezone which overrides default. Changing personal timezone will apply immediately.\n\nThus answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! The timestamps you see are based on two settings:\\n\\n1. **Workspace default timezone** \u2013 set in **Settings \u2192 General**. Changing this updates the default for anyone who hasn\u2019t set a personal timezone.\\n2. **Personal timezone** \u2013 set in your own **Settings \u2192 Profile**. This overrides the workspace default for just your account and takes effect immediately.\\n\\nTo fix the issue right away, have each team member open their Profile settings and select the correct timezone. If you want a single change for everyone who hasn\u2019t set a personal timezone, update the workspace default in Settings \u2192 General. Once saved, the new timezone will be applied instantly.\\n\\nLet me know if you need step\u2011by\u2011step screenshots or any other help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_a3685b31-8f5e-49bb-8214-a4ae4b73c1ff",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451446,
+      "id": "chatcmpl-569f1ca5-2123-47cf-872b-e6e5704c2cc3",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e5b4e54fbb",
+      "usage": {
+        "completion_time": 1.207852344,
+        "completion_tokens": 344,
+        "completion_tokens_details": {
+          "reasoning_tokens": 163
+        },
+        "prompt_time": 0.589026181,
+        "prompt_tokens": 1059,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.363017185,
+        "total_time": 1.796878525,
+        "total_tokens": 1403
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m06nzee6s8s11qzxn55mk6",
+        "seed": 2102698600
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! The timestamps you see are based on two settings:\n\n1. **Workspace default timezone** \u2013 set in **Settings \u2192 General**. Changing this updates the default for anyone who hasn\u2019t set a personal timezone.\n2. **Personal timezone** \u2013 set in your own **Settings \u2192 Profile**. This overrides the workspace default for just your account and takes effect immediately.\n\nTo fix the issue right away, have each team member open their Profile settings and select the correct timezone. If you want a single change for everyone who hasn\u2019t set a personal timezone, update the workspace default in Settings \u2192 General. Once saved, the new timezone will be applied instantly.\n\nLet me know if you need step\u2011by\u2011step screenshots or any other help!"
+        },
+        "id": "fc_a3685b31-8f5e-49bb-8214-a4ae4b73c1ff",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 344,
+      "prompt_tokens": 1059
+    }
+  },
+  "retry_after": null
+}

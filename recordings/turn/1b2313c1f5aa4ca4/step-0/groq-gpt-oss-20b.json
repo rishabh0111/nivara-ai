@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:26:22.978172Z",
+  "failure_detail": null,
+  "fingerprint": "35872a24391c71a3193cfa7ff2db4880afe9b49360d0fb779cd16176ae22cd30",
+  "outcome": "response",
+  "recording_id": "turn/1b2313c1f5aa4ca4/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"Our reporting lead asked whether Meridian can push a recurring export straight to our cloud storage on a weekly schedule instead of someone downloading it each time.\" The policy says: Recurring exports are configured from Settings \u2192 Data \u2192 Scheduled exports. Connect a cloud storage destination; Meridian supports major providers via OAuth. Save schedule. Each run lands as a new file. So yes, you can schedule recurring export to cloud storage weekly. So answer: Yes, you can set up scheduled export to cloud storage weekly. Provide steps: go to Settings > Data > Scheduled exports, choose export, set recurrence weekly, connect cloud storage via OAuth, save. Also note that scheduled exports are not subject to 10k row cap. So answer accordingly.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 you can set up a scheduled export that automatically writes a new file to your cloud storage on a weekly basis.\\n\\n1. In the app go to **Settings \u2192 Data \u2192 Scheduled exports**.\\n2. Pick the data you want to export and set the recurrence to **weekly**.\\n3. Connect your cloud\u2011storage provider (Google Drive, Dropbox, OneDrive, etc.) via the OAuth link \u2013 this only needs to be done once per destination.\\n4. Save the schedule.\\n\\nEach run will create a new file in the connected destination, and the scheduled\u2011exports screen will show the history of runs and whether they succeeded. This method bypasses the 10\u202f000\u2011row browser cap and eliminates the need for manual downloads.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c7f2f8c0-459c-4e24-8abf-a967670ce8f7",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459982,
+      "id": "chatcmpl-611d0ffd-f938-486e-8cbf-99ac530c7687",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_587d0d67cc",
+      "usage": {
+        "completion_time": 0.374125308,
+        "completion_tokens": 334,
+        "completion_tokens_details": {
+          "reasoning_tokens": 157
+        },
+        "prompt_time": 0.04967246,
+        "prompt_tokens": 986,
+        "queue_time": 0.316065529,
+        "total_time": 0.423797768,
+        "total_tokens": 1320
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8b7chef1sg7mrfssdpq9x",
+        "seed": 1341622303
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 you can set up a scheduled export that automatically writes a new file to your cloud storage on a weekly basis.\n\n1. In the app go to **Settings \u2192 Data \u2192 Scheduled exports**.\n2. Pick the data you want to export and set the recurrence to **weekly**.\n3. Connect your cloud\u2011storage provider (Google Drive, Dropbox, OneDrive, etc.) via the OAuth link \u2013 this only needs to be done once per destination.\n4. Save the schedule.\n\nEach run will create a new file in the connected destination, and the scheduled\u2011exports screen will show the history of runs and whether they succeeded. This method bypasses the 10\u202f000\u2011row browser cap and eliminates the need for manual downloads."
+        },
+        "id": "fc_c7f2f8c0-459c-4e24-8abf-a967670ce8f7",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 334,
+      "prompt_tokens": 986
+    }
+  },
+  "retry_after": null
+}

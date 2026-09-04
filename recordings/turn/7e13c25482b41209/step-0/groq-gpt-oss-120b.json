@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:04:15.167010Z",
+  "failure_detail": null,
+  "fingerprint": "ed3bba93cbca5d0ea4eb6e0cb14ec4e270e39449dc15e659c9e01d1a603c943f",
+  "outcome": "response",
+  "recording_id": "turn/7e13c25482b41209/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our new hire's manager asked me to find out why there's no SSO login option showing for someone who should have been added by the provider sync.\"\n\nWe have relevant policy excerpts DOC-010 parts 1-3. Provide answer: SSO option appears only for domains configured and after sync creates account. If not showing, maybe sync hasn't run yet or account not yet created on identity provider side. Admin can check in Settings \u2192 People; if absent, sync hasn't created it. Also could be signing in before next scheduled sync. So answer accordingly.\n\nWe must post_reply with concise answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"The SSO button only appears once the workspace\u2019s SSO domain is configured **and** the identity\u2011provider sync has actually created the user\u2019s account. If the new hire\u2019s account isn\u2019t showing:\\n1. They may have tried to sign in before the next scheduled sync ran.\\n2. Their account might not exist yet on the identity provider side \u2013 Meridian never creates SSO accounts on its own.\\n3. An admin can verify this in **Settings \u2192 People**; SSO\u2011provisioned accounts are marked with the identity provider name. If the user isn\u2019t listed, the sync hasn\u2019t created the account yet.\\n\\nAsk the identity\u2011provider admin to confirm the user exists there and, if needed, trigger or wait for the next sync. Once the account appears in People, the SSO login option will show for that email.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_20e3ff0f-d5ed-430f-a92a-cae942df9be3",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372255,
+      "id": "chatcmpl-8a34746e-0c68-4bc1-806d-04492d86f6dd",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_0adba2bb92",
+      "usage": {
+        "completion_time": 0.859725171,
+        "completion_tokens": 331,
+        "completion_tokens_details": {
+          "reasoning_tokens": 132
+        },
+        "prompt_time": 0.376634219,
+        "prompt_tokens": 1067,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.313111779,
+        "total_time": 1.23635939,
+        "total_tokens": 1398
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmnyvye1f90ckx84dsjmpm",
+        "seed": 1979256777
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "The SSO button only appears once the workspace\u2019s SSO domain is configured **and** the identity\u2011provider sync has actually created the user\u2019s account. If the new hire\u2019s account isn\u2019t showing:\n1. They may have tried to sign in before the next scheduled sync ran.\n2. Their account might not exist yet on the identity provider side \u2013 Meridian never creates SSO accounts on its own.\n3. An admin can verify this in **Settings \u2192 People**; SSO\u2011provisioned accounts are marked with the identity provider name. If the user isn\u2019t listed, the sync hasn\u2019t created the account yet.\n\nAsk the identity\u2011provider admin to confirm the user exists there and, if needed, trigger or wait for the next sync. Once the account appears in People, the SSO login option will show for that email."
+        },
+        "id": "fc_20e3ff0f-d5ed-430f-a92a-cae942df9be3",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 331,
+      "prompt_tokens": 1067
+    }
+  },
+  "retry_after": null
+}

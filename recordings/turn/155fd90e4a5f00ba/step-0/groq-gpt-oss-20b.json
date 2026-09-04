@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:34:22.877587Z",
+  "failure_detail": null,
+  "fingerprint": "688f55e596c5313d86f65669429136f0b024866de482de340fa99c79990e40b5",
+  "outcome": "response",
+  "recording_id": "turn/155fd90e4a5f00ba/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"How do I subscribe to incident notifications so my team hears about outages before customers start asking us?\" We have policy excerpts about subscribing to incident notifications. We should provide instructions: use status page subscribe option, choose email, SMS, webhook, can scope to components. Provide steps. Use policy content. No mention of policy. Just answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can subscribe directly from our status page. On the page, click the **Subscribe** button and choose the delivery method you prefer \u2013 email, SMS, or a webhook. If you only want alerts for specific parts of the platform, you can scope the subscription to those components so you only receive updates for incidents that affect your team. Once subscribed, you\u2019ll get a notification the moment an incident is opened, updated, or resolved, before it reaches customers through other channels.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_0656b29d-1416-44e8-a8b6-6e43e972d5e0",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460462,
+      "id": "chatcmpl-e9b672ae-d42f-4c5b-a42b-2ab7466d72ce",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_feb9b278f1",
+      "usage": {
+        "completion_time": 0.266686096,
+        "completion_tokens": 197,
+        "completion_tokens_details": {
+          "reasoning_tokens": 80
+        },
+        "prompt_time": 0.054268742,
+        "prompt_tokens": 991,
+        "queue_time": 0.308404622,
+        "total_time": 0.320954838,
+        "total_tokens": 1188
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8sw05e3h80y6p6zprpv91",
+        "seed": 1916566679
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can subscribe directly from our status page. On the page, click the **Subscribe** button and choose the delivery method you prefer \u2013 email, SMS, or a webhook. If you only want alerts for specific parts of the platform, you can scope the subscription to those components so you only receive updates for incidents that affect your team. Once subscribed, you\u2019ll get a notification the moment an incident is opened, updated, or resolved, before it reaches customers through other channels."
+        },
+        "id": "fc_0656b29d-1416-44e8-a8b6-6e43e972d5e0",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 197,
+      "prompt_tokens": 991
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:20:24.557548Z",
+  "failure_detail": null,
+  "fingerprint": "b3f8057336104548b1d54bf3a0092dcba7e89a482cddce05795ec0b3e2318934",
+  "outcome": "response",
+  "recording_id": "turn/53fa86b890449903/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user reports a platform-wide issue: all API calls return 503, affecting all customers. According to policy, we have excerpts about checking status page for known incident, and telling platform-wide slowdown vs local. We should answer: advise to check status page for incidents, mention component-level breakdown, and if nothing there, likely local. But they say it's affecting all customers, so likely platform-wide. So we can tell them to check status page for incidents, and that a 503 would be recorded there. Provide guidance. This is within policy. So we should post a reply.\n\nWe need to keep answer short and specific, address customer directly. Use info from DOC-046 and DOC-047. Provide steps: go to status page, look for incident, component-level breakdown. If not listed, could be local but they claim all customers. So advise to check status page and maybe wait for update.\n\nLet's craft reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there \u2013 a 503 response across the entire API is typically recorded on our status page. Please check the Meridian status page for any incident that matches the time window you\u2019re seeing; the component\u2011level breakdown will show whether the API is affected. If no incident is listed, the issue is more likely local (e.g., a network or browser extension), but given that you\u2019re seeing it for all customers, the status page is the best place to confirm a platform\u2011wide outage and get updates.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_d96cbcee-3173-4b0b-8ea0-77f42bd35472",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459624,
+      "id": "chatcmpl-58065313-a7f5-4286-8f8f-9fac6e3adb04",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_068241849b",
+      "usage": {
+        "completion_time": 0.672001826,
+        "completion_tokens": 313,
+        "completion_tokens_details": {
+          "reasoning_tokens": 187
+        },
+        "prompt_time": 0.094199134,
+        "prompt_tokens": 1110,
+        "queue_time": 0.320064274,
+        "total_time": 0.76620096,
+        "total_tokens": 1423
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m808rges2t27tv3qq7tbgd",
+        "seed": 676943823
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there \u2013 a 503 response across the entire API is typically recorded on our status page. Please check the Meridian status page for any incident that matches the time window you\u2019re seeing; the component\u2011level breakdown will show whether the API is affected. If no incident is listed, the issue is more likely local (e.g., a network or browser extension), but given that you\u2019re seeing it for all customers, the status page is the best place to confirm a platform\u2011wide outage and get updates."
+        },
+        "id": "fc_d96cbcee-3173-4b0b-8ea0-77f42bd35472",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 313,
+      "prompt_tokens": 1110
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:28:42.237035Z",
+  "failure_detail": null,
+  "fingerprint": "3a6b5cb8a0a956eaee15664c72218e97b7c15faed5baf742acb0195c7f48bd48",
+  "outcome": "response",
+  "recording_id": "turn/672bc27ddf1cd934/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer about pagination. The policy excerpts provide info. The user: \"Our backend developer found that records past page one weren't showing up and asked me to check how the API's pagination is meant to work.\" So we should explain that list endpoints return one page at a time, with next_cursor, and you need to follow next_cursor until absent. Also mention that if you don't check, you'll stop at first page. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"List endpoints return one page of results at a time. In the response you\u2019ll see a `next_cursor` field when more results exist. Your code should keep calling the endpoint with that cursor until the field is missing \u2013 that\u2019s the loop pattern the API expects. If you never check for `next_cursor`, you\u2019ll silently stop at the first page, which is why pagination must be handled from the start.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_22fbf0fd-101c-4250-a6c6-1ca6eb81d9bb",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460122,
+      "id": "chatcmpl-18f9bf4d-ed8f-45d6-9d26-f41accdd3eb8",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_a4315eb300",
+      "usage": {
+        "completion_time": 0.255635108,
+        "completion_tokens": 195,
+        "completion_tokens_details": {
+          "reasoning_tokens": 91
+        },
+        "prompt_time": 0.053696473,
+        "prompt_tokens": 1054,
+        "queue_time": 0.319860506,
+        "total_time": 0.309331581,
+        "total_tokens": 1249
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8fffrep0aaa5771738nry",
+        "seed": 1182326422
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "List endpoints return one page of results at a time. In the response you\u2019ll see a `next_cursor` field when more results exist. Your code should keep calling the endpoint with that cursor until the field is missing \u2013 that\u2019s the loop pattern the API expects. If you never check for `next_cursor`, you\u2019ll silently stop at the first page, which is why pagination must be handled from the start."
+        },
+        "id": "fc_22fbf0fd-101c-4250-a6c6-1ca6eb81d9bb",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 195,
+      "prompt_tokens": 1054
+    }
+  },
+  "retry_after": null
+}

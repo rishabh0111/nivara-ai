@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T17:54:44.314880Z",
+  "failure_detail": null,
+  "fingerprint": "6b62fbe5d0dee5dbad96a06eaaa99caf971ca5d16ca5c3d8fcf64968b1048893",
+  "outcome": "response",
+  "recording_id": "turn/c333048b87c99c5e/consistency/sample-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see what the user asked: \"wire transfer ok?\" Very ambiguous. Likely they are asking if a wire transfer is okay, maybe confirming if they can wire transfer payment? Could be about payment method. The policy excerpts talk about tracing a bank transfer payment that hasn't been applied, and fraudulent billing emails about wire transfers. The question is ambiguous. Could be they received an email asking for wire transfer, suspect fraud. Or they want to know if wire transfer is acceptable payment method. The policy says Meridian never asks a customer to wire funds to a bank account communicated by email, and never asks for payment outside of configured methods. So if they are being asked to wire transfer, that's suspicious. The question \"wire transfer ok?\" is ambiguous. According to rules: If ambiguous, escalate. Also if about money movement, disputed or fraudulent charge, or identity/account-recovery docs, we must escalate. This is about a wire transfer payment, which is money movement. So we must escalate. So we should call escalate with internal note.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer asked \\\"wire transfer ok?\\\" which is ambiguous and pertains to a money movement/payment method. According to policy, any question about wire transfers (especially given the risk of fraud) must be escalated to a human. I cannot provide a definitive answer from the provided excerpts.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_8c65a78b-68e9-4256-9e92-21f6262bcd3c",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371684,
+      "id": "chatcmpl-c378d8c8-7432-4bd0-8ed5-78121d8a6e85",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_068241849b",
+      "usage": {
+        "completion_time": 0.629383763,
+        "completion_tokens": 293,
+        "completion_tokens_details": {
+          "reasoning_tokens": 210
+        },
+        "prompt_time": 0.057937294,
+        "prompt_tokens": 1123,
+        "queue_time": 0.307578801,
+        "total_time": 0.687321057,
+        "total_tokens": 1416
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hm4hw7eh9s02jrh6hsv4f2",
+        "seed": 2118836408
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer asked \"wire transfer ok?\" which is ambiguous and pertains to a money movement/payment method. According to policy, any question about wire transfers (especially given the risk of fraud) must be escalated to a human. I cannot provide a definitive answer from the provided excerpts."
+        },
+        "id": "fc_8c65a78b-68e9-4256-9e92-21f6262bcd3c",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 293,
+      "prompt_tokens": 1123
+    }
+  },
+  "retry_after": null
+}

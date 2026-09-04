@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:22:44.342265Z",
+  "failure_detail": null,
+  "fingerprint": "39c853a47871f3b40e0fc3af9323b2064176bf7ed56dd6584e21e63b9c605d6a",
+  "outcome": "response",
+  "recording_id": "turn/fa0262f769b5f9c6/consistency/sample-2/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user wants the split of seats vs overage. The policy excerpts show how to read invoice breakdown. The user says \"summary invoice total doesn't tell me what's seats versus overage \u2014 I need the split urgently.\" We can answer: Go to Settings \u2192 Billing \u2192 Invoices, open invoice, expand line items to see seat charge and overage. Also PDF includes same breakdown. So answer is to instruct them. This is allowed. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! You can see the split by opening the invoice in Settings \u2192 Billing \u2192 Invoices. Expand each line item: seat charges will show how many seats were billed and at what per\u2011seat rate, and overage lines will list the metered quantity that exceeded the plan\u2019s limit. The same breakdown is also in the downloadable PDF, so you can attach that to your budget review. Let me know if you need any more help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_deb97023-df57-44a6-9048-2b302d61f645",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459764,
+      "id": "chatcmpl-ddfc369c-722b-4c87-bee5-3dce020e6776",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_565badff47",
+      "usage": {
+        "completion_time": 0.223161044,
+        "completion_tokens": 204,
+        "completion_tokens_details": {
+          "reasoning_tokens": 94
+        },
+        "prompt_time": 0.05492889,
+        "prompt_tokens": 1103,
+        "queue_time": 0.273099084,
+        "total_time": 0.278089934,
+        "total_tokens": 1307
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m84j0ve5et37k70m4stbv7",
+        "seed": 1671312987
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! You can see the split by opening the invoice in Settings \u2192 Billing \u2192 Invoices. Expand each line item: seat charges will show how many seats were billed and at what per\u2011seat rate, and overage lines will list the metered quantity that exceeded the plan\u2019s limit. The same breakdown is also in the downloadable PDF, so you can attach that to your budget review. Let me know if you need any more help!"
+        },
+        "id": "fc_deb97023-df57-44a6-9048-2b302d61f645",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 204,
+      "prompt_tokens": 1103
+    }
+  },
+  "retry_after": null
+}

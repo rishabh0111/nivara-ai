@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:23:37.571501Z",
+  "failure_detail": null,
+  "fingerprint": "233277f1904a93e54a5163ba1c604327aadddac0e33c251502343344e719e16f",
+  "outcome": "response",
+  "recording_id": "turn/bcd4c1c2f6e4aa65/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user says \"billing date?\" They likely want to know what their billing date is. According to policy: The billing date is shown in Settings \u2192 Billing \u2192 Plan next to \u201cNext invoice\u201d. It does not shift month to month even though months have different lengths; a billing date of the 31st bills on the last day of a shorter month. Also monthly plan is invoiced on same day of month as subscription started or last renewed. So answer: explain where to find billing date and how it works. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Your billing date is the day of the month your subscription started (or last renewed). You can see it in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan next to \u201cNext invoice\u201d. It stays the same each month \u2013 if it\u2019s the 31st, it will bill on the last day of shorter months. Let me know if you need help locating it!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_15ad8b1a-45f1-4e66-93f2-b9333008e28e",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459817,
+      "id": "chatcmpl-dbe43a68-c93f-41f4-9d4b-656aaa4049d7",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9b8528b477",
+      "usage": {
+        "completion_time": 0.215676222,
+        "completion_tokens": 203,
+        "completion_tokens_details": {
+          "reasoning_tokens": 108
+        },
+        "prompt_time": 0.055186374,
+        "prompt_tokens": 989,
+        "queue_time": 0.276814505,
+        "total_time": 0.270862596,
+        "total_tokens": 1192
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8661jefytm4tf57jwkdkm",
+        "seed": 132077593
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Your billing date is the day of the month your subscription started (or last renewed). You can see it in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan next to \u201cNext invoice\u201d. It stays the same each month \u2013 if it\u2019s the 31st, it will bill on the last day of shorter months. Let me know if you need help locating it!"
+        },
+        "id": "fc_15ad8b1a-45f1-4e66-93f2-b9333008e28e",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 203,
+      "prompt_tokens": 989
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T15:51:23.832863Z",
+  "failure_detail": null,
+  "fingerprint": "d0d7141d40a09988bb0f7824d441ad5eb13032decdac12054f9f3e6b5078847b",
+  "outcome": "response",
+  "recording_id": "turn/bf19b76cd97156c9/consistency/sample-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"I need this seat swap done before our next invoice generates so we don't get double-billed \u2014 how do I do it correctly?\" This is about reassigning a seat without paying for two at once, ensuring not double-billed. The relevant excerpt is DOC-029: \"The next invoice bills the seat count as of the invoice date, so a same-cycle reassignment shows as one seat, not two.\" Also maybe mention that the invoice date is shown in Settings \u2192 Billing \u2192 Plan next to \u201cNext invoice\u201d (DOC-007) but mainly about seat swap timing.\n\nWe can answer: to reassign seat before invoice date, just do the reassignment in the same billing cycle; the next invoice will count the new seat count as one, not double. Provide steps: go to Seats/Plans, reassign seat, ensure it's done before the invoice date shown in Settings \u2192 Billing \u2192 Plan. That should avoid double billing.\n\nWe have policy excerpt covering seat reassignment. So we can answer. Provide concise answer.\n\nThus we should post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"To avoid being billed for two seats, simply reassign the seat\u202f*before* the next invoice date. Meridian\u2019s billing runs on the invoice date shown in Settings \u2192\u202fBilling \u2192\u202fPlan (next to \u201cNext invoice\u201d). Any same\u2011cycle seat reassignment is counted at the invoice date, so the next invoice will reflect the new seat count as a single seat\u2014not both the old and the new. Just make the swap in your seat\u2011management screen before that date and you\u2019ll be billed correctly.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_d3bb1061-8e13-49c5-a1f0-2639173961ca",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788450683,
+      "id": "chatcmpl-36596a8d-0072-4ffd-b104-83fc484b847c",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_96d96a151c",
+      "usage": {
+        "completion_time": 0.810778695,
+        "completion_tokens": 353,
+        "completion_tokens_details": {
+          "reasoning_tokens": 226
+        },
+        "prompt_time": 0.495976441,
+        "prompt_tokens": 1096,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.277822135,
+        "total_time": 1.306755136,
+        "total_tokens": 1449
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kzfdbbetvvzdc6hz0bdah8",
+        "seed": 542844476
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "To avoid being billed for two seats, simply reassign the seat\u202f*before* the next invoice date. Meridian\u2019s billing runs on the invoice date shown in Settings \u2192\u202fBilling \u2192\u202fPlan (next to \u201cNext invoice\u201d). Any same\u2011cycle seat reassignment is counted at the invoice date, so the next invoice will reflect the new seat count as a single seat\u2014not both the old and the new. Just make the swap in your seat\u2011management screen before that date and you\u2019ll be billed correctly."
+        },
+        "id": "fc_d3bb1061-8e13-49c5-a1f0-2639173961ca",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 353,
+      "prompt_tokens": 1096
+    }
+  },
+  "retry_after": null
+}

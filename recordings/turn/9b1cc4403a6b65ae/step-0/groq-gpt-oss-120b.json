@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:26:30.544479Z",
+  "failure_detail": null,
+  "fingerprint": "e3ad814708d724749d1f16c007c3bfa2144e10d3d597dee7d877b7ffed5c70e3",
+  "outcome": "response",
+  "recording_id": "turn/9b1cc4403a6b65ae/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our compliance contact asked for a written post-incident summary confirming whether any of our data was impacted.\"\n\nWe have policy excerpts about post-incident summaries: they are written for each resolved incident, describing what happened, affected window, and whether any data was affected. Summaries note explicitly if no data was affected. So we can answer: Yes, post-incident summaries include that info, they are added to the incident entry, and they note if no data was affected. Provide guidance.\n\nWe must not mention policy excerpts. Provide short answer.\n\nThus we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Each resolved incident on our status page receives a written post\u2011incident summary once the investigation is complete. The summary includes what happened, the affected time window, and explicitly states whether any customer data was impacted (or confirms that no data was affected). These summaries are added to the same incident entry that showed the live updates, so you can view the full history in one place.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_8de71a62-8e67-4367-b769-97c82908ce4c",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452790,
+      "id": "chatcmpl-114a5e27-ed75-495e-9143-e56657bf69eb",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_47082602e2",
+      "usage": {
+        "completion_time": 0.656293289,
+        "completion_tokens": 228,
+        "completion_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "prompt_time": 0.781078465,
+        "prompt_tokens": 1014,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.30667926,
+        "total_time": 1.437371754,
+        "total_tokens": 1242
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1fphce2da26d7r4mt4wjc",
+        "seed": 1431921345
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Each resolved incident on our status page receives a written post\u2011incident summary once the investigation is complete. The summary includes what happened, the affected time window, and explicitly states whether any customer data was impacted (or confirms that no data was affected). These summaries are added to the same incident entry that showed the live updates, so you can view the full history in one place."
+        },
+        "id": "fc_8de71a62-8e67-4367-b769-97c82908ce4c",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 228,
+      "prompt_tokens": 1014
+    }
+  },
+  "retry_after": null
+}

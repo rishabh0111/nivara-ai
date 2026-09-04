@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:13:57.026010Z",
+  "failure_detail": null,
+  "fingerprint": "811344cdc730d2d26046ca4fc5a0746d7fbfa3201c60f466a8b9b2183dfcfcc1",
+  "outcome": "response",
+  "recording_id": "turn/179e4967a693c294/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"which identity providers you actually support\". The policy excerpt [DOC-013] is about identity providers Meridian supports for SSO. It says \"A workspace configures exactly one identity provider at a time... Consolidating two teams... picking one provider as the SSO source of truth\". It doesn't list which providers, but the article title suggests it lists them. However the excerpt provided does not list the providers; only describes merging. The question: \"which identity providers you actually support so we can pick one.\" The policy excerpt does not contain the list. So we cannot answer from provided excerpts. According to rules, if answer not in excerpts, we must escalate. Also ambiguous? Not ambiguous. But we lack the list. So we must escalate.\n\nThus we will call escalate with internal note.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer asks for a list of identity providers Meridian supports for SSO. The provided policy excerpts (DOC-013) discuss merging and migration but do not contain the actual list of supported providers. Since the answer cannot be derived from the given excerpts, we must escalate to a human.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_70436d94-1456-48f2-bf0d-cfba41ed1d76",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372836,
+      "id": "chatcmpl-c6e758cb-c675-4442-9ef3-7b0be8ee57e4",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5781dfb07c",
+      "usage": {
+        "completion_time": 0.570411833,
+        "completion_tokens": 256,
+        "completion_tokens_details": {
+          "reasoning_tokens": 173
+        },
+        "prompt_time": 0.190980865,
+        "prompt_tokens": 1065,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.271226883,
+        "total_time": 0.761392698,
+        "total_tokens": 1321
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hn7qknemqs0e6wdz1y1sv4",
+        "seed": 481493523
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer asks for a list of identity providers Meridian supports for SSO. The provided policy excerpts (DOC-013) discuss merging and migration but do not contain the actual list of supported providers. Since the answer cannot be derived from the given excerpts, we must escalate to a human."
+        },
+        "id": "fc_70436d94-1456-48f2-bf0d-cfba41ed1d76",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 1065
+    }
+  },
+  "retry_after": null
+}

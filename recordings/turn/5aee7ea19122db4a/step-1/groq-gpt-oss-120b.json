@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:52:10.108072Z",
+  "failure_detail": null,
+  "fingerprint": "107da798b78d07bc5a91a10c1371fcf417f4cf4f5eff0fd7120c4fe2ce09eb66",
+  "outcome": "response",
+  "recording_id": "turn/5aee7ea19122db4a/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to interpret the customer's request: \"confirm exact debit amount and date first\". They want confirmation of exact amount and date of upcoming charge before authorising a payment method change. According to policy excerpts: DOC-074 (first) says finance team wanting confirmation of exact amount and date is reasonable request billing team can fulfil directly, case by case. Also DOC-074 part 3 says handled case by case with enough lead time. So we can answer: we need to forward request to billing team, they will provide confirmation. Provide guidance: they need to contact billing team with account details. We can answer accordingly.\n\nWe must not mention policy. Provide short specific answer. So we will post reply: \"Sure, we can have our billing team provide the exact amount and date for the upcoming charge. Please provide your account name/email and any relevant invoice reference, and we'll get back with the details.\" Something like that.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Absolutely \u2013 we can have our billing team confirm the exact amount and the date of the upcoming debit for you. Please share your account name or email (and any invoice reference you have), and we\u2019ll get back with the specific details.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_7c2f2dae-bb25-4be9-9df5-67b21bc6b060",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454329,
+      "id": "chatcmpl-49de7f69-a8fa-474b-9c51-c9f302da41ea",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_626f3fc5e0",
+      "usage": {
+        "completion_time": 0.606108852,
+        "completion_tokens": 263,
+        "completion_tokens_details": {
+          "reasoning_tokens": 191
+        },
+        "prompt_time": 0.241359523,
+        "prompt_tokens": 1088,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.044588922,
+        "total_time": 0.847468375,
+        "total_tokens": 1351
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2yppyectsxh29s308m6b0",
+        "seed": 256820019
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Absolutely \u2013 we can have our billing team confirm the exact amount and the date of the upcoming debit for you. Please share your account name or email (and any invoice reference you have), and we\u2019ll get back with the specific details."
+        },
+        "id": "fc_7c2f2dae-bb25-4be9-9df5-67b21bc6b060",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 263,
+      "prompt_tokens": 1088
+    }
+  },
+  "retry_after": null
+}

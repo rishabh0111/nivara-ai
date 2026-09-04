@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:06:32.492148Z",
+  "failure_detail": null,
+  "fingerprint": "191a2d7cdd4778b6500c830ba141e9eedd0b04e16aad13c727dd2b295c84a3a6",
+  "outcome": "response",
+  "recording_id": "turn/12a5c67792cbc166/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer the customer's question: \"2FA setup steps?\" They ask for steps to set up two-factor authentication. We have policy excerpts that include steps: DOC-011 part 2 of 3 gives steps: open Settings \u2192 Security \u2192 Two-factor authentication and select \u201cEnable\u201d, scan QR code, enter six-digit code, save recovery codes. Also DOC-011 part 1 says it's enabled per account from Settings \u2192 Security \u2192 Two-factor authentication, no admin needed. So we can answer with steps.\n\nWe must ensure we only use policy excerpts. Provide short specific answer. Use the steps.\n\nThus we will post_reply with answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! To set up two\u2011factor authentication on your Meridian account:\\n1. Go to **Settings \u2192 Security \u2192 Two\u2011factor authentication** and click **Enable**.\\n2. Scan the QR code with your authenticator app (e.g., Google Authenticator, Authy).\\n3. Enter the six\u2011digit code the app generates to confirm the enrolment.\\n4. Save the recovery codes that are shown \u2013 they\u2019re the only way to get back in if you lose your device.\\nNo admin approval is needed; it\u2019s enabled per account.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_35271347-eaa4-4c1a-9e1d-0fccb2673eec",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372392,
+      "id": "chatcmpl-698c727e-b446-472f-8ec6-611c2a0e3f9c",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_0adba2bb92",
+      "usage": {
+        "completion_time": 0.73756235,
+        "completion_tokens": 270,
+        "completion_tokens_details": {
+          "reasoning_tokens": 130
+        },
+        "prompt_time": 0.716748881,
+        "prompt_tokens": 1072,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.340073306,
+        "total_time": 1.454311231,
+        "total_tokens": 1342
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmt4kceecvr794b2hggssy",
+        "seed": 627607952
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! To set up two\u2011factor authentication on your Meridian account:\n1. Go to **Settings \u2192 Security \u2192 Two\u2011factor authentication** and click **Enable**.\n2. Scan the QR code with your authenticator app (e.g., Google Authenticator, Authy).\n3. Enter the six\u2011digit code the app generates to confirm the enrolment.\n4. Save the recovery codes that are shown \u2013 they\u2019re the only way to get back in if you lose your device.\nNo admin approval is needed; it\u2019s enabled per account."
+        },
+        "id": "fc_35271347-eaa4-4c1a-9e1d-0fccb2673eec",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 270,
+      "prompt_tokens": 1072
+    }
+  },
+  "retry_after": null
+}

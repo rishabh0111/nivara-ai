@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:01:47.762509Z",
+  "failure_detail": null,
+  "fingerprint": "eb850fe4bd0cee64b07b9066bab5c1d067f221dde2ab3abeb72bf708f3100ec2",
+  "outcome": "response",
+  "recording_id": "turn/82c8941569ea019a/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"How do I convert a seat from an agent role to a read-only observer role without losing that person's assignment history?\" The policy says: Changing a seat's role is done via Settings \u2192 People without removing and re-adding, so nothing about identity or history is affected. Also assignment history is attached to the person's account, not to role, so remains visible. So answer: go to Settings \u2192 People, edit role to observer, save; history remains. Also note that observer cannot be assigned new work. Provide short answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"To change an agent seat to a read\u2011only observer without affecting the person\u2019s assignment history, go to **Settings \u2192 People**, locate the user, and edit their role to **Observer**. Save the change. The role switch takes effect immediately (no sign\u2011out needed) and, because assignment history is tied to the account\u2014not the role\u2014it remains intact and visible.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_3b5f5fb8-11d5-409b-8d24-5321c67258a4",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451307,
+      "id": "chatcmpl-7cc4c604-cff3-46c7-acb1-03aa582091c8",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_49bfac06f1",
+      "usage": {
+        "completion_time": 0.740022965,
+        "completion_tokens": 223,
+        "completion_tokens_details": {
+          "reasoning_tokens": 123
+        },
+        "prompt_time": 0.54471028,
+        "prompt_tokens": 1058,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.276234836,
+        "total_time": 1.284733245,
+        "total_tokens": 1281
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m02e7ze5187pn6argat7a3",
+        "seed": 2063474845
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "To change an agent seat to a read\u2011only observer without affecting the person\u2019s assignment history, go to **Settings \u2192 People**, locate the user, and edit their role to **Observer**. Save the change. The role switch takes effect immediately (no sign\u2011out needed) and, because assignment history is tied to the account\u2014not the role\u2014it remains intact and visible."
+        },
+        "id": "fc_3b5f5fb8-11d5-409b-8d24-5321c67258a4",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 223,
+      "prompt_tokens": 1058
+    }
+  },
+  "retry_after": null
+}

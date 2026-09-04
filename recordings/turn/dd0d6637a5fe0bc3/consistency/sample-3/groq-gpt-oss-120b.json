@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:05:03.752648Z",
+  "failure_detail": null,
+  "fingerprint": "015e4d5022433ae10ac07b11791cbf7909de0aef084a657ccee551e50ccbf9d0",
+  "outcome": "response",
+  "recording_id": "turn/dd0d6637a5fe0bc3/consistency/sample-3/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see what the user's question is: \"Times just look wrong everywhere in the app.\" They are complaining about times being wrong. Which policy excerpt could answer? We have excerpts about billing currency corrections, re-enrolling two-factor authentication, and response-time metrics. The response-time metric excerpt mentions that response-time metric counts every hour a ticket sits unanswered, including nights, weekends and holidays \u2014 it's a wall-clock measurement, not business-hours. That might relate to times being wrong? The user says times look wrong everywhere in the app. Could be about timestamps displayed in the app being off, maybe due to timezone? Not covered. The only relevant excerpt could be about response-time metrics, but that's about internal metrics, not user displayed times. The question is ambiguous; not covered by policy. Also not about money movement, fraud, identity. It's about times displayed. Not covered by policy excerpts. So we must escalate.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer reports that times appear incorrect throughout the app. None of the provided policy excerpts address display of timestamps or time zone settings. The question is not about money movement, fraud, or identity. Since the answer cannot be derived from the available excerpts, we need to escalate to a human.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_221d7b61-6c9f-455d-861a-770bf0dd0e27",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451503,
+      "id": "chatcmpl-29cc18cf-d8ef-4762-931d-6256df2b349e",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_47082602e2",
+      "usage": {
+        "completion_time": 0.792299666,
+        "completion_tokens": 270,
+        "completion_tokens_details": {
+          "reasoning_tokens": 186
+        },
+        "prompt_time": 1.262642977,
+        "prompt_tokens": 1100,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.309170466,
+        "total_time": 2.054942643,
+        "total_tokens": 1370
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m08d3we78b3825p7jhk5tj",
+        "seed": 518279169
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer reports that times appear incorrect throughout the app. None of the provided policy excerpts address display of timestamps or time zone settings. The question is not about money movement, fraud, or identity. Since the answer cannot be derived from the available excerpts, we need to escalate to a human."
+        },
+        "id": "fc_221d7b61-6c9f-455d-861a-770bf0dd0e27",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 270,
+      "prompt_tokens": 1100
+    }
+  },
+  "retry_after": null
+}

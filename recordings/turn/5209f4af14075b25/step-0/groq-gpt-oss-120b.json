@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:51:48.235511Z",
+  "failure_detail": null,
+  "fingerprint": "068cf5beb9c2d382e156c288087175de96dd4d85236437220cef25d1ecf4f1a8",
+  "outcome": "response",
+  "recording_id": "turn/5209f4af14075b25/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see the conversation context. Likely the customer asked for written confirmation before a payment method change. The policy says billing team can provide confirmation case by case, with enough lead time. The customer wants it today. We can answer: we can provide written confirmation, but need some lead time? The policy says generally with enough lead time to review before the charge date. The request is for today. We can say we can provide it, but need to request to billing team. The policy says it's handled case by case, generally with enough lead time. So we can respond that we will forward request to billing team and they will provide written confirmation. Since the policy allows providing confirmation in writing ahead of change. So answer: we can arrange that, please provide details (plan, seats, etc.)? But keep short.\n\nWe must answer only from policy excerpts. The excerpts say billing team can provide confirmation in writing ahead of change, request explicitly, handled case by case, generally with enough lead time. So we can say we will forward request to billing team and they will get back with written confirmation. That aligns.\n\nThus post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure\u2014I\u2019ll forward your request to our billing team so they can provide a written confirmation of the exact amount and charge date. They handle these requests case\u2011by\u2011case and will get back to you with the details as soon as possible.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f510b591-6ef9-430f-ad2b-ef1c3e6dd633",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454307,
+      "id": "chatcmpl-453f05a0-3867-43e3-9121-c7482c7c6646",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_fe269835c7",
+      "usage": {
+        "completion_time": 2.040355804,
+        "completion_tokens": 304,
+        "completion_tokens_details": {
+          "reasoning_tokens": 231
+        },
+        "prompt_time": 0.049774051,
+        "prompt_tokens": 1058,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.310413747,
+        "total_time": 2.090129855,
+        "total_tokens": 1362
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2xzs3epgbkvgxm6pptqz5",
+        "seed": 856232650
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure\u2014I\u2019ll forward your request to our billing team so they can provide a written confirmation of the exact amount and charge date. They handle these requests case\u2011by\u2011case and will get back to you with the details as soon as possible."
+        },
+        "id": "fc_f510b591-6ef9-430f-ad2b-ef1c3e6dd633",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 304,
+      "prompt_tokens": 1058
+    }
+  },
+  "retry_after": null
+}

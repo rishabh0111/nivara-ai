@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T17:56:53.002567Z",
+  "failure_detail": null,
+  "fingerprint": "5d1da59108cd968e86236b488fc076ca9ca4cb5a9707478834ac049f950939ad",
+  "outcome": "response",
+  "recording_id": "turn/7d5ff5ea32f67f0c/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"The PDF invoice just shows one total. Is there a version, or an export, that separates seat cost, add-ons and usage overage into their own lines?\" This is about reading an itemised invoice. The policy excerpts include that every invoice breaks total into three kinds of line item, and you can open invoice from Settings \u2192 Billing \u2192 Invoices and expand a line item to see its own breakdown. So answer: Yes, you can view itemised breakdown by opening invoice in the portal and expanding line items; PDF may not show breakdown but the web view does. Provide steps.\n\nWe must not mention policy. Just answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 the invoice in the Meridian portal can be viewed with a full itemised breakdown. Open Settings \u2192 Billing \u2192 Invoices, select the invoice you want, and expand each line item. You\u2019ll see the seat charge broken out by seat count and rate, any add\u2011ons listed separately, and usage overages shown with the metered quantity versus the plan\u2019s included limit. The PDF download shows only the total, but the web view provides the detailed line\u2011by\u2011line view you\u2019re looking for.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_65033131-97fe-4ca9-ba57-9dad37a2dde8",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371812,
+      "id": "chatcmpl-ed249438-fc9c-4b7c-880b-c310a9a71116",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_90620edd96",
+      "usage": {
+        "completion_time": 0.567398785,
+        "completion_tokens": 271,
+        "completion_tokens_details": {
+          "reasoning_tokens": 144
+        },
+        "prompt_time": 0.061863072,
+        "prompt_tokens": 1086,
+        "queue_time": 0.361972807,
+        "total_time": 0.629261857,
+        "total_tokens": 1357
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hm8fhremzb4629za9vbfgy",
+        "seed": 1876192158
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 the invoice in the Meridian portal can be viewed with a full itemised breakdown. Open Settings \u2192 Billing \u2192 Invoices, select the invoice you want, and expand each line item. You\u2019ll see the seat charge broken out by seat count and rate, any add\u2011ons listed separately, and usage overages shown with the metered quantity versus the plan\u2019s included limit. The PDF download shows only the total, but the web view provides the detailed line\u2011by\u2011line view you\u2019re looking for."
+        },
+        "id": "fc_65033131-97fe-4ca9-ba57-9dad37a2dde8",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 271,
+      "prompt_tokens": 1086
+    }
+  },
+  "retry_after": null
+}

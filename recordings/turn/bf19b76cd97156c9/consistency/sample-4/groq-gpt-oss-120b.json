@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T15:51:31.436521Z",
+  "failure_detail": null,
+  "fingerprint": "d0d7141d40a09988bb0f7824d441ad5eb13032decdac12054f9f3e6b5078847b",
+  "outcome": "response",
+  "recording_id": "turn/bf19b76cd97156c9/consistency/sample-4/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to determine if the policy excerpts cover this. The question: \"I need this seat swap done before our next invoice generates so we don't get double-billed \u2014 how do I do it correctly?\" This is about reassigning a seat without paying for two at once. The policy excerpt DOC-029 says: \"The next invoice bills the seat count as of the invoice date, so a same-cycle reassignment shows as one seat, not two.\" That addresses seat swap and double billing. The user asks how to do it correctly. The excerpt doesn't give steps, but indicates that same-cycle reassignment shows as one seat, not two, and next invoice bills seat count as of invoice date. That's enough to answer? The question: \"how do I do it correctly?\" Could answer: just reassign seat before invoice date; the next invoice will only bill one seat. Provide that guidance. The policy excerpt is relevant. So we can answer. Provide concise answer: reassign seat before invoice date; the next invoice will count the new seat count and you won't be double billed. No need to escalate.\n\nThus we will post_reply with answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can reassign the seat any time before the next invoice date. The invoice will count the seat total as of the invoice date, so a same\u2011cycle reassignment will appear as a single seat on the next bill \u2013 you won\u2019t be double\u2011billed.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_812a302c-0abc-4e08-aeb9-ff25a3c00dbe",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788450691,
+      "id": "chatcmpl-cd5cb424-2475-43f6-83c1-393435e304cf",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_90620edd96",
+      "usage": {
+        "completion_time": 0.655080287,
+        "completion_tokens": 312,
+        "completion_tokens_details": {
+          "reasoning_tokens": 233
+        },
+        "prompt_time": 0.056006128,
+        "prompt_tokens": 1096,
+        "queue_time": 0.36583965,
+        "total_time": 0.711086415,
+        "total_tokens": 1408
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kzfn93eeetvdsg50ghxgr0",
+        "seed": 554056345
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can reassign the seat any time before the next invoice date. The invoice will count the seat total as of the invoice date, so a same\u2011cycle reassignment will appear as a single seat on the next bill \u2013 you won\u2019t be double\u2011billed."
+        },
+        "id": "fc_812a302c-0abc-4e08-aeb9-ff25a3c00dbe",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 312,
+      "prompt_tokens": 1096
+    }
+  },
+  "retry_after": null
+}

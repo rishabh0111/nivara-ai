@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:13:57.883534Z",
+  "failure_detail": null,
+  "fingerprint": "b18bac56b9fb02f48395dfe0a6e3c237d464267c2698d81bf795afedac0309d0",
+  "outcome": "response",
+  "recording_id": "turn/c4510c0b270ccfe4/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"For an internal audit I need a copy of our usage data covering last quarter specifically, and I'm not sure whether that's something I can export myself from the dashboard or something I need to formally request.\"\n\nWe have relevant policy: DOC-041 part 3 says: \"For an audit needing a specific quarter, exporting with that quarter's exact date range from the usage screen produces the same data a request to support would, without the wait.\"\n\nAlso part 1 says usage data for current and prior billing period is available directly from Settings \u2192 Billing \u2192 Usage, exportable as CSV. Part 2 says older than two most recent billing periods is retained but not shown by default; can still be pulled with custom date range from same export, as long as range falls within retention window.\n\nThus answer: Yes, you can export yourself by going to Settings \u2192 Billing \u2192 Usage, then set custom date range for the quarter and export CSV. No need to request support.\n\nProvide short answer.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can export the data yourself. Open Settings \u2192 Billing \u2192 Usage, click\u202fExport and set a custom date range that matches the quarter you need. The export will include the same records a support request would provide, so you don\u2019t need to submit a formal request.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_8961afd4-2b19-4db1-96c0-b0f3898c244c",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452037,
+      "id": "chatcmpl-dbe5cba5-991e-43d0-b173-ad1c5413e4cd",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_bb691ea66b",
+      "usage": {
+        "completion_time": 0.618112353,
+        "completion_tokens": 293,
+        "completion_tokens_details": {
+          "reasoning_tokens": 214
+        },
+        "prompt_time": 0.059721989,
+        "prompt_tokens": 1030,
+        "queue_time": 0.36266896,
+        "total_time": 0.677834342,
+        "total_tokens": 1323
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0rr4rem9va8f248px80n3",
+        "seed": 1712372326
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can export the data yourself. Open Settings \u2192 Billing \u2192 Usage, click\u202fExport and set a custom date range that matches the quarter you need. The export will include the same records a support request would provide, so you don\u2019t need to submit a formal request."
+        },
+        "id": "fc_8961afd4-2b19-4db1-96c0-b0f3898c244c",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 293,
+      "prompt_tokens": 1030
+    }
+  },
+  "retry_after": null
+}

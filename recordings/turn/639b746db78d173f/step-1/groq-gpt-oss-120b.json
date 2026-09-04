@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T17:41:57.151012Z",
+  "failure_detail": null,
+  "fingerprint": "844bc9b466ae56d845e9b1566b384df612b71c1d036287a408c92ca9475dc058",
+  "outcome": "response",
+  "recording_id": "turn/639b746db78d173f/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy. The question: they are on monthly plan, want to switch to annual and get discount now, not wait until monthly term ends. According to DOC-002 part 2: Switching to annual takes effect immediately; the workspace is charged the annual rate on confirmation, prorated against any monthly charge already paid for the current period, and renewal date resets to one year from the switch. So we can say yes, you can switch now and discount applies immediately, with prorated adjustment. Provide steps: Settings \u2192 Billing \u2192 Plan. So answer accordingly.\n\nNo need to escalate. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! You can switch to an annual plan right now and receive the discount immediately. Just go to **Settings \u2192 Billing \u2192 Plan** and select the annual option. We'll charge the annual rate right away, prorating any monthly amount you\u2019ve already paid, and your renewal date will reset to one year from the switch.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_4c501f60-2c35-443c-81ef-02ed8db60e91",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788370916,
+      "id": "chatcmpl-97af0781-f720-4690-84ba-4adac4b72f97",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_bc9a6c9b5f",
+      "usage": {
+        "completion_time": 0.46054342,
+        "completion_tokens": 216,
+        "completion_tokens_details": {
+          "reasoning_tokens": 127
+        },
+        "prompt_time": 0.055286172,
+        "prompt_tokens": 1078,
+        "queue_time": 0.046595498,
+        "total_time": 0.515829592,
+        "total_tokens": 1294
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hkd4wxe9q9d6mvayj6p8bd",
+        "seed": 1963902277
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! You can switch to an annual plan right now and receive the discount immediately. Just go to **Settings \u2192 Billing \u2192 Plan** and select the annual option. We'll charge the annual rate right away, prorating any monthly amount you\u2019ve already paid, and your renewal date will reset to one year from the switch."
+        },
+        "id": "fc_4c501f60-2c35-443c-81ef-02ed8db60e91",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 216,
+      "prompt_tokens": 1078
+    }
+  },
+  "retry_after": null
+}

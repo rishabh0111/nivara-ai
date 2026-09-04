@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T15:47:10.188556Z",
+  "failure_detail": null,
+  "fingerprint": "ec604c593be53452dd5c2c70fee6a316e804cb8566a5b0fbcf2438ff1ca4697b",
+  "outcome": "response",
+  "recording_id": "turn/5bdacfea8365bb91/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: office manager tried to add a fifth teammate, got blocked, wants to know seat limit and how to raise it. This matches DOC-028 about seat limits by plan. Provide answer: each plan has max seats, can view in Settings \u2192 Billing \u2192 Plan, blocked invite means limit reached. To raise, either add seats within current tier if allowed, or upgrade to higher tier. Changes take effect immediately, can resend invite. So answer accordingly. No need to read conversation? Might read to confirm context but not required. We'll just post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! Each Meridian plan includes a maximum number of seats, which you can see in **Settings \u2192 Billing \u2192 Plan** alongside how many seats you\u2019re currently using. If an invite is blocked with \u201cno seats available,\u201d it means you\u2019ve hit that plan\u2019s limit.\\n\\nTo add more teammates you have two options:\\n1. **Add extra seats** within your current tier (if your plan allows purchasing additional seats beyond the included count). You can do this from the same **Settings \u2192 Billing \u2192 Plan** page.\\n2. **Upgrade to a higher\u2011tier plan** that includes a larger seat limit. The upgrade option is also shown on the **Plan** page.\\n\\nOnce you confirm either adding seats or upgrading, the change takes effect immediately, and you can resend the blocked invite right away.\\n\\nLet me know if you need help navigating to the billing settings or choosing the right option for your team!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_ab513ed5-b610-4721-ad8b-f0feb32b503f",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788450429,
+      "id": "chatcmpl-ebcdd7ff-7fc0-4375-b0bd-34cdece3cb6e",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5d041d5b40",
+      "usage": {
+        "completion_time": 0.727110475,
+        "completion_tokens": 336,
+        "completion_tokens_details": {
+          "reasoning_tokens": 122
+        },
+        "prompt_time": 0.053818123,
+        "prompt_tokens": 1055,
+        "queue_time": 0.160431836,
+        "total_time": 0.780928598,
+        "total_tokens": 1391
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kz7p2yem09yem963ya3hfq",
+        "seed": 1148812180
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! Each Meridian plan includes a maximum number of seats, which you can see in **Settings \u2192 Billing \u2192 Plan** alongside how many seats you\u2019re currently using. If an invite is blocked with \u201cno seats available,\u201d it means you\u2019ve hit that plan\u2019s limit.\n\nTo add more teammates you have two options:\n1. **Add extra seats** within your current tier (if your plan allows purchasing additional seats beyond the included count). You can do this from the same **Settings \u2192 Billing \u2192 Plan** page.\n2. **Upgrade to a higher\u2011tier plan** that includes a larger seat limit. The upgrade option is also shown on the **Plan** page.\n\nOnce you confirm either adding seats or upgrading, the change takes effect immediately, and you can resend the blocked invite right away.\n\nLet me know if you need help navigating to the billing settings or choosing the right option for your team!"
+        },
+        "id": "fc_ab513ed5-b610-4721-ad8b-f0feb32b503f",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 336,
+      "prompt_tokens": 1055
+    }
+  },
+  "retry_after": null
+}

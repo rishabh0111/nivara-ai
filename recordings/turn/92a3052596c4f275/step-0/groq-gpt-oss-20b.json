@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:30:03.259002Z",
+  "failure_detail": null,
+  "fingerprint": "262b5b97bc5b752ce80a6b274fe72a251bb98eeae6966bd517f4c5f41de61379",
+  "outcome": "response",
+  "recording_id": "turn/92a3052596c4f275/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer the question: \"Our admin is weighing a downgrade and asked me to confirm whether higher-tier data gets deleted or just becomes inaccessible.\" According to policy excerpts: Downgrading a plan does not delete anything. Features and data tied to a higher tier are hidden rather than removed. Under exception: data subject to plan's retention window may age out over time. So answer: data is preserved, hidden, not deleted, except for retention window. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! When you downgrade, your workspace won\u2019t lose any data. Features that are only available on the higher tier simply become hidden, and the data stays in place. The only time data can be removed is if it falls outside the retention window of the lower tier \u2013 in that case older records will age out over time, just as they would for a workspace that started on that tier. Let me know if you need more details!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_db28f87d-18ca-4b8d-a9c5-646d87105f4e",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460203,
+      "id": "chatcmpl-a3037588-2320-43b0-8b53-064985f9de10",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_1074f9ce08",
+      "usage": {
+        "completion_time": 0.262014935,
+        "completion_tokens": 206,
+        "completion_tokens_details": {
+          "reasoning_tokens": 97
+        },
+        "prompt_time": 0.055395799,
+        "prompt_tokens": 1086,
+        "queue_time": 0.308052424,
+        "total_time": 0.317410734,
+        "total_tokens": 1292
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8hykye32sdbg2h3mnhzp4",
+        "seed": 901957769
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! When you downgrade, your workspace won\u2019t lose any data. Features that are only available on the higher tier simply become hidden, and the data stays in place. The only time data can be removed is if it falls outside the retention window of the lower tier \u2013 in that case older records will age out over time, just as they would for a workspace that started on that tier. Let me know if you need more details!"
+        },
+        "id": "fc_db28f87d-18ca-4b8d-a9c5-646d87105f4e",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 206,
+      "prompt_tokens": 1086
+    }
+  },
+  "retry_after": null
+}

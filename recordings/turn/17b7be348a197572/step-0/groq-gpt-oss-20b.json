@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:21:33.163434Z",
+  "failure_detail": null,
+  "fingerprint": "91298567e5b69aa21ca3e9c155acf49d24c205036c61c03e175ddb6aa66149e4",
+  "outcome": "response",
+  "recording_id": "turn/17b7be348a197572/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"I need last month's invoice for an expense report and I can't find it anywhere on the billing page \u2014 this is due today.\" They want last month's invoice. According to policy: \"Open Settings \u2192 Billing \u2192 Invoices to see the full list, ordered by billing date with the most recent at the top. The billing tab's default view only surfaces the current month's invoice on the summary card; the invoices table below it holds every prior one.\" Also \"Every invoice Meridian generates is kept in your workspace's billing history for as long as the account is active, not just the current billing period.\" So we can answer: go to Settings > Billing > Invoices, look at the table, find last month. Also note that if month missing, maybe no invoice due to credit. But likely they can find. So answer: instruct them. Also mention that if missing, maybe no invoice. Provide steps. No escalation needed.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! To get last month\u2019s invoice, go to **Settings \u2192 Billing \u2192 Invoices**. The page shows a table of all invoices, sorted by billing date with the newest at the top. The summary card only shows the current month, but the table below lists every prior invoice. Find the row for the month you need and click the PDF link to download or forward it. If that month isn\u2019t listed, it means no invoice was generated (e.g., the month was fully covered by a credit). Let me know if you still can\u2019t locate it!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c82ee816-99fd-46d0-a0f5-ba2d77157e76",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459693,
+      "id": "chatcmpl-4542c97f-367f-49b3-aa9f-5697e6041bf9",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_feb9b278f1",
+      "usage": {
+        "completion_time": 0.347296685,
+        "completion_tokens": 330,
+        "completion_tokens_details": {
+          "reasoning_tokens": 194
+        },
+        "prompt_time": 0.051573127,
+        "prompt_tokens": 1020,
+        "queue_time": 0.315034992,
+        "total_time": 0.398869812,
+        "total_tokens": 1350
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m82cc0eryv715syze8z78y",
+        "seed": 904946097
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! To get last month\u2019s invoice, go to **Settings \u2192 Billing \u2192 Invoices**. The page shows a table of all invoices, sorted by billing date with the newest at the top. The summary card only shows the current month, but the table below lists every prior invoice. Find the row for the month you need and click the PDF link to download or forward it. If that month isn\u2019t listed, it means no invoice was generated (e.g., the month was fully covered by a credit). Let me know if you still can\u2019t locate it!"
+        },
+        "id": "fc_c82ee816-99fd-46d0-a0f5-ba2d77157e76",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 330,
+      "prompt_tokens": 1020
+    }
+  },
+  "retry_after": null
+}

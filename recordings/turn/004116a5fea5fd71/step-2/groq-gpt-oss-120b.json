@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:21:44.458406Z",
+  "failure_detail": null,
+  "fingerprint": "9298e113c9a6d5833cfde3600aeba7e8a193cafcf770763f537e9a5c71a21481",
+  "outcome": "response",
+  "recording_id": "turn/004116a5fea5fd71/step-2/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We have a short customer query: \"duplicate risk on re-import?\" They ask about duplicate risk when re-importing a corrected file. The policy excerpts cover that.\n\nWe need to answer based on policy. The question: duplicate risk on re-import? Likely they want to know about risk of duplicates when re-importing corrected file. According to DOC-019: importer matches existing records by email or unique identifier; if unchanged row will be recognized and updated, not duplicated, as long as matching field not corrected. If correction was to email or identifier used for matching, importer can't recognize, so safest is to remove already succeeded rows before re-running.\n\nThus answer: explain that duplicates are avoided if matching field unchanged; if you changed email/identifier, need to remove rows that already succeeded to avoid duplicates.\n\nProvide concise answer.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When you re\u2011import a corrected file, Meridian matches rows to existing contacts by email (or by a unique ID if you supplied one). If a row that already succeeded appears again unchanged, the importer recognises it as the same record and updates it in place \u2013 no duplicate is created.\\n\\nHowever, if the correction you made was to the email address or the unique identifier used for matching, the importer can\u2019t tell it\u2019s the same row. In that case the safest approach is to delete the rows that already imported successfully from the corrected file before you run the import again, to prevent duplicate records.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_48c3ebfd-a954-4e97-8f84-4731dadf3cd0",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373304,
+      "id": "chatcmpl-1cbc131b-1bf1-42f8-891d-7c27b96ef3be",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_fe269835c7",
+      "usage": {
+        "completion_time": 0.67910067,
+        "completion_tokens": 318,
+        "completion_tokens_details": {
+          "reasoning_tokens": 171
+        },
+        "prompt_time": 0.085216967,
+        "prompt_tokens": 1096,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.310277226,
+        "total_time": 0.764317637,
+        "total_tokens": 1414
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnp00gef89p15jjsh43wpp",
+        "seed": 962901214
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When you re\u2011import a corrected file, Meridian matches rows to existing contacts by email (or by a unique ID if you supplied one). If a row that already succeeded appears again unchanged, the importer recognises it as the same record and updates it in place \u2013 no duplicate is created.\n\nHowever, if the correction you made was to the email address or the unique identifier used for matching, the importer can\u2019t tell it\u2019s the same row. In that case the safest approach is to delete the rows that already imported successfully from the corrected file before you run the import again, to prevent duplicate records."
+        },
+        "id": "fc_48c3ebfd-a954-4e97-8f84-4731dadf3cd0",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 318,
+      "prompt_tokens": 1096
+    }
+  },
+  "retry_after": null
+}

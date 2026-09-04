@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T17:00:18.488390Z",
+  "failure_detail": null,
+  "fingerprint": "7a4e7eeaf901cfe200bdc6e3d162377ad935471ba8935dca2e5cad29e4da5fcf",
+  "outcome": "response",
+  "recording_id": "turn/513b9b45655b0e14/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Some of our customers in France are seeing the support portal in English even though we have French translations enabled.\"\n\nWe need to see if any policy excerpt covers this. The excerpts are about custom domain setup, SSO not showing, fraudulent billing emails, two-factor codes. Nothing about language settings or portal translations. So we cannot answer from policy. According to rules, if not covered, we must escalate. Also not about money movement, fraud, identity. So we should escalate with internal note summarizing.\n\nThus we will call escalate.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer reports that French customers see the support portal in English despite French translations being enabled. The provided policy excerpts do not cover language settings or portal translation issues, so I cannot safely answer from the knowledge base. Escalating to a human agent.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_26052505-6299-4086-83a5-0f81e62166ae",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454818,
+      "id": "chatcmpl-fd7773c2-4b88-4868-a6a7-b556ae256e82",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4b2f03d631",
+      "usage": {
+        "completion_time": 0.416246717,
+        "completion_tokens": 196,
+        "completion_tokens_details": {
+          "reasoning_tokens": 120
+        },
+        "prompt_time": 1.268776453,
+        "prompt_tokens": 1079,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.747690417,
+        "total_time": 1.68502317,
+        "total_tokens": 1275
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m3dj9aexd9ptp7fha7gtjv",
+        "seed": 1095175236
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer reports that French customers see the support portal in English despite French translations being enabled. The provided policy excerpts do not cover language settings or portal translation issues, so I cannot safely answer from the knowledge base. Escalating to a human agent."
+        },
+        "id": "fc_26052505-6299-4086-83a5-0f81e62166ae",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 196,
+      "prompt_tokens": 1079
+    }
+  },
+  "retry_after": null
+}

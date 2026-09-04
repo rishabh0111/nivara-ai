@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:37:11.263839Z",
+  "failure_detail": null,
+  "fingerprint": "3afcc49c83af164ad6b7a113e1cacbf1a70806af149aa0fe947b9e3d61c02997",
+  "outcome": "response",
+  "recording_id": "turn/f6f8dfdfcfd411b5/consistency/sample-2/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to determine if we can answer. The question: \"One of our projects was deleted this morning and we need it back.\" We have policy excerpts about restoring a deleted project: deleted project held in recoverable state for 30 days, can be restored via Settings \u2192 Data \u2192 Deleted items by an admin. So we can provide instructions. The question is straightforward. So we can answer with steps: check that it's within 30 days, go to Settings > Data > Deleted items, restore. That is from policy. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! If the project was deleted this morning, you should still be able to recover it. An admin can restore it within 30 days of deletion. Go to Settings \u2192 Data \u2192 Deleted items and restore the project from there. Let me know if you need any more help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_dfdac865-f437-4158-ad0d-060a87240062",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460631,
+      "id": "chatcmpl-a9a22324-bf44-4a46-ad10-766440da22ec",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_34cb00738d",
+      "usage": {
+        "completion_time": 0.22021419,
+        "completion_tokens": 190,
+        "completion_tokens_details": {
+          "reasoning_tokens": 112
+        },
+        "prompt_time": 0.053985303,
+        "prompt_tokens": 1067,
+        "queue_time": 0.304055505,
+        "total_time": 0.274199493,
+        "total_tokens": 1257
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8z0fvedtrppdkqphcrtny",
+        "seed": 293731653
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! If the project was deleted this morning, you should still be able to recover it. An admin can restore it within 30 days of deletion. Go to Settings \u2192 Data \u2192 Deleted items and restore the project from there. Let me know if you need any more help!"
+        },
+        "id": "fc_dfdac865-f437-4158-ad0d-060a87240062",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 190,
+      "prompt_tokens": 1067
+    }
+  },
+  "retry_after": null
+}

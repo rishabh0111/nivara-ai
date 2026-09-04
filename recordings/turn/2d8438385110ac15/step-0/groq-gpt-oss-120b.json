@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T17:49:09.131407Z",
+  "failure_detail": null,
+  "fingerprint": "de5646c2fbc428116ecfc0f6b5e507b0c311b99cc02b8d50ffd3db566b28e892",
+  "outcome": "response",
+  "recording_id": "turn/2d8438385110ac15/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"We are seeing rate limits at roughly half the published ceiling.\" They are asking about API rate limits. The policy excerpts explain that rate limit is per API key, rolling window, bursts can cause 429 even if under per-minute figure, and headers show remaining and reset. So we can answer: explain that limit is per key, rolling window, bursts cause early limit, check headers. Provide guidance. This is within policy. So we can post_reply with answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there,\\n\\nThe API rate limit is applied per API key (not per workspace) using a rolling 60\u2011second window. That means the system counts all requests made in the last minute continuously, rather than resetting at the start of each minute. If your calls come in a burst, you can hit the limit and receive `429` responses even though the average per\u2011minute rate looks well below the headline figure.\\n\\nTo see exactly how many requests remain and when the window resets, check the `X-RateLimit-Remaining` and `X-RateLimit-Reset` headers on each response. Spreading your calls more evenly over the minute should reduce the throttling you\u2019re seeing.\\n\\nLet us know if you need any more details!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_5e782ab0-535d-40de-af61-4e380d5fe097",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788457749,
+      "id": "chatcmpl-26c9014c-daba-45c3-9604-267d5b34297f",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5a93aea882",
+      "usage": {
+        "completion_time": 0.598322633,
+        "completion_tokens": 287,
+        "completion_tokens_details": {
+          "reasoning_tokens": 107
+        },
+        "prompt_time": 0.050230577,
+        "prompt_tokens": 1056,
+        "queue_time": 0.158142243,
+        "total_time": 0.64855321,
+        "total_tokens": 1343
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m671tdekr8mx1chd4m1h4w",
+        "seed": 388982880
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there,\n\nThe API rate limit is applied per API key (not per workspace) using a rolling 60\u2011second window. That means the system counts all requests made in the last minute continuously, rather than resetting at the start of each minute. If your calls come in a burst, you can hit the limit and receive `429` responses even though the average per\u2011minute rate looks well below the headline figure.\n\nTo see exactly how many requests remain and when the window resets, check the `X-RateLimit-Remaining` and `X-RateLimit-Reset` headers on each response. Spreading your calls more evenly over the minute should reduce the throttling you\u2019re seeing.\n\nLet us know if you need any more details!"
+        },
+        "id": "fc_5e782ab0-535d-40de-af61-4e380d5fe097",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 287,
+      "prompt_tokens": 1056
+    }
+  },
+  "retry_after": null
+}

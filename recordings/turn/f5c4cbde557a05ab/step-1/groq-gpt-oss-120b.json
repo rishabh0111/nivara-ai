@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T15:59:11.289924Z",
+  "failure_detail": null,
+  "fingerprint": "a81383253d635766c2409f406278deb0e2fc3c2607b8f093d8ca6eed47fb4504",
+  "outcome": "response",
+  "recording_id": "turn/f5c4cbde557a05ab/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"what does next tier add?\" Likely they ask about what additional features/seat limits etc are added when moving to next tier. We have policy excerpts about comparing plan tiers before upgrading, seat limits, integration changes, etc. We can answer: The next tier includes more seats, possibly additional integrations, longer retention window, higher support level, and may unlock tier-gated automation features. Provide that info.\n\nWe must answer only from provided excerpts. The excerpts mention: Settings \u2192 Billing \u2192 Plan includes full feature comparison across every tier, showing seats, integrations, retention window, support level side by side. Also tier-gated automation feature may change. So answer: To see exactly what next tier adds, go to Settings \u2192 Billing \u2192 Plan where you can compare tiers; it shows added seats, integrations, retention window, support level, and any tier\u2011gated automation features that become active. Provide concise answer.\n\nWe must not mention policy or instructions. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can see exactly what the next tier adds in the plan comparison page. In Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan you\u2019ll see a side\u2011by\u2011side table that lists each tier\u2019s included seats, integrations, data\u2011retention window and support level. It also shows any tier\u2011gated automation features that become active when you upgrade (and which would be paused if you moved to a lower tier). Reviewing that table will give you a clear view of the additional capabilities the next tier provides.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_39c3aa84-6953-489c-81b2-f02e10bcac63",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451151,
+      "id": "chatcmpl-45229283-58f3-4dd5-b765-3c3f196bca5c",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_93703442d9",
+      "usage": {
+        "completion_time": 0.70884293,
+        "completion_tokens": 335,
+        "completion_tokens_details": {
+          "reasoning_tokens": 208
+        },
+        "prompt_time": 0.175462485,
+        "prompt_tokens": 1083,
+        "queue_time": 0.374637922,
+        "total_time": 0.884305415,
+        "total_tokens": 1418
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kzxp33exa8w7x7158a7z7d",
+        "seed": 1650084106
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can see exactly what the next tier adds in the plan comparison page. In Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan you\u2019ll see a side\u2011by\u2011side table that lists each tier\u2019s included seats, integrations, data\u2011retention window and support level. It also shows any tier\u2011gated automation features that become active when you upgrade (and which would be paused if you moved to a lower tier). Reviewing that table will give you a clear view of the additional capabilities the next tier provides."
+        },
+        "id": "fc_39c3aa84-6953-489c-81b2-f02e10bcac63",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 335,
+      "prompt_tokens": 1083
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:24:25.033804Z",
+  "failure_detail": null,
+  "fingerprint": "082b6be7a85f13f2950a6425558a3accb53db106f7442b3fc54df9eca57b9479",
+  "outcome": "response",
+  "recording_id": "turn/7e13c25482b41209/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"Our new hire's manager asked me to find out why there's no SSO login option showing for someone who should have been added by the provider sync.\" This is about SSO sign-in not showing. According to policy: SSO sign-in option only appears for email domain configured for SSO and after sync created account. Also new hire may sign in before next sync or account may not exist on identity provider side. Admin can check Settings \u2192 People. So answer: explain that SSO option appears only after sync, maybe sync hasn't run yet, or account not created. Suggest checking Settings \u2192 People to see if account exists. Also ensure domain configured. Provide steps. No money or identity. So we can answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! The SSO button only shows up for users whose accounts have actually been created by the identity\u2011provider sync. If the new hire signed in before the next scheduled sync, or if the sync hasn\u2019t yet created the account on the provider side, the SSO option won\u2019t appear. You can verify by going to Settings\u202f\u2192\u202fPeople and looking for the user \u2013 an SSO\u2011provisioned account will be marked with the identity provider it came from. If the account isn\u2019t there, the sync hasn\u2019t run yet or the domain isn\u2019t configured for SSO. Once the sync completes and the account exists, the SSO login option will appear. Let me know if you need help checking the sync status or the domain settings!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_314a2f1e-e9e0-4c2f-ba8f-3d9db37f4db2",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459864,
+      "id": "chatcmpl-8a4ac89e-5913-4c06-83f1-5d7d78e53512",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_565badff47",
+      "usage": {
+        "completion_time": 0.40104596,
+        "completion_tokens": 326,
+        "completion_tokens_details": {
+          "reasoning_tokens": 153
+        },
+        "prompt_time": 0.054103125,
+        "prompt_tokens": 1067,
+        "queue_time": 0.280693359,
+        "total_time": 0.455149085,
+        "total_tokens": 1393
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m87m2bebq9m9rz5bgpaqj9",
+        "seed": 1225212984
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! The SSO button only shows up for users whose accounts have actually been created by the identity\u2011provider sync. If the new hire signed in before the next scheduled sync, or if the sync hasn\u2019t yet created the account on the provider side, the SSO option won\u2019t appear. You can verify by going to Settings\u202f\u2192\u202fPeople and looking for the user \u2013 an SSO\u2011provisioned account will be marked with the identity provider it came from. If the account isn\u2019t there, the sync hasn\u2019t run yet or the domain isn\u2019t configured for SSO. Once the sync completes and the account exists, the SSO login option will appear. Let me know if you need help checking the sync status or the domain settings!"
+        },
+        "id": "fc_314a2f1e-e9e0-4c2f-ba8f-3d9db37f4db2",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 326,
+      "prompt_tokens": 1067
+    }
+  },
+  "retry_after": null
+}

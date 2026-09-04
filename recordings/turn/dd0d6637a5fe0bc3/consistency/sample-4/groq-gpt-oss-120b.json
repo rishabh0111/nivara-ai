@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:05:11.640244Z",
+  "failure_detail": null,
+  "fingerprint": "015e4d5022433ae10ac07b11791cbf7909de0aef084a657ccee551e50ccbf9d0",
+  "outcome": "response",
+  "recording_id": "turn/dd0d6637a5fe0bc3/consistency/sample-4/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see the conversation: only the user's last message \"Times just look wrong everywhere in the app.\" No context. We have policy excerpts about billing currency, 2FA re-enrollment, and response-time metrics. The user's issue about times being wrong likely relates to time zones or timestamps. None of the excerpts address that. So we cannot answer. Must either escalate. Also rule: if ambiguous, escalate. This is ambiguous. So we should escalate.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer says 'Times just look wrong everywhere in the app.' This appears to be about incorrect timestamps or time zones, which is not covered by the provided policy excerpts. No relevant answer can be given from the excerpts, so we must escalate.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_db96c419-b4ce-427b-878c-3bd77490e2aa",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451511,
+      "id": "chatcmpl-a385178b-babb-47ac-a6d5-406f2177d5fe",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5082008e34",
+      "usage": {
+        "completion_time": 0.370246946,
+        "completion_tokens": 169,
+        "completion_tokens_details": {
+          "reasoning_tokens": 94
+        },
+        "prompt_time": 0.101360099,
+        "prompt_tokens": 1100,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 1.9309233620000001,
+        "total_time": 0.471607045,
+        "total_tokens": 1269
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m08mxveen8amh56we0hv8d",
+        "seed": 904797768
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer says 'Times just look wrong everywhere in the app.' This appears to be about incorrect timestamps or time zones, which is not covered by the provided policy excerpts. No relevant answer can be given from the excerpts, so we must escalate."
+        },
+        "id": "fc_db96c419-b4ce-427b-878c-3bd77490e2aa",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 169,
+      "prompt_tokens": 1100
+    }
+  },
+  "retry_after": null
+}

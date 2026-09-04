@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:40:50.387293Z",
+  "failure_detail": null,
+  "fingerprint": "949ae57caacfd7e21efbd9a64c7c47745b542da4e4bf4723f542cc48025a8252",
+  "outcome": "response",
+  "recording_id": "turn/1671c92c5cb845bd/consistency/sample-3/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to decide based on policy excerpts. Customer says \"webhook hijacked, data exposure risk\". Likely they want to know what to do. The excerpts contain guidance: disable/repoint webhook immediately from Settings \u2192 Developer \u2192 Webhooks, and report to support for investigation. Also note it's a security incident. So we can answer: instruct to disable/repoint, and report to support. That is covered.\n\nWe need to give short specific answer. Use policy. So we can post reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"I\u2019m sorry you\u2019re seeing this \u2013 it sounds like a security incident. Please go to **Settings \u2192 Developer \u2192 Webhooks** and disable or repoint the webhook right away to stop any further deliveries. Then open a support ticket so our team can review when the endpoint was changed, which account made the change, and what data may have been sent to the unauthorized domain.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_cddc7e37-23c8-4f56-8533-c35d150dc9ac",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453650,
+      "id": "chatcmpl-e2e3fbdd-c266-45f0-9463-aa779e595f14",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_dc4ca88fa4",
+      "usage": {
+        "completion_time": 0.426292315,
+        "completion_tokens": 201,
+        "completion_tokens_details": {
+          "reasoning_tokens": 101
+        },
+        "prompt_time": 0.237908533,
+        "prompt_tokens": 1139,
+        "queue_time": 0.322048094,
+        "total_time": 0.664200848,
+        "total_tokens": 1340
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m29ykqeafvk15q62y8cc14",
+        "seed": 860468547
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "I\u2019m sorry you\u2019re seeing this \u2013 it sounds like a security incident. Please go to **Settings \u2192 Developer \u2192 Webhooks** and disable or repoint the webhook right away to stop any further deliveries. Then open a support ticket so our team can review when the endpoint was changed, which account made the change, and what data may have been sent to the unauthorized domain."
+        },
+        "id": "fc_cddc7e37-23c8-4f56-8533-c35d150dc9ac",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 201,
+      "prompt_tokens": 1139
+    }
+  },
+  "retry_after": null
+}

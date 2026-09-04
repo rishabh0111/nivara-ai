@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:26:40.988174Z",
+  "failure_detail": null,
+  "fingerprint": "d28209343d1cd31f7e4495c9bafffc4d1da74f5eda0a611933979636272f2b24",
+  "outcome": "response",
+  "recording_id": "turn/cb3cfd92be09fdcb/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"Is there a setting to include closed and archived records in an export, or is that the default behaviour already?\" According to DOC-018 part 1: \"A standard export from the dashboard includes every record in the current view, including archived and closed ones, unless a filter on the export screen narrows it to a status.\" So default includes all records in current view. But if you filter on export screen, you can narrow. So answer: default includes all, but you can filter. Also mention that export screen filter independent of dashboard view. So answer: default includes all, but you can change filter. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"A standard export already pulls every record that\u2019s in the view you\u2019re exporting from \u2013 that includes archived and closed items. The only way to exclude them is to set a status filter on the export screen itself. So by default you get all records; you can narrow it with a filter if you wish.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_d1469436-98f6-403e-baf4-4e1c83d7d101",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460000,
+      "id": "chatcmpl-513f0874-2f9a-48b9-983e-664caea4eed8",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_334cc21c60",
+      "usage": {
+        "completion_time": 0.561944855,
+        "completion_tokens": 223,
+        "completion_tokens_details": {
+          "reasoning_tokens": 140
+        },
+        "prompt_time": 0.285155036,
+        "prompt_tokens": 1029,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 1.728975986,
+        "total_time": 0.847099891,
+        "total_tokens": 1252
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8bq5ee2p9r42dfwgqg56q",
+        "seed": 1433102541
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "A standard export already pulls every record that\u2019s in the view you\u2019re exporting from \u2013 that includes archived and closed items. The only way to exclude them is to set a status filter on the export screen itself. So by default you get all records; you can narrow it with a filter if you wish."
+        },
+        "id": "fc_d1469436-98f6-403e-baf4-4e1c83d7d101",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 223,
+      "prompt_tokens": 1029
+    }
+  },
+  "retry_after": null
+}

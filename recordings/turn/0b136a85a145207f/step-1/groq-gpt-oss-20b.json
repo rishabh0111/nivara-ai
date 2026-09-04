@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:36:34.093264Z",
+  "failure_detail": null,
+  "fingerprint": "7a573cf40a2315cbfeb1e0021625f511eb0ffc0ca5986b5188f46c97c5b77421",
+  "outcome": "response",
+  "recording_id": "turn/0b136a85a145207f/step-1/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"Our finance team is seeing a discrepancy of about four hundred entries against the reconciliation report.\" They are seeing discrepancy of entries. This is about billing discrepancies. The policy says: \"Cancelling a subscription is meant to stop the next renewal charge, and a charge that lands anyway after a cancellation was submitted is treated as a billing discrepancy the billing team investigates directly.\" Also \"A charge a customer believes was made in error \u2014 including an apparent duplicate \u2014 is reviewed by the billing team rather than reversed automatically from the dashboard.\" So we should direct them to contact billing team. The question is ambiguous: discrepancy of entries. It's likely a billing discrepancy. We should direct them to contact billing support. According to policy, we should not answer from general knowledge. We should refer them to billing team. So we should post a reply: \"Please contact billing support.\" But we need to be specific: \"Please open a ticket with the billing team; they will investigate.\" That is allowed. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! It sounds like you\u2019re dealing with a billing discrepancy. Please open a ticket with our billing team so they can investigate the issue and review the reconciliation report in detail. They\u2019ll be able to look into the 400\u2011entry discrepancy and get it resolved for you.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_b38fd851-f9c6-47eb-a7c1-b492e3252a0a",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460593,
+      "id": "chatcmpl-32f3fd19-4309-444f-9600-53d44983a609",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_8d13edce1d",
+      "usage": {
+        "completion_time": 0.298354812,
+        "completion_tokens": 288,
+        "completion_tokens_details": {
+          "reasoning_tokens": 210
+        },
+        "prompt_time": 0.186686839,
+        "prompt_tokens": 1156,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.274372469,
+        "total_time": 0.485041651,
+        "total_tokens": 1444
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8xw02ecybgezc7cq79415",
+        "seed": 1152736154
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! It sounds like you\u2019re dealing with a billing discrepancy. Please open a ticket with our billing team so they can investigate the issue and review the reconciliation report in detail. They\u2019ll be able to look into the 400\u2011entry discrepancy and get it resolved for you."
+        },
+        "id": "fc_b38fd851-f9c6-47eb-a7c1-b492e3252a0a",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 288,
+      "prompt_tokens": 1156
+    }
+  },
+  "retry_after": null
+}

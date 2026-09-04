@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:59:27.062895Z",
+  "failure_detail": null,
+  "fingerprint": "87fd9a1dd5ee928545b408ffc53984caa0688452b3e77d6857cf99bda64c6af5",
+  "outcome": "response",
+  "recording_id": "turn/ccd51c315bdb691a/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our weekly report is set to send at 9am but keeps arriving at 8am, and we cannot figure out why.\"\n\nWe have relevant docs: DOC-040 about checking scheduled report status, recipient list causing pause. DOC-040 part 1 about Settings \u2192 Reports \u2192 Scheduled shows run history and outcome. Also maybe about schedule times? Not directly. But we can guide them to check schedule settings and run history. The policy excerpts mention checking scheduled report status, run history, and that a report may appear stopped due to recipient bounce. Not exactly about early sending. But we can still answer using the provided excerpts: advise to check Settings \u2192 Reports \u2192 Scheduled to see run history and confirm schedule time, and note that recipient list issues can cause apparent stop. That seems within policy.\n\nWe must not mention policy. Provide short specific answer.\n\nThus we will post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! To troubleshoot the early delivery, open **Settings \u2192 Reports \u2192 Scheduled**. The list shows each scheduled report, its next run time and the outcome of the most recent run. Verify that the schedule is set for 9\u202fam and check the run history for any notes about a failed or paused delivery (e.g., a bouncing recipient can cause the report to appear stopped for that address). If the schedule looks correct but the report still arrives early, the run history may reveal why the timing is off.\\n\\nLet me know if you see anything unusual or need further help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c362a223-2c8f-46a2-b0bc-b66480699790",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454766,
+      "id": "chatcmpl-afe2bd15-bc34-4bce-86b2-5f7ac62e4efd",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9241e9962b",
+      "usage": {
+        "completion_time": 0.698433436,
+        "completion_tokens": 333,
+        "completion_tokens_details": {
+          "reasoning_tokens": 189
+        },
+        "prompt_time": 1.105786921,
+        "prompt_tokens": 1055,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.365704832,
+        "total_time": 1.8042203570000002,
+        "total_tokens": 1388
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m3c06feh1s335dgrxkgpvx",
+        "seed": 1588371912
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! To troubleshoot the early delivery, open **Settings \u2192 Reports \u2192 Scheduled**. The list shows each scheduled report, its next run time and the outcome of the most recent run. Verify that the schedule is set for 9\u202fam and check the run history for any notes about a failed or paused delivery (e.g., a bouncing recipient can cause the report to appear stopped for that address). If the schedule looks correct but the report still arrives early, the run history may reveal why the timing is off.\n\nLet me know if you see anything unusual or need further help!"
+        },
+        "id": "fc_c362a223-2c8f-46a2-b0bc-b66480699790",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 333,
+      "prompt_tokens": 1055
+    }
+  },
+  "retry_after": null
+}

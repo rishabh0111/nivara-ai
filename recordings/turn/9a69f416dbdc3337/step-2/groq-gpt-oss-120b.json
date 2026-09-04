@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T15:47:19.912135Z",
+  "failure_detail": null,
+  "fingerprint": "4e510b1b6c7405faca8917f297277ebb6a891f26d8be533113e5eafc21f8d994",
+  "outcome": "response",
+  "recording_id": "turn/9a69f416dbdc3337/step-2/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We have a short question: \"seat limit reached?\" Likely they are asking about seat limit reached, maybe they got blocked invite. We have policy excerpts about seat limits. We can answer: explain that each plan has a max seats, can view in Settings \u2192 Billing \u2192 Plan, if limit reached invites blocked. To increase, either add seats if plan allows or upgrade tier. Changes take effect immediately, can resend invite. Provide steps.\n\nWe must answer using only policy excerpts. Provide concise answer. Use the info from DOC-028 parts. So answer: check plan, see limit, raise limit by adding seats or upgrading, then resend invite.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! Each Meridian plan has a maximum number of seats, which you can see in **Settings \u2192 Billing \u2192 Plan** (it shows the total seats included and how many are currently used). If an invite is blocked, it means you\u2019ve hit that limit.\\n\\nTo add more seats you have two options:\\n1. **Add seats within your current tier** \u2013 if your plan allows purchasing extra seats beyond the included count.\\n2. **Upgrade to a higher\u2011tier plan** \u2013 which includes a larger seat limit.\\n\\nBoth options take effect immediately once you confirm them, and you can resend the blocked invite right after.\\n\\nIf you need help checking your current usage or deciding which option works best, just let me know!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_ed206eb7-12b5-4685-925d-e42ed40b2d20",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788450439,
+      "id": "chatcmpl-30c6154d-7755-4746-8ab0-c7e5c520f30b",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c15aa9c1b7",
+      "usage": {
+        "completion_time": 0.792849099,
+        "completion_tokens": 312,
+        "completion_tokens_details": {
+          "reasoning_tokens": 136
+        },
+        "prompt_time": 1.353995071,
+        "prompt_tokens": 1062,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.158754892,
+        "total_time": 2.14684417,
+        "total_tokens": 1374
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kz7yckeaj8s9jrv0shfszg",
+        "seed": 1079331864
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! Each Meridian plan has a maximum number of seats, which you can see in **Settings \u2192 Billing \u2192 Plan** (it shows the total seats included and how many are currently used). If an invite is blocked, it means you\u2019ve hit that limit.\n\nTo add more seats you have two options:\n1. **Add seats within your current tier** \u2013 if your plan allows purchasing extra seats beyond the included count.\n2. **Upgrade to a higher\u2011tier plan** \u2013 which includes a larger seat limit.\n\nBoth options take effect immediately once you confirm them, and you can resend the blocked invite right after.\n\nIf you need help checking your current usage or deciding which option works best, just let me know!"
+        },
+        "id": "fc_ed206eb7-12b5-4685-925d-e42ed40b2d20",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 312,
+      "prompt_tokens": 1062
+    }
+  },
+  "retry_after": null
+}

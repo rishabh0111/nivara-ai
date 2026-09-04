@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:20:07.138984Z",
+  "failure_detail": null,
+  "fingerprint": "2f1c504166ad5332a7371d6084787cf845afd53dab382752533beb9fed66cc21",
+  "outcome": "response",
+  "recording_id": "turn/1e695c3960fa794a/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to interpret the customer's request: \"Trying to get at data past what's currently shown.\" Likely they want older usage data beyond what's displayed. The policy excerpts include info about historical usage data and extended history. So we can answer: explain that usage older than two most recent billing periods is retained but not shown by default; can be pulled via custom date range export within retention window. Also mention Settings \u2192 Reporting \u2192 Extended history for plan details and request older data if not shown. Provide steps.\n\nThus we can answer using DOC-041 and DOC-045. Provide concise answer.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can pull data that isn\u2019t shown on the default screen by using a custom date range export.\u202fUsage older than the two most recent billing periods is still retained, but you\u2019ll need to set a custom range (within your workspace\u2019s retention window) in the export tool to retrieve it.\u202fIf you need a range that goes beyond what your current plan shows by default, check **Settings \u2192 Reporting \u2192 Extended history** \u2013 it lists the extended retention included with your plan and how to request even older data if it isn\u2019t already available.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_5163dd2b-b464-4a49-8f17-b1c0fe8699d7",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452406,
+      "id": "chatcmpl-522ff8fb-1625-4b4d-a909-fdc9369bf2f6",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_3166198c1d",
+      "usage": {
+        "completion_time": 0.55136903,
+        "completion_tokens": 257,
+        "completion_tokens_details": {
+          "reasoning_tokens": 123
+        },
+        "prompt_time": 0.087254535,
+        "prompt_tokens": 1079,
+        "queue_time": 0.322031263,
+        "total_time": 0.638623565,
+        "total_tokens": 1336
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m140geeqar36hfa8yphkc4",
+        "seed": 171646128
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can pull data that isn\u2019t shown on the default screen by using a custom date range export.\u202fUsage older than the two most recent billing periods is still retained, but you\u2019ll need to set a custom range (within your workspace\u2019s retention window) in the export tool to retrieve it.\u202fIf you need a range that goes beyond what your current plan shows by default, check **Settings \u2192 Reporting \u2192 Extended history** \u2013 it lists the extended retention included with your plan and how to request even older data if it isn\u2019t already available."
+        },
+        "id": "fc_5163dd2b-b464-4a49-8f17-b1c0fe8699d7",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 257,
+      "prompt_tokens": 1079
+    }
+  },
+  "retry_after": null
+}

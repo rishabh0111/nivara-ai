@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:23:34.952718Z",
+  "failure_detail": null,
+  "fingerprint": "d2ac97bb8c641f6de0f4a88e7eec5724c44faaa6301e40b9ac607d2876c3f446",
+  "outcome": "response",
+  "recording_id": "turn/828381acce9207de/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"Our integration is failing in production right now with 429s far under the published ceiling \u2014 I need to know what's actually being counted urgently.\"\n\nWe have policy excerpts about API rate limit: DOC-021 parts 1-3. They explain that rate limit is per API key, rolling window, not per workspace, and that X-RateLimit-Remaining and X-RateLimit-Reset headers show exact count and window. Also that bursts can cause 429 even if under per-minute figure.\n\nThus we can answer: check the response headers X-RateLimit-Remaining and X-RateLimit-Reset to see what's being counted. Also note that it's per API key, rolling window, bursts cause 429.\n\nWe must keep answer short and specific, address customer directly. Provide info from policy. No need to escalate. So we will post_reply with answer.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there \u2013 the rate\u2011limit counters are tracked per API key (not per workspace) using a rolling 60\u2011second window. Each response includes the `X-RateLimit-Remaining` and `X-RateLimit-Reset` headers, which show the exact number of requests left and when the window resets. Because the window is rolling, a burst of calls can trigger a 429 even if you\u2019re under the nominal per\u2011minute limit. Checking those headers will tell you precisely what\u2019s being counted.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_b30c7c26-056f-4506-a608-16ef1d75c06b",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373414,
+      "id": "chatcmpl-99ac81e1-41f2-4f8e-b5b8-a494a6a4dc1f",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_19b184c447",
+      "usage": {
+        "completion_time": 1.378332392,
+        "completion_tokens": 316,
+        "completion_tokens_details": {
+          "reasoning_tokens": 188
+        },
+        "prompt_time": 0.379978957,
+        "prompt_tokens": 1055,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.354921775,
+        "total_time": 1.758311349,
+        "total_tokens": 1371
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnsadqeazs2rbnrfzgsq02",
+        "seed": 1730134444
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there \u2013 the rate\u2011limit counters are tracked per API key (not per workspace) using a rolling 60\u2011second window. Each response includes the `X-RateLimit-Remaining` and `X-RateLimit-Reset` headers, which show the exact number of requests left and when the window resets. Because the window is rolling, a burst of calls can trigger a 429 even if you\u2019re under the nominal per\u2011minute limit. Checking those headers will tell you precisely what\u2019s being counted."
+        },
+        "id": "fc_b30c7c26-056f-4506-a608-16ef1d75c06b",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 316,
+      "prompt_tokens": 1055
+    }
+  },
+  "retry_after": null
+}

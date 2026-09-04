@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T17:13:04.080090Z",
+  "failure_detail": null,
+  "fingerprint": "ad8468a35f9d96f3e53dc11a0d9c3890509c24f21280e798dfaf7adaef151211",
+  "outcome": "response",
+  "recording_id": "turn/96936560784a1260/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"A ticket opened Friday evening shows as breached by Saturday morning, which cannot be within our stated hours.\" They are concerned about response-time metrics and business hours. The policy says default metric counts every hour including nights, weekends, holidays (wall-clock). Business-hours version can be configured to exclude outside hours. So answer: explain that default metric includes weekends, so breach can happen; to have business-hours metric you need to configure business hours in Settings \u2192 Reporting \u2192 Business hours and switch dashboard metric to business hours mode. Provide guidance.\n\nWe must not mention policy excerpts. Provide short answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"The default response\u2011time metric on the dashboard uses wall\u2011clock time, so it counts every hour a ticket is open\u2014including nights, weekends and holidays. That\u2019s why a ticket opened on Friday evening can be marked as breached by Saturday morning. If you want the metric to reflect only your defined business hours, you need to set up business hours in **Settings \u2192 Reporting \u2192 Business hours** and then switch the dashboard view to \u201cbusiness hours\u201d mode, which will exclude time outside those hours from the calculation.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_5c5bb15b-9d29-4858-bff5-dfa311561a73",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788455584,
+      "id": "chatcmpl-b86cf761-c00c-4e04-a2dd-44c54c8954f8",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_96d96a151c",
+      "usage": {
+        "completion_time": 0.554336406,
+        "completion_tokens": 261,
+        "completion_tokens_details": {
+          "reasoning_tokens": 134
+        },
+        "prompt_time": 0.059291228,
+        "prompt_tokens": 1038,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.273924261,
+        "total_time": 0.613627634,
+        "total_tokens": 1299
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m44zegevxsryjp268wtptg",
+        "seed": 2129047208
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "The default response\u2011time metric on the dashboard uses wall\u2011clock time, so it counts every hour a ticket is open\u2014including nights, weekends and holidays. That\u2019s why a ticket opened on Friday evening can be marked as breached by Saturday morning. If you want the metric to reflect only your defined business hours, you need to set up business hours in **Settings \u2192 Reporting \u2192 Business hours** and then switch the dashboard view to \u201cbusiness hours\u201d mode, which will exclude time outside those hours from the calculation."
+        },
+        "id": "fc_5c5bb15b-9d29-4858-bff5-dfa311561a73",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 261,
+      "prompt_tokens": 1038
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T17:55:33.772351Z",
+  "failure_detail": null,
+  "fingerprint": "028f2af3f35e65f21afa7f6ad0e32a61a7540d9e09c863c59564488460d4737c",
+  "outcome": "response",
+  "recording_id": "turn/ff8a7c780260bfcf/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"Can I get an itemised breakdown of our quarterly invoice \u2014 seats, add-ons and overages listed separately?\" This is about reading an itemised invoice. The policy excerpts explain that invoices break down into seat charge, add-ons, usage overages, and you can expand line items in Settings \u2192 Billing \u2192 Invoices, and PDF includes same breakdown. So we can answer: Yes, you can view itemised breakdown by opening invoice in Settings \u2192 Billing \u2192 Invoices, expand line items, see seat charge details, add-ons, overages. Also PDF includes same breakdown. Provide steps.\n\nWe must not mention policy. Provide short specific answer. Use post_reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! Every Meridian invoice already separates the seat charge, any add\u2011ons, and usage overages.\\n\\n1. Go to **Settings \u2192 Billing \u2192 Invoices**.\\n2. Find the quarterly invoice you want and click to open it.\\n3. Click the arrow next to each line item to expand it \u2013 you\u2019ll see the number of seats billed and the per\u2011seat rate, the add\u2011on details, and the overage quantity versus the plan\u2019s included limit.\\n4. If you need a shareable version, download the PDF from the same screen; it contains the same itemised breakdown.\\n\\nLet me know if you need any more help locating a specific month or downloading the PDF!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c3d6790c-7536-4c5e-9c09-ad4723f60061",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371733,
+      "id": "chatcmpl-04496db8-7e18-44d3-8596-72d0131aa1b0",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c15aa9c1b7",
+      "usage": {
+        "completion_time": 0.752633336,
+        "completion_tokens": 319,
+        "completion_tokens_details": {
+          "reasoning_tokens": 148
+        },
+        "prompt_time": 0.05552945,
+        "prompt_tokens": 1043,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.159616459,
+        "total_time": 0.808162786,
+        "total_tokens": 1362
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hm61y4e3g81yk459yyp7p3",
+        "seed": 54449877
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! Every Meridian invoice already separates the seat charge, any add\u2011ons, and usage overages.\n\n1. Go to **Settings \u2192 Billing \u2192 Invoices**.\n2. Find the quarterly invoice you want and click to open it.\n3. Click the arrow next to each line item to expand it \u2013 you\u2019ll see the number of seats billed and the per\u2011seat rate, the add\u2011on details, and the overage quantity versus the plan\u2019s included limit.\n4. If you need a shareable version, download the PDF from the same screen; it contains the same itemised breakdown.\n\nLet me know if you need any more help locating a specific month or downloading the PDF!"
+        },
+        "id": "fc_c3d6790c-7536-4c5e-9c09-ad4723f60061",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 319,
+      "prompt_tokens": 1043
+    }
+  },
+  "retry_after": null
+}

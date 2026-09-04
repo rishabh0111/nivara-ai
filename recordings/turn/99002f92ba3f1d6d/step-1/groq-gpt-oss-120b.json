@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:19:21.984564Z",
+  "failure_detail": null,
+  "fingerprint": "38dc8bafccf5ccc1d87efc419d098218f249c320e5e3022dfc47ffe03d3bcef4",
+  "outcome": "response",
+  "recording_id": "turn/99002f92ba3f1d6d/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The customer asks: \"data older than retention window, options?\" They want options for accessing data older than retention window. The policy excerpts provide info: data moves to cold storage, can be requested; settings \u2192 Reporting \u2192 Extended history; higher tiers include longer retention; for data older than extended retention depends on workspace creation; usage older than two most recent billing periods can be pulled with custom date range as long as within overall retention window.\n\nThus answer: explain that default dashboard shows within retention window; older data is moved to cold storage and can be requested via reporting settings; check Settings \u2192 Reporting \u2192 Extended history for plan's extended range; higher tiers may have longer window automatically; for data beyond even extended retention, availability depends on workspace age; you can request via support. Also usage older than two billing periods can be exported with custom date range.\n\nProvide concise answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there!\u202fOn most plans the dashboard only shows data that falls inside the plan\u2019s retention window. Anything older isn\u2019t deleted \u2013 it\u2019s moved to cold storage and can still be accessed on request.\\n\\n**How to get it:**\\n1. Open **Settings \u2192 Reporting \u2192 Extended history**. This page tells you the extended range your current plan includes and lets you request data that isn\u2019t shown by default.\\n2. If you\u2019re on a higher\u2011tier plan, a longer retention window may already be displayed on the dashboard, so no request is needed.\\n3. For data that falls outside even the extended window, availability depends on when the workspace was created (nothing is kept from before the workspace existed).\\n4. For usage data older than the two most recent billing periods, you can still export it by selecting a custom date range in the export tool, as long as the dates are within the overall workspace retention window.\\n\\nIf you need a specific data set pulled, just let us know the date range and we\u2019ll arrange a request for you.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_5777e5e6-6736-46a3-bfde-8ca4f384e437",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452361,
+      "id": "chatcmpl-16cbf9bc-a5b4-4fd7-909c-6c46cf3cea16",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_96d96a151c",
+      "usage": {
+        "completion_time": 0.902072739,
+        "completion_tokens": 427,
+        "completion_tokens_details": {
+          "reasoning_tokens": 183
+        },
+        "prompt_time": 0.058586072,
+        "prompt_tokens": 1084,
+        "queue_time": 0.281676682,
+        "total_time": 0.960658811,
+        "total_tokens": 1511
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m12m64eaq8q502dhavdym3",
+        "seed": 212723056
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there!\u202fOn most plans the dashboard only shows data that falls inside the plan\u2019s retention window. Anything older isn\u2019t deleted \u2013 it\u2019s moved to cold storage and can still be accessed on request.\n\n**How to get it:**\n1. Open **Settings \u2192 Reporting \u2192 Extended history**. This page tells you the extended range your current plan includes and lets you request data that isn\u2019t shown by default.\n2. If you\u2019re on a higher\u2011tier plan, a longer retention window may already be displayed on the dashboard, so no request is needed.\n3. For data that falls outside even the extended window, availability depends on when the workspace was created (nothing is kept from before the workspace existed).\n4. For usage data older than the two most recent billing periods, you can still export it by selecting a custom date range in the export tool, as long as the dates are within the overall workspace retention window.\n\nIf you need a specific data set pulled, just let us know the date range and we\u2019ll arrange a request for you."
+        },
+        "id": "fc_5777e5e6-6736-46a3-bfde-8ca4f384e437",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 427,
+      "prompt_tokens": 1084
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:06:23.384638Z",
+  "failure_detail": null,
+  "fingerprint": "6f47d8db45d1e1c711f9f1d52832cd06a2fa992c1c57008dcdcba29b1095262c",
+  "outcome": "response",
+  "recording_id": "turn/690e0f3582e27950/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Is two-factor set up per account individually, or does an admin need to turn it on for the whole workspace first?\" The relevant excerpt is DOC-011: \"Two-factor authentication is enabled per account from Settings \u2192 Security \u2192 Two-factor authentication, and does not require an admin to turn anything on workspace-wide first.\"\n\nThus answer: It's per account, no admin needed. Provide short answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Two-factor authentication is set up individually per account (Settings \u2192 Security \u2192 Two-factor authentication). It does not require an admin to enable it workspace\u2011wide first.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_4a0a16de-494e-48f8-b8f2-6492728435d0",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372383,
+      "id": "chatcmpl-cbdeaccc-8fd5-43bc-91d7-109265e60c44",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9241e9962b",
+      "usage": {
+        "completion_time": 0.321906129,
+        "completion_tokens": 153,
+        "completion_tokens_details": {
+          "reasoning_tokens": 96
+        },
+        "prompt_time": 0.130899048,
+        "prompt_tokens": 1083,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.362016633,
+        "total_time": 0.452805177,
+        "total_tokens": 1236
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmswrneqssrdggn5jk49hm",
+        "seed": 225549735
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Two-factor authentication is set up individually per account (Settings \u2192 Security \u2192 Two-factor authentication). It does not require an admin to enable it workspace\u2011wide first."
+        },
+        "id": "fc_4a0a16de-494e-48f8-b8f2-6492728435d0",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 153,
+      "prompt_tokens": 1083
+    }
+  },
+  "retry_after": null
+}

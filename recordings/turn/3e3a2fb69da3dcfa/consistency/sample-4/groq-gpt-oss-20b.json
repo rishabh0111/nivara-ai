@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:37:56.424211Z",
+  "failure_detail": null,
+  "fingerprint": "ba935d437e4f40f2f524fd8a74e08b7f54915aaa75aa09a5019455df4155f415",
+  "outcome": "response",
+  "recording_id": "turn/3e3a2fb69da3dcfa/consistency/sample-4/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The policy says: Meridian does not reissue invoices that have already been generated \u2014 a correction applies to invoices from that point forward only. Customers who need a corrected copy of a past invoice for their own records can request one through support. So the user wants to correct it and resend. According to policy, we can provide a corrected copy for their records. So we can answer: we cannot reissue but can provide corrected copy. So respond accordingly.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"I\u2019m sorry, but we can\u2019t re\u2011issue an invoice that\u2019s already been generated. However, if you need a copy with the updated details for your records, please let me know and I\u2019ll send you the corrected version right away. Let me know if that works for you!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_e464580c-4fa6-4e3b-904a-9d450da183aa",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460676,
+      "id": "chatcmpl-77bbfcb9-e325-4d48-8280-5be6213b0b0a",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_66f3850a1a",
+      "usage": {
+        "completion_time": 0.180847533,
+        "completion_tokens": 176,
+        "completion_tokens_details": {
+          "reasoning_tokens": 96
+        },
+        "prompt_time": 0.315711078,
+        "prompt_tokens": 1050,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.306007989,
+        "total_time": 0.496558611,
+        "total_tokens": 1226
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m90c5qes1aewr6g3fcp65q",
+        "seed": 1584594305
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "I\u2019m sorry, but we can\u2019t re\u2011issue an invoice that\u2019s already been generated. However, if you need a copy with the updated details for your records, please let me know and I\u2019ll send you the corrected version right away. Let me know if that works for you!"
+        },
+        "id": "fc_e464580c-4fa6-4e3b-904a-9d450da183aa",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 176,
+      "prompt_tokens": 1050
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T15:44:00.234926Z",
+  "failure_detail": null,
+  "fingerprint": "7623dff6b80e45b9d7ffef55230480b40285cd480e781c73be22e3301d43bfa4",
+  "outcome": "response",
+  "recording_id": "turn/a17301ddc105bc96/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to understand the customer's question. The user says: \"Trying to avoid building against something that might change again.\" That's vague. Likely they are asking about avoiding duplicates when re-importing a corrected file? Or about search index lag? Hard to infer. The statement is ambiguous. Could be about avoiding building against something that might change again\u2014maybe they refer to building a data import file that might change? The policy excerpts include duplicate import, search lag, ownership transfer, plan tiers. None directly address \"building against something that might change again.\" The question is ambiguous and not covered. According to rules: If ambiguous, escalate. Also if not covered by policy, escalate. So we should escalate.\n\nWe need to provide internal note: what the customer asked, what we found, why we stopped.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer wrote: \\\"Trying to avoid building against something that might change again.\\\" This request is ambiguous and does not clearly map to any of the provided policy excerpts. It is unclear what the customer is referring to (e.g., avoiding building against a changing data import, search index, or other feature). Since the question is ambiguous and not covered by the policy excerpts, I must escalate to a human for clarification.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_3db8f428-ee91-496d-8225-61eae29c7d44",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788450240,
+      "id": "chatcmpl-fd47edd5-5da0-44f0-a2cf-5e47d65878be",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4140daa9c2",
+      "usage": {
+        "completion_time": 0.581912331,
+        "completion_tokens": 272,
+        "completion_tokens_details": {
+          "reasoning_tokens": 163
+        },
+        "prompt_time": 0.05195585,
+        "prompt_tokens": 1040,
+        "queue_time": 0.313387369,
+        "total_time": 0.633868181,
+        "total_tokens": 1312
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kz1wqdeczvr5b35dkktcng",
+        "seed": 1310206946
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer wrote: \"Trying to avoid building against something that might change again.\" This request is ambiguous and does not clearly map to any of the provided policy excerpts. It is unclear what the customer is referring to (e.g., avoiding building against a changing data import, search index, or other feature). Since the question is ambiguous and not covered by the policy excerpts, I must escalate to a human for clarification."
+        },
+        "id": "fc_3db8f428-ee91-496d-8225-61eae29c7d44",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 272,
+      "prompt_tokens": 1040
+    }
+  },
+  "retry_after": null
+}

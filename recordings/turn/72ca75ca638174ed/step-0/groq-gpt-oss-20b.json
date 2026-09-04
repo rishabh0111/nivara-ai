@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:26:19.375684Z",
+  "failure_detail": null,
+  "fingerprint": "e5e17d309f8eb729057ad9e35b4b57d14f5c9f79eb146f8726eb73b4821a4957",
+  "outcome": "response",
+  "recording_id": "turn/72ca75ca638174ed/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"Right now I'm exporting ticket data by hand every week and uploading it to our storage myself \u2014 is there a way to schedule a recurring export that lands there automatically instead?\" We have policy excerpts about scheduling recurring export: from Settings \u2192 Data \u2192 Scheduled exports. Connect a cloud storage destination; each run lands as a new file. So answer: Yes, you can schedule recurring export via Settings > Data > Scheduled exports, connect cloud storage, set recurrence. Provide steps. Also mention that scheduled exports are separate from one-off export button. So answer accordingly.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes! You can set up a recurring export that automatically drops the files into your cloud storage.\\n\\n1. Go to **Settings \u2192 Data \u2192 Scheduled exports**.\\n2. Choose the ticket data you want to export and set the recurrence (daily, weekly, or monthly).\\n3. Connect your cloud\u2011storage destination (Google Drive, Dropbox, etc.) via the OAuth connection \u2013 you only need to do this once per destination.\\n4. Save the schedule.\\n\\nEach run will create a new file in the connected destination, and you can view the run history and status from the scheduled exports screen. This way you won\u2019t need to export and upload manually every week.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_84601a99-21b3-4d4a-bb81-a99946483f7c",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459979,
+      "id": "chatcmpl-b1317cd8-32fd-45f6-a607-a3f5ef183ef9",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_66891002f6",
+      "usage": {
+        "completion_time": 0.362594847,
+        "completion_tokens": 283,
+        "completion_tokens_details": {
+          "reasoning_tokens": 122
+        },
+        "prompt_time": 0.05477694,
+        "prompt_tokens": 1011,
+        "queue_time": 0.279846908,
+        "total_time": 0.417371787,
+        "total_tokens": 1294
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8b3pjetvvahtcr0635dgh",
+        "seed": 1016911180
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes! You can set up a recurring export that automatically drops the files into your cloud storage.\n\n1. Go to **Settings \u2192 Data \u2192 Scheduled exports**.\n2. Choose the ticket data you want to export and set the recurrence (daily, weekly, or monthly).\n3. Connect your cloud\u2011storage destination (Google Drive, Dropbox, etc.) via the OAuth connection \u2013 you only need to do this once per destination.\n4. Save the schedule.\n\nEach run will create a new file in the connected destination, and you can view the run history and status from the scheduled exports screen. This way you won\u2019t need to export and upload manually every week."
+        },
+        "id": "fc_84601a99-21b3-4d4a-bb81-a99946483f7c",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 283,
+      "prompt_tokens": 1011
+    }
+  },
+  "retry_after": null
+}

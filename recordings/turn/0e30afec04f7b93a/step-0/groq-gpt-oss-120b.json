@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:26:36.813256Z",
+  "failure_detail": null,
+  "fingerprint": "27fa027ecd309b1efb4c26d918465a56035923f538696447026679210860f0d0",
+  "outcome": "response",
+  "recording_id": "turn/0e30afec04f7b93a/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"Not sure if rotating a key causes a gap in service.\" This is about rotating an API key and whether there is downtime. The policy excerpts explain that rotating can be done without downtime: overlap window exists, deploy new key, confirm works, then revoke old key. So answer: No gap if you follow steps; you can have both keys active until you revoke old one. Provide short answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Rotating a key won\u2019t cause a service gap if you follow the recommended process. When you generate a new API key, the old one remains active until you explicitly revoke it, so you can deploy the new key, verify everything works, and only then revoke the old one. The overlap window ensures continuous operation.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_154f4c0b-b8f0-4f44-b59e-5418f3024048",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373596,
+      "id": "chatcmpl-11ac3e0a-b9d7-4ece-87bf-449d40de9a56",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_1d982b31b2",
+      "usage": {
+        "completion_time": 0.963004507,
+        "completion_tokens": 186,
+        "completion_tokens_details": {
+          "reasoning_tokens": 98
+        },
+        "prompt_time": 1.010045909,
+        "prompt_tokens": 1053,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.713129331,
+        "total_time": 1.973050416,
+        "total_tokens": 1239
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnyvvmec6rcfxjfspb2chz",
+        "seed": 388475204
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Rotating a key won\u2019t cause a service gap if you follow the recommended process. When you generate a new API key, the old one remains active until you explicitly revoke it, so you can deploy the new key, verify everything works, and only then revoke the old one. The overlap window ensures continuous operation."
+        },
+        "id": "fc_154f4c0b-b8f0-4f44-b59e-5418f3024048",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 186,
+      "prompt_tokens": 1053
+    }
+  },
+  "retry_after": null
+}

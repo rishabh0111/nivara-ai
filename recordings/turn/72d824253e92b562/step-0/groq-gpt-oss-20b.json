@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:22:19.175755Z",
+  "failure_detail": null,
+  "fingerprint": "a9bb3b80fd1497f773106481afd518df231b7ef9be4703442a670df9a9296678",
+  "outcome": "response",
+  "recording_id": "turn/72d824253e92b562/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"Our procurement policy only allows vendors paid via wire transfer, and I couldn't find that listed as an option anywhere on the pricing or checkout pages.\" They want to know if wire transfer is an option. According to policy excerpt [DOC-005]: Annual contracts can also be paid by bank transfer against an invoice, arranged through support before the contract starts rather than self-served from billing settings \u2014 bank transfer requires setting the account up for invoiced billing rather than automatic card charges. So answer: yes, wire transfer is possible for annual contracts via invoiced billing, need to contact support. Also mention that it's not self-served. Provide guidance. Use policy. No mention of fraud. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! Wire transfer is available for annual contracts, but it\u2019s set up through invoiced billing rather than the self\u2011served checkout. To arrange a bank\u2011transfer payment, please contact our support team before the contract starts and they\u2019ll set up invoiced billing for you. Let us know if you need help getting in touch!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_99ab0999-f199-4967-8217-a1589de19201",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459739,
+      "id": "chatcmpl-7674c70b-f2ac-4f35-8ec5-9a8d659d7581",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_a12402de73",
+      "usage": {
+        "completion_time": 0.25451414,
+        "completion_tokens": 240,
+        "completion_tokens_details": {
+          "reasoning_tokens": 152
+        },
+        "prompt_time": 0.062058625,
+        "prompt_tokens": 1097,
+        "queue_time": 0.157237234,
+        "total_time": 0.316572765,
+        "total_tokens": 1337
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m83shpeqm9p0djjfpsgqjh",
+        "seed": 1436372939
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! Wire transfer is available for annual contracts, but it\u2019s set up through invoiced billing rather than the self\u2011served checkout. To arrange a bank\u2011transfer payment, please contact our support team before the contract starts and they\u2019ll set up invoiced billing for you. Let us know if you need help getting in touch!"
+        },
+        "id": "fc_99ab0999-f199-4967-8217-a1589de19201",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 240,
+      "prompt_tokens": 1097
+    }
+  },
+  "retry_after": null
+}

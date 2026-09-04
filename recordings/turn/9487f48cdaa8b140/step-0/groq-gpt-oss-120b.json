@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:29:11.299449Z",
+  "failure_detail": null,
+  "fingerprint": "5bbf86491604e8fff50d126bea1c2edf48666d0f7bfab317c85c95b38bef3da1",
+  "outcome": "response",
+  "recording_id": "turn/9487f48cdaa8b140/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"I cancelled several seats mid-cycle but was still charged for the full seat count \u2014 can I get a refund for the unused portion?\" According to DOC-052 part 1: Seats cancelled partway through a billing cycle are not automatically prorated on standard plans; seat removed mid-cycle stops being billed starting next cycle rather than refunded for remainder. So answer: No automatic refund; they will stop being billed next cycle; you can request review but policy says not prorated. Also mention billing team reviews seat history vs invoicing if they think billed incorrectly. So answer: According to policy, seats removed mid-cycle are not prorated; you won't get a refund for the unused portion; the charge will stop next cycle. If you think billing error, they can review. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there,\\n\\nAccording to our policy, seats that are cancelled part\u2011way through a billing cycle are not automatically prorated on standard plans. The seat stops being billed starting with the next cycle rather than being refunded for the remainder of the current cycle. If you believe the charge was applied incorrectly, our billing team can review the seat history against the invoice to verify the billing.\\n\\nLet us know if you\u2019d like us to start that review.\\n\\nThanks!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_8cd69092-db3d-4bca-aa1d-a9849ac07036",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452951,
+      "id": "chatcmpl-d97e3512-0753-4146-bb8a-80e7d662b820",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_19b184c447",
+      "usage": {
+        "completion_time": 0.608108438,
+        "completion_tokens": 292,
+        "completion_tokens_details": {
+          "reasoning_tokens": 171
+        },
+        "prompt_time": 0.085718704,
+        "prompt_tokens": 1101,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.363433314,
+        "total_time": 0.693827142,
+        "total_tokens": 1393
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1mm53efct9ncsyhyvtpf1",
+        "seed": 1394969134
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there,\n\nAccording to our policy, seats that are cancelled part\u2011way through a billing cycle are not automatically prorated on standard plans. The seat stops being billed starting with the next cycle rather than being refunded for the remainder of the current cycle. If you believe the charge was applied incorrectly, our billing team can review the seat history against the invoice to verify the billing.\n\nLet us know if you\u2019d like us to start that review.\n\nThanks!"
+        },
+        "id": "fc_8cd69092-db3d-4bca-aa1d-a9849ac07036",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 292,
+      "prompt_tokens": 1101
+    }
+  },
+  "retry_after": null
+}

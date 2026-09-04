@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:24:21.517081Z",
+  "failure_detail": null,
+  "fingerprint": "f5bc4f1c26c2cb361f0de13a5012ed46071d58988f27f153fa7fe9d015105c41",
+  "outcome": "response",
+  "recording_id": "turn/2c03bc88ca43c1cb/step-1/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user says: \"Not sure if I was even added to the sync.\" They likely refer to SSO sync. The policy says: If a new hire doesn't see SSO, they may be signing in before sync or account may not exist. They can check Settings \u2192 People. The question: \"Not sure if I was even added to the sync.\" They want to know if they were added. According to policy, we can answer: check Settings \u2192 People, see if account exists, marked with identity provider. If not, sync hasn't created it. So we can answer that. It's not about money or admin. So we can answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! To see if you\u2019ve been added to the SSO sync, go to Settings\u202f\u2192\u202fPeople in your workspace. If your account is listed there and is marked with the identity provider it came from, the sync has created it. If you don\u2019t see your account, the sync hasn\u2019t added it yet \u2013 you\u2019ll need to wait for the next sync cycle or ask your admin to check the sync status.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_093c52da-3a6f-4c34-93b1-11e3a27167c9",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459861,
+      "id": "chatcmpl-03abbf48-4fd4-4ff2-823c-d1f670859e36",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_1074f9ce08",
+      "usage": {
+        "completion_time": 0.280646412,
+        "completion_tokens": 238,
+        "completion_tokens_details": {
+          "reasoning_tokens": 131
+        },
+        "prompt_time": 0.058238098,
+        "prompt_tokens": 1137,
+        "queue_time": 0.30504298,
+        "total_time": 0.33888451,
+        "total_tokens": 1375
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m87gveeg28z0tkzjn1p6xa",
+        "seed": 1958566007
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! To see if you\u2019ve been added to the SSO sync, go to Settings\u202f\u2192\u202fPeople in your workspace. If your account is listed there and is marked with the identity provider it came from, the sync has created it. If you don\u2019t see your account, the sync hasn\u2019t added it yet \u2013 you\u2019ll need to wait for the next sync cycle or ask your admin to check the sync status."
+        },
+        "id": "fc_093c52da-3a6f-4c34-93b1-11e3a27167c9",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 238,
+      "prompt_tokens": 1137
+    }
+  },
+  "retry_after": null
+}

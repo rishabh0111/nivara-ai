@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T17:53:09.756462Z",
+  "failure_detail": null,
+  "fingerprint": "c272736c279e097c80dd9f2d913bd6864e246f5ce97da4ab3f78152e262a2802",
+  "outcome": "response",
+  "recording_id": "turn/2ad0e23b1d35b572/consistency/sample-4/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We have a user asking: \"bank transfer accepted?\" Likely they ask whether Meridian accepts bank transfer as payment method. From policy: Payment methods article says: Annual contracts can be paid by bank transfer against an invoice, arranged through support before contract starts, not self-serve. Monthly plans are card-only; a workspace wanting bank transfer needs to be on an annual term first. So answer: Yes, bank transfer is accepted for annual contracts via invoice, must arrange with support; not for monthly plans. Provide that info.\n\nWe can answer using those excerpts. It's not about money movement dispute, it's about acceptance. So we can post_reply.\n\nWrite concise answer: \"Yes, we accept bank transfers for annual contracts, set up via support/invoice; monthly plans are card\u2011only, so you\u2019d need to be on an annual term to use a bank transfer.\"",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 we do accept bank transfers, but only for annual contracts. You\u2019ll need to arrange the transfer through our support team so we can issue an invoice and set up invoiced billing before the contract starts. Monthly plans are card\u2011only, so a workspace would need to be on an annual term to use a bank transfer.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_72a53510-cd7e-45c0-b136-a63c25746dae",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371589,
+      "id": "chatcmpl-2365d67f-0039-49a4-aa59-b4984d26459f",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_f640395b96",
+      "usage": {
+        "completion_time": 0.56464439,
+        "completion_tokens": 266,
+        "completion_tokens_details": {
+          "reasoning_tokens": 175
+        },
+        "prompt_time": 0.048331283,
+        "prompt_tokens": 1076,
+        "queue_time": 0.310260772,
+        "total_time": 0.612975673,
+        "total_tokens": 1342
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hm1nmzevmvz3k1q965x4w9",
+        "seed": 613851165
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 we do accept bank transfers, but only for annual contracts. You\u2019ll need to arrange the transfer through our support team so we can issue an invoice and set up invoiced billing before the contract starts. Monthly plans are card\u2011only, so a workspace would need to be on an annual term to use a bank transfer."
+        },
+        "id": "fc_72a53510-cd7e-45c0-b136-a63c25746dae",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 266,
+      "prompt_tokens": 1076
+    }
+  },
+  "retry_after": null
+}

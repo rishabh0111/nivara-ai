@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:31:24.432293Z",
+  "failure_detail": null,
+  "fingerprint": "c476838a9938f031b1234eefe21953a282c4fc238c54fb56ae480591277a7351",
+  "outcome": "response",
+  "recording_id": "turn/c10c181949cfad8b/consistency/sample-2/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to respond. The user says \"I'm getting flooded with irrelevant notifications right now and need this narrowed down immediately.\" They want to reduce notification email volume. The policy excerpts mention that notification settings are per person, in Profile \u2192 Notifications, and that each type can be turned off independently. So we can give instructions: go to Profile \u2192 Notifications, adjust settings. We can also mention that these changes affect only the account. So we can answer. No escalation needed. We'll use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! To reduce the email notifications you\u2019re receiving, go to your Profile \u2192 Notifications. From there you can toggle each type (assignment, mention, status change, digest, etc.) individually. Turning off the ones you don\u2019t want will stop the irrelevant emails for your account only, and the changes take effect immediately. Let me know if you need help locating any specific setting!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c49f69e7-b991-4755-b518-67b26fadbd02",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460284,
+      "id": "chatcmpl-79c42f05-dfac-4334-a192-33681ef8d8b6",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_feb9b278f1",
+      "usage": {
+        "completion_time": 0.263308071,
+        "completion_tokens": 198,
+        "completion_tokens_details": {
+          "reasoning_tokens": 100
+        },
+        "prompt_time": 0.06571943,
+        "prompt_tokens": 1048,
+        "queue_time": 0.503792798,
+        "total_time": 0.329027501,
+        "total_tokens": 1246
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8mdjreqs9x25abnsdad9j",
+        "seed": 2106524887
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! To reduce the email notifications you\u2019re receiving, go to your Profile \u2192 Notifications. From there you can toggle each type (assignment, mention, status change, digest, etc.) individually. Turning off the ones you don\u2019t want will stop the irrelevant emails for your account only, and the changes take effect immediately. Let me know if you need help locating any specific setting!"
+        },
+        "id": "fc_c49f69e7-b991-4755-b518-67b26fadbd02",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 198,
+      "prompt_tokens": 1048
+    }
+  },
+  "retry_after": null
+}

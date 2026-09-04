@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:27:16.582668Z",
+  "failure_detail": null,
+  "fingerprint": "4a2f4afdd28e414f073438f3078267c61f5f498003dab970ab8aeaadf01b8dbe",
+  "outcome": "response",
+  "recording_id": "turn/a4fb92f14b631a22/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"Deliveries to our endpoint stopped sometime overnight with zero errors surfaced in our own application logs, so I suspect something changed on the sending side \u2014 is there a delivery log I can check?\" We have policy excerpts about checking webhook delivery status. The answer: Yes, go to Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log. It shows attempts, status, response body. Also test events are marked. So we should provide that. No escalation needed.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 you can view the delivery attempts in the Delivery log. In the Meridian dashboard go to Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log. That page shows every request Meridian made to your endpoint, the HTTP status returned, and the response body, regardless of what your own system logged. It also records test events so you can confirm the endpoint is responding with a 2xx before you enable production traffic.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_0a1e58fa-da40-44af-ac1d-95388d7914ce",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460036,
+      "id": "chatcmpl-ec82ed3d-116d-44f0-9dc5-24857eaf0601",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_d6de37e6be",
+      "usage": {
+        "completion_time": 0.226975971,
+        "completion_tokens": 206,
+        "completion_tokens_details": {
+          "reasoning_tokens": 102
+        },
+        "prompt_time": 0.070224065,
+        "prompt_tokens": 1051,
+        "queue_time": 0.798845931,
+        "total_time": 0.297200036,
+        "total_tokens": 1257
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8cvbae5zvg39vejk6xmpy",
+        "seed": 1405311095
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 you can view the delivery attempts in the Delivery log. In the Meridian dashboard go to Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log. That page shows every request Meridian made to your endpoint, the HTTP status returned, and the response body, regardless of what your own system logged. It also records test events so you can confirm the endpoint is responding with a 2xx before you enable production traffic."
+        },
+        "id": "fc_0a1e58fa-da40-44af-ac1d-95388d7914ce",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 206,
+      "prompt_tokens": 1051
+    }
+  },
+  "retry_after": null
+}

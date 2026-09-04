@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:30:04.302336Z",
+  "failure_detail": null,
+  "fingerprint": "fc68d4330de1330242a2da94a515aee837fe49553eef4caa6445a872214835e2",
+  "outcome": "response",
+  "recording_id": "turn/c07607646047eed2/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"There's a large overage charge on our invoice but our usage never came close to the threshold \u2014 can this be investigated and reversed?\" This is about disputing a usage overage charge. According to policy: customers can ask billing team to review underlying metered data. The policy says it's handled case by case by a human reviewer, and the account owner or billing contact is the one who can raise it. So we should respond that they can request a review, but it must be raised by account owner/billing contact, and a human will investigate. We can give guidance: they should contact billing team, provide details, etc. The policy says it's handled case by case by a human reviewer rather than resolved from a general article. So we can respond that they need to raise a dispute with billing team; we can\u2019t reverse automatically. Provide steps.\n\nWe must keep answer short and specific, address customer directly. Use policy content. So answer: Yes, you can request a review; please have the account owner/billing contact raise a dispute; our billing team will investigate the raw usage record and determine if reversal is appropriate.\n\nThus we can post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there,\\n\\nYou can definitely have our billing team review that overage charge. A member of your account (the account owner or billing contact) will need to raise a dispute so we can compare the raw usage records against the charge. Our reviewers will investigate any metering bugs, mis\u2011configurations, or other issues and determine whether a reversal is appropriate. Please have the appropriate contact submit the request, and we\u2019ll take it from there.\\n\\nThanks,\\nMeridian Support\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f0d478d9-a85a-421f-93a2-585be0773921",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453004,
+      "id": "chatcmpl-dfb3f016-debd-4c94-a527-5d60a9080d41",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_6dedd2be22",
+      "usage": {
+        "completion_time": 0.911049786,
+        "completion_tokens": 370,
+        "completion_tokens_details": {
+          "reasoning_tokens": 245
+        },
+        "prompt_time": 0.060803739,
+        "prompt_tokens": 1099,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.15836833,
+        "total_time": 0.971853525,
+        "total_tokens": 1469
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1p7vqever74m9n9cnf78g",
+        "seed": 1635101390
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there,\n\nYou can definitely have our billing team review that overage charge. A member of your account (the account owner or billing contact) will need to raise a dispute so we can compare the raw usage records against the charge. Our reviewers will investigate any metering bugs, mis\u2011configurations, or other issues and determine whether a reversal is appropriate. Please have the appropriate contact submit the request, and we\u2019ll take it from there.\n\nThanks,\nMeridian Support"
+        },
+        "id": "fc_f0d478d9-a85a-421f-93a2-585be0773921",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 370,
+      "prompt_tokens": 1099
+    }
+  },
+  "retry_after": null
+}

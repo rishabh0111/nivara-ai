@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:26:37.388502Z",
+  "failure_detail": null,
+  "fingerprint": "35d9bdcbc7dca80e0926fdfcb71f7f2a47cb8e4db914e95577a0943448ef5d5a",
+  "outcome": "response",
+  "recording_id": "turn/3eed8cc621a7309f/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Does a post-incident summary get published automatically, or does it need to be requested per incident?\" The policy excerpts describe that every resolved incident gets a written summary once investigation is complete, describing what happened, etc. It also says the summary is added to same incident entry, not published separately. So answer: Summaries are automatically created for each resolved incident; you don't need to request them. Provide that info. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there!\u202fEvery resolved incident on our status page automatically receives a written post\u2011incident summary once the investigation is finished. The summary is added to the same incident entry (so you\u2019ll see the live updates and the final summary together) and you don\u2019t need to request it for each incident.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_bc54fa16-c7ab-4fb1-85e1-5c03a33697e8",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452797,
+      "id": "chatcmpl-a9d34a50-2481-4f99-b8a7-3f6ee7c31c26",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e1a78f200e",
+      "usage": {
+        "completion_time": 0.426513691,
+        "completion_tokens": 186,
+        "completion_tokens_details": {
+          "reasoning_tokens": 101
+        },
+        "prompt_time": 0.409656407,
+        "prompt_tokens": 1015,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.366210679,
+        "total_time": 0.836170098,
+        "total_tokens": 1201
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1fxn8escvty530bg6414j",
+        "seed": 11107522
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there!\u202fEvery resolved incident on our status page automatically receives a written post\u2011incident summary once the investigation is finished. The summary is added to the same incident entry (so you\u2019ll see the live updates and the final summary together) and you don\u2019t need to request it for each incident."
+        },
+        "id": "fc_bc54fa16-c7ab-4fb1-85e1-5c03a33697e8",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 186,
+      "prompt_tokens": 1015
+    }
+  },
+  "retry_after": null
+}

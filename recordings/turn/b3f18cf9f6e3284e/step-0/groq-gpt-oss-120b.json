@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:22:13.096457Z",
+  "failure_detail": null,
+  "fingerprint": "cf25fe415dc9f0b21dbcbb80b6cf06c1ead3eae92ba51325930afa13545d72fc",
+  "outcome": "response",
+  "recording_id": "turn/b3f18cf9f6e3284e/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer using policy excerpts. The user asks: they observed 503 on production API, want to confirm if matches known incident and what status page recorded. According to policy, we can direct them to status page, mention that incidents are listed with start/end times, component breakdown, and post-incident summaries. Provide guidance. This is within policy. So we can post reply.\n\nWe must not mention policy. Provide short specific answer: check status page, look for incident affecting API, see start/end times, component breakdown, post-incident summary, subscribe for updates.\n\nThus we will post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can verify that 503 event on the production API by checking Meridian\u2019s status page. All incidents\u2014including brief 503 outages\u2014are listed there with exact start and end times and a component\u2011level breakdown, so you\u2019ll see whether the API was affected. Once the incident is resolved, a post\u2011incident summary is added that describes what happened and the affected window. If you subscribe to status\u2011page updates, you\u2019ll also get a notification as the incident occurs.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_4a2f1424-d905-4a6f-a984-a09e2e8f841a",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452532,
+      "id": "chatcmpl-ad81eb42-b1b4-4b78-a581-02de3b639aff",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_90620edd96",
+      "usage": {
+        "completion_time": 0.601297046,
+        "completion_tokens": 242,
+        "completion_tokens_details": {
+          "reasoning_tokens": 123
+        },
+        "prompt_time": 2.294539451,
+        "prompt_tokens": 1068,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 1.221727892,
+        "total_time": 2.895836497,
+        "total_tokens": 1310
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m17rnjeq1bwd51q6xwqgkb",
+        "seed": 703275459
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can verify that 503 event on the production API by checking Meridian\u2019s status page. All incidents\u2014including brief 503 outages\u2014are listed there with exact start and end times and a component\u2011level breakdown, so you\u2019ll see whether the API was affected. Once the incident is resolved, a post\u2011incident summary is added that describes what happened and the affected window. If you subscribe to status\u2011page updates, you\u2019ll also get a notification as the incident occurs."
+        },
+        "id": "fc_4a2f1424-d905-4a6f-a984-a09e2e8f841a",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 242,
+      "prompt_tokens": 1068
+    }
+  },
+  "retry_after": null
+}

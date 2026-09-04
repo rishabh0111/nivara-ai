@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:02:12.250116Z",
+  "failure_detail": null,
+  "fingerprint": "7c2d1b7852dbab69328d7fc7fa6bed48efe09c4baad338ef08e6f8dc886e5e6c",
+  "outcome": "response",
+  "recording_id": "turn/e8406660e0bb2e3f/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our admin asked me to check whether flipping on SSO immediately blocks staff who haven't been set up with the identity provider yet, before she pulls the trigger.\"\n\nWe need to answer: Does enabling SSO immediately block staff who aren't provisioned? According to DOC-009 part 1: Enabling SSO does not immediately disable password sign-in for existing staff. Both methods coexist until admin separately turns password sign-in off. So flipping on SSO alone does not block them; they can still sign in with password. Also DOC-009 part 2 says rollout needs period where some staff provisioned and others not; forcing SSO before everyone is provisioned would lock unprovisioned staff out entirely. But that refers to forcing SSO (i.e., requiring SSO). So answer: Enabling SSO alone won't block them; they can still use password until Require SSO is turned on. However if you also require SSO, then unprovisioned staff would be locked out. So answer accordingly.\n\nWe have policy excerpts covering this. So we can answer.\n\nWe must post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Enabling SSO on its own does **not** immediately lock out staff who haven\u2019t been provisioned in the identity provider. When you turn SSO on, password sign\u2011in remains available for existing users until you later disable it by going to Settings\u202f\u2192\u202fSecurity\u202f\u2192\u202fSSO\u202f\u2192\u202fRequire SSO. Only when you also enable the \u201cRequire SSO\u201d setting will unprovisioned staff be unable to log in.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_8572341a-b333-49b6-a889-0ed5aa15e526",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372132,
+      "id": "chatcmpl-da0195de-34d9-45e5-8ae6-aecf0cab0a01",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4a19b1544c",
+      "usage": {
+        "completion_time": 0.743544197,
+        "completion_tokens": 351,
+        "completion_tokens_details": {
+          "reasoning_tokens": 235
+        },
+        "prompt_time": 0.050438182,
+        "prompt_tokens": 1098,
+        "queue_time": 0.045848897,
+        "total_time": 0.793982379,
+        "total_tokens": 1449
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmj7h3eapaneffr7xd1aqt",
+        "seed": 2127679442
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Enabling SSO on its own does **not** immediately lock out staff who haven\u2019t been provisioned in the identity provider. When you turn SSO on, password sign\u2011in remains available for existing users until you later disable it by going to Settings\u202f\u2192\u202fSecurity\u202f\u2192\u202fSSO\u202f\u2192\u202fRequire SSO. Only when you also enable the \u201cRequire SSO\u201d setting will unprovisioned staff be unable to log in."
+        },
+        "id": "fc_8572341a-b333-49b6-a889-0ed5aa15e526",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 351,
+      "prompt_tokens": 1098
+    }
+  },
+  "retry_after": null
+}

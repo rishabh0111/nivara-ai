@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:37:08.197819Z",
+  "failure_detail": null,
+  "fingerprint": "2639f221a38b317ff5b3359b983620989224a8c5c42b941d030370170fbd3eb8",
+  "outcome": "response",
+  "recording_id": "turn/f6f8dfdfcfd411b5/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"One of our projects was deleted this morning and we need it back.\" According to policy: project deletion can be restored within 30 days via Settings \u2192 Data \u2192 Deleted items by an admin. So we can answer: If within 30 days, restore. If beyond, cannot. The user didn't specify time. We can ask if within 30 days. But we should give instructions. The policy says: \"A deleted project is held in a recoverable state for thirty days before it is permanently removed, and can be restored within that window from Settings \u2192 Data \u2192 Deleted items by an admin.\" So answer: If within 30 days, go to Settings > Data > Deleted items, restore. If beyond, cannot recover. So we can respond accordingly.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! If the project was deleted within the last 30\u202fdays, you can recover it yourself. As an admin, go to Settings\u202f\u2192\u202fData\u202f\u2192\u202fDeleted items, find the project, and click\u202fRestore. If it\u2019s been longer than 30\u202fdays, the deletion is permanent and we can\u2019t recover it. Let me know if you need help locating the restore option!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_04b3fe45-0edf-4d49-95bb-cb7c21f2d8d7",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460628,
+      "id": "chatcmpl-0ddbcfa4-b28f-4e57-9493-a0ac131533e0",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_84bb35977d",
+      "usage": {
+        "completion_time": 0.340023198,
+        "completion_tokens": 264,
+        "completion_tokens_details": {
+          "reasoning_tokens": 161
+        },
+        "prompt_time": 0.060676991,
+        "prompt_tokens": 1018,
+        "queue_time": 0.305268332,
+        "total_time": 0.400700189,
+        "total_tokens": 1282
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8yxgnewcvfegjw9krzc7m",
+        "seed": 848950378
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! If the project was deleted within the last 30\u202fdays, you can recover it yourself. As an admin, go to Settings\u202f\u2192\u202fData\u202f\u2192\u202fDeleted items, find the project, and click\u202fRestore. If it\u2019s been longer than 30\u202fdays, the deletion is permanent and we can\u2019t recover it. Let me know if you need help locating the restore option!"
+        },
+        "id": "fc_04b3fe45-0edf-4d49-95bb-cb7c21f2d8d7",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 264,
+      "prompt_tokens": 1018
+    }
+  },
+  "retry_after": null
+}

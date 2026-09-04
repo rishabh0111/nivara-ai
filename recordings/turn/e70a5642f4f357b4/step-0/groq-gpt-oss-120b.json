@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T17:59:09.899179Z",
+  "failure_detail": null,
+  "fingerprint": "97e1f51d3c5332734c8323708f3c141db65e95671890beb1f79f520fc9604aef",
+  "outcome": "response",
+  "recording_id": "turn/e70a5642f4f357b4/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"I can see the plan is monthly but nowhere does it state the actual day of the month invoices go out, only 'monthly billing'.\" They want to know the day invoices are generated. Policy excerpts: DOC-007 parts 1 and 2: monthly plan invoiced on same day of month as workspace's original billing date (date subscription started or last renewed). The date shown in Settings \u2192 Billing \u2192 Plan next to \u201cNext invoice\u201d, and it does not shift month to month even though months have different lengths; a billing date of the 31st bills on the last day of a shorter month.\n\nThus answer: Invoices are generated on the same day of month as your original billing date; you can view it in Settings \u2192 Billing \u2192 Plan next to \"Next invoice\". If your billing date is 31st, it will bill on last day of shorter months. Provide that info.\n\nWe must post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Invoices are sent on the same calendar day each month that your workspace\u2019s original billing date falls on \u2013 that is, the day your subscription first started or was last renewed. You can see the exact date in **Settings \u2192 Billing \u2192 Plan** next to \u201cNext invoice.\u201d The date doesn\u2019t shift month\u2011to\u2011month; for example, if your billing date is the 31st, you\u2019ll be billed on the last day of shorter months.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_22a34132-0e35-4197-b460-fdd33a41f4f6",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371949,
+      "id": "chatcmpl-9204e384-4452-4b32-ba59-43cf64792e02",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_84bf0227ec",
+      "usage": {
+        "completion_time": 0.728819973,
+        "completion_tokens": 314,
+        "completion_tokens_details": {
+          "reasoning_tokens": 199
+        },
+        "prompt_time": 0.039241879,
+        "prompt_tokens": 1019,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.158053418,
+        "total_time": 0.768061852,
+        "total_tokens": 1333
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmcn86e6da3kcyyhmsp89q",
+        "seed": 688421553
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Invoices are sent on the same calendar day each month that your workspace\u2019s original billing date falls on \u2013 that is, the day your subscription first started or was last renewed. You can see the exact date in **Settings \u2192 Billing \u2192 Plan** next to \u201cNext invoice.\u201d The date doesn\u2019t shift month\u2011to\u2011month; for example, if your billing date is the 31st, you\u2019ll be billed on the last day of shorter months."
+        },
+        "id": "fc_22a34132-0e35-4197-b460-fdd33a41f4f6",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 314,
+      "prompt_tokens": 1019
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T17:00:48.373905Z",
+  "failure_detail": null,
+  "fingerprint": "b35e4cfdca08df84875eaf0c113f68ec9c6b63dc23d5edb6fc3c12e97cfc4ce9",
+  "outcome": "response",
+  "recording_id": "turn/150a786fb95110ac/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Customer names with accented characters show up as garbled symbols when we open the exported CSV in our spreadsheet tool.\"\n\nWe have policy about export formats: CSV is safest default but loses column types, dates and numbers become plain text. Not about encoding. There's no excerpt about accented characters. The policy doesn't cover this. So we must either answer from policy only; if not covered, we must escalate. The question is about data export and character encoding issues. Not about money, identity, etc. But the policy excerpts do not contain answer. So we must escalate.\n\nThus we will call escalate with appropriate internal note.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer reports that accented characters appear garbled in exported CSV files opened in their spreadsheet tool. The provided policy excerpts cover export format choices and column header expectations, but do not address character encoding or handling of accented characters in CSV exports. Since the answer cannot be derived from the available policy, I am escalating the conversation for a human agent.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_5715fbe6-e847-4319-8053-b9e408bf95ac",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454848,
+      "id": "chatcmpl-f7a9488f-b88b-44d1-a9c1-49f2669cb52a",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_6dedd2be22",
+      "usage": {
+        "completion_time": 0.71021001,
+        "completion_tokens": 230,
+        "completion_tokens_details": {
+          "reasoning_tokens": 136
+        },
+        "prompt_time": 0.183335407,
+        "prompt_tokens": 1026,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.158772142,
+        "total_time": 0.893545417,
+        "total_tokens": 1256
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m3egqqecy90wv48zrbm89n",
+        "seed": 1579165527
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer reports that accented characters appear garbled in exported CSV files opened in their spreadsheet tool. The provided policy excerpts cover export format choices and column header expectations, but do not address character encoding or handling of accented characters in CSV exports. Since the answer cannot be derived from the available policy, I am escalating the conversation for a human agent."
+        },
+        "id": "fc_5715fbe6-e847-4319-8053-b9e408bf95ac",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 230,
+      "prompt_tokens": 1026
+    }
+  },
+  "retry_after": null
+}

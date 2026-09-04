@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:23:44.843053Z",
+  "failure_detail": null,
+  "fingerprint": "09dccf232fa3d093d0e72e7c4d8b2beb95fb7f27198979da1722d4aeab1816b7",
+  "outcome": "response",
+  "recording_id": "turn/4d2dd0f08d0ce805/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user says: \"Pages felt slow for a bit, not sure if it was just us.\" This is about slowdown, possibly platform-wide vs local. According to DOC-047 parts 1 and 2, we should advise checking status page for that window; if nothing appears, likely local. Also mention subscribing to status page updates. So answer: check status page, see if incident listed; if not, likely local issue like browser extension, network, data load. Keep short. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! A brief slowdown can be caused by either a platform\u2011wide issue or something local to your environment. First, check Meridian\u2019s status page for the time window when you noticed the slowness \u2013 any platform\u2011wide degradation (even a short one) will be listed there with start and end times. If nothing is shown, the slowdown was likely local (e.g., a browser extension, your network conditions, or a large data load in that workspace). You can also subscribe to status\u2011page updates to get real\u2011time alerts about any incidents.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_9211280b-5c78-44fd-8e5c-30f6018c886f",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452624,
+      "id": "chatcmpl-089e7630-15cf-4a60-ab2e-58d8727933d9",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_f73454f048",
+      "usage": {
+        "completion_time": 0.565917587,
+        "completion_tokens": 250,
+        "completion_tokens_details": {
+          "reasoning_tokens": 112
+        },
+        "prompt_time": 1.941902173,
+        "prompt_tokens": 1061,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.375716047,
+        "total_time": 2.50781976,
+        "total_tokens": 1311
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1akjten6b7gs365vhngyh",
+        "seed": 963228603
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! A brief slowdown can be caused by either a platform\u2011wide issue or something local to your environment. First, check Meridian\u2019s status page for the time window when you noticed the slowness \u2013 any platform\u2011wide degradation (even a short one) will be listed there with start and end times. If nothing is shown, the slowdown was likely local (e.g., a browser extension, your network conditions, or a large data load in that workspace). You can also subscribe to status\u2011page updates to get real\u2011time alerts about any incidents."
+        },
+        "id": "fc_9211280b-5c78-44fd-8e5c-30f6018c886f",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 250,
+      "prompt_tokens": 1061
+    }
+  },
+  "retry_after": null
+}

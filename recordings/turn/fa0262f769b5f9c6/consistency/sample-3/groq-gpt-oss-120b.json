@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T17:56:37.122561Z",
+  "failure_detail": null,
+  "fingerprint": "a532e3e929ec3327c634d747e224b4f1c4d3c0fbea68de610baf9bdd3869aaad",
+  "outcome": "response",
+  "recording_id": "turn/fa0262f769b5f9c6/consistency/sample-3/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: The customer wants to know the split of seats vs overage on invoice. The policy excerpts provide info: How to read itemised invoice, line items breakdown, expand line item, PDF includes same breakdown. So we can answer: Go to Settings \u2192 Billing \u2192 Invoices, open invoice, expand line items to see seat charge breakdown and overage, also PDF includes breakdown. Provide instructions. That answers the question. So we can post_reply.\n\nWe must keep answer short and specific. Provide steps.\n\nLet's craft reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure thing! To see the seat\u2011vs\u2011overage split on your invoice:\\n1. Go to **Settings \u2192 Billing \u2192 Invoices**.\\n2. Open the invoice you need.\\n3. Click the arrow on each line item to expand it \u2013 the seat charge will show the number of seats and per\u2011seat rate, and any overage line will show the metered quantity beyond the plan\u2019s allowance.\\n4. If you prefer a PDF, download it from the same page; the PDF contains the exact same itemised breakdown, which you can attach to your budget review.\\nLet me know if you need any more help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_0d543032-7c13-413e-9dce-a70d9f0dc278",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371796,
+      "id": "chatcmpl-35adb8a9-1196-4972-a179-e5d6cc48b7a5",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_8ea50c0161",
+      "usage": {
+        "completion_time": 0.624121206,
+        "completion_tokens": 267,
+        "completion_tokens_details": {
+          "reasoning_tokens": 110
+        },
+        "prompt_time": 0.027510501,
+        "prompt_tokens": 1103,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "queue_time": 0.310394503,
+        "total_time": 0.651631707,
+        "total_tokens": 1370
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hm8003ecxarayrnfbb3f6e",
+        "seed": 1722752730
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure thing! To see the seat\u2011vs\u2011overage split on your invoice:\n1. Go to **Settings \u2192 Billing \u2192 Invoices**.\n2. Open the invoice you need.\n3. Click the arrow on each line item to expand it \u2013 the seat charge will show the number of seats and per\u2011seat rate, and any overage line will show the metered quantity beyond the plan\u2019s allowance.\n4. If you prefer a PDF, download it from the same page; the PDF contains the exact same itemised breakdown, which you can attach to your budget review.\nLet me know if you need any more help!"
+        },
+        "id": "fc_0d543032-7c13-413e-9dce-a70d9f0dc278",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 267,
+      "prompt_tokens": 1103
+    }
+  },
+  "retry_after": null
+}

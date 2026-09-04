@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:13:40.064704Z",
+  "failure_detail": null,
+  "fingerprint": "936d11464f8a6c8c74162e36c4283bc6a802362ddf211f5ffbc6ce98409bbf68",
+  "outcome": "response",
+  "recording_id": "turn/62507651e8bed34b/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"If a scheduled report is paused or disabled, is there any notification, or does it just silently stop?\" We have excerpts about checking whether a scheduled report is still running. They mention that a report can appear to stop silently due to recipient bouncing, but the run history shows outcome, and disabled shows as disabled. Also run history distinguishes between not running and failing to deliver. So answer: there is no explicit notification; you can check Settings \u2192 Reports \u2192 Scheduled to see status and run history; disabled shows as disabled; failures show reason. So answer accordingly.\n\nWe must ensure not to mention policy. Provide short answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When a scheduled report is paused or disabled, Meridian doesn\u2019t send a separate alert \u2013 it simply stops running. You can verify its status in **Settings \u2192 Reports \u2192 Scheduled**, where the run history will show the most recent outcome. A disabled report appears as \u201cdisabled,\u201d and a failed run will include a failure reason. Checking this page is the way to see whether the report was paused, disabled, or just failed to deliver.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_b0a503cb-692c-491f-9da0-865fede72c95",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452019,
+      "id": "chatcmpl-96304fc3-baa2-48c1-98a1-732deef3c8f2",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_dee443f41b",
+      "usage": {
+        "completion_time": 0.54122041,
+        "completion_tokens": 252,
+        "completion_tokens_details": {
+          "reasoning_tokens": 141
+        },
+        "prompt_time": 0.076378623,
+        "prompt_tokens": 1098,
+        "queue_time": 0.320764975,
+        "total_time": 0.617599033,
+        "total_tokens": 1350
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0r6pnede9636wnbxm88g0",
+        "seed": 544343381
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When a scheduled report is paused or disabled, Meridian doesn\u2019t send a separate alert \u2013 it simply stops running. You can verify its status in **Settings \u2192 Reports \u2192 Scheduled**, where the run history will show the most recent outcome. A disabled report appears as \u201cdisabled,\u201d and a failed run will include a failure reason. Checking this page is the way to see whether the report was paused, disabled, or just failed to deliver."
+        },
+        "id": "fc_b0a503cb-692c-491f-9da0-865fede72c95",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 252,
+      "prompt_tokens": 1098
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:15:10.317826Z",
+  "failure_detail": null,
+  "fingerprint": "03e921bfcbb4dc3615e35b05da4ffdd3ab06d81c338ff2836c641cb6bc26fc74",
+  "outcome": "response",
+  "recording_id": "turn/43156bd014209f83/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer the customer's question: \"row limit on export?\" They ask about row limit on export. We have policy excerpts about export row limit: DOC-014 says a single export from the dashboard is capped at ten thousand rows. Also suggests scheduled export to cloud storage not subject to cap. So answer: The limit is 10,000 rows per manual export; for larger workspaces use scheduled export to cloud storage. Also can check row count in Settings \u2192 Data \u2192 Overview. Provide short answer.\n\nWe have the needed info, no need to escalate. Provide answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"A manual export from the dashboard is limited to 10,000 rows. If you need to export more than that, set up a scheduled export to cloud storage \u2013 it isn\u2019t subject to the 10\u2011k row cap. You can see the total row count (including archives) in Settings \u2192 Data \u2192 Overview before you start an export.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_ff79f57c-7f8b-44d6-8599-83b7fe52b2bd",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372909,
+      "id": "chatcmpl-ffc3004a-89c0-4e9a-8e78-0fd6d7861cde",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_df9620fe21",
+      "usage": {
+        "completion_time": 0.449556204,
+        "completion_tokens": 211,
+        "completion_tokens_details": {
+          "reasoning_tokens": 117
+        },
+        "prompt_time": 0.535025714,
+        "prompt_tokens": 989,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.281065151,
+        "total_time": 0.984581918,
+        "total_tokens": 1200
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hn9yd9e5nvk7cwt64v2q81",
+        "seed": 959545998
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "A manual export from the dashboard is limited to 10,000 rows. If you need to export more than that, set up a scheduled export to cloud storage \u2013 it isn\u2019t subject to the 10\u2011k row cap. You can see the total row count (including archives) in Settings \u2192 Data \u2192 Overview before you start an export."
+        },
+        "id": "fc_ff79f57c-7f8b-44d6-8599-83b7fe52b2bd",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 211,
+      "prompt_tokens": 989
+    }
+  },
+  "retry_after": null
+}

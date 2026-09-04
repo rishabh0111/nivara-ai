@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T17:58:23.765108Z",
+  "failure_detail": null,
+  "fingerprint": "84eb4186480b2e8a91a67acbe81fea9375d76d53036f75b0371653d0c09e20a5",
+  "outcome": "response",
+  "recording_id": "turn/59dc1b1b6e2de155/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user says: \"We stopped receiving webhooks around 02:00 and nothing has arrived since.\" We need to guide them: check delivery log, possible reasons (TLS cert expired, firewall, non-2xx). Also can disable/repoint webhook if unauthorized change. Provide steps: go to Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log to see attempts, status, response body. Explain that failures are retried with backoff, after window need manual replay. Also suggest checking TLS, firewall, endpoint status. Provide concise answer.\n\nWe have relevant excerpts: DOC-022 parts 1-3, DOC-062 about disabling/repointing if unauthorized change. The question is about webhook not being received. So answer: check delivery log, look for failures, reasons, and note that failures are retried but after window need manual replay. Also mention possible causes: expired TLS cert, firewall change, non-2xx. Provide steps.\n\nThus we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there,\\n\\nIf your webhook stopped delivering around 02:00, the first place to look is the delivery log. Go to **Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log** \u2013 it shows every attempt Meridian made, the HTTP status returned, and the response body, regardless of what your endpoint logged.\\n\\nCommon reasons for silent failures include an expired TLS certificate, a firewall change, or the endpoint returning a non\u20112xx status code. Those failures happen before the request reaches your system, so you won\u2019t see them in your own logs.\\n\\nDeliveries that fail are retried on a back\u2011off schedule, but after the retry window expires they won\u2019t be retried automatically; you\u2019ll need to replay the event manually from the delivery log.\\n\\nCheck the log for any error codes or messages, verify your endpoint\u2019s TLS cert and network settings, and if you see repeated failures you can either fix the endpoint or disable/repoint the webhook in **Settings \u2192 Developer \u2192 Webhooks**.\\n\\nLet us know what you find, and we can help further if needed.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_fa142479-eef0-4464-b7b5-550279109d94",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788458303,
+      "id": "chatcmpl-772bc143-6aa7-4b49-8cce-d96175407851",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5a93aea882",
+      "usage": {
+        "completion_time": 1.11576117,
+        "completion_tokens": 455,
+        "completion_tokens_details": {
+          "reasoning_tokens": 206
+        },
+        "prompt_time": 0.762490789,
+        "prompt_tokens": 1050,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.158600003,
+        "total_time": 1.878251959,
+        "total_tokens": 1505
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m6qy43e09rms7eh8ehv6p2",
+        "seed": 1096144546
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there,\n\nIf your webhook stopped delivering around 02:00, the first place to look is the delivery log. Go to **Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log** \u2013 it shows every attempt Meridian made, the HTTP status returned, and the response body, regardless of what your endpoint logged.\n\nCommon reasons for silent failures include an expired TLS certificate, a firewall change, or the endpoint returning a non\u20112xx status code. Those failures happen before the request reaches your system, so you won\u2019t see them in your own logs.\n\nDeliveries that fail are retried on a back\u2011off schedule, but after the retry window expires they won\u2019t be retried automatically; you\u2019ll need to replay the event manually from the delivery log.\n\nCheck the log for any error codes or messages, verify your endpoint\u2019s TLS cert and network settings, and if you see repeated failures you can either fix the endpoint or disable/repoint the webhook in **Settings \u2192 Developer \u2192 Webhooks**.\n\nLet us know what you find, and we can help further if needed."
+        },
+        "id": "fc_fa142479-eef0-4464-b7b5-550279109d94",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 455,
+      "prompt_tokens": 1050
+    }
+  },
+  "retry_after": null
+}

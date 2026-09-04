@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:30:27.748958Z",
+  "failure_detail": null,
+  "fingerprint": "0f19d159f6209b6efe969e29a22a53eaf1047dd06b122506cc3c832eca564f18",
+  "outcome": "response",
+  "recording_id": "turn/33259de730742d94/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer the question: \"I need this role change done today without wiping out their ticket history \u2014 how do I do that safely?\" The policy excerpts provide info about changing a seat's role, that it doesn't affect identity or history, assignment history remains attached to the account, and role change takes effect on save without requiring sign out. So we can answer: go to Settings \u2192 People, change role, no history wiped. Provide steps. No mention of money or fraud. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! To change a seat\u2019s role without affecting their ticket history, just follow these steps:\\n\\n1. In the Meridian app, go to **Settings \u2192 People**.\\n2. Find the user whose role you want to change.\\n3. Click the role dropdown next to their name and select the new role (agent, admin, or observer).\\n4. Click **Save**.\\n\\nThat\u2019s it \u2013 the change takes effect immediately, the user\u2019s identity and all past ticket assignments stay intact, and no history is wiped. Let me know if you need any more help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c4e5f2b1-b1b2-42d4-ae9d-953ad024697f",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460227,
+      "id": "chatcmpl-03091104-25e2-4e73-8d5a-9eca4a1ed8da",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4f7e7dc26e",
+      "usage": {
+        "completion_time": 0.322771673,
+        "completion_tokens": 247,
+        "completion_tokens_details": {
+          "reasoning_tokens": 104
+        },
+        "prompt_time": 0.064247792,
+        "prompt_tokens": 1072,
+        "queue_time": 0.281707647,
+        "total_time": 0.387019465,
+        "total_tokens": 1319
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8jpfte45agaevqzpj8394",
+        "seed": 2110669976
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! To change a seat\u2019s role without affecting their ticket history, just follow these steps:\n\n1. In the Meridian app, go to **Settings \u2192 People**.\n2. Find the user whose role you want to change.\n3. Click the role dropdown next to their name and select the new role (agent, admin, or observer).\n4. Click **Save**.\n\nThat\u2019s it \u2013 the change takes effect immediately, the user\u2019s identity and all past ticket assignments stay intact, and no history is wiped. Let me know if you need any more help!"
+        },
+        "id": "fc_c4e5f2b1-b1b2-42d4-ae9d-953ad024697f",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 247,
+      "prompt_tokens": 1072
+    }
+  },
+  "retry_after": null
+}

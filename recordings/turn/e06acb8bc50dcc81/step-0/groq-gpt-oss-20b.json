@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:22:03.084821Z",
+  "failure_detail": null,
+  "fingerprint": "c10670a99fa752891e8c1a1d9976b2129f193813c8e67efdeef38e808849e680",
+  "outcome": "response",
+  "recording_id": "turn/e06acb8bc50dcc81/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: \"Not sure where billing recipients even live in the settings.\" The policy excerpt says: To send invoices to a different address \u2014 a shared finance inbox, for example \u2014 open Settings \u2192 Billing \u2192 Recipients and add or replace the billing contact email. So answer: go to Settings > Billing > Recipients. Also mention that default is billing contact. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can find the billing recipients under Settings \u2192 Billing \u2192 Recipients. From there you can add or replace the billing contact email, or add multiple recipients if you want a shared inbox. If you need help locating the Settings menu, let me know!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_5cc3f38a-556e-490c-be65-8836ebe76875",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459723,
+      "id": "chatcmpl-a87ec08c-57a3-4e6a-aabc-ffbbe31be078",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_1074f9ce08",
+      "usage": {
+        "completion_time": 0.195596063,
+        "completion_tokens": 151,
+        "completion_tokens_details": {
+          "reasoning_tokens": 79
+        },
+        "prompt_time": 0.053303309,
+        "prompt_tokens": 1035,
+        "queue_time": 0.304275439,
+        "total_time": 0.248899372,
+        "total_tokens": 1186
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m839rdeg2brvn9634r7b5v",
+        "seed": 1377408584
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can find the billing recipients under Settings \u2192 Billing \u2192 Recipients. From there you can add or replace the billing contact email, or add multiple recipients if you want a shared inbox. If you need help locating the Settings menu, let me know!"
+        },
+        "id": "fc_5cc3f38a-556e-490c-be65-8836ebe76875",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 151,
+      "prompt_tokens": 1035
+    }
+  },
+  "retry_after": null
+}

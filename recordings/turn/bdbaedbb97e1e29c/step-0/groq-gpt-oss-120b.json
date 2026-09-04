@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:19:21.411984Z",
+  "failure_detail": null,
+  "fingerprint": "8976853341a536194d6d85e598075a93c639b64d8a69d6db5e617e0944f047d7",
+  "outcome": "response",
+  "recording_id": "turn/bdbaedbb97e1e29c/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"Not sure if closed tickets are even in scope for an export.\" They want to know if closed tickets are included in export. According to DOC-018 part 1: \"A standard export from the dashboard includes every record in the current view, including archived and closed ones, unless a filter on the export screen narrows it to a status.\" Also note that the active queue view hides closed records but export filter is independent. So answer: Yes, closed tickets are included by default unless you filter them out. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes\u2014by default a standard export includes all records in the current view, even archived and closed tickets. Only if you apply a status filter on the export screen will closed tickets be excluded.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f0f6a9fb-dc8d-43da-87d2-4d075a9c45df",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373161,
+      "id": "chatcmpl-eb1e5226-7686-4be6-bc8b-4c79d257fb6f",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5781dfb07c",
+      "usage": {
+        "completion_time": 0.388074821,
+        "completion_tokens": 184,
+        "completion_tokens_details": {
+          "reasoning_tokens": 121
+        },
+        "prompt_time": 0.053531026,
+        "prompt_tokens": 977,
+        "queue_time": 0.275460108,
+        "total_time": 0.441605847,
+        "total_tokens": 1161
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnhmcaembv7beh27pttx6z",
+        "seed": 776474155
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes\u2014by default a standard export includes all records in the current view, even archived and closed tickets. Only if you apply a status filter on the export screen will closed tickets be excluded."
+        },
+        "id": "fc_f0f6a9fb-dc8d-43da-87d2-4d075a9c45df",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 184,
+      "prompt_tokens": 977
+    }
+  },
+  "retry_after": null
+}

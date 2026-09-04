@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:08:29.216901Z",
+  "failure_detail": null,
+  "fingerprint": "c8e7ec66ef2a9198477a81b4b105e247421c7e795ffbd13e6a393681fc433a26",
+  "outcome": "response",
+  "recording_id": "turn/61d8abd22fd4c79b/consistency/sample-3/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. Customer: \"I'm locked out of two-factor after switching phones and I need back in urgently \u2014 how do I re-enrol without losing access entirely?\" This is about re-enrolling two-factor authentication after losing access to the app. Policy excerpts provide steps: go to Settings \u2192 Security \u2192 Two-factor authentication, choose \"Reset\" and re-enrol same way as first-time: scan new QR code, confirm with six-digit code. Also can use saved recovery code if settings page not reachable. Also note that re-enrolling invalidates old QR code. So we can answer with those steps. This is not about money movement, disputed charge, identity verification. So we can answer. Provide concise steps. Use policy. So post_reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"To get back into your account, reset and re\u2011enrol your two\u2011factor authentication:\\n1. Open **Settings \u2192 Security \u2192 Two\u2011factor authentication**.\\n2. Choose **Reset**.\\n3. Follow the normal setup flow \u2013 scan the new QR code with your authenticator app and enter the six\u2011digit code it generates.\\n4. If you can\u2019t reach the settings page, you can sign in with a saved recovery code from the original enrolment and then reset from there.\\n\\nAfter you complete the reset, the old QR code will no longer work; only the newly scanned one will generate valid codes.\\n\\nIf you don\u2019t have a recovery code, let us know and we\u2019ll help you further.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_d20db5f0-49db-4ad0-832e-4efe88d22ce5",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372509,
+      "id": "chatcmpl-abeb36fd-85f8-4603-9e59-16a7a421f730",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_dc4ca88fa4",
+      "usage": {
+        "completion_time": 0.884296554,
+        "completion_tokens": 333,
+        "completion_tokens_details": {
+          "reasoning_tokens": 157
+        },
+        "prompt_time": 1.395097247,
+        "prompt_tokens": 1144,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.309475916,
+        "total_time": 2.279393801,
+        "total_tokens": 1477
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmxnxreeks348mkxj0gwef",
+        "seed": 1076349247
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "To get back into your account, reset and re\u2011enrol your two\u2011factor authentication:\n1. Open **Settings \u2192 Security \u2192 Two\u2011factor authentication**.\n2. Choose **Reset**.\n3. Follow the normal setup flow \u2013 scan the new QR code with your authenticator app and enter the six\u2011digit code it generates.\n4. If you can\u2019t reach the settings page, you can sign in with a saved recovery code from the original enrolment and then reset from there.\n\nAfter you complete the reset, the old QR code will no longer work; only the newly scanned one will generate valid codes.\n\nIf you don\u2019t have a recovery code, let us know and we\u2019ll help you further."
+        },
+        "id": "fc_d20db5f0-49db-4ad0-832e-4efe88d22ce5",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 333,
+      "prompt_tokens": 1144
+    }
+  },
+  "retry_after": null
+}

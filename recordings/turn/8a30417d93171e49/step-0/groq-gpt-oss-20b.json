@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:32:46.971753Z",
+  "failure_detail": null,
+  "fingerprint": "4faa911bb7951dce3c19a325cf061dc30b8d79d438d32801811dfa77ea77b065",
+  "outcome": "response",
+  "recording_id": "turn/8a30417d93171e49/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user asks: \"last quarter usage data, self-serve or request?\" They want to know if they can self-serve or need to request. According to policy: For an audit needing a specific quarter, exporting with that quarter's exact date range from the usage screen produces the same data a request to support would, without the wait. Also usage older than two most recent billing periods is retained but not shown by default; can still be pulled with custom date range from same export. So answer: Yes, you can self-serve by exporting with that quarter's date range from Settings \u2192 Billing \u2192 Usage. No need to request. Provide guidance.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can get that data yourself. Just go to Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fUsage, set the date range to the quarter you need, and export the CSV. That will give you the same information a support request would provide, but without the wait.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_34abb1a5-7eca-41b3-8aac-79a6f873c7a8",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460366,
+      "id": "chatcmpl-cbcd28c9-a9fd-49f4-8df9-c4fb062d4e36",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4f7e7dc26e",
+      "usage": {
+        "completion_time": 0.239985808,
+        "completion_tokens": 207,
+        "completion_tokens_details": {
+          "reasoning_tokens": 132
+        },
+        "prompt_time": 0.052878333,
+        "prompt_tokens": 1036,
+        "queue_time": 0.279660031,
+        "total_time": 0.292864141,
+        "total_tokens": 1243
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8py4gea2sj7f2js6zdb15",
+        "seed": 1719740847
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can get that data yourself. Just go to Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fUsage, set the date range to the quarter you need, and export the CSV. That will give you the same information a support request would provide, but without the wait."
+        },
+        "id": "fc_34abb1a5-7eca-41b3-8aac-79a6f873c7a8",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 207,
+      "prompt_tokens": 1036
+    }
+  },
+  "retry_after": null
+}

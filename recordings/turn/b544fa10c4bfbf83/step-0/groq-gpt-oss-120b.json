@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:46:58.684641Z",
+  "failure_detail": null,
+  "fingerprint": "bd9930b9352361ddc1ab77abef219d80534344a816f2aab4773615d218590acd",
+  "outcome": "response",
+  "recording_id": "turn/b544fa10c4bfbf83/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to determine appropriate action. Customer says: \"We're completely locked out right now because of this expired card \u2014 please charge the new one and restore access immediately.\"\n\nThis is about a workspace suspended due to failed payment, they want immediate restoration. According to policy excerpts: restoration after adding new card is not instant; billing team reviews and processes within short window. The policy says it's not instant; they need to add new card via Settings \u2192 Billing \u2192 Payment method, then billing team will retry and restore access within short window, not instantly.\n\nWe can answer with that info. It's not about money movement? It's about charging new card and restoring access. This is about payment processing, but not a disputed charge. It's a request to charge new card and restore access immediately. According to policy, we can explain that after adding new card, billing team will process and restore within short window, not instantly. So we can answer.\n\nThus we should post_reply with answer: instruct to add new card via Settings \u2192 Billing \u2192 Payment method, note that restoration is processed by billing team and may take short time, not instant.\n\nWe must keep answer short and specific. Provide guidance.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there \u2013 once you add a new payment method in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPayment method, our billing team will retry the failed charge and lift the suspension. This review isn\u2019t instant; it usually completes within a short window after the new card is added. Thanks for your patience while we process the update.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_668f5bba-8360-417d-a868-eb6e691409b1",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454018,
+      "id": "chatcmpl-7f5eada8-f526-46b2-97d8-8028d31fccae",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5d041d5b40",
+      "usage": {
+        "completion_time": 0.827270369,
+        "completion_tokens": 330,
+        "completion_tokens_details": {
+          "reasoning_tokens": 240
+        },
+        "prompt_time": 0.062663654,
+        "prompt_tokens": 1064,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.158937272,
+        "total_time": 0.889934023,
+        "total_tokens": 1394
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2n6jtem0baa4440ghzn4d",
+        "seed": 1954174190
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there \u2013 once you add a new payment method in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPayment method, our billing team will retry the failed charge and lift the suspension. This review isn\u2019t instant; it usually completes within a short window after the new card is added. Thanks for your patience while we process the update."
+        },
+        "id": "fc_668f5bba-8360-417d-a868-eb6e691409b1",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 330,
+      "prompt_tokens": 1064
+    }
+  },
+  "retry_after": null
+}

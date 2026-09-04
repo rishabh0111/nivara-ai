@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:39:06.964069Z",
+  "failure_detail": null,
+  "fingerprint": "fd2ccae137d89ee120fdc6ceb938c95dca34afa6765fc37bd02e18572508d6f8",
+  "outcome": "response",
+  "recording_id": "turn/1717c21f01c96668/consistency/sample-4/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to read the conversation to see the exact question. The user says: \"SSO pointing somewhere wrong, help\". Likely they have an SSO configuration pointing to wrong identity provider domain. The policy excerpts include:\n\n- DOC-061: reporting unrecognised change to SSO configuration, says admin can revert SSO config to disable it or point back to correct provider from Settings \u2192 Security \u2192 SSO, and report change to support.\n\n- Also includes description that unrecognised SSO config is potential compromise.\n\nThus answer: advise to revert SSO config to correct provider or disable, and report to support.\n\nWe should not need to read conversation; the user just asked for help. The policy gives steps: admin who still has access can revert SSO config to disable it or point back to correct provider from Settings \u2192 Security \u2192 SSO. Also should report to support.\n\nThus we can answer with that. Provide concise answer.\n\nWe must not mention policy. So answer: \"If you still have admin access, go to Settings \u2192 Security \u2192 SSO and change the configuration back to the correct identity provider or disable it. Then let our support team know so they can review the change.\" That's good.\n\nWe must use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If you still have admin access, you can fix the mis\u2011pointed SSO by going to **Settings \u2192 Security \u2192 SSO** and either disabling the integration or updating the configuration to point back at the correct identity\u2011provider. After you\u2019ve made the change, please let our support team know so we can review when and how the setting was altered.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_b058d2f2-1123-43f7-9de7-96fa51cb6384",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453546,
+      "id": "chatcmpl-da4807ae-b469-49d8-a8ec-00e604dea06c",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_dee443f41b",
+      "usage": {
+        "completion_time": 0.745183033,
+        "completion_tokens": 348,
+        "completion_tokens_details": {
+          "reasoning_tokens": 251
+        },
+        "prompt_time": 1.5101386890000001,
+        "prompt_tokens": 1182,
+        "prompt_tokens_details": {
+          "cached_tokens": 1024
+        },
+        "queue_time": 0.310566176,
+        "total_time": 2.255321722,
+        "total_tokens": 1530
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m26rb7eqr9f5m1rc2y2793",
+        "seed": 186944499
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If you still have admin access, you can fix the mis\u2011pointed SSO by going to **Settings \u2192 Security \u2192 SSO** and either disabling the integration or updating the configuration to point back at the correct identity\u2011provider. After you\u2019ve made the change, please let our support team know so we can review when and how the setting was altered."
+        },
+        "id": "fc_b058d2f2-1123-43f7-9de7-96fa51cb6384",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 348,
+      "prompt_tokens": 1182
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:07:47.368264Z",
+  "failure_detail": null,
+  "fingerprint": "2050beb22ac6c32cb51e72ccd7728f105c2ba79df2bdf5126ce9cfe3dc2c5f87",
+  "outcome": "response",
+  "recording_id": "turn/c10c181949cfad8b/consistency/sample-3/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see the customer's request: they are getting flooded with irrelevant notifications and need to narrow down immediately. The policy excerpts provide guidance on reducing notification email volume: per person settings, can turn off types, changes take effect immediately, only affect own account. So we can answer with instructions: go to Profile \u2192 Notifications, turn off types you don't want, leave assignment notifications on, etc. That's covered. So we can post_reply with concise answer.\n\nWe must not mention policy. Provide steps.\n\nProceed.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can trim your own notification volume right away:\\n1. In Meridian, open **Profile \u2192 Notifications**.\\n2. Each notification type (assignment, mention, status\u2011change, digest, etc.) has its own toggle \u2013 turn off the ones you don\u2019t need.\\n3. If you only want alerts for items assigned to you, leave **Assignment** notifications on and disable the others.\\n\\nThese changes apply instantly and only affect your account; no admin changes are required. Let me know if you need any further help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_0befa46d-b2b0-4071-af85-93144b55704b",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451667,
+      "id": "chatcmpl-2c2cee95-8874-4d02-bb39-0d818aad639c",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c868cf1eaa",
+      "usage": {
+        "completion_time": 0.723526035,
+        "completion_tokens": 237,
+        "completion_tokens_details": {
+          "reasoning_tokens": 103
+        },
+        "prompt_time": 0.003044214,
+        "prompt_tokens": 1048,
+        "prompt_tokens_details": {
+          "cached_tokens": 1024
+        },
+        "queue_time": 1.44328429,
+        "total_time": 0.726570249,
+        "total_tokens": 1285
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0dd82ecb8db08nx5hyjgx",
+        "seed": 502678641
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can trim your own notification volume right away:\n1. In Meridian, open **Profile \u2192 Notifications**.\n2. Each notification type (assignment, mention, status\u2011change, digest, etc.) has its own toggle \u2013 turn off the ones you don\u2019t need.\n3. If you only want alerts for items assigned to you, leave **Assignment** notifications on and disable the others.\n\nThese changes apply instantly and only affect your account; no admin changes are required. Let me know if you need any further help!"
+        },
+        "id": "fc_0befa46d-b2b0-4071-af85-93144b55704b",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 237,
+      "prompt_tokens": 1048
+    }
+  },
+  "retry_after": null
+}

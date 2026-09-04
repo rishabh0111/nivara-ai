@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:44:15.896754Z",
+  "failure_detail": null,
+  "fingerprint": "8c9695f7e9a4bcceb7df1488f1c8f0b765a5b88ee2f30dc5c32a9aa1f024b864",
+  "outcome": "response",
+  "recording_id": "turn/55e5592f0282bd88/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our company was acquired and the acquiring company's staff need ownership of our workspace \u2014 what's needed to establish the acquisition is genuine before that transfer happens?\" This matches DOC-067 parts: need documentation establishing acquisition: public announcements, legal documentation, or confirmation from a contact at the acquired company. So answer: need to provide documentation, etc. Provide short answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"To verify that the acquisition is genuine, our reviewer will ask for documentation that proves the deal. This can include public announcements, legal paperwork (e.g., acquisition agreement or filing), or a confirmation from a contact at the acquired company. Once we have that evidence, we can coordinate the ownership transfer.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_a4e7dbd8-a64d-41d5-8b82-42f35026a0cb",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453855,
+      "id": "chatcmpl-ce5e853a-090e-4bcf-8feb-cdb52b8a8936",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_df9620fe21",
+      "usage": {
+        "completion_time": 0.369740201,
+        "completion_tokens": 173,
+        "completion_tokens_details": {
+          "reasoning_tokens": 88
+        },
+        "prompt_time": 0.072625043,
+        "prompt_tokens": 1060,
+        "queue_time": 0.280935585,
+        "total_time": 0.442365244,
+        "total_tokens": 1233
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2g7szen5vgg6d4wmmabr5",
+        "seed": 403822471
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "To verify that the acquisition is genuine, our reviewer will ask for documentation that proves the deal. This can include public announcements, legal paperwork (e.g., acquisition agreement or filing), or a confirmation from a contact at the acquired company. Once we have that evidence, we can coordinate the ownership transfer."
+        },
+        "id": "fc_a4e7dbd8-a64d-41d5-8b82-42f35026a0cb",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 173,
+      "prompt_tokens": 1060
+    }
+  },
+  "retry_after": null
+}

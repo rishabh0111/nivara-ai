@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:27:28.194091Z",
+  "failure_detail": null,
+  "fingerprint": "381e5520440faf75fd69003bb6cef3f5461233f49dda6dd9987885e22b8e0b0e",
+  "outcome": "response",
+  "recording_id": "turn/6c3b23b706338daa/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"This key has been live in production for over a year and I want to rotate it as routine hygiene, but I need to understand the cutover behaviour \u2014 is there an overlap window, or does the old key die the moment the new one is minted?\" We have policy excerpts about rotating an API key. They say generating a new key does not automatically revoke old one; both keys are valid until old one is explicitly revoked. Overlap window exists so key can be rotated without downtime: deploy new key, confirm it works, then revoke old key. So answer: yes, overlap window; old key remains valid until revoked. Provide guidance. Also mention that logs can confirm usage. So we can answer. No escalation needed.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! When you generate a new API key in Settings \u2192 Developer \u2192 API keys, the old key stays active \u2013 it isn\u2019t revoked automatically. You can use the new key in your code, test it, and only then revoke the old key. This gives you an overlap window so there\u2019s no moment of downtime. You can also check the delivery and request logs to confirm nothing is still using the old key before revoking it. Let me know if you need help with the revocation step!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_a35aaad7-ed24-4c90-8e3b-58fb201470d8",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460047,
+      "id": "chatcmpl-6d7a221f-fe10-4415-835d-42dc0172a0d4",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_24bfb4a850",
+      "usage": {
+        "completion_time": 0.330620604,
+        "completion_tokens": 280,
+        "completion_tokens_details": {
+          "reasoning_tokens": 158
+        },
+        "prompt_time": 0.062198357,
+        "prompt_tokens": 1075,
+        "queue_time": 0.287910506,
+        "total_time": 0.392818961,
+        "total_tokens": 1355
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8d6t2e2ftrftzxf0a6daq",
+        "seed": 565121050
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! When you generate a new API key in Settings \u2192 Developer \u2192 API keys, the old key stays active \u2013 it isn\u2019t revoked automatically. You can use the new key in your code, test it, and only then revoke the old key. This gives you an overlap window so there\u2019s no moment of downtime. You can also check the delivery and request logs to confirm nothing is still using the old key before revoking it. Let me know if you need help with the revocation step!"
+        },
+        "id": "fc_a35aaad7-ed24-4c90-8e3b-58fb201470d8",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 280,
+      "prompt_tokens": 1075
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:01:19.985652Z",
+  "failure_detail": null,
+  "fingerprint": "649eea7924f16c6c908c1993fe13c4186929fedb34b0b5c23e27a02c5115eca4",
+  "outcome": "response",
+  "recording_id": "turn/ed5f037869335fe9/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"If we turn on SSO, will staff who still use a password get locked out right away, or can both methods run at the same time?\" This matches DOC-009 parts: enabling SSO does not immediately disable password sign-in; both methods coexist until admin turns password sign-in off via Require SSO. Also explanation about rollout needing period. So answer: both can run; password sign-in remains until Require SSO enabled. Provide short answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Enabling SSO doesn\u2019t lock out staff who still sign in with a password. Both login methods work side\u2011by\u2011side until you, as an admin, go to Settings \u2192 Security \u2192 SSO and turn on \u201cRequire SSO.\u201d At that point password sign\u2011in is disabled for the whole workspace.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_dffaa576-f91c-416e-b3be-e3effd828915",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372079,
+      "id": "chatcmpl-eb203185-6ee1-4b69-b436-a315e2a68470",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_49bfac06f1",
+      "usage": {
+        "completion_time": 0.418576839,
+        "completion_tokens": 197,
+        "completion_tokens_details": {
+          "reasoning_tokens": 109
+        },
+        "prompt_time": 0.103347187,
+        "prompt_tokens": 1084,
+        "queue_time": 0.300179506,
+        "total_time": 0.521924026,
+        "total_tokens": 1281
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmgmgze6qrvxb99b8cxqmy",
+        "seed": 1310662102
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Enabling SSO doesn\u2019t lock out staff who still sign in with a password. Both login methods work side\u2011by\u2011side until you, as an admin, go to Settings \u2192 Security \u2192 SSO and turn on \u201cRequire SSO.\u201d At that point password sign\u2011in is disabled for the whole workspace."
+        },
+        "id": "fc_dffaa576-f91c-416e-b3be-e3effd828915",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 197,
+      "prompt_tokens": 1084
+    }
+  },
+  "retry_after": null
+}

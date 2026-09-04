@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:29:48.702869Z",
+  "failure_detail": null,
+  "fingerprint": "b4c0863b2c2bc9a3cdf50abb403b41722f4e5c849aaf167b697209aff0caaaf8",
+  "outcome": "response",
+  "recording_id": "turn/feaa9358166e96b7/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"If we downgrade our plan, does data tied to higher-tier features get deleted, or just hidden?\" According to DOC-031 part 1: \"Downgrading a plan does not delete anything. Features and data tied to a higher tier are hidden rather than removed \u2014 a downgraded workspace stops being able to use the feature, but the underlying data is preserved and becomes visible again immediately if the workspace upgrades back.\" So answer: data is hidden, not deleted. Also mention retention window exception. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! When you downgrade, your data isn\u2019t deleted \u2013 it\u2019s simply hidden. The workspace can\u2019t use the higher\u2011tier feature, but the underlying data stays in place and will re\u2011appear if you upgrade again. (Only data that falls outside the new tier\u2019s retention window may age out over time.)\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_a463459c-e070-4b72-a3f0-15b2adcdf467",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460188,
+      "id": "chatcmpl-f3e9641a-d19a-4958-94c1-763012efbdb7",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4f7e7dc26e",
+      "usage": {
+        "completion_time": 0.221334303,
+        "completion_tokens": 202,
+        "completion_tokens_details": {
+          "reasoning_tokens": 117
+        },
+        "prompt_time": 0.054805514,
+        "prompt_tokens": 1100,
+        "queue_time": 0.280106895,
+        "total_time": 0.276139817,
+        "total_tokens": 1302
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8hgf5escs71f30k23da7g",
+        "seed": 270490106
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! When you downgrade, your data isn\u2019t deleted \u2013 it\u2019s simply hidden. The workspace can\u2019t use the higher\u2011tier feature, but the underlying data stays in place and will re\u2011appear if you upgrade again. (Only data that falls outside the new tier\u2019s retention window may age out over time.)"
+        },
+        "id": "fc_a463459c-e070-4b72-a3f0-15b2adcdf467",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 202,
+      "prompt_tokens": 1100
+    }
+  },
+  "retry_after": null
+}

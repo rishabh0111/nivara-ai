@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:23:51.804281Z",
+  "failure_detail": null,
+  "fingerprint": "95ff9bb756579a8afd39a8f90dfaebce2e433f63c49ad5fabbffcd18c3ebce6b",
+  "outcome": "response",
+  "recording_id": "turn/a8ebd5e2c3c53c71/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user: \"One of our team members reported a slow patch earlier and asked me to check whether it was a wider platform issue.\"\n\nWe need to guide them to check status page, etc. Use excerpts. Provide short answer: check status page for incidents, look at component breakdown, if nothing, likely local. So we can answer.\n\nWe must post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! To see if the slowdown was a platform\u2011wide issue, start by checking Meridian\u2019s status page. It logs every incident \u2013 even brief ones \u2013 with exact start/end times and the affected components (API, dashboard, etc.). Look for a matching time window; if you see an incident listed, that explains the slowdown. If nothing appears for that period, the issue was probably local (e.g., a browser extension, network conditions, or heavy data loading in that specific workspace).\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_fc106ad8-1a19-4d91-85b4-ef408b6d8538",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452631,
+      "id": "chatcmpl-0d5d7645-bd18-4b04-9fda-f4c9546b60a0",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_8ea50c0161",
+      "usage": {
+        "completion_time": 0.441454493,
+        "completion_tokens": 208,
+        "completion_tokens_details": {
+          "reasoning_tokens": 83
+        },
+        "prompt_time": 0.050668703,
+        "prompt_tokens": 1062,
+        "queue_time": 0.306639775,
+        "total_time": 0.492123196,
+        "total_tokens": 1270
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1aw8sefx9exv5xpe5zp9m",
+        "seed": 2056817160
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! To see if the slowdown was a platform\u2011wide issue, start by checking Meridian\u2019s status page. It logs every incident \u2013 even brief ones \u2013 with exact start/end times and the affected components (API, dashboard, etc.). Look for a matching time window; if you see an incident listed, that explains the slowdown. If nothing appears for that period, the issue was probably local (e.g., a browser extension, network conditions, or heavy data loading in that specific workspace)."
+        },
+        "id": "fc_fc106ad8-1a19-4d91-85b4-ef408b6d8538",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 208,
+      "prompt_tokens": 1062
+    }
+  },
+  "retry_after": null
+}

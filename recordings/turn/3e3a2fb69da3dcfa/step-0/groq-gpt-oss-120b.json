@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:06:01.105434Z",
+  "failure_detail": null,
+  "fingerprint": "d95caf706f89b78e343849430b8823ee3036ad666815956fe42d3c6c4e4face7",
+  "outcome": "response",
+  "recording_id": "turn/3e3a2fb69da3dcfa/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy. The user wants to correct an invoice that still lists old office (billing address). They ask to correct and resend. According to policy: Meridian does not reissue invoices already generated; correction applies to future invoices. For past invoice, they can request a corrected copy through support (but not reissue). So we can respond: we cannot reissue, but can provide corrected copy. Provide steps: request through support. So answer: we cannot resend corrected invoice, but can provide corrected copy. Provide guidance. This is within policy. So we can post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! We can\u2019t re\u2011issue a past invoice with updated details \u2013 once an invoice is generated it stays as\u2011is. However, we can provide you with a corrected copy of that invoice for your records. Just let us know you\u2019d like a corrected version and we\u2019ll send it over.\\n\\nGoing forward, any changes you make to your workspace\u2019s legal name, billing address, or tax ID in Settings \u2192 Billing \u2192 Company details will appear on all new invoices.\\n\\nLet us know if you\u2019d like the corrected copy, and we\u2019ll take care of it!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_e1ffb209-409c-4017-b5c5-2c8312658157",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788458761,
+      "id": "chatcmpl-2cd707da-1ad4-4c62-bb40-f1b9b656021c",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5082008e34",
+      "usage": {
+        "completion_time": 0.576326966,
+        "completion_tokens": 264,
+        "completion_tokens_details": {
+          "reasoning_tokens": 121
+        },
+        "prompt_time": 0.0468498,
+        "prompt_tokens": 1001,
+        "queue_time": 0.284483259,
+        "total_time": 0.623176766,
+        "total_tokens": 1265
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m75xy1epqvfxpvbgtspp57",
+        "seed": 987876398
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! We can\u2019t re\u2011issue a past invoice with updated details \u2013 once an invoice is generated it stays as\u2011is. However, we can provide you with a corrected copy of that invoice for your records. Just let us know you\u2019d like a corrected version and we\u2019ll send it over.\n\nGoing forward, any changes you make to your workspace\u2019s legal name, billing address, or tax ID in Settings \u2192 Billing \u2192 Company details will appear on all new invoices.\n\nLet us know if you\u2019d like the corrected copy, and we\u2019ll take care of it!"
+        },
+        "id": "fc_e1ffb209-409c-4017-b5c5-2c8312658157",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 264,
+      "prompt_tokens": 1001
+    }
+  },
+  "retry_after": null
+}

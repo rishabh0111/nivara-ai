@@ -1,0 +1,77 @@
+# The release-cadence full Record run (ticket 18, ADR-0004).
+#
+# Re-recording the whole eval set is two to three days of free-tier quota, so
+# it does not happen per change — a model-facing pull request re-records only
+# the sensitive slice and the regression cases (scripts/ci_record_required.py
+# enforces that), and the full set is refreshed here, deliberately, on a
+# release cadence.
+#
+# This runs only when dispatched by hand, and only does anything if the
+# workspace has provider credentials configured as repository secrets. Without
+# them it prints the runbook and stops — a Record run is never something CI
+# performs on its own.
+
+name: Record cadence
+
+on:
+  workflow_dispatch:
+    inputs:
+      slice:
+        description: "Which slice to re-record"
+        type: choice
+        default: all
+        options: [all, sensitive, regression]
+
+jobs:
+  record:
+    name: full Record run
+    runs-on: ubuntu-latest
+    env:
+      HAS_CREDS: ${{ secrets.NIVARA_GROQ_API_KEY != '' || secrets.NIVARA_GEMINI_API_KEY != '' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -e ".[test]"
+
+      - name: Runbook (no credentials configured)
+        if: env.HAS_CREDS != 'true'
+        run: |
+          echo "No provider-key secret — a Record run needs a real provider."
+          echo "Locally, with the compose stack up and the Corpus indexed:"
+          echo
+          echo "  NIVARA_MODEL_TRANSPORT=live \\"
+          echo "  NIVARA_GROQ_API_KEY=... NIVARA_GEMINI_API_KEY=... \\"
+          echo "  NIVARA_ASSISTANT_TOKEN=nvk_live_... \\"
+          echo "  python scripts/record_eval.py --slice ${{ inputs.slice }}"
+          echo
+          echo "Each chain rung whose key is set is recorded in turn. Then"
+          echo "commit recordings/ and rerun scripts/ci_regression_gate.py"
+          echo "--write-baseline if behaviour changed deliberately."
+
+      - name: Bring up the stack
+        if: env.HAS_CREDS == 'true'
+        run: docker compose up -d --wait
+
+      - name: Index the Corpus
+        if: env.HAS_CREDS == 'true'
+        run: python scripts/index_corpus.py
+
+      - name: Record run
+        if: env.HAS_CREDS == 'true'
+        env:
+          NIVARA_MODEL_TRANSPORT: live
+          NIVARA_GROQ_API_KEY: ${{ secrets.NIVARA_GROQ_API_KEY }}
+          NIVARA_GROQ_API_KEYS: ${{ secrets.NIVARA_GROQ_API_KEYS }}
+          NIVARA_GEMINI_API_KEY: ${{ secrets.NIVARA_GEMINI_API_KEY }}
+          NIVARA_ASSISTANT_TOKEN: ${{ secrets.NIVARA_ASSISTANT_TOKEN }}
+        run: python scripts/record_eval.py --slice "${{ inputs.slice }}"
+
+      - name: Tear down
+        if: ${{ always() && env.HAS_CREDS == 'true' }}
+        run: docker compose down -v

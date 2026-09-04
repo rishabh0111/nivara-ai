@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:04:34.575560Z",
+  "failure_detail": null,
+  "fingerprint": "015e4d5022433ae10ac07b11791cbf7909de0aef084a657ccee551e50ccbf9d0",
+  "outcome": "response",
+  "recording_id": "turn/dd0d6637a5fe0bc3/consistency/sample-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see the conversation. The user says \"Times just look wrong everywhere in the app.\" We need to determine what they're asking. Likely about response-time metrics? Or timezone display? The provided policy excerpts: DOC-042 about response-time metrics counting every hour a ticket sits unanswered, includes nights, weekends, holidays. That seems related to times being wrong. Could be they think response-time metrics are wrong. The excerpt addresses that metric counts wall-clock time, not business hours. So answer could explain that.\n\nWe need to ensure the question is answered by the excerpt. The user says times look wrong everywhere in the app. Could be about timestamps, timezone, etc. The only relevant excerpt is about response-time metric. Might be the user complaining about times in the app generally; we can explain that metrics are wall-clock. That seems plausible.\n\nThus we can answer: The times you see (e.g., response-time metric) are measured in wall\u2011clock hours, including nights/weekends/holidays, not business hours. So they may appear longer. If you need business\u2011hour view, not currently supported. Provide that.\n\nThus we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! The timestamps you see for response\u2011time metrics are calculated as wall\u2011clock time \u2013 every hour a ticket sits unanswered counts, even nights, weekends and holidays. That\u2019s why they can look longer than expected if you were expecting business\u2011hours only. The app currently reports metrics this way and doesn\u2019t adjust for business\u2011hour windows.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_852fae91-c265-4a94-b8c5-212c2ef50cd2",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451474,
+      "id": "chatcmpl-84de4387-8b70-4a41-af12-15c687ed46f8",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_0adba2bb92",
+      "usage": {
+        "completion_time": 0.705149093,
+        "completion_tokens": 331,
+        "completion_tokens_details": {
+          "reasoning_tokens": 236
+        },
+        "prompt_time": 0.053667735,
+        "prompt_tokens": 1100,
+        "queue_time": 0.308920324,
+        "total_time": 0.758816828,
+        "total_tokens": 1431
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m07hyrexf8stzr67zm22cs",
+        "seed": 894500613
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! The timestamps you see for response\u2011time metrics are calculated as wall\u2011clock time \u2013 every hour a ticket sits unanswered counts, even nights, weekends and holidays. That\u2019s why they can look longer than expected if you were expecting business\u2011hours only. The app currently reports metrics this way and doesn\u2019t adjust for business\u2011hour windows."
+        },
+        "id": "fc_852fae91-c265-4a94-b8c5-212c2ef50cd2",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 331,
+      "prompt_tokens": 1100
+    }
+  },
+  "retry_after": null
+}

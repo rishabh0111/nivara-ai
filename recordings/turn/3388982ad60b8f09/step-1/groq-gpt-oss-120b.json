@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T17:51:21.963205Z",
+  "failure_detail": null,
+  "fingerprint": "967e6d0f1569ecdaaae43426427fafccff8c206d484fe9bbb1a338262fae93bc",
+  "outcome": "response",
+  "recording_id": "turn/3388982ad60b8f09/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"change invoice email?\" The user wants to change invoice email. The policy excerpts provide steps: open Settings \u2192 Billing \u2192 Recipients and add or replace billing contact email; multiple recipients can be added; change applies to next invoice, not past ones. So we can answer with that info.\n\nWe must post a reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! To change the email address that receives your invoices, go to **Settings \u2192 Billing \u2192 Recipients** in your workspace. From there you can add a new billing contact email or replace the existing one. You can also add multiple recipients (e.g., a shared finance inbox) alongside an individual address. The change takes effect on the next invoice generated after you save it; past invoices won\u2019t be resent to the new address.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_e4713418-92d2-4fa5-9c64-87d8a637e5bd",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371481,
+      "id": "chatcmpl-4e8d5115-dcd8-4a95-92b1-7225feee4fa2",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_bc9a6c9b5f",
+      "usage": {
+        "completion_time": 0.402912269,
+        "completion_tokens": 189,
+        "completion_tokens_details": {
+          "reasoning_tokens": 77
+        },
+        "prompt_time": 0.047817646,
+        "prompt_tokens": 1047,
+        "queue_time": 0.046474394,
+        "total_time": 0.450729915,
+        "total_tokens": 1236
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hkyctref6v7zb0p4g7yyt9",
+        "seed": 170649458
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! To change the email address that receives your invoices, go to **Settings \u2192 Billing \u2192 Recipients** in your workspace. From there you can add a new billing contact email or replace the existing one. You can also add multiple recipients (e.g., a shared finance inbox) alongside an individual address. The change takes effect on the next invoice generated after you save it; past invoices won\u2019t be resent to the new address."
+        },
+        "id": "fc_e4713418-92d2-4fa5-9c64-87d8a637e5bd",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 189,
+      "prompt_tokens": 1047
+    }
+  },
+  "retry_after": null
+}

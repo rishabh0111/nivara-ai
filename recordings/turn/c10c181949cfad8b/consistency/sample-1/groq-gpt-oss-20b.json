@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:31:15.380940Z",
+  "failure_detail": null,
+  "fingerprint": "c476838a9938f031b1234eefe21953a282c4fc238c54fb56ae480591277a7351",
+  "outcome": "response",
+  "recording_id": "turn/c10c181949cfad8b/consistency/sample-1/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see if policy excerpts provide answer. The question: \"I'm getting flooded with irrelevant notifications right now and need this narrowed down immediately.\"\n\nWe have policy excerpts about notification email volume reduction. The answer: \"Go to Profile \u2192 Notifications, turn off assignment? Wait they want narrowing. They want to reduce notifications. We can answer: \"You can adjust your notification settings in Profile > Notifications. Turn off types you don't want.\" That is policy. We need to provide short answer. No mention of policy. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! You can easily narrow your notifications in your profile. Go to Profile\u202f\u2192\u202fNotifications and turn off the types you don\u2019t want (e.g., mentions, status changes, digests). Leaving assignment notifications on will keep only what\u2019s assigned to you. The changes take effect immediately and only affect your account.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_cdf06baf-db6d-4463-948b-ad252928d3f0",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460275,
+      "id": "chatcmpl-1039571d-7923-4737-86c2-ab24ed67ade2",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_851252edc2",
+      "usage": {
+        "completion_time": 0.216304195,
+        "completion_tokens": 196,
+        "completion_tokens_details": {
+          "reasoning_tokens": 110
+        },
+        "prompt_time": 0.060230667,
+        "prompt_tokens": 1048,
+        "queue_time": 0.305925116,
+        "total_time": 0.276534862,
+        "total_tokens": 1244
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8m528efk85rg6ba5zeyez",
+        "seed": 1247528918
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! You can easily narrow your notifications in your profile. Go to Profile\u202f\u2192\u202fNotifications and turn off the types you don\u2019t want (e.g., mentions, status changes, digests). Leaving assignment notifications on will keep only what\u2019s assigned to you. The changes take effect immediately and only affect your account."
+        },
+        "id": "fc_cdf06baf-db6d-4463-948b-ad252928d3f0",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 196,
+      "prompt_tokens": 1048
+    }
+  },
+  "retry_after": null
+}

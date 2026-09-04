@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:23:04.462576Z",
+  "failure_detail": null,
+  "fingerprint": "50bcaa30844d88ced20648b42fcac1016a4190afa620d57f29059365543866fd",
+  "outcome": "response",
+  "recording_id": "turn/163b390339dd131b/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer using policy excerpts. The question: \"We had noticeably slower page loads for about twenty minutes \u2014 was that platform-wide, or something specific to our account?\" According to DOC-047 parts: check status page for that window; if nothing appears, likely local. Also status page history can be checked after fact. So answer: advise to check status page for that time; if incident listed, platform-wide; if not, likely local. Provide steps. Use short answer. No need to read conversation? Might need to read to see context but not required. We'll just answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! To see whether the slowdown you experienced was platform\u2011wide, start by checking Meridian\u2019s status page for the time window in question. The status page records every incident \u2013 even brief ones \u2013 with exact start and end times, so if a platform\u2011wide degradation occurred it will be listed there. If you don\u2019t see any incident for that 20\u2011minute window, the slowdown was most likely local to your environment (e.g., a browser extension, network conditions, or a large data load in your workspace). The status page\u2019s history goes back beyond current incidents, so you can look up past windows after the fact.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_60765c7d-7f57-43a6-8c08-e85e2ede320d",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452584,
+      "id": "chatcmpl-8a99a72f-3a61-4ff5-a8ac-d2e9b6bf5925",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_f640395b96",
+      "usage": {
+        "completion_time": 0.578628489,
+        "completion_tokens": 272,
+        "completion_tokens_details": {
+          "reasoning_tokens": 120
+        },
+        "prompt_time": 0.745660883,
+        "prompt_tokens": 1069,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.307598867,
+        "total_time": 1.324289372,
+        "total_tokens": 1341
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m19d9wes2tmcb7xt9nfgf7",
+        "seed": 343034039
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! To see whether the slowdown you experienced was platform\u2011wide, start by checking Meridian\u2019s status page for the time window in question. The status page records every incident \u2013 even brief ones \u2013 with exact start and end times, so if a platform\u2011wide degradation occurred it will be listed there. If you don\u2019t see any incident for that 20\u2011minute window, the slowdown was most likely local to your environment (e.g., a browser extension, network conditions, or a large data load in your workspace). The status page\u2019s history goes back beyond current incidents, so you can look up past windows after the fact."
+        },
+        "id": "fc_60765c7d-7f57-43a6-8c08-e85e2ede320d",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 272,
+      "prompt_tokens": 1069
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:42:24.281190Z",
+  "failure_detail": null,
+  "fingerprint": "fb5de10c5d58b55da47c78090ab7090c62292fde4000301c71f58589381aa7f2",
+  "outcome": "response",
+  "recording_id": "turn/0d6d017d05217281/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our new point of contact asked me to find out the process for transferring workspace ownership after the original owner left without a handover.\"\n\nThis is about transferring workspace ownership when original admin left. Policy excerpts: DOC-063 about reclaiming admin access when sole admin left. Also DOC-064 about transferring workspace ownership generally: need to contact support, human reviewer verifies new contact's standing, etc.\n\nWe can answer: they need to contact support with new contact details, verification process, possibly documentation. Provide steps.\n\nWe must not mention policy excerpts. Provide short specific answer.\n\nThus we will post_reply with answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"To transfer ownership when the original admin has left, you\u2019ll need to contact our support team and provide the details of the new point\u2011of\u2011contact. A reviewer will verify that the new contact represents the same company (for example, by confirming employment or providing any relevant documentation) before completing the transfer. Once the verification is done, the ownership will be moved to the new admin. Please reach out to support with the new admin\u2019s name, email, and any proof of their role so we can start the process.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_503af7ff-dc40-461c-96e3-f33e3254eac0",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453744,
+      "id": "chatcmpl-adb3c5d1-8e66-4e22-8219-084785108c1b",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_f640395b96",
+      "usage": {
+        "completion_time": 0.610205646,
+        "completion_tokens": 264,
+        "completion_tokens_details": {
+          "reasoning_tokens": 135
+        },
+        "prompt_time": 0.075864856,
+        "prompt_tokens": 1072,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.310310122,
+        "total_time": 0.686070502,
+        "total_tokens": 1336
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2ctkce2cbf2pvrzt1p1bt",
+        "seed": 1601818431
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "To transfer ownership when the original admin has left, you\u2019ll need to contact our support team and provide the details of the new point\u2011of\u2011contact. A reviewer will verify that the new contact represents the same company (for example, by confirming employment or providing any relevant documentation) before completing the transfer. Once the verification is done, the ownership will be moved to the new admin. Please reach out to support with the new admin\u2019s name, email, and any proof of their role so we can start the process."
+        },
+        "id": "fc_503af7ff-dc40-461c-96e3-f33e3254eac0",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 264,
+      "prompt_tokens": 1072
+    }
+  },
+  "retry_after": null
+}

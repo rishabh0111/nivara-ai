@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T15:58:07.505549Z",
+  "failure_detail": null,
+  "fingerprint": "ec7d67668c6f09dc90aff1084646eee418269ed5988bde424e22e59e519d2395",
+  "outcome": "response",
+  "recording_id": "turn/af87b4e2bdabc399/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer using policy excerpts. The question: \"Our HR contact asked me to find out how to reassign a departed employee's seat to a new hire without triggering an extra charge this billing cycle.\"\n\nWe have relevant policy excerpts DOC-029 parts 1-3. They explain removing a person from Settings \u2192 People frees seat immediately, and inviting new person into that freed seat does not add a new seat as long as within same billing cycle; also remove before inviting to avoid overage; next invoice bills seat count as of invoice date, so same-cycle reassignment shows as one seat.\n\nThus we can answer: remove the departed employee first, then invite new hire; seat count won't exceed and no extra charge; seat count billed based on highest number of seats at any point, but since you removed before adding, highest stays same; next invoice will show one seat.\n\nProvide concise steps.\n\nWe can answer directly. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! To move a seat from a departed employee to a new hire without incurring an extra charge this cycle, follow these steps:\\n\\n1. **Remove the departing employee first** \u2013 go to **Settings \u2192 People** and delete their account. This frees the seat immediately.\\n2. **Invite the new hire** into the now\u2011available seat before the billing cycle ends.\\n\\nBecause the seat was freed before the new person was added, the occupied seat count never exceeds your current paid seats, so you won\u2019t be billed for two seats in the same cycle. The next invoice will reflect the seat count as of the invoice date, showing only one seat for that position.\\n\\nLet me know if you need any more help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_8a5c4813-135d-4e77-9f8b-b2ea3441338c",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451087,
+      "id": "chatcmpl-bace7bcc-4408-452a-ac4f-579edacda020",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_49bfac06f1",
+      "usage": {
+        "completion_time": 0.777306219,
+        "completion_tokens": 366,
+        "completion_tokens_details": {
+          "reasoning_tokens": 190
+        },
+        "prompt_time": 0.068855851,
+        "prompt_tokens": 1105,
+        "queue_time": 0.283875053,
+        "total_time": 0.84616207,
+        "total_tokens": 1471
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kzvqxyewpr4gqre23g297n",
+        "seed": 472788646
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! To move a seat from a departed employee to a new hire without incurring an extra charge this cycle, follow these steps:\n\n1. **Remove the departing employee first** \u2013 go to **Settings \u2192 People** and delete their account. This frees the seat immediately.\n2. **Invite the new hire** into the now\u2011available seat before the billing cycle ends.\n\nBecause the seat was freed before the new person was added, the occupied seat count never exceeds your current paid seats, so you won\u2019t be billed for two seats in the same cycle. The next invoice will reflect the seat count as of the invoice date, showing only one seat for that position.\n\nLet me know if you need any more help!"
+        },
+        "id": "fc_8a5c4813-135d-4e77-9f8b-b2ea3441338c",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 366,
+      "prompt_tokens": 1105
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:28:18.350879Z",
+  "failure_detail": null,
+  "fingerprint": "6572cd948ac36dd69776a90da4580cc211921c4a79f4c2b88d8fe72232cc7d58",
+  "outcome": "response",
+  "recording_id": "turn/c328dc91661727f6/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"Before wiring up a production integration, I'd like to test my webhook handler against a realistic payload without waiting for a real event to happen naturally \u2014 is there a way to trigger a sample event manually?\" This matches DOC-025: \"Sending a test webhook event\" article. So answer: Yes, go to Settings \u2192 Developer \u2192 Webhooks \u2192 Send test event. It fires realistic sample payload at configured endpoint on demand. Also mention that test event uses same schema and headers, and delivery log records test events. Provide concise answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 in the Meridian dashboard you can trigger a test event. Go to **Settings \u2192 Developer \u2192 Webhooks** and click **Send test event**. It will fire a realistic sample payload to the endpoint you\u2019ve configured, using the same schema, headers (including the signing header) and logging as a live delivery. This lets you verify your handler before you enable production traffic.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_1e0f45b3-33eb-46df-b65c-204cbc8d3401",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460098,
+      "id": "chatcmpl-505f9a52-2f90-4ac7-8ac3-9973a0bdbc6f",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_37c9245f64",
+      "usage": {
+        "completion_time": 0.244017005,
+        "completion_tokens": 216,
+        "completion_tokens_details": {
+          "reasoning_tokens": 118
+        },
+        "prompt_time": 0.051934917,
+        "prompt_tokens": 1025,
+        "queue_time": 0.280270907,
+        "total_time": 0.295951922,
+        "total_tokens": 1241
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8er74epsrafr7k22amdc3",
+        "seed": 1507131599
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 in the Meridian dashboard you can trigger a test event. Go to **Settings \u2192 Developer \u2192 Webhooks** and click **Send test event**. It will fire a realistic sample payload to the endpoint you\u2019ve configured, using the same schema, headers (including the signing header) and logging as a live delivery. This lets you verify your handler before you enable production traffic."
+        },
+        "id": "fc_1e0f45b3-33eb-46df-b65c-204cbc8d3401",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 216,
+      "prompt_tokens": 1025
+    }
+  },
+  "retry_after": null
+}

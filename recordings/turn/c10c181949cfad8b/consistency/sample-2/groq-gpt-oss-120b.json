@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:07:45.132134Z",
+  "failure_detail": null,
+  "fingerprint": "2050beb22ac6c32cb51e72ccd7728f105c2ba79df2bdf5126ce9cfe3dc2c5f87",
+  "outcome": "response",
+  "recording_id": "turn/c10c181949cfad8b/consistency/sample-2/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see the conversation. The user says: \"I'm getting flooded with irrelevant notifications right now and need this narrowed down immediately.\"\n\nWe have policy excerpts about reducing notification email volume. The user wants to narrow notifications. We can answer using the excerpts: they can go to Profile \u2192 Notifications, turn off types they don't want, leaving assignment notifications on, etc. Also note changes take effect immediately and only affect their account.\n\nThus we can answer with steps: go to Profile > Notifications, turn off mention, status change, digest, keep assignment. Also note changes immediate.\n\nThus we can post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can trim your own notification volume right in your profile:\\n1. Open **Profile \u2192 Notifications**.\\n2. Turn off the types you don\u2019t need \u2013 you can disable mentions, status\u2011change and digest emails individually.\\n3. Keep **Assignment** notifications on if you only want alerts about items assigned to you.\\nThese changes take effect immediately and only affect your account; no admin changes are required. Once you save, you should stop receiving the irrelevant emails.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_48fbf7a8-bb64-4e7c-8952-5d435d376fb9",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451664,
+      "id": "chatcmpl-1e1b4452-ed6c-4f77-b956-587b962864a3",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c868cf1eaa",
+      "usage": {
+        "completion_time": 0.668984065,
+        "completion_tokens": 244,
+        "completion_tokens_details": {
+          "reasoning_tokens": 122
+        },
+        "prompt_time": 1.64574072,
+        "prompt_tokens": 1048,
+        "prompt_tokens_details": {
+          "cached_tokens": 1024
+        },
+        "queue_time": 0.366182612,
+        "total_time": 2.314724785,
+        "total_tokens": 1292
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0daf3ezyrafd8hvsjvjbb",
+        "seed": 359591681
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can trim your own notification volume right in your profile:\n1. Open **Profile \u2192 Notifications**.\n2. Turn off the types you don\u2019t need \u2013 you can disable mentions, status\u2011change and digest emails individually.\n3. Keep **Assignment** notifications on if you only want alerts about items assigned to you.\nThese changes take effect immediately and only affect your account; no admin changes are required. Once you save, you should stop receiving the irrelevant emails."
+        },
+        "id": "fc_48fbf7a8-bb64-4e7c-8952-5d435d376fb9",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 244,
+      "prompt_tokens": 1048
+    }
+  },
+  "retry_after": null
+}

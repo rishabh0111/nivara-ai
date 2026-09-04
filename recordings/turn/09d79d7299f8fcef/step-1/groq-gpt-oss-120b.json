@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:16:26.263353Z",
+  "failure_detail": null,
+  "fingerprint": "80e40ae2b2c3393162d227cab67ca56d0c929524f096768a468824a162e99228",
+  "outcome": "response",
+  "recording_id": "turn/09d79d7299f8fcef/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: import failure, half rows silently failed, need to know which rows and why. According to DOC-016 parts: after import finishes, open Settings \u2192 Data \u2192 Import history and select the run: it lists per-row result, including reason for every row that did not import. Also mention that silent drops are due to per-row validation not shown on main screen. So answer: go to Import history, view details, see reasons, fix rows, re-run import for those rows. Provide steps. That's within policy. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there \u2013 when an import finishes, the rows that were skipped are listed in the import history.\u202fTo see which rows failed and why:\\n1. Go to **Settings \u2192 Data \u2192 Import history**.\\n2. Select the recent import run.\\n3. The per\u2011row results will be displayed, showing a reason for every row that didn\u2019t import (e.g., missing required field, malformed email, duplicate, etc.).\\n\\nFix the issues shown for the flagged rows and then re\u2011run the import using only those rows (you don\u2019t need to re\u2011process the rows that already succeeded). This should get the onboarding back on track quickly.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_ebc0e23c-b5c9-459b-9837-9cf76395c79f",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372985,
+      "id": "chatcmpl-9726e111-ffb4-4ebe-aa4a-c8f45588868c",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_49bfac06f1",
+      "usage": {
+        "completion_time": 0.727337884,
+        "completion_tokens": 283,
+        "completion_tokens_details": {
+          "reasoning_tokens": 122
+        },
+        "prompt_time": 0.656577967,
+        "prompt_tokens": 1139,
+        "prompt_tokens_details": {
+          "cached_tokens": 1024
+        },
+        "queue_time": 0.275997816,
+        "total_time": 1.383915851,
+        "total_tokens": 1422
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnc8ffeqmvp70836ved174",
+        "seed": 160286018
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there \u2013 when an import finishes, the rows that were skipped are listed in the import history.\u202fTo see which rows failed and why:\n1. Go to **Settings \u2192 Data \u2192 Import history**.\n2. Select the recent import run.\n3. The per\u2011row results will be displayed, showing a reason for every row that didn\u2019t import (e.g., missing required field, malformed email, duplicate, etc.).\n\nFix the issues shown for the flagged rows and then re\u2011run the import using only those rows (you don\u2019t need to re\u2011process the rows that already succeeded). This should get the onboarding back on track quickly."
+        },
+        "id": "fc_ebc0e23c-b5c9-459b-9837-9cf76395c79f",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 283,
+      "prompt_tokens": 1139
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:18:59.292690Z",
+  "failure_detail": null,
+  "fingerprint": "5477f9eb031d0aaa7adbe6b5b4dd365ab826f252e586adcd00cdfd49b9bb9877",
+  "outcome": "response",
+  "recording_id": "turn/746d8cd9c347cdfb/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"does export include archived/closed?\" The policy says: standard export includes every record in the current view, including archived and closed ones, unless a filter narrows it. Also note that active queue view hides closed records but export filter independent. So answer: Yes, by default includes archived and closed unless you apply filter. Also can check row count. Provide short answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes. A standard export pulls every record in the current view \u2013 that means archived and closed records are included by default. Only if you set a filter on the export screen (e.g., to a specific status) will those records be excluded.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c63ae118-2ef4-4426-a732-786417d9ac62",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373138,
+      "id": "chatcmpl-979079c8-dcd4-4e14-8606-c101fd1840ea",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_f73454f048",
+      "usage": {
+        "completion_time": 0.351108588,
+        "completion_tokens": 166,
+        "completion_tokens_details": {
+          "reasoning_tokens": 92
+        },
+        "prompt_time": 0.05766907,
+        "prompt_tokens": 1006,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.280697709,
+        "total_time": 0.408777658,
+        "total_tokens": 1172
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hngymxed2r0rh8gaq5fke6",
+        "seed": 674439448
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes. A standard export pulls every record in the current view \u2013 that means archived and closed records are included by default. Only if you set a filter on the export screen (e.g., to a specific status) will those records be excluded."
+        },
+        "id": "fc_c63ae118-2ef4-4426-a732-786417d9ac62",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 166,
+      "prompt_tokens": 1006
+    }
+  },
+  "retry_after": null
+}

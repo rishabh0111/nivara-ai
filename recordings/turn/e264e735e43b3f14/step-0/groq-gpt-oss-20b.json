@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:36:53.025640Z",
+  "failure_detail": null,
+  "fingerprint": "a170094e83f3a2afdbec099f832e919cd47b12dd2ef00a0eb273ff4edcc20f30",
+  "outcome": "response",
+  "recording_id": "turn/e264e735e43b3f14/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"We set up a custom domain for our support portal three days ago and it still shows a certificate error.\" This is about custom domain setup. The policy says: custom domain requires CNAME and TXT record. Verification runs automatically and can take up to DNS provider's propagation time. The status page shows pending or verified. The question: certificate error. Likely due to DNS not propagated or not verified. The policy says verification runs automatically and can take up to DNS provider's own propagation time. So answer: check DNS records, ensure CNAME and TXT added, wait for propagation, check status page. Also ensure that the domain is verified. Provide guidance. No mention of money or security. So we can answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! It sounds like the custom domain hasn\u2019t finished verifying yet. After you add the CNAME and TXT records, Meridian checks the domain automatically. The check can take a while because it depends on your DNS provider\u2019s propagation time. On the Custom domain settings page you\u2019ll see a \u201cPending\u201d or \u201cVerified\u201d status. If it\u2019s still pending, double\u2011check that both records are correct and give it a bit more time. Once the status turns verified, the certificate should be issued and the error will disappear. Let me know if you still see the error after the status is verified!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_a562abdc-058f-4ea1-89ba-a78ad81bb410",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460613,
+      "id": "chatcmpl-7cffd3f6-8c0d-4ed0-887a-e0b301ec01a4",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_228717f27c",
+      "usage": {
+        "completion_time": 0.348434399,
+        "completion_tokens": 298,
+        "completion_tokens_details": {
+          "reasoning_tokens": 156
+        },
+        "prompt_time": 0.054392771,
+        "prompt_tokens": 1052,
+        "queue_time": 0.698613196,
+        "total_time": 0.40282717,
+        "total_tokens": 1350
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8yea7efsbdb9qndb1w2c9",
+        "seed": 2107088065
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! It sounds like the custom domain hasn\u2019t finished verifying yet. After you add the CNAME and TXT records, Meridian checks the domain automatically. The check can take a while because it depends on your DNS provider\u2019s propagation time. On the Custom domain settings page you\u2019ll see a \u201cPending\u201d or \u201cVerified\u201d status. If it\u2019s still pending, double\u2011check that both records are correct and give it a bit more time. Once the status turns verified, the certificate should be issued and the error will disappear. Let me know if you still see the error after the status is verified!"
+        },
+        "id": "fc_a562abdc-058f-4ea1-89ba-a78ad81bb410",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 298,
+      "prompt_tokens": 1052
+    }
+  },
+  "retry_after": null
+}

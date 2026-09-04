@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:53:17.706189Z",
+  "failure_detail": null,
+  "fingerprint": "4cf948df7cc8e37850e993691277b1f3854ede04d9c3494be4e0c3f5a1759518",
+  "outcome": "response",
+  "recording_id": "turn/9a34c9a1b4420236/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Someone is on the phone right now asking for my two-factor code and I need to know immediately if this is real.\" According to policy, support never asks for two-factor code over phone, chat, etc. So we should tell them not to give code, end call, report to support. Provide short answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Meridian support never asks you to read or share a two\u2011factor authentication code over the phone (or any other channel). If someone is asking for it, do not give the code, end the call, and report the incident to us so we can check your account for any unauthorized activity.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_aa9ebf24-b7bd-4339-9f4a-043c073fdded",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454397,
+      "id": "chatcmpl-6a999c80-dd2b-4d04-b241-f7bf13a56768",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_93703442d9",
+      "usage": {
+        "completion_time": 0.388301217,
+        "completion_tokens": 165,
+        "completion_tokens_details": {
+          "reasoning_tokens": 81
+        },
+        "prompt_time": 1.4418159689999999,
+        "prompt_tokens": 1108,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 1.166490952,
+        "total_time": 1.8301171859999998,
+        "total_tokens": 1273
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m30prmeed8kjphtvgbwrc0",
+        "seed": 2138943242
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Meridian support never asks you to read or share a two\u2011factor authentication code over the phone (or any other channel). If someone is asking for it, do not give the code, end the call, and report the incident to us so we can check your account for any unauthorized activity."
+        },
+        "id": "fc_aa9ebf24-b7bd-4339-9f4a-043c073fdded",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 165,
+      "prompt_tokens": 1108
+    }
+  },
+  "retry_after": null
+}

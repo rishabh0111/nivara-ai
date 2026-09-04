@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:32:57.327576Z",
+  "failure_detail": null,
+  "fingerprint": "387fdce69abef54c5afd67a0d943d5d0a7c5fe1d2a365a1edce7ea790aaec1c7",
+  "outcome": "response",
+  "recording_id": "turn/5d0443d2e7b150bd/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our annual plan renewed at a higher price than we were originally quoted \u2014 can the difference be refunded, or the original price honoured?\" This is about renewal pricing. The policy says: annual plan renews at current list price unless a specific renewal price was contractually locked in. If they believe renewal didn't reflect quoted price, billing team checks account's contract or order form against what was charged. Reviewed case by case, account owner or billing contact should raise it referencing original quote so it can be checked against terms.\n\nThus answer: explain that renewal price is generally current list price unless locked in; they need to have account owner or billing contact raise a case referencing original quote; billing team will review contract and order form to see if original price should apply. We cannot guarantee refund, but they can request review. Provide steps.\n\nWe must not mention policy excerpts. Provide short specific answer.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there,\\n\\nAnnual renewals normally use the account\u2019s current list price unless a specific renewal price was locked in when the original quote was agreed. If you think the renewal charge doesn\u2019t match the price you were quoted, the billing team will need to compare your contract or order form with the amount that was charged.\\n\\nPlease have the account owner or billing contact open a support request and reference the original quote. We\u2019ll then review the terms for your account and let you know whether a price adjustment or refund is possible.\\n\\nThanks for reaching out!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_a8eb68b1-a629-4ad6-8dc0-34003458b4d9",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453177,
+      "id": "chatcmpl-c679d43f-0745-451f-b0a6-1cc36a99711e",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5082008e34",
+      "usage": {
+        "completion_time": 1.36474347,
+        "completion_tokens": 334,
+        "completion_tokens_details": {
+          "reasoning_tokens": 195
+        },
+        "prompt_time": 0.880248626,
+        "prompt_tokens": 1059,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.282116998,
+        "total_time": 2.244992096,
+        "total_tokens": 1393
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1vffzerabxz9xvcv62vqp",
+        "seed": 449747526
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there,\n\nAnnual renewals normally use the account\u2019s current list price unless a specific renewal price was locked in when the original quote was agreed. If you think the renewal charge doesn\u2019t match the price you were quoted, the billing team will need to compare your contract or order form with the amount that was charged.\n\nPlease have the account owner or billing contact open a support request and reference the original quote. We\u2019ll then review the terms for your account and let you know whether a price adjustment or refund is possible.\n\nThanks for reaching out!"
+        },
+        "id": "fc_a8eb68b1-a629-4ad6-8dc0-34003458b4d9",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 334,
+      "prompt_tokens": 1059
+    }
+  },
+  "retry_after": null
+}

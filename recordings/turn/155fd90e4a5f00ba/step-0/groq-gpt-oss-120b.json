@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:24:23.115747Z",
+  "failure_detail": null,
+  "fingerprint": "9b58f2d85182d424eafdf922fdb4289b93c6e8005948da878f87751a35e83e90",
+  "outcome": "response",
+  "recording_id": "turn/155fd90e4a5f00ba/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer using policy excerpts. The question: \"How do I subscribe to incident notifications so my team hears about outages before customers start asking us?\" This is about subscribing to incident notifications. The policy excerpts provide info: status page has Subscribe option offering email, SMS, webhook; can be scoped to specific components; webhook is fastest; subscribing surfaces incident as it is happening. So we can answer with steps: go to status page, click Subscribe, choose channel, optionally scope to components, webhook for real-time integration. Provide concise answer.\n\nWe must post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can get real\u2011time outage alerts directly from our status page:\\n\\n1. Open the Meridian status page and click the **Subscribe** button.\\n2. Choose how you\u2019d like to receive notifications \u2013 email, SMS, or a webhook.\\n   * **Webhook** is the fastest option if you want to pipe alerts into an on\u2011call or alerting tool.\\n3. (Optional) Scope the subscription to the specific components your team cares about, so you only get alerts for the parts of the platform you depend on.\\n4. Save the subscription. You\u2019ll now receive a notification the moment an incident is opened, updated, or resolved, giving your team a heads\u2011up before customers start asking.\\n\\nIf you need help setting up a webhook or selecting components, let us know!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_48389434-233a-4a36-80de-7aecd64d219e",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452662,
+      "id": "chatcmpl-b233f3f1-f1ad-497b-b9ce-9edda3abc53f",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_6c36ac20de",
+      "usage": {
+        "completion_time": 0.675214351,
+        "completion_tokens": 305,
+        "completion_tokens_details": {
+          "reasoning_tokens": 115
+        },
+        "prompt_time": 1.072785592,
+        "prompt_tokens": 991,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.310904212,
+        "total_time": 1.747999943,
+        "total_tokens": 1296
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1bsh1en38kqcb261r8wmt",
+        "seed": 122772001
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can get real\u2011time outage alerts directly from our status page:\n\n1. Open the Meridian status page and click the **Subscribe** button.\n2. Choose how you\u2019d like to receive notifications \u2013 email, SMS, or a webhook.\n   * **Webhook** is the fastest option if you want to pipe alerts into an on\u2011call or alerting tool.\n3. (Optional) Scope the subscription to the specific components your team cares about, so you only get alerts for the parts of the platform you depend on.\n4. Save the subscription. You\u2019ll now receive a notification the moment an incident is opened, updated, or resolved, giving your team a heads\u2011up before customers start asking.\n\nIf you need help setting up a webhook or selecting components, let us know!"
+        },
+        "id": "fc_48389434-233a-4a36-80de-7aecd64d219e",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 305,
+      "prompt_tokens": 991
+    }
+  },
+  "retry_after": null
+}

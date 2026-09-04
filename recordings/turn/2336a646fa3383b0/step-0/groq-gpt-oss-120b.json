@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:20:10.553989Z",
+  "failure_detail": null,
+  "fingerprint": "199f239ce8db3a4b1fc232181bc5d12400946fac104797081d77039f033a66bd",
+  "outcome": "response",
+  "recording_id": "turn/2336a646fa3383b0/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"I fixed a formatting issue and I'm re-importing a file \u2014 will the rows that already succeeded the first time get duplicated?\" This is about import duplicate handling. According to DOC-019 part 2: If a row succeeded first import and is present unchanged in corrected file, it will be recognized as same record and updated rather than duplicated \u2014 as long as matching field wasn't the thing corrected. Also part 1 says importer matches by email or unique identifier and updates rather than creating second copy. So answer: No, they won't duplicate as long as you didn't change the matching field (email or identifier). If you changed that, you need to remove them. So answer accordingly. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"No \u2013 the importer will match rows that already succeeded and are unchanged in your corrected file (by email or the unique ID) and will update them in place rather than creating duplicates. Just make sure you didn\u2019t change the matching field (email or identifier); if you did, you\u2019d need to remove those rows from the file before re\u2011importing.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_0af069b6-fc11-4eda-8a12-abe61b5bed5c",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373210,
+      "id": "chatcmpl-aad817a0-bda8-4731-be21-0846e2f25876",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_068241849b",
+      "usage": {
+        "completion_time": 0.528960723,
+        "completion_tokens": 249,
+        "completion_tokens_details": {
+          "reasoning_tokens": 153
+        },
+        "prompt_time": 0.060715231,
+        "prompt_tokens": 1053,
+        "queue_time": 0.311840008,
+        "total_time": 0.589675954,
+        "total_tokens": 1302
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnk42xe06b29cg8ak3bhty",
+        "seed": 406355357
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "No \u2013 the importer will match rows that already succeeded and are unchanged in your corrected file (by email or the unique ID) and will update them in place rather than creating duplicates. Just make sure you didn\u2019t change the matching field (email or identifier); if you did, you\u2019d need to remove those rows from the file before re\u2011importing."
+        },
+        "id": "fc_0af069b6-fc11-4eda-8a12-abe61b5bed5c",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 249,
+      "prompt_tokens": 1053
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:13:59.342219Z",
+  "failure_detail": null,
+  "fingerprint": "69d5b9fd42b66a3a371819e4533e21f9ad094eae7f07981d4f270f7619353d54",
+  "outcome": "response",
+  "recording_id": "turn/82fa10cf7a9e6a9b/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Post-merger we have staff coming from two different companies, each with their own identity provider connected, and I want to consolidate everyone onto a single SSO connection \u2014 what's the supported provider list?\" They ask for supported provider list. The policy says: \"Meridian's SSO integration supports any identity provider that speaks SAML 2.0 or OpenID Connect, which covers the major providers in common use.\" That's the answer. Also mention that you can only have one provider per workspace, need to migrate accounts. Provide that list is any provider that supports SAML 2.0 or OIDC. So answer accordingly. No need to escalate. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Meridian\u2019s SSO works with any identity provider that supports SAML\u202f2.0 or OpenID\u202fConnect \u2013 that includes all of the major SSO providers. You\u2019ll need to pick one of those as the single source of truth for the workspace and migrate the other team\u2019s accounts to it.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_745e76ef-23ff-484a-988a-905c668baebe",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372839,
+      "id": "chatcmpl-6b94ff52-de25-4450-9371-4d0cb9afb132",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_77b12279f9",
+      "usage": {
+        "completion_time": 0.499246423,
+        "completion_tokens": 235,
+        "completion_tokens_details": {
+          "reasoning_tokens": 149
+        },
+        "prompt_time": 1.079171926,
+        "prompt_tokens": 1061,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.30645735,
+        "total_time": 1.578418349,
+        "total_tokens": 1296
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hn7ry3eh9tsbyxz4pq6x5j",
+        "seed": 411595489
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Meridian\u2019s SSO works with any identity provider that supports SAML\u202f2.0 or OpenID\u202fConnect \u2013 that includes all of the major SSO providers. You\u2019ll need to pick one of those as the single source of truth for the workspace and migrate the other team\u2019s accounts to it."
+        },
+        "id": "fc_745e76ef-23ff-484a-988a-905c668baebe",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 235,
+      "prompt_tokens": 1061
+    }
+  },
+  "retry_after": null
+}

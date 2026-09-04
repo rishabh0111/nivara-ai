@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:35:56.821178Z",
+  "failure_detail": null,
+  "fingerprint": "f0a4c4b94d45951155823a49b902dfabc8acfbeb657d2c96362442ed3da195a6",
+  "outcome": "response",
+  "recording_id": "turn/513b9b45655b0e14/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"Some of our customers in France are seeing the support portal in English even though we have French translations enabled.\" We need to refer to policy excerpts. Which relevant? The policy about custom domain? No. SSO? No. Fraud? No. So we need to find answer from policy. But we don't have policy about language settings. The question is about language translation. The policy excerpts provided do not cover this. According to instructions: If the question is not answered by policy excerpts, we must `escalate`. So we should call `escalate`.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer is reporting that some users in France see the support portal in English despite French translations being enabled. The provided policy excerpts do not contain information about language settings or troubleshooting translation issues. Therefore, I cannot answer this question from the policy and should hand it over to a human agent.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_86082425-6c11-4b89-95eb-261349d5ab74",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460556,
+      "id": "chatcmpl-bbd3d089-fc27-4d36-b6ce-428565c1e3e5",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_8e23cedc90",
+      "usage": {
+        "completion_time": 0.216870884,
+        "completion_tokens": 203,
+        "completion_tokens_details": {
+          "reasoning_tokens": 123
+        },
+        "prompt_time": 0.381617974,
+        "prompt_tokens": 1079,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.306241773,
+        "total_time": 0.598488858,
+        "total_tokens": 1282
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8wqg5ea8bt6aze6zmaggb",
+        "seed": 668661385
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer is reporting that some users in France see the support portal in English despite French translations being enabled. The provided policy excerpts do not contain information about language settings or troubleshooting translation issues. Therefore, I cannot answer this question from the policy and should hand it over to a human agent."
+        },
+        "id": "fc_86082425-6c11-4b89-95eb-261349d5ab74",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 203,
+      "prompt_tokens": 1079
+    }
+  },
+  "retry_after": null
+}

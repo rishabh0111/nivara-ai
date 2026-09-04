@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:57:17.186747Z",
+  "failure_detail": null,
+  "fingerprint": "5878a21db3484402da0336f4bf5c993997b3b2a3eebd5dd31e58643d4cd0198b",
+  "outcome": "response",
+  "recording_id": "turn/19a8cb2b2018f3f0/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"One of our staff forwarded a password-reset email they never requested and asked me to check whether it indicates an active takeover attempt.\"\n\nWe need to respond: explain that an unrequested password-reset email means someone entered the email into reset flow; the email itself doesn't grant access unless link clicked; it could be first step of broader attempt; recommend not clicking link, check sign-in and security settings, change password proactively, possibly reset 2FA, and contact support to review recent access history. Use policy excerpts.\n\nWe can answer directly, no need to escalate. Provide short specific answer.\n\nLet's craft reply: mention that unrequested reset email indicates someone tried to start reset, not necessarily takeover yet, but could be first step. Recommend not clicking, change password, review sign-in activity, possibly reset 2FA, and you can forward to support for review of recent access history.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"An unrequested password\u2011reset email means someone entered your staff member\u2019s address into the reset flow \u2013 the email itself doesn\u2019t give access unless the link is clicked and completed. It can be the first step in a broader takeover attempt, so it\u2019s worth treating it as a warning sign.\\n\\n**What to do next**\\n1. **Do not click the link** in the email.\\n2. Have the staff member sign in directly (not via the email link) and **change the password immediately**.\\n3. If two\u2011factor authentication is enabled, **reset the 2\u2011FA enrollment** to invalidate any potentially compromised session.\\n4. Review the account\u2019s recent sign\u2011in activity in the security settings.\\n5. If you want a deeper look, you can forward the email to support \u2013 we\u2019ll check the recent access history for any suspicious activity beyond the reset attempt.\\n\\nTaking these steps will protect the account and let us confirm whether any further compromise has occurred.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_4c8bf41e-29c0-4ca6-8371-3fa1f9250ff4",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454637,
+      "id": "chatcmpl-ced9d234-7179-4d02-9eb8-0f2f14be6f61",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e1a78f200e",
+      "usage": {
+        "completion_time": 0.887903654,
+        "completion_tokens": 423,
+        "completion_tokens_details": {
+          "reasoning_tokens": 194
+        },
+        "prompt_time": 0.052677996,
+        "prompt_tokens": 1082,
+        "queue_time": 0.366327732,
+        "total_time": 0.94058165,
+        "total_tokens": 1505
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m382aveqdakbp6fz1ygxpn",
+        "seed": 1870054247
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "An unrequested password\u2011reset email means someone entered your staff member\u2019s address into the reset flow \u2013 the email itself doesn\u2019t give access unless the link is clicked and completed. It can be the first step in a broader takeover attempt, so it\u2019s worth treating it as a warning sign.\n\n**What to do next**\n1. **Do not click the link** in the email.\n2. Have the staff member sign in directly (not via the email link) and **change the password immediately**.\n3. If two\u2011factor authentication is enabled, **reset the 2\u2011FA enrollment** to invalidate any potentially compromised session.\n4. Review the account\u2019s recent sign\u2011in activity in the security settings.\n5. If you want a deeper look, you can forward the email to support \u2013 we\u2019ll check the recent access history for any suspicious activity beyond the reset attempt.\n\nTaking these steps will protect the account and let us confirm whether any further compromise has occurred."
+        },
+        "id": "fc_4c8bf41e-29c0-4ca6-8371-3fa1f9250ff4",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 423,
+      "prompt_tokens": 1082
+    }
+  },
+  "retry_after": null
+}

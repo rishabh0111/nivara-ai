@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:30:30.839222Z",
+  "failure_detail": null,
+  "fingerprint": "af4242bf89dfed16fc2a3a1d0e1fc277fe9b5a50131b78703a7fb2c83d15a9bc",
+  "outcome": "response",
+  "recording_id": "turn/2a5e401e80821add/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer the question: \"Worried a role change erases past assignment records.\" The policy excerpts: DOC-033 part 1 says role change doesn't affect identity or history. Part 2 says assignment history attached to account, not role, so records remain. So answer: role change doesn't erase past assignment records; they remain visible in history. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"No, changing a seat\u2019s role does not delete past assignment records. The history is tied to the person\u2019s account, not their current role, so all previous assignments remain visible in the assignment history. The role change only affects what they can do going forward.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_8c9ae48c-3978-41c4-8acd-12ba4a59f804",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460230,
+      "id": "chatcmpl-1461fcf5-fbc9-4374-80ec-fa462bbb399b",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_a4315eb300",
+      "usage": {
+        "completion_time": 0.159833404,
+        "completion_tokens": 152,
+        "completion_tokens_details": {
+          "reasoning_tokens": 78
+        },
+        "prompt_time": 0.052760136,
+        "prompt_tokens": 1058,
+        "queue_time": 0.319633177,
+        "total_time": 0.21259354,
+        "total_tokens": 1210
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8jskse04t9gx6f6ktvvy6",
+        "seed": 1671071536
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "No, changing a seat\u2019s role does not delete past assignment records. The history is tied to the person\u2019s account, not their current role, so all previous assignments remain visible in the assignment history. The role change only affects what they can do going forward."
+        },
+        "id": "fc_8c9ae48c-3978-41c4-8acd-12ba4a59f804",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 152,
+      "prompt_tokens": 1058
+    }
+  },
+  "retry_after": null
+}

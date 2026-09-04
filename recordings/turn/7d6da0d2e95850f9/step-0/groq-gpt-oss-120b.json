@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:26:10.252711Z",
+  "failure_detail": null,
+  "fingerprint": "19b812d3d14a798adca1c67a2facae107a6bc7f66b298e4856e2b87acbd4d4ca",
+  "outcome": "response",
+  "recording_id": "turn/7d6da0d2e95850f9/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks for a written summary of the incident and whether data was affected. The policy says every resolved incident gets a written summary, describing what happened, affected window, and whether any data was affected. Summaries note if no data was affected. So we can answer: Yes, a summary will be posted on the incident entry on the status page, includes details, and if no data was affected it will be noted. Provide guidance where to find it. This is within policy. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there!\u202fWhen an incident is marked resolved, we add a written summary directly to the same incident entry on our status page. The summary includes what happened, the time window that was affected, and\u2014if relevant\u2014whether any customer data was impacted. For incidents where no data was affected, the summary explicitly states that there was no data impact. You can view the full summary by opening the incident on the status page; it will be listed alongside the live updates from the incident.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_acb57fbd-ccae-4ef3-a908-bd810b90b0e6",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452770,
+      "id": "chatcmpl-b75d2195-d410-461d-b87d-5ec4e4ccbea2",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_fe269835c7",
+      "usage": {
+        "completion_time": 0.866732156,
+        "completion_tokens": 236,
+        "completion_tokens_details": {
+          "reasoning_tokens": 113
+        },
+        "prompt_time": 1.105075837,
+        "prompt_tokens": 1048,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.62037188,
+        "total_time": 1.971807993,
+        "total_tokens": 1284
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1f1tbewg8w9panqpm02cb",
+        "seed": 1459853189
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there!\u202fWhen an incident is marked resolved, we add a written summary directly to the same incident entry on our status page. The summary includes what happened, the time window that was affected, and\u2014if relevant\u2014whether any customer data was impacted. For incidents where no data was affected, the summary explicitly states that there was no data impact. You can view the full summary by opening the incident on the status page; it will be listed alongside the live updates from the incident."
+        },
+        "id": "fc_acb57fbd-ccae-4ef3-a908-bd810b90b0e6",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 236,
+      "prompt_tokens": 1048
+    }
+  },
+  "retry_after": null
+}

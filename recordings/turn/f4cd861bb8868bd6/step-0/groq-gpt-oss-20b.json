@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:34:14.008484Z",
+  "failure_detail": null,
+  "fingerprint": "cae390f99b82f1b0559ebbe9eb670a8e4c705773ac7ac30ca935caa95ae09fba",
+  "outcome": "response",
+  "recording_id": "turn/f4cd861bb8868bd6/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"slow pages for 20 min, platform-wide or us?\" They want to know if slowdown is platform-wide or local. According to policy: check status page. If nothing appears, likely local. So answer: check status page, if no incident, likely local. Provide guidance. Use policy.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! A 20\u2011minute slowdown could be either a platform\u2011wide issue or a local one. First, check our status page \u2013 any platform\u2011wide degradation (even a short one) will be listed there with start/end times and affected components. If you don\u2019t see an incident for that window, it\u2019s most likely a local issue such as a browser extension, network conditions, or a large amount of data loading for your workspace. Let me know if you find anything on the status page or if you need help troubleshooting locally!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f907e67f-9068-4be5-82c8-a95e4b005f63",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460453,
+      "id": "chatcmpl-0e5c9d5c-0309-46a2-8173-d7925e8f4be5",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4a35f7bd1b",
+      "usage": {
+        "completion_time": 0.223117751,
+        "completion_tokens": 199,
+        "completion_tokens_details": {
+          "reasoning_tokens": 69
+        },
+        "prompt_time": 0.062483719,
+        "prompt_tokens": 1038,
+        "queue_time": 0.289287125,
+        "total_time": 0.28560147,
+        "total_tokens": 1237
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8skbsekcspxzxeb4zwrtp",
+        "seed": 728698935
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! A 20\u2011minute slowdown could be either a platform\u2011wide issue or a local one. First, check our status page \u2013 any platform\u2011wide degradation (even a short one) will be listed there with start/end times and affected components. If you don\u2019t see an incident for that window, it\u2019s most likely a local issue such as a browser extension, network conditions, or a large amount of data loading for your workspace. Let me know if you find anything on the status page or if you need help troubleshooting locally!"
+        },
+        "id": "fc_f907e67f-9068-4be5-82c8-a95e4b005f63",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 199,
+      "prompt_tokens": 1038
+    }
+  },
+  "retry_after": null
+}

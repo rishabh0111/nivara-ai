@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:06:26.105820Z",
+  "failure_detail": null,
+  "fingerprint": "f074f4caa0410429df3877ae0a385647bd40ae1b4132ff0a4025b701260beb06",
+  "outcome": "response",
+  "recording_id": "turn/d4f410838fffb4f1/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"A record created only a few minutes ago doesn't show up when I search for it by name or reference, even though navigating directly to it works fine \u2014 is there some delay before new records become searchable?\" This matches DOC-035 about indexing delay. Provide answer: Yes, search index updates shortly after creation, may lag a couple minutes; usually resolves on its own. If still not after several minutes, report. So we can answer.\n\nWe need to post_reply with concise answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 search runs against an index that is updated shortly after a record is created, so there can be a brief lag. Usually the record appears in search within a few minutes without any action needed. If it still isn\u2019t searchable after several minutes, please let us know so we can investigate.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_1aff19a9-4523-4918-963a-7da310e6f4b0",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451586,
+      "id": "chatcmpl-4ba00755-eca1-49b0-be89-90a154a7fd3c",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_dee443f41b",
+      "usage": {
+        "completion_time": 0.607737191,
+        "completion_tokens": 194,
+        "completion_tokens_details": {
+          "reasoning_tokens": 110
+        },
+        "prompt_time": 4.145196744,
+        "prompt_tokens": 1063,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.871532894,
+        "total_time": 4.752933935,
+        "total_tokens": 1257
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0athae4fsnq9hc6w51b8r",
+        "seed": 1461705694
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 search runs against an index that is updated shortly after a record is created, so there can be a brief lag. Usually the record appears in search within a few minutes without any action needed. If it still isn\u2019t searchable after several minutes, please let us know so we can investigate."
+        },
+        "id": "fc_1aff19a9-4523-4918-963a-7da310e6f4b0",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 194,
+      "prompt_tokens": 1063
+    }
+  },
+  "retry_after": null
+}

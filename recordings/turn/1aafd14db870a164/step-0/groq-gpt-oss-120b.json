@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:27:49.003451Z",
+  "failure_detail": null,
+  "fingerprint": "80cd07c806343b6612c278e570d2c2659f5aee88ac9dcc620f5dd915debe3032",
+  "outcome": "response",
+  "recording_id": "turn/1aafd14db870a164/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"We think webhook payloads are being silently truncated for large records after a change on our own side \u2014 how do we build a batching strategy around the real limit?\" They ask about building a batching strategy around the real limit. The policy says: payload size capped, large records delivered as reference with truncated flag, need to fetch full record. Also says batching many changes into fewer webhook calls is not configurable \u2014 each change is its own event \u2014 so batching strategy belongs on receiving side, buffering fetched records rather than buffering webhook deliveries. So answer: explain that webhook payloads are not silently truncated; they are flagged truncated and you should fetch full record; you cannot configure batching; you need to implement buffering on your side after fetching records, etc.\n\nThus we can answer using those excerpts. Provide short specific answer. Use post_reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! Meridian webhooks never silently truncate a payload \u2013 when a record\u2019s full content would exceed the fixed payload size the webhook sends only an `id` with `truncated: true`. Your consumer should treat that flag as a signal to fetch the complete record via the API.\\n\\nAlso, the number of webhook calls can\u2019t be reduced on our side \u2013 each change is delivered as its own event. Any \u201cbatching\u201d has to be done on the receiving side: buffer the incoming events, then fetch the full records (or the ones flagged as truncated) in batches from the API and process them together.\\n\\nSo the strategy is:\\n1. Listen to each webhook event as it arrives.\\n2. When you see `truncated: true`, call the API to retrieve the full record.\\n3. Accumulate those fetched records in your own queue or batch processor and handle them in groups of your choosing.\\n\\nThis way you stay within the payload limit and still get the benefits of batch processing on your end.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_8ae14093-f2d0-45f9-9ccf-007f9f923e9c",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373668,
+      "id": "chatcmpl-6fdcee59-cf74-4431-b3c4-4349330b7116",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_8ea50c0161",
+      "usage": {
+        "completion_time": 0.881922181,
+        "completion_tokens": 414,
+        "completion_tokens_details": {
+          "reasoning_tokens": 178
+        },
+        "prompt_time": 0.095042497,
+        "prompt_tokens": 1086,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.312620695,
+        "total_time": 0.976964678,
+        "total_tokens": 1500
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hp13ree4vr1zsqa4jjfae7",
+        "seed": 1903041286
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! Meridian webhooks never silently truncate a payload \u2013 when a record\u2019s full content would exceed the fixed payload size the webhook sends only an `id` with `truncated: true`. Your consumer should treat that flag as a signal to fetch the complete record via the API.\n\nAlso, the number of webhook calls can\u2019t be reduced on our side \u2013 each change is delivered as its own event. Any \u201cbatching\u201d has to be done on the receiving side: buffer the incoming events, then fetch the full records (or the ones flagged as truncated) in batches from the API and process them together.\n\nSo the strategy is:\n1. Listen to each webhook event as it arrives.\n2. When you see `truncated: true`, call the API to retrieve the full record.\n3. Accumulate those fetched records in your own queue or batch processor and handle them in groups of your choosing.\n\nThis way you stay within the payload limit and still get the benefits of batch processing on your end."
+        },
+        "id": "fc_8ae14093-f2d0-45f9-9ccf-007f9f923e9c",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 414,
+      "prompt_tokens": 1086
+    }
+  },
+  "retry_after": null
+}

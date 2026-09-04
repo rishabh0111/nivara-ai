@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:55:32.360657Z",
+  "failure_detail": null,
+  "fingerprint": "bb26beb018092d43c9f0df84024ffc8792bc8979c8a0b475dda9f64afba336b5",
+  "outcome": "response",
+  "recording_id": "turn/22157c44bdf40dc4/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user says: \"This is happening right now, an employee is being pressured urgently to change payment details \u2014 I need to know if this is fraud immediately.\"\n\nWe have policy about recognizing executive-impersonation requests about payment details. The answer: Yes, this is likely fraud; they should verify directly via other channel, not act, and report to support. Provide guidance.\n\nWe can answer directly, using policy. No need to escalate. Provide short specific answer.\n\nThus we will post_reply with guidance: It's a common fraud pattern, even if includes correct details; they should verify via separate channel, not change payment details, and report to support.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes\u2014this matches a known fraud pattern. Even if the message includes correct account details, attackers often obtain that information from public sources. Payment details should never be changed based on an urgent, unverified request. The employee should verify the request directly with the supposed sender using a separate communication channel, and immediately report the message to Meridian support so we can review the account for any related activity.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f34f0c20-3696-4d37-aeec-a40207fb496c",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454531,
+      "id": "chatcmpl-2c20ac3a-6695-402e-a85e-bba9040e5f0e",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_bb691ea66b",
+      "usage": {
+        "completion_time": 1.250584038,
+        "completion_tokens": 244,
+        "completion_tokens_details": {
+          "reasoning_tokens": 141
+        },
+        "prompt_time": 0.05509929,
+        "prompt_tokens": 1120,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.366554562,
+        "total_time": 1.305683328,
+        "total_tokens": 1364
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m34v85esfb5dzc7mw8k9pq",
+        "seed": 1807667699
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes\u2014this matches a known fraud pattern. Even if the message includes correct account details, attackers often obtain that information from public sources. Payment details should never be changed based on an urgent, unverified request. The employee should verify the request directly with the supposed sender using a separate communication channel, and immediately report the message to Meridian support so we can review the account for any related activity."
+        },
+        "id": "fc_f34f0c20-3696-4d37-aeec-a40207fb496c",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 244,
+      "prompt_tokens": 1120
+    }
+  },
+  "retry_after": null
+}

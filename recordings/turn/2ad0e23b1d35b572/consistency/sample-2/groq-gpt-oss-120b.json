@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T17:52:55.698965Z",
+  "failure_detail": null,
+  "fingerprint": "c272736c279e097c80dd9f2d913bd6864e246f5ce97da4ab3f78152e262a2802",
+  "outcome": "response",
+  "recording_id": "turn/2ad0e23b1d35b572/consistency/sample-2/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to read the conversation. The user asks: \"bank transfer accepted?\" Likely they want to know if bank transfer is accepted as a payment method. From policy excerpts:\n\nDOC-005: Annual contracts can also be paid by bank transfer against an invoice, arranged through support before contract starts rather than self-served. Monthly plans are card-only; a workspace wanting bank transfer needs to be on an annual term first.\n\nThus answer: Yes, bank transfers are accepted for annual contracts, not for monthly plans. They need to arrange through support before contract starts, set up invoiced billing.\n\nWe can answer based on policy. The question is short. Provide answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 we accept bank\u2011transfer payments, but only for annual contracts. You\u2019ll need to arrange the transfer with our support team before the contract starts and set up invoiced billing. Monthly plans can be paid by card only.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_d603d8e3-370d-416e-89c2-b9f250511d61",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371575,
+      "id": "chatcmpl-8559caab-7d4a-4517-9a2b-cbb25fd6bcef",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_77b12279f9",
+      "usage": {
+        "completion_time": 0.440190456,
+        "completion_tokens": 210,
+        "completion_tokens_details": {
+          "reasoning_tokens": 139
+        },
+        "prompt_time": 0.96973931,
+        "prompt_tokens": 1076,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.307491115,
+        "total_time": 1.4099297659999999,
+        "total_tokens": 1286
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hm1765efqt210grj8xmewx",
+        "seed": 1912983135
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 we accept bank\u2011transfer payments, but only for annual contracts. You\u2019ll need to arrange the transfer with our support team before the contract starts and set up invoiced billing. Monthly plans can be paid by card only."
+        },
+        "id": "fc_d603d8e3-370d-416e-89c2-b9f250511d61",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 210,
+      "prompt_tokens": 1076
+    }
+  },
+  "retry_after": null
+}

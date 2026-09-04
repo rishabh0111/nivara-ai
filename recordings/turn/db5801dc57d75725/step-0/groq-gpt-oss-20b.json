@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:32:30.067247Z",
+  "failure_detail": null,
+  "fingerprint": "615a079f0e965d10bbe9bac37a4df95fc0a173e7b7056dc9da869d6d6c23b2ef",
+  "outcome": "response",
+  "recording_id": "turn/db5801dc57d75725/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer the question: \"Does a custom domain need a CNAME pointed at Meridian, or is there also a verification TXT record required?\" The policy excerpts mention that two records are required: a CNAME pointing the chosen subdomain at Meridian's portal address, and a TXT record used to verify ownership of the domain before the custom domain is activated. So answer: yes, both are required. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 you need both. Add a CNAME that points your chosen sub\u2011domain to Meridian\u2019s portal address, and also add the TXT record Meridian provides to verify ownership before the custom domain becomes active.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_194a6147-d779-4d9f-876b-6ba0ed119091",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460349,
+      "id": "chatcmpl-595ee1fa-c1fe-41ec-a9cd-73f2bc069f36",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9b8528b477",
+      "usage": {
+        "completion_time": 0.159699163,
+        "completion_tokens": 149,
+        "completion_tokens_details": {
+          "reasoning_tokens": 86
+        },
+        "prompt_time": 0.571776744,
+        "prompt_tokens": 1103,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.281885662,
+        "total_time": 0.731475907,
+        "total_tokens": 1252
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8pdg0e99rvynwzqyxjcv6",
+        "seed": 1950320221
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 you need both. Add a CNAME that points your chosen sub\u2011domain to Meridian\u2019s portal address, and also add the TXT record Meridian provides to verify ownership before the custom domain becomes active."
+        },
+        "id": "fc_194a6147-d779-4d9f-876b-6ba0ed119091",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 149,
+      "prompt_tokens": 1103
+    }
+  },
+  "retry_after": null
+}

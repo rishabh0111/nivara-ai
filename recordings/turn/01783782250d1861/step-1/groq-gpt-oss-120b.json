@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:35:38.417167Z",
+  "failure_detail": null,
+  "fingerprint": "f9baba633fa4cd3df758e2ba87a7077a54516adb9d1017cde4c377b8cae6a183",
+  "outcome": "response",
+  "recording_id": "turn/01783782250d1861/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We have a customer message: \"unknown API key pulling our data, revoke and investigate\". They want to revoke unknown API key and investigate. According to policy excerpts: This is about reporting an unrecognised or compromised API key. The policy says: immediate self-service step is revoking the key from Settings \u2192 Developer \u2192 API keys. Also reporting to support alongside revoking starts investigation. So we can answer with steps: revoke key, then report to support. Provide guidance. This is covered by policy. So we can post reply.\n\nWe must keep answer short and specific, address customer directly. Provide steps.\n\nThus use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there,\\n\\nIf you see an API key you don\u2019t recognize, you can revoke it right away: go to **Settings \u2192 Developer \u2192 API keys** and click **Revoke** next to the unknown key. Revoking stops any further use instantly.\\n\\nAfter revoking, please let us know by replying here (or opening a support ticket) so we can start a security investigation and review the request logs to see what data may have been accessed.\\n\\nLet us know if you need any help with the revocation process.\\n\\nThanks!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_68be4a74-f68c-43d7-ba67-5d8733c256df",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453337,
+      "id": "chatcmpl-d3229c9a-57d5-47c6-b5f5-e0ae62fafcc0",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_f73454f048",
+      "usage": {
+        "completion_time": 0.595984564,
+        "completion_tokens": 267,
+        "completion_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "prompt_time": 0.346616119,
+        "prompt_tokens": 1084,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.282609688,
+        "total_time": 0.942600683,
+        "total_tokens": 1351
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m20dnyefjb54hw510rxkz3",
+        "seed": 746810004
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there,\n\nIf you see an API key you don\u2019t recognize, you can revoke it right away: go to **Settings \u2192 Developer \u2192 API keys** and click **Revoke** next to the unknown key. Revoking stops any further use instantly.\n\nAfter revoking, please let us know by replying here (or opening a support ticket) so we can start a security investigation and review the request logs to see what data may have been accessed.\n\nLet us know if you need any help with the revocation process.\n\nThanks!"
+        },
+        "id": "fc_68be4a74-f68c-43d7-ba67-5d8733c256df",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 267,
+      "prompt_tokens": 1084
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T17:13:01.527791Z",
+  "failure_detail": null,
+  "fingerprint": "7aab91d07991499d13ce1bb8a0e9cb0d46ae42f368ec2ae3392ed661802908b8",
+  "outcome": "response",
+  "recording_id": "turn/4e93ca08db5c7117/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question is about bulk closing tickets not all closing. The provided excerpts are about custom reports, response-time metrics, seat limits, charges after cancellation, export includes. None address bulk closing behavior. So we cannot answer; must escalate. Also not about money movement, disputed charge, identity. It's ambiguous? It's about a bug/issue. Not covered. So we must escalate.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer reports that bulk closing 40 tickets only closed about half. The provided policy excerpts do not cover bulk actions or ticket closing behavior, so I cannot answer from the allowed content. Escalating to a human for further assistance.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_20b904fc-90e4-494f-954f-c3ed5e56eaef",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788455581,
+      "id": "chatcmpl-40ec78f4-3fd2-4f9b-b270-07f3af1de7ed",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e5b4e54fbb",
+      "usage": {
+        "completion_time": 0.338022492,
+        "completion_tokens": 159,
+        "completion_tokens_details": {
+          "reasoning_tokens": 86
+        },
+        "prompt_time": 0.075921932,
+        "prompt_tokens": 1130,
+        "queue_time": 0.669837255,
+        "total_time": 0.413944424,
+        "total_tokens": 1289
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m44wrfev4s25akh6v0q06g",
+        "seed": 1244320226
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer reports that bulk closing 40 tickets only closed about half. The provided policy excerpts do not cover bulk actions or ticket closing behavior, so I cannot answer from the allowed content. Escalating to a human for further assistance."
+        },
+        "id": "fc_20b904fc-90e4-494f-954f-c3ed5e56eaef",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 159,
+      "prompt_tokens": 1130
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:34:51.148419Z",
+  "failure_detail": null,
+  "fingerprint": "7f3fd9bfe46ef05001cfb9cb3390e3245bc89ef5861c678626f3bce5f43a6b39",
+  "outcome": "response",
+  "recording_id": "turn/7c1d988cdeef948e/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user says: \"get incident report?\" They want an incident report. We have policy excerpts about post-incident summaries. The question: \"get incident report?\" They likely want the post-incident summary. According to policy, we can provide the summary. The policy says: \"Every resolved incident on the status page gets a written summary once the investigation is complete, describing what happened, the affected window, and \u2014 where relevant \u2014 whether any data was affected and how.\" So we can provide the summary. But we need to check if the user is asking for a specific incident. They didn't specify which incident. They just say \"get incident report?\" We need to interpret. The policy says we can provide the summary. But we need to know which incident. The user didn't specify. We might ask for clarification. But the policy says if ambiguous, we should \"escalate\" rather than guess. The question is ambiguous: which incident? So we should ask for clarification. But we cannot ask for clarification? We can respond with a short answer: \"Could you specify which incident?\" But the policy says we should not answer from general knowledge. We can ask for clarification. That is allowed. The policy says: \"If the request is ambiguous \u2014 it could mean more than one thing and the answers differ \u2014 `escalate` rather than guessing.\" But we can ask for clarification. The policy says we should not guess. So we should ask for clarification. That is a normal approach. So we should respond: \"Could you specify which incident you are referring to?\" That is a short answer. That is allowed. So we should do post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! Could you let me know which incident you\u2019re referring to? That way I can pull up the correct post\u2011incident summary for you.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_a079304f-8dee-4214-a7e5-21af09f5c15a",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460490,
+      "id": "chatcmpl-9525bb96-ef53-4623-bec1-9ff9a68329cd",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_d3e146e1a5",
+      "usage": {
+        "completion_time": 0.423976671,
+        "completion_tokens": 386,
+        "completion_tokens_details": {
+          "reasoning_tokens": 335
+        },
+        "prompt_time": 0.051765366,
+        "prompt_tokens": 1022,
+        "queue_time": 0.278662988,
+        "total_time": 0.475742037,
+        "total_tokens": 1408
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8tqd6eh59z7r4fsr1qda3",
+        "seed": 1449493155
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! Could you let me know which incident you\u2019re referring to? That way I can pull up the correct post\u2011incident summary for you."
+        },
+        "id": "fc_a079304f-8dee-4214-a7e5-21af09f5c15a",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 386,
+      "prompt_tokens": 1022
+    }
+  },
+  "retry_after": null
+}

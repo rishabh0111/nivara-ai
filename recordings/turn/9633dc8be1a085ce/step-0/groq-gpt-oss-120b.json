@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:43:21.452716Z",
+  "failure_detail": null,
+  "fingerprint": "55fb2bdd52876ddfcdb1c230ef4876395cd72dfe43065d82baa151c2801edbc7",
+  "outcome": "response",
+  "recording_id": "turn/9633dc8be1a085ce/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to interpret the customer's request: \"totally locked out, need identity verification\". This is about account recovery, likely needing identity verification. According to policy, identity verification is a sensitive area. The policy excerpts include about updating email after it no longer exists, reclaiming admin access, etc. The request is ambiguous: \"totally locked out, need identity verification\". Could be about needing to verify identity to regain access. This falls under account-recovery-ownership. The policy says that such cases require human review; the user should contact support directly. The policy says: \"Because what is available to verify identity depends on the specific account, this is reviewed case by case by a human reviewer, and the account owner should contact support directly rather than attempt a standard password or email reset\". So we should not provide a direct answer, but likely we need to escalate? The policy says we should direct them to contact support, but we are support. The policy says we should not give instructions for identity verification; we need to hand off to human. The request is ambiguous? It's about identity verification to unlock account. This is a sensitive area. According to rules: If the request is about identity or account-recovery documents, we must escalate. Indeed: \"If the question is about money movement, a disputed or fraudulent charge, or identity or account-recovery documents, `escalate`.\" So we must escalate.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer is locked out and requests identity verification to regain access. This falls under identity/account-recovery verification, which according to policy requires escalation to a human reviewer.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_e819a219-d8cf-42e5-b5e6-5bd6d01eb487",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453801,
+      "id": "chatcmpl-3f6737f5-96f0-43f7-a8bb-281a312795bb",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e5b4e54fbb",
+      "usage": {
+        "completion_time": 2.120744545,
+        "completion_tokens": 346,
+        "completion_tokens_details": {
+          "reasoning_tokens": 287
+        },
+        "prompt_time": 1.3761561119999999,
+        "prompt_tokens": 1093,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.36808834,
+        "total_time": 3.496900657,
+        "total_tokens": 1439
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2efp5ec7t6epfqc7brp9y",
+        "seed": 1759806505
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer is locked out and requests identity verification to regain access. This falls under identity/account-recovery verification, which according to policy requires escalation to a human reviewer."
+        },
+        "id": "fc_e819a219-d8cf-42e5-b5e6-5bd6d01eb487",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 346,
+      "prompt_tokens": 1093
+    }
+  },
+  "retry_after": null
+}

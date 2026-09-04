@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:07:03.721181Z",
+  "failure_detail": null,
+  "fingerprint": "a5eb20ba39d8fed865c5465e67e0b9d3f2d79853c7fac76d115c469426ae4c4a",
+  "outcome": "response",
+  "recording_id": "turn/bc225050ca4abe3a/consistency/sample-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to infer the customer's question: they have a new phone, 2FA codes are wrong now. They likely need to re-enroll two-factor authentication after losing access to the app. The policy excerpts include instructions: from Settings \u2192 Security \u2192 Two-factor authentication, choose \u201cReset\u201d and re-enroll, scanning new QR code, confirming with fresh six-digit code. Also mention saved recovery code can be used.\n\nThus we can answer with that guidance. No need to escalate. Provide steps.\n\nWe must ensure we don't mention policies. Provide short specific answer. Use the excerpts content. So answer: go to settings, reset 2FA, re-enroll, or use recovery code.\n\nThus call post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If you\u2019ve upgraded to a new phone, the authenticator app on the new device generates different codes because the original secret was tied to the old install. To fix this, go to **Settings \u2192 Security \u2192 Two\u2011factor authentication**, tap **Reset**, and then set up 2FA again just like a first\u2011time enrollment \u2013 scan the new QR code and confirm with the fresh six\u2011digit code. If you still have a recovery code from the original enrollment, you can use that to sign in and reset the 2FA settings instead.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_56258c44-f0c6-46fb-b223-739f3d0443b0",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372423,
+      "id": "chatcmpl-65537d88-20e9-4fdb-af36-82009fd419ba",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_6dedd2be22",
+      "usage": {
+        "completion_time": 0.585296235,
+        "completion_tokens": 280,
+        "completion_tokens_details": {
+          "reasoning_tokens": 145
+        },
+        "prompt_time": 0.053793397,
+        "prompt_tokens": 1156,
+        "queue_time": 0.158741509,
+        "total_time": 0.639089632,
+        "total_tokens": 1436
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmv47deg399sb5ss0e9nx5",
+        "seed": 1284066653
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If you\u2019ve upgraded to a new phone, the authenticator app on the new device generates different codes because the original secret was tied to the old install. To fix this, go to **Settings \u2192 Security \u2192 Two\u2011factor authentication**, tap **Reset**, and then set up 2FA again just like a first\u2011time enrollment \u2013 scan the new QR code and confirm with the fresh six\u2011digit code. If you still have a recovery code from the original enrollment, you can use that to sign in and reset the 2FA settings instead."
+        },
+        "id": "fc_56258c44-f0c6-46fb-b223-739f3d0443b0",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 280,
+      "prompt_tokens": 1156
+    }
+  },
+  "retry_after": null
+}

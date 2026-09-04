@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:32:25.038624Z",
+  "failure_detail": null,
+  "fingerprint": "2ac0788e32594c435121f5ce16079bced2006737c3c2a5bb9d154bd2abfa7909",
+  "outcome": "response",
+  "recording_id": "turn/47abb1d4501341fa/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user says they cancelled before renewal, got charged, wants reversal and confirmation it stops. This is about a charge after cancellation. According to DOC-055 parts 1 and 2: cancellation should stop next renewal, charge after cancellation is a billing discrepancy, billing team investigates. The review checks timing, not something a general article can determine, and confirms what happened and renewal status. So we can respond that the billing team will investigate, they cannot reverse automatically, and they'll confirm status. Provide short answer. Not to mention policy. So we should post_reply with answer.\n\nWe must not mention we are a bot, just address customer. Provide steps: we\u2019ll forward to billing team, they\u2019ll review cancellation record vs charge timing, will get back with resolution, may take some time. Can't reverse instantly. Provide reassurance.\n\nThus use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"I\u2019m sorry you were charged after cancelling. Our billing team will review the timing of your cancellation against the charge and confirm the current renewal status. Because this involves a billing discrepancy, we can\u2019t reverse the charge automatically, but we\u2019ll investigate and get back to you with a resolution as quickly as possible.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_770bcede-2ffa-436e-8604-64796583bd07",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453144,
+      "id": "chatcmpl-4a1daa1d-360d-4794-a797-2866952887d1",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_96d96a151c",
+      "usage": {
+        "completion_time": 0.922529162,
+        "completion_tokens": 266,
+        "completion_tokens_details": {
+          "reasoning_tokens": 180
+        },
+        "prompt_time": 0.280648961,
+        "prompt_tokens": 1091,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.281321018,
+        "total_time": 1.203178123,
+        "total_tokens": 1357
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1tgy6eyy9me2ch6hgpzhq",
+        "seed": 680050371
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "I\u2019m sorry you were charged after cancelling. Our billing team will review the timing of your cancellation against the charge and confirm the current renewal status. Because this involves a billing discrepancy, we can\u2019t reverse the charge automatically, but we\u2019ll investigate and get back to you with a resolution as quickly as possible."
+        },
+        "id": "fc_770bcede-2ffa-436e-8604-64796583bd07",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 266,
+      "prompt_tokens": 1091
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,75 @@
+{
+  "captured_at": "2026-09-02T18:15:24.657545Z",
+  "failure_detail": null,
+  "fingerprint": "0213aca4730af899c1011519b7d57285e698a360f195a806fdf4172fee566515",
+  "outcome": "response",
+  "recording_id": "turn/4922dd36f9ea40f2/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to read conversation to see context.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{}",
+                  "name": "read_conversation"
+                },
+                "id": "fc_7acff891-a7b8-4d7e-9d80-38691bf2f517",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372924,
+      "id": "chatcmpl-54e195ed-aef6-4e91-9745-954dcbba81cc",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5082008e34",
+      "usage": {
+        "completion_time": 0.064736399,
+        "completion_tokens": 30,
+        "completion_tokens_details": {
+          "reasoning_tokens": 10
+        },
+        "prompt_time": 0.051988923,
+        "prompt_tokens": 1010,
+        "queue_time": 0.283318416,
+        "total_time": 0.116725322,
+        "total_tokens": 1040
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnadn6ee1ag3nd2fk4kg0j",
+        "seed": 787823866
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {},
+        "id": "fc_7acff891-a7b8-4d7e-9d80-38691bf2f517",
+        "name": "read_conversation"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 30,
+      "prompt_tokens": 1010
+    }
+  },
+  "retry_after": null
+}

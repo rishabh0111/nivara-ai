@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:05:29.608821Z",
+  "failure_detail": null,
+  "fingerprint": "83c7ba0737efc780e611ad7411e5ff939158b736e0593bcb1957a4fcf2146749",
+  "outcome": "response",
+  "recording_id": "turn/f075b3f78d31f609/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The customer wants to add an extra login step to their account. That sounds like enabling two-factor authentication (2FA). The policy excerpts include info about investigating unrecognised sign-in (DOC-059) and reporting suspected compromise (DOC-057). But nothing about enabling extra login step. There's no excerpt about enabling 2FA. The policy says answer only from provided excerpts. Since no excerpt covers adding extra login step, we must escalate. Also note that it's not about money movement, fraud, identity docs. It's about security settings. But we have no policy excerpt for enabling 2FA. So we must escalate.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer wants to add an extra login step (likely two-factor authentication). The provided policy excerpts do not contain information on how to enable or configure additional login steps. Since I cannot answer from the given excerpts, I am escalating the conversation.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_e2ba104c-c1e3-451c-8683-1da3d8fb3381",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372328,
+      "id": "chatcmpl-b52a3242-b4db-47d0-b88d-be51658a3ee7",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9d1f936695",
+      "usage": {
+        "completion_time": 0.549285372,
+        "completion_tokens": 200,
+        "completion_tokens_details": {
+          "reasoning_tokens": 126
+        },
+        "prompt_time": 1.42872847,
+        "prompt_tokens": 1045,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.312965104,
+        "total_time": 1.978013842,
+        "total_tokens": 1245
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmr68ee39vmk6w1sktjsq7",
+        "seed": 426455804
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer wants to add an extra login step (likely two-factor authentication). The provided policy excerpts do not contain information on how to enable or configure additional login steps. Since I cannot answer from the given excerpts, I am escalating the conversation."
+        },
+        "id": "fc_e2ba104c-c1e3-451c-8683-1da3d8fb3381",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 200,
+      "prompt_tokens": 1045
+    }
+  },
+  "retry_after": null
+}

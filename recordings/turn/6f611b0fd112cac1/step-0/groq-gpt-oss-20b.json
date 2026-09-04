@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:22:08.802880Z",
+  "failure_detail": null,
+  "fingerprint": "ea3769fcf4c9fbde2e470792a90a05016a68b910d6d7a0e08a12bfa36402cb91",
+  "outcome": "response",
+  "recording_id": "turn/6f611b0fd112cac1/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"Is the invoice recipient tied to my personal login, or can I set a separate email address just for billing?\" We have policy excerpts about changing who receives invoice emails. They say: By default, invoice emails go to the workspace's billing contact, usually whoever set up billing originally. To send invoices to a different address, open Settings \u2192 Billing \u2192 Recipients and add or replace the billing contact email. Multiple recipients can be added, so a shared inbox can be added alongside rather than instead of an individual's address. So answer: It's not tied to personal login; you can set separate email address. Provide steps. Also mention that change applies to next invoice. So answer accordingly.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can change the email that receives invoices. By default it goes to the workspace\u2019s billing contact (usually the person who set up billing). In Settings \u2192 Billing \u2192 Recipients you can add or replace that address with any email you want \u2013 even a shared inbox \u2013 and you can add multiple recipients. The change takes effect on the next invoice that\u2019s generated. \"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_8618c236-d7c9-4550-95ad-aaa5662cc8b5",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459728,
+      "id": "chatcmpl-078160e8-4a74-40d4-aaa8-bf8955584bac",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c5a89987dc",
+      "usage": {
+        "completion_time": 0.271659076,
+        "completion_tokens": 242,
+        "completion_tokens_details": {
+          "reasoning_tokens": 148
+        },
+        "prompt_time": 0.056974542,
+        "prompt_tokens": 984,
+        "queue_time": 0.042734216,
+        "total_time": 0.328633618,
+        "total_tokens": 1226
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m83fete7k85bwx4da5hzxx",
+        "seed": 61190054
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can change the email that receives invoices. By default it goes to the workspace\u2019s billing contact (usually the person who set up billing). In Settings \u2192 Billing \u2192 Recipients you can add or replace that address with any email you want \u2013 even a shared inbox \u2013 and you can add multiple recipients. The change takes effect on the next invoice that\u2019s generated. "
+        },
+        "id": "fc_8618c236-d7c9-4550-95ad-aaa5662cc8b5",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 242,
+      "prompt_tokens": 984
+    }
+  },
+  "retry_after": null
+}

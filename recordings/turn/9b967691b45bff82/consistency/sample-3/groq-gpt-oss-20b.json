@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:23:19.853509Z",
+  "failure_detail": null,
+  "fingerprint": "0936970669d7d6c0541fc98a8dc60642928a4b7ec33948d4fe54d8a42091fe02",
+  "outcome": "response",
+  "recording_id": "turn/9b967691b45bff82/consistency/sample-3/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer question: \"What exact date does my next invoice get generated? I need to plan around replacing my card.\" According to policy: The billing date is shown in Settings \u2192 Billing \u2192 Plan next to \u201cNext invoice\u201d. Also the date is the same day of month as subscription started or last renewed. So answer: check Settings > Billing > Plan, the Next invoice date. Also mention that replacing card a day or two before is enough. So we can answer. Use policy excerpts: DOC-007 part 2 and 3, part 1. Provide instructions. So we should post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Your next invoice will be generated on the date shown in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan, next to \u201cNext invoice\u201d. That date is the same day of the month that your subscription started (or last renewed) \u2013 for example, if your billing date is the 31st, it will bill on the last day of shorter months. To make sure the new card is used for that invoice, replace your card a day or two before that date. Let me know if you need help finding the setting!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_63d309df-c582-4623-be84-5679810c7b26",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459799,
+      "id": "chatcmpl-20c8e10a-6b24-415c-9bec-28791b1ab356",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_2b688e7cc3",
+      "usage": {
+        "completion_time": 0.270526244,
+        "completion_tokens": 250,
+        "completion_tokens_details": {
+          "reasoning_tokens": 124
+        },
+        "prompt_time": 0.073270475,
+        "prompt_tokens": 1083,
+        "queue_time": 0.363599547,
+        "total_time": 0.343796719,
+        "total_tokens": 1333
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m85mjvevjatm8f57s2fqp0",
+        "seed": 205197649
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Your next invoice will be generated on the date shown in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan, next to \u201cNext invoice\u201d. That date is the same day of the month that your subscription started (or last renewed) \u2013 for example, if your billing date is the 31st, it will bill on the last day of shorter months. To make sure the new card is used for that invoice, replace your card a day or two before that date. Let me know if you need help finding the setting!"
+        },
+        "id": "fc_63d309df-c582-4623-be84-5679810c7b26",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 250,
+      "prompt_tokens": 1083
+    }
+  },
+  "retry_after": null
+}

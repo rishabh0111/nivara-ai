@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:25:31.754465Z",
+  "failure_detail": null,
+  "fingerprint": "e9b99dfdfff3c28cf5c1f0e00c04687425bba133ddd053f0ba1511d7e8b7becd",
+  "outcome": "response",
+  "recording_id": "turn/ac50875469742c20/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user asks: \"incident notification signup?\" Likely wants to know how to subscribe to incident notifications. The policy excerpts provide info: status page has Subscribe option offering email, SMS, webhook; webhook fastest; can scope to specific components. So answer: explain how to sign up via status page, options, component-level subscription.\n\nWe must answer using only policy excerpts. Provide short specific answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can subscribe to incident notifications directly from our status page. Click the **Subscribe** button and choose whether you\u2019d like updates via email, SMS, or a webhook. If you use a webhook, updates are sent in real time to your alerting tool. You can also limit the subscription to specific components (e.g., API, dashboard) so you only receive alerts for the parts of the platform you depend on.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_98a85fbc-f4fe-48c2-bbb3-5fba7ee70912",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452731,
+      "id": "chatcmpl-331d54be-2744-4b60-bfb9-d5a91abad89f",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_93703442d9",
+      "usage": {
+        "completion_time": 0.396093929,
+        "completion_tokens": 188,
+        "completion_tokens_details": {
+          "reasoning_tokens": 80
+        },
+        "prompt_time": 0.762611411,
+        "prompt_tokens": 1016,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.363233804,
+        "total_time": 1.15870534,
+        "total_tokens": 1204
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1dxa3ept80wegjrhpkeh6",
+        "seed": 1178999922
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can subscribe to incident notifications directly from our status page. Click the **Subscribe** button and choose whether you\u2019d like updates via email, SMS, or a webhook. If you use a webhook, updates are sent in real time to your alerting tool. You can also limit the subscription to specific components (e.g., API, dashboard) so you only receive alerts for the parts of the platform you depend on."
+        },
+        "id": "fc_98a85fbc-f4fe-48c2-bbb3-5fba7ee70912",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 188,
+      "prompt_tokens": 1016
+    }
+  },
+  "retry_after": null
+}

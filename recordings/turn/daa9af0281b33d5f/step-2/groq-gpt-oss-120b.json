@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T15:58:39.494515Z",
+  "failure_detail": null,
+  "fingerprint": "938a1a645a8a956621e08bb927c5f0d9ef3d2fc1dfbad56e765e37b4c491486f",
+  "outcome": "response",
+  "recording_id": "turn/daa9af0281b33d5f/step-2/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to interpret the customer's request. They say: \"Trying to justify an upgrade with more than just 'more seats'.\" Likely they want to know other benefits of upgrading beyond seat limits. The policy excerpts include info about comparing plan tiers: includes feature comparison across every tier, showing seats, integrations, retention window, support level. Also can downgrade later. Also that comparison page does not commit anything. So answer: you can view comparison in Settings \u2192 Billing \u2192 Plan, see features, integrations, retention, support. Use that to justify upgrade beyond seats. Also note you can upgrade then downgrade if not needed. Provide guidance.\n\nWe must answer using only policy excerpts. So we can summarize: go to Settings \u2192 Billing \u2192 Plan to see full feature comparison, not just seat limits; includes integrations, retention, support. You can review and share internally before committing. Also you can upgrade then downgrade within short window with no charge.\n\nThus answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there!  To make a case for upgrading beyond just the extra seats, open **Settings \u2192 Billing \u2192 Plan**.  That page shows a full side\u2011by\u2011side comparison of every tier \u2013 not only the included seat count but also the integrations you\u2019ll get, the data\u2011retention window, and the level of support.  You can review the comparison, share it with your team, and even try an upgrade to see the details before you confirm.  If you decide the upgrade isn\u2019t needed, you can downgrade again within a short window at no extra charge.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_e7347fbe-83a2-46d1-8782-db09d9582056",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451119,
+      "id": "chatcmpl-e84331b9-456a-493c-bbd6-797d439667af",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_f640395b96",
+      "usage": {
+        "completion_time": 0.835865632,
+        "completion_tokens": 333,
+        "completion_tokens_details": {
+          "reasoning_tokens": 191
+        },
+        "prompt_time": 1.777052538,
+        "prompt_tokens": 1092,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.309602526,
+        "total_time": 2.61291817,
+        "total_tokens": 1425
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kzwng5epgvkqdqe1zd2k07",
+        "seed": 1779385675
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there!  To make a case for upgrading beyond just the extra seats, open **Settings \u2192 Billing \u2192 Plan**.  That page shows a full side\u2011by\u2011side comparison of every tier \u2013 not only the included seat count but also the integrations you\u2019ll get, the data\u2011retention window, and the level of support.  You can review the comparison, share it with your team, and even try an upgrade to see the details before you confirm.  If you decide the upgrade isn\u2019t needed, you can downgrade again within a short window at no extra charge."
+        },
+        "id": "fc_e7347fbe-83a2-46d1-8782-db09d9582056",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 333,
+      "prompt_tokens": 1092
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:31:31.493781Z",
+  "failure_detail": null,
+  "fingerprint": "b028455b2e5901d84c2d2eda17b71ecd49072068f6e7de50c16d0261ed981b56",
+  "outcome": "response",
+  "recording_id": "turn/5ce5b32a0ebf5afe/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"A colleague asked me where to adjust their notification settings so they only get emails for things assigned directly to them.\" We have policy excerpts about notification email settings. We can answer: go to Profile \u2192 Notifications, turn off assignment? Wait: They want only assignment notifications. So leave assignment on, turn off mention, status change, digest. So answer: In their profile, go to Notifications, enable assignment notifications, disable others. Provide steps. Use policy. No mention of policy. Just answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! To get emails only for items assigned to you, go to your Profile \u2192 Notifications. Keep the *Assignment* notification toggle on, and turn off the other types (mention, status change, digest). That will limit your email volume to just assignments. No admin changes are needed.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_5db84087-6fa6-4d07-890c-a16e6d037c8c",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460291,
+      "id": "chatcmpl-43cb6401-5d7c-44f3-8f57-c0d3c8cc3be8",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_d6de37e6be",
+      "usage": {
+        "completion_time": 0.217681431,
+        "completion_tokens": 189,
+        "completion_tokens_details": {
+          "reasoning_tokens": 109
+        },
+        "prompt_time": 0.056838463,
+        "prompt_tokens": 1006,
+        "queue_time": 0.302625046,
+        "total_time": 0.274519894,
+        "total_tokens": 1195
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8mmf6e4s9nfm196yvq0e3",
+        "seed": 1748153661
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! To get emails only for items assigned to you, go to your Profile \u2192 Notifications. Keep the *Assignment* notification toggle on, and turn off the other types (mention, status change, digest). That will limit your email volume to just assignments. No admin changes are needed."
+        },
+        "id": "fc_5db84087-6fa6-4d07-890c-a16e6d037c8c",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 189,
+      "prompt_tokens": 1006
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:28:00.432438Z",
+  "failure_detail": null,
+  "fingerprint": "1f691c76c9c524f9d8bfe70295dcec0b0f0fce4743d33b5a3d9e52d99ee56d2d",
+  "outcome": "response",
+  "recording_id": "turn/47848bfe946a4a9b/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Is the service credit calculated per incident, or against total uptime over the whole billing period?\" The policy says: uptime guarantee and service credit schedule are part of contract terms, credit calculated as percentage of billing period's charges, scaled to how far actual uptime fell short of guarantee, applied to future invoice. Also says a customer checking specific incident should reference contract and can ask support to confirm incident's measured uptime impact against it. So answer: credits are calculated based on overall uptime shortfall for the billing period, not per incident, though you can check specific incident's impact. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! Service credits are based on the overall uptime shortfall for the billing period\u2014not on a per\u2011incident basis. The credit is calculated as a percentage of that period\u2019s charges, scaled to how far the actual uptime fell below the guaranteed level in your contract. If you want to see how a particular incident affected the uptime measurement, you can reference your contract\u2019s schedule and ask us to confirm the incident\u2019s impact.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_9c0de66e-f5e4-4f9c-b885-0f066bc5e496",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452880,
+      "id": "chatcmpl-97464664-1cf8-42f5-a300-38197c5f28c0",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e1a78f200e",
+      "usage": {
+        "completion_time": 0.514696833,
+        "completion_tokens": 241,
+        "completion_tokens_details": {
+          "reasoning_tokens": 132
+        },
+        "prompt_time": 0.703952436,
+        "prompt_tokens": 1039,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.365563469,
+        "total_time": 1.218649269,
+        "total_tokens": 1280
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1jee4exa88zfvarh3zq1s",
+        "seed": 446849651
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! Service credits are based on the overall uptime shortfall for the billing period\u2014not on a per\u2011incident basis. The credit is calculated as a percentage of that period\u2019s charges, scaled to how far the actual uptime fell below the guaranteed level in your contract. If you want to see how a particular incident affected the uptime measurement, you can reference your contract\u2019s schedule and ask us to confirm the incident\u2019s impact."
+        },
+        "id": "fc_9c0de66e-f5e4-4f9c-b885-0f066bc5e496",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 241,
+      "prompt_tokens": 1039
+    }
+  },
+  "retry_after": null
+}

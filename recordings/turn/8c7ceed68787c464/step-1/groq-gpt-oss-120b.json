@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:25:58.835481Z",
+  "failure_detail": null,
+  "fingerprint": "61b2bf5c478cceb27b92aad10f1501286d34c9c002df9476edce9e0a022c18c8",
+  "outcome": "response",
+  "recording_id": "turn/8c7ceed68787c464/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user asks: \"I need this write-up for our own customers today \u2014 can you send a summary of what happened and any data impact?\" This is a request for a post-incident summary. According to policy excerpts, post-incident summaries are provided on the status page, and they are added to the incident entry. The policy says every resolved incident gets a written summary describing what happened, affected window, and whether any data was affected. The user is asking for a summary to send to their own customers. We can answer based on policy: we can tell them that summaries are posted on the status page, attached to the incident entry, and they can view it there. We can also note that if no data impact, it is explicitly noted. So we can provide guidance: they can find the summary on the status page, not send directly. The policy does not forbid providing it, but we should direct them to the status page. Provide short answer.\n\nThus we can post reply: \"You can find the written summary on the incident\u2019s page on our status site; it includes what happened, the window, and data impact. The summary is attached to the same incident entry that showed live updates.\" That addresses.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there \u2013 a written post\u2011incident summary is automatically added to the incident\u2019s entry on our status page once the investigation is complete. It includes what happened, the affected time window, and whether any data was impacted (if there was no impact, that\u2019s noted explicitly). You can view and share that summary directly from the status page.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_09f5e474-9d1d-4592-b73f-695bb843289a",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452758,
+      "id": "chatcmpl-329dc6a6-05dd-45ec-bc14-a674a1b79f7e",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_19b184c447",
+      "usage": {
+        "completion_time": 0.83705682,
+        "completion_tokens": 339,
+        "completion_tokens_details": {
+          "reasoning_tokens": 246
+        },
+        "prompt_time": 0.048338956,
+        "prompt_tokens": 1074,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.365241622,
+        "total_time": 0.885395776,
+        "total_tokens": 1413
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1eqqger3tepdpmhg6vmjb",
+        "seed": 334473914
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there \u2013 a written post\u2011incident summary is automatically added to the incident\u2019s entry on our status page once the investigation is complete. It includes what happened, the affected time window, and whether any data was impacted (if there was no impact, that\u2019s noted explicitly). You can view and share that summary directly from the status page."
+        },
+        "id": "fc_09f5e474-9d1d-4592-b73f-695bb843289a",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 339,
+      "prompt_tokens": 1074
+    }
+  },
+  "retry_after": null
+}

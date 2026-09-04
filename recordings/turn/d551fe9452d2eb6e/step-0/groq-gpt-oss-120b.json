@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:24:12.739029Z",
+  "failure_detail": null,
+  "fingerprint": "e10e3b302cf317a1b0c8c917c1548983a3f50155b6a4b932f85ded31fa036722",
+  "outcome": "response",
+  "recording_id": "turn/d551fe9452d2eb6e/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Is the rate limit counted per API key, per account, or something else entirely \u2014 because our usage doesn't match the documented numbers?\" This is about API rate limit counting. The policy excerpts say: rate limit is per API key, not per workspace, rolling window. Also mention bursts can cause 429 even if under per-minute figure. Also headers show remaining. So answer: It's per API key, rolling window, not per account. Provide explanation. This is within policy. So we can post_reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"The rate\u2011limit is applied per **API key**, not per account or workspace. It uses a rolling 60\u2011second window, so every request you made in the last minute is counted continuously rather than resetting each minute. Because it\u2019s a rolling window, a short burst of calls can hit the limit even if the average per\u2011minute rate looks low. You can see the exact remaining quota and reset time for your key in the `X-RateLimit-Remaining` and `X-RateLimit-Reset` response headers.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_622971ca-2933-4418-affd-9dcd7551be1b",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373452,
+      "id": "chatcmpl-9eae90c4-6be9-443b-a0d6-8a8e1d652d48",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_a09bde29de",
+      "usage": {
+        "completion_time": 0.525607045,
+        "completion_tokens": 247,
+        "completion_tokens_details": {
+          "reasoning_tokens": 115
+        },
+        "prompt_time": 0.047876381,
+        "prompt_tokens": 1103,
+        "queue_time": 0.045305217,
+        "total_time": 0.573483426,
+        "total_tokens": 1350
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnth9qe1q8emnrfnwzgv3e",
+        "seed": 1576607731
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "The rate\u2011limit is applied per **API key**, not per account or workspace. It uses a rolling 60\u2011second window, so every request you made in the last minute is counted continuously rather than resetting each minute. Because it\u2019s a rolling window, a short burst of calls can hit the limit even if the average per\u2011minute rate looks low. You can see the exact remaining quota and reset time for your key in the `X-RateLimit-Remaining` and `X-RateLimit-Reset` response headers."
+        },
+        "id": "fc_622971ca-2933-4418-affd-9dcd7551be1b",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 247,
+      "prompt_tokens": 1103
+    }
+  },
+  "retry_after": null
+}

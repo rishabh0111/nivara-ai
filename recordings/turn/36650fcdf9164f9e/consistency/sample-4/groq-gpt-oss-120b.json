@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:34:14.296443Z",
+  "failure_detail": null,
+  "fingerprint": "158146a743c3ec120965dbfe68e1d93e1be8ff38f05dfa67348e86c2f5d51baf",
+  "outcome": "response",
+  "recording_id": "turn/36650fcdf9164f9e/consistency/sample-4/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to decide based on policy excerpts. The user says \"renewal priced wrong, fix it\". This is a billing dispute about renewal pricing. The policy says: For renewal pricing questions, the billing team checks account's contract or order form against what was charged. It says account owner or billing contact should raise it referencing original quote. So we can respond with guidance: they need to contact billing team, reference original quote, etc. The excerpts provide enough to answer: we can explain that renewal generally at list price unless locked price, and they should raise case referencing original quote. That answers question? The user wants fix. We can tell them to have account owner raise a request referencing original quote; the billing team will investigate. That is within policy. So we can post reply.\n\nWe must keep answer short and specific, address customer directly, no mention of policy. So: \"We review renewal pricing against your contract. If you think the price is wrong, please have the account owner or billing contact submit a request referencing the original quote so we can compare it to your terms. Our billing team will investigate and correct if needed.\"\n\nYes. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"We\u2019ll need to compare the renewal charge to the price locked in your contract. Please have the account owner or billing contact submit a request that references the original quote you received. Our billing team will review the terms and correct the charge if it was applied incorrectly.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_e2e1b9eb-df93-411e-97b7-e26400883667",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453253,
+      "id": "chatcmpl-8f911eeb-db19-4d95-bd55-a1c3025de9a7",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_8ea50c0161",
+      "usage": {
+        "completion_time": 0.749427652,
+        "completion_tokens": 312,
+        "completion_tokens_details": {
+          "reasoning_tokens": 235
+        },
+        "prompt_time": 0.663831048,
+        "prompt_tokens": 1112,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.307208077,
+        "total_time": 1.4132587,
+        "total_tokens": 1424
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1xv53egbbbf1ns3z0apgy",
+        "seed": 259977219
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "We\u2019ll need to compare the renewal charge to the price locked in your contract. Please have the account owner or billing contact submit a request that references the original quote you received. Our billing team will review the terms and correct the charge if it was applied incorrectly."
+        },
+        "id": "fc_e2e1b9eb-df93-411e-97b7-e26400883667",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 312,
+      "prompt_tokens": 1112
+    }
+  },
+  "retry_after": null
+}

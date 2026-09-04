@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:23:56.113175Z",
+  "failure_detail": null,
+  "fingerprint": "18f5ffb4f49abd58945710421c45a0513cf22eba9962cf8f455467cb69c3b819",
+  "outcome": "response",
+  "recording_id": "turn/71a5a2a2fb341a59/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer question: \"does SSO turning on kill password login instantly\". The policy excerpts: DOC-009 part 1: enabling SSO does not immediately disable password sign-in for existing staff. Both methods coexist until an admin separately turns password sign-in off, in Settings \u2192 Security \u2192 SSO \u2192 Require SSO. Part 3: Once every staff member has confirmed they can sign in through SSO, enabling \u201cRequire SSO\u201d turns off password sign-in for the whole workspace in one step.\n\nThus answer: No, enabling SSO alone doesn't kill password login; you need to enable Require SSO. Provide that info. Also mention that password sign-in remains until admin turns it off. So answer accordingly.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"No \u2013 turning on SSO alone doesn\u2019t immediately disable password sign\u2011in. Both methods stay available until an admin goes to Settings\u202f\u2192\u202fSecurity\u202f\u2192\u202fSSO and turns on \u201cRequire\u202fSSO.\u201d Once that switch is enabled, password login is turned off for the whole workspace in one step.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c6a7ba88-7ab6-4969-9a1d-c0a219a5dfde",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459836,
+      "id": "chatcmpl-f3c0342e-ddce-452d-a145-6c18c0d22ca3",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_d23c14756c",
+      "usage": {
+        "completion_time": 0.285077261,
+        "completion_tokens": 233,
+        "completion_tokens_details": {
+          "reasoning_tokens": 148
+        },
+        "prompt_time": 0.055684766,
+        "prompt_tokens": 993,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.360267323,
+        "total_time": 0.340762027,
+        "total_tokens": 1226
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m86qzzemw9mrybtkcps97y",
+        "seed": 1497695940
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "No \u2013 turning on SSO alone doesn\u2019t immediately disable password sign\u2011in. Both methods stay available until an admin goes to Settings\u202f\u2192\u202fSecurity\u202f\u2192\u202fSSO and turns on \u201cRequire\u202fSSO.\u201d Once that switch is enabled, password login is turned off for the whole workspace in one step."
+        },
+        "id": "fc_c6a7ba88-7ab6-4969-9a1d-c0a219a5dfde",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 233,
+      "prompt_tokens": 993
+    }
+  },
+  "retry_after": null
+}

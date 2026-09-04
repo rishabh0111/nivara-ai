@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:50:29.148997Z",
+  "failure_detail": null,
+  "fingerprint": "692e392e9cfc360e9112c39d831e1d7ccd2f6d77331e682909a859227bae6456",
+  "outcome": "response",
+  "recording_id": "turn/2d7a1bb199ad900c/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our finance director asked what happens after a bank-initiated chargeback and whether the balance can simply be settled directly instead.\"\n\nWe have policy excerpts about chargebacks: they reverse payment at bank level, billing team notified, account not automatically suspended. Billing team reviews and reaches out. If want to settle underlying balance directly, should contact billing team rather than assume reconciliation.\n\nThus we can answer: after a chargeback, the billing team is notified, they will review and contact billing contact; the account continues running; to settle the balance directly, they need to contact billing team; it's separate process.\n\nWe can answer directly. No need to escalate. Provide short answer.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"A chargeback is processed by the card network and reverses the payment at the bank level. Meridian\u2019s billing team is notified separately, and the account continues to run \u2013 it isn\u2019t automatically suspended. The billing team will review the chargeback and usually reach out to the account\u2019s billing contact about next steps. If you want to settle the underlying balance directly, you\u2019ll need to contact our billing team, as a direct settlement follows a different process and won\u2019t automatically reconcile with the chargeback.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_8a70242a-e76d-4471-acef-0a23d65b9453",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454228,
+      "id": "chatcmpl-fcadcf48-68f7-4bd1-97c0-02ba94fc810d",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_f73454f048",
+      "usage": {
+        "completion_time": 0.589422338,
+        "completion_tokens": 276,
+        "completion_tokens_details": {
+          "reasoning_tokens": 152
+        },
+        "prompt_time": 0.14403028,
+        "prompt_tokens": 1102,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.281639257,
+        "total_time": 0.733452618,
+        "total_tokens": 1378
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2vkw1emtt479101qj6f80",
+        "seed": 916607666
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "A chargeback is processed by the card network and reverses the payment at the bank level. Meridian\u2019s billing team is notified separately, and the account continues to run \u2013 it isn\u2019t automatically suspended. The billing team will review the chargeback and usually reach out to the account\u2019s billing contact about next steps. If you want to settle the underlying balance directly, you\u2019ll need to contact our billing team, as a direct settlement follows a different process and won\u2019t automatically reconcile with the chargeback."
+        },
+        "id": "fc_8a70242a-e76d-4471-acef-0a23d65b9453",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 276,
+      "prompt_tokens": 1102
+    }
+  },
+  "retry_after": null
+}

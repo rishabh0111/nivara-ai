@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:34:36.941928Z",
+  "failure_detail": null,
+  "fingerprint": "48bbd913887eca1aee2e303aaf990cac361459525814e805886aa5461ce19e34",
+  "outcome": "response",
+  "recording_id": "turn/28ea355c606e444b/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: \"post-incident summary, was data affected?\" The user likely wants to know if data was affected in a post-incident summary. According to policy excerpts: Post-incident summaries include whether any data was affected and how. So we can answer: Yes, the summary will state if data was affected. But we need to answer from policy. The question: \"post-incident summary, was data affected?\" They might be asking if data was affected in a particular incident. We don't have incident details. The policy says that summaries include whether data was affected. So we can say: The post-incident summary will indicate if data was affected. But we cannot provide specifics. We can direct them to the status page or the summary. The policy says: \"Every resolved incident on the status page gets a written summary once the investigation is complete, describing what happened, the affected window, and \u2014 where relevant \u2014 whether any data was affected and how.\" So answer: The summary will state if data was affected. If they want to check, look at the summary on the status page. So we can answer: The summary will note if data was affected. Provide guidance. That is allowed. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Every resolved incident on our status page gets a written summary once the investigation is complete. That summary includes a statement about whether any data was affected and, if so, how. You can view the summary for the incident on the status page to see the exact details.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_774d8183-d4e2-4a27-89f8-841c9d4e33f5",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460476,
+      "id": "chatcmpl-0c071e61-40ec-4208-a52e-64b28bbd1b2b",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_75c733514d",
+      "usage": {
+        "completion_time": 0.345517743,
+        "completion_tokens": 325,
+        "completion_tokens_details": {
+          "reasoning_tokens": 250
+        },
+        "prompt_time": 0.614741256,
+        "prompt_tokens": 1025,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.15688085,
+        "total_time": 0.960258999,
+        "total_tokens": 1350
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8t9d0e3vt7b4cps0w3wxz",
+        "seed": 915492966
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Every resolved incident on our status page gets a written summary once the investigation is complete. That summary includes a statement about whether any data was affected and, if so, how. You can view the summary for the incident on the status page to see the exact details."
+        },
+        "id": "fc_774d8183-d4e2-4a27-89f8-841c9d4e33f5",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 325,
+      "prompt_tokens": 1025
+    }
+  },
+  "retry_after": null
+}

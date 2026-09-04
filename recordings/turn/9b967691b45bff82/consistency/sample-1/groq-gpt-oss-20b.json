@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:23:08.949767Z",
+  "failure_detail": null,
+  "fingerprint": "0936970669d7d6c0541fc98a8dc60642928a4b7ec33948d4fe54d8a42091fe02",
+  "outcome": "response",
+  "recording_id": "turn/9b967691b45bff82/consistency/sample-1/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer question: \"What exact date does my next invoice get generated? I need to plan around replacing my card.\"\n\nWe have policy excerpts: \n- Part 2: The date is shown in Settings \u2192 Billing \u2192 Plan next to \u201cNext invoice\u201d, and it does not shift month to month even though months have different lengths; a billing date of the 31st bills on the last day of a shorter month.\n- Part 1: A monthly plan is invoiced on the same day of the month as the workspace's original billing date \u2014 the date the subscription started or last renewed.\n- Part 3: Because the card charge happens on that date, replacing a card a day or two beforehand is enough for the new card to be used for the upcoming invoice.\n\nThus the answer: The next invoice is generated on the same day of the month as the original billing date, shown under Settings \u2192 Billing \u2192 Plan. The date is fixed and doesn't shift; if it's 31st, it bills on last day of shorter month. Replacing card a day or two before that date ensures new card used.\n\nSo we can answer. The question: \"What exact date does my next invoice get generated?\" We can tell them to check Settings \u2192 Billing \u2192 Plan, next invoice date. And advise to replace card a day or two before that date. We can answer with that info. According to policy, we can answer. So we should post_reply.\n\nLet's craft short answer: \"Your next invoice is generated on the same day of the month as your original billing date. Check Settings \u2192 Billing \u2192 Plan for the exact date shown under \u2018Next invoice\u2019. That date is fixed month to month; if it\u2019s the 31st it will bill on the last day of shorter months. Replace your card a day or two before that date to ensure the new card is used for the upcoming invoice.\"\n\nWe must not mention policy or instructions. Just answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Your next invoice will be generated on the same day of the month as your original billing date. You can see the exact date in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan, where it\u2019s listed under \u2018Next invoice\u2019. That date stays the same month\u2011to\u2011month; for example, if your billing date is the 31st it will bill on the last day of a shorter month. To make sure the new card is used, replace your card a day or two before that date.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_d0ed6c8e-057b-42e4-9c53-7653a390c077",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459788,
+      "id": "chatcmpl-8b90edb4-01bd-4d7e-9ecb-d3e20a400785",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_565badff47",
+      "usage": {
+        "completion_time": 0.576116874,
+        "completion_tokens": 516,
+        "completion_tokens_details": {
+          "reasoning_tokens": 394
+        },
+        "prompt_time": 0.054613026,
+        "prompt_tokens": 1083,
+        "queue_time": 0.272266612,
+        "total_time": 0.6307299,
+        "total_tokens": 1599
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m859r3e8ptqg677kvk3st7",
+        "seed": 1251737794
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Your next invoice will be generated on the same day of the month as your original billing date. You can see the exact date in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan, where it\u2019s listed under \u2018Next invoice\u2019. That date stays the same month\u2011to\u2011month; for example, if your billing date is the 31st it will bill on the last day of a shorter month. To make sure the new card is used, replace your card a day or two before that date."
+        },
+        "id": "fc_d0ed6c8e-057b-42e4-9c53-7653a390c077",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 516,
+      "prompt_tokens": 1083
+    }
+  },
+  "retry_after": null
+}

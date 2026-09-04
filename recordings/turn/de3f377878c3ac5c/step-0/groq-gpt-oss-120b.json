@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:47:58.148530Z",
+  "failure_detail": null,
+  "fingerprint": "97233a9fd510d9599cc818144e34d107fb7385f6f724851ee98c10ab114fe914",
+  "outcome": "response",
+  "recording_id": "turn/de3f377878c3ac5c/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to determine appropriate action. The user says: \"This payment cleared days ago on our end and I need it traced and applied to our account immediately.\"\n\nThis is about a bank transfer payment that hasn't been applied. According to policy excerpts DOC-070, the billing team can trace it if provided transfer date, amount, reference. The user is requesting that. We can answer with guidance: they need to provide transfer date, amount, reference to billing team. So we can respond with that info. It's allowed to answer from policy. So we should post a reply.\n\nWe need to keep answer short and specific, address the customer directly. Provide instructions: provide transfer date, amount, reference to billing team, they will trace and apply.\n\nThus we will use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! To help our billing team trace and apply the transfer, please send us the transfer date, the exact amount, and the reference you used for the payment. With those details we can match it to your account and apply it as soon as possible.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_756cfab6-e673-4a4c-8196-6edcecbcb681",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454077,
+      "id": "chatcmpl-ea1051a1-88b4-4774-b11f-23e576b1de05",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_803c0ba83d",
+      "usage": {
+        "completion_time": 0.557832475,
+        "completion_tokens": 234,
+        "completion_tokens_details": {
+          "reasoning_tokens": 157
+        },
+        "prompt_time": 0.042833881,
+        "prompt_tokens": 1102,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.364904667,
+        "total_time": 0.600666356,
+        "total_tokens": 1336
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2q0hyewbtdafxsphqtrby",
+        "seed": 35584442
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! To help our billing team trace and apply the transfer, please send us the transfer date, the exact amount, and the reference you used for the payment. With those details we can match it to your account and apply it as soon as possible."
+        },
+        "id": "fc_756cfab6-e673-4a4c-8196-6edcecbcb681",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 234,
+      "prompt_tokens": 1102
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:54:41.265265Z",
+  "failure_detail": null,
+  "fingerprint": "862fd51f22e3c21e8b2d4fa2d548a4bf24b7eb0d6aa4dbdee4e8b7c351c71684",
+  "outcome": "response",
+  "recording_id": "turn/66ed1f205af95623/consistency/sample-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see the conversation. The user asks: \"unmatched invoice, is it fake?\" We have policy excerpts about verifying suspicious invoice. They say: every genuine invoice is available in Settings \u2192 Billing \u2192 Invoices; if email invoice doesn't match anything shown there, treat as unverified. Also genuine invoices reflect actual plan etc. So answer: advise to check in the system; if not present, likely fake; do not pay; contact support. That is covered. So we can answer using those excerpts. Provide guidance.\n\nThus we can post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! A genuine Meridian invoice will always appear in your account under **Settings \u2192 Billing \u2192 Invoices**. If you received an email with an invoice that doesn\u2019t match anything shown there\u2014or the amount or due date doesn\u2019t line up with your plan, seats, or usage\u2014it\u2019s a strong sign the invoice is not legitimate. Treat it as unverified until you can confirm it in the Billing\u202f\u2192\u202fInvoices view, and do not pay it based solely on the email. If you\u2019re still unsure, feel free to forward the invoice to us and we\u2019ll help verify it.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_db0a14cc-501a-4f48-9a4a-8c30e70d7009",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454481,
+      "id": "chatcmpl-16d23331-15e0-46bb-88d7-deea3ce7bde2",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4200b3f836",
+      "usage": {
+        "completion_time": 0.731805691,
+        "completion_tokens": 256,
+        "completion_tokens_details": {
+          "reasoning_tokens": 113
+        },
+        "prompt_time": 0.046404041,
+        "prompt_tokens": 1090,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.314943817,
+        "total_time": 0.778209732,
+        "total_tokens": 1346
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m33a5bexwrhj2j2yt5ar0y",
+        "seed": 1065319445
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! A genuine Meridian invoice will always appear in your account under **Settings \u2192 Billing \u2192 Invoices**. If you received an email with an invoice that doesn\u2019t match anything shown there\u2014or the amount or due date doesn\u2019t line up with your plan, seats, or usage\u2014it\u2019s a strong sign the invoice is not legitimate. Treat it as unverified until you can confirm it in the Billing\u202f\u2192\u202fInvoices view, and do not pay it based solely on the email. If you\u2019re still unsure, feel free to forward the invoice to us and we\u2019ll help verify it."
+        },
+        "id": "fc_db0a14cc-501a-4f48-9a4a-8c30e70d7009",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 1090
+    }
+  },
+  "retry_after": null
+}

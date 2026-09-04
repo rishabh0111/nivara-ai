@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:25:36.371987Z",
+  "failure_detail": null,
+  "fingerprint": "4b754215dc4c8d041ad28d00cd6fd7c27f8bffe33f8c15730b99e76ae5227780",
+  "outcome": "response",
+  "recording_id": "turn/0f56ff8c24772352/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"Is the 10,000-row limit a hard cap, or is there another way to export the full history in one go?\" The policy says: single export from dashboard capped at 10k rows. For full history, use scheduled export to cloud storage instead, not subject to cap. Also can narrow export with date range or filter. So answer: it's a hard cap for single export; to get full history, use scheduled export to cloud storage or split into smaller exports. Provide concise answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"The 10,000\u2011row limit applies to a single export you run from the dashboard \u2013 it\u2019s a hard cap to keep the download in the browser. If you need the entire history in one go, set up a scheduled export to cloud storage \u2013 that export isn\u2019t subject to the 10,000\u2011row cap. Alternatively, you can split the data into smaller exports (e.g., by month) and combine them later.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_ea3a8173-8362-4876-9972-6dda75ae4f69",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459936,
+      "id": "chatcmpl-0fa4e744-3312-4a5f-8530-48876085ed91",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e2cb7a84ec",
+      "usage": {
+        "completion_time": 0.242386679,
+        "completion_tokens": 223,
+        "completion_tokens_details": {
+          "reasoning_tokens": 113
+        },
+        "prompt_time": 0.057907015,
+        "prompt_tokens": 1028,
+        "queue_time": 0.307049803,
+        "total_time": 0.300293694,
+        "total_tokens": 1251
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m89ssfe6kbyd1kg0rrzmnp",
+        "seed": 834627232
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "The 10,000\u2011row limit applies to a single export you run from the dashboard \u2013 it\u2019s a hard cap to keep the download in the browser. If you need the entire history in one go, set up a scheduled export to cloud storage \u2013 that export isn\u2019t subject to the 10,000\u2011row cap. Alternatively, you can split the data into smaller exports (e.g., by month) and combine them later."
+        },
+        "id": "fc_ea3a8173-8362-4876-9972-6dda75ae4f69",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 223,
+      "prompt_tokens": 1028
+    }
+  },
+  "retry_after": null
+}

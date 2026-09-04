@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T17:59:43.387651Z",
+  "failure_detail": null,
+  "fingerprint": "9cb72c66ae05a65a24a4c95b5f1691ae836cbc23ebd737e8d610e7900a1dcff9",
+  "outcome": "response",
+  "recording_id": "turn/092ef3008f626f0b/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Is the invoice date the same as when we first signed up, or does it shift each month?\" This is about invoice date behavior. The policy says: monthly plan is invoiced on same day of month as workspace's original billing date \u2014 the date subscription started or last renewed. Also says date shown in Settings \u2192 Billing \u2192 Plan next to \u201cNext invoice\u201d, does not shift month to month even though months have different lengths; a billing date of the 31st bills on the last day of a shorter month. So answer: invoice date stays same as original billing date, does not shift; if original date is 31st, then shorter months bill on last day. Provide short answer. No need to escalate. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Your invoice date stays the same as the original billing date (the day your subscription started or was last renewed). It doesn\u2019t shift month\u2011to\u2011month \u2013 even if months have different lengths. For example, a billing date of the 31st will be billed on the last day of shorter months.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_30cfbe6f-117d-4bc8-8f43-709f65d96ee3",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371983,
+      "id": "chatcmpl-a39c49da-09d9-4a04-a620-573a68e59f51",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c868cf1eaa",
+      "usage": {
+        "completion_time": 0.548869945,
+        "completion_tokens": 248,
+        "completion_tokens_details": {
+          "reasoning_tokens": 162
+        },
+        "prompt_time": 0.731312256,
+        "prompt_tokens": 1039,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.35763378,
+        "total_time": 1.2801822010000001,
+        "total_tokens": 1287
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmdn9nefvvzpzhqvbkkm90",
+        "seed": 2003105366
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Your invoice date stays the same as the original billing date (the day your subscription started or was last renewed). It doesn\u2019t shift month\u2011to\u2011month \u2013 even if months have different lengths. For example, a billing date of the 31st will be billed on the last day of shorter months."
+        },
+        "id": "fc_30cfbe6f-117d-4bc8-8f43-709f65d96ee3",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 248,
+      "prompt_tokens": 1039
+    }
+  },
+  "retry_after": null
+}

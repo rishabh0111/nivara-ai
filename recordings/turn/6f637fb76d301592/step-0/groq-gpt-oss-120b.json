@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:42:45.068612Z",
+  "failure_detail": null,
+  "fingerprint": "fc4b90686a73cdf8524846a12807af4c14bbc0c3612c93d979163c427cf9429e",
+  "outcome": "response",
+  "recording_id": "turn/6f637fb76d301592/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer using policy excerpts. The question: \"I'm locked out of our only admin account and I've also lost the recovery email and two-factor device \u2014 how do I prove who I am to regain access?\" This matches DOC-065: losing both recovery email and two-factor device, need manual identity verification, contact support. So answer: contact support, they'll verify via domain ownership, billing history, etc. Provide guidance. Use short specific answer. No need to escalate. Use post_reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Since you\u2019ve lost both the recovery email and the two\u2011factor device on the sole admin account, the automated recovery options aren\u2019t available. You\u2019ll need to work directly with our support team, who will verify your ownership through alternative methods such as company domain ownership, billing history, or other account\u2011specific details. Please contact Meridian support and let them know you\u2019re locked out of the only admin account; they\u2019ll guide you through the manual identity\u2011verification process to restore access.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_82f96b02-a069-425f-ad09-31a039931900",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453764,
+      "id": "chatcmpl-891e0618-886c-42a8-b154-7ae1831d7f53",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_87b3c396db",
+      "usage": {
+        "completion_time": 3.251719971,
+        "completion_tokens": 222,
+        "completion_tokens_details": {
+          "reasoning_tokens": 101
+        },
+        "prompt_time": 0.075063617,
+        "prompt_tokens": 1126,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.278614851,
+        "total_time": 3.326783588,
+        "total_tokens": 1348
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2dbx3em7r6gddvss20b9j",
+        "seed": 1560467058
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Since you\u2019ve lost both the recovery email and the two\u2011factor device on the sole admin account, the automated recovery options aren\u2019t available. You\u2019ll need to work directly with our support team, who will verify your ownership through alternative methods such as company domain ownership, billing history, or other account\u2011specific details. Please contact Meridian support and let them know you\u2019re locked out of the only admin account; they\u2019ll guide you through the manual identity\u2011verification process to restore access."
+        },
+        "id": "fc_82f96b02-a069-425f-ad09-31a039931900",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 222,
+      "prompt_tokens": 1126
+    }
+  },
+  "retry_after": null
+}

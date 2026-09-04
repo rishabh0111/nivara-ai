@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:26:43.158178Z",
+  "failure_detail": null,
+  "fingerprint": "bd1ca4e189289182d74ea10db4fd828d9cf0b02eb7ba18adfd6dc81b0c07d620",
+  "outcome": "response",
+  "recording_id": "turn/1385755f05a4d0fd/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"After fixing a formatting problem in my file, I want to re-import it, but I'm concerned the importer will create duplicate records for the rows that already succeeded on the first pass rather than only picking up the corrected ones.\"\n\nWe have policy excerpts about duplicates when re-importing corrected file. The answer: The importer matches by email or unique identifier. If the correction was not to the matching field, it will update rather than duplicate. If the correction was to email or identifier, you should remove already succeeded rows from corrected file before re-running. Also can re-run only flagged rows.\n\nThus answer: If you didn't change the matching field, re-import will update. If you changed email/identifier, remove those rows or re-run only corrected rows. Also can re-run just flagged rows.\n\nWe need to keep answer short and specific. Let's craft.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If the change you made wasn\u2019t to the field the importer uses to match (email for contacts or the record\u2019s unique ID), the file will be matched to the existing rows and updated in place \u2013 no duplicates will be created. If you did change the email or unique ID, the importer can\u2019t recognise the row as the same one, so the safest approach is to delete the already\u2011imported rows from the corrected file (or re\u2011run the import on just the rows that were flagged as errors).\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_9a966a69-203f-42d1-bb8e-155b0391c8f1",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460003,
+      "id": "chatcmpl-3a5f8ffd-2a7c-40f7-b002-d2ee8ee17cbd",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_996f667773",
+      "usage": {
+        "completion_time": 0.365508318,
+        "completion_tokens": 306,
+        "completion_tokens_details": {
+          "reasoning_tokens": 182
+        },
+        "prompt_time": 0.054322013,
+        "prompt_tokens": 1072,
+        "queue_time": 0.853565561,
+        "total_time": 0.419830331,
+        "total_tokens": 1378
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8btjeeqrrvn5x1gphjwmg",
+        "seed": 1559997059
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If the change you made wasn\u2019t to the field the importer uses to match (email for contacts or the record\u2019s unique ID), the file will be matched to the existing rows and updated in place \u2013 no duplicates will be created. If you did change the email or unique ID, the importer can\u2019t recognise the row as the same one, so the safest approach is to delete the already\u2011imported rows from the corrected file (or re\u2011run the import on just the rows that were flagged as errors)."
+        },
+        "id": "fc_9a966a69-203f-42d1-bb8e-155b0391c8f1",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 306,
+      "prompt_tokens": 1072
+    }
+  },
+  "retry_after": null
+}

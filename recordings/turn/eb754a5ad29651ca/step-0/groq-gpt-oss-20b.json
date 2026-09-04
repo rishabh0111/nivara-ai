@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:29:31.480300Z",
+  "failure_detail": null,
+  "fingerprint": "f7a4ea11e016309e0f67c5da8c2e09436a91bfb60600bb9806d2b7a4dbc84019",
+  "outcome": "response",
+  "recording_id": "turn/eb754a5ad29651ca/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user: \"feature comparison for next tier?\" They want a feature comparison for the next tier. According to policy, we can provide that. The policy excerpt says: Settings \u2192 Billing \u2192 Plan includes a full feature comparison across every tier, not just the seat limits \u2014 each tier's included seats, integrations, retention window and support level are shown side by side. So we can answer: go to Settings > Billing > Plan to see comparison. Also mention that comparison page does not commit to anything until upgrade confirmed. Also mention that you can downgrade within short window. So answer accordingly.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! In your workspace, go to **Settings \u2192 Billing \u2192 Plan**. There you\u2019ll see a side\u2011by\u2011side comparison of every tier, showing the number of seats, available integrations, data retention window, support level, and any other tier\u2011gated features. The comparison page is just for review \u2013 nothing changes until you explicitly confirm an upgrade. If you decide it\u2019s not right, you can downgrade back within a short window at no extra cost.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_334a5493-a714-427a-bc7e-13ece93442ea",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460171,
+      "id": "chatcmpl-62eb5f42-077e-49c2-856a-1bf628516ead",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5979a0e1b7",
+      "usage": {
+        "completion_time": 0.320651734,
+        "completion_tokens": 234,
+        "completion_tokens_details": {
+          "reasoning_tokens": 118
+        },
+        "prompt_time": 0.089748974,
+        "prompt_tokens": 1027,
+        "queue_time": 0.358424738,
+        "total_time": 0.410400708,
+        "total_tokens": 1261
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8gz8wekbapfp9m80180vc",
+        "seed": 1386207898
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! In your workspace, go to **Settings \u2192 Billing \u2192 Plan**. There you\u2019ll see a side\u2011by\u2011side comparison of every tier, showing the number of seats, available integrations, data retention window, support level, and any other tier\u2011gated features. The comparison page is just for review \u2013 nothing changes until you explicitly confirm an upgrade. If you decide it\u2019s not right, you can downgrade back within a short window at no extra cost."
+        },
+        "id": "fc_334a5493-a714-427a-bc7e-13ece93442ea",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 234,
+      "prompt_tokens": 1027
+    }
+  },
+  "retry_after": null
+}

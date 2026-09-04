@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:04:06.768064Z",
+  "failure_detail": null,
+  "fingerprint": "88883cc9dd5db460d8c0851e71c530eee12a4ef94f262204762763414da73bc4",
+  "outcome": "response",
+  "recording_id": "turn/2c03bc88ca43c1cb/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to interpret the customer's message: \"Not sure if I was even added to the sync.\" Likely they are a staff member not seeing SSO sign-in, suspect they aren't in sync. The policy excerpts cover why a staff member might not see SSO on sign-in, and how admin can check if account exists in Settings \u2192 People. The question: they are not sure if they were added to the sync. We can answer: explain that SSO appears only after sync creates account; admin can check in Settings \u2192 People; if not there, sync hasn't run yet; they may need to wait for next scheduled sync or admin to ensure account exists on identity provider side. Provide steps.\n\nWe must answer using only policy excerpts. The answer should be short and specific. So we can say: The SSO sign\u2011in option only appears after the identity provider sync creates the account. If you don\u2019t see it, you may be signing in before the next sync or the account isn\u2019t on the IdP yet. An admin can verify in Settings \u2192 People; if the account isn\u2019t listed, the sync hasn\u2019t created it yet. They may need to wait for the next scheduled sync or have admin ensure the account exists on the IdP.\n\nThat aligns with DOC-010 parts. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"The SSO sign\u2011in button only shows up after the identity\u2011provider sync has created your account. If you don\u2019t see it, you may be signing in before the next scheduled sync runs, or your account hasn\u2019t been created on the IdP side yet. An admin can confirm whether your account exists by going to **Settings \u2192 People** \u2013 SSO\u2011provisioned accounts are listed with the identity provider they came from. If you don\u2019t appear there, the sync hasn\u2019t created your account yet, so you\u2019ll need to wait for the next sync or have an admin ensure the account exists in the IdP.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_ab2a1136-42f8-4684-b16d-79705044ebd7",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372246,
+      "id": "chatcmpl-fe0e0db4-084a-40ea-9cc9-fe8be382ae4b",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_6c36ac20de",
+      "usage": {
+        "completion_time": 0.90431931,
+        "completion_tokens": 419,
+        "completion_tokens_details": {
+          "reasoning_tokens": 267
+        },
+        "prompt_time": 0.385954546,
+        "prompt_tokens": 1137,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.310546851,
+        "total_time": 1.290273856,
+        "total_tokens": 1556
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmnpe9ech9gefrn0hs06cs",
+        "seed": 786600646
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "The SSO sign\u2011in button only shows up after the identity\u2011provider sync has created your account. If you don\u2019t see it, you may be signing in before the next scheduled sync runs, or your account hasn\u2019t been created on the IdP side yet. An admin can confirm whether your account exists by going to **Settings \u2192 People** \u2013 SSO\u2011provisioned accounts are listed with the identity provider they came from. If you don\u2019t appear there, the sync hasn\u2019t created your account yet, so you\u2019ll need to wait for the next sync or have an admin ensure the account exists in the IdP."
+        },
+        "id": "fc_ab2a1136-42f8-4684-b16d-79705044ebd7",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 419,
+      "prompt_tokens": 1137
+    }
+  },
+  "retry_after": null
+}

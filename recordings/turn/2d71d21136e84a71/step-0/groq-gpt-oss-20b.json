@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:36:17.190841Z",
+  "failure_detail": null,
+  "fingerprint": "9fac6f7756e5e12476707c4235e1005cbba212ba85bf9f9c11db2a46aa472dec",
+  "outcome": "response",
+  "recording_id": "turn/2d71d21136e84a71/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"How do I rotate an API key without downtime?\" The policy says: overlap window exists so a key can be rotated without a moment of downtime: deploy the new key to whatever uses the old one, confirm it works, and only then revoke the old key from the same screen. Also generating a new key does not automatically revoke old one. So answer: generate new key, deploy new key, confirm works, then revoke old key. Also mention that logs can confirm usage. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"To rotate an API key without any downtime:\\n1. Generate a new key in Settings \u2192 Developer \u2192 API keys.\\n2. Deploy the new key to all services that currently use the old key.\\n3. Verify the new key works (you can check the delivery and request logs to confirm it\u2019s being used).\\n4. Once you\u2019re sure nothing is still using the old key, revoke the old key from the same screen. This overlap window lets you switch keys with no interruption.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f63f457a-13b2-400e-8d8b-abca56043392",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460577,
+      "id": "chatcmpl-ec58634e-6a30-4efc-a85a-a95cac9ac16c",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_639a5351c8",
+      "usage": {
+        "completion_time": 0.242587721,
+        "completion_tokens": 234,
+        "completion_tokens_details": {
+          "reasoning_tokens": 112
+        },
+        "prompt_time": 0.064927835,
+        "prompt_tokens": 1051,
+        "queue_time": 0.305520834,
+        "total_time": 0.307515556,
+        "total_tokens": 1285
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8xbrgedsa6hztwtdktces",
+        "seed": 590956557
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "To rotate an API key without any downtime:\n1. Generate a new key in Settings \u2192 Developer \u2192 API keys.\n2. Deploy the new key to all services that currently use the old key.\n3. Verify the new key works (you can check the delivery and request logs to confirm it\u2019s being used).\n4. Once you\u2019re sure nothing is still using the old key, revoke the old key from the same screen. This overlap window lets you switch keys with no interruption."
+        },
+        "id": "fc_f63f457a-13b2-400e-8d8b-abca56043392",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 234,
+      "prompt_tokens": 1051
+    }
+  },
+  "retry_after": null
+}

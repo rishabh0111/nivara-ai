@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:08:25.994344Z",
+  "failure_detail": null,
+  "fingerprint": "3d92221ede06d43cb225060b28105f3d6f963c8c6b3d71bf855a30efb9a7871b",
+  "outcome": "response",
+  "recording_id": "turn/421ef5296b6fb003/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer the question: \"reduce notification emails?\" The policy excerpts provide info on reducing notification email volume. So we can answer: go to Profile \u2192 Notifications, turn off types you don't want, keep assignment notifications on, etc. Provide short answer.\n\nWe must use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! You can trim your own notification emails in Meridian by opening **Profile \u2192 Notifications**. Each type (assignment, mention, status change, digest) can be toggled on or off individually. To receive only what\u2019s assigned to you, leave the **assignment** notifications on and turn the others off. Changes apply instantly and only affect your account.\\n\\nIf you need any further help, just let me know!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_49c19e89-d60f-4854-bf81-9e9321881c61",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451705,
+      "id": "chatcmpl-7f9ffc2a-b70b-4f86-b16a-d6eb5b473e02",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_068241849b",
+      "usage": {
+        "completion_time": 0.800437633,
+        "completion_tokens": 169,
+        "completion_tokens_details": {
+          "reasoning_tokens": 59
+        },
+        "prompt_time": 0.252639396,
+        "prompt_tokens": 988,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.307833332,
+        "total_time": 1.053077029,
+        "total_tokens": 1157
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0ekmkeafty64k3t3bd9k5",
+        "seed": 1188908163
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! You can trim your own notification emails in Meridian by opening **Profile \u2192 Notifications**. Each type (assignment, mention, status change, digest) can be toggled on or off individually. To receive only what\u2019s assigned to you, leave the **assignment** notifications on and turn the others off. Changes apply instantly and only affect your account.\n\nIf you need any further help, just let me know!"
+        },
+        "id": "fc_49c19e89-d60f-4854-bf81-9e9321881c61",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 169,
+      "prompt_tokens": 988
+    }
+  },
+  "retry_after": null
+}

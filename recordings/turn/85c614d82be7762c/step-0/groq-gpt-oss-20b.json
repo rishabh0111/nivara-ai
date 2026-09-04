@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:30:46.188268Z",
+  "failure_detail": null,
+  "fingerprint": "6b980ca2385c63e087e91f8b6ac8a1fc996be11490a2033269e2acfc129dba37",
+  "outcome": "response",
+  "recording_id": "turn/85c614d82be7762c/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer question: \"All the timestamps across our dashboard appear to be offset by several hours from our actual local time, and I'd like to know whether that's a per-user setting or a workspace-wide one I need to change.\"\n\nWe have policy excerpts about timestamps: stored UTC, displayed converted to timezone. Two settings: workspace default in Settings \u2192 General, and each person's own account timezone in personal Settings \u2192 Profile. Setting personal timezone overrides workspace default for that account only, without changing what anyone else sees.\n\nThus answer: It's per-user setting; each user can set personal timezone. If you want to change for all, change workspace default. Provide guidance.\n\nWe should not mention policy. Just answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! The timestamps are shown in the timezone that each user has set. If you want everyone to see the same time, adjust the workspace default in Settings\u202f\u2192\u202fGeneral. If you just want your own view to match your local time, change your personal timezone in Settings\u202f\u2192\u202fProfile. That will override the workspace default for you only.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_a7ae1199-cd76-40ba-b610-2c6d4e5da356",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460246,
+      "id": "chatcmpl-99e22788-469e-47a4-8192-7d4e0836f959",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_84bb35977d",
+      "usage": {
+        "completion_time": 0.303901666,
+        "completion_tokens": 234,
+        "completion_tokens_details": {
+          "reasoning_tokens": 142
+        },
+        "prompt_time": 0.062503243,
+        "prompt_tokens": 1045,
+        "queue_time": 0.472482395,
+        "total_time": 0.366404909,
+        "total_tokens": 1279
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8k8ake66sgc1qh2afvh78",
+        "seed": 401885545
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! The timestamps are shown in the timezone that each user has set. If you want everyone to see the same time, adjust the workspace default in Settings\u202f\u2192\u202fGeneral. If you just want your own view to match your local time, change your personal timezone in Settings\u202f\u2192\u202fProfile. That will override the workspace default for you only."
+        },
+        "id": "fc_a7ae1199-cd76-40ba-b610-2c6d4e5da356",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 234,
+      "prompt_tokens": 1045
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:32:55.052884Z",
+  "failure_detail": null,
+  "fingerprint": "e3af548af637ec121717b8b503811fe31085e8fed89ad619974b0d860f4af727",
+  "outcome": "response",
+  "recording_id": "turn/b8eea0a1938e42b3/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our auditor needs this data by end of week \u2014 can I pull it myself right now or do I need to request it?\" They want historical usage data. The policy says: usage data for current and prior billing period available directly from Settings \u2192 Billing \u2192 Usage, exportable as CSV. Usage older than two most recent billing periods is retained but not shown on that screen by default; can still be pulled with a custom date range from same export, as long as range falls within workspace's overall data retention window. So if auditor needs data for a specific quarter, they can export with that quarter's exact date range from usage screen. So answer: Yes, you can export yourself if within retention window; just go to Settings \u2192 Billing \u2192 Usage, set date range for the quarter, export CSV. If older than two most recent periods, still can pull with custom date range. So answer: you can pull it yourself. Provide steps.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! You can pull the data yourself. Just go to Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fUsage, set the date range for the quarter your auditor needs, and export the CSV. Even if it\u2019s older than the two most recent billing periods, you can still pull it with a custom date range as long as it\u2019s within the workspace\u2019s retention window. No support request is needed. Let me know if you run into any trouble!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_31e0d797-8224-4f8d-aa40-d4025877d657",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460375,
+      "id": "chatcmpl-8f18a7cd-5322-4a12-a043-2f2a8159b55b",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9340e7d14d",
+      "usage": {
+        "completion_time": 0.574356902,
+        "completion_tokens": 312,
+        "completion_tokens_details": {
+          "reasoning_tokens": 201
+        },
+        "prompt_time": 0.465657193,
+        "prompt_tokens": 1030,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.276530684,
+        "total_time": 1.040014095,
+        "total_tokens": 1342
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8q5pvee9855d13j0jwpdw",
+        "seed": 1595388870
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! You can pull the data yourself. Just go to Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fUsage, set the date range for the quarter your auditor needs, and export the CSV. Even if it\u2019s older than the two most recent billing periods, you can still pull it with a custom date range as long as it\u2019s within the workspace\u2019s retention window. No support request is needed. Let me know if you run into any trouble!"
+        },
+        "id": "fc_31e0d797-8224-4f8d-aa40-d4025877d657",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 312,
+      "prompt_tokens": 1030
+    }
+  },
+  "retry_after": null
+}

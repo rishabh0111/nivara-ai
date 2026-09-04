@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:06:05.505073Z",
+  "failure_detail": null,
+  "fingerprint": "f4fc96ab9bb1892fb66d59eee71919793883141883054fb15c96ab96faaeafd0",
+  "outcome": "response",
+  "recording_id": "turn/3e3a2fb69da3dcfa/consistency/sample-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to determine if we can answer using policy excerpts. The customer wants to correct an invoice that still lists the old office (billing details). They ask to correct it and resend. According to policy:\n\n- DOC-003 part 2: Meridian does not reissue invoices already generated \u2014 correction applies to invoices from that point forward only. So cannot resend corrected past invoice.\n\n- DOC-003 part 3: Customers who need a corrected copy of a past invoice for their own records, rather than a reissue, can request one through support. So we can say we cannot reissue, but can provide corrected copy via support.\n\nThus answer: we cannot reissue, but can provide corrected copy upon request. Also mention that changes affect future invoices.\n\nThus we can answer. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"I\u2019m sorry the old office address is still on your last invoice. We can\u2019t re\u2011issue a past invoice \u2013 any changes to the legal name, billing address, or tax ID only apply to invoices generated after the update. However, we can provide you with a corrected copy of that invoice for your records. Let me know if you\u2019d like us to send that over.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_a767ed18-82b5-4145-9c1f-04b38982f0a8",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788458765,
+      "id": "chatcmpl-5dc4b25e-ea99-497d-9ea7-93874ade526b",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4200b3f836",
+      "usage": {
+        "completion_time": 0.546577105,
+        "completion_tokens": 262,
+        "completion_tokens_details": {
+          "reasoning_tokens": 161
+        },
+        "prompt_time": 1.374395589,
+        "prompt_tokens": 1050,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.315022233,
+        "total_time": 1.920972694,
+        "total_tokens": 1312
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m760xpev69n66ra0wmzjjd",
+        "seed": 1308083661
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "I\u2019m sorry the old office address is still on your last invoice. We can\u2019t re\u2011issue a past invoice \u2013 any changes to the legal name, billing address, or tax ID only apply to invoices generated after the update. However, we can provide you with a corrected copy of that invoice for your records. Let me know if you\u2019d like us to send that over."
+        },
+        "id": "fc_a767ed18-82b5-4145-9c1f-04b38982f0a8",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 262,
+      "prompt_tokens": 1050
+    }
+  },
+  "retry_after": null
+}

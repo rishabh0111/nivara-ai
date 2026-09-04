@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:54:11.602553Z",
+  "failure_detail": null,
+  "fingerprint": "32c89c629b7ab7dfc015b000117cdfd006308b167989a46d0afda8caadf66bfa",
+  "outcome": "response",
+  "recording_id": "turn/98a11527e71533f2/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: admin received emailed invoice with figures not matching billing history, wants confirmation if genuine. According to policy: check Settings \u2192 Billing \u2192 Invoices, compare, treat as unverified, forward email to support. So answer: advise to verify in account, compare, if mismatch, treat as suspicious, do not pay, forward email to support for verification.\n\nWe can provide that. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there,\\n\\nIf the invoice you received by email doesn\u2019t match the amounts or due date shown in\u202fSettings\u202f\u2192\u202fBilling\u202f\u2192\u202fInvoices inside your account, it should be treated as unverified.\u202fDo not click any links, reply, or make a payment until you\u2019ve confirmed it.\\n\\nPlease compare the email details with the billing information in your account. If there\u2019s a mismatch, forward the email to us (you can use the \u201cForward to support\u201d option) so we can check it against your real billing record and let you know whether it\u2019s genuine or fraudulent.\\n\\nThanks,\\nMeridian Support\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_11f1529a-f427-4ff5-95ec-4b1689e30980",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454451,
+      "id": "chatcmpl-9f4871fc-0854-4508-8ab9-ff61f48bc610",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_02b0d31eca",
+      "usage": {
+        "completion_time": 0.630767626,
+        "completion_tokens": 247,
+        "completion_tokens_details": {
+          "reasoning_tokens": 91
+        },
+        "prompt_time": 0.040959908,
+        "prompt_tokens": 1072,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.31495993,
+        "total_time": 0.671727534,
+        "total_tokens": 1319
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m32d96e38tm84naag67k51",
+        "seed": 545614437
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there,\n\nIf the invoice you received by email doesn\u2019t match the amounts or due date shown in\u202fSettings\u202f\u2192\u202fBilling\u202f\u2192\u202fInvoices inside your account, it should be treated as unverified.\u202fDo not click any links, reply, or make a payment until you\u2019ve confirmed it.\n\nPlease compare the email details with the billing information in your account. If there\u2019s a mismatch, forward the email to us (you can use the \u201cForward to support\u201d option) so we can check it against your real billing record and let you know whether it\u2019s genuine or fraudulent.\n\nThanks,\nMeridian Support"
+        },
+        "id": "fc_11f1529a-f427-4ff5-95ec-4b1689e30980",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 247,
+      "prompt_tokens": 1072
+    }
+  },
+  "retry_after": null
+}

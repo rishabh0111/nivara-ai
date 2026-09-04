@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:23:07.916578Z",
+  "failure_detail": null,
+  "fingerprint": "0936970669d7d6c0541fc98a8dc60642928a4b7ec33948d4fe54d8a42091fe02",
+  "outcome": "response",
+  "recording_id": "turn/9b967691b45bff82/consistency/sample-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer question: \"What exact date does my next invoice get generated? I need to plan around replacing my card.\"\n\nWe have policy excerpts. The question is about when invoices are generated, specifically the next invoice date. We have relevant policy: part 2 of 3: \"That date is shown in Settings \u2192 Billing \u2192 Plan next to 'Next invoice', and it does not shift month to month even though months have different lengths; a billing date of the 31st bills on the last day of a shorter month.\" Also part 1: \"A monthly plan is invoiced on the same day of the month as the workspace's original billing date \u2014 the date the subscription started or last renewed.\" Also part 3: \"Because the card charge happens on that date, replacing a card a day or two beforehand is enough for the new card to be used for the upcoming invoice.\"\n\nThus answer: The next invoice will be generated on the same day of month as your original billing date; you can view the exact date in Settings \u2192 Billing \u2192 Plan next to \"Next invoice\". Replacing card a day or two before that date will work.\n\nWe must not mention policy or instructions. So we answer: \"The next invoice will be generated on the same day of the month as your original billing date; you can find the exact date in Settings \u2192 Billing \u2192 Plan under 'Next invoice'. Replacing your card a day or two before that date will ensure the new card is used.\"\n\nThus we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Your next invoice will be generated on the same day of the month as your original billing date. You can see the exact date in Settings \u2192 Billing \u2192 Plan under the \u2018Next invoice\u2019 field. Replacing your card a day or two before that date is enough for the new card to be used for the upcoming invoice.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_2404f905-ef7e-4167-8781-4e8bb4dd6738",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459787,
+      "id": "chatcmpl-9e5ea2fc-085e-4e82-8dc3-9085077ec3a7",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_639a5351c8",
+      "usage": {
+        "completion_time": 0.414252574,
+        "completion_tokens": 394,
+        "completion_tokens_details": {
+          "reasoning_tokens": 308
+        },
+        "prompt_time": 0.054380487,
+        "prompt_tokens": 1083,
+        "queue_time": 0.313773631,
+        "total_time": 0.468633061,
+        "total_tokens": 1477
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m858vde3wa7twm7h0hbmv0",
+        "seed": 1145823103
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Your next invoice will be generated on the same day of the month as your original billing date. You can see the exact date in Settings \u2192 Billing \u2192 Plan under the \u2018Next invoice\u2019 field. Replacing your card a day or two before that date is enough for the new card to be used for the upcoming invoice."
+        },
+        "id": "fc_2404f905-ef7e-4167-8781-4e8bb4dd6738",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 394,
+      "prompt_tokens": 1083
+    }
+  },
+  "retry_after": null
+}

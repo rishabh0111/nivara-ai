@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:34:15.115765Z",
+  "failure_detail": null,
+  "fingerprint": "1587a800dbeccac02b0a314507a683cae56d6a293d540508efec8a8682c4afd8",
+  "outcome": "response",
+  "recording_id": "turn/4d2dd0f08d0ce805/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"Pages felt slow for a bit, not sure if it was just us.\" They want to know if slowdown was platform-wide or local. According to policy: check status page. Provide guidance. So answer: check status page, if nothing, likely local. Also subscribe to status page updates. So we can answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! If you noticed a brief slowdown, the first step is to check our status page. Any platform\u2011wide degradation\u2014 even a short one\u2014 is listed there with start and end times. If you don\u2019t see anything for that window, it was most likely a local issue such as a browser extension, network conditions, or a large amount of data loading for that specific workspace. You can also subscribe to the status page\u2019s updates so you\u2019ll be notified in real time if an incident occurs. Let me know if you need help navigating the status page!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_b8d0d965-15b3-4cd5-b1a8-e5ede811e6f1",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460455,
+      "id": "chatcmpl-882510a3-c05e-4637-a560-ee2af6fcde5c",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e594c51153",
+      "usage": {
+        "completion_time": 0.257833901,
+        "completion_tokens": 207,
+        "completion_tokens_details": {
+          "reasoning_tokens": 73
+        },
+        "prompt_time": 0.106453353,
+        "prompt_tokens": 1061,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.28143673,
+        "total_time": 0.364287254,
+        "total_tokens": 1268
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8smgme5jvjm9f5s3vsfva",
+        "seed": 1377769929
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! If you noticed a brief slowdown, the first step is to check our status page. Any platform\u2011wide degradation\u2014 even a short one\u2014 is listed there with start and end times. If you don\u2019t see anything for that window, it was most likely a local issue such as a browser extension, network conditions, or a large amount of data loading for that specific workspace. You can also subscribe to the status page\u2019s updates so you\u2019ll be notified in real time if an incident occurs. Let me know if you need help navigating the status page!"
+        },
+        "id": "fc_b8d0d965-15b3-4cd5-b1a8-e5ede811e6f1",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 207,
+      "prompt_tokens": 1061
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:27:51.012358Z",
+  "failure_detail": null,
+  "fingerprint": "33d4cab61a67e9b828253335211eedb1bc547e7dca97991f0d352f2572c6a7bf",
+  "outcome": "response",
+  "recording_id": "turn/82756edba04e92e1/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our account owner asked me to find out how the uptime guarantee and any service credit are calculated following today's outage.\"\n\nWe have relevant excerpts DOC-050 parts 1-3. Provide answer: uptime guarantee and service credit calculation: based on contract terms, percentage guaranteed, credit schedule, credit is percentage of billing period charges scaled to shortfall, applied to future invoice. Customer should reference contract schedule and can ask support to confirm incident's measured uptime impact.\n\nWe can answer using those excerpts. No need to escalate. Provide concise answer.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! \\n\\nMeridian\u2019s uptime guarantee and any service\u2011credit you may receive are defined in your specific contract. The exact percentage of uptime that\u2019s guaranteed and the credit schedule for missing that target are listed in the order form or contract for your workspace (they can differ by plan tier).\\n\\nIf an outage occurs, the credit is calculated as a percentage of the charges for the billing period in which the outage happened. The percentage is scaled to how far the actual uptime fell short of the guaranteed level, and the resulting credit is applied to a future invoice rather than refunded directly.\\n\\nTo see whether today\u2019s incident qualifies and how much credit you might earn, you\u2019ll need to check your contract\u2019s uptime\u2011guarantee schedule and then ask us to confirm the measured uptime impact for that specific incident.\\n\\nLet us know if you\u2019d like us to verify the impact for today\u2019s outage against your contract terms!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_12925d19-a1a6-4dbb-b90d-828012b735fa",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452870,
+      "id": "chatcmpl-a6170f46-3ef6-4a65-bdd1-a684b814a330",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_19b184c447",
+      "usage": {
+        "completion_time": 0.736102227,
+        "completion_tokens": 334,
+        "completion_tokens_details": {
+          "reasoning_tokens": 120
+        },
+        "prompt_time": 0.058492933,
+        "prompt_tokens": 1038,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.363081579,
+        "total_time": 0.79459516,
+        "total_tokens": 1372
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1j5g6eekath76wz139vtn",
+        "seed": 1521950503
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! \n\nMeridian\u2019s uptime guarantee and any service\u2011credit you may receive are defined in your specific contract. The exact percentage of uptime that\u2019s guaranteed and the credit schedule for missing that target are listed in the order form or contract for your workspace (they can differ by plan tier).\n\nIf an outage occurs, the credit is calculated as a percentage of the charges for the billing period in which the outage happened. The percentage is scaled to how far the actual uptime fell short of the guaranteed level, and the resulting credit is applied to a future invoice rather than refunded directly.\n\nTo see whether today\u2019s incident qualifies and how much credit you might earn, you\u2019ll need to check your contract\u2019s uptime\u2011guarantee schedule and then ask us to confirm the measured uptime impact for that specific incident.\n\nLet us know if you\u2019d like us to verify the impact for today\u2019s outage against your contract terms!"
+        },
+        "id": "fc_12925d19-a1a6-4dbb-b90d-828012b735fa",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 334,
+      "prompt_tokens": 1038
+    }
+  },
+  "retry_after": null
+}

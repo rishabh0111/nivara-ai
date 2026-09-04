@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:30:19.509629Z",
+  "failure_detail": null,
+  "fingerprint": "dc40524565187a54bdc7dbc80701f952588efda8e86aacc53c5d3cedd4ecf122",
+  "outcome": "response",
+  "recording_id": "turn/e57b56c0de9552be/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer about automation rules during plan migration. The policy excerpts provide info. The question: \"Our integrations lead asked for a walkthrough of what happens to our automation rules specifically during the plan migration.\" So we need to explain that automation rules continue running, status shown in Settings \u2192 Automation \u2192 Rules, and tier-gated automation features may pause or activate depending on destination tier. Also mention that API keys, webhooks, rules tied to workspace not plan. So answer accordingly. Use short specific.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"During a plan migration your automation rules stay in place and keep running \u2013 they\u2019re tied to the workspace, not the plan tier. In Settings \u2192 Automation \u2192 Rules you\u2019ll see the status of every rule, including any that will be paused. If a rule uses a capability that only exists on the destination tier, it will activate as soon as the migration finishes. If it relies on a capability that the destination tier does not include, the rule is paused (not deleted) and will automatically reactivate if the workspace ever returns to a tier that includes that capability. No re\u2011configuration is required for your rules, API keys or webhooks. \"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f91596e6-aedb-4ba5-bebc-99d6fd36445f",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460219,
+      "id": "chatcmpl-9cc0c03d-21b8-48bf-a792-e73b663c04f2",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c5a89987dc",
+      "usage": {
+        "completion_time": 0.276871497,
+        "completion_tokens": 251,
+        "completion_tokens_details": {
+          "reasoning_tokens": 101
+        },
+        "prompt_time": 0.452142535,
+        "prompt_tokens": 1060,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.042654833,
+        "total_time": 0.729014032,
+        "total_tokens": 1311
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8je7ze5fratka8dfv3597",
+        "seed": 93208177
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "During a plan migration your automation rules stay in place and keep running \u2013 they\u2019re tied to the workspace, not the plan tier. In Settings \u2192 Automation \u2192 Rules you\u2019ll see the status of every rule, including any that will be paused. If a rule uses a capability that only exists on the destination tier, it will activate as soon as the migration finishes. If it relies on a capability that the destination tier does not include, the rule is paused (not deleted) and will automatically reactivate if the workspace ever returns to a tier that includes that capability. No re\u2011configuration is required for your rules, API keys or webhooks. "
+        },
+        "id": "fc_f91596e6-aedb-4ba5-bebc-99d6fd36445f",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 251,
+      "prompt_tokens": 1060
+    }
+  },
+  "retry_after": null
+}

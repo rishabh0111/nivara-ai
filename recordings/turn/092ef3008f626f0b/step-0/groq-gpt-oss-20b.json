@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:23:36.677830Z",
+  "failure_detail": null,
+  "fingerprint": "4eb1d899551e481450e68ee920ac487a0e62d21520565446258012df4a80289e",
+  "outcome": "response",
+  "recording_id": "turn/092ef3008f626f0b/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: \"Is the invoice date the same as when we first signed up, or does it shift each month?\" According to policy: monthly plan invoiced on same day of month as workspace's original billing date. That date does not shift month to month even though months have different lengths; a billing date of the 31st bills on the last day of a shorter month. So answer: invoice date stays same day each month, based on original billing date. Provide that.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"The invoice date stays the same each month \u2013 it\u2019s the same day of the month as when your workspace first started or last renewed. Even if the month has fewer days (e.g. a 31st), the invoice will still be issued on that day (or the last day of the month).\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f77426af-9180-454d-988d-d016d5d058ae",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459816,
+      "id": "chatcmpl-87d33965-111c-4b68-8c33-69e2c934827c",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9340e7d14d",
+      "usage": {
+        "completion_time": 0.200483795,
+        "completion_tokens": 183,
+        "completion_tokens_details": {
+          "reasoning_tokens": 100
+        },
+        "prompt_time": 0.063046136,
+        "prompt_tokens": 1039,
+        "queue_time": 0.280853023,
+        "total_time": 0.263529931,
+        "total_tokens": 1222
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8653gevs8yyfbka2gam2p",
+        "seed": 1639957937
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "The invoice date stays the same each month \u2013 it\u2019s the same day of the month as when your workspace first started or last renewed. Even if the month has fewer days (e.g. a 31st), the invoice will still be issued on that day (or the last day of the month)."
+        },
+        "id": "fc_f77426af-9180-454d-988d-d016d5d058ae",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 183,
+      "prompt_tokens": 1039
+    }
+  },
+  "retry_after": null
+}

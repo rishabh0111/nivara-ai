@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:33:33.578556Z",
+  "failure_detail": null,
+  "fingerprint": "18095931a086305f0b4dfce9698b666a7f4eecae0346e8a4e4ba2bd6915147ed",
+  "outcome": "response",
+  "recording_id": "turn/0b5b38ea639aed4e/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user says: \"Want a different grouping than what's shown by default.\" They likely want to know how to group reports by something other than status. The policy excerpt says that you can use Reports \u2192 Custom \u2192 New report to build around a different grouping, including tag, assignee, or a custom field. So we can answer: Use Custom reports, select group-by dimension. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can create a custom report and choose a different group\u2011by dimension. Go to Reports \u2192 Custom \u2192 New report, then pick the grouping you want (e.g. Tag, Assignee, or a custom field). Once set, you can save and schedule it just like the built\u2011in reports.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_fe803310-6bb9-4dfb-b5c2-87f8bef9a5ff",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460413,
+      "id": "chatcmpl-a8b0e7b8-0c2b-43d8-87df-c651b867dada",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_a12402de73",
+      "usage": {
+        "completion_time": 0.198946948,
+        "completion_tokens": 164,
+        "completion_tokens_details": {
+          "reasoning_tokens": 81
+        },
+        "prompt_time": 0.439674379,
+        "prompt_tokens": 1045,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.15644596,
+        "total_time": 0.638621327,
+        "total_tokens": 1209
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8rbv1eccsebba3hcykc2c",
+        "seed": 1034947092
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can create a custom report and choose a different group\u2011by dimension. Go to Reports \u2192 Custom \u2192 New report, then pick the grouping you want (e.g. Tag, Assignee, or a custom field). Once set, you can save and schedule it just like the built\u2011in reports."
+        },
+        "id": "fc_fe803310-6bb9-4dfb-b5c2-87f8bef9a5ff",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 164,
+      "prompt_tokens": 1045
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:21:50.428889Z",
+  "failure_detail": null,
+  "fingerprint": "8832e2f83a0463033bc75c218b27e67768ea8216a63ac859d4b9e69f7d564596",
+  "outcome": "response",
+  "recording_id": "turn/7625f54105af5d21/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"Our finance director asked whether a legal-name correction can be backdated to invoices from before the rename, or only applies going forward.\" We have policy: [DOC-003] part 2: \"Meridian does not reissue invoices that have already been generated \u2014 a correction applies to invoices from that point forward only.\" So answer: only applies going forward, cannot backdate. Also mention that the legal name is set in Settings \u2192 Billing \u2192 Company details and pulled onto every invoice generated after the change. So answer: cannot backdate. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Meridian does not reissue invoices that have already been generated. A legal\u2011name correction only applies to invoices from that point forward. It can\u2019t be back\u2011dated to past invoices.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_08af73e1-9339-49aa-91cf-f4c7922d8827",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459710,
+      "id": "chatcmpl-2b4ce74e-a2bd-4ace-928c-2e28db8b35b1",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_a12402de73",
+      "usage": {
+        "completion_time": 0.199914048,
+        "completion_tokens": 185,
+        "completion_tokens_details": {
+          "reasoning_tokens": 125
+        },
+        "prompt_time": 0.057606967,
+        "prompt_tokens": 1039,
+        "queue_time": 0.156285722,
+        "total_time": 0.257521015,
+        "total_tokens": 1224
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m82xaaewwadvn9x674j3cj",
+        "seed": 919857999
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Meridian does not reissue invoices that have already been generated. A legal\u2011name correction only applies to invoices from that point forward. It can\u2019t be back\u2011dated to past invoices."
+        },
+        "id": "fc_08af73e1-9339-49aa-91cf-f4c7922d8827",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 185,
+      "prompt_tokens": 1039
+    }
+  },
+  "retry_after": null
+}

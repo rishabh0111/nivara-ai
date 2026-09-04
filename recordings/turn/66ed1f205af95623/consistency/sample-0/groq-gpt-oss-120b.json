@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:54:32.659868Z",
+  "failure_detail": null,
+  "fingerprint": "862fd51f22e3c21e8b2d4fa2d548a4bf24b7eb0d6aa4dbdee4e8b7c351c71684",
+  "outcome": "response",
+  "recording_id": "turn/66ed1f205af95623/consistency/sample-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see conversation: Customer says \"unmatched invoice, is it fake?\" The policy excerpts about verifying suspicious invoice: genuine invoices are available in Settings \u2192 Billing \u2192 Invoices; if email invoice doesn't match anything there, treat as unverified. So answer: advise to check in settings, if not there treat as suspicious, don't pay, contact support.\n\nWe can answer based on policy. Provide steps. So post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! If you received an invoice by email that doesn\u2019t match anything you see in **Settings \u2192 Billing \u2192 Invoices** inside your account, it\u2019s a strong sign the invoice is not genuine. Genuine Meridian invoices are always listed there, showing the correct plan, seats, usage, amount and due date for each billing period. Until you can confirm the invoice appears in your account\u2019s billing history, treat it as unverified and don\u2019t make a payment based on the email alone. If you need further help confirming the invoice, feel free to let us know.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_760585ec-51e7-432c-9286-26599cd97670",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454472,
+      "id": "chatcmpl-fc588b73-062f-4b37-b994-8ffa77bcbc68",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_f640395b96",
+      "usage": {
+        "completion_time": 0.481846143,
+        "completion_tokens": 226,
+        "completion_tokens_details": {
+          "reasoning_tokens": 87
+        },
+        "prompt_time": 0.332392229,
+        "prompt_tokens": 1090,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.309976338,
+        "total_time": 0.814238372,
+        "total_tokens": 1316
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m331mwe0t84gzvp0a49mkj",
+        "seed": 1178478243
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! If you received an invoice by email that doesn\u2019t match anything you see in **Settings \u2192 Billing \u2192 Invoices** inside your account, it\u2019s a strong sign the invoice is not genuine. Genuine Meridian invoices are always listed there, showing the correct plan, seats, usage, amount and due date for each billing period. Until you can confirm the invoice appears in your account\u2019s billing history, treat it as unverified and don\u2019t make a payment based on the email alone. If you need further help confirming the invoice, feel free to let us know."
+        },
+        "id": "fc_760585ec-51e7-432c-9286-26599cd97670",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 226,
+      "prompt_tokens": 1090
+    }
+  },
+  "retry_after": null
+}

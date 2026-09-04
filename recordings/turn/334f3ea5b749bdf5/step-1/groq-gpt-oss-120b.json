@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:29:28.903333Z",
+  "failure_detail": null,
+  "fingerprint": "c03f79c1fc956ac1d356761d06c22a73522447aed491094b320b9ac59158963c",
+  "outcome": "response",
+  "recording_id": "turn/334f3ea5b749bdf5/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"still charged for cancelled seats, refund?\" This is about being charged for seats that were cancelled. According to DOC-052: Seats cancelled partway through a billing cycle are not automatically prorated; they stop being billed next cycle, not refunded for remainder. However, if they were removed before cycle started and still charged, billing team reviews. The policy says billing team reviews and it's case by case. So we can respond: explain that generally seats cancelled mid-cycle are not prorated, refunds not automatic; if they think they were billed incorrectly, they need to contact billing team with details, date of cancellation, etc. Provide guidance to raise with billing team. That is within policy. So we can answer.\n\nWe must not mention policy excerpts. Provide short specific answer. Use post_reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there \u2013 on our standard plans, seats that are cancelled during a billing cycle aren\u2019t automatically prorated. The charge stops on the next cycle rather than being refunded for the remaining days. If you believe you were billed incorrectly (for example, the seats were removed before the cycle started but still appear on the invoice), our billing team will need to review the specific seat\u2011change and cancellation timestamps. Please provide the date you submitted the cancellation and any relevant invoice details, and we\u2019ll investigate the discrepancy for you.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c4799c18-0ddb-410c-873c-1bd006806e40",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452968,
+      "id": "chatcmpl-4e5f466c-3671-4bd9-bb03-0b8bdc5fbc99",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_60e4b492db",
+      "usage": {
+        "completion_time": 1.713154869,
+        "completion_tokens": 300,
+        "completion_tokens_details": {
+          "reasoning_tokens": 172
+        },
+        "prompt_time": 1.63470337,
+        "prompt_tokens": 1097,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.31139762,
+        "total_time": 3.347858239,
+        "total_tokens": 1397
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1n2qjehyb34tsnbkty00g",
+        "seed": 1735806884
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there \u2013 on our standard plans, seats that are cancelled during a billing cycle aren\u2019t automatically prorated. The charge stops on the next cycle rather than being refunded for the remaining days. If you believe you were billed incorrectly (for example, the seats were removed before the cycle started but still appear on the invoice), our billing team will need to review the specific seat\u2011change and cancellation timestamps. Please provide the date you submitted the cancellation and any relevant invoice details, and we\u2019ll investigate the discrepancy for you."
+        },
+        "id": "fc_c4799c18-0ddb-410c-873c-1bd006806e40",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 300,
+      "prompt_tokens": 1097
+    }
+  },
+  "retry_after": null
+}

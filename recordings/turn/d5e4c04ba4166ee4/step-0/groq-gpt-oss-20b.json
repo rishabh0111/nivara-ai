@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:26:28.171861Z",
+  "failure_detail": null,
+  "fingerprint": "5249ecad58b664e8f7b99df7b840c0c35f4145cb0d7879de03342e30926fd717",
+  "outcome": "response",
+  "recording_id": "turn/d5e4c04ba4166ee4/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Does an export include archived and closed tickets, or only the ones currently in the active queue?\" According to DOC-018 part 1: \"A standard export from the dashboard includes every record in the current view, including archived and closed ones, unless a filter on the export screen narrows it to a status.\" So answer: includes archived and closed unless filter narrows. Also mention that export screen filter independent of dashboard view. So answer: yes, includes all records in current view, including archived/closed, unless you set a filter. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"A standard export pulls every record that\u2019s in the view you\u2019re exporting from \u2013 that means archived and closed tickets are included unless you set a filter on the export screen to limit the status. The export screen\u2019s filter is independent of whatever view you had open in the dashboard.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_8b6bc996-0360-4c4c-a019-f25b2d0cf0ac",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459988,
+      "id": "chatcmpl-ab6dd8fb-37b0-4e8a-b043-568ad9c53638",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_587d0d67cc",
+      "usage": {
+        "completion_time": 0.231232658,
+        "completion_tokens": 204,
+        "completion_tokens_details": {
+          "reasoning_tokens": 127
+        },
+        "prompt_time": 0.051282118,
+        "prompt_tokens": 1004,
+        "queue_time": 0.303225691,
+        "total_time": 0.282514776,
+        "total_tokens": 1208
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8bckges1tgjapamrewfxd",
+        "seed": 1835363481
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "A standard export pulls every record that\u2019s in the view you\u2019re exporting from \u2013 that means archived and closed tickets are included unless you set a filter on the export screen to limit the status. The export screen\u2019s filter is independent of whatever view you had open in the dashboard."
+        },
+        "id": "fc_8b6bc996-0360-4c4c-a019-f25b2d0cf0ac",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 204,
+      "prompt_tokens": 1004
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:30:18.420062Z",
+  "failure_detail": null,
+  "fingerprint": "4799676703921997f4a020b109b8c21ef9c2c901cd9f400fb2dfbc486d56fcb5",
+  "outcome": "response",
+  "recording_id": "turn/f2941f10d3e5d42b/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our dashboard has been missing records created after the first page of an API response for weeks \u2014 how do I fix the pagination in our integration?\" This is about pagination. The policy excerpts provide guidance: follow next_cursor, loop until absent, ensure integration follows pagination cursor, not just first page. So we can answer with that info.\n\nWe must post a reply. Keep short and specific. Provide steps: check list endpoints, use next_cursor, loop until no next_cursor, implement pagination per API reference.\n\nLet's craft answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! The issue is caused by the integration only reading the first page of a list endpoint. To capture all records you need to implement the pagination loop that the API expects:\\n\\n1. Call the list endpoint and read the `next_cursor` field in the response.\\n2. If `next_cursor` is present, make another request using that cursor to fetch the next page.\\n3. Repeat steps\u202f1\u20112 until the response no longer includes a `next_cursor` (that indicates the last page).\\n4. Combine the results from each page before processing or displaying them.\\n\\nFollowing this \u201cfollow\u2011the\u2011cursor until it\u2019s absent\u201d pattern ensures your dashboard receives every record, not just the first page.\\n\\nIf you need more detailed code examples, the API reference\u2019s pagination section shows the exact loop pattern to use.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_ecff0ff0-4842-454f-bef4-4a92d43a214d",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373817,
+      "id": "chatcmpl-b790e9c9-43a2-4c94-8ad4-a285c0701155",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5082008e34",
+      "usage": {
+        "completion_time": 0.69498488,
+        "completion_tokens": 317,
+        "completion_tokens_details": {
+          "reasoning_tokens": 118
+        },
+        "prompt_time": 0.628526453,
+        "prompt_tokens": 1065,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.283840353,
+        "total_time": 1.323511333,
+        "total_tokens": 1382
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hp5meheyfty4019q21ekh5",
+        "seed": 1802125697
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! The issue is caused by the integration only reading the first page of a list endpoint. To capture all records you need to implement the pagination loop that the API expects:\n\n1. Call the list endpoint and read the `next_cursor` field in the response.\n2. If `next_cursor` is present, make another request using that cursor to fetch the next page.\n3. Repeat steps\u202f1\u20112 until the response no longer includes a `next_cursor` (that indicates the last page).\n4. Combine the results from each page before processing or displaying them.\n\nFollowing this \u201cfollow\u2011the\u2011cursor until it\u2019s absent\u201d pattern ensures your dashboard receives every record, not just the first page.\n\nIf you need more detailed code examples, the API reference\u2019s pagination section shows the exact loop pattern to use."
+        },
+        "id": "fc_ecff0ff0-4842-454f-bef4-4a92d43a214d",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 317,
+      "prompt_tokens": 1065
+    }
+  },
+  "retry_after": null
+}

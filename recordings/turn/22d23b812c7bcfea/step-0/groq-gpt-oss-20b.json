@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:29:55.469393Z",
+  "failure_detail": null,
+  "fingerprint": "13655b02ff5c94d593dd5000213345a3caa958298ff73e06ed917850cb98d6f4",
+  "outcome": "response",
+  "recording_id": "turn/22d23b812c7bcfea/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"We're considering downgrading to a lower tier and I want to understand what happens to data associated with features only available on our current plan \u2014 is it deleted outright, or simply hidden until we upgrade again?\" According to DOC-031 part 1: \"Downgrading a plan does not delete anything. Features and data tied to a higher tier are hidden rather than removed \u2014 a downgraded workspace stops being able to use the feature, but the underlying data is preserved and becomes visible again immediately if the workspace upgrades back.\" So answer: data is hidden, not deleted. Also mention retention window exception. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! When you downgrade, the data tied to the higher\u2011tier features isn\u2019t deleted \u2013 it\u2019s simply hidden. The workspace can\u2019t use those features, but the underlying data stays in place and will re\u2011appear if you upgrade back. (Only data that falls outside the new tier\u2019s retention window may age out over time.)\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_b1c613a9-65a5-44c5-89ff-c672ab8a75ad",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460195,
+      "id": "chatcmpl-eaadb4b2-d90a-44af-8626-2ca22f3edfc9",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_3023a70d60",
+      "usage": {
+        "completion_time": 0.251987284,
+        "completion_tokens": 228,
+        "completion_tokens_details": {
+          "reasoning_tokens": 139
+        },
+        "prompt_time": 0.076436655,
+        "prompt_tokens": 1070,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.308009753,
+        "total_time": 0.328423939,
+        "total_tokens": 1298
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8hpyzev89c5w2g4qdnbkh",
+        "seed": 1344982150
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! When you downgrade, the data tied to the higher\u2011tier features isn\u2019t deleted \u2013 it\u2019s simply hidden. The workspace can\u2019t use those features, but the underlying data stays in place and will re\u2011appear if you upgrade back. (Only data that falls outside the new tier\u2019s retention window may age out over time.)"
+        },
+        "id": "fc_b1c613a9-65a5-44c5-89ff-c672ab8a75ad",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 228,
+      "prompt_tokens": 1070
+    }
+  },
+  "retry_after": null
+}

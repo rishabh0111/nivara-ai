@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T15:51:20.458481Z",
+  "failure_detail": null,
+  "fingerprint": "53df503f25a8dd4a11088c045aa9129830df9c20cefe3a7e17b4dfa9d133822e",
+  "outcome": "response",
+  "recording_id": "turn/bf19b76cd97156c9/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"I need this seat swap done before our next invoice generates so we don't get double-billed \u2014 how do I do it correctly?\" This is about reassigning a seat without paying for two at once. Policy excerpt DOC-029 says: \"The next invoice bills the seat count as of the invoice date, so a same-cycle reassignment shows as one seat, not two.\" So we can answer: to reassign seat within same billing cycle, just do the reassignment; the next invoice will reflect only one seat. Provide steps? Not in excerpt. But we can say that you can reassign seat now; the next invoice will count only one seat, not double. Also maybe mention that invoice date is shown in Settings \u2192 Billing \u2192 Plan next to \u201cNext invoice\u201d. But that's about invoice generation date. Could be relevant. Provide concise answer: go to seat management, reassign seat; the next invoice will reflect new seat count as of invoice date, so you won't be double-billed. Use policy.\n\nThus we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can reassign the seat now \u2013 the change takes effect for the next invoice. Meridian bills the seat count as of the invoice date, so a same\u2011cycle reassignment is reflected as a single seat on the upcoming invoice, not two. Just perform the seat swap in your admin console before the invoice date and you won\u2019t be double\u2011billed.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_05998c2c-c858-4254-ae02-1de4bee7b2bb",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788450680,
+      "id": "chatcmpl-840499df-6f28-436d-9d18-db00a4ca4a67",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_3166198c1d",
+      "usage": {
+        "completion_time": 0.682723854,
+        "completion_tokens": 321,
+        "completion_tokens_details": {
+          "reasoning_tokens": 224
+        },
+        "prompt_time": 0.058339381,
+        "prompt_tokens": 1047,
+        "queue_time": 0.307088128,
+        "total_time": 0.741063235,
+        "total_tokens": 1368
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kzfaaney8b10kk18rm2ez4",
+        "seed": 1189755717
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can reassign the seat now \u2013 the change takes effect for the next invoice. Meridian bills the seat count as of the invoice date, so a same\u2011cycle reassignment is reflected as a single seat on the upcoming invoice, not two. Just perform the seat swap in your admin console before the invoice date and you won\u2019t be double\u2011billed."
+        },
+        "id": "fc_05998c2c-c858-4254-ae02-1de4bee7b2bb",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 321,
+      "prompt_tokens": 1047
+    }
+  },
+  "retry_after": null
+}

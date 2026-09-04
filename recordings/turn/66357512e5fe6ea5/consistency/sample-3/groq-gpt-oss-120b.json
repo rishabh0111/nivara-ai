@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:21:51.156144Z",
+  "failure_detail": null,
+  "fingerprint": "9ca9fc201ddc0b11d2e67937f88ab69509a235f00360766e5067c6d7c96e4944",
+  "outcome": "response",
+  "recording_id": "turn/66357512e5fe6ea5/consistency/sample-3/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see the conversation context. The user says: \"We're still assessing impact from this and need to know right away whether this was a known platform incident.\" They want to know if it was a known incident. The policy excerpts provide info on checking status page for known incident, component-level breakdown, etc. So we can answer: instruct to check status page, look at incidents, etc. The question: they need to know right away if it was a known platform incident. We can respond with guidance: go to status page, see incident list, component breakdown, check history, etc. That is covered by policy. So we can answer using the excerpts. Provide concise answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can confirm whether the issue you\u2019re seeing was a known platform incident by checking Meridian\u2019s status page:\\n\\n1. Open the status page \u2013 it lists every incident, including brief ones, with exact start and end times and the components affected.\\n2. Look at the component\u2011level breakdown to see if the API, dashboard, or any other part matches the symptom you experienced.\\n3. If the incident occurred earlier in the day, use the page\u2019s history view to scroll back to that time window.\\n\\nIf you find an entry that matches the time and component you\u2019re concerned about, it was a known incident; otherwise, it may be a local issue.\\n\\nFeel free to let us know if you need help interpreting the status page details.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_0bba134d-aa00-4232-9d8e-1dcf0e07c302",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452511,
+      "id": "chatcmpl-5369e613-0271-4337-bb48-f366d9f40e38",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_f73454f048",
+      "usage": {
+        "completion_time": 0.694779893,
+        "completion_tokens": 323,
+        "completion_tokens_details": {
+          "reasoning_tokens": 143
+        },
+        "prompt_time": 0.051433227,
+        "prompt_tokens": 1094,
+        "queue_time": 0.321907701,
+        "total_time": 0.74621312,
+        "total_tokens": 1417
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m17698e7cvykpcr6x8zh70",
+        "seed": 226337554
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can confirm whether the issue you\u2019re seeing was a known platform incident by checking Meridian\u2019s status page:\n\n1. Open the status page \u2013 it lists every incident, including brief ones, with exact start and end times and the components affected.\n2. Look at the component\u2011level breakdown to see if the API, dashboard, or any other part matches the symptom you experienced.\n3. If the incident occurred earlier in the day, use the page\u2019s history view to scroll back to that time window.\n\nIf you find an entry that matches the time and component you\u2019re concerned about, it was a known incident; otherwise, it may be a local issue.\n\nFeel free to let us know if you need help interpreting the status page details."
+        },
+        "id": "fc_0bba134d-aa00-4232-9d8e-1dcf0e07c302",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 323,
+      "prompt_tokens": 1094
+    }
+  },
+  "retry_after": null
+}

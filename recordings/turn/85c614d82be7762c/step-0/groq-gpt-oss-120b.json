@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:04:13.507910Z",
+  "failure_detail": null,
+  "fingerprint": "4fe81865781008c8924f21d37d5f32408adfe5d2808eeda71f84c21e2c3570d3",
+  "outcome": "response",
+  "recording_id": "turn/85c614d82be7762c/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: timestamps offset by several hours, want to know if per-user setting or workspace-wide. The policy excerpts explain timestamps stored in UTC, displayed using workspace default or personal timezone. Also that personal timezone overrides workspace default for that account only. So answer: It's both; default is workspace default, but each user can set personal timezone which overrides. So explain that they can change personal timezone in Profile settings, or change workspace default in Settings \u2192 General. Provide short answer.\n\nWe must post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Timestamps are stored in UTC and then shown in the timezone that\u2019s set for the account. By default the workspace\u2019s default timezone (Settings\u202f\u2192\u202fGeneral) is used, so everyone sees the same offset. However, each user can override that by setting their own personal timezone in Settings\u202f\u2192\u202fProfile \u2013 that change only affects that user\u2019s view. So the offset you\u2019re seeing could be fixed either by updating the workspace default or by each user adjusting their personal timezone.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_a59838e3-64aa-4f9c-a7b5-276c3040a6c7",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451453,
+      "id": "chatcmpl-619c5493-9230-4e55-b7b3-4926973b7ca7",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_dc4ca88fa4",
+      "usage": {
+        "completion_time": 0.493209019,
+        "completion_tokens": 231,
+        "completion_tokens_details": {
+          "reasoning_tokens": 110
+        },
+        "prompt_time": 0.052965205,
+        "prompt_tokens": 1045,
+        "queue_time": 0.311886008,
+        "total_time": 0.546174224,
+        "total_tokens": 1276
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m06xpseh1rbc0nbtsmfgc7",
+        "seed": 90530676
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Timestamps are stored in UTC and then shown in the timezone that\u2019s set for the account. By default the workspace\u2019s default timezone (Settings\u202f\u2192\u202fGeneral) is used, so everyone sees the same offset. However, each user can override that by setting their own personal timezone in Settings\u202f\u2192\u202fProfile \u2013 that change only affects that user\u2019s view. So the offset you\u2019re seeing could be fixed either by updating the workspace default or by each user adjusting their personal timezone."
+        },
+        "id": "fc_a59838e3-64aa-4f9c-a7b5-276c3040a6c7",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 231,
+      "prompt_tokens": 1045
+    }
+  },
+  "retry_after": null
+}

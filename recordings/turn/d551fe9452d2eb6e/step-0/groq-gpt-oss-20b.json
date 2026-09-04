@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:27:06.480670Z",
+  "failure_detail": null,
+  "fingerprint": "a891b1ff0c5f727dbf43721f56949fe22442b906eca54f28a88b04030b60ae36",
+  "outcome": "response",
+  "recording_id": "turn/d551fe9452d2eb6e/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"Is the rate limit counted per API key, per account, or something else entirely \u2014 because our usage doesn't match the documented numbers?\" We have policy excerpts: DOC-021 part 1: documented rate limit is per API key, not per workspace, and rolling window. Part 2: key well under per-minute figure can still get 429 if burst. Part 3: headers show exact count. So answer: per API key, rolling window, can get 429 if burst. Also mention X-RateLimit headers. So we can answer. No escalation needed.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"The limit is applied per API key, not per workspace or account. It\u2019s a rolling\u2011window count of the last 60\u202fseconds, so a burst of requests can hit the limit even if your average is below the headline figure. Each response includes `X\u2011RateLimit\u2011Remaining` and `X\u2011RateLimit\u2011Reset` headers that show the exact count and reset time for that key, which is the most reliable way to see what\u2019s being counted.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_1750a261-93b6-452c-a466-34e5d9323156",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460026,
+      "id": "chatcmpl-9e134a2c-c50b-4f71-8d54-ae473ac79836",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_8e23cedc90",
+      "usage": {
+        "completion_time": 0.331035428,
+        "completion_tokens": 244,
+        "completion_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "prompt_time": 0.604712953,
+        "prompt_tokens": 1103,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.314501933,
+        "total_time": 0.935748381,
+        "total_tokens": 1347
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8ch5nex1rnqea3pnyjjfe",
+        "seed": 1698951624
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "The limit is applied per API key, not per workspace or account. It\u2019s a rolling\u2011window count of the last 60\u202fseconds, so a burst of requests can hit the limit even if your average is below the headline figure. Each response includes `X\u2011RateLimit\u2011Remaining` and `X\u2011RateLimit\u2011Reset` headers that show the exact count and reset time for that key, which is the most reliable way to see what\u2019s being counted."
+        },
+        "id": "fc_1750a261-93b6-452c-a466-34e5d9323156",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 244,
+      "prompt_tokens": 1103
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T17:53:28.392957Z",
+  "failure_detail": null,
+  "fingerprint": "6569e7002999a1c3db1cc487f86e80f805be3d81bc8e1696ca28e739df8b9b1a",
+  "outcome": "response",
+  "recording_id": "turn/abe63cd7e1735502/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to infer the context: The customer is asking about bank transfer as payment method for a contract. They need a definite answer today. The policy excerpts: DOC-005 says annual contracts can be paid by bank transfer against an invoice, arranged through support before contract starts, not self-serve. Also monthly plans are card-only; a workspace wanting bank transfer needs to be on an annual term first. So answer: Yes, bank transfer is possible for annual contracts, but must be arranged via support before contract starts; monthly plans cannot use bank transfer. Provide that answer. The question: \"This is blocking a signed contract \u2014 if bank transfer isn't an option we may have to walk away, so I need a definite answer today.\" So we respond: For annual contracts, we can accept bank transfer via invoice, need to set up invoiced billing, contact support. If they are on monthly plan, not possible. So give definitive answer: Yes, we can do it for annual contracts, arrange with support. Provide steps. Use short answer. Then post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"We can accept a bank\u2011transfer payment, but only for an annual\u2011term contract. It isn\u2019t a self\u2011service option \u2013 you\u2019ll need to have support set up invoiced billing and issue an invoice before the contract starts. Once that\u2019s arranged, you can send the transfer using the reference we provide and our billing team will apply it. Monthly plans are card\u2011only, so a bank transfer isn\u2019t possible for those.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_1c1f74b5-e54b-4a49-9806-a85352ba6566",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371608,
+      "id": "chatcmpl-a16320c0-5e23-41c4-adeb-d1eb24d5eebf",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e1a78f200e",
+      "usage": {
+        "completion_time": 0.695162664,
+        "completion_tokens": 327,
+        "completion_tokens_details": {
+          "reasoning_tokens": 215
+        },
+        "prompt_time": 0.256641489,
+        "prompt_tokens": 1104,
+        "queue_time": 0.371338161,
+        "total_time": 0.951804153,
+        "total_tokens": 1431
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hm27enegsacf6csg7j1bns",
+        "seed": 968625791
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "We can accept a bank\u2011transfer payment, but only for an annual\u2011term contract. It isn\u2019t a self\u2011service option \u2013 you\u2019ll need to have support set up invoiced billing and issue an invoice before the contract starts. Once that\u2019s arranged, you can send the transfer using the reference we provide and our billing team will apply it. Monthly plans are card\u2011only, so a bank transfer isn\u2019t possible for those."
+        },
+        "id": "fc_1c1f74b5-e54b-4a49-9806-a85352ba6566",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 327,
+      "prompt_tokens": 1104
+    }
+  },
+  "retry_after": null
+}

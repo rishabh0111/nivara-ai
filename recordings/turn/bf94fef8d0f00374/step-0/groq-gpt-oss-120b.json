@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:05:47.087168Z",
+  "failure_detail": null,
+  "fingerprint": "125cf194f19abd0a535e8ef7114416858be679a80ee3fb6da3404530b591383c",
+  "outcome": "response",
+  "recording_id": "turn/bf94fef8d0f00374/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Why does searching for a record created a few minutes ago return nothing, even though I can find it by browsing directly?\" This matches DOC-035 about indexing delay. Provide answer: search index updates shortly after creation, may lag a couple minutes; browsing shows live data. If still not after several minutes, report. So answer accordingly. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When you create a record, the browse view shows the live data immediately, but the search feature works against an index that is refreshed a short time after the record is created. Under normal load this indexing can lag by a few minutes, so a newly\u2011created record may not appear in search right away even though you can see it by browsing. Usually the record shows up in search within a couple of minutes without any action needed. If it still isn\u2019t searchable after several minutes, that\u2019s not normal and you should report it for further investigation.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_1742cf76-934f-44ce-aa91-189184ab6d2a",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451547,
+      "id": "chatcmpl-3815e1e4-4ff6-443f-a4b1-a4c647c07e5a",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_96d96a151c",
+      "usage": {
+        "completion_time": 0.787098204,
+        "completion_tokens": 219,
+        "completion_tokens_details": {
+          "reasoning_tokens": 85
+        },
+        "prompt_time": 0.355105497,
+        "prompt_tokens": 1048,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.27756761,
+        "total_time": 1.142203701,
+        "total_tokens": 1267
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m09rgre62b3apfmgr92kjv",
+        "seed": 1045019780
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When you create a record, the browse view shows the live data immediately, but the search feature works against an index that is refreshed a short time after the record is created. Under normal load this indexing can lag by a few minutes, so a newly\u2011created record may not appear in search right away even though you can see it by browsing. Usually the record shows up in search within a couple of minutes without any action needed. If it still isn\u2019t searchable after several minutes, that\u2019s not normal and you should report it for further investigation."
+        },
+        "id": "fc_1742cf76-934f-44ce-aa91-189184ab6d2a",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 219,
+      "prompt_tokens": 1048
+    }
+  },
+  "retry_after": null
+}

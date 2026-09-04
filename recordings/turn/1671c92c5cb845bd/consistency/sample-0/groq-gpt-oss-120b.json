@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:40:22.018350Z",
+  "failure_detail": null,
+  "fingerprint": "949ae57caacfd7e21efbd9a64c7c47745b542da4e4bf4723f542cc48025a8252",
+  "outcome": "response",
+  "recording_id": "turn/1671c92c5cb845bd/consistency/sample-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to infer the customer's question. The user says \"webhook hijacked, data exposure risk\". Likely they are reporting that their webhook endpoint was changed without authorization, suspect data exposure. We have policy excerpts about reporting a webhook endpoint that was changed without authorization. The answer should advise them to disable/repoint the webhook immediately from Settings \u2192 Developer \u2192 Webhooks, and report to support for investigation. Provide steps. That is covered in DOC-062 parts. So we can answer directly.\n\nWe must not mention policy. Provide short specific answer: go to Settings > Developer > Webhooks, disable or repoint, then contact support with details. Also note it's a security incident.\n\nThus we can post_reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"I\u2019m sorry to hear this happened. Please go to **Settings \u2192 Developer \u2192 Webhooks** in your workspace and either disable the webhook or repoint it to a safe endpoint \u2013 this stops any further deliveries right away. After you\u2019ve done that, please let our support team know (via a support ticket or reply) so we can investigate when the endpoint was changed, which account made the change, and what data may have been delivered to the unauthorized domain.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_273be08b-8aeb-49b0-9f67-b8bf01992b74",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453621,
+      "id": "chatcmpl-5b937e87-5292-4482-bbe2-2cb45ddcfecc",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e5b4e54fbb",
+      "usage": {
+        "completion_time": 0.57715418,
+        "completion_tokens": 261,
+        "completion_tokens_details": {
+          "reasoning_tokens": 144
+        },
+        "prompt_time": 2.045691195,
+        "prompt_tokens": 1139,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.366347413,
+        "total_time": 2.622845375,
+        "total_tokens": 1400
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2913me1na6bqj1m8pyxw8",
+        "seed": 238237049
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "I\u2019m sorry to hear this happened. Please go to **Settings \u2192 Developer \u2192 Webhooks** in your workspace and either disable the webhook or repoint it to a safe endpoint \u2013 this stops any further deliveries right away. After you\u2019ve done that, please let our support team know (via a support ticket or reply) so we can investigate when the endpoint was changed, which account made the change, and what data may have been delivered to the unauthorized domain."
+        },
+        "id": "fc_273be08b-8aeb-49b0-9f67-b8bf01992b74",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 261,
+      "prompt_tokens": 1139
+    }
+  },
+  "retry_after": null
+}

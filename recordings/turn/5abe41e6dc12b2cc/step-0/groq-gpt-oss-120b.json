@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T17:59:35.298286Z",
+  "failure_detail": null,
+  "fingerprint": "cbf1ea77dbd43a2def6a5622593a4de9e5e66d538dc6ddfefdc9db0356b04890",
+  "outcome": "response",
+  "recording_id": "turn/5abe41e6dc12b2cc/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to understand the customer's request. They say: \"My assistant is renewing our card on file and asked me to find out the exact billing date so the timing lines up.\"\n\nSo they want to know the exact billing date for their subscription. This is about billing date. The policy excerpts include DOC-007 part 1: \"A monthly plan is invoiced on the same day of the month as the workspace's original billing date \u2014 the date the subscription started or last renewed.\"\n\nThus we can answer: The billing date is the day of month when the workspace originally started or last renewed. Provide that info. This is within policy. Not about money movement, disputed charge, identity. So we can answer.\n\nWe need to give short specific answer. Use the policy excerpt. So answer: The billing date is the same day of month as the original subscription start or last renewal. If they need to find it, they can check in settings maybe. But we have only that excerpt. Provide answer.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! Your billing date is the same day of the month as when your workspace originally started or last renewed its subscription. In other words, the invoice is generated each month on that specific calendar day.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_ca70ef64-e9ce-47c8-9c5a-7e4cfc557970",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371975,
+      "id": "chatcmpl-1aa242e2-5ba9-4cbf-8ff3-544947d05a23",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c868cf1eaa",
+      "usage": {
+        "completion_time": 0.614573941,
+        "completion_tokens": 272,
+        "completion_tokens_details": {
+          "reasoning_tokens": 207
+        },
+        "prompt_time": 0.240615223,
+        "prompt_tokens": 1048,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.355953135,
+        "total_time": 0.855189164,
+        "total_tokens": 1320
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmddq8exjaxbff4rs7bc5y",
+        "seed": 1026955749
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! Your billing date is the same day of the month as when your workspace originally started or last renewed its subscription. In other words, the invoice is generated each month on that specific calendar day."
+        },
+        "id": "fc_ca70ef64-e9ce-47c8-9c5a-7e4cfc557970",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 272,
+      "prompt_tokens": 1048
+    }
+  },
+  "retry_after": null
+}

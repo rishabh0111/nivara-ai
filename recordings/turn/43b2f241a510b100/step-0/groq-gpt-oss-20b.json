@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:31:07.459538Z",
+  "failure_detail": null,
+  "fingerprint": "01f769900e3dcc3a614ae8c755a8b5fbc20020936830d728c02243c30e76523e",
+  "outcome": "response",
+  "recording_id": "turn/43b2f241a510b100/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user says: \"search indexing delay?\" They likely want explanation. We have policy excerpts about search indexing delay. We can answer. It's not about money or identity. So we can answer. Use policy. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When you create or change a record, the search index is updated shortly after, not instantly. Browsing shows the record immediately, but search may lag by a few minutes. This is normal and usually resolves on its own. If it still doesn\u2019t appear after several minutes, let us know so we can investigate further.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_78764858-a85d-4c56-b1e0-a679f29737a1",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460267,
+      "id": "chatcmpl-e671a17c-d77a-4d71-8c62-aab527b592b0",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_a8c584dda7",
+      "usage": {
+        "completion_time": 0.13871713,
+        "completion_tokens": 133,
+        "completion_tokens_details": {
+          "reasoning_tokens": 47
+        },
+        "prompt_time": 0.052307958,
+        "prompt_tokens": 1042,
+        "queue_time": 0.156409331,
+        "total_time": 0.191025088,
+        "total_tokens": 1175
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8kxjtev6aa4zfc2vz9r91",
+        "seed": 1763474558
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When you create or change a record, the search index is updated shortly after, not instantly. Browsing shows the record immediately, but search may lag by a few minutes. This is normal and usually resolves on its own. If it still doesn\u2019t appear after several minutes, let us know so we can investigate further."
+        },
+        "id": "fc_78764858-a85d-4c56-b1e0-a679f29737a1",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 133,
+      "prompt_tokens": 1042
+    }
+  },
+  "retry_after": null
+}

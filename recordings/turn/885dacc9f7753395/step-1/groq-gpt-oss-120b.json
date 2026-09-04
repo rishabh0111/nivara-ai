@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:31:18.847133Z",
+  "failure_detail": null,
+  "fingerprint": "24c83f86322bc50bd1f34fe2a4798f069304f4f0e6e88d7fa2514f78aaab89cd",
+  "outcome": "response",
+  "recording_id": "turn/885dacc9f7753395/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to determine if we can answer based on policy. The customer says: \"This currency mix-up cost us extra money and I need the difference refunded urgently.\" This is about a currency billing region correction, a charge already processed, wants refund. According to policy excerpts: DOC-054 says region setting can be corrected forward, but correction to a charge already processed is not automatic; it must be reviewed case by case, and the account owner should raise the specific invoice. So we can answer: they need to raise a request with billing team, we cannot refund automatically. Provide guidance: contact billing team, raise specific invoice, they will review. This is allowed. It's not about disputed or fraudulent charge? It's about a charge error due to currency mix-up. That's a billing dispute, but not a fraudulent charge. The policy says we can respond with guidance: \"reviewed by billing team, raise specific invoice.\" So we can answer.\n\nWe must keep answer short and specific, address customer directly. Provide steps: go to billing settings, correct region, then contact billing support with invoice details. Use policy language.\n\nThus we will post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"I\u2019m sorry you were charged extra due to the currency mix\u2011up. The billing team needs to review any charge that was processed with an incorrect billing region. Please raise a request for the specific invoice in question (you can do this from the Billing Settings page) and our team will investigate the amount and exchange rate to determine the appropriate adjustment.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_9c82f313-cef7-434d-bbcf-49fb7d30c10b",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453078,
+      "id": "chatcmpl-eb8619b4-2756-484d-96db-79b390e3b4e0",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_6b677c2caf",
+      "usage": {
+        "completion_time": 0.694009846,
+        "completion_tokens": 325,
+        "completion_tokens_details": {
+          "reasoning_tokens": 231
+        },
+        "prompt_time": 0.068083674,
+        "prompt_tokens": 1112,
+        "queue_time": 0.534585693,
+        "total_time": 0.76209352,
+        "total_tokens": 1437
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1rg3hervt72jym7n2rska",
+        "seed": 419106246
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "I\u2019m sorry you were charged extra due to the currency mix\u2011up. The billing team needs to review any charge that was processed with an incorrect billing region. Please raise a request for the specific invoice in question (you can do this from the Billing Settings page) and our team will investigate the amount and exchange rate to determine the appropriate adjustment."
+        },
+        "id": "fc_9c82f313-cef7-434d-bbcf-49fb7d30c10b",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 325,
+      "prompt_tokens": 1112
+    }
+  },
+  "retry_after": null
+}

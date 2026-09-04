@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:43:44.877717Z",
+  "failure_detail": null,
+  "fingerprint": "3c8f293da7cc3b041e1c002d390f3f88612f0ea6924f33805651128bcbcb8f03",
+  "outcome": "response",
+  "recording_id": "turn/dd46a92a2b959e4a/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"This dispute is blocking our whole team and I need to know how ownership conflicts like this actually get resolved.\"\n\nThis is about a dispute over who owns a workspace. The policy says: Meridian does not take either side's word; it's an internal company matter, needs documentation, review paused pending confirmation from company authority, handled case by case by a human reviewer, either party can start process by contacting support with account details.\n\nThus we can answer: explain that conflicts are handled case by case by a human reviewer, need company documentation, review paused pending confirmation from someone in authority, both parties can contact support with details. Provide short answer.\n\nWe must not mention policy excerpts. Just answer.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When two people from the same company claim ownership of a workspace, we treat it as an internal matter that must be resolved by the company. A human reviewer will pause any changes and request documentation\u2014typically a statement from someone in a position of authority over both parties\u2014before any access is altered. The review is handled case\u2011by\u2011case, and either party can start the process by contacting support with their account details.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c3b8f5be-6c9e-4634-bace-51ed68c97cb4",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453824,
+      "id": "chatcmpl-46f417fd-2403-4ba7-9305-30aa6e8a7518",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5082008e34",
+      "usage": {
+        "completion_time": 0.725755933,
+        "completion_tokens": 265,
+        "completion_tokens_details": {
+          "reasoning_tokens": 156
+        },
+        "prompt_time": 0.874028365,
+        "prompt_tokens": 1114,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.31503506,
+        "total_time": 1.5997842979999999,
+        "total_tokens": 1379
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2f8ajea589x8n6qh4mnsh",
+        "seed": 2045199633
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When two people from the same company claim ownership of a workspace, we treat it as an internal matter that must be resolved by the company. A human reviewer will pause any changes and request documentation\u2014typically a statement from someone in a position of authority over both parties\u2014before any access is altered. The review is handled case\u2011by\u2011case, and either party can start the process by contacting support with their account details."
+        },
+        "id": "fc_c3b8f5be-6c9e-4634-bace-51ed68c97cb4",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 265,
+      "prompt_tokens": 1114
+    }
+  },
+  "retry_after": null
+}

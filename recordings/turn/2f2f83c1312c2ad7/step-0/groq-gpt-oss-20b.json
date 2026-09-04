@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:28:41.166591Z",
+  "failure_detail": null,
+  "fingerprint": "e4b326fe8de0c42fa8db28973aeb225d7bea5fadbdd0579b4729e798a7e234b8",
+  "outcome": "response",
+  "recording_id": "turn/2f2f83c1312c2ad7/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The user says: \"Records past the first page seem to just vanish.\" This likely refers to API pagination. The policy excerpt says that list endpoints return one page at a time, with next_cursor. If not checked, you stop at first page. So answer: need to follow next_cursor. Also mention that if you only read first page, you'll miss records. So explain that you need to paginate. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"It looks like you\u2019re only pulling the first page of results. List endpoints return one page at a time and include a `next_cursor` field when more data exists. To get all records you need to keep requesting pages using that cursor until the response no longer contains a `next_cursor`. That\u2019s why records beyond the first page appear to \u201cvanish\u201d if you don\u2019t follow the pagination cursor.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_4019880f-b2e6-4640-8e46-0c24e5b5ad03",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460120,
+      "id": "chatcmpl-12628d57-a2b8-4502-854a-eb599c8c5ed6",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_ef00694abe",
+      "usage": {
+        "completion_time": 0.313275663,
+        "completion_tokens": 194,
+        "completion_tokens_details": {
+          "reasoning_tokens": 91
+        },
+        "prompt_time": 0.074452357,
+        "prompt_tokens": 1060,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.275828371,
+        "total_time": 0.38772802,
+        "total_tokens": 1254
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8fe1te7ysr17vwrbahpda",
+        "seed": 1049462387
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "It looks like you\u2019re only pulling the first page of results. List endpoints return one page at a time and include a `next_cursor` field when more data exists. To get all records you need to keep requesting pages using that cursor until the response no longer contains a `next_cursor`. That\u2019s why records beyond the first page appear to \u201cvanish\u201d if you don\u2019t follow the pagination cursor."
+        },
+        "id": "fc_4019880f-b2e6-4640-8e46-0c24e5b5ad03",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 194,
+      "prompt_tokens": 1060
+    }
+  },
+  "retry_after": null
+}

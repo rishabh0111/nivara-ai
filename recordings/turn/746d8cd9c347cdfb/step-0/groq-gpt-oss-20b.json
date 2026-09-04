@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:26:28.837161Z",
+  "failure_detail": null,
+  "fingerprint": "e7de4ba09b7aa029408974f5a9ea56b1aa3c0fd45cb360dbe7ad20061c4961b0",
+  "outcome": "response",
+  "recording_id": "turn/746d8cd9c347cdfb/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: \"does export include archived/closed?\" The policy excerpts: DOC-018 part 1 says standard export includes every record in current view, including archived and closed ones, unless a filter on the export screen narrows it to a status. So answer: yes, by default includes archived/closed unless you filter. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 a standard export pulls every record that\u2019s in the current view, so archived and closed records are included unless you set a filter on the export screen to exclude them.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_819e58be-d499-46a6-a2d8-c6b5e87b4ac9",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459988,
+      "id": "chatcmpl-f009cd5c-a32a-495f-a961-1b1275864250",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c5a89987dc",
+      "usage": {
+        "completion_time": 0.253796097,
+        "completion_tokens": 130,
+        "completion_tokens_details": {
+          "reasoning_tokens": 73
+        },
+        "prompt_time": 0.057423051,
+        "prompt_tokens": 1006,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.042196827,
+        "total_time": 0.311219148,
+        "total_tokens": 1136
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8bdfpe17b3bbms6946bfv",
+        "seed": 708304718
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 a standard export pulls every record that\u2019s in the current view, so archived and closed records are included unless you set a filter on the export screen to exclude them."
+        },
+        "id": "fc_819e58be-d499-46a6-a2d8-c6b5e87b4ac9",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 130,
+      "prompt_tokens": 1006
+    }
+  },
+  "retry_after": null
+}

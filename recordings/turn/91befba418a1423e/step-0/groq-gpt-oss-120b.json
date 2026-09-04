@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:01:16.513867Z",
+  "failure_detail": null,
+  "fingerprint": "b0dc2bb88f14b34e76016853149c8e6f593d14b6387b8e45fc913b1fa2149dcd",
+  "outcome": "response",
+  "recording_id": "turn/91befba418a1423e/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"Not sure our automations survive a plan migration cleanly.\" They want to know about automations during plan migration. The policy says moving a workspace to a new plan does not interrupt existing API keys, webhooks or automation rules\u2014they continue running. Also tier-gated automation features may be paused if not available in destination tier, otherwise activate. Also you can view status in Settings \u2192 Automation \u2192 Rules before confirming migration.\n\nThus we can answer: automations continue, no reconfiguration needed; tier-gated features may be paused if not available; you can check status in Automation Rules page before confirming.\n\nWe should provide concise answer. No need to escalate. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Your automations will keep running through a plan migration \u2013 they\u2019re tied to the workspace, not the plan tier, so no re\u2011configuration is needed. The only change can be for tier\u2011gated automation features: if a rule uses a capability that isn\u2019t included in the new tier, the rule will be paused (not deleted) and will reactivate automatically if you later move back to a tier that supports it. You can review the impact before confirming the migration by opening **Settings \u2192 Automation \u2192 Rules**, which shows the status of every rule and flags any that would be paused.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_e69d41c1-8ea0-4c7d-8956-be5da538a7b9",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451276,
+      "id": "chatcmpl-0c035893-3890-4231-b702-7014c10eff68",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_0708ac49a5",
+      "usage": {
+        "completion_time": 0.622932322,
+        "completion_tokens": 292,
+        "completion_tokens_details": {
+          "reasoning_tokens": 149
+        },
+        "prompt_time": 2.112329323,
+        "prompt_tokens": 1081,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.448608236,
+        "total_time": 2.735261645,
+        "total_tokens": 1373
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m01efeexbbcqgf7c6wk2q5",
+        "seed": 199985553
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Your automations will keep running through a plan migration \u2013 they\u2019re tied to the workspace, not the plan tier, so no re\u2011configuration is needed. The only change can be for tier\u2011gated automation features: if a rule uses a capability that isn\u2019t included in the new tier, the rule will be paused (not deleted) and will reactivate automatically if you later move back to a tier that supports it. You can review the impact before confirming the migration by opening **Settings \u2192 Automation \u2192 Rules**, which shows the status of every rule and flags any that would be paused."
+        },
+        "id": "fc_e69d41c1-8ea0-4c7d-8956-be5da538a7b9",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 292,
+      "prompt_tokens": 1081
+    }
+  },
+  "retry_after": null
+}

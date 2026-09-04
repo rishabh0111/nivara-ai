@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:29:42.262240Z",
+  "failure_detail": null,
+  "fingerprint": "d5949aa328bbb6a515630a756980e94f45fb3897e70a2869693b6b446e9fa669",
+  "outcome": "response",
+  "recording_id": "turn/5ac43a99fdb13c79/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"Looking for a way to fire a test event.\" Likely about webhook test event. The policy says: Settings \u2192 Developer \u2192 Webhooks \u2192 Send test event fires a realistic sample payload at a configured endpoint on demand, without needing to create or change a real record to trigger it. Also includes details about test event uses same schema and headers, and delivery log records test events.\n\nThus we can answer: go to Settings > Developer > Webhooks, click \"Send test event\". It will send a realistic sample payload, etc. Provide brief instructions.\n\nWe must ensure we only use policy excerpts. Provide short answer.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can fire a test webhook event from the Meridian UI. Go to **Settings \u2192 Developer \u2192 Webhooks** and click **Send test event**. This sends a realistic sample payload (with the same schema, headers, and signing header as a live delivery) to the endpoint you\u2019ve configured, and the delivery will appear in the log marked as a test delivery.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_6a51fbc2-3256-43e8-b05c-91832123e6c8",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373782,
+      "id": "chatcmpl-e1beb699-a17f-4197-98e6-c41355636509",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_96d96a151c",
+      "usage": {
+        "completion_time": 0.512277807,
+        "completion_tokens": 240,
+        "completion_tokens_details": {
+          "reasoning_tokens": 142
+        },
+        "prompt_time": 0.296704906,
+        "prompt_tokens": 990,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.272710532,
+        "total_time": 0.808982713,
+        "total_tokens": 1230
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hp4jhterpr7xzfvmarebsp",
+        "seed": 1442054350
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can fire a test webhook event from the Meridian UI. Go to **Settings \u2192 Developer \u2192 Webhooks** and click **Send test event**. This sends a realistic sample payload (with the same schema, headers, and signing header as a live delivery) to the endpoint you\u2019ve configured, and the delivery will appear in the log marked as a test delivery."
+        },
+        "id": "fc_6a51fbc2-3256-43e8-b05c-91832123e6c8",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 240,
+      "prompt_tokens": 990
+    }
+  },
+  "retry_after": null
+}

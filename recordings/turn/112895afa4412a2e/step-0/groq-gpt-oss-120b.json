@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:52:27.362363Z",
+  "failure_detail": null,
+  "fingerprint": "60e7d5aa104959dfe47fd15c238141faeac37099555b97142b4fa38037ace840",
+  "outcome": "response",
+  "recording_id": "turn/112895afa4412a2e/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"billing email asking to wire money to new account, real?\" This is about a suspicious billing email requesting wire transfer. According to DOC-075 part 1: Meridian never asks to wire funds via email, and never asks for payment outside configured methods. So we should advise that it's likely fraudulent, and instruct to not act, check billing settings, and forward email to support for verification (DOC-077). Provide short answer.\n\nWe can answer directly, no need to escalate. Use policy excerpts. Provide steps: do not wire, do not click, check Settings \u2192 Billing, forward email to support.\n\nLet's craft reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there \u2013 Meridian will never ask you to wire money to a new bank account via email. Any email that requests an urgent wire transfer or payment outside of the methods set up in your account\u2019s Billing settings is not a legitimate Meridian request.\u202f\\n\\nPlease do not reply, click any links, or make a payment. Instead, compare the invoice details with what you see in Settings\u202f\u2192\u202fBilling in your account, and forward the suspicious email to our support team so we can verify it against your actual billing record.\\n\\nIf you have any other questions, let us know!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f6ff686b-a610-4a0a-9fea-bb092e5100f4",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454347,
+      "id": "chatcmpl-5328c92b-efae-490d-889c-af51af7644e7",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e5b4e54fbb",
+      "usage": {
+        "completion_time": 0.593151468,
+        "completion_tokens": 282,
+        "completion_tokens_details": {
+          "reasoning_tokens": 139
+        },
+        "prompt_time": 0.992235112,
+        "prompt_tokens": 1059,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.366053212,
+        "total_time": 1.58538658,
+        "total_tokens": 1341
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2z6nqe6pa4v836rwjgx70",
+        "seed": 423787349
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there \u2013 Meridian will never ask you to wire money to a new bank account via email. Any email that requests an urgent wire transfer or payment outside of the methods set up in your account\u2019s Billing settings is not a legitimate Meridian request.\u202f\n\nPlease do not reply, click any links, or make a payment. Instead, compare the invoice details with what you see in Settings\u202f\u2192\u202fBilling in your account, and forward the suspicious email to our support team so we can verify it against your actual billing record.\n\nIf you have any other questions, let us know!"
+        },
+        "id": "fc_f6ff686b-a610-4a0a-9fea-bb092e5100f4",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 282,
+      "prompt_tokens": 1059
+    }
+  },
+  "retry_after": null
+}

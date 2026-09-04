@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T15:59:22.433274Z",
+  "failure_detail": null,
+  "fingerprint": "242db82757a0ff0629443c5c3af77778bb853679a052332f7dc9bb789e210d1d",
+  "outcome": "response",
+  "recording_id": "turn/feaa9358166e96b7/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"If we downgrade our plan, does data tied to higher-tier features get deleted, or just hidden?\" The policy says downgrading does not delete anything; features and data tied to higher tier are hidden rather than removed. Also mention retention window exception. So answer: data is hidden, not deleted; only retention window may cause aging out over time. Provide short answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When you downgrade, the data isn\u2019t deleted \u2013 it\u2019s simply hidden because the higher\u2011tier features are no longer available. The underlying records stay in the workspace and become visible again if you upgrade back. The only exception is data that exceeds the retention window of the lower tier; such records will age out over time, but they aren\u2019t removed at the moment of downgrade.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_adf18067-96cc-424f-a1f2-a2abec46c54f",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451162,
+      "id": "chatcmpl-68d140eb-4229-418c-b574-ffa8fd35c3d3",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_02b0d31eca",
+      "usage": {
+        "completion_time": 0.429952121,
+        "completion_tokens": 192,
+        "completion_tokens_details": {
+          "reasoning_tokens": 92
+        },
+        "prompt_time": 0.604864794,
+        "prompt_tokens": 1100,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.316023322,
+        "total_time": 1.034816915,
+        "total_tokens": 1292
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kzy0z7eha8yn4bt1s5fy86",
+        "seed": 1436383951
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When you downgrade, the data isn\u2019t deleted \u2013 it\u2019s simply hidden because the higher\u2011tier features are no longer available. The underlying records stay in the workspace and become visible again if you upgrade back. The only exception is data that exceeds the retention window of the lower tier; such records will age out over time, but they aren\u2019t removed at the moment of downgrade."
+        },
+        "id": "fc_adf18067-96cc-424f-a1f2-a2abec46c54f",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 192,
+      "prompt_tokens": 1100
+    }
+  },
+  "retry_after": null
+}

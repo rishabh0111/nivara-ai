@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:29:54.281075Z",
+  "failure_detail": null,
+  "fingerprint": "39bcb410482a34b3d8740201f94aad178d8d705776f48a7b162634a53ae552de",
+  "outcome": "response",
+  "recording_id": "turn/132da0363225d2e9/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: \"Will we lose that data permanently or can we get it back later?\" The policy says downgrading does not delete anything; data tied to higher tier is hidden but preserved. Exception: data subject to retention window may age out over time. So answer: no permanent loss, data preserved, but older records may be purged if retention window shorter. Provide that. No money or identity. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! When you downgrade, nothing is deleted. Features and the data tied to them are simply hidden, but the underlying data stays in your workspace. If you upgrade again, the data becomes visible right away. The only time data can be removed is if it falls outside the retention window of the lower tier \u2013 older records will age out over time, just as they would if the workspace had started on that tier. So you won\u2019t lose data permanently by downgrading, but be aware of the retention period for older records.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_18f4876d-2523-4c3f-9f4d-a42379648941",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460194,
+      "id": "chatcmpl-dca535ea-bbab-42be-95af-b35f4a7a4b43",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5979a0e1b7",
+      "usage": {
+        "completion_time": 0.231447548,
+        "completion_tokens": 219,
+        "completion_tokens_details": {
+          "reasoning_tokens": 91
+        },
+        "prompt_time": 0.053172633,
+        "prompt_tokens": 1044,
+        "queue_time": 0.358230795,
+        "total_time": 0.284620181,
+        "total_tokens": 1263
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8hntre2r870vfnwpkrypr",
+        "seed": 286702301
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! When you downgrade, nothing is deleted. Features and the data tied to them are simply hidden, but the underlying data stays in your workspace. If you upgrade again, the data becomes visible right away. The only time data can be removed is if it falls outside the retention window of the lower tier \u2013 older records will age out over time, just as they would if the workspace had started on that tier. So you won\u2019t lose data permanently by downgrading, but be aware of the retention period for older records."
+        },
+        "id": "fc_18f4876d-2523-4c3f-9f4d-a42379648941",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 219,
+      "prompt_tokens": 1044
+    }
+  },
+  "retry_after": null
+}

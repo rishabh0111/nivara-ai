@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:21:36.886789Z",
+  "failure_detail": null,
+  "fingerprint": "ae7e8271bc786fba38f55a50cd4b9f5af83409e9f18edec3925199767d314ef7",
+  "outcome": "response",
+  "recording_id": "turn/2fc1b555ec987417/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"Our accountant is asking me for last quarter's invoices and I only see the newest one in the dashboard \u2014 can you pull them for her?\" They want past invoices. According to policy excerpt [DOC-001] \"Finding past invoices\": Open Settings \u2192 Billing \u2192 Invoices to see the full list, ordered by billing date with the most recent at the top. The billing tab's default view only surfaces the current month's invoice on the summary card; the invoices table below it holds every prior one.\n\nThus we can instruct them to go to Settings \u2192 Billing \u2192 Invoices. Provide guidance. No need to pull them. So answer: instruct them. Use short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! To get the invoices from the last quarter, go to **Settings \u2192 Billing \u2192 Invoices**. The table below the summary card lists every invoice, sorted by billing date with the newest at the top. You can download or view any of those past invoices from there.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c12b7519-87c8-45c5-b9c5-6a7bbf57c74c",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459696,
+      "id": "chatcmpl-728d1821-53ad-4fea-81a3-108a5d15a3de",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_228717f27c",
+      "usage": {
+        "completion_time": 0.283955386,
+        "completion_tokens": 221,
+        "completion_tokens_details": {
+          "reasoning_tokens": 143
+        },
+        "prompt_time": 0.065337981,
+        "prompt_tokens": 1055,
+        "queue_time": 0.312216468,
+        "total_time": 0.349293367,
+        "total_tokens": 1276
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m82fp8e7cva8zs450hb98g",
+        "seed": 1445098976
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! To get the invoices from the last quarter, go to **Settings \u2192 Billing \u2192 Invoices**. The table below the summary card lists every invoice, sorted by billing date with the newest at the top. You can download or view any of those past invoices from there."
+        },
+        "id": "fc_c12b7519-87c8-45c5-b9c5-6a7bbf57c74c",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 221,
+      "prompt_tokens": 1055
+    }
+  },
+  "retry_after": null
+}

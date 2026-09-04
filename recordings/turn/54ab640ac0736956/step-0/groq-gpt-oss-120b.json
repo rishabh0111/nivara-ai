@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:41:08.812256Z",
+  "failure_detail": null,
+  "fingerprint": "39730de6253d906c11ad166c0a0a83c5452ff36f8399aeb9aedceb3622cfee19",
+  "outcome": "response",
+  "recording_id": "turn/54ab640ac0736956/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"A former employee who was never offboarded still holds the sole admin seat \u2014 I'm the current operations lead and need to reclaim admin access. How do I prove that?\" This matches DOC-063 about reclaiming admin access when sole admin left. The answer: need to contact support, provide verification of authority (company email domain, role, supporting docs). Process is case-by-case, initiated by contacting support directly, not via in-product flow.\n\nWe should give short specific answer: explain they need to contact support, provide proof of authority (company email, role, documentation). No need to mention policy. Provide steps.\n\nThus we can post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"To regain admin access you\u2019ll need to work with our support team. Since the workspace only has a former employee as admin, we can\u2019t use a self\u2011service flow \u2013 we must verify that you\u2019re authorized to act for the company. Please contact support and provide evidence of your authority, such as a company\u2011domain email address, proof of your current role (e.g., a manager or operations lead title), and any supporting documentation (like a letter on company letterhead). Our team will review the information case\u2011by\u2011case and, once verified, will transfer admin ownership to you.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_27ed6267-af62-49d3-9fe2-fdd3cc403a0f",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453668,
+      "id": "chatcmpl-c10cad23-9490-4175-976d-e5c398616a1e",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_96d96a151c",
+      "usage": {
+        "completion_time": 0.70553841,
+        "completion_tokens": 288,
+        "completion_tokens_details": {
+          "reasoning_tokens": 144
+        },
+        "prompt_time": 0.16790174,
+        "prompt_tokens": 1142,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.274131628,
+        "total_time": 0.87344015,
+        "total_tokens": 1430
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2ags9ex9sfx4z15qta4qy",
+        "seed": 1182516897
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "To regain admin access you\u2019ll need to work with our support team. Since the workspace only has a former employee as admin, we can\u2019t use a self\u2011service flow \u2013 we must verify that you\u2019re authorized to act for the company. Please contact support and provide evidence of your authority, such as a company\u2011domain email address, proof of your current role (e.g., a manager or operations lead title), and any supporting documentation (like a letter on company letterhead). Our team will review the information case\u2011by\u2011case and, once verified, will transfer admin ownership to you."
+        },
+        "id": "fc_27ed6267-af62-49d3-9fe2-fdd3cc403a0f",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 288,
+      "prompt_tokens": 1142
+    }
+  },
+  "retry_after": null
+}

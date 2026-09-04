@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:17:41.634531Z",
+  "failure_detail": null,
+  "fingerprint": "511efd82b15a9547bc28b5d457cb58a2b1129486462bcbd596ff332906cbbd08",
+  "outcome": "response",
+  "recording_id": "turn/0a85a5f170ec321d/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer using policy excerpts. The question: \"How do I share a live dashboard with a stakeholder who doesn't have a login? Is there a read-only sharing option?\" The policy excerpts include DOC-044 parts 1-3 about sharing a dashboard without login: any dashboard can be shared as a read-only public link from Share menu, no login required; link stays live and updates in real time; sharing can be revoked anytime.\n\nThus we can answer: Yes, you can share a read-only public link via Share menu; it updates live; you can revoke anytime.\n\nWe need to post_reply with concise answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 you can share a dashboard as a read\u2011only public link. Open the dashboard\u2019s **Share** menu, choose the option to create a public link, and send that URL to your stakeholder. They don\u2019t need a Meridian login, and the link stays live, updating in real time as the dashboard changes. You can revoke the link at any time from the same Share menu.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_a02d4e02-fc18-4cbc-b82c-1d958b2dabef",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452261,
+      "id": "chatcmpl-135d9963-8b8a-487c-8c0e-c9f9dccda854",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_f640395b96",
+      "usage": {
+        "completion_time": 0.489958694,
+        "completion_tokens": 230,
+        "completion_tokens_details": {
+          "reasoning_tokens": 127
+        },
+        "prompt_time": 0.048174938,
+        "prompt_tokens": 1016,
+        "queue_time": 0.310893945,
+        "total_time": 0.538133632,
+        "total_tokens": 1246
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0zjwye4qrmzbb0a7sz9wv",
+        "seed": 1996750464
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 you can share a dashboard as a read\u2011only public link. Open the dashboard\u2019s **Share** menu, choose the option to create a public link, and send that URL to your stakeholder. They don\u2019t need a Meridian login, and the link stays live, updating in real time as the dashboard changes. You can revoke the link at any time from the same Share menu."
+        },
+        "id": "fc_a02d4e02-fc18-4cbc-b82c-1d958b2dabef",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 230,
+      "prompt_tokens": 1016
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:41:18.939062Z",
+  "failure_detail": null,
+  "fingerprint": "8896dab0e8bc0f67728ec197b1ada5f3aff79870012f7a1d10d800341df1b80f",
+  "outcome": "response",
+  "recording_id": "turn/1216e56fa0e182ed/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"reclaim admin from former employee's account, how to prove it\". This is about reclaiming admin access when sole admin left. According to DOC-063 parts: need verification of requester's authority via company email domain, role, supporting documentation; process is case-by-case, initiated by contacting support directly, not via in-product flow.\n\nThus we can answer: you need to contact support, provide proof like company email, role, docs, they will verify. Provide short answer.\n\nWe must not mention policy excerpts. Just answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"To regain admin access after the only admin has left, you\u2019ll need to open a support ticket. Our team will ask you to verify that you\u2019re authorized to act for the company \u2013 typically by providing a company\u2011domain email address, proof of your role (e.g., a letter from leadership or an org chart), and any other supporting documentation they request. Once we\u2019ve confirmed your authority, we\u2019ll transfer admin ownership to you. This process can\u2019t be done through the product UI, so please contact support directly and attach the required proof.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_8faddc32-8aec-4abb-b358-68e7597520d1",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453678,
+      "id": "chatcmpl-1dafe1d6-98d8-4dc1-ae68-bd0413061630",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_02b0d31eca",
+      "usage": {
+        "completion_time": 0.54511339,
+        "completion_tokens": 259,
+        "completion_tokens_details": {
+          "reasoning_tokens": 125
+        },
+        "prompt_time": 1.495541584,
+        "prompt_tokens": 1112,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.746646734,
+        "total_time": 2.040654974,
+        "total_tokens": 1371
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2as39eajvfzjt65yb6qek",
+        "seed": 1307442847
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "To regain admin access after the only admin has left, you\u2019ll need to open a support ticket. Our team will ask you to verify that you\u2019re authorized to act for the company \u2013 typically by providing a company\u2011domain email address, proof of your role (e.g., a letter from leadership or an org chart), and any other supporting documentation they request. Once we\u2019ve confirmed your authority, we\u2019ll transfer admin ownership to you. This process can\u2019t be done through the product UI, so please contact support directly and attach the required proof."
+        },
+        "id": "fc_8faddc32-8aec-4abb-b358-68e7597520d1",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 259,
+      "prompt_tokens": 1112
+    }
+  },
+  "retry_after": null
+}

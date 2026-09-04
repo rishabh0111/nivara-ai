@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:13:28.981246Z",
+  "failure_detail": null,
+  "fingerprint": "ae0b28ad097965045a04b2e495e09b36b8927173a18e0b37d12c5d2b240ea5f0",
+  "outcome": "response",
+  "recording_id": "turn/1624aee5c2ef2bb2/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The customer says \"Report just went quiet, not sure why.\" This is about a scheduled report that stopped sending. The policy excerpts provide guidance: check Settings \u2192 Reports \u2192 Scheduled for run history, see if disabled or failed run; also check recipient list bouncing causing pause; run history distinguishes between not running and failing to deliver. So we can answer with steps.\n\nWe must not mention policy. Provide short specific answer. Use post_reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! When a scheduled report suddenly stops sending, the first place to look is the report\u2019s run history:\\n\\n1. Go to **Settings \u2192 Reports \u2192 Scheduled**. You\u2019ll see each scheduled report and the outcome of its most recent run. If the report was disabled, it will show as \u201cdisabled.\u201d If it ran but couldn\u2019t deliver, you\u2019ll see a failed\u2011run entry with a reason.\\n2. Check the **recipient list**. If an address has been bouncing repeatedly, Meridian will pause delivery to that address while the report itself continues to run, which can look like the whole report stopped.\\n3. The run\u2011history view also tells you whether the report never ran at all or ran but failed to deliver, helping you pinpoint the issue before assuming the schedule broke.\\n\\nIf the run history shows a failure or a disabled status, you can re\u2011enable the report or correct the recipient issue and then run it again. Let me know if you need help locating any of these settings!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_ab1cbaf1-936e-405d-b6df-862e482227cf",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452008,
+      "id": "chatcmpl-b988fe92-74a5-4daf-9ff1-e0767dac78e2",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_96d96a151c",
+      "usage": {
+        "completion_time": 1.493409544,
+        "completion_tokens": 330,
+        "completion_tokens_details": {
+          "reasoning_tokens": 97
+        },
+        "prompt_time": 0.061769663,
+        "prompt_tokens": 1080,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.282480195,
+        "total_time": 1.5551792070000001,
+        "total_tokens": 1410
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0qv6pe24azmc5rk7enxnr",
+        "seed": 202857702
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! When a scheduled report suddenly stops sending, the first place to look is the report\u2019s run history:\n\n1. Go to **Settings \u2192 Reports \u2192 Scheduled**. You\u2019ll see each scheduled report and the outcome of its most recent run. If the report was disabled, it will show as \u201cdisabled.\u201d If it ran but couldn\u2019t deliver, you\u2019ll see a failed\u2011run entry with a reason.\n2. Check the **recipient list**. If an address has been bouncing repeatedly, Meridian will pause delivery to that address while the report itself continues to run, which can look like the whole report stopped.\n3. The run\u2011history view also tells you whether the report never ran at all or ran but failed to deliver, helping you pinpoint the issue before assuming the schedule broke.\n\nIf the run history shows a failure or a disabled status, you can re\u2011enable the report or correct the recipient issue and then run it again. Let me know if you need help locating any of these settings!"
+        },
+        "id": "fc_ab1cbaf1-936e-405d-b6df-862e482227cf",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 330,
+      "prompt_tokens": 1080
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:24:04.960957Z",
+  "failure_detail": null,
+  "fingerprint": "e983d57ab247919657c1ec82c8607392e552295777087e62c08078e5a77d7faf",
+  "outcome": "response",
+  "recording_id": "turn/436c6287c53a0a9c/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"Our integrations engineer is hitting 429s well under the documented limit and asked me to find out what's really being counted toward it.\"\n\nWe have policy excerpts about API rate limit: per API key, rolling window, bursts can cause 429 even under headline limit, and headers show remaining and reset.\n\nThus we can answer: explain that rate limit is per API key, rolling 60-second window, bursts cause 429, and you can check X-RateLimit-Remaining and X-RateLimit-Reset headers.\n\nWe should keep answer short and specific. Use the policy excerpts. No need to read conversation. Just post reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"The limit is applied per API key, not per workspace, and it\u2019s calculated using a rolling 60\u2011second window. Even if you\u2019re under the headline per\u2011minute figure, a burst of requests can be counted as concentrated in a short span and trigger a 429. Each response includes `X-RateLimit-Remaining` and `X-RateLimit-Reset` headers, which show the exact number of calls left and when the window resets for that key \u2013 that\u2019s the most reliable way to see what\u2019s actually being counted.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_2d562a83-1766-4924-ac58-2f6005a5209b",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373444,
+      "id": "chatcmpl-a7190f86-e6f3-4531-b607-11d39c3d9464",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c15aa9c1b7",
+      "usage": {
+        "completion_time": 0.591670624,
+        "completion_tokens": 275,
+        "completion_tokens_details": {
+          "reasoning_tokens": 141
+        },
+        "prompt_time": 0.245793139,
+        "prompt_tokens": 1057,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.158496019,
+        "total_time": 0.837463763,
+        "total_tokens": 1332
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnt953e3hr67y3vc9dyes0",
+        "seed": 898055038
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "The limit is applied per API key, not per workspace, and it\u2019s calculated using a rolling 60\u2011second window. Even if you\u2019re under the headline per\u2011minute figure, a burst of requests can be counted as concentrated in a short span and trigger a 429. Each response includes `X-RateLimit-Remaining` and `X-RateLimit-Reset` headers, which show the exact number of calls left and when the window resets for that key \u2013 that\u2019s the most reliable way to see what\u2019s actually being counted."
+        },
+        "id": "fc_2d562a83-1766-4924-ac58-2f6005a5209b",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 275,
+      "prompt_tokens": 1057
+    }
+  },
+  "retry_after": null
+}

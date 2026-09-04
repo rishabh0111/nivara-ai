@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:06:39.351689Z",
+  "failure_detail": null,
+  "fingerprint": "4084d2450bdcc078282a2871cb03b2202a1860af7d9c00e0824ac8a0cba022f1",
+  "outcome": "response",
+  "recording_id": "turn/8df738a27e37e2bd/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer using policy excerpts. The question: \"My authenticator app was reinstalled after a phone upgrade and the codes no longer match \u2014 how do I re-enrol?\" This matches DOC-012 parts. Provide steps: go to Settings \u2192 Security \u2192 Two-factor authentication, choose Reset, re-enrol scanning new QR code, confirm with six-digit code, optionally use recovery code. Also note old QR invalidated. Provide short answer.\n\nWe must post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure thing! Since the app was reinstalled, you\u2019ll need to reset and set up two\u2011factor authentication again:\\n\\n1. Go to **Settings \u2192 Security \u2192 Two\u2011factor authentication**.\\n2. Choose **Reset**.\\n3. Follow the normal enrollment flow \u2013 scan the new QR code with your authenticator app and enter the fresh six\u2011digit code to confirm.\\n4. Save the new recovery codes that are shown (they\u2019re the only way back in if you lose access again).\\n\\nThe old QR code is now invalid, so only the newly scanned one will work.\\nIf you still have a recovery code from the original setup, you can use that to sign in and reset the 2FA from the settings page.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_d2690c66-7b63-4956-934b-b4ade59ae00e",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372399,
+      "id": "chatcmpl-1d36906d-c6e2-4d45-b148-b41a9b78ecc8",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_96d96a151c",
+      "usage": {
+        "completion_time": 0.61829432,
+        "completion_tokens": 275,
+        "completion_tokens_details": {
+          "reasoning_tokens": 96
+        },
+        "prompt_time": 0.098369578,
+        "prompt_tokens": 1059,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.272097366,
+        "total_time": 0.716663898,
+        "total_tokens": 1334
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmtc1pe3jawf9mz0dcs6qj",
+        "seed": 1234207726
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure thing! Since the app was reinstalled, you\u2019ll need to reset and set up two\u2011factor authentication again:\n\n1. Go to **Settings \u2192 Security \u2192 Two\u2011factor authentication**.\n2. Choose **Reset**.\n3. Follow the normal enrollment flow \u2013 scan the new QR code with your authenticator app and enter the fresh six\u2011digit code to confirm.\n4. Save the new recovery codes that are shown (they\u2019re the only way back in if you lose access again).\n\nThe old QR code is now invalid, so only the newly scanned one will work.\nIf you still have a recovery code from the original setup, you can use that to sign in and reset the 2FA from the settings page."
+        },
+        "id": "fc_d2690c66-7b63-4956-934b-b4ade59ae00e",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 275,
+      "prompt_tokens": 1059
+    }
+  },
+  "retry_after": null
+}

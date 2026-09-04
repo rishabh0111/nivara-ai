@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T15:59:46.521305Z",
+  "failure_detail": null,
+  "fingerprint": "a160f1a2adadb3e20ec9169722b281553a3c60fcd0ce5f60b8fdc432f710af55",
+  "outcome": "response",
+  "recording_id": "turn/22d23b812c7bcfea/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"We're considering downgrading to a lower tier and I want to understand what happens to data associated with features only available on our current plan \u2014 is it deleted outright, or simply hidden until we upgrade again?\" This matches DOC-031 parts. Answer: Downgrading does not delete data; features become hidden, data preserved, becomes visible again if upgrade. Also note retention window exception: data subject to retention may age out over time per lower tier retention. So answer accordingly. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When you downgrade, Meridian doesn\u2019t delete any of your existing data. Features that are tier\u2011gated become unavailable, so the data tied to those features is simply hidden. It stays in the workspace and will reappear automatically if you upgrade again. The only caveat is the plan\u2019s retention window \u2013 a lower\u2011tier plan may have a shorter retention period, so over time records older than that window will age out just as they would for a workspace that started on that tier.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_133bd595-8367-4110-b4b2-2982d293ed92",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451186,
+      "id": "chatcmpl-d8a2e7de-1155-4730-ac82-41a37684f825",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_8ea50c0161",
+      "usage": {
+        "completion_time": 0.619160549,
+        "completion_tokens": 235,
+        "completion_tokens_details": {
+          "reasoning_tokens": 113
+        },
+        "prompt_time": 0.067711717,
+        "prompt_tokens": 1070,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.311107832,
+        "total_time": 0.686872266,
+        "total_tokens": 1305
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kzyrs5e9qr0rr3wfp48zs7",
+        "seed": 1950860419
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When you downgrade, Meridian doesn\u2019t delete any of your existing data. Features that are tier\u2011gated become unavailable, so the data tied to those features is simply hidden. It stays in the workspace and will reappear automatically if you upgrade again. The only caveat is the plan\u2019s retention window \u2013 a lower\u2011tier plan may have a shorter retention period, so over time records older than that window will age out just as they would for a workspace that started on that tier."
+        },
+        "id": "fc_133bd595-8367-4110-b4b2-2982d293ed92",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 235,
+      "prompt_tokens": 1070
+    }
+  },
+  "retry_after": null
+}

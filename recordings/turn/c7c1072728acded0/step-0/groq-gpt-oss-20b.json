@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:37:01.734504Z",
+  "failure_detail": null,
+  "fingerprint": "d203ad868e9f29d8d3e793bb415e581b42f5221d9994d33a29ac0db629053198",
+  "outcome": "response",
+  "recording_id": "turn/c7c1072728acded0/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: \"Finance is asking for our usage figures for the last quarter.\" The policy says usage data for current and prior billing period is available from Settings \u2192 Billing \u2192 Usage, exportable as CSV. For older than two most recent billing periods, can still pull with custom date range from same export, as long as within retention window. So we can advise them to export usage data for that quarter from Settings \u2192 Billing \u2192 Usage, using custom date range. Provide instructions. No escalation needed.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! You can get the exact usage figures for the last quarter directly from your account. Just go to **Settings \u2192 Billing \u2192 Usage** and use the export button. If the quarter isn\u2019t shown by default, set a custom date range that covers the quarter you need \u2013 the export will still pull the data as long as it\u2019s within your workspace\u2019s retention window. That CSV will give you the detailed usage numbers your finance team is looking for.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_ac8184a7-6d39-4d6d-bb70-730295408776",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460621,
+      "id": "chatcmpl-56f34b90-0b15-4270-8fd3-c91ea3ce323a",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e189667b30",
+      "usage": {
+        "completion_time": 0.269612482,
+        "completion_tokens": 214,
+        "completion_tokens_details": {
+          "reasoning_tokens": 102
+        },
+        "prompt_time": 0.075645107,
+        "prompt_tokens": 1040,
+        "queue_time": 0.316474161,
+        "total_time": 0.345257589,
+        "total_tokens": 1254
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8yq68e03tncfz28p889zj",
+        "seed": 2133375269
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! You can get the exact usage figures for the last quarter directly from your account. Just go to **Settings \u2192 Billing \u2192 Usage** and use the export button. If the quarter isn\u2019t shown by default, set a custom date range that covers the quarter you need \u2013 the export will still pull the data as long as it\u2019s within your workspace\u2019s retention window. That CSV will give you the detailed usage numbers your finance team is looking for."
+        },
+        "id": "fc_ac8184a7-6d39-4d6d-bb70-730295408776",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 214,
+      "prompt_tokens": 1040
+    }
+  },
+  "retry_after": null
+}

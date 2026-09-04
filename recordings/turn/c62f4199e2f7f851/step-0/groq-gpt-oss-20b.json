@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:27:09.130178Z",
+  "failure_detail": null,
+  "fingerprint": "a8a01b45ce45801463ca57ae8b8d89f72c01174f8ffc476df156aa013fd0c898",
+  "outcome": "response",
+  "recording_id": "turn/c62f4199e2f7f851/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"Our webhook deliveries just stopped arriving overnight with nothing in our own logs \u2014 how do I check delivery status on your side?\" We have policy excerpts about checking webhook delivery status. We should explain how to check via Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log. Also mention that deliveries that fail are retried on backoff schedule, and after window need manual replay. Also mention test events. So answer: go to Settings > Developer > Webhooks > Delivery log. That shows attempts, status, body. Also mention that if deliveries fail, they are retried for limited window; after that need manual replay. Provide guidance. No mention of policy. Keep short.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! To see what\u2019s happening on our side, go to **Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log**. That page lists every attempt Meridian made to hit your endpoint, the HTTP status returned, and the response body \u2013 even if your own system didn\u2019t log anything. If a delivery fails, it will be retried on a back\u2011off schedule for a limited window; after that you\u2019ll need to replay the event manually from the log. Let me know if you need help navigating the log or replaying a delivery!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_2c44934d-0a51-4c8d-8b8b-c99690a7b59c",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460028,
+      "id": "chatcmpl-70aa4e5d-94f6-4f1c-b2dd-a81a0c679d9a",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_d6de37e6be",
+      "usage": {
+        "completion_time": 0.317980253,
+        "completion_tokens": 275,
+        "completion_tokens_details": {
+          "reasoning_tokens": 145
+        },
+        "prompt_time": 0.490487193,
+        "prompt_tokens": 1046,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.305324474,
+        "total_time": 0.808467446,
+        "total_tokens": 1321
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8ckysephvbh18n22mbk5y",
+        "seed": 1793207953
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! To see what\u2019s happening on our side, go to **Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log**. That page lists every attempt Meridian made to hit your endpoint, the HTTP status returned, and the response body \u2013 even if your own system didn\u2019t log anything. If a delivery fails, it will be retried on a back\u2011off schedule for a limited window; after that you\u2019ll need to replay the event manually from the log. Let me know if you need help navigating the log or replaying a delivery!"
+        },
+        "id": "fc_2c44934d-0a51-4c8d-8b8b-c99690a7b59c",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 275,
+      "prompt_tokens": 1046
+    }
+  },
+  "retry_after": null
+}

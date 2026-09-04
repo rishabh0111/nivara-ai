@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T15:44:09.759416Z",
+  "failure_detail": null,
+  "fingerprint": "080ca5ee4b2192e2d4607bc3a6af1911b25ad75e63a3cfd63c5330f92439aacf",
+  "outcome": "response",
+  "recording_id": "turn/56e8730b258a03e9/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: which endpoints are officially considered stable. Use policy excerpts. The answer: Every endpoint in API reference is marked with stability tag stable, beta, experimental; only stable endpoints carry deprecation-notice commitment described in API changelog policy. Also can subscribe to changelog feed for stability changes. So answer: stable endpoints are those marked with \"stable\" tag in API reference; they have deprecation notice commitment. Provide guidance. Use only policy excerpts. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"In Meridian\u2019s API reference each endpoint is labeled with a stability tag\u2014`stable`, `beta` or `experimental`. Only the endpoints marked **stable** are officially considered stable and come with the deprecation\u2011notice commitment described in the API changelog policy. You can identify them by the \u201cstable\u201d tag next to the endpoint heading in the reference documentation.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_d6a594e7-a4da-4c15-a564-04093b30185f",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788450249,
+      "id": "chatcmpl-cd5a6356-03bc-4591-99d2-abe72ed45de7",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_fe269835c7",
+      "usage": {
+        "completion_time": 0.425463537,
+        "completion_tokens": 196,
+        "completion_tokens_details": {
+          "reasoning_tokens": 99
+        },
+        "prompt_time": 0.060780391,
+        "prompt_tokens": 1084,
+        "queue_time": 0.319756178,
+        "total_time": 0.486243928,
+        "total_tokens": 1280
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kz265be0q9f7egk6cqsr67",
+        "seed": 1756527214
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "In Meridian\u2019s API reference each endpoint is labeled with a stability tag\u2014`stable`, `beta` or `experimental`. Only the endpoints marked **stable** are officially considered stable and come with the deprecation\u2011notice commitment described in the API changelog policy. You can identify them by the \u201cstable\u201d tag next to the endpoint heading in the reference documentation."
+        },
+        "id": "fc_d6a594e7-a4da-4c15-a564-04093b30185f",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 196,
+      "prompt_tokens": 1084
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T15:47:08.554874Z",
+  "failure_detail": null,
+  "fingerprint": "77e1c0fa4881586a6547db464fcebbf34bb39ce438077f4873d72b1748068f6e",
+  "outcome": "response",
+  "recording_id": "turn/e4ffd55019364ba5/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to interpret the customer's issue: \"Invite just silently fails past a certain number of people.\" Likely about seat limits. The policy excerpts include seat limits and reassigning seats. The relevant excerpt: DOC-028: seat limits by plan. It says if invite blocked with no seats available means workspace reached tier limit. Also DOC-029 about removing a person frees seat immediately, inviting new person within same billing cycle does not add new seat as long as highest number of seats occupied matters.\n\nThe question: Invite silently fails past a certain number of people. Could be hitting seat limit. The answer: explain that each plan has a seat limit; when you reach it, invites are blocked. Check Settings \u2192 Billing \u2192 Plan to see seat usage. To invite more, you need to upgrade plan or remove existing seats. Also note that removing a person frees seat immediately, and you can invite new person within same billing cycle without extra seat count.\n\nThus we can answer using policy excerpts. Provide short answer. No need to escalate. So post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! When an invite stops working after you\u2019ve added a certain number of people, it\u2019s usually because you\u2019ve hit the seat limit for your current plan.\u202fYou can see the limit and how many seats are in use under **Settings \u2192 Billing \u2192 Plan**. If the invite is being blocked with no seats available, it means you\u2019ve reached that tier\u2019s maximum. To add more users you\u2019ll need to either remove an existing seat (removing a person frees the seat immediately, and you can invite a new person within the same billing cycle without increasing the seat count) or upgrade to a plan with a higher seat limit.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_0e60c1f3-b385-4ffe-903c-f6a5a6dc0bcf",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788450428,
+      "id": "chatcmpl-f8880090-77d3-4554-8fd3-010a2f21bc86",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_96d96a151c",
+      "usage": {
+        "completion_time": 1.155205187,
+        "completion_tokens": 365,
+        "completion_tokens_details": {
+          "reasoning_tokens": 212
+        },
+        "prompt_time": 0.496042299,
+        "prompt_tokens": 1117,
+        "prompt_tokens_details": {
+          "cached_tokens": 1024
+        },
+        "queue_time": 0.277865608,
+        "total_time": 1.651247486,
+        "total_tokens": 1482
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kz7kn3enyvrc2bmf47eqyf",
+        "seed": 58800318
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! When an invite stops working after you\u2019ve added a certain number of people, it\u2019s usually because you\u2019ve hit the seat limit for your current plan.\u202fYou can see the limit and how many seats are in use under **Settings \u2192 Billing \u2192 Plan**. If the invite is being blocked with no seats available, it means you\u2019ve reached that tier\u2019s maximum. To add more users you\u2019ll need to either remove an existing seat (removing a person frees the seat immediately, and you can invite a new person within the same billing cycle without increasing the seat count) or upgrade to a plan with a higher seat limit."
+        },
+        "id": "fc_0e60c1f3-b385-4ffe-903c-f6a5a6dc0bcf",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 365,
+      "prompt_tokens": 1117
+    }
+  },
+  "retry_after": null
+}

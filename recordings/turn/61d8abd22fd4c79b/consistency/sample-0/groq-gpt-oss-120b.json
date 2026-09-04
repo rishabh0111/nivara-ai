@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:08:00.646360Z",
+  "failure_detail": null,
+  "fingerprint": "c8e7ec66ef2a9198477a81b4b105e247421c7e795ffbd13e6a393681fc433a26",
+  "outcome": "response",
+  "recording_id": "turn/61d8abd22fd4c79b/consistency/sample-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user: \"I'm locked out of two-factor after switching phones and I need back in urgently \u2014 how do I re-enrol without losing access entirely?\" This is about re-enrolling two-factor authentication after losing access to the app. The excerpts provide steps: From DOC-012 part 2: From Settings \u2192 Security \u2192 Two-factor authentication, choose \u201cReset\u201d and re-enrol same way as first-time setup \u2014 scanning new QR code and confirming with fresh six-digit code. A saved recovery code can also be used to sign in and reset if settings page not reachable. Also part 1 says authenticator app reinstalled after phone upgrade starts generating new codes that no longer match because secret tied to old install. Part 3 says re-enrolling invalidates old QR code entirely.\n\nThus we can answer with steps: go to Settings \u2192 Security \u2192 Two-factor authentication, choose Reset, scan new QR, confirm code, save new recovery codes. If you have a recovery code, you can use that to sign in and reset. That addresses the question. No need to escalate. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"To get back in, open **Settings \u2192 Security \u2192 Two\u2011factor authentication**, tap **Reset**, and then set it up again just like a first\u2011time enrollment:\\n1. Scan the new QR code with your authenticator app.\\n2. Enter the six\u2011digit code it generates to confirm.\\n3. Save the new recovery codes you\u2019re shown.\\nIf you can\u2019t reach the settings page, you can sign in with a saved recovery code and then reset from there.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_9dca8835-c8b2-4ef9-bb65-fa110bba1d13",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372480,
+      "id": "chatcmpl-49159393-9f71-424e-a664-942cf1e161c7",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e1a78f200e",
+      "usage": {
+        "completion_time": 0.781359978,
+        "completion_tokens": 354,
+        "completion_tokens_details": {
+          "reasoning_tokens": 230
+        },
+        "prompt_time": 0.288985321,
+        "prompt_tokens": 1144,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.362679575,
+        "total_time": 1.070345299,
+        "total_tokens": 1498
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmwv3fewaamrhk6cxgs46z",
+        "seed": 1832079655
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "To get back in, open **Settings \u2192 Security \u2192 Two\u2011factor authentication**, tap **Reset**, and then set it up again just like a first\u2011time enrollment:\n1. Scan the new QR code with your authenticator app.\n2. Enter the six\u2011digit code it generates to confirm.\n3. Save the new recovery codes you\u2019re shown.\nIf you can\u2019t reach the settings page, you can sign in with a saved recovery code and then reset from there."
+        },
+        "id": "fc_9dca8835-c8b2-4ef9-bb65-fa110bba1d13",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 354,
+      "prompt_tokens": 1144
+    }
+  },
+  "retry_after": null
+}

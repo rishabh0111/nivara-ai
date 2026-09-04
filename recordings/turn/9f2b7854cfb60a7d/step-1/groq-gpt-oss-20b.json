@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:27:00.336620Z",
+  "failure_detail": null,
+  "fingerprint": "ab3393e187937ae81c1047c5ab454b74bea133cd9f70ddbea92724257cdf71d5",
+  "outcome": "response",
+  "recording_id": "turn/9f2b7854cfb60a7d/step-1/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: \"429s under the documented limit, why\". The question: The user is asking why they are getting 429 responses even though they are under the documented limit. The policy excerpts mention that the rate limit is per API key, rolling window, and that a key well under the per-minute figure can still receive 429 if requests arrive in a burst rather than spread evenly. Also that X-RateLimit-Remaining and Reset headers show actual counts. So answer: Because of burst, rolling window, etc. Provide explanation. Also mention to check headers. So we can answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"It\u2019s likely due to the way the limit is enforced. The limit is per\u2011API key and uses a rolling 60\u2011second window, not a fixed minute bucket. If you send a burst of requests in a short span, even if your total count is below the headline figure, the rolling window can exceed the limit and return a 429. Check the `X\u2011RateLimit\u2011Remaining` and `X\u2011RateLimit\u2011Reset` headers on each response to see the exact count and reset time for your key. Spreading your calls more evenly will avoid the 429s.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_cffe2b62-4692-482e-9bd9-bc08e90414ee",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460019,
+      "id": "chatcmpl-b4242482-bc99-4682-9754-5949dc21d6e4",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_ef00694abe",
+      "usage": {
+        "completion_time": 0.29531869,
+        "completion_tokens": 260,
+        "completion_tokens_details": {
+          "reasoning_tokens": 122
+        },
+        "prompt_time": 0.387971562,
+        "prompt_tokens": 1073,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.276685005,
+        "total_time": 0.683290252,
+        "total_tokens": 1333
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8cbaees78rqwwgw40gf7q",
+        "seed": 207298437
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "It\u2019s likely due to the way the limit is enforced. The limit is per\u2011API key and uses a rolling 60\u2011second window, not a fixed minute bucket. If you send a burst of requests in a short span, even if your total count is below the headline figure, the rolling window can exceed the limit and return a 429. Check the `X\u2011RateLimit\u2011Remaining` and `X\u2011RateLimit\u2011Reset` headers on each response to see the exact count and reset time for your key. Spreading your calls more evenly will avoid the 429s."
+        },
+        "id": "fc_cffe2b62-4692-482e-9bd9-bc08e90414ee",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 260,
+      "prompt_tokens": 1073
+    }
+  },
+  "retry_after": null
+}

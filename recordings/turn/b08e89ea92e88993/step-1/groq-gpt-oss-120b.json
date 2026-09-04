@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:18:11.260256Z",
+  "failure_detail": null,
+  "fingerprint": "87029724321b3b0347d35c23ed1b4eba01b3689f2938c3a79cf8633ef7d57f45",
+  "outcome": "response",
+  "recording_id": "turn/b08e89ea92e88993/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to interpret the customer's request: \"Looking for a way to stop doing this export manually.\" They want to automate export? The policy excerpts include info about export formats, filters, duplicates, etc. No excerpt about automating exports. There's no policy about scheduling exports. The request is ambiguous? It's about automating export, which is not covered. Not about money, fraud, identity. But we have no policy excerpt that answers. So we must escalate.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer asks for a way to stop doing this export manually, i.e., likely wants to automate or schedule exports. The provided policy excerpts cover export formats, filters, duplicates, and report delivery issues, but do not contain guidance on automating or scheduling exports. Since no relevant answer is available in the policy excerpts, we must escalate to a human.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_6cba36c8-a6be-4ce4-a7ab-bb82062799c0",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373091,
+      "id": "chatcmpl-aeb06087-0a7c-4da5-ad47-17a7de7eab73",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_0708ac49a5",
+      "usage": {
+        "completion_time": 0.407163112,
+        "completion_tokens": 191,
+        "completion_tokens_details": {
+          "reasoning_tokens": 94
+        },
+        "prompt_time": 0.058425528,
+        "prompt_tokens": 1061,
+        "queue_time": 0.694045062,
+        "total_time": 0.46558864,
+        "total_tokens": 1252
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnffr8eexs0jdjyp950e3y",
+        "seed": 121852583
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer asks for a way to stop doing this export manually, i.e., likely wants to automate or schedule exports. The provided policy excerpts cover export formats, filters, duplicates, and report delivery issues, but do not contain guidance on automating or scheduling exports. Since no relevant answer is available in the policy excerpts, we must escalate to a human."
+        },
+        "id": "fc_6cba36c8-a6be-4ce4-a7ab-bb82062799c0",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 191,
+      "prompt_tokens": 1061
+    }
+  },
+  "retry_after": null
+}

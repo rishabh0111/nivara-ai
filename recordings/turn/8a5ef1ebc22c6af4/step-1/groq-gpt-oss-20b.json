@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:33:22.886679Z",
+  "failure_detail": null,
+  "fingerprint": "3efadeff81cccfc95d6ae29ce4db82ec803399a59f6e87184237820ecb46154a",
+  "outcome": "response",
+  "recording_id": "turn/8a5ef1ebc22c6af4/step-1/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"Metric looks bad, not sure if the calculation is fair.\" They likely refer to response-time metrics. We have policy excerpts about response-time metrics. We can explain that default counts all hours, including nights, weekends, holidays. There's business hours mode. So answer: explain that metric counts wall-clock by default, can switch to business hours. Provide guidance. No money or identity. So we can answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! The response\u2011time metric on the dashboard is a wall\u2011clock measurement by default \u2013 it counts every hour a ticket sits unanswered, including nights, weekends and holidays. If you\u2019d like to see only business\u2011hours, you can enable that in Settings \u2192 Reporting \u2192 Business hours and switch the dashboard to \u201cbusiness hours\u201d mode. That will exclude time outside your configured hours entirely. You can also view both versions side\u2011by\u2011side on a custom dashboard for context. Let me know if you\u2019d like help setting that up!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_af04c854-71ee-4253-851b-9d8cdbd61413",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460402,
+      "id": "chatcmpl-fb74a43e-a121-40a6-9f8e-f779572a367e",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_8d13edce1d",
+      "usage": {
+        "completion_time": 0.244817992,
+        "completion_tokens": 221,
+        "completion_tokens_details": {
+          "reasoning_tokens": 91
+        },
+        "prompt_time": 0.349685544,
+        "prompt_tokens": 1032,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.276710043,
+        "total_time": 0.594503536,
+        "total_tokens": 1253
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8r11zes68a7aaq9z4vexz",
+        "seed": 4871207
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! The response\u2011time metric on the dashboard is a wall\u2011clock measurement by default \u2013 it counts every hour a ticket sits unanswered, including nights, weekends and holidays. If you\u2019d like to see only business\u2011hours, you can enable that in Settings \u2192 Reporting \u2192 Business hours and switch the dashboard to \u201cbusiness hours\u201d mode. That will exclude time outside your configured hours entirely. You can also view both versions side\u2011by\u2011side on a custom dashboard for context. Let me know if you\u2019d like help setting that up!"
+        },
+        "id": "fc_af04c854-71ee-4253-851b-9d8cdbd61413",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 221,
+      "prompt_tokens": 1032
+    }
+  },
+  "retry_after": null
+}

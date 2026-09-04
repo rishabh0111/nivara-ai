@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:03:37.628737Z",
+  "failure_detail": null,
+  "fingerprint": "de4a0e15daa50d3e7e5c18f3e422d18eeef64e4d37209ae27229feaacf849198",
+  "outcome": "response",
+  "recording_id": "turn/a983cdace28ca1cc/consistency/sample-3/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see the conversation: user says \"no SSO button, was I set up?\" They ask why no SSO button appears. The policy excerpts include relevant info: DOC-010 part 1: \"The SSO sign-in option only appears for an email domain the workspace has configured for SSO, and only once the identity provider sync has actually created that person's account.\" Also part 3: admin can check if account exists in Settings \u2192 People; absence means sync hasn't created it yet.\n\nThus we can answer: The SSO button only shows if your domain is configured and the sync created your account. If not, ask admin to verify account exists in Settings \u2192 People; if missing, sync hasn't run yet. Also enabling SSO doesn't disable password sign-in yet.\n\nProvide answer accordingly. No need to escalate. Provide short answer.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"The SSO sign\u2011in button only appears for users whose email domain is configured for SSO **and** whose account has already been created by the identity\u2011provider sync. If you don\u2019t see the button, it usually means the sync hasn\u2019t provisioned your account yet. An admin can confirm whether your account exists by going to **Settings \u2192 People** \u2013 SSO\u2011provisioned accounts are marked with the identity provider name. If it\u2019s missing, the sync needs to run or your domain may not be set up for SSO yet.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_6cf92462-7973-4211-9dda-8a38521ef0b7",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372217,
+      "id": "chatcmpl-b47f61eb-3fa6-4d7b-9ec5-570f88a4b63a",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9241e9962b",
+      "usage": {
+        "completion_time": 0.764193216,
+        "completion_tokens": 308,
+        "completion_tokens_details": {
+          "reasoning_tokens": 172
+        },
+        "prompt_time": 0.004649993,
+        "prompt_tokens": 1084,
+        "prompt_tokens_details": {
+          "cached_tokens": 1024
+        },
+        "queue_time": 0.361765691,
+        "total_time": 0.768843209,
+        "total_tokens": 1392
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmmthke85swz95vr5ak6zn",
+        "seed": 1139098806
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "The SSO sign\u2011in button only appears for users whose email domain is configured for SSO **and** whose account has already been created by the identity\u2011provider sync. If you don\u2019t see the button, it usually means the sync hasn\u2019t provisioned your account yet. An admin can confirm whether your account exists by going to **Settings \u2192 People** \u2013 SSO\u2011provisioned accounts are marked with the identity provider name. If it\u2019s missing, the sync needs to run or your domain may not be set up for SSO yet."
+        },
+        "id": "fc_6cf92462-7973-4211-9dda-8a38521ef0b7",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 308,
+      "prompt_tokens": 1084
+    }
+  },
+  "retry_after": null
+}

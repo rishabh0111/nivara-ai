@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:52:35.007189Z",
+  "failure_detail": null,
+  "fingerprint": "07fb2df5342ce65ee7864adef94a4c1618110d7c1f84c6d6c1ed69e1af8a23bc",
+  "outcome": "response",
+  "recording_id": "turn/4bf81b92601c02a8/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"This email is demanding an urgent wire transfer and I need to know right now if it's legitimate before I do anything.\"\n\nThis is about a suspicious email requesting urgent wire transfer. According to DOC-075: Meridian never asks a customer to wire funds to a bank account communicated by email, and never asks for payment outside of the payment methods configured directly in the account's own billing settings \u2014 a request to wire money to a new account, especially one presented as urgent or overdue, does not match how Meridian actually collects payment.\n\nThus we can answer: It's likely fraudulent; Meridian never asks for wire transfers via email; you should not comply; verify via account settings; report to support.\n\nWe can answer directly, no need to escalate. Provide short specific answer.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there \u2013 Meridian never asks customers to wire money via email or to a new account, even if the request is marked as urgent or overdue. All legitimate payments must be made through the payment methods set up in your account\u2019s billing settings. That means the email you received is not a legitimate Meridian request. Please do not send the wire and report the email to our support team for further investigation.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_df5cd7a6-a005-46a1-9112-a9e4e7f6cd51",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454354,
+      "id": "chatcmpl-10abe01f-2010-443a-b288-ae049d43807b",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_19b184c447",
+      "usage": {
+        "completion_time": 0.591272085,
+        "completion_tokens": 269,
+        "completion_tokens_details": {
+          "reasoning_tokens": 165
+        },
+        "prompt_time": 0.109709479,
+        "prompt_tokens": 1109,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.362318819,
+        "total_time": 0.700981564,
+        "total_tokens": 1378
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2zeyped4aysfxhq1y432q",
+        "seed": 1890341270
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there \u2013 Meridian never asks customers to wire money via email or to a new account, even if the request is marked as urgent or overdue. All legitimate payments must be made through the payment methods set up in your account\u2019s billing settings. That means the email you received is not a legitimate Meridian request. Please do not send the wire and report the email to our support team for further investigation."
+        },
+        "id": "fc_df5cd7a6-a005-46a1-9112-a9e4e7f6cd51",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 269,
+      "prompt_tokens": 1109
+    }
+  },
+  "retry_after": null
+}

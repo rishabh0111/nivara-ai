@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:27:14.989471Z",
+  "failure_detail": null,
+  "fingerprint": "064d0d53c19545b9bd5cd832c30906155222a13ac6d2d87bc8b7a6adfddbd346",
+  "outcome": "response",
+  "recording_id": "turn/355c960410493429/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The user says webhooks stopped overnight, no error on their end, need to check delivery status immediately. According to policy: we can advise to check Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log. Also mention that deliveries that fail are retried on backoff schedule, but after window need manual replay. Also mention that if endpoint changed unauthorized, admin can disable or repoint. But user just wants to check delivery status. So we can provide instructions: go to Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log to see attempts, status, response body. Also mention that deliveries that fail are retried on backoff schedule. Provide short answer. No mention of policy. Just answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! To see what\u2019s happening with your webhook deliveries, go to **Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log**. That log shows every attempt Meridian made, the HTTP status returned, and the response body, even if your system didn\u2019t log anything. If deliveries are failing, they\u2019ll be retried on a back\u2011off schedule for a limited window; after that you\u2019ll need to replay the event manually from the log. Let me know if you need help interpreting the log entries!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_1e106c54-b2bf-4f73-a882-85dc45477128",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460034,
+      "id": "chatcmpl-92e83766-8bfb-43ea-8b25-518258debeed",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_587d0d67cc",
+      "usage": {
+        "completion_time": 0.326095777,
+        "completion_tokens": 268,
+        "completion_tokens_details": {
+          "reasoning_tokens": 146
+        },
+        "prompt_time": 0.070657801,
+        "prompt_tokens": 1057,
+        "queue_time": 0.315997277,
+        "total_time": 0.396753578,
+        "total_tokens": 1325
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8ct53egd9ffy5ze8ggcfa",
+        "seed": 1774095012
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! To see what\u2019s happening with your webhook deliveries, go to **Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log**. That log shows every attempt Meridian made, the HTTP status returned, and the response body, even if your system didn\u2019t log anything. If deliveries are failing, they\u2019ll be retried on a back\u2011off schedule for a limited window; after that you\u2019ll need to replay the event manually from the log. Let me know if you need help interpreting the log entries!"
+        },
+        "id": "fc_1e106c54-b2bf-4f73-a882-85dc45477128",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 268,
+      "prompt_tokens": 1057
+    }
+  },
+  "retry_after": null
+}

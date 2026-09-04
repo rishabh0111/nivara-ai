@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:58:37.810894Z",
+  "failure_detail": null,
+  "fingerprint": "3296a268adb69f05474cb6f270e177e5e9fabb0176ad81ac833253f1d395325b",
+  "outcome": "response",
+  "recording_id": "turn/2406ef1d1393b456/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The customer says: \"Our own logs show far more API calls going out than the usage dashboard reports for this month.\" This is about discrepancy between usage logs and dashboard. Which policy excerpt covers this? We have DOC-053 about disputing a usage overage charge, which mentions reviewing raw usage record vs threshold, can surface causes like metering bug, misconfigured integration generating unexpected usage, or usage that genuinely occurred but not visible from the view the customer was checking. This seems relevant: they see more API calls than dashboard shows. So we can answer: they should open a usage dispute, we will review raw usage records. Provide steps: contact support, we will compare raw usage logs, etc. The policy says \"The review compares the raw usage record \u2014 not just the total shown on the invoice \u2014 against the threshold that would trigger an overage, which can surface causes a customer would not see from the dashboard alone, such as a metering bug, a misconfigured integration generating unexpected usage, or usage that genuinely occurred but was not visible from the view the customer was checking.\" So answer: advise to dispute usage overage, we can investigate. Provide guidance: open a ticket, include details, we will check raw usage logs. That is within policy. So we can respond.\n\nWe must keep answer short and specific. Use policy excerpt. Provide steps. Let's craft reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there,\\n\\nIf the usage you see in your own logs doesn\u2019t match what the dashboard shows, the next step is to open a usage\u2011dispute review. Our team will compare the raw usage records (which capture every API call) against the dashboard totals and the overage threshold. This can reveal things like a metering bug, a mis\u2011configured integration that generated extra calls, or usage that simply isn\u2019t visible from the dashboard view.\\n\\nPlease reply with the time range you\u2019re looking at and any relevant request IDs or logs, and we\u2019ll start the investigation for you.\\n\\nThanks,\\nMeridian Support\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c7daabb0-7d68-4870-a104-e7d3b321b228",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454717,
+      "id": "chatcmpl-214d5e7f-1c60-405d-a328-4042ae127f07",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_854fa9be4c",
+      "usage": {
+        "completion_time": 1.673931016,
+        "completion_tokens": 434,
+        "completion_tokens_details": {
+          "reasoning_tokens": 279
+        },
+        "prompt_time": 0.578460434,
+        "prompt_tokens": 1130,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.276504202,
+        "total_time": 2.25239145,
+        "total_tokens": 1564
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m3afvae9ts10ay75c3dg9h",
+        "seed": 2028387405
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there,\n\nIf the usage you see in your own logs doesn\u2019t match what the dashboard shows, the next step is to open a usage\u2011dispute review. Our team will compare the raw usage records (which capture every API call) against the dashboard totals and the overage threshold. This can reveal things like a metering bug, a mis\u2011configured integration that generated extra calls, or usage that simply isn\u2019t visible from the dashboard view.\n\nPlease reply with the time range you\u2019re looking at and any relevant request IDs or logs, and we\u2019ll start the investigation for you.\n\nThanks,\nMeridian Support"
+        },
+        "id": "fc_c7daabb0-7d68-4870-a104-e7d3b321b228",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 434,
+      "prompt_tokens": 1130
+    }
+  },
+  "retry_after": null
+}

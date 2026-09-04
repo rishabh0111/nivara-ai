@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:49:31.706332Z",
+  "failure_detail": null,
+  "fingerprint": "18e21eaeb961cbdd2460f816cdcd4b07e933f96b9252f8f634cc5404e5dd2540",
+  "outcome": "response",
+  "recording_id": "turn/4aa3594a9c1402e7/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We have a customer request: \"This card was compromised and I need it removed and confirmed unchargeable right away.\"\n\nPolicy: This is about a compromised card, removal and confirmation that it's unchargeable. The policy excerpts about removing a payment method after a lost card: It says removal can be done via settings, but confirming that the card is fully removed from billing system is done case by case by billing team on request. So we need to tell them to remove via settings and then request billing team to confirm. The policy says: \"Because this involves confirming the state of the account's billing record rather than just its visible settings, it is handled case by case by the billing team on request, and the account owner or billing contact should raise it after removing the method themselves.\"\n\nThus we can answer: instruct them to remove the card in Settings \u2192 Billing \u2192 Payment method (if not only method), then contact billing team to confirm removal. Since the request is about confirming unchargeable, we must say that billing team will confirm. This is within policy, not about money movement or disputed charge. It's about removing compromised card. So we can answer.\n\nWe must keep answer short and specific, address customer directly. Provide steps.\n\nThus we will post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"I\u2019m sorry to hear your card was compromised. You can remove it yourself by going to **Settings \u2192 Billing \u2192 Payment method** (as long as it isn\u2019t the only payment method on a workspace with an active subscription). After you\u2019ve removed it, please let our billing team know \u2013 they\u2019ll verify that the card is fully removed from the billing record and confirm it can no longer be charged. If you need help reaching them, just let us know.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_a5232ba3-4489-4884-9730-d0b0d297d2c5",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454171,
+      "id": "chatcmpl-0a39379a-f860-4030-9841-6af53fe8c0f5",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4a19b1544c",
+      "usage": {
+        "completion_time": 0.968800644,
+        "completion_tokens": 371,
+        "completion_tokens_details": {
+          "reasoning_tokens": 254
+        },
+        "prompt_time": 0.099607006,
+        "prompt_tokens": 1167,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.044978213,
+        "total_time": 1.06840765,
+        "total_tokens": 1538
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2svwze9ebqmrmnyrzd40f",
+        "seed": 1849976597
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "I\u2019m sorry to hear your card was compromised. You can remove it yourself by going to **Settings \u2192 Billing \u2192 Payment method** (as long as it isn\u2019t the only payment method on a workspace with an active subscription). After you\u2019ve removed it, please let our billing team know \u2013 they\u2019ll verify that the card is fully removed from the billing record and confirm it can no longer be charged. If you need help reaching them, just let us know."
+        },
+        "id": "fc_a5232ba3-4489-4884-9730-d0b0d297d2c5",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 371,
+      "prompt_tokens": 1167
+    }
+  },
+  "retry_after": null
+}

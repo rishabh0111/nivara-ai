@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:59:13.859471Z",
+  "failure_detail": null,
+  "fingerprint": "c1e7f53ed4c35e5bfbe1c118dbd7d2633dc499e696c3c3907ff9965822185848",
+  "outcome": "response",
+  "recording_id": "turn/bd3914f25dd498aa/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"We mint two separate API keys for two services and both are hitting rate limits as if they share one ceiling.\" They think rate limit is per key, but they see both hitting limit as if shared. According to DOC-021, rate limit is per API key, not per workspace. So each key has its own limit. Possibly they are hitting limit because each key individually is exceeding its own limit, maybe due to burst. Also can check X-RateLimit-Remaining headers. So answer: each key has its own limit; they are independent. If both hitting limit, each likely exceeding its own limit. Use headers to monitor. Also note rolling window and bursts can cause 429 even if under per-minute average. So answer accordingly. Provide guidance.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! Just to clarify, the API rate limit is applied **per API key**, not per workspace. Each key has its own rolling\u2011window limit, so two keys shouldn\u2019t share a single ceiling. If both of your keys are receiving 429 responses, it means each one is exceeding its own limit (for example, due to a burst of requests). You can check the exact remaining quota and reset time for each key in the response headers `X-RateLimit-Remaining` and `X-RateLimit-Reset`. Monitoring those headers will help you see what\u2019s being counted for each key and adjust your request pacing accordingly.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_32872d15-6707-43bb-bbfa-e35535c79a28",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454753,
+      "id": "chatcmpl-28f0e7de-cfb7-40af-a634-90d59fbceaff",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_dc4ca88fa4",
+      "usage": {
+        "completion_time": 0.67884139,
+        "completion_tokens": 318,
+        "completion_tokens_details": {
+          "reasoning_tokens": 165
+        },
+        "prompt_time": 0.609306395,
+        "prompt_tokens": 1038,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.308064904,
+        "total_time": 1.288147785,
+        "total_tokens": 1356
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m3bkdve7srcqng3r9n3dbp",
+        "seed": 694902862
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! Just to clarify, the API rate limit is applied **per API key**, not per workspace. Each key has its own rolling\u2011window limit, so two keys shouldn\u2019t share a single ceiling. If both of your keys are receiving 429 responses, it means each one is exceeding its own limit (for example, due to a burst of requests). You can check the exact remaining quota and reset time for each key in the response headers `X-RateLimit-Remaining` and `X-RateLimit-Reset`. Monitoring those headers will help you see what\u2019s being counted for each key and adjust your request pacing accordingly."
+        },
+        "id": "fc_32872d15-6707-43bb-bbfa-e35535c79a28",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 318,
+      "prompt_tokens": 1038
+    }
+  },
+  "retry_after": null
+}

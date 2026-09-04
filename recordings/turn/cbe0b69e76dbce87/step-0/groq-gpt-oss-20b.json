@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:28:43.669082Z",
+  "failure_detail": null,
+  "fingerprint": "9d3b65062fc3130f2dd266a0ba6b01049b268de50356ff371e24c7f40da6512c",
+  "outcome": "response",
+  "recording_id": "turn/cbe0b69e76dbce87/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"Is pagination cursor-based or offset-based, since that would explain why our integration is silently dropping later pages?\" We have policy excerpts about pagination: list endpoints return one page of results at a time, with a next_cursor field. The API reference's pagination section shows the loop pattern \u2014 following next_cursor until it is absent. So it's cursor-based. We should answer that. Also mention that integration should follow next_cursor. The question: \"Is pagination cursor-based or offset-based, since that would explain why our integration is silently dropping later pages?\" We answer: It's cursor-based. Provide explanation. Use policy. No mention of policy. Just answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Meridian\u2019s list endpoints use cursor\u2011based pagination. Each response includes a `next_cursor` field when more results exist, and you should keep requesting pages until that field is absent. If your integration stops after the first page, it\u2019s likely not following the cursor, which is why later records are silently dropped.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_0f375b88-aa50-40a0-a688-3d889c1d1ddf",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460123,
+      "id": "chatcmpl-21e061b3-019a-4d1d-b55a-86a54c4cb9bc",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_8e23cedc90",
+      "usage": {
+        "completion_time": 0.251735667,
+        "completion_tokens": 227,
+        "completion_tokens_details": {
+          "reasoning_tokens": 142
+        },
+        "prompt_time": 0.233224193,
+        "prompt_tokens": 1056,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.550779603,
+        "total_time": 0.48495986,
+        "total_tokens": 1283
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8fgfsek3avvger6kqhy2n",
+        "seed": 1054854987
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Meridian\u2019s list endpoints use cursor\u2011based pagination. Each response includes a `next_cursor` field when more results exist, and you should keep requesting pages until that field is absent. If your integration stops after the first page, it\u2019s likely not following the cursor, which is why later records are silently dropped."
+        },
+        "id": "fc_0f375b88-aa50-40a0-a688-3d889c1d1ddf",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 227,
+      "prompt_tokens": 1056
+    }
+  },
+  "retry_after": null
+}

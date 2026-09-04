@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T15:58:16.597328Z",
+  "failure_detail": null,
+  "fingerprint": "7e1133112f05ae946983bd7d3499c622d3d7f3c28fa9b83195ee86fdf590356a",
+  "outcome": "response",
+  "recording_id": "turn/eb754a5ad29651ca/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The customer asks: \"feature comparison for next tier?\" Likely they want to see feature comparison for next tier. According to DOC-030, Settings \u2192 Billing \u2192 Plan includes a full feature comparison across every tier, showing seats, integrations, retention window, support level side by side. So answer: go to Settings > Billing > Plan to view comparison. Also note that comparison page does not commit anything. Provide short answer.\n\nWe can answer directly.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! To see a side\u2011by\u2011side feature comparison for the next tier, go to **Settings \u2192 Billing \u2192 Plan** in your workspace. That page lists every tier\u2019s seats, integrations, retention window, support level and other features, so you can compare them before deciding to upgrade.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_60778367-b425-4083-b761-e0b8dd51a282",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451096,
+      "id": "chatcmpl-6b21134c-be8a-4d6c-99d4-a279aa81894d",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5082008e34",
+      "usage": {
+        "completion_time": 0.696356684,
+        "completion_tokens": 184,
+        "completion_tokens_details": {
+          "reasoning_tokens": 100
+        },
+        "prompt_time": 0.268540736,
+        "prompt_tokens": 1058,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.284881021,
+        "total_time": 0.96489742,
+        "total_tokens": 1242
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kzw0csepeaqc56htj08twm",
+        "seed": 298073688
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! To see a side\u2011by\u2011side feature comparison for the next tier, go to **Settings \u2192 Billing \u2192 Plan** in your workspace. That page lists every tier\u2019s seats, integrations, retention window, support level and other features, so you can compare them before deciding to upgrade."
+        },
+        "id": "fc_60778367-b425-4083-b761-e0b8dd51a282",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 184,
+      "prompt_tokens": 1058
+    }
+  },
+  "retry_after": null
+}

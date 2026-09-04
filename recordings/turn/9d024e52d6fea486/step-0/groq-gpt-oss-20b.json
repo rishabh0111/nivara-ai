@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:35:51.487889Z",
+  "failure_detail": null,
+  "fingerprint": "e96bbe87835b47f47494d964ce7b699a9ce6327480a74988d760b4725284f53f",
+  "outcome": "response",
+  "recording_id": "turn/9d024e52d6fea486/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"A customer says they only sent one email but we ended up with two tickets from it, and they are confused getting two replies.\" This is about duplicate tickets. We need to see policy. There's no policy excerpt about duplicate tickets. The policy excerpts are about fraudulent billing emails, two-factor codes, seat reassignment. None about duplicate tickets. So we cannot answer from policy. According to rules: If the question is ambiguous or not covered, we should escalated. So we should use `escalate`. Provide internal note: what the customer asked, what we found, why we stopped.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"Customer reports that they only sent one email but received two tickets and replies. No policy excerpt addresses duplicate tickets or how to handle them. Escalate to human support for resolution.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_07db38d8-0ff8-4221-b810-0bbaa57b170f",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460551,
+      "id": "chatcmpl-5cffbbb7-6dd6-4433-afff-61edced36dc8",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_d3e146e1a5",
+      "usage": {
+        "completion_time": 0.22955917,
+        "completion_tokens": 188,
+        "completion_tokens_details": {
+          "reasoning_tokens": 129
+        },
+        "prompt_time": 0.053375672,
+        "prompt_tokens": 1066,
+        "queue_time": 0.278932676,
+        "total_time": 0.282934842,
+        "total_tokens": 1254
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8wjkfe0dsbxhagqvmdy59",
+        "seed": 529043069
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "Customer reports that they only sent one email but received two tickets and replies. No policy excerpt addresses duplicate tickets or how to handle them. Escalate to human support for resolution."
+        },
+        "id": "fc_07db38d8-0ff8-4221-b810-0bbaa57b170f",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 188,
+      "prompt_tokens": 1066
+    }
+  },
+  "retry_after": null
+}

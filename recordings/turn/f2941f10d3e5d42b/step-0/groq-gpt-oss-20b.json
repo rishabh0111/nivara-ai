@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:28:30.859110Z",
+  "failure_detail": null,
+  "fingerprint": "fb6139612ddcf5e6a089426ee022dbbf5b40f40829780c592e95f7b0d328f0b8",
+  "outcome": "response",
+  "recording_id": "turn/f2941f10d3e5d42b/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"Our dashboard has been missing records created after the first page of an API response for weeks \u2014 how do I fix the pagination in our integration?\" This is about pagination. The policy excerpts mention that list endpoints return one page, with next_cursor, and that integration should follow next_cursor until absent. Also that reading only first page will miss records. So answer: ensure integration loops following next_cursor until no next_cursor. Provide guidance. No mention of money or identity. So we can answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! It sounds like your integration is only pulling the first page of results. To get all records, make sure your code follows the `next_cursor` field in each response. Keep requesting the next page until the response no longer contains a `next_cursor`. That loop pattern is what every list endpoint expects. Once you implement that, your dashboard should show all recent records again.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_b26f8bf5-acc6-4464-9726-ae9aca588a9a",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460110,
+      "id": "chatcmpl-115b28ea-8886-4e73-b6a9-3fed8e6aa2d1",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_34cb00738d",
+      "usage": {
+        "completion_time": 0.258229601,
+        "completion_tokens": 208,
+        "completion_tokens_details": {
+          "reasoning_tokens": 110
+        },
+        "prompt_time": 0.053865224,
+        "prompt_tokens": 1065,
+        "queue_time": 0.312648249,
+        "total_time": 0.312094825,
+        "total_tokens": 1273
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8f49bezg9qqdnc9qpjwee",
+        "seed": 1539103237
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! It sounds like your integration is only pulling the first page of results. To get all records, make sure your code follows the `next_cursor` field in each response. Keep requesting the next page until the response no longer contains a `next_cursor`. That loop pattern is what every list endpoint expects. Once you implement that, your dashboard should show all recent records again."
+        },
+        "id": "fc_b26f8bf5-acc6-4464-9726-ae9aca588a9a",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 208,
+      "prompt_tokens": 1065
+    }
+  },
+  "retry_after": null
+}

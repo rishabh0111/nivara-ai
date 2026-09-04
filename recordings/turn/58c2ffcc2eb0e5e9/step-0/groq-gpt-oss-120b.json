@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:38:04.184865Z",
+  "failure_detail": null,
+  "fingerprint": "a67e2f2d1645ec7e9ab6521d415857be677046e7b39621f5483021d2f8ac5a80",
+  "outcome": "response",
+  "recording_id": "turn/58c2ffcc2eb0e5e9/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our SSO configuration was changed to point at an identity provider domain we don't recognise, and staff are being redirected somewhere unfamiliar when signing in \u2014 what happened?\" This is about suspicious SSO config change. According to DOC-061 part 1: such change is treated as potential compromise of admin-level setting. So answer: It likely indicates a compromise, an admin-level change, attacker could intercept logins. Also mention admin can revert and report. Provide short answer. Use policy. No need to escalate. Provide answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If your SSO configuration suddenly points to an identity\u2011provider domain you don\u2019t recognize, it\u2019s treated as a potential compromise of an admin\u2011level setting. Changing the sign\u2011in redirect is exactly the kind of change an attacker with admin access would make to intercept future logins.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_a407223a-5cb1-49f3-a2fa-b2a3f40ce267",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453483,
+      "id": "chatcmpl-84fd11b3-9e73-48e7-acf5-533645178b25",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_93703442d9",
+      "usage": {
+        "completion_time": 0.541741234,
+        "completion_tokens": 200,
+        "completion_tokens_details": {
+          "reasoning_tokens": 118
+        },
+        "prompt_time": 0.109117282,
+        "prompt_tokens": 1107,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.367031939,
+        "total_time": 0.650858516,
+        "total_tokens": 1307
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m24wb6eqbr06tckmhbj66e",
+        "seed": 1246161370
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If your SSO configuration suddenly points to an identity\u2011provider domain you don\u2019t recognize, it\u2019s treated as a potential compromise of an admin\u2011level setting. Changing the sign\u2011in redirect is exactly the kind of change an attacker with admin access would make to intercept future logins."
+        },
+        "id": "fc_a407223a-5cb1-49f3-a2fa-b2a3f40ce267",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 200,
+      "prompt_tokens": 1107
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:30:44.943855Z",
+  "failure_detail": null,
+  "fingerprint": "95cd986a95dffb414faa989201ee548ed34797f14a4ae1687c72bf166f0696a6",
+  "outcome": "response",
+  "recording_id": "turn/6d42559045eb19fc/step-1/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"timestamps wrong timezone, fix?\" We have policy excerpts about timestamps: stored UTC, displayed converted to timezone based on workspace default and personal timezone. Setting personal timezone overrides workspace default. So answer: explain how to fix: set personal timezone in Profile settings or adjust workspace default. Provide steps. No mention of policy. Just short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! Timestamps are stored in UTC and shown in a timezone that comes from two places:\\n\\n1. The workspace default (Settings\u202f\u2192\u202fGeneral).\\n2. Your own personal timezone (Settings\u202f\u2192\u202fProfile).\\n\\nIf you\u2019re seeing the wrong time, check your personal timezone first. Go to Settings\u202f\u2192\u202fProfile, pick the correct timezone, and save. That will override the workspace default for you only. If you need everyone to see a different default, change the workspace default in Settings\u202f\u2192\u202fGeneral. Once the timezone is set correctly, the timestamps will display in the right time for you (and for others if you changed the workspace default).\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_85581ab6-2a34-423d-a2a9-0c22052fcc64",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460244,
+      "id": "chatcmpl-62167641-03a1-45ee-83d7-bbb8fa6f01e7",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_84bb35977d",
+      "usage": {
+        "completion_time": 0.330285264,
+        "completion_tokens": 236,
+        "completion_tokens_details": {
+          "reasoning_tokens": 76
+        },
+        "prompt_time": 0.061450407,
+        "prompt_tokens": 1045,
+        "queue_time": 0.307034621,
+        "total_time": 0.391735671,
+        "total_tokens": 1281
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8k787eh69h76a23x5fkkt",
+        "seed": 898068026
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! Timestamps are stored in UTC and shown in a timezone that comes from two places:\n\n1. The workspace default (Settings\u202f\u2192\u202fGeneral).\n2. Your own personal timezone (Settings\u202f\u2192\u202fProfile).\n\nIf you\u2019re seeing the wrong time, check your personal timezone first. Go to Settings\u202f\u2192\u202fProfile, pick the correct timezone, and save. That will override the workspace default for you only. If you need everyone to see a different default, change the workspace default in Settings\u202f\u2192\u202fGeneral. Once the timezone is set correctly, the timestamps will display in the right time for you (and for others if you changed the workspace default)."
+        },
+        "id": "fc_85581ab6-2a34-423d-a2a9-0c22052fcc64",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 236,
+      "prompt_tokens": 1045
+    }
+  },
+  "retry_after": null
+}

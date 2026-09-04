@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:30:39.172964Z",
+  "failure_detail": null,
+  "fingerprint": "20e1140f458ea24d0344b6d74f1d86c674d2d9b1ee3060c16ef82d96192e99b5",
+  "outcome": "response",
+  "recording_id": "turn/64496e9ab8e467a1/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user says: \"role conversion, history kept?\" They likely ask: If I change a seat's role, does the history remain? The policy says assignment history is attached to the person's account, not to their current role, so records previously assigned to someone moving to observer remain assigned to them and remain visible in that history; an observer role only changes what the person can do going forward, specifically that new work cannot be assigned to them and they cannot take actions requiring an agent or admin role.\n\nAlso role change doesn't affect identity or history. So answer: Yes, history remains. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes. Changing a seat\u2019s role (agent, admin, observer) does not affect the person\u2019s identity or their past assignment history. All records that were assigned to them remain in their history and stay visible. The role change only limits what they can do going forward (e.g., new work can\u2019t be assigned to an observer).\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_03f9042e-42d7-4f3e-a6ab-bc02d7fa8f6a",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460238,
+      "id": "chatcmpl-4e40aa3d-8eeb-4c84-a0fc-d28c99b2aece",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_3023a70d60",
+      "usage": {
+        "completion_time": 0.235895729,
+        "completion_tokens": 211,
+        "completion_tokens_details": {
+          "reasoning_tokens": 122
+        },
+        "prompt_time": 0.095116547,
+        "prompt_tokens": 1012,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.311909531,
+        "total_time": 0.331012276,
+        "total_tokens": 1223
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8k0zqe3p8pbqh8at1hf7f",
+        "seed": 2009521104
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes. Changing a seat\u2019s role (agent, admin, observer) does not affect the person\u2019s identity or their past assignment history. All records that were assigned to them remain in their history and stay visible. The role change only limits what they can do going forward (e.g., new work can\u2019t be assigned to an observer)."
+        },
+        "id": "fc_03f9042e-42d7-4f3e-a6ab-bc02d7fa8f6a",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 211,
+      "prompt_tokens": 1012
+    }
+  },
+  "retry_after": null
+}

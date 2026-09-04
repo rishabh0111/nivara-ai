@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:10:53.085525Z",
+  "failure_detail": null,
+  "fingerprint": "6a144c57fc73d590b698f554a7a10efdd92230e4ddb8f30a5a327adf70d2f92d",
+  "outcome": "response",
+  "recording_id": "turn/3fbf83a797aec051/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: rename workspace, does it change URLs, webhook endpoints, integration references. According to DOC-038: display name change is cosmetic only, does not change workspace URL, API base path, identifiers any integration or webhook references. Also integration continues to point same workspace, no reconfiguration needed. The only place old name may persist is email addresses or subdomains set up separately, not automatically updated.\n\nThus answer: No, renaming does not affect URLs, webhook endpoints, integration references; they remain same; only display name changes; you may need to manually update email addresses/subdomains if used.\n\nWe can answer directly. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Renaming a workspace only changes its display name \u2013 it\u2019s purely cosmetic. The workspace\u2019s URL, API base path, webhook endpoints and any integration references all stay tied to the underlying workspace ID, so they continue to work without any re\u2011configuration. The only places you might still see the old name are custom email addresses or subdomains you set up separately, which aren\u2019t updated automatically.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_9a1a83f2-86e6-4a62-8393-dd4bc46a7a4b",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451853,
+      "id": "chatcmpl-9bc7784b-fa47-4a50-805c-bf5eba356106",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_803c0ba83d",
+      "usage": {
+        "completion_time": 0.508062148,
+        "completion_tokens": 243,
+        "completion_tokens_details": {
+          "reasoning_tokens": 140
+        },
+        "prompt_time": 0.047423401,
+        "prompt_tokens": 1055,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.366837102,
+        "total_time": 0.555485549,
+        "total_tokens": 1298
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0k3vfefhr0qhez0bvyvn6",
+        "seed": 70619987
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Renaming a workspace only changes its display name \u2013 it\u2019s purely cosmetic. The workspace\u2019s URL, API base path, webhook endpoints and any integration references all stay tied to the underlying workspace ID, so they continue to work without any re\u2011configuration. The only places you might still see the old name are custom email addresses or subdomains you set up separately, which aren\u2019t updated automatically."
+        },
+        "id": "fc_9a1a83f2-86e6-4a62-8393-dd4bc46a7a4b",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 243,
+      "prompt_tokens": 1055
+    }
+  },
+  "retry_after": null
+}

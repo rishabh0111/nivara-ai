@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T17:01:06.402422Z",
+  "failure_detail": null,
+  "fingerprint": "463973e4302e43000fca443f390fa3e3677a9193ac378c1c502edc0662d224b9",
+  "outcome": "response",
+  "recording_id": "turn/4a824890ac49206d/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our Monday report has not arrived for two weeks.\" This is about scheduled report not arriving. We have relevant docs: DOC-040 parts 1-3 about checking scheduled report status, run history, recipient list bouncing, etc. So we can provide steps: go to Settings \u2192 Reports \u2192 Scheduled, check run history, see if disabled or failed, check recipient list for bounces, etc.\n\nWe must keep answer short and specific, address customer directly. Provide guidance.\n\nThus we will post_reply with answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there,\\n\\nPlease check the status of the scheduled report in **Settings \u2192 Reports \u2192 Scheduled**. The run\u2011history there will show whether the report is still running, has failed, or has been disabled. If the report appears to be running but you\u2019re not receiving it, look at the recipient list \u2013 a bouncing email address can cause Meridian to pause delivery for that address while the report itself continues. Resolve any bounced addresses or re\u2011add the correct recipients, then the report should resume sending.\\n\\nLet me know if you need any more help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_8ed53d3d-5db7-4bfa-b811-bd89c1a041bb",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454866,
+      "id": "chatcmpl-65718b4e-1985-442d-8faa-f9cf0a2c7257",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c15aa9c1b7",
+      "usage": {
+        "completion_time": 0.82820816,
+        "completion_tokens": 255,
+        "completion_tokens_details": {
+          "reasoning_tokens": 116
+        },
+        "prompt_time": 0.643266601,
+        "prompt_tokens": 1077,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.158863515,
+        "total_time": 1.471474761,
+        "total_tokens": 1332
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m3f1peeartqy4q54h6nj19",
+        "seed": 1272550912
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there,\n\nPlease check the status of the scheduled report in **Settings \u2192 Reports \u2192 Scheduled**. The run\u2011history there will show whether the report is still running, has failed, or has been disabled. If the report appears to be running but you\u2019re not receiving it, look at the recipient list \u2013 a bouncing email address can cause Meridian to pause delivery for that address while the report itself continues. Resolve any bounced addresses or re\u2011add the correct recipients, then the report should resume sending.\n\nLet me know if you need any more help!"
+        },
+        "id": "fc_8ed53d3d-5db7-4bfa-b811-bd89c1a041bb",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 255,
+      "prompt_tokens": 1077
+    }
+  },
+  "retry_after": null
+}

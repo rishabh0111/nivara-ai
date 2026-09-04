@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:25:04.027269Z",
+  "failure_detail": null,
+  "fingerprint": "aae13760f09543d377a04e06691d791a94beaaead8fdadb58488185291ddc978",
+  "outcome": "response",
+  "recording_id": "turn/a4fb92f14b631a22/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"Deliveries to our endpoint stopped sometime overnight with zero errors surfaced in our own application logs, so I suspect something changed on the sending side \u2014 is there a delivery log I can check?\" This is about webhook delivery status. The policy says there is a delivery log in Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log showing attempts, HTTP status, response body. So we can answer: Yes, you can check the delivery log in the developer settings, etc. Provide steps. This is within policy. So we should post_reply with answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 you can view the delivery log in the Meridian dashboard. Go to **Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log**. The log shows every attempt Meridian made to your endpoint, the HTTP status returned and the response body (including test deliveries). This lets you see if the endpoint is returning a non\u20112xx status, if TLS issues occurred, or if deliveries are being retried or have failed.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_81964617-9717-492f-a65c-27dae68210ce",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373503,
+      "id": "chatcmpl-b8692f69-6aa2-427c-b2a7-8cf46f11ae51",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_fe269835c7",
+      "usage": {
+        "completion_time": 1.390703153,
+        "completion_tokens": 230,
+        "completion_tokens_details": {
+          "reasoning_tokens": 122
+        },
+        "prompt_time": 0.477337332,
+        "prompt_tokens": 1051,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.596028539,
+        "total_time": 1.8680404849999999,
+        "total_tokens": 1281
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnw0y1eh29103erqt964a8",
+        "seed": 1777211553
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 you can view the delivery log in the Meridian dashboard. Go to **Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log**. The log shows every attempt Meridian made to your endpoint, the HTTP status returned and the response body (including test deliveries). This lets you see if the endpoint is returning a non\u20112xx status, if TLS issues occurred, or if deliveries are being retried or have failed."
+        },
+        "id": "fc_81964617-9717-492f-a65c-27dae68210ce",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 230,
+      "prompt_tokens": 1051
+    }
+  },
+  "retry_after": null
+}

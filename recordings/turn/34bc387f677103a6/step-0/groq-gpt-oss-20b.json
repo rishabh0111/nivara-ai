@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:25:38.016435Z",
+  "failure_detail": null,
+  "fingerprint": "ab425f6299d3d12ee7c14238ddb93dfc6796efac4a27c3b741e2df0b67b23a92",
+  "outcome": "response",
+  "recording_id": "turn/34bc387f677103a6/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: \"what column headers does the importer expect?\" According to policy excerpts: required headers: email, name, company. Optional: phone, title, any custom field already defined on the workspace, matched by the custom field's own name. Also mention that header not recognized is ignored. Also mention that columns can be in any order. Also mention that downloading sample template is fastest way to get exact header spelling. So answer: required headers: email, name, company. Optional: phone, title, custom fields. Also mention that header not recognized is ignored. Also mention that columns can be in any order. Also mention that you can download sample template. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"The importer looks for the following column headers:\\n\\n* **Required** \u2013 `email`, `name`, `company`\\n* **Optional** \u2013 `phone`, `title`, and any custom field that already exists in your workspace (use the exact custom\u2011field name)\\n\\nHeaders that aren\u2019t recognised are simply ignored, so you can include extra columns without breaking the import. The order of the columns doesn\u2019t matter \u2013 the importer matches by header name, not position.\\n\\nIf you want the exact spelling, you can download the sample template from the import screen \u2013 that\u2019s the quickest way to see the exact header names the importer expects.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_ccde45ec-cea5-470d-80ae-a532e2dac08c",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459937,
+      "id": "chatcmpl-ed9a47b5-b0bd-461d-85ba-1515d824b595",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_d6de37e6be",
+      "usage": {
+        "completion_time": 0.331369557,
+        "completion_tokens": 294,
+        "completion_tokens_details": {
+          "reasoning_tokens": 140
+        },
+        "prompt_time": 0.055923129,
+        "prompt_tokens": 1022,
+        "queue_time": 0.304932329,
+        "total_time": 0.387292686,
+        "total_tokens": 1316
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m89ve6efsb39hbwce0f1fy",
+        "seed": 969934027
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "The importer looks for the following column headers:\n\n* **Required** \u2013 `email`, `name`, `company`\n* **Optional** \u2013 `phone`, `title`, and any custom field that already exists in your workspace (use the exact custom\u2011field name)\n\nHeaders that aren\u2019t recognised are simply ignored, so you can include extra columns without breaking the import. The order of the columns doesn\u2019t matter \u2013 the importer matches by header name, not position.\n\nIf you want the exact spelling, you can download the sample template from the import screen \u2013 that\u2019s the quickest way to see the exact header names the importer expects."
+        },
+        "id": "fc_ccde45ec-cea5-470d-80ae-a532e2dac08c",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 294,
+      "prompt_tokens": 1022
+    }
+  },
+  "retry_after": null
+}

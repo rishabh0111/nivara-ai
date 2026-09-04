@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:30:15.916914Z",
+  "failure_detail": null,
+  "fingerprint": "2bb38bff392528c15762e8ad5889f26e9a8c0bc56d247a943be100625d537de2",
+  "outcome": "response",
+  "recording_id": "turn/a2e4b256040181a8/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to determine appropriate action. Customer asks: \"disputed overage charge, investigate and reverse\". This is about disputing a usage overage charge. According to policy excerpts, overage charge disputes are handled case by case by a human reviewer; the account owner or billing contact can raise it. The policy says it's handled by human, not resolved from general article. So we must either provide answer? The policy says it's handled case by case by a human reviewer. We can respond that they need to contact billing team, but we must answer only from policy excerpts. We can say that overage charge disputes are reviewed by billing team and need to be raised by account owner. That is allowed. The policy does not say we cannot give that info. It's not about money movement? It's about reversing a charge, which is money movement. The rule: \"If the question is about money movement, a disputed or fraudulent charge, or identity or account-recovery documents, `escalate`.\" This is a disputed charge (overage). So we must escalate. Indeed, the rule says if question is about disputed or fraudulent charge, we must escalate. So we must not answer, but escalate. Provide internal note: customer asked to investigate and reverse disputed overage charge. We found policy says it's handled case by case by human reviewer, and it's a disputed charge, so we must escalate.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer is requesting investigation and reversal of a disputed overage charge. This is a disputed charge involving money movement, which per policy requires escalation to a human billing reviewer. The policy indicates such disputes are handled case by case by a human reviewer.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_b84912df-0343-403f-9aed-619b61256684",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453015,
+      "id": "chatcmpl-e4d1bbc4-b641-41c2-af97-eb0cf9933447",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_77b12279f9",
+      "usage": {
+        "completion_time": 1.066162366,
+        "completion_tokens": 357,
+        "completion_tokens_details": {
+          "reasoning_tokens": 282
+        },
+        "prompt_time": 1.447176197,
+        "prompt_tokens": 1103,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.306851294,
+        "total_time": 2.513338563,
+        "total_tokens": 1460
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1ph75e7nax9yz0sycd0f8",
+        "seed": 746971845
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer is requesting investigation and reversal of a disputed overage charge. This is a disputed charge involving money movement, which per policy requires escalation to a human billing reviewer. The policy indicates such disputes are handled case by case by a human reviewer."
+        },
+        "id": "fc_b84912df-0343-403f-9aed-619b61256684",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 357,
+      "prompt_tokens": 1103
+    }
+  },
+  "retry_after": null
+}

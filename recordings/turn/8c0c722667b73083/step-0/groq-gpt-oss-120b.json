@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:27:29.917425Z",
+  "failure_detail": null,
+  "fingerprint": "a1a92e0ea1b081f401b8fa996becc4c20a1bfcf66e3e61a7d75842d6983d8271",
+  "outcome": "response",
+  "recording_id": "turn/8c0c722667b73083/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"Following an outage that kept our own product down for part of a business day, I'd like to understand the uptime guarantee stated in our contract and the exact method used to calculate a service credit for an incident like this.\"\n\nWe have policy excerpts about uptime service credits: they say guarantee and credit schedule are in contract, vary by plan tier, documented in order form or contract. Credit calculated as percentage of billing period's charges, scaled to how far actual uptime fell short, applied to future invoice. Also they can ask support to confirm incident's measured uptime impact against it.\n\nThus we can answer: refer to contract for guarantee and schedule; credit calculation method described. Provide explanation. This is within policy. So we can post reply.\n\nWe must keep answer short and specific, address customer directly. Provide info: guarantee is in contract, credit is % of billing period charges based on shortfall, applied to future invoice. They can ask support to confirm incident's measured uptime impact.\n\nLet's craft reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! The exact uptime guarantee and the credit percentages for missing it are set out in your specific contract (or order form), as they can differ by plan tier. In general, if the actual uptime falls short of the guaranteed level, Meridian calculates a service credit as a percentage of the charges for that billing period, proportional to the shortfall, and applies that credit to a future invoice rather than issuing a direct refund. To see the precise numbers for your workspace and to confirm how the recent incident\u2019s downtime maps to the credit schedule, you can reference your contract\u2019s uptime\u2011credit schedule and let us know the incident details \u2013 we\u2019ll verify the measured impact against it for you.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_fd14ebcc-324b-4764-881c-ebab1b1a32f6",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452849,
+      "id": "chatcmpl-db4e80d5-00db-4a4b-9fee-f29505be2269",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_02b0d31eca",
+      "usage": {
+        "completion_time": 1.020590157,
+        "completion_tokens": 375,
+        "completion_tokens_details": {
+          "reasoning_tokens": 213
+        },
+        "prompt_time": 0.030550331,
+        "prompt_tokens": 1058,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "queue_time": 0.310714877,
+        "total_time": 1.051140488,
+        "total_tokens": 1433
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1hgp2e5vadg3atwtsnajg",
+        "seed": 505038804
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! The exact uptime guarantee and the credit percentages for missing it are set out in your specific contract (or order form), as they can differ by plan tier. In general, if the actual uptime falls short of the guaranteed level, Meridian calculates a service credit as a percentage of the charges for that billing period, proportional to the shortfall, and applies that credit to a future invoice rather than issuing a direct refund. To see the precise numbers for your workspace and to confirm how the recent incident\u2019s downtime maps to the credit schedule, you can reference your contract\u2019s uptime\u2011credit schedule and let us know the incident details \u2013 we\u2019ll verify the measured impact against it for you."
+        },
+        "id": "fc_fd14ebcc-324b-4764-881c-ebab1b1a32f6",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 375,
+      "prompt_tokens": 1058
+    }
+  },
+  "retry_after": null
+}

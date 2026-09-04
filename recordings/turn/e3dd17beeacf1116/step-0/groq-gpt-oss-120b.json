@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:29:01.301802Z",
+  "failure_detail": null,
+  "fingerprint": "f03e4ed00398c30d1c79e0921fea50ac6d809afdb8e76573582971415ce15ed0",
+  "outcome": "response",
+  "recording_id": "turn/e3dd17beeacf1116/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer the question: \"webhook payload size limit?\" The policy excerpts include info about webhook payload size: DOC-024 parts 1-3. So we can answer: payload is capped at a fixed size; large records are delivered as reference with truncated:true flag; you should fetch full record via API; for frequently large records, subscribe to .changed event and fetch by id; batching not configurable.\n\nWe need to keep answer short and specific, address customer directly. Provide info about limit and handling.\n\nThus we can post reply summarizing: payload size is fixed; large records get truncated flag and id; fetch full record; use .changed event; cannot configure batching.\n\nLet's craft answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! Meridian caps each webhook payload at a fixed size. If a record\u2019s full content would exceed that limit, the webhook sends only an `id` with `truncated: true` instead of the full data. Your consumer should treat that flag as a signal to fetch the complete record via the API.\\n\\nFor records that are often large, we recommend subscribing to the `.changed` event and retrieving the current record by ID yourself\u2014this bypasses the payload size cap entirely.\\n\\nAlso, note that webhook delivery isn\u2019t batch\u2011configurable; each change is sent as its own event, so any batching must be handled on your side after you fetch the records.\\n\\nLet me know if you need more details on how to fetch the full record or set up the `.changed` subscription!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_2c58181a-6562-4d3d-b130-45431f0a6e11",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373741,
+      "id": "chatcmpl-1e4c0d22-565f-4a20-b148-0d26c990d76f",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5781dfb07c",
+      "usage": {
+        "completion_time": 0.695394661,
+        "completion_tokens": 331,
+        "completion_tokens_details": {
+          "reasoning_tokens": 143
+        },
+        "prompt_time": 0.193360835,
+        "prompt_tokens": 1044,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.275944464,
+        "total_time": 0.888755496,
+        "total_tokens": 1375
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hp3afjegr8jq388qr9y7ar",
+        "seed": 1505761279
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! Meridian caps each webhook payload at a fixed size. If a record\u2019s full content would exceed that limit, the webhook sends only an `id` with `truncated: true` instead of the full data. Your consumer should treat that flag as a signal to fetch the complete record via the API.\n\nFor records that are often large, we recommend subscribing to the `.changed` event and retrieving the current record by ID yourself\u2014this bypasses the payload size cap entirely.\n\nAlso, note that webhook delivery isn\u2019t batch\u2011configurable; each change is sent as its own event, so any batching must be handled on your side after you fetch the records.\n\nLet me know if you need more details on how to fetch the full record or set up the `.changed` subscription!"
+        },
+        "id": "fc_2c58181a-6562-4d3d-b130-45431f0a6e11",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 331,
+      "prompt_tokens": 1044
+    }
+  },
+  "retry_after": null
+}

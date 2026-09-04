@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:05:18.710222Z",
+  "failure_detail": null,
+  "fingerprint": "c43629458afa3a914d0974f398199ee3cd5d200ed86cbace1cfd7639372ce885",
+  "outcome": "response",
+  "recording_id": "turn/66300f561590b6e1/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"One of my teammates in a different timezone than our workspace default asked me to find out how to correct the displayed timestamps.\"\n\nWe need to explain how to correct displayed timestamps: personal timezone overrides workspace default; timestamps stored in UTC, displayed according to workspace default or personal setting. So answer: set personal timezone in Profile settings to override workspace default. Also note that if no personal timezone set, falls back to workspace default, causing differences.\n\nProvide short specific answer. Use policy excerpts. No need to read conversation. Just answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Timestamps are stored in UTC and shown in the timezone set for the account. If a user\u2019s personal timezone isn\u2019t set, Meridian falls back to the workspace default, which can make the same record appear at different times for people in other zones. To fix this, have your teammate open **Settings \u2192 Profile** in their personal account and set their own timezone. That personal setting overrides the workspace default for them only, so the timestamps will display correctly for their location without affecting anyone else.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_27bf52ae-c3cd-45ea-8b10-7254857c45bb",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451518,
+      "id": "chatcmpl-d50b295e-f5e8-4c70-bd90-8a8cc37e34f4",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_96d96a151c",
+      "usage": {
+        "completion_time": 0.553561208,
+        "completion_tokens": 241,
+        "completion_tokens_details": {
+          "reasoning_tokens": 118
+        },
+        "prompt_time": 1.2663613950000001,
+        "prompt_tokens": 1046,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.591752706,
+        "total_time": 1.819922603,
+        "total_tokens": 1287
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m08vtaegfvewydanke4fk0",
+        "seed": 1439289485
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Timestamps are stored in UTC and shown in the timezone set for the account. If a user\u2019s personal timezone isn\u2019t set, Meridian falls back to the workspace default, which can make the same record appear at different times for people in other zones. To fix this, have your teammate open **Settings \u2192 Profile** in their personal account and set their own timezone. That personal setting overrides the workspace default for them only, so the timestamps will display correctly for their location without affecting anyone else."
+        },
+        "id": "fc_27bf52ae-c3cd-45ea-8b10-7254857c45bb",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 241,
+      "prompt_tokens": 1046
+    }
+  },
+  "retry_after": null
+}

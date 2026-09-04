@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:18:44.442143Z",
+  "failure_detail": null,
+  "fingerprint": "454da7d2604a310a4169dd23fc06ae44b75c998405063961a2374bd95f206a96",
+  "outcome": "response",
+  "recording_id": "turn/ef477b1217d00b37/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The customer asks: \"scheduled export to storage?\" Likely they want to know how to schedule an export to cloud storage. The policy excerpts provide steps: go to Settings \u2192 Data \u2192 Scheduled exports, choose what to export and recurrence, connect cloud storage via OAuth, save schedule. Also each run lands as new file, history shown. So answer with those steps.\n\nWe must keep answer short and specific, address customer directly. Provide steps.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! To set up a recurring export to cloud storage:\\n1. Open **Settings \u2192 Data \u2192 Scheduled exports**.\\n2. Choose the data you want to export and set the recurrence (daily, weekly, or monthly).\\n3. Connect your cloud storage destination (Meridian supports the major providers via a one\u2011time OAuth connection).\\n4. Save the schedule.\\nEach run will create a new file in the connected storage, and you can view the history and status of each export on the Scheduled exports screen.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_a1ef2d0b-2d21-4f8d-840f-06a3d9b85c40",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373124,
+      "id": "chatcmpl-322cedcb-906b-4549-9947-1b7b0dbee1bd",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c15aa9c1b7",
+      "usage": {
+        "completion_time": 0.512151201,
+        "completion_tokens": 235,
+        "completion_tokens_details": {
+          "reasoning_tokens": 103
+        },
+        "prompt_time": 0.626714793,
+        "prompt_tokens": 994,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.157577673,
+        "total_time": 1.138865994,
+        "total_tokens": 1229
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hngg0te3paa95h6k2hhj3f",
+        "seed": 1489643936
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! To set up a recurring export to cloud storage:\n1. Open **Settings \u2192 Data \u2192 Scheduled exports**.\n2. Choose the data you want to export and set the recurrence (daily, weekly, or monthly).\n3. Connect your cloud storage destination (Meridian supports the major providers via a one\u2011time OAuth connection).\n4. Save the schedule.\nEach run will create a new file in the connected storage, and you can view the history and status of each export on the Scheduled exports screen."
+        },
+        "id": "fc_a1ef2d0b-2d21-4f8d-840f-06a3d9b85c40",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 235,
+      "prompt_tokens": 994
+    }
+  },
+  "retry_after": null
+}

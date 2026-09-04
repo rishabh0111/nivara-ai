@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:24:55.115281Z",
+  "failure_detail": null,
+  "fingerprint": "34f9e9aa69235535dca588f06c6a2f8273f7c7fa339cbf0b775cdb16a58ff7af",
+  "outcome": "response",
+  "recording_id": "turn/61d8abd22fd4c79b/consistency/sample-1/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user: \"I'm locked out of two-factor after switching phones and I need back in urgently \u2014 how do I re-enrol without losing access entirely?\" They want to re-enroll 2FA after losing access due to phone switch. According to policy: They can reset 2FA from Settings \u2192 Security \u2192 Two-factor authentication \u2192 Reset, then re-enroll scanning new QR code and confirming with fresh six-digit code. Or use saved recovery code from original enrolment to sign in and reset from there if settings page not reachable. So answer: Use reset in settings, or use recovery code. Provide steps. It's allowed: This is about re-enrolling 2FA. The policy excerpt says how to do it. So we can answer. No mention of money, fraud, identity, etc. So safe. We can answer.\n\nWe must keep answer short and specific. Use policy text. So final answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! To re\u2011enrol your two\u2011factor after switching phones, go to Settings\u202f\u2192\u202fSecurity\u202f\u2192\u202fTwo\u2011factor authentication and tap **Reset**. Then scan the new QR code with your authenticator app and confirm with the fresh six\u2011digit code. If you can\u2019t reach the settings page, use the recovery code you saved during the original setup to sign in and perform the reset from there. Once you\u2019ve set up the new QR code, the old one becomes invalid and you\u2019ll have access again.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_2b818379-c308-4788-9fcf-5539d6197818",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459895,
+      "id": "chatcmpl-a8b19214-2851-4c76-ad73-93a79f06b0d1",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_d23c14756c",
+      "usage": {
+        "completion_time": 0.328196837,
+        "completion_tokens": 314,
+        "completion_tokens_details": {
+          "reasoning_tokens": 185
+        },
+        "prompt_time": 0.138203553,
+        "prompt_tokens": 1144,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.364621884,
+        "total_time": 0.46640039,
+        "total_tokens": 1458
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m88hcve08sd43366zrqj0w",
+        "seed": 691731556
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! To re\u2011enrol your two\u2011factor after switching phones, go to Settings\u202f\u2192\u202fSecurity\u202f\u2192\u202fTwo\u2011factor authentication and tap **Reset**. Then scan the new QR code with your authenticator app and confirm with the fresh six\u2011digit code. If you can\u2019t reach the settings page, use the recovery code you saved during the original setup to sign in and perform the reset from there. Once you\u2019ve set up the new QR code, the old one becomes invalid and you\u2019ll have access again."
+        },
+        "id": "fc_2b818379-c308-4788-9fcf-5539d6197818",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 314,
+      "prompt_tokens": 1144
+    }
+  },
+  "retry_after": null
+}

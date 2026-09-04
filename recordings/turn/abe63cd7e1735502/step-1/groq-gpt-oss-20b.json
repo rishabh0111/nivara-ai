@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:22:17.924990Z",
+  "failure_detail": null,
+  "fingerprint": "b1cb999fbe38921ddbf67020beb8e857d10b8feb9f643a5ea086ba56f1f9a722",
+  "outcome": "response",
+  "recording_id": "turn/abe63cd7e1735502/step-1/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"This is blocking a signed contract \u2014 if bank transfer isn't an option we may have to walk away, so I need a definite answer today.\" The user wants to know if bank transfer is an option. The policy says: Annual contracts can be paid by bank transfer against an invoice, arranged through support before contract starts. Monthly plans are card-only; a workspace wanting bank transfer needs to be on an annual term first. So answer: Yes, bank transfer is possible but only for annual contracts, not monthly. Must arrange with support before contract starts. Provide that.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! Bank transfer is available, but only for annual contracts. If you\u2019re looking to sign up on an annual term, we\u2019ll set up the invoice and bank\u2011transfer details through support before the contract starts. Monthly plans can only be paid by card. Let me know if you\u2019d like to proceed with an annual plan and I\u2019ll get the invoice set up for you.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_7391b432-04ee-4779-ad16-595550a67797",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459737,
+      "id": "chatcmpl-a3ea9915-8819-422c-af58-c992891ad4d5",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_d23c14756c",
+      "usage": {
+        "completion_time": 0.240856224,
+        "completion_tokens": 220,
+        "completion_tokens_details": {
+          "reasoning_tokens": 122
+        },
+        "prompt_time": 0.065032092,
+        "prompt_tokens": 1104,
+        "queue_time": 0.36472187,
+        "total_time": 0.305888316,
+        "total_tokens": 1324
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m83r2fe0h9mjxg7rxfytav",
+        "seed": 1590726902
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! Bank transfer is available, but only for annual contracts. If you\u2019re looking to sign up on an annual term, we\u2019ll set up the invoice and bank\u2011transfer details through support before the contract starts. Monthly plans can only be paid by card. Let me know if you\u2019d like to proceed with an annual plan and I\u2019ll get the invoice set up for you."
+        },
+        "id": "fc_7391b432-04ee-4779-ad16-595550a67797",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 220,
+      "prompt_tokens": 1104
+    }
+  },
+  "retry_after": null
+}

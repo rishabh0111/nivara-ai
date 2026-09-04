@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T17:12:56.235114Z",
+  "failure_detail": null,
+  "fingerprint": "47cb04e9a52087d8d0d7a3a79c9ede09717769a5ea23fff38ebd6c31244235c5",
+  "outcome": "response",
+  "recording_id": "turn/8a8cebebe15f196d/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"I am being signed out every twenty minutes or so even though I am actively using the dashboard.\" This is about session timeout / sign-out. The policy excerpts we have are about sharing dashboards, fraudulent sign-in, SSO rollout, etc. Nothing about session timeout. So we cannot answer from provided excerpts. According to rules: If the policy excerpts do not contain answer, we must escalate. Also it's not about money movement, fraud, identity, ambiguous. So we should escalate.\n\nWe need to provide internal note: what the customer asked, what we found, why we stopped.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer reports being signed out frequently while using the dashboard. The provided policy excerpts cover dashboard sharing, fraudulent sign-in reporting, and SSO rollout, but contain no information about session timeouts or sign-out behavior. Since we cannot answer from the available excerpts, we must escalate to a human.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_8307604c-dfe3-40f1-a9a9-8947358a65e6",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788455576,
+      "id": "chatcmpl-841cf5a3-dd0c-417b-888a-21290d419ef9",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5781dfb07c",
+      "usage": {
+        "completion_time": 0.452548682,
+        "completion_tokens": 215,
+        "completion_tokens_details": {
+          "reasoning_tokens": 130
+        },
+        "prompt_time": 0.049990286,
+        "prompt_tokens": 1006,
+        "queue_time": 0.282429132,
+        "total_time": 0.502538968,
+        "total_tokens": 1221
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m44qw0emft6mbxmvykhbsy",
+        "seed": 1265850320
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer reports being signed out frequently while using the dashboard. The provided policy excerpts cover dashboard sharing, fraudulent sign-in reporting, and SSO rollout, but contain no information about session timeouts or sign-out behavior. Since we cannot answer from the available excerpts, we must escalate to a human."
+        },
+        "id": "fc_8307604c-dfe3-40f1-a9a9-8947358a65e6",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 215,
+      "prompt_tokens": 1006
+    }
+  },
+  "retry_after": null
+}

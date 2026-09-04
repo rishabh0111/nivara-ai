@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:22:00.330369Z",
+  "failure_detail": null,
+  "fingerprint": "a0c5956c12b142b47a64858d3b485ecb25b0cc28a7515de5d1f051f159018e7b",
+  "outcome": "response",
+  "recording_id": "turn/d01ef0e33e4d7cae/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"which export format for my spreadsheet tool?\" They want recommendation which export format to choose for their spreadsheet tool. According to DOC-020 parts: Exports offered in CSV and native format for two most common spreadsheet tools, selectable from dropdown. CSV is safest default but loses column types; native formats preserve column types. For a one-off download destined for a specific tool, picking that tool's native format avoids manual reformatting.\n\nThus answer: Choose the native format for your spreadsheet tool if it's one of the two supported (e.g., Excel .xlsx or Google Sheets). If not, use CSV. Provide guidance.\n\nWe must keep answer short and specific, address customer directly. No mention of policy. So answer: If your tool is one of the two common ones (Excel or Google Sheets), select its native format; otherwise CSV.\n\nLet's post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If your spreadsheet tool is one of the two most common ones (e.g., Microsoft Excel or Google Sheets), pick its native export format from the dropdown \u2013 it keeps dates, numbers and other column types intact. If your tool isn\u2019t one of those, choose CSV; it works with any program but you\u2019ll need to re\u2011format dates and numbers after import.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_8308a07d-7157-45cb-98ef-83b7569e3fdb",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373320,
+      "id": "chatcmpl-bb65ed02-748d-4df2-bc4e-b0a0274e2544",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9241e9962b",
+      "usage": {
+        "completion_time": 0.686873039,
+        "completion_tokens": 284,
+        "completion_tokens_details": {
+          "reasoning_tokens": 186
+        },
+        "prompt_time": 0.74696173,
+        "prompt_tokens": 1012,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.36837587,
+        "total_time": 1.433834769,
+        "total_tokens": 1296
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnpetrekv8bvqvqq1nwv44",
+        "seed": 260238515
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If your spreadsheet tool is one of the two most common ones (e.g., Microsoft Excel or Google Sheets), pick its native export format from the dropdown \u2013 it keeps dates, numbers and other column types intact. If your tool isn\u2019t one of those, choose CSV; it works with any program but you\u2019ll need to re\u2011format dates and numbers after import."
+        },
+        "id": "fc_8308a07d-7157-45cb-98ef-83b7569e3fdb",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 284,
+      "prompt_tokens": 1012
+    }
+  },
+  "retry_after": null
+}

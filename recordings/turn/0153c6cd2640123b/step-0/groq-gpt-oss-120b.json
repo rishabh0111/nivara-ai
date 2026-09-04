@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:14:45.503058Z",
+  "failure_detail": null,
+  "fingerprint": "d948188071f1d78e31411ade092328af4f8194aa480d0e74af3f44602bed2ef3",
+  "outcome": "response",
+  "recording_id": "turn/0153c6cd2640123b/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer using policy excerpts. The question: \"get last quarter usage data?\" They want usage data for last quarter. According to DOC-041 parts: usage older than two most recent billing periods is retained but not shown by default; can be pulled with custom date range from export, as long as within retention window. Also part 3 says exporting with that quarter's exact date range from usage screen produces same data as request to support, without wait. So answer: go to Settings \u2192 Billing \u2192 Usage, export CSV with custom date range covering last quarter. Mention that usage older than two most recent periods is retained but not shown, but can be exported via custom date range. Provide steps.\n\nWe must keep answer short and specific. Provide instructions.\n\nThus we will post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! You can download last\u2011quarter usage directly from the Usage screen:\\n1. Open **Settings \u2192 Billing \u2192 Usage**.\\n2. Click **Export** and choose **Custom date range**.\\n3. Set the start and end dates to cover the exact quarter you need (e.g.,\u202f2023\u201107\u201101\u202fto\u202f2023\u201109\u201130).\\n4. Export the CSV.\\n\\nEven though usage older than the two most recent billing periods isn\u2019t shown by default, it\u2019s still retained and can be pulled this way, as long as it falls within your workspace\u2019s data\u2011retention window. No need to wait for support to provide it.\\n\\nLet me know if you need any further help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_2a0925b0-c56a-40ea-9357-b4c40f63ca81",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452085,
+      "id": "chatcmpl-a2c09305-4b47-440b-a990-9a660180b267",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5781dfb07c",
+      "usage": {
+        "completion_time": 0.807834718,
+        "completion_tokens": 337,
+        "completion_tokens_details": {
+          "reasoning_tokens": 159
+        },
+        "prompt_time": 0.170321044,
+        "prompt_tokens": 1011,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.277563638,
+        "total_time": 0.978155762,
+        "total_tokens": 1348
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0t6bge7jtkgcknt1epbby",
+        "seed": 1546367334
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! You can download last\u2011quarter usage directly from the Usage screen:\n1. Open **Settings \u2192 Billing \u2192 Usage**.\n2. Click **Export** and choose **Custom date range**.\n3. Set the start and end dates to cover the exact quarter you need (e.g.,\u202f2023\u201107\u201101\u202fto\u202f2023\u201109\u201130).\n4. Export the CSV.\n\nEven though usage older than the two most recent billing periods isn\u2019t shown by default, it\u2019s still retained and can be pulled this way, as long as it falls within your workspace\u2019s data\u2011retention window. No need to wait for support to provide it.\n\nLet me know if you need any further help!"
+        },
+        "id": "fc_2a0925b0-c56a-40ea-9357-b4c40f63ca81",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 337,
+      "prompt_tokens": 1011
+    }
+  },
+  "retry_after": null
+}

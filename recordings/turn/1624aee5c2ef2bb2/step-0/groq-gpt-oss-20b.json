@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:32:37.136428Z",
+  "failure_detail": null,
+  "fingerprint": "dac8e694c618f61b799b39b8960be654427603d9ecef77cb16df24b723a624e0",
+  "outcome": "response",
+  "recording_id": "turn/1624aee5c2ef2bb2/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"Report just went quiet, not sure why.\" We have policy excerpts about scheduled reports. The user likely wants to know why a scheduled report stopped sending. We can refer to the help article. We should give short answer: check recipient list, check run history, etc. Use policy. So we can answer: check Settings \u2192 Reports \u2192 Scheduled, look at run history, see if failed due to bouncing email, etc. Provide guidance.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! It sounds like your scheduled report has stopped sending. Here\u2019s what to check:\\n\\n1. **Run history** \u2013 Go to Settings\u202f\u2192\u202fReports\u202f\u2192\u202fScheduled. Look at the most recent run. If it shows a failure, the report ran but delivery failed (often due to a bouncing email address). If it\u2019s marked disabled, the schedule itself was turned off.\\n2. **Recipient list** \u2013 A report will keep running even if one recipient\u2019s address bounces. After repeated failures, Meridian pauses delivery to that address but continues for others. If all recipients are bouncing, the report may appear silent.\\n3. **Schedule status** \u2013 If the run history shows \u201cnot running at all,\u201d the schedule may have been inadvertently disabled.\\n\\nCheck those areas first; if the issue persists, let us know and we\u2019ll dig deeper. Thanks!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f25c3933-c976-4e6d-955e-3cbe7de9e1ea",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460356,
+      "id": "chatcmpl-548fdf24-792c-445f-8fe1-65629a2a5ff1",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_565badff47",
+      "usage": {
+        "completion_time": 0.331122289,
+        "completion_tokens": 298,
+        "completion_tokens_details": {
+          "reasoning_tokens": 97
+        },
+        "prompt_time": 0.062459166,
+        "prompt_tokens": 1046,
+        "queue_time": 0.276743173,
+        "total_time": 0.393581455,
+        "total_tokens": 1344
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8pmgveveaa955fm54h46g",
+        "seed": 1833179239
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! It sounds like your scheduled report has stopped sending. Here\u2019s what to check:\n\n1. **Run history** \u2013 Go to Settings\u202f\u2192\u202fReports\u202f\u2192\u202fScheduled. Look at the most recent run. If it shows a failure, the report ran but delivery failed (often due to a bouncing email address). If it\u2019s marked disabled, the schedule itself was turned off.\n2. **Recipient list** \u2013 A report will keep running even if one recipient\u2019s address bounces. After repeated failures, Meridian pauses delivery to that address but continues for others. If all recipients are bouncing, the report may appear silent.\n3. **Schedule status** \u2013 If the run history shows \u201cnot running at all,\u201d the schedule may have been inadvertently disabled.\n\nCheck those areas first; if the issue persists, let us know and we\u2019ll dig deeper. Thanks!"
+        },
+        "id": "fc_f25c3933-c976-4e6d-955e-3cbe7de9e1ea",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 298,
+      "prompt_tokens": 1046
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:23:26.419906Z",
+  "failure_detail": null,
+  "fingerprint": "2af2c4ca55f39727b9422b93c93b68141f17fd971a12ff50b97c71439198682d",
+  "outcome": "response",
+  "recording_id": "turn/9598dddf22fc56fd/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer the question: \"next invoice date?\" The policy excerpt says: \"That date is shown in Settings \u2192 Billing \u2192 Plan next to 'Next invoice', and it does not shift month to month even though months have different lengths; a billing date of the 31st bills on the last day of a shorter month.\" Also \"A monthly plan is invoiced on the same day of the month as the workspace's original billing date \u2014 the date the subscription started or last renewed.\" So answer: The next invoice date is shown in Settings \u2192 Billing \u2192 Plan next to \"Next invoice\". It is the same day each month as the original billing date, and if that day doesn't exist in a month it bills on the last day. So we should give that. The question is ambiguous? It's just \"next invoice date?\" So we can answer. It's not about money movement or dispute. So we can answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! Your next invoice date is shown in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan, next to the \u201cNext invoice\u201d label. It\u2019s the same day of the month as when your workspace\u2019s subscription started or last renewed. If that day doesn\u2019t exist in a shorter month (e.g., the 31st), the invoice will be issued on the last day of that month.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_b567f4fc-122f-41ae-b14a-94160f11eec4",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459805,
+      "id": "chatcmpl-b2edabba-1410-4b86-bf82-ef391934d401",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_feb9b278f1",
+      "usage": {
+        "completion_time": 0.37598969,
+        "completion_tokens": 287,
+        "completion_tokens_details": {
+          "reasoning_tokens": 186
+        },
+        "prompt_time": 0.049756897,
+        "prompt_tokens": 987,
+        "queue_time": 0.305152422,
+        "total_time": 0.425746587,
+        "total_tokens": 1274
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m85tg5ef08rbr6qbfke64f",
+        "seed": 1571921387
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! Your next invoice date is shown in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan, next to the \u201cNext invoice\u201d label. It\u2019s the same day of the month as when your workspace\u2019s subscription started or last renewed. If that day doesn\u2019t exist in a shorter month (e.g., the 31st), the invoice will be issued on the last day of that month."
+        },
+        "id": "fc_b567f4fc-122f-41ae-b14a-94160f11eec4",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 287,
+      "prompt_tokens": 987
+    }
+  },
+  "retry_after": null
+}

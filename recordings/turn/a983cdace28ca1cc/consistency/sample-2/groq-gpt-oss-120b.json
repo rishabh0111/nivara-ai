@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:03:26.623665Z",
+  "failure_detail": null,
+  "fingerprint": "de4a0e15daa50d3e7e5c18f3e422d18eeef64e4d37209ae27229feaacf849198",
+  "outcome": "response",
+  "recording_id": "turn/a983cdace28ca1cc/consistency/sample-2/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to understand the customer's question: \"no SSO button, was I set up?\" They are likely a staff member not seeing SSO button on sign-in. The policy excerpts include reasons why SSO button may not appear: [DOC-010] part 1: SSO sign-in option only appears for an email domain the workspace has configured for SSO, and only once the identity provider sync has actually created that person's account. Also [DOC-010] part 3: admin can check whether the account exists from Settings \u2192 People, where an SSO-provisioned account is marked with the identity provider it came from; its absence means the sync has not created it yet.\n\nThus we can answer: The SSO button appears only if your domain is configured and your account has been provisioned via the IdP sync. Ask admin to verify that your account exists in Settings \u2192 People and that the sync has run. Also ensure the domain is configured. So we can give answer based on excerpts. No need to escalate.\n\nWe must produce a short specific answer. Let's craft.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"The SSO sign\u2011in button only shows up for users whose email domain is configured for SSO **and** whose account has already been created by the identity\u2011provider sync. If you don\u2019t see the button, it usually means the sync hasn\u2019t provisioned your account yet. Ask an admin to check Settings\u202f\u2192\u202fPeople \u2013 a provisioned SSO account will be listed with the identity provider shown. If it\u2019s missing, the sync needs to run or your domain may not be set up for SSO.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_dcb393a4-2865-466b-8964-eba4fd833bc9",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372206,
+      "id": "chatcmpl-02d265fa-772a-47be-bb61-27b90c581a60",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9241e9962b",
+      "usage": {
+        "completion_time": 0.918148451,
+        "completion_tokens": 351,
+        "completion_tokens_details": {
+          "reasoning_tokens": 221
+        },
+        "prompt_time": 0.059412495,
+        "prompt_tokens": 1084,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.362847258,
+        "total_time": 0.977560946,
+        "total_tokens": 1435
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmmfp8edkt54k08g9eb2r3",
+        "seed": 1076245861
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "The SSO sign\u2011in button only shows up for users whose email domain is configured for SSO **and** whose account has already been created by the identity\u2011provider sync. If you don\u2019t see the button, it usually means the sync hasn\u2019t provisioned your account yet. Ask an admin to check Settings\u202f\u2192\u202fPeople \u2013 a provisioned SSO account will be listed with the identity provider shown. If it\u2019s missing, the sync needs to run or your domain may not be set up for SSO."
+        },
+        "id": "fc_dcb393a4-2865-466b-8964-eba4fd833bc9",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 351,
+      "prompt_tokens": 1084
+    }
+  },
+  "retry_after": null
+}

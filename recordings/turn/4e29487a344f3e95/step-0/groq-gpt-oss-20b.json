@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:31:33.693340Z",
+  "failure_detail": null,
+  "fingerprint": "70d9846eb6bf9e2601bbda3207c461c46eee6a413a785262348ebd4245759184",
+  "outcome": "response",
+  "recording_id": "turn/4e29487a344f3e95/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: \"deleted project by mistake, recoverable?\" The policy says: deleted project is held recoverable for 30 days, can be restored via Settings \u2192 Data \u2192 Deleted items by an admin. So answer: yes, within 30 days, restore. Provide steps. No mention of money or identity. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! If you deleted a project by mistake, you can recover it within 30\u202fdays of deletion. As an admin, go to Settings \u2192 Data \u2192 Deleted items, find the project, and click\u202fRestore. All its records, configuration and automation rules will come back exactly as they were. After 30\u202fdays the deletion is permanent and we can\u2019t recover it. Let me know if you need help locating the project!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_43813d49-38dd-4ba7-b344-860dc1ae8668",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460293,
+      "id": "chatcmpl-82eec373-3471-48a4-868f-b507b11be1c4",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c9afb2bdb4",
+      "usage": {
+        "completion_time": 0.223163099,
+        "completion_tokens": 181,
+        "completion_tokens_details": {
+          "reasoning_tokens": 72
+        },
+        "prompt_time": 0.059661126,
+        "prompt_tokens": 1026,
+        "queue_time": 0.280291423,
+        "total_time": 0.282824225,
+        "total_tokens": 1207
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8mpzked8v8hkb8chqrhk4",
+        "seed": 1829497414
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! If you deleted a project by mistake, you can recover it within 30\u202fdays of deletion. As an admin, go to Settings \u2192 Data \u2192 Deleted items, find the project, and click\u202fRestore. All its records, configuration and automation rules will come back exactly as they were. After 30\u202fdays the deletion is permanent and we can\u2019t recover it. Let me know if you need help locating the project!"
+        },
+        "id": "fc_43813d49-38dd-4ba7-b344-860dc1ae8668",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 181,
+      "prompt_tokens": 1026
+    }
+  },
+  "retry_after": null
+}

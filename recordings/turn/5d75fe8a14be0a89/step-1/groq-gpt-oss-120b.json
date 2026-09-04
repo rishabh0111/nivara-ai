@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:23:56.661438Z",
+  "failure_detail": null,
+  "fingerprint": "61f735b879bd2adb3269f16bdc89b6065b579c320874ba348672e15262cf9475",
+  "outcome": "response",
+  "recording_id": "turn/5d75fe8a14be0a89/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Rate limiting kicking in earlier than expected, not sure why.\" We have policy excerpts about API rate limit: per API key, rolling window, bursts can cause 429 even if under per-minute figure, and headers show remaining and reset.\n\nThus we can answer: explain that limit is per key, rolling 60-second window, bursts cause early 429, check headers X-RateLimit-Remaining and X-RateLimit-Reset.\n\nProvide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! Our API rate limit is applied per API key using a rolling 60\u2011second window, not a fixed per\u2011minute bucket. That means the requests you made in the last 60 seconds are counted continuously. Even if your average rate is below the headline limit, a burst of calls can push you over the limit and trigger a `429` response. You can see exactly how many requests remain and when the window resets in the response headers `X-RateLimit-Remaining` and `X-RateLimit-Reset`. Spreading your calls more evenly over time should prevent the early throttling.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_0999877f-aa67-4094-8822-8f22ec4b81d0",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373436,
+      "id": "chatcmpl-e7fa81fb-7756-4d31-b9b2-705b6868b193",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4a19b1544c",
+      "usage": {
+        "completion_time": 0.546562632,
+        "completion_tokens": 253,
+        "completion_tokens_details": {
+          "reasoning_tokens": 105
+        },
+        "prompt_time": 0.189879481,
+        "prompt_tokens": 1056,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.045833588,
+        "total_time": 0.736442113,
+        "total_tokens": 1309
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnt1cze3hac9spfahaxaxp",
+        "seed": 1726391526
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! Our API rate limit is applied per API key using a rolling 60\u2011second window, not a fixed per\u2011minute bucket. That means the requests you made in the last 60 seconds are counted continuously. Even if your average rate is below the headline limit, a burst of calls can push you over the limit and trigger a `429` response. You can see exactly how many requests remain and when the window resets in the response headers `X-RateLimit-Remaining` and `X-RateLimit-Reset`. Spreading your calls more evenly over time should prevent the early throttling."
+        },
+        "id": "fc_0999877f-aa67-4094-8822-8f22ec4b81d0",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 253,
+      "prompt_tokens": 1056
+    }
+  },
+  "retry_after": null
+}

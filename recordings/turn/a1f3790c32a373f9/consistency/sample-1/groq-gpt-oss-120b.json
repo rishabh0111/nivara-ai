@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:09:29.425904Z",
+  "failure_detail": null,
+  "fingerprint": "71a24401f6462982d70128fb2a6ca190472f314d4ef02245fd7a95fbcfc39a3c",
+  "outcome": "response",
+  "recording_id": "turn/a1f3790c32a373f9/consistency/sample-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to determine if we can answer based on policy excerpts. The question: \"Do I need to fully remove the old two-factor enrolment before adding the new device, or can I just re-scan a new code?\" This is about two-factor authentication re-enrollment. The policy says:\n\n- DOC-012 part 1: \"An authenticator app reinstalled after a phone upgrade starts generating new codes that no longer match what Meridian has on file, because the original enrolment's secret was tied to the old install.\"\n- DOC-012 part 2: \"From Settings \u2192 Security \u2192 Two-factor authentication, choose \u201cReset\u201d and re-enrol the same way as a first-time setup \u2014 scanning a new QR code and confirming with a fresh six-digit code. A saved recovery code from the original enrolment can also be used to sign in and reset from there if the settings page itself is not reachable without a working code.\"\n- DOC-012 part 3: \"Re-enrolling invalidates the old QR code entirely; only the newly scanned one will generate valid codes afterward.\"\n\nThus answer: You need to reset (which invalidates old enrollment) and then re-enroll; you don't need to manually remove old, just reset and scan new code; re-enrolling invalidates old QR code.\n\nThus we can answer with that. Provide short answer: you can just reset and scan new QR; old enrollment is invalidated automatically.\n\nThus we can post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You don\u2019t have to manually delete the old enrolment first. Just go to Settings \u2192 Security \u2192 Two\u2011factor authentication, choose \u201cReset\u201d (or use a saved recovery code to sign in), and then set it up again by scanning the new QR code and confirming the six\u2011digit code. Re\u2011enrolling automatically invalidates the old QR code, so only the new one will work.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_55828e32-c06f-421f-aaa7-e1a1eb9cdc0a",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372569,
+      "id": "chatcmpl-aea0b59b-8ba7-4e5b-bec8-67e7c2ac6cc3",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_8ea50c0161",
+      "usage": {
+        "completion_time": 0.95643324,
+        "completion_tokens": 403,
+        "completion_tokens_details": {
+          "reasoning_tokens": 298
+        },
+        "prompt_time": 0.092065376,
+        "prompt_tokens": 1146,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.309446137,
+        "total_time": 1.048498616,
+        "total_tokens": 1549
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmzht3e14sssjy6pq6jm18",
+        "seed": 1691467682
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You don\u2019t have to manually delete the old enrolment first. Just go to Settings \u2192 Security \u2192 Two\u2011factor authentication, choose \u201cReset\u201d (or use a saved recovery code to sign in), and then set it up again by scanning the new QR code and confirming the six\u2011digit code. Re\u2011enrolling automatically invalidates the old QR code, so only the new one will work."
+        },
+        "id": "fc_55828e32-c06f-421f-aaa7-e1a1eb9cdc0a",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 403,
+      "prompt_tokens": 1146
+    }
+  },
+  "retry_after": null
+}

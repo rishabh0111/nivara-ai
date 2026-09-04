@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:37:40.226411Z",
+  "failure_detail": null,
+  "fingerprint": "2754f3096f4fb7ac0fd5af5a7c682c2d71074f5d8d6f7e9b693b404658758a76",
+  "outcome": "response",
+  "recording_id": "turn/755171bb9c35dc22/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user says: \"Our operations lead noticed an admin-level account that nobody remembers inviting and asked me to escalate it for investigation.\"\n\nWe have policy DOC-060 about reporting an unrecognised admin added to a workspace. Steps: existing admin can remove the unrecognised user immediately from Settings \u2192 People, then report to support alongside removal for review. So we should instruct them to remove the admin and report to support. Provide steps.\n\nThus we can post a reply with instructions: remove user via Settings \u2192 People, then contact support (or we can say we are escalating). Since they asked to \"escalate it for investigation\", we can say we have escalated? But we are the assistant; we can respond with instructions to report to support. According to policy, we should tell them to remove and report. So answer accordingly.\n\nWe must not mention policy. Provide short specific answer.\n\nThus use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Please have an existing admin remove the unknown admin right away (Settings \u2192 People). After removal, submit a support request and mention the unrecognised admin addition so our team can review how the account was added and determine any further actions.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_55b60c86-3f00-43b6-8051-f8f5a84bd1d2",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453460,
+      "id": "chatcmpl-9116f70e-dd38-4ac1-8fea-9f3fd738a372",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_19b184c447",
+      "usage": {
+        "completion_time": 0.909451741,
+        "completion_tokens": 266,
+        "completion_tokens_details": {
+          "reasoning_tokens": 194
+        },
+        "prompt_time": 0.054138538,
+        "prompt_tokens": 1096,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.366929551,
+        "total_time": 0.963590279,
+        "total_tokens": 1362
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m244xneqmv0grej9rf9v71",
+        "seed": 747368851
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Please have an existing admin remove the unknown admin right away (Settings \u2192 People). After removal, submit a support request and mention the unrecognised admin addition so our team can review how the account was added and determine any further actions."
+        },
+        "id": "fc_55b60c86-3f00-43b6-8051-f8f5a84bd1d2",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 266,
+      "prompt_tokens": 1096
+    }
+  },
+  "retry_after": null
+}

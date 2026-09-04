@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:17:21.392598Z",
+  "failure_detail": null,
+  "fingerprint": "74b156a29bbdaf768fe996b67e98000f86b4eccab781913d0b78f285b1e09ab6",
+  "outcome": "response",
+  "recording_id": "turn/aa773b037109e115/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"which rows failed import?\" The user asks which rows failed import. According to policy, after import finishes, you can view import history to see per-row result and reason. So we can answer: go to Settings \u2192 Data \u2192 Import history, select the run, see per-row result. Provide steps. This is within policy. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can see exactly which rows failed by opening **Settings \u2192 Data \u2192 Import history**, selecting the import run you just completed, and reviewing the per\u2011row results. The history view lists each row that didn\u2019t import and provides the specific reason for the failure.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_677050ad-ede1-4ebe-be7e-862a5cc5f4e5",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373040,
+      "id": "chatcmpl-4cd70421-a645-4ac4-8e1a-28972b85c9bd",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_47082602e2",
+      "usage": {
+        "completion_time": 0.341867797,
+        "completion_tokens": 162,
+        "completion_tokens_details": {
+          "reasoning_tokens": 85
+        },
+        "prompt_time": 0.054762197,
+        "prompt_tokens": 1075,
+        "queue_time": 0.308623321,
+        "total_time": 0.396629994,
+        "total_tokens": 1237
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hndz28e6msg3sh4bvbyptz",
+        "seed": 1339250841
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can see exactly which rows failed by opening **Settings \u2192 Data \u2192 Import history**, selecting the import run you just completed, and reviewing the per\u2011row results. The history view lists each row that didn\u2019t import and provides the specific reason for the failure."
+        },
+        "id": "fc_677050ad-ede1-4ebe-be7e-862a5cc5f4e5",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 162,
+      "prompt_tokens": 1075
+    }
+  },
+  "retry_after": null
+}

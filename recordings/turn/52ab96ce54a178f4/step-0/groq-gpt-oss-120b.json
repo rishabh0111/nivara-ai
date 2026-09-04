@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:14:03.500043Z",
+  "failure_detail": null,
+  "fingerprint": "538f02c80a66453077f9c8d91b62f6b481690ad40377158d1b05c873c3c4f5f7",
+  "outcome": "response",
+  "recording_id": "turn/52ab96ce54a178f4/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Can two identity providers stay connected to one workspace during a transition, or do we need to fully cut over before consolidating?\" The policy says: \"A workspace configures exactly one identity provider at a time, tied to the email domains it covers... Consolidating two teams that came from different providers onto one workspace means picking one provider as the SSO source of truth and migrating the other team's accounts to it, rather than running both providers against the same workspace at once.\" So answer: only one provider at a time; need to fully cut over before consolidating. Also can mention support can advise on migration order. So answer accordingly.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! A Meridian workspace can only have a single identity provider configured at any given time. When you\u2019re merging two teams that use different providers, you\u2019ll need to pick one provider as the SSO source of truth and migrate the other team\u2019s accounts over to it\u2014both providers can\u2019t run side\u2011by\u2011side on the same workspace. Our support team can also help you plan the migration order for the specific providers you\u2019re using.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_9b5464a8-fb8d-4d1c-addc-6c783c4d4ecd",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372843,
+      "id": "chatcmpl-51340c39-26bf-49ab-a7dd-2c9ff9810c3d",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_df9620fe21",
+      "usage": {
+        "completion_time": 0.557425282,
+        "completion_tokens": 255,
+        "completion_tokens_details": {
+          "reasoning_tokens": 141
+        },
+        "prompt_time": 0.052677837,
+        "prompt_tokens": 1043,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.284574927,
+        "total_time": 0.610103119,
+        "total_tokens": 1298
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hn7y2bez2rr5jf3tcpxsgx",
+        "seed": 2040988807
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! A Meridian workspace can only have a single identity provider configured at any given time. When you\u2019re merging two teams that use different providers, you\u2019ll need to pick one provider as the SSO source of truth and migrate the other team\u2019s accounts over to it\u2014both providers can\u2019t run side\u2011by\u2011side on the same workspace. Our support team can also help you plan the migration order for the specific providers you\u2019re using."
+        },
+        "id": "fc_9b5464a8-fb8d-4d1c-addc-6c783c4d4ecd",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 255,
+      "prompt_tokens": 1043
+    }
+  },
+  "retry_after": null
+}

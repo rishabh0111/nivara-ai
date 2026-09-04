@@ -1,0 +1,78 @@
+{
+  "captured_at": "2026-09-03T16:03:01.484404Z",
+  "failure_detail": null,
+  "fingerprint": "68ebe456e4e85c38ad48b21769f70224b5c6f87b9de2f9c01e64cbab5e471d4a",
+  "outcome": "response",
+  "recording_id": "turn/6d42559045eb19fc/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to read conversation to see context.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{}",
+                  "name": "read_conversation"
+                },
+                "id": "fc_7834457e-bbab-4017-b5a5-cd7314a92f28",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451381,
+      "id": "chatcmpl-9fc44929-e4b8-4045-bfd0-083bb3bd21b0",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_854fa9be4c",
+      "usage": {
+        "completion_time": 0.066724837,
+        "completion_tokens": 30,
+        "completion_tokens_details": {
+          "reasoning_tokens": 10
+        },
+        "prompt_time": 0.147921128,
+        "prompt_tokens": 1014,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.27579852,
+        "total_time": 0.214645965,
+        "total_tokens": 1044
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m04qqaefgbqv4vjq4w0de6",
+        "seed": 1031286863
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {},
+        "id": "fc_7834457e-bbab-4017-b5a5-cd7314a92f28",
+        "name": "read_conversation"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 30,
+      "prompt_tokens": 1014
+    }
+  },
+  "retry_after": null
+}

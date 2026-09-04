@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:21:53.546564Z",
+  "failure_detail": null,
+  "fingerprint": "b8ab6343fb81b3fe7109ff2cfbab5a4f4baaef41144ecde9da744f767e591053",
+  "outcome": "response",
+  "recording_id": "turn/109ac1927dab8302/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user says: \"invoices to a group email instead of me\". They want to change invoice recipients to a group email. According to policy: part 2 says to send invoices to a different address, open Settings \u2192 Billing \u2192 Recipients and add or replace the billing contact email. Multiple recipients can be added. So answer: instruct them to go to Settings > Billing > Recipients, add group email. Also mention that default is workspace billing contact. Also mention that change applies to next invoice. So we can answer. No escalation needed.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! To have invoices sent to a group email, go to Settings \u2192 Billing \u2192 Recipients in your account. Add the group email address (or replace the existing billing contact) there. You can add multiple recipients, so the group inbox can be added alongside your own address. The change will take effect on the next invoice generated. Let me know if you need any more help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_07228f1c-ad58-4f0f-8077-b3eaea5352c9",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459713,
+      "id": "chatcmpl-f29e8ba3-73cd-4bdd-9755-9d7844444cb7",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_a8c584dda7",
+      "usage": {
+        "completion_time": 0.265810195,
+        "completion_tokens": 210,
+        "completion_tokens_details": {
+          "reasoning_tokens": 111
+        },
+        "prompt_time": 0.059316035,
+        "prompt_tokens": 1011,
+        "queue_time": 0.160038904,
+        "total_time": 0.32512623,
+        "total_tokens": 1221
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m83061ekkvk10yfmjep6xc",
+        "seed": 1335521402
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! To have invoices sent to a group email, go to Settings \u2192 Billing \u2192 Recipients in your account. Add the group email address (or replace the existing billing contact) there. You can add multiple recipients, so the group inbox can be added alongside your own address. The change will take effect on the next invoice generated. Let me know if you need any more help!"
+        },
+        "id": "fc_07228f1c-ad58-4f0f-8077-b3eaea5352c9",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 210,
+      "prompt_tokens": 1011
+    }
+  },
+  "retry_after": null
+}

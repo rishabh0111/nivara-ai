@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T15:58:10.877435Z",
+  "failure_detail": null,
+  "fingerprint": "99fcab5c684bfa9ab5e5e45bbac997ca44d559c1efd2ec49e36aa321a870348c",
+  "outcome": "response",
+  "recording_id": "turn/ed9a5c46350fefc3/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer the customer's question: \"reassign seat, extra charge?\" Likely they ask about reassigning a seat and whether they'll be charged extra. We have policy excerpts about reassigning a seat without paying for two at once. The answer: removing the departed employee before inviting the new hire avoids overage, seat count is immediate, and the next invoice will bill the highest count during the cycle, so if you remove before inviting, you won't be charged extra. Provide short answer.\n\nCheck if any ambiguous? The question is short but likely about whether extra charge occurs when reassigning seat. We have policy covering that. So we can answer.\n\nWe must use policy excerpts only. Provide short specific answer.\n\nThus we will post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When you remove an employee in Settings\u202f\u2192\u202fPeople, their seat is freed immediately. If you invite the new hire into that freed seat within the same billing cycle, the seat count never exceeds your paid seats, so you won\u2019t be hit with an over\u2011age charge. The invoice for that cycle reflects the highest number of seats occupied at any point, which in this case stays at one seat.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_af390f61-8777-439c-9727-c5631f521c9e",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451090,
+      "id": "chatcmpl-943afe10-9399-49c0-ab8e-87f1eff25433",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_87b3c396db",
+      "usage": {
+        "completion_time": 0.54148682,
+        "completion_tokens": 259,
+        "completion_tokens_details": {
+          "reasoning_tokens": 153
+        },
+        "prompt_time": 0.171370508,
+        "prompt_tokens": 1080,
+        "queue_time": 0.28456127,
+        "total_time": 0.712857328,
+        "total_tokens": 1339
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kzvvcte42tshc7kcjzv505",
+        "seed": 951363375
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When you remove an employee in Settings\u202f\u2192\u202fPeople, their seat is freed immediately. If you invite the new hire into that freed seat within the same billing cycle, the seat count never exceeds your paid seats, so you won\u2019t be hit with an over\u2011age charge. The invoice for that cycle reflects the highest number of seats occupied at any point, which in this case stays at one seat."
+        },
+        "id": "fc_af390f61-8777-439c-9727-c5631f521c9e",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 259,
+      "prompt_tokens": 1080
+    }
+  },
+  "retry_after": null
+}

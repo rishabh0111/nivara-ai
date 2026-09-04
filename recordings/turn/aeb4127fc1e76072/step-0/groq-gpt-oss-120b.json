@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:27:23.469360Z",
+  "failure_detail": null,
+  "fingerprint": "b7a2fd7ea50cadc721966bf530c31fac10dfa2338e258c13fd3a5a720229a248",
+  "outcome": "response",
+  "recording_id": "turn/aeb4127fc1e76072/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"This outage cost us real business today and I need to know immediately what our contractual uptime guarantee is and how a credit gets calculated.\"\n\nWe have policy excerpts about uptime service credits: DOC-050 parts 1-3. They say: uptime guarantee and credit schedule are in the contract, varies by plan tier, documented in order form or contract. Credit is calculated as percentage of billing period's charges, scaled to how far actual uptime fell short, applied to future invoice. Also they can ask support to confirm incident's measured uptime impact against it.\n\nThus we can answer: The guarantee is in your contract; we can't give exact number without seeing it. Credits are calculated as a % of that billing period's charges based on shortfall, applied to future invoice. Suggest they reference contract or ask support to confirm incident's impact.\n\nWe must keep answer short and specific, address customer directly. Provide info from policy. No escalation needed because we can answer from policy. Not about money movement? It's about credit calculation, which is okay.\n\nThus we will post_reply with answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there \u2013 the exact uptime guarantee for your workspace is set out in your contract (the order form or agreement you signed), as it can differ by plan tier. \\n\\nWhen an outage triggers a credit, Meridian calculates it as a percentage of the charges for the billing period in question, scaled to how far the actual uptime fell short of the guaranteed level, and the credit is applied to a future invoice rather than refunded directly. \\n\\nIf you\u2019d like us to confirm whether a specific incident meets the guarantee and see the exact credit amount, please share the incident details and we can verify the measured uptime impact against your contract\u2019s schedule.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_edc7ca56-d7be-44a7-983f-81850327d6fb",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452843,
+      "id": "chatcmpl-1176c207-d2ef-4da9-91bf-52edc00aa4ca",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_02b0d31eca",
+      "usage": {
+        "completion_time": 0.820444878,
+        "completion_tokens": 384,
+        "completion_tokens_details": {
+          "reasoning_tokens": 229
+        },
+        "prompt_time": 2.537717099,
+        "prompt_tokens": 1060,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.312221406,
+        "total_time": 3.358161977,
+        "total_tokens": 1444
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1h8a7ev1vhw757gfz6a3e",
+        "seed": 2128472147
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there \u2013 the exact uptime guarantee for your workspace is set out in your contract (the order form or agreement you signed), as it can differ by plan tier. \n\nWhen an outage triggers a credit, Meridian calculates it as a percentage of the charges for the billing period in question, scaled to how far the actual uptime fell short of the guaranteed level, and the credit is applied to a future invoice rather than refunded directly. \n\nIf you\u2019d like us to confirm whether a specific incident meets the guarantee and see the exact credit amount, please share the incident details and we can verify the measured uptime impact against your contract\u2019s schedule."
+        },
+        "id": "fc_edc7ca56-d7be-44a7-983f-81850327d6fb",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 384,
+      "prompt_tokens": 1060
+    }
+  },
+  "retry_after": null
+}

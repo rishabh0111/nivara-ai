@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:29:48.675593Z",
+  "failure_detail": null,
+  "fingerprint": "f33fe1a739e8d3c241f8f5505acb3d4b85f120752c997237e138daae869cb58b",
+  "outcome": "response",
+  "recording_id": "turn/1130c67c32b4c79c/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: admin cancelled seats mid-cycle and was billed for full count regardless, wants refund for unused portion. According to DOC-052 part 1: seats cancelled mid-cycle are not automatically prorated; they stop being billed starting next cycle, not refunded for remainder. So we should explain that refunds are not automatic; policy is that they are not prorated, but they can raise a review with billing team specifying seats and dates. So answer: explain policy, that they are not automatically refunded, but they can request a review by contacting billing with details. Provide guidance.\n\nWe must not mention policy excerpts. Just answer. Use short specific answer. No escalation needed because we have answer. So post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there,\\n\\nOur standard policy is that seats removed mid\u2011cycle stop being billed from the next billing cycle rather than being prorated for the remainder of the current cycle. Because of this, a refund for the unused portion isn\u2019t automatically issued.\\n\\nIf you believe the charge was applied incorrectly, the billing team can review the specific seat changes and dates. Please have the account owner or billing contact raise a review request with the exact seats and dates in question so we can check the records against the invoice.\\n\\nLet us know if you\u2019d like help submitting that request.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f4b31403-27f9-4d64-9f57-7a5be9029f4a",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452988,
+      "id": "chatcmpl-885a35c1-0fb8-410d-b694-7487a72ea6fc",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_803c0ba83d",
+      "usage": {
+        "completion_time": 0.694626073,
+        "completion_tokens": 295,
+        "completion_tokens_details": {
+          "reasoning_tokens": 152
+        },
+        "prompt_time": 0.184295787,
+        "prompt_tokens": 1109,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.364640511,
+        "total_time": 0.87892186,
+        "total_tokens": 1404
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1nqzhef6bdpp664ey46sy",
+        "seed": 201897053
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there,\n\nOur standard policy is that seats removed mid\u2011cycle stop being billed from the next billing cycle rather than being prorated for the remainder of the current cycle. Because of this, a refund for the unused portion isn\u2019t automatically issued.\n\nIf you believe the charge was applied incorrectly, the billing team can review the specific seat changes and dates. Please have the account owner or billing contact raise a review request with the exact seats and dates in question so we can check the records against the invoice.\n\nLet us know if you\u2019d like help submitting that request."
+        },
+        "id": "fc_f4b31403-27f9-4d64-9f57-7a5be9029f4a",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 295,
+      "prompt_tokens": 1109
+    }
+  },
+  "retry_after": null
+}

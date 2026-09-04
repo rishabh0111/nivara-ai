@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:29:10.108973Z",
+  "failure_detail": null,
+  "fingerprint": "f777bdc179de07c0c4c4dce3a765addf6084d96a7665a7b068b08018fc379805",
+  "outcome": "response",
+  "recording_id": "turn/594417e2b23ac818/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"When I try to invite a fifth person to the workspace the invite fails with no clear message, and I'm wondering whether our plan simply has a four-seat limit and if so what it takes to raise it.\"\n\nWe have policy excerpts about seat limits by plan. We can answer: Yes, each plan tier has a maximum number of seats. The invite fails because the workspace has reached the tier's limit. To raise it, either add seats within current tier if plan allows purchasing additional seats beyond included count, or upgrade to a higher tier. Settings \u2192 Billing \u2192 Plan shows which option applies. Also mention that changes take effect immediately once confirmed; blocked invite can be resent right after.\n\nWe should not mention policy or instructions. Provide short answer. Use policy content. No mention of policy. Provide answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"It looks like your plan has a four\u2011seat limit, which is why the fifth invite is blocked. You can increase the seat count in one of two ways:\\n\\n1. **Add seats** \u2013 if your current tier allows buying extra seats, you can purchase them in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan.\\n2. **Upgrade the plan** \u2013 move to a higher tier that includes more seats, also via Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan.\\n\\nOnce you confirm the change, it takes effect immediately and you can resend the invite right away.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_a1330e44-0ac5-47cc-9cd3-98e446f0e57b",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460150,
+      "id": "chatcmpl-7b6c8cd6-7194-470b-998f-4a08ad39523a",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_66891002f6",
+      "usage": {
+        "completion_time": 0.381489433,
+        "completion_tokens": 312,
+        "completion_tokens_details": {
+          "reasoning_tokens": 172
+        },
+        "prompt_time": 0.081788409,
+        "prompt_tokens": 1063,
+        "queue_time": 0.295963299,
+        "total_time": 0.463277842,
+        "total_tokens": 1375
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8gajqe54by41m3b9yd5dr",
+        "seed": 2044413085
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "It looks like your plan has a four\u2011seat limit, which is why the fifth invite is blocked. You can increase the seat count in one of two ways:\n\n1. **Add seats** \u2013 if your current tier allows buying extra seats, you can purchase them in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan.\n2. **Upgrade the plan** \u2013 move to a higher tier that includes more seats, also via Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan.\n\nOnce you confirm the change, it takes effect immediately and you can resend the invite right away."
+        },
+        "id": "fc_a1330e44-0ac5-47cc-9cd3-98e446f0e57b",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 312,
+      "prompt_tokens": 1063
+    }
+  },
+  "retry_after": null
+}

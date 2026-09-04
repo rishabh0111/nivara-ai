@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:01:23.388218Z",
+  "failure_detail": null,
+  "fingerprint": "418972106923b3ab7ba00550c44cade5ffd0bdf9c776d9abe45f00f59e83746a",
+  "outcome": "response",
+  "recording_id": "turn/e57b56c0de9552be/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"Our integrations lead asked for a walkthrough of what happens to our automation rules specifically during the plan migration.\"\n\nWe have relevant excerpts from DOC-032 about automation rules during plan migration. Summarize: moving workspace to new plan does not interrupt existing API keys, webhooks, automation rules\u2014they continue running. Tier-gated automation feature: if rule uses capability only available on destination tier, it activates after migration; if depends on capability not included, rule is paused rather than deleted, and reactivates automatically if workspace returns to tier that includes it. Also Settings \u2192 Automation \u2192 Rules shows status of every rule, including any that migration would pause, before migration is confirmed.\n\nThus answer: explain that automation rules continue running, no reconfiguration needed; tier-gated rules may be paused if destination tier lacks capability, otherwise they activate; you can view status in Settings \u2192 Automation \u2192 Rules before confirming migration.\n\nProvide concise answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When you migrate a workspace to a different plan, your automation rules keep running \u2013 they aren\u2019t deleted or required to be re\u2011configured. The only change can be for tier\u2011gated automation features:\\n\\n* If a rule uses a capability that **is available** on the new tier, it will become active as soon as the migration finishes.\\n* If a rule depends on a capability **not included** in the destination tier, the rule is automatically **paused** (not deleted) and will reactivate if you later move back to a tier that includes that feature.\\n\\nYou can see exactly which rules will be paused before you confirm the migration by going to **Settings \u2192 Automation \u2192 Rules**, which shows the status of every rule.\\n\\nSo, in short: existing rules keep working, tier\u2011gated ones either stay active or are paused (and can resume later).\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_96077535-be8b-4f2b-8873-d8cfc1ad9612",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451283,
+      "id": "chatcmpl-08197760-8688-4e9b-b49c-55de8db0fcb0",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_60e4b492db",
+      "usage": {
+        "completion_time": 0.866474525,
+        "completion_tokens": 404,
+        "completion_tokens_details": {
+          "reasoning_tokens": 198
+        },
+        "prompt_time": 1.108492246,
+        "prompt_tokens": 1060,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.310982617,
+        "total_time": 1.974966771,
+        "total_tokens": 1464
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m01p4ce0fv0v296aqbdv3w",
+        "seed": 763088764
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When you migrate a workspace to a different plan, your automation rules keep running \u2013 they aren\u2019t deleted or required to be re\u2011configured. The only change can be for tier\u2011gated automation features:\n\n* If a rule uses a capability that **is available** on the new tier, it will become active as soon as the migration finishes.\n* If a rule depends on a capability **not included** in the destination tier, the rule is automatically **paused** (not deleted) and will reactivate if you later move back to a tier that includes that feature.\n\nYou can see exactly which rules will be paused before you confirm the migration by going to **Settings \u2192 Automation \u2192 Rules**, which shows the status of every rule.\n\nSo, in short: existing rules keep working, tier\u2011gated ones either stay active or are paused (and can resume later)."
+        },
+        "id": "fc_96077535-be8b-4f2b-8873-d8cfc1ad9612",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 404,
+      "prompt_tokens": 1060
+    }
+  },
+  "retry_after": null
+}

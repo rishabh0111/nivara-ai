@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T15:45:04.907243Z",
+  "failure_detail": null,
+  "fingerprint": "5a78fb29b50d731bff985db05bed768b57967583f34744756f5b9f8db848ce92",
+  "outcome": "response",
+  "recording_id": "turn/7d7be1f016b76f86/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"blocked inviting 5th user, seat limit?\" They are blocked inviting a 5th user, likely because seat limit reached. We need to explain seat limits per plan, how to see limit, and options: add seats or upgrade. Use DOC-028 parts. Provide short answer.\n\nWe can answer: The plan includes a certain number of seats; you can view in Settings \u2192 Billing \u2192 Plan. If you hit limit, invites are blocked. To add more, either purchase extra seats if plan allows, or upgrade to higher tier. Changes take effect immediately; you can resend invite after.\n\nProvide that. Then post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! The invite is being blocked because your workspace has reached the seat limit for your current plan. You can see the limit and how many seats are in use under **Settings \u2192 Billing \u2192 Plan**. To add another user you\u2019ll need to either purchase extra seats (if your plan supports buying additional seats) or upgrade to a plan with a higher seat allowance. Once you increase the limit, the change takes effect immediately and you can resend the invite.\\n\\nIf you need help figuring out which option applies to your plan, just let me know!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_ad8162a4-578c-419d-9a05-6e45e108f594",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788450304,
+      "id": "chatcmpl-522cfe26-9211-413a-80be-33b4e127178d",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_84bf0227ec",
+      "usage": {
+        "completion_time": 0.602449134,
+        "completion_tokens": 277,
+        "completion_tokens_details": {
+          "reasoning_tokens": 140
+        },
+        "prompt_time": 0.052182597,
+        "prompt_tokens": 1067,
+        "queue_time": 0.158014047,
+        "total_time": 0.654631731,
+        "total_tokens": 1344
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kz3vrkew08gccvg40r03zw",
+        "seed": 1059065541
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! The invite is being blocked because your workspace has reached the seat limit for your current plan. You can see the limit and how many seats are in use under **Settings \u2192 Billing \u2192 Plan**. To add another user you\u2019ll need to either purchase extra seats (if your plan supports buying additional seats) or upgrade to a plan with a higher seat allowance. Once you increase the limit, the change takes effect immediately and you can resend the invite.\n\nIf you need help figuring out which option applies to your plan, just let me know!"
+        },
+        "id": "fc_ad8162a4-578c-419d-9a05-6e45e108f594",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 277,
+      "prompt_tokens": 1067
+    }
+  },
+  "retry_after": null
+}

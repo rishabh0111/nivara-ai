@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:24:51.621618Z",
+  "failure_detail": null,
+  "fingerprint": "1f09e3a2a3e6033fb6e1e6852f6c582a36639979316dfbca906d5474e1ad075f",
+  "outcome": "response",
+  "recording_id": "turn/f12c939453ed4d5d/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"We keep finding out about incidents from our own customers rather than proactively, so I'd like to subscribe our team to incident notifications directly from Meridian \u2014 where do I sign up for those?\" The policy excerpts describe subscribing to incident notifications: status page has a Subscribe option offering email, SMS or webhook. So answer: go to status page, click Subscribe, choose method. Provide brief steps. Use policy content. No need to escalate. Provide answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can subscribe to incident notifications right from Meridian\u2019s status page. Open the status page, click the **Subscribe** button, and choose whether you\u2019d like to receive updates via email, SMS, or a webhook. Once you\u2019ve selected your preferred method, you\u2019ll start getting real\u2011time alerts whenever an incident is opened, updated, or resolved.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_48471741-0b37-4ca4-9cb5-c846d74222dd",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452691,
+      "id": "chatcmpl-25bbf313-e710-489d-a08e-a1a9ae7c50a7",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_84bf0227ec",
+      "usage": {
+        "completion_time": 0.412258391,
+        "completion_tokens": 197,
+        "completion_tokens_details": {
+          "reasoning_tokens": 102
+        },
+        "prompt_time": 1.833328464,
+        "prompt_tokens": 1008,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.157927567,
+        "total_time": 2.245586855,
+        "total_tokens": 1205
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1cn9keqkvze5y08ccs35r",
+        "seed": 792172336
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can subscribe to incident notifications right from Meridian\u2019s status page. Open the status page, click the **Subscribe** button, and choose whether you\u2019d like to receive updates via email, SMS, or a webhook. Once you\u2019ve selected your preferred method, you\u2019ll start getting real\u2011time alerts whenever an incident is opened, updated, or resolved."
+        },
+        "id": "fc_48471741-0b37-4ca4-9cb5-c846d74222dd",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 197,
+      "prompt_tokens": 1008
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:43:27.058878Z",
+  "failure_detail": null,
+  "fingerprint": "24e620d7068e3fdfb94ddecf1316a1f6a7b83c68aa5cd9d88a2614c375bd0c6e",
+  "outcome": "response",
+  "recording_id": "turn/cf415c3b3f6c3aca/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Two of us both claim to be the rightful workspace owner after an internal dispute, and each wants the other's access revoked \u2014 how does that get resolved?\" This matches DOC-066 parts 1-3. We should explain that Meridian does not take sides, treats as internal company matter, requires documentation, review paused pending confirmation from company authority, handled case by case by human reviewer, either party can start process by contacting support with account details. Provide short answer.\n\nWe must post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"We treat this as an internal company matter. Our support team won\u2019t pick a side\u2014instead we\u2019ll pause the review until someone with authority at your company provides confirmation (e.g., a statement from a manager or other senior staff). A human reviewer will then handle the case individually. Either party can start the process by contacting us with the relevant account details and any supporting documentation.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_98215d41-0660-4870-bb8a-cce7471f196e",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453806,
+      "id": "chatcmpl-527a5429-971c-4b22-a2c5-23dc9e8014f6",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_02b0d31eca",
+      "usage": {
+        "completion_time": 0.499226671,
+        "completion_tokens": 212,
+        "completion_tokens_details": {
+          "reasoning_tokens": 111
+        },
+        "prompt_time": 0.054589046,
+        "prompt_tokens": 1108,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.316305417,
+        "total_time": 0.553815717,
+        "total_tokens": 1320
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2eqzpe0pb75qtwmh49n9z",
+        "seed": 33361687
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "We treat this as an internal company matter. Our support team won\u2019t pick a side\u2014instead we\u2019ll pause the review until someone with authority at your company provides confirmation (e.g., a statement from a manager or other senior staff). A human reviewer will then handle the case individually. Either party can start the process by contacting us with the relevant account details and any supporting documentation."
+        },
+        "id": "fc_98215d41-0660-4870-bb8a-cce7471f196e",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 212,
+      "prompt_tokens": 1108
+    }
+  },
+  "retry_after": null
+}

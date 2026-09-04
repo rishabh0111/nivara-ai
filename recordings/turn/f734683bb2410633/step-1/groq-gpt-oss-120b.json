@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:22:54.050888Z",
+  "failure_detail": null,
+  "fingerprint": "636d5b738f379f277593b837adab853aaa1e334b41a47a8050edc4bf26309332",
+  "outcome": "response",
+  "recording_id": "turn/f734683bb2410633/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"was there an outage?\" We need to provide answer using help centre info. We can say they can check status page, history, subscribe, post-incident summaries. Provide guidance. Use excerpts: status page history goes back earlier in day, can check after fact. Subscribing surfaces incident as happening. Summaries for resolved incidents. So answer: Yes you can check status page, view history, subscribe, etc. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can verify whether there\u2019s been an outage on our status page. The page keeps a history that goes back earlier in the day, so you can look at past windows even after the fact. If an incident is ongoing, subscribing to status\u2011page updates will surface it in real time. Once an incident is resolved, a written summary is posted that details what happened, the affected window, and whether any data was impacted.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f3f7e5d0-e244-455d-827d-4ab1dd6df19b",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452574,
+      "id": "chatcmpl-1c6e2164-f313-405a-b4d5-8a112c66d625",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4200b3f836",
+      "usage": {
+        "completion_time": 0.450605046,
+        "completion_tokens": 212,
+        "completion_tokens_details": {
+          "reasoning_tokens": 102
+        },
+        "prompt_time": 0.05858741,
+        "prompt_tokens": 1002,
+        "queue_time": 0.312006549,
+        "total_time": 0.509192456,
+        "total_tokens": 1214
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m193zxe1wby4891agsv1a3",
+        "seed": 871666858
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can verify whether there\u2019s been an outage on our status page. The page keeps a history that goes back earlier in the day, so you can look at past windows even after the fact. If an incident is ongoing, subscribing to status\u2011page updates will surface it in real time. Once an incident is resolved, a written summary is posted that details what happened, the affected window, and whether any data was impacted."
+        },
+        "id": "fc_f3f7e5d0-e244-455d-827d-4ab1dd6df19b",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 212,
+      "prompt_tokens": 1002
+    }
+  },
+  "retry_after": null
+}

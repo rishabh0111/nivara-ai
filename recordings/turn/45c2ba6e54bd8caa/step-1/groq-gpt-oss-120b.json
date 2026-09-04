@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:24:45.073359Z",
+  "failure_detail": null,
+  "fingerprint": "c82348ab5f929723b23c2b49cd952ea01163b5e504030c229230061be0c88115",
+  "outcome": "response",
+  "recording_id": "turn/45c2ba6e54bd8caa/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The customer wants to set up something today to get outage notifications earlier than they currently do. Likely they want to subscribe to incident notifications via email, SMS, or webhook. The policy excerpts cover subscribing to incident notifications, including scoped subscriptions, webhook fastest, etc. So answer: explain they can use the Subscribe option on status page, choose email, SMS, or webhook, can scope to components, set up webhook for real-time alerts. Provide steps. Keep short.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can get real\u2011time outage alerts by subscribing to our status page. Just open the status page, click **Subscribe**, and choose email, SMS, or a webhook. If you only need alerts for specific parts of the platform, you can scope the subscription to those components so your team isn\u2019t paged for unrelated incidents. For the fastest, automated routing, set up a webhook \u2013 it pushes each incident open, update, and resolve event directly to your on\u2011call or alerting tool in real time. Once you\u2019ve saved the subscription you\u2019ll start receiving notifications as soon as an incident is created.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_11362fa7-46fe-49f3-9027-cc51ffee7bed",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452684,
+      "id": "chatcmpl-bff84a15-af88-4128-a2d5-db50579ada46",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_3166198c1d",
+      "usage": {
+        "completion_time": 0.85805906,
+        "completion_tokens": 242,
+        "completion_tokens_details": {
+          "reasoning_tokens": 95
+        },
+        "prompt_time": 0.357301481,
+        "prompt_tokens": 1056,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.312305446,
+        "total_time": 1.215360541,
+        "total_tokens": 1298
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1cfgwexv97xcw82wg6szd",
+        "seed": 937437880
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can get real\u2011time outage alerts by subscribing to our status page. Just open the status page, click **Subscribe**, and choose email, SMS, or a webhook. If you only need alerts for specific parts of the platform, you can scope the subscription to those components so your team isn\u2019t paged for unrelated incidents. For the fastest, automated routing, set up a webhook \u2013 it pushes each incident open, update, and resolve event directly to your on\u2011call or alerting tool in real time. Once you\u2019ve saved the subscription you\u2019ll start receiving notifications as soon as an incident is created."
+        },
+        "id": "fc_11362fa7-46fe-49f3-9027-cc51ffee7bed",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 242,
+      "prompt_tokens": 1056
+    }
+  },
+  "retry_after": null
+}

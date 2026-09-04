@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:22:38.829443Z",
+  "failure_detail": null,
+  "fingerprint": "4469fe0e7f13e15083483c510eea977622e15ba71a0edef288e18e5ef99c1eb8",
+  "outcome": "response",
+  "recording_id": "turn/48d0681f5efc6e71/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our analyst asked which export format is best suited for opening directly in the spreadsheet tool they use, since a few options are offered.\"\n\nWe have policy about export formats: CSV is safest default but loses column types; native formats preserve column types and are for two most common spreadsheet tools. For a one-off download destined for a specific tool, picking that tool's native format avoids manual reformatting.\n\nThus answer: Use the native format for the spreadsheet tool they use (e.g., Excel .xlsx or Google Sheets). Provide guidance.\n\nWe must post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If you want the export to open straight into the spreadsheet program you use, choose that program\u2019s native export format (the options shown in the dropdown, such as Excel\u202f.xlsx or Google\u202fSheets). The native formats keep the original column types, so you won\u2019t need to re\u2011format dates or numbers after the download. CSV works with any tool but treats everything as plain text, so it\u2019s best only when you need maximum compatibility.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_88903fdf-10ec-463e-8697-6d9ef3b85cc2",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373358,
+      "id": "chatcmpl-a6730694-6142-41f9-bbe3-44ea2df67d98",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_dc4ca88fa4",
+      "usage": {
+        "completion_time": 0.511229021,
+        "completion_tokens": 238,
+        "completion_tokens_details": {
+          "reasoning_tokens": 125
+        },
+        "prompt_time": 0.070183611,
+        "prompt_tokens": 1052,
+        "queue_time": 0.309799952,
+        "total_time": 0.581412632,
+        "total_tokens": 1290
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnqn5eeqkvyx248t6qmw4k",
+        "seed": 688161957
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If you want the export to open straight into the spreadsheet program you use, choose that program\u2019s native export format (the options shown in the dropdown, such as Excel\u202f.xlsx or Google\u202fSheets). The native formats keep the original column types, so you won\u2019t need to re\u2011format dates or numbers after the download. CSV works with any tool but treats everything as plain text, so it\u2019s best only when you need maximum compatibility."
+        },
+        "id": "fc_88903fdf-10ec-463e-8697-6d9ef3b85cc2",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 238,
+      "prompt_tokens": 1052
+    }
+  },
+  "retry_after": null
+}

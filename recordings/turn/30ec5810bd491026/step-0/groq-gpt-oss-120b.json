@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:14:33.870092Z",
+  "failure_detail": null,
+  "fingerprint": "cf50fde73467d58f3500394802b15fa06fb471085e4d2adef6d2e05f8c256675",
+  "outcome": "response",
+  "recording_id": "turn/30ec5810bd491026/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"I ran a CSV export for the quarterly report and it stopped at exactly 10,000 rows even though we have more tickets than that \u2014 is there a different export path for larger datasets?\" This is about export limit. Policy says: single export capped at 10k rows; for larger, narrow date range or filter, run multiple exports; also scheduled export to cloud storage not subject to cap. So answer: explain cap, suggest splitting by date range or using scheduled export to cloud storage. Provide short answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! The CSV export you ran hits the built\u2011in browser cap of 10,000 rows per download. To get the full data you have two options:\\n\\n1. **Split the export** \u2013 narrow the date range or apply a filter so each export stays under 10,000 rows (e.g., export one month at a time) and then combine the files.\\n2. **Use a scheduled export** \u2013 set up a scheduled export to cloud storage (e.g., S3, Google Drive). Those exports aren\u2019t limited by the 10\u2011k\u2011row browser cap and can pull the entire history.\\n\\nEither approach will let you capture the full quarterly dataset. Let me know if you need help setting up the scheduled export!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_3e399106-0975-4d29-bc9c-2636c4a8de79",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372873,
+      "id": "chatcmpl-25fdc76d-7c41-482f-9d12-408c6ac9c1ea",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5082008e34",
+      "usage": {
+        "completion_time": 0.727602562,
+        "completion_tokens": 301,
+        "completion_tokens_details": {
+          "reasoning_tokens": 121
+        },
+        "prompt_time": 1.2588774919999999,
+        "prompt_tokens": 1057,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.282957307,
+        "total_time": 1.986480054,
+        "total_tokens": 1358
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hn8t9qe849hbrqqwgg3qme",
+        "seed": 899107469
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! The CSV export you ran hits the built\u2011in browser cap of 10,000 rows per download. To get the full data you have two options:\n\n1. **Split the export** \u2013 narrow the date range or apply a filter so each export stays under 10,000 rows (e.g., export one month at a time) and then combine the files.\n2. **Use a scheduled export** \u2013 set up a scheduled export to cloud storage (e.g., S3, Google Drive). Those exports aren\u2019t limited by the 10\u2011k\u2011row browser cap and can pull the entire history.\n\nEither approach will let you capture the full quarterly dataset. Let me know if you need help setting up the scheduled export!"
+        },
+        "id": "fc_3e399106-0975-4d29-bc9c-2636c4a8de79",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 301,
+      "prompt_tokens": 1057
+    }
+  },
+  "retry_after": null
+}

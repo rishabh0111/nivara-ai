@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:32:17.673790Z",
+  "failure_detail": null,
+  "fingerprint": "136dd2c3ee6a96000569ec9753f31e9285480713f860c6e1e3e6f98347773dca",
+  "outcome": "response",
+  "recording_id": "turn/d93df805e8b6eef8/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user asks: \"rename breaks integrations?\" They likely refer to renaming a workspace. We have policy excerpts about renaming a workspace: it does not affect integrations. So answer: No, renaming does not break integrations. Provide explanation. Use policy. No mention of policy. Just answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"No, renaming a workspace won\u2019t break your integrations. The display name change is cosmetic only \u2013 it doesn\u2019t alter the workspace\u2019s URL, API base path, or any identifiers that integrations or webhooks use. Your existing integrations will keep working without any re\u2011configuration.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_706c067a-f02b-42a4-9b08-a66ab46fa91f",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460337,
+      "id": "chatcmpl-63ded59d-aef1-4f5b-bf9b-ee16e3304323",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_ef00694abe",
+      "usage": {
+        "completion_time": 0.143103388,
+        "completion_tokens": 138,
+        "completion_tokens_details": {
+          "reasoning_tokens": 61
+        },
+        "prompt_time": 0.214692436,
+        "prompt_tokens": 993,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.274610682,
+        "total_time": 0.357795824,
+        "total_tokens": 1131
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8p1tsedea1kc329qp8c9k",
+        "seed": 1157401569
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "No, renaming a workspace won\u2019t break your integrations. The display name change is cosmetic only \u2013 it doesn\u2019t alter the workspace\u2019s URL, API base path, or any identifiers that integrations or webhooks use. Your existing integrations will keep working without any re\u2011configuration."
+        },
+        "id": "fc_706c067a-f02b-42a4-9b08-a66ab46fa91f",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 138,
+      "prompt_tokens": 993
+    }
+  },
+  "retry_after": null
+}

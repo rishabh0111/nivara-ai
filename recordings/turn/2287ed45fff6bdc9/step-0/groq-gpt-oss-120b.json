@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:51:54.780002Z",
+  "failure_detail": null,
+  "fingerprint": "93838aac85014f258fac665b992a71f24e2662d810e9b8f0072d1c9eb570d34a",
+  "outcome": "response",
+  "recording_id": "turn/2287ed45fff6bdc9/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: finance team wants written confirmation of exact debit amount and date before authorising payment method change. The policy says billing team can provide written confirmation, request explicitly, handled case by case. So we can answer: yes, you can request written confirmation from billing team; they will provide amount and date based on plan, seats, overages, billing cycle; ask them with lead time. Provide guidance on how to request. So we can post reply.\n\nWe must not mention policy excerpts. Provide short specific answer.\n\nLet's craft reply: \"Sure, you can ask our billing team for written confirmation. Provide them with your account details and they'll send the exact amount and date. It's handled case\u2011by\u2011case and they need a bit of lead time.\"",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Absolutely \u2013 our billing team can provide a written confirmation of the exact charge amount and the date it will be debited. Just reach out to billing (via the support portal or your account manager) with your account details, and they\u2019ll calculate the amount based on your current plan, seats, any overages, and your billing cycle, then send you the confirmation. It\u2019s handled case\u2011by\u2011case, so allowing a little lead time before the charge date will ensure they can get the details to you in time.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f7e12616-2a22-4d1c-b9dd-5f849354b94e",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454314,
+      "id": "chatcmpl-0f2d653f-3ed0-4240-a5a3-2f3cf1431853",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e5b4e54fbb",
+      "usage": {
+        "completion_time": 0.608978288,
+        "completion_tokens": 291,
+        "completion_tokens_details": {
+          "reasoning_tokens": 162
+        },
+        "prompt_time": 0.049239375,
+        "prompt_tokens": 1090,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.369632477,
+        "total_time": 0.658217663,
+        "total_tokens": 1381
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2y7rde1nb5n9c54q84825",
+        "seed": 2112098955
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Absolutely \u2013 our billing team can provide a written confirmation of the exact charge amount and the date it will be debited. Just reach out to billing (via the support portal or your account manager) with your account details, and they\u2019ll calculate the amount based on your current plan, seats, any overages, and your billing cycle, then send you the confirmation. It\u2019s handled case\u2011by\u2011case, so allowing a little lead time before the charge date will ensure they can get the details to you in time."
+        },
+        "id": "fc_f7e12616-2a22-4d1c-b9dd-5f849354b94e",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 291,
+      "prompt_tokens": 1090
+    }
+  },
+  "retry_after": null
+}

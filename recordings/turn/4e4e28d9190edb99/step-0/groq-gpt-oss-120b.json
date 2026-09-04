@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:42:49.368684Z",
+  "failure_detail": null,
+  "fingerprint": "7dacef9e369621b096e0411de0330c281b52d1f34f456743cb57f9b8ea28cdb9",
+  "outcome": "response",
+  "recording_id": "turn/4e4e28d9190edb99/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user says: \"locked out, no recovery email or 2FA device, how to verify\". This matches the scenario of losing both recovery email and two-factor device. Policy says: case handled manually, contact support directly, no self-service. So we should tell them to contact support directly for manual verification. Provide short answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"I\u2019m sorry you\u2019re locked out. Because you\u2019ve lost both the recovery email and the two\u2011factor device, the normal self\u2011service recovery isn\u2019t available. A support representative will need to verify your identity manually (using things like your domain ownership, billing history, or other account\u2011specific details) and then help you regain access. Please contact our support team directly so we can start that verification process.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c45daafd-8c00-429e-99a9-d2656dacba94",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453769,
+      "id": "chatcmpl-fffdc444-13bb-4984-b589-748054001a1a",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_f640395b96",
+      "usage": {
+        "completion_time": 0.392255477,
+        "completion_tokens": 188,
+        "completion_tokens_details": {
+          "reasoning_tokens": 81
+        },
+        "prompt_time": 0.894470241,
+        "prompt_tokens": 1084,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.310663083,
+        "total_time": 1.286725718,
+        "total_tokens": 1272
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2djbzespves249e2yxqqs",
+        "seed": 1824136138
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "I\u2019m sorry you\u2019re locked out. Because you\u2019ve lost both the recovery email and the two\u2011factor device, the normal self\u2011service recovery isn\u2019t available. A support representative will need to verify your identity manually (using things like your domain ownership, billing history, or other account\u2011specific details) and then help you regain access. Please contact our support team directly so we can start that verification process."
+        },
+        "id": "fc_c45daafd-8c00-429e-99a9-d2656dacba94",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 188,
+      "prompt_tokens": 1084
+    }
+  },
+  "retry_after": null
+}

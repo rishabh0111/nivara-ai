@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:22:22.916587Z",
+  "failure_detail": null,
+  "fingerprint": "fa82bf98c191b79fe762d32eaffbc971c7fff4277b7646a07e247d5c22a8f64e",
+  "outcome": "response",
+  "recording_id": "turn/73ccb6fc44c0784d/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The customer says: \"Brief total outage, not sure if it was on your end.\" They want to know if the outage was on Meridian's side. According to policy, we should direct them to check the status page. The excerpts say status page lists incidents, including brief ones, and also platform-wide slowdown info. So answer: check status page for that time window; if not listed, likely local. Provide guidance. This is within policy. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! If you experienced a brief total outage, the first place to check is our status page. It records every incident\u2014including short\u2011lived 503 errors\u2014with exact start and end times and the components affected. Look for the time window when you noticed the outage; if an incident is listed, it was on our side. If nothing appears for that period, the issue was likely local (e.g., your network, browser, or a specific workspace). You can view the full history on the status page to verify past events.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_af451bfe-230d-49ff-971e-d42e5d0c4546",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452542,
+      "id": "chatcmpl-e30dbc60-f0aa-4999-8b90-eae30d571318",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_77b12279f9",
+      "usage": {
+        "completion_time": 0.566013282,
+        "completion_tokens": 230,
+        "completion_tokens_details": {
+          "reasoning_tokens": 97
+        },
+        "prompt_time": 0.095210724,
+        "prompt_tokens": 1080,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.306996284,
+        "total_time": 0.661224006,
+        "total_tokens": 1310
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m18594e6ssp7v2382bfw6f",
+        "seed": 621801719
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! If you experienced a brief total outage, the first place to check is our status page. It records every incident\u2014including short\u2011lived 503 errors\u2014with exact start and end times and the components affected. Look for the time window when you noticed the outage; if an incident is listed, it was on our side. If nothing appears for that period, the issue was likely local (e.g., your network, browser, or a specific workspace). You can view the full history on the status page to verify past events."
+        },
+        "id": "fc_af451bfe-230d-49ff-971e-d42e5d0c4546",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 230,
+      "prompt_tokens": 1080
+    }
+  },
+  "retry_after": null
+}

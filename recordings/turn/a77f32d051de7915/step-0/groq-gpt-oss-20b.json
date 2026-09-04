@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:34:30.288263Z",
+  "failure_detail": null,
+  "fingerprint": "3d14d6eac88d7b690b5cb1fdeedd4276ac4c28361d86742ef10f4ab0db6b86c6",
+  "outcome": "response",
+  "recording_id": "turn/a77f32d051de7915/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer the question: \"Are incident notifications email-based, or is there also a status-page subscription with a different delivery method?\" The policy excerpts mention that the status page has a Subscribe option offering email, SMS or a webhook. So answer: yes, there is a subscription with email, SMS, webhook. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can subscribe to the status page in several ways. The Subscribe button on the status page lets you receive updates via email, SMS, or a webhook, so you can choose the delivery method that best fits your workflow.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_066766cd-d36d-47b4-baf8-107da5cd299b",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460470,
+      "id": "chatcmpl-5a65ec37-e40f-402f-beab-ea54aed7127a",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_66f3850a1a",
+      "usage": {
+        "completion_time": 0.161128453,
+        "completion_tokens": 135,
+        "completion_tokens_details": {
+          "reasoning_tokens": 69
+        },
+        "prompt_time": 0.486290966,
+        "prompt_tokens": 1003,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.30573234,
+        "total_time": 0.647419419,
+        "total_tokens": 1138
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8t318e4w83xf24cts238x",
+        "seed": 531636101
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can subscribe to the status page in several ways. The Subscribe button on the status page lets you receive updates via email, SMS, or a webhook, so you can choose the delivery method that best fits your workflow."
+        },
+        "id": "fc_066766cd-d36d-47b4-baf8-107da5cd299b",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 135,
+      "prompt_tokens": 1003
+    }
+  },
+  "retry_after": null
+}

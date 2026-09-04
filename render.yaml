@@ -1,0 +1,52 @@
+# The deploy blueprint (ticket 27, decision 50).
+#
+# One always-on web service — the free-hour allowance (750 instance-hours per
+# workspace per month, read from Render's pricing on 2026-08-31) covers exactly
+# one. The MCP surface is mounted in-process at /mcp, the Slack ingress runs as
+# a background task inside this process, and the Trace export ships from it too:
+# no second service, by the constraint rather than by preference.
+#
+# Managed dependencies are not described here — Qdrant Cloud and Langfuse Cloud
+# are provisioned out of band and passed in as environment values below. The
+# Nivara API is its own deploy in the sibling repository.
+
+services:
+  - type: web
+    name: nivara-ai
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /health
+    # Free instances spin down after 15 minutes of no inbound traffic. A
+    # keep-warm ping to /health inside that window (an external uptime monitor,
+    # or the scheduled scoreboard job's own keep-alive cadence tightened) keeps
+    # a reader's first message from paying the cold start (user story 32).
+    envVars:
+      - key: NIVARA_PORT
+        value: "8000"
+      - key: NIVARA_API_BASE_URL
+        sync: false # the deployed Nivara API's URL
+      - key: NIVARA_QDRANT_URL
+        sync: false # Qdrant Cloud cluster URL
+      - key: NIVARA_ASSISTANT_TOKEN
+        sync: false # the seed's 'Deflection assistant' token — rotates on reseed
+      - key: NIVARA_MODEL_TRANSPORT
+        value: live
+      - key: NIVARA_GROQ_API_KEY
+        sync: false
+      - key: NIVARA_GEMINI_API_KEY
+        sync: false
+      # The model router (ticket 24, ADR-0011). Measured and kept — routing an
+      # easy Turn a rung down is materially cheaper with no accuracy cost
+      # (eval/router_ablation.md). On here, off in the harness so replay keeps
+      # measuring the strongest-first path.
+      - key: NIVARA_MODEL_ROUTER_ENABLED
+        value: "true"
+      - key: NIVARA_TRACE_EXPORT_ENABLED
+        value: "true"
+      - key: NIVARA_LANGFUSE_PUBLIC_KEY
+        sync: false
+      - key: NIVARA_LANGFUSE_SECRET_KEY
+        sync: false
+      - key: NIVARA_SLACK_INGRESS_ENABLED
+        value: "true"

@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:23:35.395633Z",
+  "failure_detail": null,
+  "fingerprint": "47ad3ddfebda5fee4e5e8bdac0a54e62c8402c14331829df2f1735fd0461a8a5",
+  "outcome": "response",
+  "recording_id": "turn/9d03051475405493/step-1/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user says: \"Just trying to time a card swap right.\" They want to know when to swap card to ensure upcoming invoice uses new card. The policy excerpt DOC-007 says: Because the card charge happens on that date, replacing a card a day or two beforehand is enough for the new card to be used for the upcoming invoice. So answer: replace card a day or two before invoice date. Also mention that card charge happens on invoice date. So we can answer. No escalation needed.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If you replace your card a day or two before the invoice date, the new card will be used for that upcoming invoice. The charge happens on the invoice date, so a short lead\u2011time is enough.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_6df1cdb7-7a31-48d3-81d5-3b409b1b9899",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459815,
+      "id": "chatcmpl-7262bb68-0912-45c6-a49f-3aede07e7d6a",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_1074f9ce08",
+      "usage": {
+        "completion_time": 0.202367021,
+        "completion_tokens": 166,
+        "completion_tokens_details": {
+          "reasoning_tokens": 102
+        },
+        "prompt_time": 0.066138409,
+        "prompt_tokens": 1122,
+        "queue_time": 0.305657489,
+        "total_time": 0.26850543,
+        "total_tokens": 1288
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m863vqe03rvjvg2c9687wq",
+        "seed": 516291806
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If you replace your card a day or two before the invoice date, the new card will be used for that upcoming invoice. The charge happens on the invoice date, so a short lead\u2011time is enough."
+        },
+        "id": "fc_6df1cdb7-7a31-48d3-81d5-3b409b1b9899",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 166,
+      "prompt_tokens": 1122
+    }
+  },
+  "retry_after": null
+}

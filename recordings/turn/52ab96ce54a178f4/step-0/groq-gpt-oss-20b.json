@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:25:25.005371Z",
+  "failure_detail": null,
+  "fingerprint": "6a4765e45296d07de806cc45e360720a2979f04a4874469f4900f0f527d87563",
+  "outcome": "response",
+  "recording_id": "turn/52ab96ce54a178f4/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Can two identity providers stay connected to one workspace during a transition, or do we need to fully cut over before consolidating?\" The policy says: \"A workspace configures exactly one identity provider at a time, tied to the email domains it covers... Consolidating two teams that came from different providers onto one workspace means picking one provider as the SSO source of truth and migrating the other team's accounts to it, rather than running both providers against the same workspace at once.\" So answer: No, you cannot have two providers simultaneously; you must pick one and migrate the other. Also mention that you can do a rollout with a period where some staff are provisioned and others not, but you cannot have both providers active at same time. So answer accordingly.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"No \u2013 a workspace can only use one identity provider at a time. During a transition you\u2019ll need to choose the provider that will become the source of truth and migrate the other team\u2019s accounts to it. You can run a phased rollout so that some staff are provisioned through the new provider while others are still on the old one, but you can\u2019t keep both providers connected to the same workspace simultaneously.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_07d8aee9-7af2-400a-a273-09df3e049318",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459924,
+      "id": "chatcmpl-279ff622-68bc-4830-b1e1-36652c5bdc26",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c5a89987dc",
+      "usage": {
+        "completion_time": 0.320917917,
+        "completion_tokens": 268,
+        "completion_tokens_details": {
+          "reasoning_tokens": 165
+        },
+        "prompt_time": 0.093066225,
+        "prompt_tokens": 1043,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.043936005,
+        "total_time": 0.413984142,
+        "total_tokens": 1311
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m89ezcep7sp09ymz3n4phf",
+        "seed": 725905178
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "No \u2013 a workspace can only use one identity provider at a time. During a transition you\u2019ll need to choose the provider that will become the source of truth and migrate the other team\u2019s accounts to it. You can run a phased rollout so that some staff are provisioned through the new provider while others are still on the old one, but you can\u2019t keep both providers connected to the same workspace simultaneously."
+        },
+        "id": "fc_07d8aee9-7af2-400a-a273-09df3e049318",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 268,
+      "prompt_tokens": 1043
+    }
+  },
+  "retry_after": null
+}

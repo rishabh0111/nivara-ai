@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:06:00.231122Z",
+  "failure_detail": null,
+  "fingerprint": "ebd3de4a74625a1d61bbb57ab5b52232fb9af762131e23f32750dd7cadeb14bc",
+  "outcome": "response",
+  "recording_id": "turn/7abdaf5f99b81c7c/consistency/sample-2/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer the steps to enable two-factor authentication. The policy excerpts provide steps: open Settings \u2192 Security \u2192 Two-factor authentication, select Enable, scan QR code, enter six-digit code, save recovery codes. Also mention that it's enabled per account and doesn't require admin. So answer with steps. No ambiguity, not about money, not about fraud. So we can post_reply.\n\nConstruct concise answer addressing the user.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! To enable two\u2011factor authentication on your own Meridian account:\\n1. Go to **Settings \u2192 Security \u2192 Two\u2011factor authentication** and click \u201cEnable\u201d.\\n2. Scan the QR code shown with an authenticator app (e.g., Google Authenticator, Authy).\\n3. Enter the six\u2011digit code the app generates to confirm the enrollment.\\n4. Save the recovery codes that appear \u2013 they\u2019re the only way to get back in if you lose access to the authenticator app.\\n\\nOnce set up, you\u2019ll be prompted for a code after entering your password on every new session.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_d9c5685a-d80a-45af-82f5-2915eb713144",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372359,
+      "id": "chatcmpl-0b0cba36-31b8-4e13-bb4e-ea337efea975",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9241e9962b",
+      "usage": {
+        "completion_time": 0.592412118,
+        "completion_tokens": 237,
+        "completion_tokens_details": {
+          "reasoning_tokens": 85
+        },
+        "prompt_time": 1.298470961,
+        "prompt_tokens": 1115,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.435013169,
+        "total_time": 1.890883079,
+        "total_tokens": 1352
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hms4dbeverba7qbsjkf23f",
+        "seed": 542024365
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! To enable two\u2011factor authentication on your own Meridian account:\n1. Go to **Settings \u2192 Security \u2192 Two\u2011factor authentication** and click \u201cEnable\u201d.\n2. Scan the QR code shown with an authenticator app (e.g., Google Authenticator, Authy).\n3. Enter the six\u2011digit code the app generates to confirm the enrollment.\n4. Save the recovery codes that appear \u2013 they\u2019re the only way to get back in if you lose access to the authenticator app.\n\nOnce set up, you\u2019ll be prompted for a code after entering your password on every new session."
+        },
+        "id": "fc_d9c5685a-d80a-45af-82f5-2915eb713144",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 237,
+      "prompt_tokens": 1115
+    }
+  },
+  "retry_after": null
+}

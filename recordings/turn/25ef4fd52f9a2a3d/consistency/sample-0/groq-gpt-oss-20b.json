@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:27:37.613576Z",
+  "failure_detail": null,
+  "fingerprint": "784705918dc0c430c0d4e70f42ede18ca13c37c2f803539c1c822c0a63728cf2",
+  "outcome": "response",
+  "recording_id": "turn/25ef4fd52f9a2a3d/consistency/sample-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer whether old key invalidates immediately or allows overlap. According to policy excerpts: Generating a new API key does not automatically revoke the old one; both keys are valid until old is explicitly revoked. Overlap window exists so a key can be rotated without a moment of downtime: deploy new key, confirm works, then revoke old. So answer: old key stays valid until revoked; you can overlap. Provide guidance. No money or security issue. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When you generate a new key, the old one stays active. Both keys are valid at the same time until you explicitly revoke the old key. That gives you an overlap window to switch over without downtime\u2014deploy the new key, test it, then revoke the old one from Settings \u2192 Developer \u2192 API keys.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_4d5259b8-4a23-4c80-b2ef-3f8a5b94ceef",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460057,
+      "id": "chatcmpl-b898f2fc-d32b-4a05-9cfa-717d02ef8b75",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_a8c584dda7",
+      "usage": {
+        "completion_time": 0.270331069,
+        "completion_tokens": 184,
+        "completion_tokens_details": {
+          "reasoning_tokens": 100
+        },
+        "prompt_time": 0.057223271,
+        "prompt_tokens": 1119,
+        "queue_time": 0.156730288,
+        "total_time": 0.32755434,
+        "total_tokens": 1303
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8dggxesmb6n0t7tcx5rdv",
+        "seed": 113450495
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When you generate a new key, the old one stays active. Both keys are valid at the same time until you explicitly revoke the old key. That gives you an overlap window to switch over without downtime\u2014deploy the new key, test it, then revoke the old one from Settings \u2192 Developer \u2192 API keys."
+        },
+        "id": "fc_4d5259b8-4a23-4c80-b2ef-3f8a5b94ceef",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 184,
+      "prompt_tokens": 1119
+    }
+  },
+  "retry_after": null
+}

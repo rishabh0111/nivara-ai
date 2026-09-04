@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:53:07.151400Z",
+  "failure_detail": null,
+  "fingerprint": "49f99e1b1f3aa3f1ba06bade92fa0c96243393497b8b2ed32f3e71e40ef65b0e",
+  "outcome": "response",
+  "recording_id": "turn/b3cfd2bd771324fa/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer using policy excerpts. The user: \"caller asked for my 2FA code, legitimate?\" This is about a caller asking for two-factor authentication code. According to DOC-076, support never asks for 2FA code, it's a fraud. So we should respond that it's not legitimate, don't give code, end call, report to support. Use the policy. Provide short answer. Then post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"No, that request is not legitimate. Meridian support never asks you to read or share your two\u2011factor authentication code over the phone, chat, or any other channel. The code should only be entered on Meridian\u2019s own sign\u2011in page by you. If someone asks for it, end the call, do not provide the code, and report the incident to our support team so we can check your account.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_a8d9bbc9-6a2c-4980-add3-b636dbd8112e",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454387,
+      "id": "chatcmpl-f01b8752-88de-4826-842d-c7d1b17c9819",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_87b3c396db",
+      "usage": {
+        "completion_time": 0.40497258,
+        "completion_tokens": 194,
+        "completion_tokens_details": {
+          "reasoning_tokens": 87
+        },
+        "prompt_time": 0.070635669,
+        "prompt_tokens": 1078,
+        "queue_time": 0.28228,
+        "total_time": 0.475608249,
+        "total_tokens": 1272
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m30ek2e5pt87g0qgd2tet5",
+        "seed": 368335320
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "No, that request is not legitimate. Meridian support never asks you to read or share your two\u2011factor authentication code over the phone, chat, or any other channel. The code should only be entered on Meridian\u2019s own sign\u2011in page by you. If someone asks for it, end the call, do not provide the code, and report the incident to our support team so we can check your account."
+        },
+        "id": "fc_a8d9bbc9-6a2c-4980-add3-b636dbd8112e",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 194,
+      "prompt_tokens": 1078
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:35:01.131883Z",
+  "failure_detail": null,
+  "fingerprint": "dc910e08b86ea86f6d499025d6ca44ae6b2462d03e8e9af1cf2d77989a7cbde0",
+  "outcome": "response",
+  "recording_id": "turn/eccf70501cc39a29/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user says: \"Our security lead flagged an unfamiliar-country login followed by a billing contact change and asked me to escalate a possible account compromise.\"\n\nWe have policy excerpts: DOC-057 part 1 says such pattern is handled by a human reviewer, not resolved automatically. DOC-057 part 2 says reporting starts with account owner or admin contacting support directly rather than trying to undo change themselves. So we should instruct them to contact support (i.e., we are support) and we will review. Since they are asking to \"escalate a possible account compromise\", we should respond that they should contact support (which we are) and we will open a review. Provide steps: change password, reset 2FA, then contact support. Also mention that a human reviewer will handle it.\n\nThus we can answer: advise them to change password, reset 2FA, and we will investigate. Provide that we need them to contact support (we are doing that) and we will review. So we can post a reply.\n\nWe must not mention policy excerpts. Keep short.\n\nLet's craft reply: \"Please change your password and reset two\u2011factor authentication immediately, then let us know (or we\u2019ll open a ticket) so a security reviewer can examine the login and the billing contact change. Our team will investigate and revert any unauthorized changes.\"\n\nWe are already replying, so we can say we will open a review. Provide next steps.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"I\u2019m sorry to hear about this. Please change your password and reset two\u2011factor authentication right away. Once that\u2019s done, let us know (or we\u2019ll open a ticket for you) so a security reviewer can examine the unfamiliar login and the billing\u2011contact change. Our team will investigate the activity and revert any unauthorized changes.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c7372094-6272-4f96-969b-e727db39e2df",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453301,
+      "id": "chatcmpl-c76ea446-2556-4383-bc97-058aca34eeb7",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_90620edd96",
+      "usage": {
+        "completion_time": 1.070807812,
+        "completion_tokens": 395,
+        "completion_tokens_details": {
+          "reasoning_tokens": 303
+        },
+        "prompt_time": 0.090614131,
+        "prompt_tokens": 1105,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.366076086,
+        "total_time": 1.1614219430000001,
+        "total_tokens": 1500
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1z99tebsa6qaek2xh78f5",
+        "seed": 1996413503
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "I\u2019m sorry to hear about this. Please change your password and reset two\u2011factor authentication right away. Once that\u2019s done, let us know (or we\u2019ll open a ticket for you) so a security reviewer can examine the unfamiliar login and the billing\u2011contact change. Our team will investigate the activity and revert any unauthorized changes."
+        },
+        "id": "fc_c7372094-6272-4f96-969b-e727db39e2df",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 395,
+      "prompt_tokens": 1105
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:59:19.116900Z",
+  "failure_detail": null,
+  "fingerprint": "8effcee7634ba81754e86e522537f5a90d6bdd5355e603c15c1d6f61c0168d70",
+  "outcome": "response",
+  "recording_id": "turn/4b606f7bc02fd7e9/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"New staff coming in through SSO are all landing with the default role instead of the role their identity-provider group should map to.\"\n\nWe need to see if policy excerpts cover role mapping. The excerpts are about SSO sign-in not appearing, sync timing, admin checking account existence, identity provider support, and rollout. Nothing about role mapping or group mapping. So we cannot answer from provided excerpts. According to rules, if not covered, we must escalate. Also it's not about money, fraud, identity docs. It's about role mapping, which is not covered. So we should escalate.\n\nWe need to provide internal note: what the customer asked, what we found, why we stopped.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer reports that new staff signing in via SSO are receiving the default role instead of the role mapped from their identity-provider group. The provided policy excerpts only cover SSO sign-in visibility, sync timing, checking account existence, and identity provider configuration, but do not contain information about role mapping or group-to-role assignments. Since the answer cannot be derived from the available policy content, I am escalating the conversation for a human agent.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_14aa614c-8a15-4821-a84e-83f38f08da7b",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454759,
+      "id": "chatcmpl-7073f44c-66d4-4c83-9f62-22ad0f77c353",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_3166198c1d",
+      "usage": {
+        "completion_time": 0.582102271,
+        "completion_tokens": 264,
+        "completion_tokens_details": {
+          "reasoning_tokens": 151
+        },
+        "prompt_time": 0.871795901,
+        "prompt_tokens": 1097,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.629256732,
+        "total_time": 1.453898172,
+        "total_tokens": 1361
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m3brhyeqmt6gtgmgvs4sje",
+        "seed": 1121342019
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer reports that new staff signing in via SSO are receiving the default role instead of the role mapped from their identity-provider group. The provided policy excerpts only cover SSO sign-in visibility, sync timing, checking account existence, and identity provider configuration, but do not contain information about role mapping or group-to-role assignments. Since the answer cannot be derived from the available policy content, I am escalating the conversation for a human agent."
+        },
+        "id": "fc_14aa614c-8a15-4821-a84e-83f38f08da7b",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 264,
+      "prompt_tokens": 1097
+    }
+  },
+  "retry_after": null
+}

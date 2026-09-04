@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:26:06.080483Z",
+  "failure_detail": null,
+  "fingerprint": "1b0055e56f042eac816281e0aab2ffed1e3df43080b980093f74752b878d6e85",
+  "outcome": "response",
+  "recording_id": "turn/3602d80b081c14d5/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"Can I schedule a recurring export of ticket data to land in cloud storage automatically each week instead of downloading it by hand?\" The policy says: Recurring exports are configured from Settings \u2192 Data \u2192 Scheduled exports. Connect a cloud storage destination; Meridian supports major providers via OAuth. Save the schedule. Each run lands as a new file. So answer yes, you can schedule recurring export to cloud storage. Provide steps: go to Settings > Data > Scheduled exports, choose data, recurrence weekly, connect cloud storage, save. Also mention that scheduled exports are not subject to 10k row cap. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 you can set up a weekly export that lands directly in your cloud storage. In Settings \u2192 Data \u2192 Scheduled exports you choose the ticket data, set the recurrence to weekly, connect your cloud storage provider via the OAuth link, and save the schedule. Each run will create a new file in the destination and the scheduled\u2011export screen will show the history of runs and whether they succeeded.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_12dfaa20-b43c-4526-9b18-f5deeb7053d6",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459966,
+      "id": "chatcmpl-a30ee24c-c014-4470-a5cd-6fbf0b24f0f0",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_565badff47",
+      "usage": {
+        "completion_time": 0.248909089,
+        "completion_tokens": 235,
+        "completion_tokens_details": {
+          "reasoning_tokens": 135
+        },
+        "prompt_time": 0.0755407,
+        "prompt_tokens": 982,
+        "queue_time": 1.395733123,
+        "total_time": 0.324449789,
+        "total_tokens": 1217
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8anxve2k9h1138bve1tyc",
+        "seed": 3789044
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 you can set up a weekly export that lands directly in your cloud storage. In Settings \u2192 Data \u2192 Scheduled exports you choose the ticket data, set the recurrence to weekly, connect your cloud storage provider via the OAuth link, and save the schedule. Each run will create a new file in the destination and the scheduled\u2011export screen will show the history of runs and whether they succeeded."
+        },
+        "id": "fc_12dfaa20-b43c-4526-9b18-f5deeb7053d6",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 235,
+      "prompt_tokens": 982
+    }
+  },
+  "retry_after": null
+}

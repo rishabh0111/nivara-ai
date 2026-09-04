@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T15:58:13.022541Z",
+  "failure_detail": null,
+  "fingerprint": "d1555de54d19c31f2db65c1f28a658cb43422d0ce7cc90bb1005de89def90c6b",
+  "outcome": "response",
+  "recording_id": "turn/a46108f74e09dc5e/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer using policy excerpts. The user asks: \"We're a few seats from a limit only the next plan tier removes \u2014 can I get a feature comparison before we authorise the spend?\" This is about comparing plan tiers before upgrading. The policy says Settings \u2192 Billing \u2192 Plan includes a full feature comparison across every tier, not just seat limits. So we can answer: go to Settings \u2192 Billing \u2192 Plan to see comparison. Also note that comparison page does not commit until upgrade confirmed. So answer accordingly. No need to escalate. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 you can view a side\u2011by\u2011side feature comparison in the app. Just go to **Settings \u2192 Billing \u2192 Plan**; the page shows each tier\u2019s included seats, integrations, retention window, support level and other features. Reviewing the comparison doesn\u2019t trigger any change \u2013 you only upgrade when you explicitly confirm it.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_100b094a-e0a9-462a-ba6d-0e35460d0c24",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451092,
+      "id": "chatcmpl-ef31b5c7-daa5-4549-beeb-d1bcd54c0006",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_87b3c396db",
+      "usage": {
+        "completion_time": 0.428065751,
+        "completion_tokens": 204,
+        "completion_tokens_details": {
+          "reasoning_tokens": 113
+        },
+        "prompt_time": 0.856510138,
+        "prompt_tokens": 1030,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.278234158,
+        "total_time": 1.284575889,
+        "total_tokens": 1234
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kzvww0eb2vb7kagry774n5",
+        "seed": 2104455984
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 you can view a side\u2011by\u2011side feature comparison in the app. Just go to **Settings \u2192 Billing \u2192 Plan**; the page shows each tier\u2019s included seats, integrations, retention window, support level and other features. Reviewing the comparison doesn\u2019t trigger any change \u2013 you only upgrade when you explicitly confirm it."
+        },
+        "id": "fc_100b094a-e0a9-462a-ba6d-0e35460d0c24",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 204,
+      "prompt_tokens": 1030
+    }
+  },
+  "retry_after": null
+}

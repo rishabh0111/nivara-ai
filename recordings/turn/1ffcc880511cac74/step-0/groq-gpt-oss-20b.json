@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:30:53.699731Z",
+  "failure_detail": null,
+  "fingerprint": "ed7ef986468095715c07e5b8738ef9cb42643d4f0f01c78712b64add9db65915",
+  "outcome": "response",
+  "recording_id": "turn/1ffcc880511cac74/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user says: \"fix dashboard timezone?\" They likely want to adjust timezone for dashboard. The policy excerpts mention timestamp display and personal timezone overrides. Also business hours metric. But the question is ambiguous: \"fix dashboard timezone?\" Could refer to dashboard timezone for metrics? The policy says response-time metric counts wall-clock by default, but can configure business hours. But no direct mention of dashboard timezone. The policy excerpt about timestamps: workspace default and personal timezone. The user might want to fix dashboard timezone. The policy says setting personal timezone overrides workspace default for that account only, without changing what anyone else sees. So answer: set personal timezone in Profile settings. Also mention workspace default. So answer: go to Settings \u2192 General for workspace default, and Settings \u2192 Profile for personal timezone. That will affect dashboard. So we can answer. It's not about money or identity. So we can answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! To adjust the timezone that the dashboard uses, set your personal timezone in your Profile settings. Go to Settings \u2192 Profile and choose the correct timezone. If you want all users in the workspace to see the same default, change the workspace default in Settings \u2192 General. Once you set your personal timezone, the dashboard will display timestamps in that zone for you only, without affecting others. Let me know if you need any more help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_64cc40b3-861d-4a82-804a-ed3d210fbc56",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460253,
+      "id": "chatcmpl-2b6ae6fe-7c18-4286-a7a4-300bc6768030",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e594c51153",
+      "usage": {
+        "completion_time": 0.31955029,
+        "completion_tokens": 288,
+        "completion_tokens_details": {
+          "reasoning_tokens": 179
+        },
+        "prompt_time": 0.085644213,
+        "prompt_tokens": 1009,
+        "queue_time": 0.280965175,
+        "total_time": 0.405194503,
+        "total_tokens": 1297
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8kfr5e0a8vxwxg1r7b8jy",
+        "seed": 128071717
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! To adjust the timezone that the dashboard uses, set your personal timezone in your Profile settings. Go to Settings \u2192 Profile and choose the correct timezone. If you want all users in the workspace to see the same default, change the workspace default in Settings \u2192 General. Once you set your personal timezone, the dashboard will display timestamps in that zone for you only, without affecting others. Let me know if you need any more help!"
+        },
+        "id": "fc_64cc40b3-861d-4a82-804a-ed3d210fbc56",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 288,
+      "prompt_tokens": 1009
+    }
+  },
+  "retry_after": null
+}

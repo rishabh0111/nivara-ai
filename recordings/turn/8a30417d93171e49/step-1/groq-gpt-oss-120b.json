@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:13:45.697425Z",
+  "failure_detail": null,
+  "fingerprint": "0039ef3b6d6bce47616d6d27c24cd06b61ded9d59a9215766e2a4ea9a4ce6da7",
+  "outcome": "response",
+  "recording_id": "turn/8a30417d93171e49/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"last quarter usage data, self-serve or request?\" They ask if they can self-serve or need to request. According to DOC-041 parts: usage data for current and prior billing period is available directly from Settings \u2192 Billing \u2192 Usage, exportable as CSV. For older than two most recent billing periods, retained but not shown by default; can still be pulled with a custom date range from same export, as long as within retention window. For an audit needing a specific quarter, exporting with that quarter's exact date range from the usage screen produces same data as request to support, without wait. So answer: they can self-serve by exporting with custom date range for last quarter. Provide steps. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can get last\u2011quarter usage yourself. Go to **Settings \u2192 Billing \u2192 Usage**, click **Export**, and choose a custom date range that covers the quarter you need. The export will include the same data you\u2019d get from a support request, so there\u2019s no need to wait for a ticket.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_b0d728e8-6adf-48ad-aa3b-b819e90d26d1",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452025,
+      "id": "chatcmpl-728f9e49-43d6-4e75-9998-e7a4bee8bcc3",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5781dfb07c",
+      "usage": {
+        "completion_time": 0.534017462,
+        "completion_tokens": 248,
+        "completion_tokens_details": {
+          "reasoning_tokens": 162
+        },
+        "prompt_time": 0.076105934,
+        "prompt_tokens": 1072,
+        "queue_time": 0.318455914,
+        "total_time": 0.610123396,
+        "total_tokens": 1320
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0rcbsepm8s9txfbt1w0hf",
+        "seed": 2015647977
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can get last\u2011quarter usage yourself. Go to **Settings \u2192 Billing \u2192 Usage**, click **Export**, and choose a custom date range that covers the quarter you need. The export will include the same data you\u2019d get from a support request, so there\u2019s no need to wait for a ticket."
+        },
+        "id": "fc_b0d728e8-6adf-48ad-aa3b-b819e90d26d1",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 248,
+      "prompt_tokens": 1072
+    }
+  },
+  "retry_after": null
+}

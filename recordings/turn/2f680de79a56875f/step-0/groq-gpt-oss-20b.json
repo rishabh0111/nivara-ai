@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:37:07.147929Z",
+  "failure_detail": null,
+  "fingerprint": "8f546b598514d1a4ec78a5d524fcafdd4249c8bce53dad59d2bf0cfb92de966d",
+  "outcome": "response",
+  "recording_id": "turn/2f680de79a56875f/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"Our admin\u2019s authenticator codes stopped working this week.\" They need help re-enrolling 2FA. According to policy, we can provide instructions: go to Settings \u2192 Security \u2192 Two-factor authentication, choose Reset, re-enrol. Or use recovery code. So we can answer. No money, no identity. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! It sounds like the authenticator app on your admin\u2019s device has started generating new codes that no longer match what we have on file. To fix this, please follow these steps:\\n\\n1. In the admin\u2019s account, go to **Settings \u2192 Security \u2192 Two\u2011factor authentication**.\\n2. Click **Reset**.\\n3. Re\u2011enrol the same way as a first\u2011time setup: scan the new QR code that appears and confirm with the six\u2011digit code the authenticator app generates.\\n\\nIf the Settings page isn\u2019t reachable because the current code is invalid, you can use a recovery code that was saved during the original enrolment to sign in and then reset from there.\\n\\nOnce you\u2019ve re\u2011enrolled, the old QR code is invalidated and only the new one will work. Let me know if you run into any issues!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_7fc74125-5d53-4de1-b2df-858760102e58",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460626,
+      "id": "chatcmpl-b2bcc86c-ae5e-4a0a-931f-a5dc5638a537",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e2cb7a84ec",
+      "usage": {
+        "completion_time": 0.521002881,
+        "completion_tokens": 282,
+        "completion_tokens_details": {
+          "reasoning_tokens": 79
+        },
+        "prompt_time": 3.812309976,
+        "prompt_tokens": 1045,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.30924318,
+        "total_time": 4.333312857,
+        "total_tokens": 1327
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8yra2eeeb09wba6kw9r1g",
+        "seed": 673771363
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! It sounds like the authenticator app on your admin\u2019s device has started generating new codes that no longer match what we have on file. To fix this, please follow these steps:\n\n1. In the admin\u2019s account, go to **Settings \u2192 Security \u2192 Two\u2011factor authentication**.\n2. Click **Reset**.\n3. Re\u2011enrol the same way as a first\u2011time setup: scan the new QR code that appears and confirm with the six\u2011digit code the authenticator app generates.\n\nIf the Settings page isn\u2019t reachable because the current code is invalid, you can use a recovery code that was saved during the original enrolment to sign in and then reset from there.\n\nOnce you\u2019ve re\u2011enrolled, the old QR code is invalidated and only the new one will work. Let me know if you run into any issues!"
+        },
+        "id": "fc_7fc74125-5d53-4de1-b2df-858760102e58",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 282,
+      "prompt_tokens": 1045
+    }
+  },
+  "retry_after": null
+}

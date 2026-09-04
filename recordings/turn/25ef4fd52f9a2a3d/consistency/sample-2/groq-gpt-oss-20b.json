@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:27:49.304218Z",
+  "failure_detail": null,
+  "fingerprint": "784705918dc0c430c0d4e70f42ede18ca13c37c2f803539c1c822c0a63728cf2",
+  "outcome": "response",
+  "recording_id": "turn/25ef4fd52f9a2a3d/consistency/sample-2/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer about whether old key is invalidated immediately or overlap. Policy: generating new key does not automatically revoke old one; both keys valid until explicitly revoked. Overlap window: rotate key, deploy new key, confirm works, then revoke old. So answer: no immediate invalidation; you can overlap; must revoke manually. Provide that.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can rotate the key without a moment of downtime. When you generate the new key, the old one stays active until you revoke it yourself. Deploy the new key first, confirm it works, then revoke the old key from Settings\u202f\u2192\u202fDeveloper\u202f\u2192\u202fAPI keys. That gives you an overlap period. \"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_353e2f33-910c-4d91-828c-0c175eb88cc3",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460069,
+      "id": "chatcmpl-4895e982-aafc-4799-8fe8-100109b453de",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_24bfb4a850",
+      "usage": {
+        "completion_time": 0.193501386,
+        "completion_tokens": 157,
+        "completion_tokens_details": {
+          "reasoning_tokens": 72
+        },
+        "prompt_time": 0.055551343,
+        "prompt_tokens": 1119,
+        "queue_time": 0.284845221,
+        "total_time": 0.249052729,
+        "total_tokens": 1276
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8dvwmeb5bcfmzhccqfpbd",
+        "seed": 206981065
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can rotate the key without a moment of downtime. When you generate the new key, the old one stays active until you revoke it yourself. Deploy the new key first, confirm it works, then revoke the old key from Settings\u202f\u2192\u202fDeveloper\u202f\u2192\u202fAPI keys. That gives you an overlap period. "
+        },
+        "id": "fc_353e2f33-910c-4d91-828c-0c175eb88cc3",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 157,
+      "prompt_tokens": 1119
+    }
+  },
+  "retry_after": null
+}

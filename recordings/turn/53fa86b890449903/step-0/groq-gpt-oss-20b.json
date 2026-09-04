@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:37:57.647765Z",
+  "failure_detail": null,
+  "fingerprint": "b4d0325f987934fd14a272e837c9ee273e5c91c37de6f13553f9e386829c2681",
+  "outcome": "response",
+  "recording_id": "turn/53fa86b890449903/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"Everything is down for us \u2014 every call to the API comes back 503. This is affecting all of our customers.\" We need to check status page. According to policy: check status page for known incident. So we should advise them to check status page. Also mention that if nothing appears, it's local. But they say all customers affected, so likely platform-wide. So we should direct them to status page. Also mention component-level breakdown. So answer: check status page, look for API component. Provide guidance. No escalation needed.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! It sounds like you\u2019re experiencing a platform\u2011wide outage. The first step is to check our status page: https://status.meridian.com. Look for any incidents listed for the API component (or any other affected parts). If you see an incident there, it\u2019s a known issue and we\u2019re working on it. If nothing appears on the status page for that time window, the problem is likely local to your environment (e.g., a browser extension, network issue, or a large data load for a specific workspace). Let me know what you find on the status page, and we\u2019ll help you troubleshoot further.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_36f832e5-bf8d-4908-b7f6-d1e7d264ce30",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460677,
+      "id": "chatcmpl-9750428e-f9bc-4615-99e2-fd2320d142e3",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_228717f27c",
+      "usage": {
+        "completion_time": 0.319275423,
+        "completion_tokens": 270,
+        "completion_tokens_details": {
+          "reasoning_tokens": 121
+        },
+        "prompt_time": 0.075259004,
+        "prompt_tokens": 1061,
+        "queue_time": 0.359859644,
+        "total_time": 0.394534427,
+        "total_tokens": 1331
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m90dmpe6tsz5jn75kbx67p",
+        "seed": 197151614
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! It sounds like you\u2019re experiencing a platform\u2011wide outage. The first step is to check our status page: https://status.meridian.com. Look for any incidents listed for the API component (or any other affected parts). If you see an incident there, it\u2019s a known issue and we\u2019re working on it. If nothing appears on the status page for that time window, the problem is likely local to your environment (e.g., a browser extension, network issue, or a large data load for a specific workspace). Let me know what you find on the status page, and we\u2019ll help you troubleshoot further."
+        },
+        "id": "fc_36f832e5-bf8d-4908-b7f6-d1e7d264ce30",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 270,
+      "prompt_tokens": 1061
+    }
+  },
+  "retry_after": null
+}

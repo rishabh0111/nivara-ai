@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T17:50:01.233571Z",
+  "failure_detail": null,
+  "fingerprint": "88401ba4b1aa8d63054d59a51abca050385b0712a1eb5170f353ecd7733c102e",
+  "outcome": "response",
+  "recording_id": "turn/1aca37c3f3492316/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to interpret the customer's request: \"backdate a name correction on invoices?\" They want to correct a name on past invoices, possibly backdate. According to policy excerpts:\n\nDOC-003 part 1: legal name, billing address, tax ID set in Settings \u2192 Billing \u2192 Company details and pulled onto every invoice generated after the change.\n\nPart 2: Meridian does not reissue invoices that have already been generated \u2014 a correction applies to invoices from that point forward only. This is a bookkeeping constraint.\n\nPart 3: Customers who need a corrected copy of a past invoice for their own records, rather than a reissue, can request one through support.\n\nThus answer: cannot backdate; changes only affect future invoices; past invoices cannot be reissued; you can request a corrected copy via support.\n\nWe should respond accordingly, short and specific. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! Changing the legal name (or other billing details) in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fCompany details only affects invoices generated after the change. We don\u2019t re\u2011issue past invoices, so the correction can\u2019t be back\u2011dated. If you need a corrected copy of a previous invoice for your records, you can request one through support.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_d27bef3b-2914-427b-9e58-4417ae324f64",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371401,
+      "id": "chatcmpl-03f8fd6b-8d6d-425a-a081-05413dc77581",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5d041d5b40",
+      "usage": {
+        "completion_time": 0.573793185,
+        "completion_tokens": 273,
+        "completion_tokens_details": {
+          "reasoning_tokens": 176
+        },
+        "prompt_time": 0.049098198,
+        "prompt_tokens": 1022,
+        "queue_time": 0.158023122,
+        "total_time": 0.622891383,
+        "total_tokens": 1295
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hkvxjrev0vchvq5yvf7qmr",
+        "seed": 649178127
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! Changing the legal name (or other billing details) in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fCompany details only affects invoices generated after the change. We don\u2019t re\u2011issue past invoices, so the correction can\u2019t be back\u2011dated. If you need a corrected copy of a previous invoice for your records, you can request one through support."
+        },
+        "id": "fc_d27bef3b-2914-427b-9e58-4417ae324f64",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 273,
+      "prompt_tokens": 1022
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:21:34.496212Z",
+  "failure_detail": null,
+  "fingerprint": "697e542972a20012ab130ee3cbab6fb7ec43ad854ab639de80b0ca39fd3a2954",
+  "outcome": "response",
+  "recording_id": "turn/dcf34bec312a4da6/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"I checked Settings and Billing and the only invoice showing is the current month's. I need the three before it too, as PDFs if possible.\"\n\nWe have policy excerpts: DOC-001 part 2: Open Settings \u2192 Billing \u2192 Invoices to see full list, ordered by billing date with most recent at top. The billing tab's default view only surfaces current month's invoice on summary card; invoices table below holds every prior one.\n\nAlso DOC-001 part 3: Each row links to a PDF you can download or forward. If a specific month missing, plan may not have generated a paid invoice for it.\n\nThus answer: instruct to go to Settings \u2192 Billing \u2192 Invoices, scroll to table, find previous invoices, click to download PDF. Also note that if missing, maybe no invoice due to credit. Provide guidance.\n\nWe should not mention policy. Just answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! To see all of your past invoices, go to Settings \u2192 Billing \u2192 Invoices. The table below the summary card lists every invoice, sorted by billing date with the most recent at the top. Click on any row to open the PDF and download or forward it. If a month isn\u2019t listed, it means no paid invoice was generated for that period (for example, if the month was fully covered by a credit). Let me know if you need any further help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_effada37-56d9-48de-a1b4-45e777403436",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459694,
+      "id": "chatcmpl-256eaf03-5760-494f-afa9-220f63368de4",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e99e93f2ac",
+      "usage": {
+        "completion_time": 0.346113847,
+        "completion_tokens": 302,
+        "completion_tokens_details": {
+          "reasoning_tokens": 184
+        },
+        "prompt_time": 0.059090752,
+        "prompt_tokens": 1054,
+        "queue_time": 0.042492676,
+        "total_time": 0.405204599,
+        "total_tokens": 1356
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m82dhzexmsvx31sptf2vda",
+        "seed": 389237774
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! To see all of your past invoices, go to Settings \u2192 Billing \u2192 Invoices. The table below the summary card lists every invoice, sorted by billing date with the most recent at the top. Click on any row to open the PDF and download or forward it. If a month isn\u2019t listed, it means no paid invoice was generated for that period (for example, if the month was fully covered by a credit). Let me know if you need any further help!"
+        },
+        "id": "fc_effada37-56d9-48de-a1b4-45e777403436",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 302,
+      "prompt_tokens": 1054
+    }
+  },
+  "retry_after": null
+}

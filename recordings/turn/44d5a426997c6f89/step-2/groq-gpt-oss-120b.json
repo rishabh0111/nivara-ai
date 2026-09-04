@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:04:43.723348Z",
+  "failure_detail": null,
+  "fingerprint": "1aeb6cfc08e5d93b37fd24b36e9b069ad0ed51c2dbdc95a44d3086d63b38e317",
+  "outcome": "response",
+  "recording_id": "turn/44d5a426997c6f89/step-2/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We have a short customer query: \"missing SSO option?\" Likely they are asking why SSO option is missing on sign-in. We have policy excerpts about why staff might not see SSO: domain not configured, sync not run, account not created, etc. Also about SSO not disabling password sign-in. So answer: explain that SSO appears only for domains configured and after sync creates account; check Settings \u2192 People for account; may need to wait for next sync; ensure account exists on identity provider side. Provide steps.\n\nWe must answer using only policy excerpts. Provide concise answer. Use no mention of policy. So answer: The SSO button only shows if your workspace has that email domain set up for SSO and the sync has created your account. If you\u2019re a new hire, the account may not have been synced yet or may not exist in the IdP. An admin can verify in Settings \u2192 People; if the account isn\u2019t there, wait for the next scheduled sync or ensure the account exists in the IdP. Also note that enabling SSO doesn\u2019t turn off password sign\u2011in until the admin disables it. That should answer.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"The SSO button only appears for email domains that have been set up for SSO\u202fand only after the identity\u2011provider sync has created the user\u2019s account. If you\u2019re a new hire, you might be signing in before the next scheduled sync runs, or the account may not yet exist on the IdP side \u2013 Meridian never creates SSO accounts on its own.\\n\\nAn admin can confirm whether the account exists by going to **Settings \u2192 People**; SSO\u2011provisioned accounts are marked with the identity provider they came from. If the account isn\u2019t listed, wait for the next sync or ensure the user is created in the IdP.\\n\\nAlso, enabling SSO does not automatically disable password sign\u2011in for existing staff; both methods remain available until an admin turns password sign\u2011in off in **Settings \u2192 Security \u2192 SSO \u2192 Require SSO**.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_79627f39-ab45-4484-9ca6-7bd7376d7d93",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372283,
+      "id": "chatcmpl-396cd4e7-bc6b-4360-b518-8a508dc2efab",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c15aa9c1b7",
+      "usage": {
+        "completion_time": 2.028035662,
+        "completion_tokens": 447,
+        "completion_tokens_details": {
+          "reasoning_tokens": 242
+        },
+        "prompt_time": 1.440438787,
+        "prompt_tokens": 1123,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.158726768,
+        "total_time": 3.468474449,
+        "total_tokens": 1570
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmprr5e2qs08d93j91fmp8",
+        "seed": 648742391
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "The SSO button only appears for email domains that have been set up for SSO\u202fand only after the identity\u2011provider sync has created the user\u2019s account. If you\u2019re a new hire, you might be signing in before the next scheduled sync runs, or the account may not yet exist on the IdP side \u2013 Meridian never creates SSO accounts on its own.\n\nAn admin can confirm whether the account exists by going to **Settings \u2192 People**; SSO\u2011provisioned accounts are marked with the identity provider they came from. If the account isn\u2019t listed, wait for the next sync or ensure the user is created in the IdP.\n\nAlso, enabling SSO does not automatically disable password sign\u2011in for existing staff; both methods remain available until an admin turns password sign\u2011in off in **Settings \u2192 Security \u2192 SSO \u2192 Require SSO**."
+        },
+        "id": "fc_79627f39-ab45-4484-9ca6-7bd7376d7d93",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 447,
+      "prompt_tokens": 1123
+    }
+  },
+  "retry_after": null
+}

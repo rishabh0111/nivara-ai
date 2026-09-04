@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T17:55:48.815101Z",
+  "failure_detail": null,
+  "fingerprint": "7e3a1ec62ee6dbb98cd589e7858ec6931c6eaa1ed66c1b8aeb712b68d3057b8b",
+  "outcome": "response",
+  "recording_id": "turn/52d62ca6f704e8c2/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user says \"invoice breakdown by line item\". Likely they want to know how to view breakdown of invoice line items. The policy excerpts provide instructions: open Settings \u2192 Billing \u2192 Invoices, expand a line item to see its breakdown; also explanation of three kinds of line items. So we can answer with that info.\n\nWe must post a reply. Provide concise answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! To see a detailed breakdown of each line item on an invoice:\\n\\n1. Go to **Settings \u2192 Billing \u2192 Invoices**.\\n2. Find the invoice you want and click to open it.\\n3. Click the **expand** arrow next to any line item. This will show the underlying details \u2013 for example, a seat charge will list the number of seats and the per\u2011seat rate, and an overage line will display the metered quantity versus the plan\u2019s included limit.\\n\\nEvery invoice is divided into three types of line items: seat charges, add\u2011ons, and usage overages. You can also download the PDF version, which contains the same itemised breakdown.\\n\\nLet me know if you need any more help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_d761185a-44db-4f41-a861-f2e036175d6b",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371748,
+      "id": "chatcmpl-02a53f9f-3ac0-495a-ae26-8216707e3e33",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_dee443f41b",
+      "usage": {
+        "completion_time": 0.573284397,
+        "completion_tokens": 266,
+        "completion_tokens_details": {
+          "reasoning_tokens": 85
+        },
+        "prompt_time": 0.063103595,
+        "prompt_tokens": 1056,
+        "queue_time": 0.309424799,
+        "total_time": 0.636387992,
+        "total_tokens": 1322
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hm6h05ea1tbbcy52175599",
+        "seed": 451386221
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! To see a detailed breakdown of each line item on an invoice:\n\n1. Go to **Settings \u2192 Billing \u2192 Invoices**.\n2. Find the invoice you want and click to open it.\n3. Click the **expand** arrow next to any line item. This will show the underlying details \u2013 for example, a seat charge will list the number of seats and the per\u2011seat rate, and an overage line will display the metered quantity versus the plan\u2019s included limit.\n\nEvery invoice is divided into three types of line items: seat charges, add\u2011ons, and usage overages. You can also download the PDF version, which contains the same itemised breakdown.\n\nLet me know if you need any more help!"
+        },
+        "id": "fc_d761185a-44db-4f41-a861-f2e036175d6b",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 266,
+      "prompt_tokens": 1056
+    }
+  },
+  "retry_after": null
+}

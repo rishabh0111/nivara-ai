@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:15:11.300396Z",
+  "failure_detail": null,
+  "fingerprint": "584a7fb85662511c89880066331d2480276d828699db8c0959c7bb2494c975a4",
+  "outcome": "response",
+  "recording_id": "turn/17c1cdb5d611434f/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to understand the user's request. They say: \"I'm reporting this number up the chain today and need to know now whether weekends are inflating it unfairly.\"\n\nWe need to infer what number? Likely response-time metric. They want to know if weekends are inflating it unfairly. The policy excerpt says: response-time metric counts every hour a ticket sits unanswered, including nights, weekends and holidays \u2014 it's a wall-clock measurement, not business-hours. Also can show both versions side by side on a custom dashboard.\n\nThus answer: Yes, weekends are included in default metric, can cause inflation; you can create a custom dashboard to view business-hours metric side by side.\n\nWe must answer using only policy excerpts. Provide short specific answer. Use post_reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"The default response\u2011time metric on the dashboard is a wall\u2011clock measurement, so it counts every hour a ticket sits unanswered\u2014including nights, weekends and holidays. That means weekends can indeed inflate the number. If you need a view that excludes weekends (or other non\u2011business hours), you can create a custom dashboard that shows a business\u2011hours version side\u2011by\u2011side with the raw wall\u2011clock metric.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_a35c1d5f-6ff8-4692-95e2-3ca834b73a8e",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452111,
+      "id": "chatcmpl-bbf1fba5-b55d-4bb6-a254-f5a6689febdf",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_0adba2bb92",
+      "usage": {
+        "completion_time": 0.565008718,
+        "completion_tokens": 263,
+        "completion_tokens_details": {
+          "reasoning_tokens": 155
+        },
+        "prompt_time": 0.060268743,
+        "prompt_tokens": 1033,
+        "queue_time": 0.311403955,
+        "total_time": 0.625277461,
+        "total_tokens": 1296
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0tzzge0cs2jvb9yjvgg16",
+        "seed": 1766137146
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "The default response\u2011time metric on the dashboard is a wall\u2011clock measurement, so it counts every hour a ticket sits unanswered\u2014including nights, weekends and holidays. That means weekends can indeed inflate the number. If you need a view that excludes weekends (or other non\u2011business hours), you can create a custom dashboard that shows a business\u2011hours version side\u2011by\u2011side with the raw wall\u2011clock metric."
+        },
+        "id": "fc_a35c1d5f-6ff8-4692-95e2-3ca834b73a8e",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 263,
+      "prompt_tokens": 1033
+    }
+  },
+  "retry_after": null
+}

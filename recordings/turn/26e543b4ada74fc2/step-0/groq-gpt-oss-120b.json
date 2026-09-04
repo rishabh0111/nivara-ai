@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:08:15.757474Z",
+  "failure_detail": null,
+  "fingerprint": "1e0c10b304fbad4d063af99f2b60461984b8ff0ea976225ad0f954ea983e6ce8",
+  "outcome": "response",
+  "recording_id": "turn/26e543b4ada74fc2/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Is notification scope set per user, or does an admin control that at the workspace level?\" The relevant excerpt is DOC-036: \"Notification email settings are per person, in Profile \u2192 Notifications, and are separate from the workspace-wide notification rules an admin controls \u2014 narrowing your own volume does not require an admin to change anything.\"\n\nThus answer: notification scope is per user; admins have separate workspace-wide rules but individual settings are per person. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Notification settings are per\u2011user. Each person can adjust their own email notifications in\u202fProfile\u202f\u2192\u202fNotifications, and these personal settings are separate from any workspace\u2011wide notification rules an admin manages.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_5b9475a9-d09e-4515-8c78-c940da5cb800",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451695,
+      "id": "chatcmpl-ffd59b42-ff3e-4a2f-981b-1d2e9915c37c",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_d81b3304b3",
+      "usage": {
+        "completion_time": 0.357380805,
+        "completion_tokens": 170,
+        "completion_tokens_details": {
+          "reasoning_tokens": 105
+        },
+        "prompt_time": 0.04997552,
+        "prompt_tokens": 1057,
+        "queue_time": 0.04547443,
+        "total_time": 0.407356325,
+        "total_tokens": 1227
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0eaf0e6gsjseftpr0gpqk",
+        "seed": 291643127
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Notification settings are per\u2011user. Each person can adjust their own email notifications in\u202fProfile\u202f\u2192\u202fNotifications, and these personal settings are separate from any workspace\u2011wide notification rules an admin manages."
+        },
+        "id": "fc_5b9475a9-d09e-4515-8c78-c940da5cb800",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 170,
+      "prompt_tokens": 1057
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:00:09.848428Z",
+  "failure_detail": null,
+  "fingerprint": "b3694187ed31629085c5fe288837f8662ac70825c4aee34ebcfa366e7783c5c8",
+  "outcome": "response",
+  "recording_id": "turn/5e3e1793eea8010a/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Is downgrade data loss immediate, or is there a grace period before anything tied to the higher tier is actually removed?\" According to DOC-031 parts: Downgrading does not delete anything; features and data are hidden, not removed. The one exception is data subject to retention window: lower tier with shorter retention will age out records over time, not immediate deletion. So answer: No immediate loss; data is preserved and hidden, only subject to retention windows which may cause aging out over time. Provide short answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When you downgrade, nothing is deleted right away. Any features or data that belong to the higher\u2011tier plan are simply hidden, and the underlying data stays in the workspace. The only time data can disappear is if it falls outside the retention window of the lower\u2011tier plan \u2013 in that case the records age out over time, just as they would for a workspace that started on that tier. So there\u2019s no immediate loss or grace\u2011period deletion; the data remains until it naturally ages out under the new plan\u2019s retention policy.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_66e0552f-3757-46c7-b77e-2ab89d7c3d24",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451209,
+      "id": "chatcmpl-02487d72-fa8e-4ff6-bddd-f5dc7a2fdaa1",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_0708ac49a5",
+      "usage": {
+        "completion_time": 0.543479202,
+        "completion_tokens": 253,
+        "completion_tokens_details": {
+          "reasoning_tokens": 121
+        },
+        "prompt_time": 0.059097956,
+        "prompt_tokens": 1048,
+        "queue_time": 0.310687848,
+        "total_time": 0.602577158,
+        "total_tokens": 1301
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kzzfpme0185sfkwsxdg7yt",
+        "seed": 1906418218
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When you downgrade, nothing is deleted right away. Any features or data that belong to the higher\u2011tier plan are simply hidden, and the underlying data stays in the workspace. The only time data can disappear is if it falls outside the retention window of the lower\u2011tier plan \u2013 in that case the records age out over time, just as they would for a workspace that started on that tier. So there\u2019s no immediate loss or grace\u2011period deletion; the data remains until it naturally ages out under the new plan\u2019s retention policy."
+        },
+        "id": "fc_66e0552f-3757-46c7-b77e-2ab89d7c3d24",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 253,
+      "prompt_tokens": 1048
+    }
+  },
+  "retry_after": null
+}

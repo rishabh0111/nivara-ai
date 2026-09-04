@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:06:54.577357Z",
+  "failure_detail": null,
+  "fingerprint": "3d147851e064fc114665c6aee273032d769bdf6bf96c587977de1bdc8bc01564",
+  "outcome": "response",
+  "recording_id": "turn/bc225050ca4abe3a/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The customer says: \"new phone, 2FA codes wrong now\". This is about re-enrolling two-factor authentication after losing access to the app. The policy says: authenticator app reinstalled after phone upgrade starts generating new codes that no longer match what Meridian has on file, because the original enrolment's secret was tied to the old install. Also instructions: From Settings \u2192 Security \u2192 Two-factor authentication, choose \u201cReset\u201d and re-enrol the same way as a first-time setup \u2014 scanning a new QR code and confirming with a fresh six-digit code. A saved recovery code from the original enrolment can also be used to sign in and reset from there if the settings page itself is not reachable without a working code.\n\nThus answer: explain that after phone upgrade, need to reset 2FA via settings, scan new QR code, or use recovery code. Also note that support never asks for 2FA code. Provide steps.\n\nWe must not mention policy. Provide short specific answer.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When you switch to a new phone, the authenticator app you reinstall generates its own secret, so the codes no longer match the ones Meridian has on file. To fix this, go to **Settings \u2192 Security \u2192 Two\u2011factor authentication**, tap **Reset**, and set up 2FA again just like the first time \u2013 scan the new QR code and confirm with the fresh six\u2011digit code. If you still have a recovery code from the original enrollment, you can use that to sign in and reset the 2FA settings. Remember, we\u2019ll never ask you to share your 2FA code over the phone or chat.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_e1710cc5-76d8-45ee-8881-7f397dbb5dac",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372414,
+      "id": "chatcmpl-cf1c1a48-2b2c-4831-90e2-464ce1e7ca1f",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c868cf1eaa",
+      "usage": {
+        "completion_time": 0.869989605,
+        "completion_tokens": 368,
+        "completion_tokens_details": {
+          "reasoning_tokens": 216
+        },
+        "prompt_time": 0.535672937,
+        "prompt_tokens": 1141,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.457909315,
+        "total_time": 1.405662542,
+        "total_tokens": 1509
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmtt1vej5sgqzj3z9qjzzc",
+        "seed": 351015086
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When you switch to a new phone, the authenticator app you reinstall generates its own secret, so the codes no longer match the ones Meridian has on file. To fix this, go to **Settings \u2192 Security \u2192 Two\u2011factor authentication**, tap **Reset**, and set up 2FA again just like the first time \u2013 scan the new QR code and confirm with the fresh six\u2011digit code. If you still have a recovery code from the original enrollment, you can use that to sign in and reset the 2FA settings. Remember, we\u2019ll never ask you to share your 2FA code over the phone or chat."
+        },
+        "id": "fc_e1710cc5-76d8-45ee-8881-7f397dbb5dac",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 368,
+      "prompt_tokens": 1141
+    }
+  },
+  "retry_after": null
+}

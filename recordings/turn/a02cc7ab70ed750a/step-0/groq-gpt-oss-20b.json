@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:32:31.478355Z",
+  "failure_detail": null,
+  "fingerprint": "bc9d2b443db5e57deac89e83df10b76964251f076d702ca3c86937fec9bf7c53",
+  "outcome": "response",
+  "recording_id": "turn/a02cc7ab70ed750a/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"My scheduled weekly report stopped arriving with no error \u2014 how do I check whether it's still set up correctly?\" This is about scheduled report. The policy excerpts provide info: Settings \u2192 Reports \u2192 Scheduled shows scheduled reports and run history, including outcome of most recent run. Also check recipient list: if email bounces, delivery paused. Also run history distinguishes between not running and running but failing to deliver. So answer: go to Settings \u2192 Reports \u2192 Scheduled, check run history, see if failed or disabled. Also check recipient list for bounces. Provide steps. No mention of money or identity. So we can answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! To see if your weekly report is still set up correctly, follow these steps:\\n\\n1. In the Meridian app, go to **Settings \u2192 Reports \u2192 Scheduled**.\\n2. Find your weekly report in the list. The run history will show the outcome of the most recent run.\\n   * If it shows a *failed* run, the report ran but delivery failed.\\n   * If it shows *disabled*, the schedule itself was turned off.\\n3. If the run history looks fine, check the recipient list. A report will keep running even if one address starts bouncing, but delivery to that address will pause after repeated failures. This can make it look like the whole report stopped.\\n\\nReview the run history first, then verify that none of the recipients are experiencing bounces. That should tell you whether the schedule is still active and why the report stopped arriving.\\n\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_8edf46d7-92d8-47ab-926d-c585d0ad6257",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460351,
+      "id": "chatcmpl-3de1afd3-8535-4252-9c73-916d366f9ac7",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_228717f27c",
+      "usage": {
+        "completion_time": 0.459801272,
+        "completion_tokens": 341,
+        "completion_tokens_details": {
+          "reasoning_tokens": 136
+        },
+        "prompt_time": 0.093341014,
+        "prompt_tokens": 1055,
+        "queue_time": 0.317317465,
+        "total_time": 0.553142286,
+        "total_tokens": 1396
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8pf3zerdanx2mapav6y15",
+        "seed": 1855956187
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! To see if your weekly report is still set up correctly, follow these steps:\n\n1. In the Meridian app, go to **Settings \u2192 Reports \u2192 Scheduled**.\n2. Find your weekly report in the list. The run history will show the outcome of the most recent run.\n   * If it shows a *failed* run, the report ran but delivery failed.\n   * If it shows *disabled*, the schedule itself was turned off.\n3. If the run history looks fine, check the recipient list. A report will keep running even if one address starts bouncing, but delivery to that address will pause after repeated failures. This can make it look like the whole report stopped.\n\nReview the run history first, then verify that none of the recipients are experiencing bounces. That should tell you whether the schedule is still active and why the report stopped arriving.\n"
+        },
+        "id": "fc_8edf46d7-92d8-47ab-926d-c585d0ad6257",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 341,
+      "prompt_tokens": 1055
+    }
+  },
+  "retry_after": null
+}

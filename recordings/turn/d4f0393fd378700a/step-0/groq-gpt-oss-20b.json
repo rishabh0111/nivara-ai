@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:29:40.489228Z",
+  "failure_detail": null,
+  "fingerprint": "001645eb0fe9f8c9bafd826718c87afe85135482558ba8716c4d78bc48597645",
+  "outcome": "response",
+  "recording_id": "turn/d4f0393fd378700a/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: provide a full feature comparison between current tier and next tier. According to policy, we can refer to the help article \"Comparing plan tiers before upgrading\" which says Settings \u2192 Billing \u2192 Plan includes a full feature comparison across every tier, not just seat limits. So we can direct them to that page. We should not provide the actual comparison ourselves? The policy says answer only from policy excerpts. The excerpt says that the comparison page includes full feature comparison. So we can say: go to Settings \u2192 Billing \u2192 Plan to see side-by-side comparison. That is the answer. Also mention that no changes happen until upgrade confirmed. So answer: direct them to that page.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! In Settings \u2192 Billing \u2192 Plan you\u2019ll see a side\u2011by\u2011side comparison of every tier. It lists the included seats, integrations, retention window, support level, and all other features for each plan. You can review it and share it with your finance lead before confirming the upgrade. No data or configuration changes happen until you actually upgrade. Let me know if you need help navigating there!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_4c6b258a-015b-45b6-b7a8-1e04fc59c5c0",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460180,
+      "id": "chatcmpl-e78b95e3-fd00-40e4-9250-24bee17deb13",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_d23c14756c",
+      "usage": {
+        "completion_time": 0.287257853,
+        "completion_tokens": 243,
+        "completion_tokens_details": {
+          "reasoning_tokens": 140
+        },
+        "prompt_time": 0.064210898,
+        "prompt_tokens": 1044,
+        "queue_time": 0.359968314,
+        "total_time": 0.351468751,
+        "total_tokens": 1287
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8h89pe8nrdydngerc8zgd",
+        "seed": 234353102
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! In Settings \u2192 Billing \u2192 Plan you\u2019ll see a side\u2011by\u2011side comparison of every tier. It lists the included seats, integrations, retention window, support level, and all other features for each plan. You can review it and share it with your finance lead before confirming the upgrade. No data or configuration changes happen until you actually upgrade. Let me know if you need help navigating there!"
+        },
+        "id": "fc_4c6b258a-015b-45b6-b7a8-1e04fc59c5c0",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 243,
+      "prompt_tokens": 1044
+    }
+  },
+  "retry_after": null
+}

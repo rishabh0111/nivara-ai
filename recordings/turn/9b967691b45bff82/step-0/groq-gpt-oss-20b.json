@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:23:06.942848Z",
+  "failure_detail": null,
+  "fingerprint": "b262008bb7ab597877537d110a2e4d0d5069279e5bc1533e00536361bf27dc1f",
+  "outcome": "response",
+  "recording_id": "turn/9b967691b45bff82/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: \"What exact date does my next invoice get generated? I need to plan around replacing my card.\"\n\nWe have policy excerpts about invoice generation dates. The question: \"What exact date does my next invoice get generated?\" The policy says: \"A monthly plan is invoiced on the same day of the month as the workspace's original billing date \u2014 the date the subscription started or last renewed.\" Also: \"That date is shown in Settings \u2192 Billing \u2192 Plan next to 'Next invoice', and it does not shift month to month even though months have different lengths; a billing date of the 31st bills on the last day of a shorter month.\" So answer: The next invoice date is the same day of month as original billing date, shown in Settings \u2192 Billing \u2192 Plan under \"Next invoice\". So we can tell them to check that. Also mention that replacing card a day or two before is enough. So answer: The next invoice will be generated on the same day of month as your original billing date, which you can see in Settings \u2192 Billing \u2192 Plan under \"Next invoice\". If your billing date is the 31st, it will bill on the last day of shorter months. Replacing card a day or two before is enough. Provide that.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Your next invoice will be generated on the same day of the month as your workspace\u2019s original billing date \u2013 the date the subscription started or last renewed. You can see that exact date in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan, next to \u201cNext invoice\u201d. If your billing date is the 31st, it will bill on the last day of shorter months. Replacing your card a day or two before that date is enough for the new card to be used for the upcoming invoice.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_1488fcb0-68b5-4ea9-a978-261b6e13647e",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459786,
+      "id": "chatcmpl-1256fc3d-a91a-487b-83f6-ee9a5effe802",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c9afb2bdb4",
+      "usage": {
+        "completion_time": 0.442350972,
+        "completion_tokens": 380,
+        "completion_tokens_details": {
+          "reasoning_tokens": 259
+        },
+        "prompt_time": 0.052629741,
+        "prompt_tokens": 1034,
+        "queue_time": 0.292957953,
+        "total_time": 0.494980713,
+        "total_tokens": 1414
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m857wyebhr8k4j8n2b4p8h",
+        "seed": 48805719
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Your next invoice will be generated on the same day of the month as your workspace\u2019s original billing date \u2013 the date the subscription started or last renewed. You can see that exact date in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan, next to \u201cNext invoice\u201d. If your billing date is the 31st, it will bill on the last day of shorter months. Replacing your card a day or two before that date is enough for the new card to be used for the upcoming invoice."
+        },
+        "id": "fc_1488fcb0-68b5-4ea9-a978-261b6e13647e",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 380,
+      "prompt_tokens": 1034
+    }
+  },
+  "retry_after": null
+}

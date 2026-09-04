@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:08:55.948188Z",
+  "failure_detail": null,
+  "fingerprint": "58e22088415c4621f6786eab75608e46a3ee9273e385913e99f4e213a12af448",
+  "outcome": "response",
+  "recording_id": "turn/3dc51e0fa8976dc6/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to read conversation to see context. Probably the user says \"Codes just don't work anymore since the phone change.\" This is about two-factor authentication codes not working after phone change. According to policy DOC-012, we can instruct to reset 2FA via Settings \u2192 Security \u2192 Two-factor authentication, choose Reset, re-enroll, etc. Also note that support never asks for code. So answer: explain they need to reset 2FA, steps. Also warn not to share code. Provide concise answer.\n\nWe must ensure not to ask for code. Provide steps. Use policy excerpts. So we can answer.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"I\u2019m sorry you\u2019re having trouble with your two\u2011factor codes after changing phones. When you reinstall the authenticator app, it generates new codes that no longer match the secret Meridian has on file. To fix this, go to **Settings \u2192 Security \u2192 Two\u2011factor authentication**, tap **Reset**, and then set up two\u2011factor authentication again just like the first time \u2013 scan the new QR code and confirm with the fresh six\u2011digit code. If you still have a saved recovery code from the original enrolment, you can use that to sign in and reset the 2FA from the settings page.\\n\\nRemember, Meridian support will never ask you to read or type your two\u2011factor code over the phone or chat. Keep your code private.\\n\\nIf you run into any issues during the reset, let us know and we\u2019ll help you further.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_57549d18-ec05-48bb-aa48-2e6438a9d7b3",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372535,
+      "id": "chatcmpl-6795fe92-a20b-47d1-90d8-80be0cffa76c",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4727af4560",
+      "usage": {
+        "completion_time": 0.701402883,
+        "completion_tokens": 330,
+        "completion_tokens_details": {
+          "reasoning_tokens": 131
+        },
+        "prompt_time": 0.060268699,
+        "prompt_tokens": 1108,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.158948689,
+        "total_time": 0.761671582,
+        "total_tokens": 1438
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmyhm0evabc5kvjc2e5c94",
+        "seed": 2135164653
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "I\u2019m sorry you\u2019re having trouble with your two\u2011factor codes after changing phones. When you reinstall the authenticator app, it generates new codes that no longer match the secret Meridian has on file. To fix this, go to **Settings \u2192 Security \u2192 Two\u2011factor authentication**, tap **Reset**, and then set up two\u2011factor authentication again just like the first time \u2013 scan the new QR code and confirm with the fresh six\u2011digit code. If you still have a saved recovery code from the original enrolment, you can use that to sign in and reset the 2FA from the settings page.\n\nRemember, Meridian support will never ask you to read or type your two\u2011factor code over the phone or chat. Keep your code private.\n\nIf you run into any issues during the reset, let us know and we\u2019ll help you further."
+        },
+        "id": "fc_57549d18-ec05-48bb-aa48-2e6438a9d7b3",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 330,
+      "prompt_tokens": 1108
+    }
+  },
+  "retry_after": null
+}

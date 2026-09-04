@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T17:01:28.716091Z",
+  "failure_detail": null,
+  "fingerprint": "6e1251f005c3598d511444e9a32744f2301f5dee85633cfe5d29fd73c056e525",
+  "outcome": "response",
+  "recording_id": "turn/944a6570647653d3/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"I used to get a push notification for every new assigned ticket on my phone and they stopped a few days ago.\"\n\nWe need to see if any policy excerpt covers push notifications for assigned tickets. The excerpts we have:\n\n- DOC-036: about reducing notification email volume, turning off notification types (assignment, mention, status change, digest). That's about email notifications, not push.\n\n- DOC-048: about subscribing to incident notifications via status page (email, SMS, webhook). Not relevant.\n\n- DOC-040: about scheduled reports.\n\n- DOC-022: about webhook delivery.\n\nNone directly address push notifications for assigned tickets. The question is about push notifications on phone for assigned tickets. Not covered. According to rules: Answer only from policy excerpts. If they do not contain the answer, we must escalate. Also ambiguous? Not ambiguous. But we lack answer. So we must escalate.\n\nThus we need to call escalate with internal note: what the customer asked, what we found, why we stopped.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer reports that push notifications for newly assigned tickets on their phone stopped. The provided policy excerpts cover email notification settings, incident subscription options, scheduled report status, and webhook delivery issues, but do not contain information about push notifications for ticket assignments. Since the answer cannot be derived from the available policy content, I am escalating the conversation.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_973d42ef-6db7-4737-b469-29bbcd484b59",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454888,
+      "id": "chatcmpl-d6b43c16-95ab-4b47-82fc-afc0f2bbd4fe",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_02b0d31eca",
+      "usage": {
+        "completion_time": 0.650710694,
+        "completion_tokens": 309,
+        "completion_tokens_details": {
+          "reasoning_tokens": 216
+        },
+        "prompt_time": 0.12746772,
+        "prompt_tokens": 1072,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.310507998,
+        "total_time": 0.778178414,
+        "total_tokens": 1381
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m3fqx8ew8r1anvp7mymyqj",
+        "seed": 1590506165
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer reports that push notifications for newly assigned tickets on their phone stopped. The provided policy excerpts cover email notification settings, incident subscription options, scheduled report status, and webhook delivery issues, but do not contain information about push notifications for ticket assignments. Since the answer cannot be derived from the available policy content, I am escalating the conversation."
+        },
+        "id": "fc_973d42ef-6db7-4737-b469-29bbcd484b59",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 309,
+      "prompt_tokens": 1072
+    }
+  },
+  "retry_after": null
+}

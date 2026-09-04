@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:20:31.712869Z",
+  "failure_detail": null,
+  "fingerprint": "ea56342031dd2e8ef66d1c40d5cc0d068f4905727a0e63b3dad59eebb55812f0",
+  "outcome": "response",
+  "recording_id": "turn/bea237bc4611ff9e/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"access data beyond retention?\" Likely they want to know how to access data older than retention window. The policy excerpts provide info: default view shows data within retention window, older moves to cold storage and can be requested. Settings \u2192 Reporting \u2192 Extended history describes extended range and how to request older data. Some higher plans include longer retention directly.\n\nThus we can answer: go to Settings \u2192 Reporting \u2192 Extended history, see if your plan includes extended range; if not, you can request older data; data older than retention moves to cold storage and is still available on request; if data is older than even extended retention, depends on workspace creation date.\n\nProvide concise answer. No need to escalate. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! Data that\u2019s older than your plan\u2019s default retention window isn\u2019t deleted \u2013 it\u2019s moved to cold storage and can be retrieved on request. To see what extended history is available on your current plan, go to **Settings \u2192 Reporting \u2192 Extended history**. If your plan includes a longer retention period, you\u2019ll see it there and the data will appear on the dashboard automatically. If not, you can submit a request for the older data from that screen. Note that data that falls outside even the extended retention window may only be available if it was created after your workspace was set up.\\n\\nLet me know if you need help locating the request option or have any other questions!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_0490b7d4-4eb9-4a1c-bd02-7a41a5d4d3f5",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452431,
+      "id": "chatcmpl-72e6f821-c065-4117-932a-8de2e8bd27f0",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_f640395b96",
+      "usage": {
+        "completion_time": 0.937004297,
+        "completion_tokens": 320,
+        "completion_tokens_details": {
+          "reasoning_tokens": 157
+        },
+        "prompt_time": 0.763770804,
+        "prompt_tokens": 1048,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.309666002,
+        "total_time": 1.700775101,
+        "total_tokens": 1368
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m14qnxe07sszanen8sqeby",
+        "seed": 444891151
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! Data that\u2019s older than your plan\u2019s default retention window isn\u2019t deleted \u2013 it\u2019s moved to cold storage and can be retrieved on request. To see what extended history is available on your current plan, go to **Settings \u2192 Reporting \u2192 Extended history**. If your plan includes a longer retention period, you\u2019ll see it there and the data will appear on the dashboard automatically. If not, you can submit a request for the older data from that screen. Note that data that falls outside even the extended retention window may only be available if it was created after your workspace was set up.\n\nLet me know if you need help locating the request option or have any other questions!"
+        },
+        "id": "fc_0490b7d4-4eb9-4a1c-bd02-7a41a5d4d3f5",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 320,
+      "prompt_tokens": 1048
+    }
+  },
+  "retry_after": null
+}

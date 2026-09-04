@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:15:32.951093Z",
+  "failure_detail": null,
+  "fingerprint": "e8e24284ea160e4107c67b8c5422ed292efe910581fd04da5a8f1d75b2cdd19c",
+  "outcome": "response",
+  "recording_id": "turn/3fca3f77507d5a3b/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Does the importer match columns by header name automatically, or do I need to map them manually during the import?\" The policy says: \"The contact importer reads a CSV file and matches columns by header name, not by position, so the columns can be in any order as long as the headers match.\" So answer: It matches automatically by header name; no manual mapping needed. Provide short answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"The importer automatically matches columns by their header names \u2013 you don\u2019t need to map them manually. As long as the CSV includes the expected headers (e.g.,\u202femail, name, company, etc.), the order can be any you like.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_83179277-c40d-424b-8f3b-c1bec6e3eab8",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372932,
+      "id": "chatcmpl-ffaf513f-9323-4396-86ed-5494345d9b77",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_90620edd96",
+      "usage": {
+        "completion_time": 0.360772947,
+        "completion_tokens": 171,
+        "completion_tokens_details": {
+          "reasoning_tokens": 97
+        },
+        "prompt_time": 0.051704574,
+        "prompt_tokens": 1045,
+        "queue_time": 0.362638398,
+        "total_time": 0.412477521,
+        "total_tokens": 1216
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnan31ehrbxfmj43n9aybs",
+        "seed": 125511377
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "The importer automatically matches columns by their header names \u2013 you don\u2019t need to map them manually. As long as the CSV includes the expected headers (e.g.,\u202femail, name, company, etc.), the order can be any you like."
+        },
+        "id": "fc_83179277-c40d-424b-8f3b-c1bec6e3eab8",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 171,
+      "prompt_tokens": 1045
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T17:54:20.829832Z",
+  "failure_detail": null,
+  "fingerprint": "9d7c9b5f970956f334c01648dc0bcb2e473a9c5a8eb8e858d26805f4eaecb4a4",
+  "outcome": "response",
+  "recording_id": "turn/4bee90a9fc8fd70d/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Is it card-only, or can we pay the annual invoice by bank transfer instead?\" They ask about payment methods: is it card-only, or can we pay annual invoice by bank transfer? According to DOC-005 part 2: Annual contracts can be paid by bank transfer against an invoice, arranged through support before contract starts, not self-service. Also DOC-005 part 3: Monthly plans are card-only; a workspace wanting bank transfer needs to be on an annual term first. So answer: For annual contracts, you can pay by bank transfer via invoice, arranged with support; monthly plans are card-only. So answer accordingly. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Annual contracts can be paid by bank transfer against an invoice \u2013 you\u2019ll need to arrange this with our billing/support team before the contract starts. Monthly plans, however, are card\u2011only, so a workspace that wants to use a bank transfer must be on an annual term.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_649b681e-68b6-43b5-a4ed-fd9497b6b77f",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371660,
+      "id": "chatcmpl-ec060f9f-b6f1-41b7-96a3-65014d9a907c",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_84bf0227ec",
+      "usage": {
+        "completion_time": 0.553211127,
+        "completion_tokens": 226,
+        "completion_tokens_details": {
+          "reasoning_tokens": 146
+        },
+        "prompt_time": 0.043724015,
+        "prompt_tokens": 1052,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.157360116,
+        "total_time": 0.596935142,
+        "total_tokens": 1278
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hm3v2veyzbr839yd65ch5c",
+        "seed": 1290405185
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Annual contracts can be paid by bank transfer against an invoice \u2013 you\u2019ll need to arrange this with our billing/support team before the contract starts. Monthly plans, however, are card\u2011only, so a workspace that wants to use a bank transfer must be on an annual term."
+        },
+        "id": "fc_649b681e-68b6-43b5-a4ed-fd9497b6b77f",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 226,
+      "prompt_tokens": 1052
+    }
+  },
+  "retry_after": null
+}

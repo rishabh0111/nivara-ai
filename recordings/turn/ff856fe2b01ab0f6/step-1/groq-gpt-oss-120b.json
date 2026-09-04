@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:17:32.101587Z",
+  "failure_detail": null,
+  "fingerprint": "776edefea64f6a4d53537e6a765e8bc483dd46aa70118612a6099d8b499add9e",
+  "outcome": "response",
+  "recording_id": "turn/ff856fe2b01ab0f6/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user asks: \"group report by tag?\" Likely they want to know how to group a report by tag. The policy excerpts contain info about building a custom report grouped by tag. So we can answer using those excerpts. Provide short answer: go to Reports \u2192 Custom \u2192 New report, select Tag as group-by dimension, then you get rows per tag, tickets counted under each tag, etc. Also can save and schedule. So answer accordingly.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! To create a report grouped by tag, go to **Reports \u2192 Custom \u2192 New report** and choose **Tag** as the group\u2011by dimension. The report will show one row per tag, with the same metrics (count, average resolution time, etc.) that the default reports show per status. If a ticket has multiple tags, it will be counted once under each tag. Once you\u2019ve set the grouping and metrics you want, you can save and schedule the custom report just like any built\u2011in report.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_9e54d269-18bc-4fda-b1fd-88af36775ef1",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452252,
+      "id": "chatcmpl-187b2cac-ddec-4b4d-917c-6dde1643499b",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_626f3fc5e0",
+      "usage": {
+        "completion_time": 0.47743198,
+        "completion_tokens": 222,
+        "completion_tokens_details": {
+          "reasoning_tokens": 92
+        },
+        "prompt_time": 0.042665195,
+        "prompt_tokens": 1037,
+        "queue_time": 0.045170653,
+        "total_time": 0.520097175,
+        "total_tokens": 1259
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0z9txe9hv3shz8f8ng63r",
+        "seed": 1754719024
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! To create a report grouped by tag, go to **Reports \u2192 Custom \u2192 New report** and choose **Tag** as the group\u2011by dimension. The report will show one row per tag, with the same metrics (count, average resolution time, etc.) that the default reports show per status. If a ticket has multiple tags, it will be counted once under each tag. Once you\u2019ve set the grouping and metrics you want, you can save and schedule the custom report just like any built\u2011in report."
+        },
+        "id": "fc_9e54d269-18bc-4fda-b1fd-88af36775ef1",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 222,
+      "prompt_tokens": 1037
+    }
+  },
+  "retry_after": null
+}

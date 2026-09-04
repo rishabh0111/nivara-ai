@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:28:34.139277Z",
+  "failure_detail": null,
+  "fingerprint": "ab84a2f5957707d8be77ad61e8670912cbfb13c2724676cdcfdfb47c65374808",
+  "outcome": "response",
+  "recording_id": "turn/ad9df3a4bfc3c4f3/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer about pagination flow. The policy excerpts provide info. We should give short answer: list endpoints return one page, with next_cursor. Need to follow next_cursor until absent. Provide loop pattern. So answer: check next_cursor, loop. Provide example. No mention of policy. Just answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! For list endpoints you should always loop through the pages using the `next_cursor` field. After each request, check if the response contains a `next_cursor`. If it does, make another request with that cursor as the `cursor` parameter. Repeat until the response has no `next_cursor` \u2013 that means you\u2019ve reached the last page. This is the standard pagination loop that every list endpoint expects. If you\u2019re only pulling the first page, you\u2019ll miss records once the result set grows beyond one page. Let me know if you need a code snippet or further help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_ee792656-2bcf-4252-a8af-e1b444ad4f42",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460114,
+      "id": "chatcmpl-e9a420d5-4805-42b4-bcc4-8a39a68c2a9e",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_a4315eb300",
+      "usage": {
+        "completion_time": 0.214682227,
+        "completion_tokens": 203,
+        "completion_tokens_details": {
+          "reasoning_tokens": 63
+        },
+        "prompt_time": 0.066225538,
+        "prompt_tokens": 1111,
+        "queue_time": 0.30890514,
+        "total_time": 0.280907765,
+        "total_tokens": 1314
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8f7kxew5apqvff8xem7cf",
+        "seed": 454049429
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! For list endpoints you should always loop through the pages using the `next_cursor` field. After each request, check if the response contains a `next_cursor`. If it does, make another request with that cursor as the `cursor` parameter. Repeat until the response has no `next_cursor` \u2013 that means you\u2019ve reached the last page. This is the standard pagination loop that every list endpoint expects. If you\u2019re only pulling the first page, you\u2019ll miss records once the result set grows beyond one page. Let me know if you need a code snippet or further help!"
+        },
+        "id": "fc_ee792656-2bcf-4252-a8af-e1b444ad4f42",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 203,
+      "prompt_tokens": 1111
+    }
+  },
+  "retry_after": null
+}

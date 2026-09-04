@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:25:44.868661Z",
+  "failure_detail": null,
+  "fingerprint": "67c54d66323decdb7fd243b552958d6daded1d4cf03e9b38956ff095cd2c127d",
+  "outcome": "response",
+  "recording_id": "turn/699366e09df0672d/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"I have a spreadsheet of a few hundred contacts I want to bulk import, but I don't see documented anywhere which column names the importer actually expects \u2014 name, email, something else?\" We have policy excerpts that mention required headers: email, name, company; optional: phone, title, any custom field defined. Also mention that importer reads CSV and matches columns by header name, not by position. Also mention that downloading sample template gives exact header spelling. So answer: required headers: email, name, company. Optional: phone, title, custom fields. Importer matches by header name. Provide guidance. Also mention that extra columns are ignored. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! For a bulk import you\u2019ll need at least the following headers in your CSV:\\n\\n* **email** \u2013 the contact\u2019s email address\\n* **name** \u2013 the contact\u2019s full name\\n* **company** \u2013 the company the contact belongs to\\n\\nYou can also include optional columns such as **phone**, **title**, or any custom field that already exists in your workspace \u2013 just use the exact field name. The importer matches columns by header name, not by position, so the order doesn\u2019t matter. Any extra columns that aren\u2019t recognised will be ignored. If you want to be 100\u202f% sure of the exact spelling, download the sample template from the import screen. Let me know if you need help preparing the file!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_8bbeca61-692a-43fb-8c40-caec2a62d20f",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459944,
+      "id": "chatcmpl-a14a6b7a-daa3-4843-a2b5-3188b53a9172",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_996f667773",
+      "usage": {
+        "completion_time": 0.391948186,
+        "completion_tokens": 320,
+        "completion_tokens_details": {
+          "reasoning_tokens": 146
+        },
+        "prompt_time": 0.053573129,
+        "prompt_tokens": 1051,
+        "queue_time": 0.312220989,
+        "total_time": 0.445521315,
+        "total_tokens": 1371
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8a24je8jreayp87eas5f6",
+        "seed": 632295785
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! For a bulk import you\u2019ll need at least the following headers in your CSV:\n\n* **email** \u2013 the contact\u2019s email address\n* **name** \u2013 the contact\u2019s full name\n* **company** \u2013 the company the contact belongs to\n\nYou can also include optional columns such as **phone**, **title**, or any custom field that already exists in your workspace \u2013 just use the exact field name. The importer matches columns by header name, not by position, so the order doesn\u2019t matter. Any extra columns that aren\u2019t recognised will be ignored. If you want to be 100\u202f% sure of the exact spelling, download the sample template from the import screen. Let me know if you need help preparing the file!"
+        },
+        "id": "fc_8bbeca61-692a-43fb-8c40-caec2a62d20f",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 320,
+      "prompt_tokens": 1051
+    }
+  },
+  "retry_after": null
+}

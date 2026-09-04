@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:02:44.161372Z",
+  "failure_detail": null,
+  "fingerprint": "2ccc2667c552e860055b0b40ade73fe7e2a77e0edd6942378cf1c00f6c9fd845",
+  "outcome": "response",
+  "recording_id": "turn/61e35bb06b0cf6a5/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer using policy excerpts. The question: \"I can't find the SSO sign-in option on the login page \u2014 was my account actually provisioned by the identity provider sync?\" This is about SSO sign-in option missing, asking if account was provisioned. According to DOC-010 parts: SSO sign-in appears only for email domain configured and after identity provider sync created account. Admin can check in Settings \u2192 People; absence means sync hasn't created it yet. Also new hire may be signing before sync or account not exist on identity provider side. So answer: explain that sign-in option appears only after sync, you can check in Settings \u2192 People, if not there then sync hasn't created it yet. Possibly advise to wait for next sync or ensure account exists on IdP. Provide short answer.\n\nWe can answer directly, no need to escalate. Use post_reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"The SSO sign\u2011in button only shows up for users whose account has already been created by the identity\u2011provider sync. If your account isn\u2019t listed in **Settings \u2192 People** (SSO\u2011provisioned accounts are marked with the identity provider name), the sync hasn\u2019t created it yet. This can happen if you\u2019re a new hire signing in before the next scheduled sync or if the account doesn\u2019t exist on the IdP side. You\u2019ll need to wait for the sync to run or have an admin verify the account exists in the IdP and then re\u2011run the sync.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_1701d720-32dc-443d-9289-f6f3490a90df",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372163,
+      "id": "chatcmpl-e684fc24-32f5-41ff-8136-26003c64e4db",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_87b3c396db",
+      "usage": {
+        "completion_time": 1.226787611,
+        "completion_tokens": 323,
+        "completion_tokens_details": {
+          "reasoning_tokens": 178
+        },
+        "prompt_time": 0.100546088,
+        "prompt_tokens": 1063,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.275037275,
+        "total_time": 1.327333699,
+        "total_tokens": 1386
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmk5tgetxby943yt18jv7p",
+        "seed": 93839595
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "The SSO sign\u2011in button only shows up for users whose account has already been created by the identity\u2011provider sync. If your account isn\u2019t listed in **Settings \u2192 People** (SSO\u2011provisioned accounts are marked with the identity provider name), the sync hasn\u2019t created it yet. This can happen if you\u2019re a new hire signing in before the next scheduled sync or if the account doesn\u2019t exist on the IdP side. You\u2019ll need to wait for the sync to run or have an admin verify the account exists in the IdP and then re\u2011run the sync."
+        },
+        "id": "fc_1701d720-32dc-443d-9289-f6f3490a90df",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 323,
+      "prompt_tokens": 1063
+    }
+  },
+  "retry_after": null
+}

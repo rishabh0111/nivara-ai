@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:03:57.293856Z",
+  "failure_detail": null,
+  "fingerprint": "c157292832e56392bc31cc54aa8973ee2807fa1a375cb0f8027247dd266b80f9",
+  "outcome": "response",
+  "recording_id": "turn/bc1190fd19bd94ea/consistency/sample-3/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see the conversation context. The user says: \"This is confusing my whole team right now and causing missed deadlines \u2014 how do I fix the timezone immediately?\" Likely they are asking about fixing timezone display. The policy excerpts include info on timestamps, workspace default, personal timezone. The answer: set personal timezone in profile settings to override workspace default. Also can change workspace default in Settings \u2192 General. To fix immediately, they can update personal timezone in profile settings. Provide steps.\n\nWe have sufficient info from DOC-034 parts. So we can answer.\n\nWe need to post_reply with concise answer.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! To get the timestamps showing the correct time right away, update the timezone setting in your personal profile:\\n\\n1. Click your avatar \u2192 **Settings** \u2192 **Profile**.\\n2. In the **Timezone** field, select the correct zone for you (or your team member).\\n3. Save the changes.\\n\\nThat personal timezone overrides the workspace default, so the timestamps will instantly reflect the new setting for that account. If you want to change the default for everyone, go to **Settings** \u2192 **General** and update the workspace default timezone there.\\n\\nLet me know if you need any more help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_36b85a21-9ecd-47ab-a48b-e54669509543",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451437,
+      "id": "chatcmpl-8f98377f-9c74-435b-837b-7b457eae8b45",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_19b184c447",
+      "usage": {
+        "completion_time": 0.716119262,
+        "completion_tokens": 278,
+        "completion_tokens_details": {
+          "reasoning_tokens": 123
+        },
+        "prompt_time": 0.049162313,
+        "prompt_tokens": 1059,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.362893745,
+        "total_time": 0.765281575,
+        "total_tokens": 1337
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m06dhkeha860hqkqj8ntg7",
+        "seed": 980629945
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! To get the timestamps showing the correct time right away, update the timezone setting in your personal profile:\n\n1. Click your avatar \u2192 **Settings** \u2192 **Profile**.\n2. In the **Timezone** field, select the correct zone for you (or your team member).\n3. Save the changes.\n\nThat personal timezone overrides the workspace default, so the timestamps will instantly reflect the new setting for that account. If you want to change the default for everyone, go to **Settings** \u2192 **General** and update the workspace default timezone there.\n\nLet me know if you need any more help!"
+        },
+        "id": "fc_36b85a21-9ecd-47ab-a48b-e54669509543",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 278,
+      "prompt_tokens": 1059
+    }
+  },
+  "retry_after": null
+}

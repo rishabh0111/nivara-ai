@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:22:28.103650Z",
+  "failure_detail": null,
+  "fingerprint": "f2fe0a381b021e7e245f2f5c1cb2f9eb7f743575c2056dfc5f1e41e151404b4a",
+  "outcome": "response",
+  "recording_id": "turn/4bee90a9fc8fd70d/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Is it card-only, or can we pay the annual invoice by bank transfer instead?\" They want to know if annual invoice can be paid by bank transfer. According to DOC-005 part 2: Annual contracts can also be paid by bank transfer against an invoice, arranged through support before contract starts. So answer: Yes, you can pay annual invoice by bank transfer, but must arrange with support before contract starts. Also monthly plans are card-only. So answer accordingly.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 for an annual contract you can pay the invoice by bank transfer. You\u2019ll need to arrange this with our billing team before the contract starts; it\u2019s not a self\u2011service option. Monthly plans, on the other hand, are card\u2011only.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_642e8f36-e4e8-4f9c-8232-8440258a4158",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459748,
+      "id": "chatcmpl-dafb3843-db47-42f9-8a09-def820f8307a",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_334cc21c60",
+      "usage": {
+        "completion_time": 0.199342678,
+        "completion_tokens": 182,
+        "completion_tokens_details": {
+          "reasoning_tokens": 108
+        },
+        "prompt_time": 0.061095525,
+        "prompt_tokens": 1052,
+        "queue_time": 0.310176928,
+        "total_time": 0.260438203,
+        "total_tokens": 1234
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m84264eqnsb5z2gz8v6z2e",
+        "seed": 281872520
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 for an annual contract you can pay the invoice by bank transfer. You\u2019ll need to arrange this with our billing team before the contract starts; it\u2019s not a self\u2011service option. Monthly plans, on the other hand, are card\u2011only."
+        },
+        "id": "fc_642e8f36-e4e8-4f9c-8232-8440258a4158",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 182,
+      "prompt_tokens": 1052
+    }
+  },
+  "retry_after": null
+}

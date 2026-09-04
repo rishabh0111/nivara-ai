@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:27:13.677407Z",
+  "failure_detail": null,
+  "fingerprint": "232628ae9b273917401857c46f88827c181258a1f4eec529f378273f8f655b42",
+  "outcome": "response",
+  "recording_id": "turn/84820213d9e51c55/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The customer asks: \"outage caused downtime, uptime guarantee/credit?\" They want to know about uptime guarantee and credit for downtime. According to DOC-050 parts: credit calculation, guarantee varies by contract, need to reference contract, can ask support to confirm incident's measured uptime impact. So we can answer: credits are calculated as percentage of billing period charges based on how much uptime fell short, per contract terms; refer to their contract for exact percentages; we can confirm incident's impact against it. Provide short answer. No need to escalate. Provide answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there!\u202fIf your workspace\u2019s contract includes an uptime guarantee, any credit for downtime is calculated as a percentage of that billing period\u2019s charges, scaled to how far the actual uptime fell short of the guaranteed level, and the credit is applied to a future invoice.\\n\\nThe exact guarantee percentage and credit schedule are set out in your order form or contract (they differ by plan tier), so you\u2019ll need to check those documents for the specific numbers that apply to you. If you\u2019d like, we can also confirm the measured uptime impact of the recent incident against your contract\u2019s schedule.\\n\\nLet us know if you\u2019d like us to verify the incident\u2019s impact or if you have any other questions!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_68395f4f-cc3f-41c3-a631-54a5077092e0",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452833,
+      "id": "chatcmpl-aa1f849f-893e-4775-a14e-bc384d30dab6",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_f640395b96",
+      "usage": {
+        "completion_time": 0.665178857,
+        "completion_tokens": 291,
+        "completion_tokens_details": {
+          "reasoning_tokens": 123
+        },
+        "prompt_time": 1.923160276,
+        "prompt_tokens": 1059,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.307503313,
+        "total_time": 2.588339133,
+        "total_tokens": 1350
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1gz72ey7rpcnteyvvrrmc",
+        "seed": 332430496
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there!\u202fIf your workspace\u2019s contract includes an uptime guarantee, any credit for downtime is calculated as a percentage of that billing period\u2019s charges, scaled to how far the actual uptime fell short of the guaranteed level, and the credit is applied to a future invoice.\n\nThe exact guarantee percentage and credit schedule are set out in your order form or contract (they differ by plan tier), so you\u2019ll need to check those documents for the specific numbers that apply to you. If you\u2019d like, we can also confirm the measured uptime impact of the recent incident against your contract\u2019s schedule.\n\nLet us know if you\u2019d like us to verify the incident\u2019s impact or if you have any other questions!"
+        },
+        "id": "fc_68395f4f-cc3f-41c3-a631-54a5077092e0",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 291,
+      "prompt_tokens": 1059
+    }
+  },
+  "retry_after": null
+}

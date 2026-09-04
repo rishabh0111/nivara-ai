@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:19:06.875445Z",
+  "failure_detail": null,
+  "fingerprint": "431285557c2b91b61d4333b0804f7c86f7651ab5e08424a2b4dbebd23f3b2517",
+  "outcome": "response",
+  "recording_id": "turn/bba9d4e617f31bc0/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"does the export cover closed and archived records or just what's active right now?\" This matches DOC-018: standard export includes every record in current view, including archived and closed ones, unless filter narrows it. Also note that active queue view hides closed records but export filter independent. So answer: includes closed and archived unless you filter them out. Provide short answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"A standard export pulls every record that\u2019s in the current view \u2013 that means it includes closed and archived records as well, unless you apply a filter on the export screen that specifically narrows the status. The view you were looking at (e.g., the active queue) doesn\u2019t limit the export; you\u2019d need to set a filter to exclude closed/archived items.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_2d443b05-b5ac-447c-8e16-83bbe59e0e87",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373146,
+      "id": "chatcmpl-16469053-3de3-4100-b312-a263a99d5fb2",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_0adba2bb92",
+      "usage": {
+        "completion_time": 0.404676708,
+        "completion_tokens": 191,
+        "completion_tokens_details": {
+          "reasoning_tokens": 91
+        },
+        "prompt_time": 0.302992264,
+        "prompt_tokens": 1032,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 1.250430371,
+        "total_time": 0.707668972,
+        "total_tokens": 1223
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnh56aehftnxajxpxahqbt",
+        "seed": 865572377
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "A standard export pulls every record that\u2019s in the current view \u2013 that means it includes closed and archived records as well, unless you apply a filter on the export screen that specifically narrows the status. The view you were looking at (e.g., the active queue) doesn\u2019t limit the export; you\u2019d need to set a filter to exclude closed/archived items."
+        },
+        "id": "fc_2d443b05-b5ac-447c-8e16-83bbe59e0e87",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 191,
+      "prompt_tokens": 1032
+    }
+  },
+  "retry_after": null
+}

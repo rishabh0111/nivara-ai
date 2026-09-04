@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:38:20.162870Z",
+  "failure_detail": null,
+  "fingerprint": "fd2ccae137d89ee120fdc6ceb938c95dca34afa6765fc37bd02e18572508d6f8",
+  "outcome": "response",
+  "recording_id": "turn/1717c21f01c96668/consistency/sample-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see the conversation. The user says: \"SSO pointing somewhere wrong, help\". Likely they have an SSO configuration pointing to wrong identity provider domain. The policy excerpts include:\n\n- DOC-061: reporting unrecognised change to SSO configuration. It says: An SSO configuration pointing at an identity provider domain the workspace does not recognise is treated as potential compromise. And admin can revert SSO config from Settings \u2192 Security \u2192 SSO, and should report to support.\n\n- Also DOC-008: troubleshooting redirect loop: check callback URL matches.\n\nUser's short message: \"SSO pointing somewhere wrong, help\". Could be they have wrong SSO config. According to policy, we can advise: admin should revert config and report to support. That's covered.\n\nWe need to answer using policy excerpts only. Provide short answer: go to Settings \u2192 Security \u2192 SSO, revert to correct provider or disable, then report to support. That matches DOC-061.\n\nThus we can post reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If the SSO configuration is pointing to an unexpected identity\u2011provider domain, it may indicate a compromised admin setting. An admin who still has access should go to **Settings \u2192 Security \u2192 SSO** and either revert the configuration to the correct provider or disable SSO entirely. After fixing it, please report the change to our support team so a reviewer can check when and how the setting was altered and which account made the change.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_97fdfd64-0c99-4f07-bbcb-7d532c2a2060",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453500,
+      "id": "chatcmpl-0bf3c88c-738c-45f8-9782-19aa24837ccf",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4b2f03d631",
+      "usage": {
+        "completion_time": 0.673435193,
+        "completion_tokens": 316,
+        "completion_tokens_details": {
+          "reasoning_tokens": 205
+        },
+        "prompt_time": 0.068799725,
+        "prompt_tokens": 1182,
+        "queue_time": 0.304975003,
+        "total_time": 0.742234918,
+        "total_tokens": 1498
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m25c4bey9rgnamq9xaty66",
+        "seed": 460129580
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If the SSO configuration is pointing to an unexpected identity\u2011provider domain, it may indicate a compromised admin setting. An admin who still has access should go to **Settings \u2192 Security \u2192 SSO** and either revert the configuration to the correct provider or disable SSO entirely. After fixing it, please report the change to our support team so a reviewer can check when and how the setting was altered and which account made the change."
+        },
+        "id": "fc_97fdfd64-0c99-4f07-bbcb-7d532c2a2060",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 316,
+      "prompt_tokens": 1182
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:32:42.053116Z",
+  "failure_detail": null,
+  "fingerprint": "2352fd0de6e8e2d0c020eb66f78fade3996ea6589b049c4cd43f48c8b28e3dfa",
+  "outcome": "response",
+  "recording_id": "turn/00ee97633ce3e981/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"My manager's scheduled report stopped arriving and they asked me to check whether it's still configured to run.\" We need to check if scheduled report still configured. According to DOC-040 part 1: Settings \u2192 Reports \u2192 Scheduled shows every scheduled report and its run history, including outcome of most recent run. So answer: go to Settings > Reports > Scheduled to see if report is still scheduled, check run history. Also mention that if it shows disabled or failed run, etc. Provide guidance. No escalation needed.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! To see if the report is still set up, go to **Settings \u2192 Reports \u2192 Scheduled**. There you\u2019ll see every scheduled report and its run history. Look for your manager\u2019s report and check the most recent run \u2013 if it\u2019s marked as disabled or shows a failed run, that\u2019s why it stopped. If it\u2019s still listed and the run succeeded, the issue might be with the recipient list (e.g., a bounced email). Let me know what you find!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_17549266-4247-4874-84df-deecc2fe68c3",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460361,
+      "id": "chatcmpl-22faaf52-6456-4446-990a-af52fe3760b7",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_66f3850a1a",
+      "usage": {
+        "completion_time": 0.245581373,
+        "completion_tokens": 235,
+        "completion_tokens_details": {
+          "reasoning_tokens": 115
+        },
+        "prompt_time": 0.236280794,
+        "prompt_tokens": 1031,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.306668054,
+        "total_time": 0.481862167,
+        "total_tokens": 1266
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8ps4gezkabnb582ebkw6b",
+        "seed": 837593792
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! To see if the report is still set up, go to **Settings \u2192 Reports \u2192 Scheduled**. There you\u2019ll see every scheduled report and its run history. Look for your manager\u2019s report and check the most recent run \u2013 if it\u2019s marked as disabled or shows a failed run, that\u2019s why it stopped. If it\u2019s still listed and the run succeeded, the issue might be with the recipient list (e.g., a bounced email). Let me know what you find!"
+        },
+        "id": "fc_17549266-4247-4874-84df-deecc2fe68c3",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 235,
+      "prompt_tokens": 1031
+    }
+  },
+  "retry_after": null
+}

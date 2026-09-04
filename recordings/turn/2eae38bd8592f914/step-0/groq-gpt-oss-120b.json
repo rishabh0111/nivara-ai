@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:01:37.355277Z",
+  "failure_detail": null,
+  "fingerprint": "a9818c19dd7ac045506b7c6524f0ca6805ecf4d7db48f78246ecf91c3034905b",
+  "outcome": "response",
+  "recording_id": "turn/2eae38bd8592f914/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"We're mid-rollout and I need to know urgently whether enabling SSO now will suddenly lock out everyone who hasn't been migrated yet.\"\n\nWe have policy excerpts: DOC-009 parts 1-3. They explain that enabling SSO does not immediately disable password sign-in; both methods coexist until admin turns password sign-in off via Require SSO. Also, forcing SSO before everyone provisioned would lock out unprovisioned staff. So answer: Enabling SSO alone will not lock out unprovisioned staff; they can still sign in with password until you enable Require SSO. So you can enable SSO now, but ensure you don't turn on Require SSO until all staff have been provisioned and confirmed.\n\nThus answer: No, just enabling SSO won't lock them out; only when you enable Require SSO will password sign-in be disabled. Provide guidance.\n\nWe must post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Enabling SSO on its own won\u2019t lock out staff who haven\u2019t been migrated yet. When you turn SSO on, password sign\u2011in remains available for existing accounts until you later enable the **Require SSO** setting (Settings \u2192 Security \u2192 SSO \u2192 Require SSO). Only at that point will password login be disabled for the whole workspace. So you can enable SSO now and continue the rollout, but wait to flip the \u201cRequire SSO\u201d switch until every staff member has been provisioned and confirmed they can sign in via SSO.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_33348473-e1b4-45ca-adf2-0df71ea129e6",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372097,
+      "id": "chatcmpl-6283f76e-4143-4063-b7fb-80c5b23b6135",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5d041d5b40",
+      "usage": {
+        "completion_time": 0.728424594,
+        "completion_tokens": 334,
+        "completion_tokens_details": {
+          "reasoning_tokens": 196
+        },
+        "prompt_time": 0.173759283,
+        "prompt_tokens": 1060,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.162161891,
+        "total_time": 0.902183877,
+        "total_tokens": 1394
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmh56repcbn24fyv1y4pf8",
+        "seed": 1152412142
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Enabling SSO on its own won\u2019t lock out staff who haven\u2019t been migrated yet. When you turn SSO on, password sign\u2011in remains available for existing accounts until you later enable the **Require SSO** setting (Settings \u2192 Security \u2192 SSO \u2192 Require SSO). Only at that point will password login be disabled for the whole workspace. So you can enable SSO now and continue the rollout, but wait to flip the \u201cRequire SSO\u201d switch until every staff member has been provisioned and confirmed they can sign in via SSO."
+        },
+        "id": "fc_33348473-e1b4-45ca-adf2-0df71ea129e6",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 334,
+      "prompt_tokens": 1060
+    }
+  },
+  "retry_after": null
+}

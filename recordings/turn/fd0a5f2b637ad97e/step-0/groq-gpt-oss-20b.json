@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:21:41.234441Z",
+  "failure_detail": null,
+  "fingerprint": "d1554345899973cfcb9dd58dc1d212d5d03e89f589a01f6661802d92d0284af7",
+  "outcome": "response",
+  "recording_id": "turn/fd0a5f2b637ad97e/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: does switching to annual reset billing date or just next cycle? According to DOC-002 part 2: Switching to annual takes effect immediately: workspace is charged annual rate on confirmation, prorated against any monthly charge already paid for current period, and renewal date resets to one year from the switch. It does not wait for current monthly cycle to finish. So answer: resets renewal date to one year from switch. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Switching to annual billing takes effect immediately. The workspace is charged the annual rate right away (prorated against any monthly charge already paid for the current period) and the renewal date resets to one year from the date you switch. It does not wait for the current monthly cycle to finish.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_9c0448a4-7ce9-4ad7-986f-214cc0aac65c",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459701,
+      "id": "chatcmpl-7d35c407-00f6-4cb8-b78a-b4e3307311a5",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9340e7d14d",
+      "usage": {
+        "completion_time": 0.187471353,
+        "completion_tokens": 173,
+        "completion_tokens_details": {
+          "reasoning_tokens": 92
+        },
+        "prompt_time": 0.138122751,
+        "prompt_tokens": 1081,
+        "queue_time": 0.292087491,
+        "total_time": 0.325594104,
+        "total_tokens": 1254
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m82m78eyztccamr8ks9w93",
+        "seed": 691903974
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Switching to annual billing takes effect immediately. The workspace is charged the annual rate right away (prorated against any monthly charge already paid for the current period) and the renewal date resets to one year from the date you switch. It does not wait for the current monthly cycle to finish."
+        },
+        "id": "fc_9c0448a4-7ce9-4ad7-986f-214cc0aac65c",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 173,
+      "prompt_tokens": 1081
+    }
+  },
+  "retry_after": null
+}

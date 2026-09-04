@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:23:46.039705Z",
+  "failure_detail": null,
+  "fingerprint": "250ba9aae0ee58be27b54d3a1f70daf1b61da4d9d214a14b592e7ed4b0184c65",
+  "outcome": "response",
+  "recording_id": "turn/eeb9573d314a469e/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer the question: \"Our IT lead is setting up SSO for the first time and asked me to check whether a login loop back to the sign-in page usually means the redirect URL is misconfigured.\"\n\nWe have policy excerpts that say: \"A sign-in that returns to the login page immediately after the identity provider approves it is almost always a redirect URL mismatch rather than a credentials problem.\" So answer: yes, it's usually a redirect URL mismatch. Provide guidance: check callback URL matches reply URL exactly, trailing slash, http/https mismatch, etc. Provide steps: copy callback URL, compare, re-save. So we can answer.\n\nWe must not mention policy or instructions. Just answer. Use short and specific. So we will post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 a loop that sends you back to the sign\u2011in page right after the identity provider approves the login is almost always caused by a redirect URL mismatch. Check that the callback URL shown in Settings\u202f\u2192\u202fSecurity\u202f\u2192\u202fSSO\u202f\u2192\u202fConfiguration matches the reply URL (or redirect URI) you\u2019ve set up on the identity provider side exactly \u2013 including the trailing slash and http/https scheme. If there\u2019s any difference, update the provider\u2019s configuration and re\u2011save it, then try signing in again.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c9660c4e-8e4f-4f0d-93c9-7a766f5619a7",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459826,
+      "id": "chatcmpl-1c2457c0-fea0-4d50-9850-39085f47231e",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_8d13edce1d",
+      "usage": {
+        "completion_time": 0.316417592,
+        "completion_tokens": 282,
+        "completion_tokens_details": {
+          "reasoning_tokens": 154
+        },
+        "prompt_time": 0.060344126,
+        "prompt_tokens": 1108,
+        "queue_time": 0.279933632,
+        "total_time": 0.376761718,
+        "total_tokens": 1390
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m86e6mebpr4ncrxyp99n9c",
+        "seed": 1471468936
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 a loop that sends you back to the sign\u2011in page right after the identity provider approves the login is almost always caused by a redirect URL mismatch. Check that the callback URL shown in Settings\u202f\u2192\u202fSecurity\u202f\u2192\u202fSSO\u202f\u2192\u202fConfiguration matches the reply URL (or redirect URI) you\u2019ve set up on the identity provider side exactly \u2013 including the trailing slash and http/https scheme. If there\u2019s any difference, update the provider\u2019s configuration and re\u2011save it, then try signing in again."
+        },
+        "id": "fc_c9660c4e-8e4f-4f0d-93c9-7a766f5619a7",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 282,
+      "prompt_tokens": 1108
+    }
+  },
+  "retry_after": null
+}

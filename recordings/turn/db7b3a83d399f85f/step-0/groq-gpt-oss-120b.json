@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:07:54.250959Z",
+  "failure_detail": null,
+  "fingerprint": "24cf7bedcf82f14b1d061f5754816ba48ae166c2ea3bab7757940cba54e2c793",
+  "outcome": "response",
+  "recording_id": "turn/db7b3a83d399f85f/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer using policy excerpts. The question: \"I currently receive email notifications for a wide range of activity across the workspace, and I'd like to reduce that to only tickets specifically assigned to me \u2014 where is that configured?\" This is about notification email settings. The policy excerpts provide answer: Notification email settings are per person, in Profile \u2192 Notifications, separate from workspace-wide rules. Each notification type can be turned off independently \u2014 assignment, mention, status change, digest. To get only assigned tickets, leave assignment notifications on and turn others off. Changes take effect immediately and only affect the account.\n\nThus we can answer with that info. Provide short specific answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can adjust this in your own profile. Open **Profile \u2192 Notifications** \u2013 the settings are per\u2011person and don\u2019t require admin changes. Turn off the notification types you don\u2019t want (e.g., mentions, status\u2011change, digest) and leave **Assignment** notifications on. That way you\u2019ll only get emails for tickets assigned to you. Changes take effect immediately and only affect your account.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_60479ac2-eb41-4fbe-adf5-e670e930c62d",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451674,
+      "id": "chatcmpl-febcb8f6-8b51-44bc-9276-b668ecff5ff2",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_df9620fe21",
+      "usage": {
+        "completion_time": 0.892887906,
+        "completion_tokens": 244,
+        "completion_tokens_details": {
+          "reasoning_tokens": 138
+        },
+        "prompt_time": 0.74220111,
+        "prompt_tokens": 1045,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.281624921,
+        "total_time": 1.635089016,
+        "total_tokens": 1289
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0dm79esvv2qhfrz3xenqe",
+        "seed": 1734108861
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can adjust this in your own profile. Open **Profile \u2192 Notifications** \u2013 the settings are per\u2011person and don\u2019t require admin changes. Turn off the notification types you don\u2019t want (e.g., mentions, status\u2011change, digest) and leave **Assignment** notifications on. That way you\u2019ll only get emails for tickets assigned to you. Changes take effect immediately and only affect your account."
+        },
+        "id": "fc_60479ac2-eb41-4fbe-adf5-e670e930c62d",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 244,
+      "prompt_tokens": 1045
+    }
+  },
+  "retry_after": null
+}

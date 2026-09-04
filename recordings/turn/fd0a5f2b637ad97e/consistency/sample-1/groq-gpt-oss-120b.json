@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T17:42:04.875428Z",
+  "failure_detail": null,
+  "fingerprint": "57cdfcc2d66b98dfbf33d98ebd2dea489a0c59e136cbfe2b2093b2068cc419f3",
+  "outcome": "response",
+  "recording_id": "turn/fd0a5f2b637ad97e/consistency/sample-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our ops lead wants to move us to annual billing but asked me to confirm first whether that resets our billing date or just applies to the next cycle.\"\n\nWe have relevant excerpt DOC-002 part 2: \"Switching to annual takes effect immediately: the workspace is charged the annual rate on confirmation, prorated against any monthly charge already paid for the current period, and the renewal date resets to one year from the switch. It does not wait for the current monthly cycle to finish.\"\n\nThus answer: Yes, it resets billing date to one year from switch, takes effect immediately. So we can answer directly. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Switching to an annual plan takes effect immediately. When you confirm the change, the workspace is charged the annual rate (prorated against any monthly charge already paid for the current period) and the renewal date is reset to one year from the date of the switch. It does not wait for the current monthly cycle to finish.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_74d3a006-823a-45c3-89f4-dd36ded99eec",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788370924,
+      "id": "chatcmpl-28c7c817-be45-4b71-a602-24aa20fbe4fa",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_6c36ac20de",
+      "usage": {
+        "completion_time": 0.492314307,
+        "completion_tokens": 231,
+        "completion_tokens_details": {
+          "reasoning_tokens": 140
+        },
+        "prompt_time": 0.093770475,
+        "prompt_tokens": 1130,
+        "queue_time": 0.75010164,
+        "total_time": 0.586084782,
+        "total_tokens": 1361
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hkdby9ebmapfk3bzkw2j0k",
+        "seed": 799738759
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Switching to an annual plan takes effect immediately. When you confirm the change, the workspace is charged the annual rate (prorated against any monthly charge already paid for the current period) and the renewal date is reset to one year from the date of the switch. It does not wait for the current monthly cycle to finish."
+        },
+        "id": "fc_74d3a006-823a-45c3-89f4-dd36ded99eec",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 231,
+      "prompt_tokens": 1130
+    }
+  },
+  "retry_after": null
+}

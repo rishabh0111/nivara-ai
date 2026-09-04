@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:30:10.231555Z",
+  "failure_detail": null,
+  "fingerprint": "0fba53a20a64784582514c51ff61dc016fb4a93f380dd54182401b09b9fba93f",
+  "outcome": "response",
+  "recording_id": "turn/82f83e979417218f/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user asks: \"test webhook trigger?\" Likely they want to know how to send a test webhook event. The policy excerpts include DOC-025 about sending a test webhook event. So we can answer: go to Settings \u2192 Developer \u2192 Webhooks \u2192 Send test event, it fires a realistic sample payload, etc. Provide short answer.\n\nWe must ensure not to mention policy. Provide concise answer.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! To send a test webhook event, go to **Settings \u2192 Developer \u2192 Webhooks** and click **Send test event**. This will fire a realistic sample payload to the endpoint you\u2019ve configured, using the same schema, headers, and signing header as a live delivery. You can then check the Delivery log (also under Settings \u2192 Developer \u2192 Webhooks) to see the test delivery and confirm the endpoint responded with a 2xx status.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_fe1a753e-e296-4dfe-b65f-e9d0ef160bb7",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373810,
+      "id": "chatcmpl-cd86bdc4-6873-4051-bea3-45523b3d21d9",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_068241849b",
+      "usage": {
+        "completion_time": 0.43625161,
+        "completion_tokens": 200,
+        "completion_tokens_details": {
+          "reasoning_tokens": 86
+        },
+        "prompt_time": 0.261413186,
+        "prompt_tokens": 1040,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.660489077,
+        "total_time": 0.697664796,
+        "total_tokens": 1240
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hp5djzer8rztd2cx5dhnk1",
+        "seed": 609500054
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! To send a test webhook event, go to **Settings \u2192 Developer \u2192 Webhooks** and click **Send test event**. This will fire a realistic sample payload to the endpoint you\u2019ve configured, using the same schema, headers, and signing header as a live delivery. You can then check the Delivery log (also under Settings \u2192 Developer \u2192 Webhooks) to see the test delivery and confirm the endpoint responded with a 2xx status."
+        },
+        "id": "fc_fe1a753e-e296-4dfe-b65f-e9d0ef160bb7",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 200,
+      "prompt_tokens": 1040
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:37:55.083526Z",
+  "failure_detail": null,
+  "fingerprint": "ba935d437e4f40f2f524fd8a74e08b7f54915aaa75aa09a5019455df4155f415",
+  "outcome": "response",
+  "recording_id": "turn/3e3a2fb69da3dcfa/consistency/sample-3/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user: \"Our last invoice still lists the old office. Can you correct it and resend?\" They want to correct the invoice details and resend. Policy says: \"Meridian does not reissue invoices that have already been generated \u2014 a correction applies to invoices from that point forward only.\" Also \"Customers who need a corrected copy of a past invoice for their own records, rather than a reissue, can request one through support.\" So we can provide them a corrected copy? The user wants to correct and resend. We can provide corrected copy through support. According to policy, we can do that: \"Customers who need a corrected copy of a past invoice for their own records, rather than a reissue, can request one through support.\" So we can provide the corrected copy. So we can answer: \"We can't resend reissue, but we can provide a corrected copy. We'll send it.\" This is permissible. The user wants a corrected invoice. We can comply by sending corrected copy. So we should post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! We can\u2019t re\u2011issue an invoice that\u2019s already been generated, but we can provide you with a corrected copy for your records. I\u2019ll send that to you right away. Let me know if there\u2019s anything else I can help with!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_3705ca62-ab33-43cb-adfe-2dd85de3d74d",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460674,
+      "id": "chatcmpl-a09baf5b-60dd-417d-bb6a-117415e144d4",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_565badff47",
+      "usage": {
+        "completion_time": 0.289493844,
+        "completion_tokens": 281,
+        "completion_tokens_details": {
+          "reasoning_tokens": 207
+        },
+        "prompt_time": 0.073381039,
+        "prompt_tokens": 1050,
+        "queue_time": 0.278697034,
+        "total_time": 0.362874883,
+        "total_tokens": 1331
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m90b01e1z96cstf9cjfywa",
+        "seed": 1213619160
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! We can\u2019t re\u2011issue an invoice that\u2019s already been generated, but we can provide you with a corrected copy for your records. I\u2019ll send that to you right away. Let me know if there\u2019s anything else I can help with!"
+        },
+        "id": "fc_3705ca62-ab33-43cb-adfe-2dd85de3d74d",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 281,
+      "prompt_tokens": 1050
+    }
+  },
+  "retry_after": null
+}

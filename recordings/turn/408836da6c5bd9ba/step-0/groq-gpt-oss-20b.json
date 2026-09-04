@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:33:55.470068Z",
+  "failure_detail": null,
+  "fingerprint": "5820ecadb9a2b7379a5ea2b689ad0fec3215a2333275fa7741eafec0efcf9d7b",
+  "outcome": "response",
+  "recording_id": "turn/408836da6c5bd9ba/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"The dashboard's retention window doesn't go back as far as I need for a historical comparison, and I'd like to know what options exist for retrieving data beyond that window, if any.\"\n\nWe have policy excerpts about accessing data older than retention window. They say: default view shows data within retention window; older data moves to cold storage and remains available on request. Settings \u2192 Reporting \u2192 Extended history describes what extended range is included on current plan, and how to request older data where it is not shown by default. Some higher plan tiers include longer retention window directly on dashboard with no request needed. Also usage older than two most recent billing periods is retained but not shown by default; can still be pulled with custom date range from same export, as long as range falls within workspace's overall data retention window. For data older than extended retention, availability depends on how long ago workspace was created. Also downgrading plan: lower tier with shorter retention will age out records older than that window over time.\n\nThus answer: options: check Settings \u2192 Reporting \u2192 Extended history to see if your plan includes extended range; if not, request older data via support; or upgrade to higher tier. Also you can export custom date range if within overall retention. Also if older than extended retention, only available if workspace existed then. So answer: you can request older data via support or upgrade plan. Provide steps.\n\nWe must not mention policy or instructions. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! If the data you need isn\u2019t shown in the default dashboard view, you have a couple of options:\\n\\n1. **Check the Extended History setting** \u2013 In Settings \u2192 Reporting \u2192 Extended history you\u2019ll see what extra range (if any) your current plan includes. Some higher\u2011tier plans give you a longer retention window right on the dashboard, so you may already have the data you need.\\n\\n2. **Request older data** \u2013 If your plan doesn\u2019t cover the period you\u2019re after, you can request the data from support. The data is kept in cold storage and can be retrieved on request.\\n\\n3. **Export a custom date range** \u2013 For usage older than the two most recent billing periods, you can still pull it via the export function as long as the dates fall within your workspace\u2019s overall retention window.\\n\\n4. **Upgrade your plan** \u2013 If you need a longer retention window regularly, upgrading to a higher tier will give you a longer default window without extra requests.\\n\\nLet me know if you\u2019d like help with any of these steps!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_ce01d1f5-8179-45bb-9320-30d2768ae068",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460435,
+      "id": "chatcmpl-f33e8ca7-9bbc-490e-9bc3-c1a59fc7b5dc",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e189667b30",
+      "usage": {
+        "completion_time": 0.643713739,
+        "completion_tokens": 548,
+        "completion_tokens_details": {
+          "reasoning_tokens": 302
+        },
+        "prompt_time": 0.054050206,
+        "prompt_tokens": 1079,
+        "queue_time": 0.314756193,
+        "total_time": 0.697763945,
+        "total_tokens": 1627
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8s0x7e2wtbngvhvb9jtaq",
+        "seed": 698176959
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! If the data you need isn\u2019t shown in the default dashboard view, you have a couple of options:\n\n1. **Check the Extended History setting** \u2013 In Settings \u2192 Reporting \u2192 Extended history you\u2019ll see what extra range (if any) your current plan includes. Some higher\u2011tier plans give you a longer retention window right on the dashboard, so you may already have the data you need.\n\n2. **Request older data** \u2013 If your plan doesn\u2019t cover the period you\u2019re after, you can request the data from support. The data is kept in cold storage and can be retrieved on request.\n\n3. **Export a custom date range** \u2013 For usage older than the two most recent billing periods, you can still pull it via the export function as long as the dates fall within your workspace\u2019s overall retention window.\n\n4. **Upgrade your plan** \u2013 If you need a longer retention window regularly, upgrading to a higher tier will give you a longer default window without extra requests.\n\nLet me know if you\u2019d like help with any of these steps!"
+        },
+        "id": "fc_ce01d1f5-8179-45bb-9320-30d2768ae068",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 548,
+      "prompt_tokens": 1079
+    }
+  },
+  "retry_after": null
+}

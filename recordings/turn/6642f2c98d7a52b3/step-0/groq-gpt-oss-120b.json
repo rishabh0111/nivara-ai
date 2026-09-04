@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:13:05.632035Z",
+  "failure_detail": null,
+  "fingerprint": "e4ae65962038b2f7ea0b117fced6bd9756079d00d8f90c1914de6f5a31d1edcf",
+  "outcome": "response",
+  "recording_id": "turn/6642f2c98d7a52b3/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user says: \"This report feeds a meeting tomorrow and it just stopped arriving with no warning \u2014 I need to check its status urgently.\"\n\nWe have policy excerpts about checking whether a scheduled report is still running. So we can give instructions: go to Settings \u2192 Reports \u2192 Scheduled, check run history, see if disabled or failed, check recipient list for bouncing addresses, etc.\n\nWe must keep answer short and specific, address the customer directly. Use only policy excerpts. So answer: go to Settings \u2192 Reports \u2192 Scheduled, look at run history, see if recent run failed or disabled; also check recipient list for bouncing email causing pause; if report shows as running but delivery failing, check recipient list. Provide steps.\n\nThus we can post_reply with answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there \u2013 you can quickly see what\u2019s happening with the report in the Scheduled reports view:\\n\\n1. Open **Settings \u2192 Reports \u2192 Scheduled**. This page lists every scheduled report and shows the outcome of its most recent run.\\n2. Look at the **run history** for the report. If it stopped sending, you\u2019ll see either a **failed run** with a reason or that the report is marked **disabled**.\\n3. If the run history shows the report ran but delivery stopped, check the **recipient list** \u2013 a bouncing email address can cause Meridian to pause delivery to that address while the report itself continues to run.\\n\\nThese steps will tell you whether the schedule itself broke or if delivery to a recipient is the issue, so you can address it before your meeting.\\n\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_110b1062-4032-4ad1-9ceb-433e6090c7f5",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451985,
+      "id": "chatcmpl-2855e11e-ec73-40be-b733-72e332f8f886",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_93703442d9",
+      "usage": {
+        "completion_time": 0.76570285,
+        "completion_tokens": 351,
+        "completion_tokens_details": {
+          "reasoning_tokens": 161
+        },
+        "prompt_time": 0.780408344,
+        "prompt_tokens": 1060,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.367188471,
+        "total_time": 1.5461111939999999,
+        "total_tokens": 1411
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0q49yesy9vt2sqsqmbpcg",
+        "seed": 918506252
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there \u2013 you can quickly see what\u2019s happening with the report in the Scheduled reports view:\n\n1. Open **Settings \u2192 Reports \u2192 Scheduled**. This page lists every scheduled report and shows the outcome of its most recent run.\n2. Look at the **run history** for the report. If it stopped sending, you\u2019ll see either a **failed run** with a reason or that the report is marked **disabled**.\n3. If the run history shows the report ran but delivery stopped, check the **recipient list** \u2013 a bouncing email address can cause Meridian to pause delivery to that address while the report itself continues to run.\n\nThese steps will tell you whether the schedule itself broke or if delivery to a recipient is the issue, so you can address it before your meeting.\n"
+        },
+        "id": "fc_110b1062-4032-4ad1-9ceb-433e6090c7f5",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 351,
+      "prompt_tokens": 1060
+    }
+  },
+  "retry_after": null
+}

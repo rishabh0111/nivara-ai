@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:10:19.609663Z",
+  "failure_detail": null,
+  "fingerprint": "95d22fc2657f580aefa85f48565754a77935c5330b651444be7a926feba45f77",
+  "outcome": "response",
+  "recording_id": "turn/93b03ccd4091f307/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Two teams that used different identity providers before our merger now have separate logins for the same workspace \u2014 which providers do you support so we can consolidate?\" They ask which providers are supported. Policy says: \"Meridian's SSO integration supports any identity provider that speaks SAML 2.0 or OpenID Connect, which covers the major providers in common use.\" Also mention that a workspace configures exactly one identity provider at a time, and you need to pick one and migrate accounts. So answer: we support any provider that uses SAML 2.0 or OpenID Connect. Also note you can only have one provider per workspace, need to migrate. Provide concise answer. No need to escalate. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! Meridian\u2019s SSO works with any identity provider that speaks SAML\u202f2.0 or OpenID\u202fConnect \u2013 that includes the major SSO services most teams use. A workspace can only have one provider configured at a time, so you\u2019ll need to pick the provider you want to keep and migrate the other team\u2019s accounts to it. If you need help planning the migration order for the specific pair of providers you\u2019re using, just let us know and we can advise.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c1e3a302-2df6-46d8-b7eb-092db7a9f1bd",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372619,
+      "id": "chatcmpl-d0eeca23-1fc4-45ab-a69a-06acf87665ae",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_bb691ea66b",
+      "usage": {
+        "completion_time": 0.586882219,
+        "completion_tokens": 283,
+        "completion_tokens_details": {
+          "reasoning_tokens": 160
+        },
+        "prompt_time": 0.239670711,
+        "prompt_tokens": 1061,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.365723638,
+        "total_time": 0.82655293,
+        "total_tokens": 1344
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hn1321e3va20kw4e1jtw2a",
+        "seed": 1162215870
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! Meridian\u2019s SSO works with any identity provider that speaks SAML\u202f2.0 or OpenID\u202fConnect \u2013 that includes the major SSO services most teams use. A workspace can only have one provider configured at a time, so you\u2019ll need to pick the provider you want to keep and migrate the other team\u2019s accounts to it. If you need help planning the migration order for the specific pair of providers you\u2019re using, just let us know and we can advise."
+        },
+        "id": "fc_c1e3a302-2df6-46d8-b7eb-092db7a9f1bd",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 283,
+      "prompt_tokens": 1061
+    }
+  },
+  "retry_after": null
+}

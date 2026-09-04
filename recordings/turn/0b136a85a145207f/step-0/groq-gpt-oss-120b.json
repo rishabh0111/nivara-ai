@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T17:12:57.776257Z",
+  "failure_detail": null,
+  "fingerprint": "76c293338e5e0b7cb5b733a9a17b2780b8ecbc12902af4345908683a3b014a3e",
+  "outcome": "response",
+  "recording_id": "turn/0b136a85a145207f/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to determine if we can answer based on policy excerpts. The user says: \"Our finance team is seeing a discrepancy of about four hundred entries against the reconciliation report.\" This is about a discrepancy in reconciliation report, likely billing discrepancy. The policy excerpts include about charges after cancellation, disputed or duplicate charges, suspicious invoice. The question is about a discrepancy of about 400 entries against reconciliation report. This seems like a billing discrepancy, possibly needing billing team investigation. The policy says billing discrepancies are investigated by billing team. However, the question is ambiguous: they are seeing discrepancy of many entries; they likely need to raise a billing dispute. The policy says for billing discrepancies, the billing team investigates directly. The answer could be: they should contact billing support to raise a review. But is that covered by policy? The policy excerpts talk about charges after cancellation, disputed or duplicate charges, suspicious invoice. The question is about reconciliation report discrepancy, not a specific charge. Could be considered a billing discrepancy. The policy says \"cancelling a subscription ... a charge that lands anyway after a cancellation was submitted is treated as a billing discrepancy the billing team investigates directly\". That's about cancellation. Not exactly this case. There's also policy about disputed or duplicate charges: \"A charge a customer believes was made in error ... is reviewed by the billing team rather than reversed automatically\". That's about a specific charge. The user has many entries discrepancy. Not directly covered. Might be ambiguous. According to rules: If the policy excerpts do not contain the answer, we must escalate. The excerpts do not directly address reconciliation report discrepancies. So we should escalate.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer reports a discrepancy of about four hundred entries against a reconciliation report. The provided policy excerpts cover charges after cancellation, disputed or duplicate charges, and suspicious invoices, but do not specifically address reconciliation report discrepancies. Since the policy does not contain a direct answer, we must escalate to a human.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_c6c8e3ad-06ad-4633-8512-3c5085de4a83",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788455577,
+      "id": "chatcmpl-cbbd4863-d606-4dcc-8e9f-2ba42b9b2d75",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4727af4560",
+      "usage": {
+        "completion_time": 0.863160718,
+        "completion_tokens": 412,
+        "completion_tokens_details": {
+          "reasoning_tokens": 327
+        },
+        "prompt_time": 0.087238072,
+        "prompt_tokens": 1114,
+        "queue_time": 0.170850273,
+        "total_time": 0.95039879,
+        "total_tokens": 1526
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m44s1menj9q48wrf92ewmt",
+        "seed": 1642564398
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer reports a discrepancy of about four hundred entries against a reconciliation report. The provided policy excerpts cover charges after cancellation, disputed or duplicate charges, and suspicious invoices, but do not specifically address reconciliation report discrepancies. Since the policy does not contain a direct answer, we must escalate to a human."
+        },
+        "id": "fc_c6c8e3ad-06ad-4633-8512-3c5085de4a83",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 412,
+      "prompt_tokens": 1114
+    }
+  },
+  "retry_after": null
+}

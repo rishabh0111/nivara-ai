@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:25:45.873074Z",
+  "failure_detail": null,
+  "fingerprint": "bbf5c06d3a59fe9bd92d6d49524b05b82d81cea4f0001d06fd63e4f68afe99da",
+  "outcome": "response",
+  "recording_id": "turn/4922dd36f9ea40f2/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer the question: \"Not sure my spreadsheet columns line up with what's expected.\" The policy excerpts provide info about column headers expected by the contact importer. The user is unsure if their spreadsheet columns line up. We should provide guidance: required headers email, name, company; optional phone, title, custom fields; order doesn't matter; extra columns ignored; download sample template. Also mention CSV is safest default. So answer: explain that importer matches by header name, not position; required headers; optional; extra ignored; download sample template. Keep short.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! The contact importer matches columns by header name, not by position, so the order of your columns doesn\u2019t matter as long as the headers match. The required headers are **email**, **name** and **company**. Optional headers include **phone**, **title** and any custom field that already exists in your workspace \u2013 just use the custom field\u2019s own name. Any header the importer doesn\u2019t recognise will be ignored, so an extra column won\u2019t block the import.\\n\\nIf you want to be 100\u202f% sure, download the sample template from the import screen \u2013 it shows the exact header spelling the importer expects. Also, exporting as CSV is the safest default for compatibility, though it will treat dates and numbers as plain text.\\n\\nLet me know if you need help with the template or anything else!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_b356e923-a46e-4e6d-afd9-7e1d4298c170",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459945,
+      "id": "chatcmpl-fa4e0a61-db19-4f96-b71f-a1ef55fc5c43",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_75c733514d",
+      "usage": {
+        "completion_time": 0.373011437,
+        "completion_tokens": 303,
+        "completion_tokens_details": {
+          "reasoning_tokens": 114
+        },
+        "prompt_time": 0.047377234,
+        "prompt_tokens": 1010,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.156410095,
+        "total_time": 0.420388671,
+        "total_tokens": 1313
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8a3a1eqa9cq9s25d6smgy",
+        "seed": 1434150057
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! The contact importer matches columns by header name, not by position, so the order of your columns doesn\u2019t matter as long as the headers match. The required headers are **email**, **name** and **company**. Optional headers include **phone**, **title** and any custom field that already exists in your workspace \u2013 just use the custom field\u2019s own name. Any header the importer doesn\u2019t recognise will be ignored, so an extra column won\u2019t block the import.\n\nIf you want to be 100\u202f% sure, download the sample template from the import screen \u2013 it shows the exact header spelling the importer expects. Also, exporting as CSV is the safest default for compatibility, though it will treat dates and numbers as plain text.\n\nLet me know if you need help with the template or anything else!"
+        },
+        "id": "fc_b356e923-a46e-4e6d-afd9-7e1d4298c170",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 303,
+      "prompt_tokens": 1010
+    }
+  },
+  "retry_after": null
+}

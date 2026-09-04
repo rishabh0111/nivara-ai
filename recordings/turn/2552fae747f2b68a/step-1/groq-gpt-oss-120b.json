@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:06:15.956544Z",
+  "failure_detail": null,
+  "fingerprint": "be612b7f9ac563e8fb115261c3e35e714a0de748f371814a93fe6b445b183229",
+  "outcome": "response",
+  "recording_id": "turn/2552fae747f2b68a/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We have a customer complaining that a newly created record is not appearing in search. The policy excerpts (DOC-035) explain that this is due to indexing delay, resolves within a couple minutes, and if after several minutes still not appears, report. So answer: explain indexing delay, wait a couple minutes, if still not appears after several minutes, report. Provide short answer. No need to escalate. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When a record is created, the browse view shows it immediately, but the search index is updated a short time later. This brief indexing delay can cause a newly\u2011created record to not appear in search for a few minutes. In most cases it resolves on its own within a couple of minutes with no action needed. If the record still isn\u2019t showing up after several minutes, please let us know so we can investigate further.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_ca908b3c-b1b2-4ad5-9b24-bb90143958d7",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451575,
+      "id": "chatcmpl-900ae59b-a59d-4435-92d8-d088f61a8b9c",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_fe269835c7",
+      "usage": {
+        "completion_time": 0.515403763,
+        "completion_tokens": 196,
+        "completion_tokens_details": {
+          "reasoning_tokens": 86
+        },
+        "prompt_time": 1.573600127,
+        "prompt_tokens": 1084,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.307766677,
+        "total_time": 2.08900389,
+        "total_tokens": 1280
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0akrjerktt0mf57gvxzhn",
+        "seed": 2025530913
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When a record is created, the browse view shows it immediately, but the search index is updated a short time later. This brief indexing delay can cause a newly\u2011created record to not appear in search for a few minutes. In most cases it resolves on its own within a couple of minutes with no action needed. If the record still isn\u2019t showing up after several minutes, please let us know so we can investigate further."
+        },
+        "id": "fc_ca908b3c-b1b2-4ad5-9b24-bb90143958d7",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 196,
+      "prompt_tokens": 1084
+    }
+  },
+  "retry_after": null
+}

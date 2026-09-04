@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:14:04.580262Z",
+  "failure_detail": null,
+  "fingerprint": "1b5a135ca809ce4443222709e3fcec8e8c8a0c87df09b80b0473d45dbc3a7743",
+  "outcome": "response",
+  "recording_id": "turn/bd02e20b767687be/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: \"supported SSO providers?\" The policy excerpts include DOC-013 parts stating: \"Meridian's SSO integration supports any identity provider that speaks SAML 2.0 or OpenID Connect, which covers the major providers in common use.\" So answer that.\n\nWe must post_reply with concise answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Meridian\u2019s SSO works with any identity provider that supports SAML\u202f2.0 or OpenID\u202fConnect \u2013 this includes all of the major SSO providers.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_02bfc720-77f2-4c3f-9432-f6f360f08af7",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372844,
+      "id": "chatcmpl-f10c187a-4384-46f7-abe4-ca710f861608",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_77b12279f9",
+      "usage": {
+        "completion_time": 0.265806878,
+        "completion_tokens": 126,
+        "completion_tokens_details": {
+          "reasoning_tokens": 67
+        },
+        "prompt_time": 0.052905018,
+        "prompt_tokens": 1046,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.307445871,
+        "total_time": 0.318711896,
+        "total_tokens": 1172
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hn7z67ew3vpyzhwkmej8rm",
+        "seed": 27015783
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Meridian\u2019s SSO works with any identity provider that supports SAML\u202f2.0 or OpenID\u202fConnect \u2013 this includes all of the major SSO providers."
+        },
+        "id": "fc_02bfc720-77f2-4c3f-9432-f6f360f08af7",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 126,
+      "prompt_tokens": 1046
+    }
+  },
+  "retry_after": null
+}

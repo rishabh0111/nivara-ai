@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:15:22.343946Z",
+  "failure_detail": null,
+  "fingerprint": "76635e7895c1a81eeec9bbd977f6834a93c304ec345f7c0e803bed1608d561ff",
+  "outcome": "response",
+  "recording_id": "turn/71317573eefa27f6/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"I need this import done today before our sales team starts using the workspace \u2014 what exact column headers do I need in my CSV?\" This is about contact importer column headers. The policy excerpts provide required headers: email, name, company; optional: phone, title, any custom field defined. Also note that importer matches by header name, order doesn't matter. Also can download sample template. So answer: required headers are email, name, company; optional phone, title, custom fields; extra columns ignored. Provide guidance. This is within policy. So we can post_reply.\n\nWe must keep answer short and specific, address customer directly. Provide exact column headers needed. Let's craft.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! For a successful contact import, your CSV must include the required headers **email**, **name**, and **company**. You can also add any of the optional headers such as **phone**, **title**, or any custom\u2011field names you\u2019ve already defined in the workspace \u2013 the importer will match them by name. Extra columns are ignored, so they won\u2019t block the import. If you want the exact spelling, you can download the sample template from the import screen.\\n\\nLet me know if you need any more help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_d8c26bde-2794-4ecd-bc89-8606e30c4090",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372921,
+      "id": "chatcmpl-f5d7925d-2c1a-44fb-899e-4f7a1fd984bb",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_77b12279f9",
+      "usage": {
+        "completion_time": 0.609323132,
+        "completion_tokens": 284,
+        "completion_tokens_details": {
+          "reasoning_tokens": 150
+        },
+        "prompt_time": 0.064038571,
+        "prompt_tokens": 1033,
+        "queue_time": 0.307421588,
+        "total_time": 0.673361703,
+        "total_tokens": 1317
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnaah9e2987qctrrrjzmrv",
+        "seed": 553787061
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! For a successful contact import, your CSV must include the required headers **email**, **name**, and **company**. You can also add any of the optional headers such as **phone**, **title**, or any custom\u2011field names you\u2019ve already defined in the workspace \u2013 the importer will match them by name. Extra columns are ignored, so they won\u2019t block the import. If you want the exact spelling, you can download the sample template from the import screen.\n\nLet me know if you need any more help!"
+        },
+        "id": "fc_d8c26bde-2794-4ecd-bc89-8606e30c4090",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 284,
+      "prompt_tokens": 1033
+    }
+  },
+  "retry_after": null
+}

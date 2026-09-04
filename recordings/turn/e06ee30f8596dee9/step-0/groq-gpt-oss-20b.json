@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:21:46.715353Z",
+  "failure_detail": null,
+  "fingerprint": "5c705c4431ba47fdb699f6d82e796860b187cd2a0419fed9e251764747a48aac",
+  "outcome": "response",
+  "recording_id": "turn/e06ee30f8596dee9/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user says \"annual switch timing?\" They likely want to know when switching to annual billing takes effect. According to policy: switching to annual takes effect immediately, prorated, renewal date resets to one year from switch. So answer: immediate. Also mention can switch anytime from Settings \u2192 Billing \u2192 Plan. So respond accordingly.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can switch to an annual plan at any time from Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan. The change takes effect immediately \u2013 you\u2019ll be charged the annual rate right away, prorated against any monthly charge already paid, and the renewal date resets to one year from the switch.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_7bbcb7c3-1da2-49cd-9ee6-46f008722ff7",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459706,
+      "id": "chatcmpl-c2672cdc-b94d-4e25-818e-98e2a8c18acc",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e99e93f2ac",
+      "usage": {
+        "completion_time": 0.170857356,
+        "completion_tokens": 146,
+        "completion_tokens_details": {
+          "reasoning_tokens": 66
+        },
+        "prompt_time": 0.059807209,
+        "prompt_tokens": 1011,
+        "queue_time": 0.043130561,
+        "total_time": 0.230664565,
+        "total_tokens": 1157
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m82t1zex39yx7nwemj616g",
+        "seed": 1731246943
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can switch to an annual plan at any time from Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan. The change takes effect immediately \u2013 you\u2019ll be charged the annual rate right away, prorated against any monthly charge already paid, and the renewal date resets to one year from the switch."
+        },
+        "id": "fc_7bbcb7c3-1da2-49cd-9ee6-46f008722ff7",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 146,
+      "prompt_tokens": 1011
+    }
+  },
+  "retry_after": null
+}

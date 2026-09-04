@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:30:31.115691Z",
+  "failure_detail": null,
+  "fingerprint": "d4fbd4df6ada26aced40a88a6d0673e0331c50f690d693eea89ef02c51f6d134",
+  "outcome": "response",
+  "recording_id": "turn/44f823697bf7eabc/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The user says: \"Our billing contact is disputing a large overage charge that doesn't match their usage records and asked me to escalate it for investigation.\"\n\nWe have policy excerpts about disputing usage overage charge. It says that the account owner or billing contact can raise it, and it's handled case by case by a human reviewer. So we should respond that they need to have the account owner or authorized billing contact raise a dispute, and that it will be reviewed by billing team. Since the user is asking to \"escalate it for investigation\", we can guide them to have the billing contact raise the dispute. The policy says it's handled case by case by a human reviewer, not resolved from a general article. So we can say they should have the billing contact submit a request to billing team, and we will investigate. This is within policy. We can answer.\n\nWe must not mention policy. Provide short specific answer. So: ask them to have the billing contact raise a dispute via support, and we will review raw usage records. Provide steps.\n\nThus we will post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"I\u2019m sorry you\u2019re seeing an unexpected overage charge. The account owner or an authorized billing contact will need to submit a formal dispute so our billing team can review the raw usage data against the charge. Once the request is raised, a human reviewer will investigate the metered records and get back to you with the findings.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_6030014e-3cb7-4ade-b527-c6ac938c2f28",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453031,
+      "id": "chatcmpl-f07e1b22-dcde-470d-8c70-6dffc115812a",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_068241849b",
+      "usage": {
+        "completion_time": 0.659333597,
+        "completion_tokens": 314,
+        "completion_tokens_details": {
+          "reasoning_tokens": 224
+        },
+        "prompt_time": 0.282159761,
+        "prompt_tokens": 1116,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.310974996,
+        "total_time": 0.941493358,
+        "total_tokens": 1430
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1q1x6ejmthsqev4pab0pp",
+        "seed": 1166633438
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "I\u2019m sorry you\u2019re seeing an unexpected overage charge. The account owner or an authorized billing contact will need to submit a formal dispute so our billing team can review the raw usage data against the charge. Once the request is raised, a human reviewer will investigate the metered records and get back to you with the findings."
+        },
+        "id": "fc_6030014e-3cb7-4ade-b527-c6ac938c2f28",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 314,
+      "prompt_tokens": 1116
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:30:14.594046Z",
+  "failure_detail": null,
+  "fingerprint": "a893ded976a90208b0976328dcf60c647ed1f5fc4738676e62526f38e47306b7",
+  "outcome": "response",
+  "recording_id": "turn/d0a3545db6c7a198/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"As we move our whole workspace onto a new plan, I want to understand specifically what happens to integrations and automation rules already configured \u2014 do they carry over untouched, need reconfiguring, or risk breaking during the migration?\" We have policy excerpts about plan migration and integrations. They say: moving a workspace to a new plan does not interrupt existing API keys, webhooks or automation rules \u2014 they continue running through the migration with no reconfiguration required, since they are tied to the workspace rather than to a specific plan tier. The only thing that can change is a tier-gated automation feature: if a rule uses a capability only available on the destination tier, it activates as soon as the migration completes; if it depends on a capability the destination tier does not include, the rule is paused rather than deleted, and reactivates automatically if the workspace ever returns to a tier that includes it. Settings \u2192 Automation \u2192 Rules shows the status of every rule, including any that migration would pause, before the migration is confirmed.\n\nThus answer: integrations continue unchanged; automation rules remain but may be paused if they rely on features not in new tier. They can be seen in Automation \u2192 Rules before migration. So answer accordingly.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! When you migrate your workspace to a new plan, all of your existing integrations (API keys, webhooks, etc.) keep working exactly as they did\u2014no re\u2011configuration is needed. Automation rules also stay in place. The only change that can happen is if a rule uses a feature that isn\u2019t available in the new tier. In that case the rule will be paused (not deleted) and will automatically reactivate if you ever move back to a tier that includes that feature. You can check the status of every rule in Settings\u202f\u2192\u202fAutomation\u202f\u2192\u202fRules before you confirm the migration. So, in short: integrations stay untouched, rules stay but may pause if they rely on a tier\u2011specific feature.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f4324628-a727-4864-b530-fd2c5636bb46",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460214,
+      "id": "chatcmpl-100acefc-8101-441f-a3fd-27d5274659e1",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_a12402de73",
+      "usage": {
+        "completion_time": 0.629022492,
+        "completion_tokens": 425,
+        "completion_tokens_details": {
+          "reasoning_tokens": 256
+        },
+        "prompt_time": 0.153429119,
+        "prompt_tokens": 1088,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.157146529,
+        "total_time": 0.782451611,
+        "total_tokens": 1513
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8j987e13bv2eggfjzt91v",
+        "seed": 487532963
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! When you migrate your workspace to a new plan, all of your existing integrations (API keys, webhooks, etc.) keep working exactly as they did\u2014no re\u2011configuration is needed. Automation rules also stay in place. The only change that can happen is if a rule uses a feature that isn\u2019t available in the new tier. In that case the rule will be paused (not deleted) and will automatically reactivate if you ever move back to a tier that includes that feature. You can check the status of every rule in Settings\u202f\u2192\u202fAutomation\u202f\u2192\u202fRules before you confirm the migration. So, in short: integrations stay untouched, rules stay but may pause if they rely on a tier\u2011specific feature."
+        },
+        "id": "fc_f4324628-a727-4864-b530-fd2c5636bb46",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 425,
+      "prompt_tokens": 1088
+    }
+  },
+  "retry_after": null
+}

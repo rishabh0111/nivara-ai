@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:13:42.223520Z",
+  "failure_detail": null,
+  "fingerprint": "9d194a2f1faa97ffaff96aea93a21f6677a4d2462c16e890c028da6775f99534",
+  "outcome": "response",
+  "recording_id": "turn/c6d3a74ac9053ad5/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer the customer's question: \"check report schedule status?\" Likely they want to know how to check if a scheduled report is still running. The policy excerpts provide info on checking scheduled report status: go to Settings \u2192 Reports \u2192 Scheduled, see run history, outcome, disabled, etc. Also mention recipient list issues. So we can answer using those excerpts.\n\nWe must not mention policy. Provide short specific answer. Use post_reply.\n\nThus answer: go to Settings > Reports > Scheduled, view run history, see if last run succeeded, failed, disabled. If failing due to recipient bounce, check recipient list. Also note run history distinguishes not running vs failing.\n\nLet's craft.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! To see whether a scheduled report is still running:\\n1. Open **Settings \u2192 Reports \u2192 Scheduled**.\\n2. The list shows each scheduled report and its run history. Look at the most recent run \u2013 it will indicate if it succeeded, failed (with a reason), or is disabled.\\n3. If the report shows a failed run, check the recipient list \u2013 a bouncing email can cause Meridian to pause delivery for that address, which can make it look like the whole report stopped.\\n4. The run\u2011history view also tells you if the report simply isn\u2019t running at all versus running but failing to deliver.\\nIf everything looks normal there but you\u2019re still not receiving the report, let us know and we can dig deeper.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_ae1e2458-eda2-46f9-b0fc-9deafacc9fcd",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452022,
+      "id": "chatcmpl-0593f65e-0497-4656-8c84-c7372733b205",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_19b184c447",
+      "usage": {
+        "completion_time": 0.676174004,
+        "completion_tokens": 317,
+        "completion_tokens_details": {
+          "reasoning_tokens": 139
+        },
+        "prompt_time": 0.051750454,
+        "prompt_tokens": 1034,
+        "queue_time": 0.768892551,
+        "total_time": 0.727924458,
+        "total_tokens": 1351
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0r88pecf8y90sy3r61xce",
+        "seed": 814195205
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! To see whether a scheduled report is still running:\n1. Open **Settings \u2192 Reports \u2192 Scheduled**.\n2. The list shows each scheduled report and its run history. Look at the most recent run \u2013 it will indicate if it succeeded, failed (with a reason), or is disabled.\n3. If the report shows a failed run, check the recipient list \u2013 a bouncing email can cause Meridian to pause delivery for that address, which can make it look like the whole report stopped.\n4. The run\u2011history view also tells you if the report simply isn\u2019t running at all versus running but failing to deliver.\nIf everything looks normal there but you\u2019re still not receiving the report, let us know and we can dig deeper."
+        },
+        "id": "fc_ae1e2458-eda2-46f9-b0fc-9deafacc9fcd",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 317,
+      "prompt_tokens": 1034
+    }
+  },
+  "retry_after": null
+}

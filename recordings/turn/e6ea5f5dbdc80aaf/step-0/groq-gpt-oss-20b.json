@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:34:28.446329Z",
+  "failure_detail": null,
+  "fingerprint": "a9b697f651121b28f9efe281cdbd873135052c856d47599a23c47d0f1297cd77",
+  "outcome": "response",
+  "recording_id": "turn/e6ea5f5dbdc80aaf/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: \"Want to get ahead of outage notifications instead of hearing about them secondhand.\" The policy excerpts mention subscribing to incident notifications via email, SMS, or webhook. So answer: explain how to subscribe to status page, choose email/SMS/webhook, can scope to components. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can stay ahead of outages by subscribing to our incident notifications. On the status page, click the **Subscribe** button and choose email, SMS, or a webhook. If you prefer to only receive alerts for specific parts of the platform, you can scope the subscription to individual components. This way you\u2019ll get a real\u2011time update the moment an incident is opened, updated, or resolved, before it reaches other channels.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_dfd7bab4-cd3a-424a-9950-ab79aefee551",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460468,
+      "id": "chatcmpl-7bde35d1-1b4d-4053-981d-9f8475e96c7b",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_8b41efc9a3",
+      "usage": {
+        "completion_time": 0.193429234,
+        "completion_tokens": 172,
+        "completion_tokens_details": {
+          "reasoning_tokens": 65
+        },
+        "prompt_time": 0.111037635,
+        "prompt_tokens": 991,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.364161237,
+        "total_time": 0.304466869,
+        "total_tokens": 1163
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8t18jex3v9j0sgvcvksss",
+        "seed": 2074685041
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can stay ahead of outages by subscribing to our incident notifications. On the status page, click the **Subscribe** button and choose email, SMS, or a webhook. If you prefer to only receive alerts for specific parts of the platform, you can scope the subscription to individual components. This way you\u2019ll get a real\u2011time update the moment an incident is opened, updated, or resolved, before it reaches other channels."
+        },
+        "id": "fc_dfd7bab4-cd3a-424a-9950-ab79aefee551",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 172,
+      "prompt_tokens": 991
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:56:05.495919Z",
+  "failure_detail": null,
+  "fingerprint": "e2467676d1b2440c177eb19833185f45eca90112ec2d486ce6827ea121dd125e",
+  "outcome": "response",
+  "recording_id": "turn/788deea7e91c5ef9/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"exec impersonation message, is it a scam?\" Likely they received a message impersonating an executive asking to change payment details. According to policy, such messages are common fraud pattern, even if includes correct account details, it's likely scam. Advice: verify directly via other channel, do not act, forward to support. So we can answer: Yes, it's likely a scam; you should verify with the executive via separate channel and forward the message to support. Provide short answer.\n\nWe must use only policy excerpts. Provide answer accordingly.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 messages that impersonate an executive and ask you to change payment details are a classic fraud pattern. Even if the email includes correct account information, attackers can obtain that data from public sources.\u202fYou should verify the request directly with the supposed sender using a separate communication channel, do not change any payment details, and forward the suspicious message to our support team so we can check your account and flag the email.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_2f91f1e0-436e-4586-9e11-e68b63ec7827",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454565,
+      "id": "chatcmpl-9169533d-b66e-42fc-8791-a6ab48deb529",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_803c0ba83d",
+      "usage": {
+        "completion_time": 0.501135655,
+        "completion_tokens": 229,
+        "completion_tokens_details": {
+          "reasoning_tokens": 121
+        },
+        "prompt_time": 0.462888073,
+        "prompt_tokens": 1089,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 1.1420778089999999,
+        "total_time": 0.964023728,
+        "total_tokens": 1318
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m35vh2e8rsxmtbjh394nth",
+        "seed": 812818350
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 messages that impersonate an executive and ask you to change payment details are a classic fraud pattern. Even if the email includes correct account information, attackers can obtain that data from public sources.\u202fYou should verify the request directly with the supposed sender using a separate communication channel, do not change any payment details, and forward the suspicious message to our support team so we can check your account and flag the email."
+        },
+        "id": "fc_2f91f1e0-436e-4586-9e11-e68b63ec7827",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 229,
+      "prompt_tokens": 1089
+    }
+  },
+  "retry_after": null
+}

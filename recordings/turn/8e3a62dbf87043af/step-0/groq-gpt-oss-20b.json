@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:22:55.451663Z",
+  "failure_detail": null,
+  "fingerprint": "8b4bf240c6925f92be93198a93d0317b09cec12c86ccb39b09febc70fb0efbc5",
+  "outcome": "response",
+  "recording_id": "turn/8e3a62dbf87043af/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer the question: \"Trying to see what's actually driving the invoice total.\" The policy excerpts: reading an itemised invoice, how to see breakdown. So we should explain how to view invoice details: go to Settings \u2192 Billing \u2192 Invoices, open invoice, expand line items to see seat charge, add-ons, usage overages. Also mention that each line item shows breakdown. So answer accordingly.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! To see exactly what\u2019s adding up to your invoice total, follow these steps:\\n\\n1. In the Meridian app, go to **Settings \u2192 Billing \u2192 Invoices**.\\n2. Find the invoice you\u2019re looking at and click to open it.\\n3. Expand each line item. You\u2019ll see:\\n   * **Seat charge** \u2013 how many seats were billed and at what per\u2011seat rate.\\n   * **Add\u2011ons** \u2013 any extra features you enabled.\\n   * **Usage overages** \u2013 the metered quantity that exceeded your plan\u2019s allowance.\\n\\nEach expanded line gives you a full breakdown, so you can pinpoint exactly what\u2019s driving the total.\\n\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_8f6ade95-e523-4341-bb1a-9b3d1e6e6c3f",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459775,
+      "id": "chatcmpl-660e7bdb-c931-4a2d-9d39-ee56630cd0dd",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_d3e146e1a5",
+      "usage": {
+        "completion_time": 0.311092325,
+        "completion_tokens": 251,
+        "completion_tokens_details": {
+          "reasoning_tokens": 84
+        },
+        "prompt_time": 0.054754767,
+        "prompt_tokens": 1086,
+        "queue_time": 0.278832772,
+        "total_time": 0.365847092,
+        "total_tokens": 1337
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m84wtae81rp0hp40gxt7wn",
+        "seed": 2004270243
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! To see exactly what\u2019s adding up to your invoice total, follow these steps:\n\n1. In the Meridian app, go to **Settings \u2192 Billing \u2192 Invoices**.\n2. Find the invoice you\u2019re looking at and click to open it.\n3. Expand each line item. You\u2019ll see:\n   * **Seat charge** \u2013 how many seats were billed and at what per\u2011seat rate.\n   * **Add\u2011ons** \u2013 any extra features you enabled.\n   * **Usage overages** \u2013 the metered quantity that exceeded your plan\u2019s allowance.\n\nEach expanded line gives you a full breakdown, so you can pinpoint exactly what\u2019s driving the total.\n"
+        },
+        "id": "fc_8f6ade95-e523-4341-bb1a-9b3d1e6e6c3f",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 251,
+      "prompt_tokens": 1086
+    }
+  },
+  "retry_after": null
+}

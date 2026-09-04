@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:29:35.606542Z",
+  "failure_detail": null,
+  "fingerprint": "32b9bfa7653d4924f9fbcacb62233d4f4fa347e041a7979344d5d93f258254f2",
+  "outcome": "response",
+  "recording_id": "turn/c328dc91661727f6/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Before wiring up a production integration, I'd like to test my webhook handler against a realistic payload without waiting for a real event to happen naturally \u2014 is there a way to trigger a sample event manually?\" This matches DOC-025 about sending a test webhook event. So we can answer: Yes, go to Settings \u2192 Developer \u2192 Webhooks \u2192 Send test event, which fires a realistic sample payload, same schema and headers, logs as test deliveries, etc.\n\nWe must post_reply with concise answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 you can fire a test webhook event from the UI. Go to **Settings \u2192 Developer \u2192 Webhooks** and click **Send test event**. This sends a realistic sample payload (with the same schema, headers and signing header as a live delivery) to the endpoint you\u2019ve configured, and the delivery log will show it marked as a test delivery.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_e5826c2d-f3c3-4c9f-b52a-bdb3f1690332",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373775,
+      "id": "chatcmpl-3c33fc26-eed3-42e5-bdfb-1c40bc1df07d",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_d81b3304b3",
+      "usage": {
+        "completion_time": 0.44378449,
+        "completion_tokens": 209,
+        "completion_tokens_details": {
+          "reasoning_tokens": 112
+        },
+        "prompt_time": 0.060169764,
+        "prompt_tokens": 1025,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.045379236,
+        "total_time": 0.503954254,
+        "total_tokens": 1234
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hp4cnce8j8hx9ddcv7q7qx",
+        "seed": 2040242779
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 you can fire a test webhook event from the UI. Go to **Settings \u2192 Developer \u2192 Webhooks** and click **Send test event**. This sends a realistic sample payload (with the same schema, headers and signing header as a live delivery) to the endpoint you\u2019ve configured, and the delivery log will show it marked as a test delivery."
+        },
+        "id": "fc_e5826c2d-f3c3-4c9f-b52a-bdb3f1690332",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 209,
+      "prompt_tokens": 1025
+    }
+  },
+  "retry_after": null
+}

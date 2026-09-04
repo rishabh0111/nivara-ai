@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:24:36.175334Z",
+  "failure_detail": null,
+  "fingerprint": "2f2b24f8962bed3f46111ab5b2afd78f936cb0c231ca4b45974f97eec8259a7b",
+  "outcome": "response",
+  "recording_id": "turn/610dc62bee250cce/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: \"I want two-factor turned on today as part of a security push we're doing this week \u2014 where do I start?\" The policy says two-factor authentication is enabled per account from Settings \u2192 Security \u2192 Two-factor authentication, no admin needed. Steps: open Settings \u2192 Security \u2192 Two-factor authentication, select Enable, scan QR code, enter six-digit code, save recovery codes. So we can give that. No money or identity. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! To enable two\u2011factor authentication for your account, just follow these steps:\\n\\n1. Go to **Settings** \u2192 **Security** \u2192 **Two\u2011factor authentication**.\\n2. Click **Enable**.\\n3. Scan the QR code with your authenticator app.\\n4. Enter the six\u2011digit code the app shows to confirm enrolment.\\n5. Save the recovery codes that appear \u2013 they\u2019re the only way to get back in if you lose your device.\\n\\nThat\u2019s all you need to do. Let me know if you run into any issues!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_bf1391ce-67ef-42a1-9982-f78529e7f226",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459876,
+      "id": "chatcmpl-92e8632a-6249-4cce-b347-261eac3278b1",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_587d0d67cc",
+      "usage": {
+        "completion_time": 0.258728064,
+        "completion_tokens": 240,
+        "completion_tokens_details": {
+          "reasoning_tokens": 97
+        },
+        "prompt_time": 0.064264687,
+        "prompt_tokens": 1086,
+        "queue_time": 0.302702726,
+        "total_time": 0.322992751,
+        "total_tokens": 1326
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m87z6aef99kbpbr2cw5vnm",
+        "seed": 575171126
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! To enable two\u2011factor authentication for your account, just follow these steps:\n\n1. Go to **Settings** \u2192 **Security** \u2192 **Two\u2011factor authentication**.\n2. Click **Enable**.\n3. Scan the QR code with your authenticator app.\n4. Enter the six\u2011digit code the app shows to confirm enrolment.\n5. Save the recovery codes that appear \u2013 they\u2019re the only way to get back in if you lose your device.\n\nThat\u2019s all you need to do. Let me know if you run into any issues!"
+        },
+        "id": "fc_bf1391ce-67ef-42a1-9982-f78529e7f226",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 240,
+      "prompt_tokens": 1086
+    }
+  },
+  "retry_after": null
+}

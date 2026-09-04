@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:08:37.415089Z",
+  "failure_detail": null,
+  "fingerprint": "c8e7ec66ef2a9198477a81b4b105e247421c7e795ffbd13e6a393681fc433a26",
+  "outcome": "response",
+  "recording_id": "turn/61d8abd22fd4c79b/consistency/sample-4/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user: \"I'm locked out of two-factor after switching phones and I need back in urgently \u2014 how do I re-enrol without losing access entirely?\" This is about re-enrolling two-factor authentication after losing access to the app. The policy excerpts include steps: From Settings \u2192 Security \u2192 Two-factor authentication, choose \u201cReset\u201d and re-enrol same way as first-time setup \u2014 scanning new QR code, confirming with fresh six-digit code. Also mention saved recovery code can be used to sign in and reset if settings page not reachable. Also note that re-enrolling invalidates old QR code. So we can answer with those steps. This is not about money movement, disputed charge, identity verification. It's about two-factor re-enrollment. So we can answer using DOC-012 excerpts. Provide short specific answer. We'll post reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"To re\u2011enrol your two\u2011factor authentication after switching phones:\\n1. Open **Settings \u2192 Security \u2192 Two\u2011factor authentication** in your Meridian account.\\n2. Choose **Reset**. If you can\u2019t reach the settings page, sign in using a saved recovery code from your original enrolment and then reset from there.\\n3. Follow the normal setup flow \u2013 scan the new QR code with your authenticator app and enter the six\u2011digit code it generates to confirm.\\n\\nThis will invalidate the old QR code and generate a fresh set of valid codes, restoring your access.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_162681f3-b534-465b-b188-5505ea0ab869",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372517,
+      "id": "chatcmpl-912fd806-be67-4e84-aa91-56b625787d6a",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_626f3fc5e0",
+      "usage": {
+        "completion_time": 0.90705544,
+        "completion_tokens": 324,
+        "completion_tokens_details": {
+          "reasoning_tokens": 178
+        },
+        "prompt_time": 0.225302552,
+        "prompt_tokens": 1144,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.045729953,
+        "total_time": 1.132357992,
+        "total_tokens": 1468
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmxz54e10as1j1n1tgbx9q",
+        "seed": 1079269869
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "To re\u2011enrol your two\u2011factor authentication after switching phones:\n1. Open **Settings \u2192 Security \u2192 Two\u2011factor authentication** in your Meridian account.\n2. Choose **Reset**. If you can\u2019t reach the settings page, sign in using a saved recovery code from your original enrolment and then reset from there.\n3. Follow the normal setup flow \u2013 scan the new QR code with your authenticator app and enter the six\u2011digit code it generates to confirm.\n\nThis will invalidate the old QR code and generate a fresh set of valid codes, restoring your access."
+        },
+        "id": "fc_162681f3-b534-465b-b188-5505ea0ab869",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 324,
+      "prompt_tokens": 1144
+    }
+  },
+  "retry_after": null
+}

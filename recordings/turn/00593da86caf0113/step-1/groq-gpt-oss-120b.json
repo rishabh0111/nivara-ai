@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:44:07.464602Z",
+  "failure_detail": null,
+  "fingerprint": "ce5a244adeec231a67ae948b5ad085b7068659eb170e7b0c847b25ed89bcc12a",
+  "outcome": "response",
+  "recording_id": "turn/00593da86caf0113/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"two people claim ownership, resolve how\". This matches DOC-066 about handling dispute over who owns a workspace. Policy says: Meridian does not take either side's word; it's internal company matter needing documentation before any access change. It's handled case by case by a human reviewer; either party can start process by contacting support with account details.\n\nThus we should respond: explain that we need documentation, internal resolution, and they should contact support with details; a human reviewer will handle case by case. Provide short answer.\n\nWe can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there,\\n\\nWhen two people from the same company both claim to own a workspace, we can\u2019t simply take one side\u2019s word. This is treated as an internal company matter that must be resolved with proper documentation before any access changes are made. A human reviewer will handle the case individually, and either party can start the process by contacting our support team with the relevant account details and any supporting documents.\\n\\nLet us know the account information and any proof of ownership you have, and we\u2019ll begin the review.\\n\\nThanks,\\nMeridian Support\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_9c8e7275-21bc-4766-b5e7-4ac328fad5ae",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453846,
+      "id": "chatcmpl-5a61a532-217e-444c-93bc-4542d15648d6",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_19b184c447",
+      "usage": {
+        "completion_time": 0.550505513,
+        "completion_tokens": 260,
+        "completion_tokens_details": {
+          "reasoning_tokens": 121
+        },
+        "prompt_time": 0.058431448,
+        "prompt_tokens": 1121,
+        "queue_time": 0.365870043,
+        "total_time": 0.608936961,
+        "total_tokens": 1381
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2fyz7e36b0aw6jtf580j9",
+        "seed": 1637958405
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there,\n\nWhen two people from the same company both claim to own a workspace, we can\u2019t simply take one side\u2019s word. This is treated as an internal company matter that must be resolved with proper documentation before any access changes are made. A human reviewer will handle the case individually, and either party can start the process by contacting our support team with the relevant account details and any supporting documents.\n\nLet us know the account information and any proof of ownership you have, and we\u2019ll begin the review.\n\nThanks,\nMeridian Support"
+        },
+        "id": "fc_9c8e7275-21bc-4766-b5e7-4ac328fad5ae",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 260,
+      "prompt_tokens": 1121
+    }
+  },
+  "retry_after": null
+}

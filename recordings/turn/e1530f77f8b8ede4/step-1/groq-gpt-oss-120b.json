@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:28:19.320614Z",
+  "failure_detail": null,
+  "fingerprint": "0430492607ff5d16a123453789dd33c00739eb94b7ab1947f4dafdc3d4be9fe2",
+  "outcome": "response",
+  "recording_id": "turn/e1530f77f8b8ede4/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"real payload size limit\". The policy says webhook payload is capped at a fixed size, and large records are delivered as reference with truncated flag. It doesn't give exact size. The user wants the real payload size limit. The policy excerpt does not provide the numeric limit. So we cannot answer with that info. According to rules: Answer only from policy excerpts. If they do not contain the answer, we must escalate. Also ambiguous? Not ambiguous. It's about technical detail not in policy. So we must escalate.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer asks for the real payload size limit for webhooks. The provided policy excerpts explain that payloads are capped and large records are sent as references, but they do not specify the exact size limit. Since the answer is not available in the policy excerpts, I must escalate the conversation.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_8a8f9f96-199a-4e15-983c-32342150f4b4",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373699,
+      "id": "chatcmpl-bab0ec94-872b-4860-967b-342e51054360",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_24c9ecc6e8",
+      "usage": {
+        "completion_time": 0.421127861,
+        "completion_tokens": 200,
+        "completion_tokens_details": {
+          "reasoning_tokens": 116
+        },
+        "prompt_time": 2.756202699,
+        "prompt_tokens": 1104,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.043768262,
+        "total_time": 3.17733056,
+        "total_tokens": 1304
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hp1zfvey4aejapt6n3kqx1",
+        "seed": 2035248806
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer asks for the real payload size limit for webhooks. The provided policy excerpts explain that payloads are capped and large records are sent as references, but they do not specify the exact size limit. Since the answer is not available in the policy excerpts, I must escalate the conversation."
+        },
+        "id": "fc_8a8f9f96-199a-4e15-983c-32342150f4b4",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 200,
+      "prompt_tokens": 1104
+    }
+  },
+  "retry_after": null
+}

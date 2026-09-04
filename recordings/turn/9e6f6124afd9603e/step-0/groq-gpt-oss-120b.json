@@ -1,0 +1,63 @@
+{
+  "captured_at": "2026-09-02T18:01:45.140135Z",
+  "failure_detail": null,
+  "fingerprint": "7381623e11f6b0ac467698a8e49ddd0010e77e5a00c8f9d49ff9b6eea340e9ce",
+  "outcome": "response",
+  "recording_id": "turn/9e6f6124afd9603e/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": "Yes. When you turn on SSO, password\u2011based sign\u2011in remains active for all existing staff. The two methods coexist until you later enable **Settings \u2192 Security \u2192 SSO \u2192 Require\u202fSSO**, which forces everyone to use SSO. This intentional rollout period lets you provision users gradually without locking out those who aren\u2019t yet synced.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "content": "Yes. When you turn on SSO, password\u2011based sign\u2011in remains active for all existing staff. The two methods coexist until you later enable **Settings \u2192 Security \u2192 SSO \u2192 Require\u202fSSO**, which forces everyone to use SSO. This intentional rollout period lets you provision users gradually without locking out those who aren\u2019t yet synced.",
+            "reasoning": "We need to answer using policy excerpts. The question: wants to enable SSO for the team but worried it will instantly disable password sign-in for anyone not yet provisioned. Can both coexist during a transition? The policy excerpts: DOC-009 part 1 says enabling SSO does not immediately disable password sign-in for existing staff. Both methods coexist until admin turns password sign-in off in Settings \u2192 Security \u2192 SSO \u2192 Require SSO. Also DOC-009 part 2 says this is deliberate to allow rollout period where some staff provisioned and others not, and forcing SSO before everyone is provisioned would lock out unprovisioned staff. So answer: Yes, both can coexist; enabling SSO won't lock out unprovisioned staff until you require SSO. Provide steps. Use short answer.",
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788372105,
+      "id": "chatcmpl-aec1e641-d8bd-4169-b524-ab6959684584",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_87b3c396db",
+      "usage": {
+        "completion_time": 0.608323376,
+        "completion_tokens": 244,
+        "completion_tokens_details": {
+          "reasoning_tokens": 165
+        },
+        "prompt_time": 0.303621223,
+        "prompt_tokens": 1076,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.273395336,
+        "total_time": 0.911944599,
+        "total_tokens": 1320
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmhcqqecvbyw88kjbkqvfj",
+        "seed": 2090536352
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 244,
+      "prompt_tokens": 1076
+    }
+  },
+  "retry_after": null
+}

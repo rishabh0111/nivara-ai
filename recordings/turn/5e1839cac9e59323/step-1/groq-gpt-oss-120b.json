@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T15:52:00.487236Z",
+  "failure_detail": null,
+  "fingerprint": "d6980f8a5da4b13e52faf9743c6bf4f03aad264a962160c4d3262deafd192b5a",
+  "outcome": "response",
+  "recording_id": "turn/5e1839cac9e59323/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to interpret the customer's request: \"Trying to reuse a seat without extra cost.\" Likely they want to reassign a seat to a new employee without paying for two seats at once. The policy excerpts cover reassigning a seat without paying for two at once. So we can answer using those excerpts.\n\nWe need to give short specific answer: steps: remove departed employee first, then invite new hire within same billing cycle; seat count is based on highest occupied count; next invoice will bill based on seat count at invoice date; removing frees seat immediately.\n\nThus answer: go to Settings \u2192 People, remove the person, then invite new person; as long as done within same billing cycle you won't be charged extra; invoice will reflect only one seat.\n\nLet's craft answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! You can re\u2011use a seat without incurring an extra charge by removing the departing employee first and then inviting the new hire within the same billing cycle.\u202fGo to **Settings \u2192 People**, delete the former user (this frees the seat immediately), and then add the new person. The seat count for billing is based on the highest number of seats occupied at any point in the cycle, so as long as you don\u2019t have two people in the seat at the same time, you\u2019ll only be billed for one seat. The next invoice will reflect the seat count as of the invoice date, showing just a single seat.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_20eca80f-b019-4764-a0cc-4f8bcb39eeae",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788450720,
+      "id": "chatcmpl-eded2234-493d-42c5-a831-dc5396edb945",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_02b0d31eca",
+      "usage": {
+        "completion_time": 0.648948606,
+        "completion_tokens": 309,
+        "completion_tokens_details": {
+          "reasoning_tokens": 157
+        },
+        "prompt_time": 0.05713343,
+        "prompt_tokens": 1052,
+        "queue_time": 0.316589568,
+        "total_time": 0.706082036,
+        "total_tokens": 1361
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kzghgfev9thb19q4tmqahy",
+        "seed": 854802268
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! You can re\u2011use a seat without incurring an extra charge by removing the departing employee first and then inviting the new hire within the same billing cycle.\u202fGo to **Settings \u2192 People**, delete the former user (this frees the seat immediately), and then add the new person. The seat count for billing is based on the highest number of seats occupied at any point in the cycle, so as long as you don\u2019t have two people in the seat at the same time, you\u2019ll only be billed for one seat. The next invoice will reflect the seat count as of the invoice date, showing just a single seat."
+        },
+        "id": "fc_20eca80f-b019-4764-a0cc-4f8bcb39eeae",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 309,
+      "prompt_tokens": 1052
+    }
+  },
+  "retry_after": null
+}

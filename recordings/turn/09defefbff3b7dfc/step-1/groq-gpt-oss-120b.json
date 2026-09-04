@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:35:52.202993Z",
+  "failure_detail": null,
+  "fingerprint": "24cb03cff3420d0392ee1909cc0281303bb425ba5d1077ee3a1d21f815ee4365",
+  "outcome": "response",
+  "recording_id": "turn/09defefbff3b7dfc/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user wants to revoke an API key and investigate. According to DOC-058 parts 1-3, we can instruct them to revoke via Settings \u2192 Developer \u2192 API keys, and also report to support to start investigation. So we can give that answer. It's not about money, fraud, identity. So we can respond with steps.\n\nWe must post_reply with concise answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can revoke the compromised API key right away by going to **Settings \u2192 Developer \u2192 API keys** and selecting \u201cRevoke\u201d for that key \u2013 the revocation takes effect immediately and stops any further use. After revoking, please report the incident to our support team (you can do this from the same page or via a support ticket) so we can start a security review, determine how the key was created, and investigate any data that may have been accessed.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_ee08eb78-b0f3-40ba-84ef-5510a94211bd",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453352,
+      "id": "chatcmpl-5e105769-830d-43e1-bd83-4972d93c5feb",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_803c0ba83d",
+      "usage": {
+        "completion_time": 0.481684663,
+        "completion_tokens": 205,
+        "completion_tokens_details": {
+          "reasoning_tokens": 86
+        },
+        "prompt_time": 0.046071363,
+        "prompt_tokens": 1157,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.361601599,
+        "total_time": 0.527756026,
+        "total_tokens": 1362
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m20vqyem1v8wpsjdns2z1g",
+        "seed": 846216188
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can revoke the compromised API key right away by going to **Settings \u2192 Developer \u2192 API keys** and selecting \u201cRevoke\u201d for that key \u2013 the revocation takes effect immediately and stops any further use. After revoking, please report the incident to our support team (you can do this from the same page or via a support ticket) so we can start a security review, determine how the key was created, and investigate any data that may have been accessed."
+        },
+        "id": "fc_ee08eb78-b0f3-40ba-84ef-5510a94211bd",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 205,
+      "prompt_tokens": 1157
+    }
+  },
+  "retry_after": null
+}

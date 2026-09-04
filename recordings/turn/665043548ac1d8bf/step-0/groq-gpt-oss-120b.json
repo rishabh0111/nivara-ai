@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:52:42.886648Z",
+  "failure_detail": null,
+  "fingerprint": "97390496cb651209a4754fba97de6e1ed267100cc16bdc97289973b78a35dac2",
+  "outcome": "response",
+  "recording_id": "turn/665043548ac1d8bf/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: finance contact got email supposedly from billing requesting a wire transfer to a new bank account, wants confirmation if genuine. This is about potential fraudulent billing email. According to policy: Meridian never asks to wire funds via email; they should not act; check billing status; forward email to support. So we can advise: do not act, do not wire, check billing in Settings \u2192 Billing, compare, forward email to support for verification.\n\nWe can answer directly. No need to escalate. Provide short specific answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there,\\n\\nMeridian never asks customers to wire money to a new bank account via email, and any urgent\u2011payment request that doesn\u2019t match the payment methods in your account\u2019s billing settings is a red flag. Please do not reply, click any links, or make a payment.\\n\\nTo verify the email:\\n1. Log in to your account and go to **Settings \u2192 Billing** (or **Settings \u2192 Billing \u2192 Invoices**) and compare the invoice details with what the email says.\\n2. Forward the suspicious email to our support team so we can check it against your actual billing record and confirm whether it\u2019s genuine.\\n\\nIf the invoice you see in the account doesn\u2019t match the email, treat the email as unverified until we confirm it.\\n\\nLet us know if you need any further help!\\n\\nBest,\\nMeridian Support\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_701e099e-e8ca-4bdc-916f-d372ed9ebfcc",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454362,
+      "id": "chatcmpl-6d44a51d-458a-4630-a835-d79d58471f21",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_8ea50c0161",
+      "usage": {
+        "completion_time": 0.669388239,
+        "completion_tokens": 318,
+        "completion_tokens_details": {
+          "reasoning_tokens": 114
+        },
+        "prompt_time": 0.042102648,
+        "prompt_tokens": 1077,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.312131796,
+        "total_time": 0.711490887,
+        "total_tokens": 1395
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2zpjmeffrq89hg2pbbddh",
+        "seed": 978263331
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there,\n\nMeridian never asks customers to wire money to a new bank account via email, and any urgent\u2011payment request that doesn\u2019t match the payment methods in your account\u2019s billing settings is a red flag. Please do not reply, click any links, or make a payment.\n\nTo verify the email:\n1. Log in to your account and go to **Settings \u2192 Billing** (or **Settings \u2192 Billing \u2192 Invoices**) and compare the invoice details with what the email says.\n2. Forward the suspicious email to our support team so we can check it against your actual billing record and confirm whether it\u2019s genuine.\n\nIf the invoice you see in the account doesn\u2019t match the email, treat the email as unverified until we confirm it.\n\nLet us know if you need any further help!\n\nBest,\nMeridian Support"
+        },
+        "id": "fc_701e099e-e8ca-4bdc-916f-d372ed9ebfcc",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 318,
+      "prompt_tokens": 1077
+    }
+  },
+  "retry_after": null
+}

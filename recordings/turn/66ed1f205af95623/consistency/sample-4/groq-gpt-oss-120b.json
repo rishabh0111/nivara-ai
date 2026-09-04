@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:55:07.212158Z",
+  "failure_detail": null,
+  "fingerprint": "862fd51f22e3c21e8b2d4fa2d548a4bf24b7eb0d6aa4dbdee4e8b7c351c71684",
+  "outcome": "response",
+  "recording_id": "turn/66ed1f205af95623/consistency/sample-4/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see the conversation. The user asks: \"unmatched invoice, is it fake?\" This is about verifying a suspicious invoice. The policy excerpts provide guidance: genuine invoices are in Settings \u2192 Billing \u2192 Invoices, and if email invoice doesn't match anything shown there, treat as unverified. So we can answer: advise to check in the account, if not found, likely fake, do not pay. Provide steps. This is covered by DOC-077 parts. So we can answer directly.\n\nWe must not mention policies. Provide short specific answer. So we will post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! The best way to verify the invoice is to open your Meridian account and go to **Settings \u2192 Billing \u2192 Invoices**. All genuine invoices you\u2019ve been issued will appear there. If the invoice you received by email isn\u2019t listed in that view, it\u2019s likely not a legitimate Meridian invoice and you should treat it as unverified\u2014don\u2019t pay it until you can confirm it matches an entry in your billing history.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_b0be8553-8aff-4050-9e88-681077d21b00",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454507,
+      "id": "chatcmpl-d69e6fac-1b63-4a38-bd3d-347490850694",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_dee443f41b",
+      "usage": {
+        "completion_time": 0.769752551,
+        "completion_tokens": 231,
+        "completion_tokens_details": {
+          "reasoning_tokens": 119
+        },
+        "prompt_time": 0.493561919,
+        "prompt_tokens": 1090,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.315274697,
+        "total_time": 1.26331447,
+        "total_tokens": 1321
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m3431xen9rzz1gvnpv0drz",
+        "seed": 569144211
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! The best way to verify the invoice is to open your Meridian account and go to **Settings \u2192 Billing \u2192 Invoices**. All genuine invoices you\u2019ve been issued will appear there. If the invoice you received by email isn\u2019t listed in that view, it\u2019s likely not a legitimate Meridian invoice and you should treat it as unverified\u2014don\u2019t pay it until you can confirm it matches an entry in your billing history."
+        },
+        "id": "fc_b0be8553-8aff-4050-9e88-681077d21b00",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 231,
+      "prompt_tokens": 1090
+    }
+  },
+  "retry_after": null
+}

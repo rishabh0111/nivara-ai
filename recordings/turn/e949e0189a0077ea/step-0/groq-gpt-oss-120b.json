@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:00:35.017931Z",
+  "failure_detail": null,
+  "fingerprint": "81a381e00db9a40230655e8a4cf1138f4b59faebfedd5b66072cc91d219f1e42",
+  "outcome": "response",
+  "recording_id": "turn/e949e0189a0077ea/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"plan migration, what breaks in integrations/automations?\" We have relevant excerpts from DOC-032 about plan migration effects on integrations. Summarize: moving workspace to new plan does not interrupt existing API keys, webhooks, automation rules\u2014they continue running. The only thing that can change is tier-gated automation feature: if rule uses capability only available on destination tier, it activates after migration; if depends on capability not included, rule is paused (not deleted) and reactivates if tier changes back. Also Settings \u2192 Automation \u2192 Rules shows status of every rule, including any that migration would pause, before migration is confirmed.\n\nThus answer: nothing breaks; API keys, webhooks, automation rules keep running; only tier-gated automation features may be paused if not supported in new tier, otherwise they activate. Provide guidance to check Settings \u2192 Automation \u2192 Rules.\n\nWe must ensure not to mention policy excerpts. Provide short answer.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When you migrate a workspace to a different plan, your existing API keys, webhooks and automation rules keep running \u2013 they\u2019re tied to the workspace, not the plan tier. The only thing that can be affected is a tier\u2011gated automation feature: if a rule relies on a capability that isn\u2019t included in the new tier, the rule is paused (not deleted) and will reactivate automatically if you move back to a tier that includes it; if the capability is available in the new tier, the rule activates right after migration. You can see the status of each rule, including any that would be paused, in **Settings \u2192 Automation \u2192 Rules** before you confirm the migration.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_34228748-5dc0-4e07-8236-387263497ba0",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451234,
+      "id": "chatcmpl-7d0b4900-68db-4bc2-bc95-8d4aa4e64620",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_626f3fc5e0",
+      "usage": {
+        "completion_time": 0.781879774,
+        "completion_tokens": 368,
+        "completion_tokens_details": {
+          "reasoning_tokens": 205
+        },
+        "prompt_time": 0.070673787,
+        "prompt_tokens": 1028,
+        "queue_time": 0.188189572,
+        "total_time": 0.852553561,
+        "total_tokens": 1396
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m00849ewwtzkh3pvnecg8k",
+        "seed": 982339351
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When you migrate a workspace to a different plan, your existing API keys, webhooks and automation rules keep running \u2013 they\u2019re tied to the workspace, not the plan tier. The only thing that can be affected is a tier\u2011gated automation feature: if a rule relies on a capability that isn\u2019t included in the new tier, the rule is paused (not deleted) and will reactivate automatically if you move back to a tier that includes it; if the capability is available in the new tier, the rule activates right after migration. You can see the status of each rule, including any that would be paused, in **Settings \u2192 Automation \u2192 Rules** before you confirm the migration."
+        },
+        "id": "fc_34228748-5dc0-4e07-8236-387263497ba0",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 368,
+      "prompt_tokens": 1028
+    }
+  },
+  "retry_after": null
+}

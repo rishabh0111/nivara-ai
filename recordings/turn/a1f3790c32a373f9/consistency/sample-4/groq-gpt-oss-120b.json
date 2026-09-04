@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:09:58.610447Z",
+  "failure_detail": null,
+  "fingerprint": "71a24401f6462982d70128fb2a6ca190472f314d4ef02245fd7a95fbcfc39a3c",
+  "outcome": "response",
+  "recording_id": "turn/a1f3790c32a373f9/consistency/sample-4/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Do I need to fully remove the old two-factor enrolment before adding the new device, or can I just re-scan a new code?\" This is about re-enrolling two-factor authentication after losing access. The excerpts say:\n\n- Re-enrolling invalidates the old QR code entirely; only the newly scanned one will generate valid codes afterward. (DOC-012 part 3)\n- From Settings \u2192 Security \u2192 Two-factor authentication, choose \u201cReset\u201d and re-enrol the same way as a first-time setup \u2014 scanning a new QR code and confirming with a fresh six-digit code. A saved recovery code from the original enrolment can also be used to sign in and reset from there if the settings page itself is not reachable without a working code. (DOC-012 part 2)\nThus answer: you don't need to manually remove; resetting will invalidate old and you just scan new. So answer accordingly.\n\nWe must post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You don\u2019t need to manually delete the old enrollment first. When you go to Settings\u202f\u2192\u202fSecurity\u202f\u2192\u202fTwo\u2011factor authentication and choose \u201cReset,\u201d Meridian will invalidate the previous QR code automatically. Then you can set up the new device by scanning the fresh QR code and confirming the new six\u2011digit code. The old codes will no longer work.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_78209de4-c853-4201-8a60-b9f980315a03",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372598,
+      "id": "chatcmpl-100cb2fc-9ef7-4c83-b670-3e7b798ff13a",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_84bf0227ec",
+      "usage": {
+        "completion_time": 1.262607092,
+        "completion_tokens": 300,
+        "completion_tokens_details": {
+          "reasoning_tokens": 202
+        },
+        "prompt_time": 0.055883302,
+        "prompt_tokens": 1146,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.159362057,
+        "total_time": 1.318490394,
+        "total_tokens": 1446
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hn0ea7e5hv7qd4h3wkp1r9",
+        "seed": 716746062
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You don\u2019t need to manually delete the old enrollment first. When you go to Settings\u202f\u2192\u202fSecurity\u202f\u2192\u202fTwo\u2011factor authentication and choose \u201cReset,\u201d Meridian will invalidate the previous QR code automatically. Then you can set up the new device by scanning the fresh QR code and confirming the new six\u2011digit code. The old codes will no longer work."
+        },
+        "id": "fc_78209de4-c853-4201-8a60-b9f980315a03",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 300,
+      "prompt_tokens": 1146
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:50:44.919538Z",
+  "failure_detail": null,
+  "fingerprint": "78832da14a8e671f0084b78629b5f02edb9f04835373a49454809a425c7f897c",
+  "outcome": "response",
+  "recording_id": "turn/5d63c706c6e69e13/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"We're switching from card to invoiced bank payment \u2014 can you confirm the new payment details were recorded correctly before the next large invoice goes out?\" This is about confirming change from card to invoiced billing. Policy says moving from automatic card billing to invoiced bank payment is arranged with billing team, not self-service. Billing team can confirm new arrangement is in place and will apply to next invoice. So we can answer: Yes, billing team can confirm, ask them to request confirmation in writing. Provide guidance. According to policy, we can say that billing team can confirm the new arrangement and will apply to next invoice. So answer accordingly. No need to escalate. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! Switching from automatic card billing to invoiced bank payment is handled by our billing team. They can verify that the new invoicing arrangement is set up correctly and will apply to your next invoice. If you\u2019d like written confirmation before the large invoice is generated, just let us know and we\u2019ll have the billing team confirm the details for you.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_2369cc22-3aee-4699-b958-285ffe824f7f",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454244,
+      "id": "chatcmpl-693b7e98-0249-45f8-9b05-594c20d1764c",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5781dfb07c",
+      "usage": {
+        "completion_time": 0.564742101,
+        "completion_tokens": 245,
+        "completion_tokens_details": {
+          "reasoning_tokens": 150
+        },
+        "prompt_time": 0.052080769,
+        "prompt_tokens": 1057,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.2813129,
+        "total_time": 0.61682287,
+        "total_tokens": 1302
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2w3kfeah84f92q1hnrrcj",
+        "seed": 2042514701
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! Switching from automatic card billing to invoiced bank payment is handled by our billing team. They can verify that the new invoicing arrangement is set up correctly and will apply to your next invoice. If you\u2019d like written confirmation before the large invoice is generated, just let us know and we\u2019ll have the billing team confirm the details for you."
+        },
+        "id": "fc_2369cc22-3aee-4699-b958-285ffe824f7f",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 245,
+      "prompt_tokens": 1057
+    }
+  },
+  "retry_after": null
+}

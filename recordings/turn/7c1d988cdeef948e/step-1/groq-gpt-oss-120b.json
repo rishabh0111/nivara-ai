@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:26:51.107295Z",
+  "failure_detail": null,
+  "fingerprint": "16f383bec7d6462a49c921c0052909c92d501dcf0c4d739d8634c0b5bb55dc70",
+  "outcome": "response",
+  "recording_id": "turn/7c1d988cdeef948e/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The customer asks \"get incident report?\" Likely they want a post-incident summary. Policy says every resolved incident gets a written summary on status page. So we can answer: they can find it on status page incident entry, after resolved, summary added there. Provide guidance. This is covered by DOC-049 and DOC-046. So we can answer.\n\nWe must keep short and specific. Provide steps: go to status page, locate incident, click, view summary. No need to mention policy. Provide answer.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! Once an incident is resolved, Meridian adds a written summary to the same incident entry on our status page. You can view the report by opening the status page, locating the incident you\u2019re interested in, and scrolling down to the summary that appears after the live updates. Let me know if you need help finding a specific incident.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_b0422c03-917a-4373-a7bc-903098de199e",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452809,
+      "id": "chatcmpl-5a10282b-970f-4b98-b183-0b7204ccdd8a",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_90620edd96",
+      "usage": {
+        "completion_time": 0.529621594,
+        "completion_tokens": 202,
+        "completion_tokens_details": {
+          "reasoning_tokens": 111
+        },
+        "prompt_time": 0.391333325,
+        "prompt_tokens": 1051,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.365402581,
+        "total_time": 0.920954919,
+        "total_tokens": 1253
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1g9zcev4t39v56s77rxve",
+        "seed": 1358123952
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! Once an incident is resolved, Meridian adds a written summary to the same incident entry on our status page. You can view the report by opening the status page, locating the incident you\u2019re interested in, and scrolling down to the summary that appears after the live updates. Let me know if you need help finding a specific incident."
+        },
+        "id": "fc_b0422c03-917a-4373-a7bc-903098de199e",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 202,
+      "prompt_tokens": 1051
+    }
+  },
+  "retry_after": null
+}

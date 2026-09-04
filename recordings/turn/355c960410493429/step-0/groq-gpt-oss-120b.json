@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:24:53.458319Z",
+  "failure_detail": null,
+  "fingerprint": "f357feb87dfc21c65c9464b4e8ccb711c4db9bf003072595feb407ea5823a209",
+  "outcome": "response",
+  "recording_id": "turn/355c960410493429/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer using policy excerpts. The user says webhooks stopped overnight, no error on their end, need to check delivery status immediately. According to DOC-022 parts 1-3, we can guide them to check delivery log in Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log, which shows attempts, status, response body. Also mention that failures may be due to TLS, firewall, non-2xx. So answer: go to Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log, see attempts, etc. Also note that failed deliveries are retried, after window need manual replay. Provide steps. This is within policy. So we can post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there \u2013 you can see exactly what happened to your webhook deliveries in the Meridian dashboard.\u202fGo to **Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log**. The log lists every attempt Meridian made, the HTTP status returned and the response body (including test events, which are marked as such). If the endpoint is returning a non\u20112xx status, has an expired TLS certificate, or a firewall change is blocking traffic, the deliveries will fail before they reach your system and will appear here. Failed deliveries are retried on a back\u2011off schedule; after the retry window you\u2019ll need to replay the event manually from the delivery log.\\n\\nChecking the delivery log should give you the immediate insight you need.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_70cc1aef-5e1b-4fe8-9231-aa805c6f57dc",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373493,
+      "id": "chatcmpl-74570349-6014-4ea8-bde7-9bcd119dfed5",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_fe269835c7",
+      "usage": {
+        "completion_time": 0.699897107,
+        "completion_tokens": 304,
+        "completion_tokens_details": {
+          "reasoning_tokens": 135
+        },
+        "prompt_time": 0.062850123,
+        "prompt_tokens": 1057,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.306518836,
+        "total_time": 0.76274723,
+        "total_tokens": 1361
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnvrk4eqytjmd84pbvjf29",
+        "seed": 2014531561
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there \u2013 you can see exactly what happened to your webhook deliveries in the Meridian dashboard.\u202fGo to **Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log**. The log lists every attempt Meridian made, the HTTP status returned and the response body (including test events, which are marked as such). If the endpoint is returning a non\u20112xx status, has an expired TLS certificate, or a firewall change is blocking traffic, the deliveries will fail before they reach your system and will appear here. Failed deliveries are retried on a back\u2011off schedule; after the retry window you\u2019ll need to replay the event manually from the delivery log.\n\nChecking the delivery log should give you the immediate insight you need."
+        },
+        "id": "fc_70cc1aef-5e1b-4fe8-9231-aa805c6f57dc",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 304,
+      "prompt_tokens": 1057
+    }
+  },
+  "retry_after": null
+}

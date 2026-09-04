@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:21:12.279099Z",
+  "failure_detail": null,
+  "fingerprint": "eafe072063dd35c3077eaf075b5fab322179b4dcbf5c0a21ed664b2636b0bdb4",
+  "outcome": "response",
+  "recording_id": "turn/34dcae0e85f17ac4/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our data lead asked me to check whether re-importing a corrected file creates duplicates of records that imported successfully the first time.\"\n\nWe need to answer: According to DOC-019, if a row succeeded first import and is unchanged in corrected file, it will be recognized as same record and updated rather than duplicated, as long as matching field wasn't the one corrected. The importer matches by email or unique identifier. If correction was to email or identifier, importer can't recognize, so safest is to remove already succeeded rows before re-running.\n\nThus answer: No duplicates if unchanged and matching field unchanged; duplicates only if you changed email/identifier. Provide guidance.\n\nWe must post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When you re\u2011import a corrected file, Meridian\u2019s importer will match existing records by email (for contacts) or by the unique identifier you provided. If a row that already succeeded appears again unchanged, it\u2019s recognized as the same record and is updated in place \u2013 no duplicate is created. However, if the correction you made was to the email address or the identifier used for matching, the importer can\u2019t recognise it as the same row, and a duplicate could be created. In that case, the safest approach is to remove the rows that already succeeded from the corrected file before re\u2011running the import.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_8019175d-c383-4517-8d43-dc8f19776dc0",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373271,
+      "id": "chatcmpl-9c5dedcf-6e2e-481e-aaa3-19d04ea24485",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5d041d5b40",
+      "usage": {
+        "completion_time": 0.651404455,
+        "completion_tokens": 294,
+        "completion_tokens_details": {
+          "reasoning_tokens": 148
+        },
+        "prompt_time": 0.051399831,
+        "prompt_tokens": 1053,
+        "queue_time": 0.159263248,
+        "total_time": 0.702804286,
+        "total_tokens": 1347
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnn0dyeqha9anzwm3g5mfa",
+        "seed": 310859770
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When you re\u2011import a corrected file, Meridian\u2019s importer will match existing records by email (for contacts) or by the unique identifier you provided. If a row that already succeeded appears again unchanged, it\u2019s recognized as the same record and is updated in place \u2013 no duplicate is created. However, if the correction you made was to the email address or the identifier used for matching, the importer can\u2019t recognise it as the same row, and a duplicate could be created. In that case, the safest approach is to remove the rows that already succeeded from the corrected file before re\u2011running the import."
+        },
+        "id": "fc_8019175d-c383-4517-8d43-dc8f19776dc0",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 294,
+      "prompt_tokens": 1053
+    }
+  },
+  "retry_after": null
+}

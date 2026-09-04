@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:22:38.455118Z",
+  "failure_detail": null,
+  "fingerprint": "39c853a47871f3b40e0fc3af9323b2064176bf7ed56dd6584e21e63b9c605d6a",
+  "outcome": "response",
+  "recording_id": "turn/fa0262f769b5f9c6/consistency/sample-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The policy says we can provide explanation from the policy: \"Reading an itemised invoice\" article. We can say to open invoice, expand line items to see seat charge vs overage. Also downloadable PDF includes breakdown. So answer: open invoice, expand line items, get split. Provide guidance. Also mention that PDF includes same breakdown. So we can answer. No disallowed content. So post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! You can see the split directly in the invoice. Go to Settings \u2192 Billing \u2192 Invoices, open the invoice you\u2019re looking at, and expand each line item. That will show you the seat charge (how many seats and the per\u2011seat rate) and any overage charges with the metered quantity. If you\u2019d like a file you can attach to a budget review, download the PDF \u2013 it contains the same breakdown. That should give you the split you need for tomorrow\u2019s meeting!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_017e76b9-d825-4b64-b9f8-9e9ef19858b6",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459758,
+      "id": "chatcmpl-ef832ed8-43a5-4812-9d9e-68a8dca5351c",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_75c733514d",
+      "usage": {
+        "completion_time": 0.217509428,
+        "completion_tokens": 211,
+        "completion_tokens_details": {
+          "reasoning_tokens": 88
+        },
+        "prompt_time": 0.248959282,
+        "prompt_tokens": 1103,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.15616242,
+        "total_time": 0.46646871,
+        "total_tokens": 1314
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m84c7xet6ak6m6zse714nv",
+        "seed": 616244690
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! You can see the split directly in the invoice. Go to Settings \u2192 Billing \u2192 Invoices, open the invoice you\u2019re looking at, and expand each line item. That will show you the seat charge (how many seats and the per\u2011seat rate) and any overage charges with the metered quantity. If you\u2019d like a file you can attach to a budget review, download the PDF \u2013 it contains the same breakdown. That should give you the split you need for tomorrow\u2019s meeting!"
+        },
+        "id": "fc_017e76b9-d825-4b64-b9f8-9e9ef19858b6",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 211,
+      "prompt_tokens": 1103
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:27:25.219562Z",
+  "failure_detail": null,
+  "fingerprint": "311bd5ac65f05285927a506e0aaa2d4094eba7a40db423a11af3fe7b48f811b2",
+  "outcome": "response",
+  "recording_id": "turn/3a75a955c1332b41/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Would a stopped endpoint show as disabled somewhere, or would deliveries just silently stop with no indication either side?\" This refers to webhook endpoint that stops receiving events. The policy says: \"A webhook endpoint that stops receiving events with nothing surfaced in the receiving system's own logs usually means the deliveries are failing before they reach that system \u2014 a TLS certificate that expired, a firewall change, or the endpoint returning a non-2xx status that never gets logged as an error locally.\" Also: \"Settings \u2192 Developer \u2192 Webhooks \u2192 Delivery log shows every attempt Meridian made against the endpoint, including the HTTP status returned and the response body, independent of whatever the receiving system logged on its own end.\" Also: \"An admin can disable or repoint the webhook immediately from Settings \u2192 Developer \u2192 Webhooks, which stops further deliveries right away, but should also report it to support so a reviewer can determine when the endpoint was changed, by which account, and what data was delivered to the unauthorised domain during that window.\" So the answer: deliveries will stop, but you can see in the Delivery log. Also if disabled, it will show as disabled in Settings \u2192 Developer \u2192 Webhooks. So answer: It will show as disabled if you disabled it; otherwise deliveries will silently stop but you can see attempts in the Delivery log. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If you\u2019ve disabled or repointed the webhook in Settings\u202f\u2192\u202fDeveloper\u202f\u2192\u202fWebhooks, it will appear as disabled there and no further deliveries will be sent. If the endpoint is simply failing (e.g., TLS expiry, firewall, non\u20112xx response), the deliveries stop, but you can still see every attempt in the Delivery log under Settings\u202f\u2192\u202fDeveloper\u202f\u2192\u202fWebhooks\u202f\u2192\u202fDelivery log, which shows the HTTP status and response body for each try.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_e1727c90-ce61-45d6-be8d-712a1599ce86",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460045,
+      "id": "chatcmpl-11e3e2fa-40ca-42c6-af42-1df94e20b92a",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_976a85d17a",
+      "usage": {
+        "completion_time": 0.451617541,
+        "completion_tokens": 404,
+        "completion_tokens_details": {
+          "reasoning_tokens": 282
+        },
+        "prompt_time": 0.063736947,
+        "prompt_tokens": 1086,
+        "queue_time": 0.302667377,
+        "total_time": 0.515354488,
+        "total_tokens": 1490
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8d40eemmbb4bq34kfsatf",
+        "seed": 356092841
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If you\u2019ve disabled or repointed the webhook in Settings\u202f\u2192\u202fDeveloper\u202f\u2192\u202fWebhooks, it will appear as disabled there and no further deliveries will be sent. If the endpoint is simply failing (e.g., TLS expiry, firewall, non\u20112xx response), the deliveries stop, but you can still see every attempt in the Delivery log under Settings\u202f\u2192\u202fDeveloper\u202f\u2192\u202fWebhooks\u202f\u2192\u202fDelivery log, which shows the HTTP status and response body for each try."
+        },
+        "id": "fc_e1727c90-ce61-45d6-be8d-712a1599ce86",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 404,
+      "prompt_tokens": 1086
+    }
+  },
+  "retry_after": null
+}

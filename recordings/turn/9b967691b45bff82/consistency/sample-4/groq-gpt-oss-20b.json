@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:23:24.503635Z",
+  "failure_detail": null,
+  "fingerprint": "0936970669d7d6c0541fc98a8dc60642928a4b7ec33948d4fe54d8a42091fe02",
+  "outcome": "response",
+  "recording_id": "turn/9b967691b45bff82/consistency/sample-4/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We have policy excerpts. The question: \"What exact date does my next invoice get generated? I need to plan around replacing my card.\" They want the date of next invoice. The policy says: \"That date is shown in Settings \u2192 Billing \u2192 Plan next to 'Next invoice', and it does not shift month to month even though months have different lengths; a billing date of the 31st bills on the last day of a shorter month.\" Also \"A monthly plan is invoiced on the same day of the month as the workspace's original billing date \u2014 the date the subscription started or last renewed.\" So answer: The next invoice date is shown in Settings \u2192 Billing \u2192 Plan under \"Next invoice\". It will be the same day each month, same as original billing date. So we can provide that. Also mention that replacing card a day or two before is enough. So answer: \"Check Settings \u2192 Billing \u2192 Plan, next invoice date.\" The question: \"What exact date does my next invoice get generated?\" Provide date? We cannot compute. We must refer to the location. So answer: \"Check the next invoice date in Settings \u2192 Billing \u2192 Plan.\" That addresses. No policy conflict. So we can post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! Your next invoice will be generated on the same day of the month that your plan started or last renewed. You can see the exact date in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan, next to \u201cNext invoice\u201d. That\u2019s the date you\u2019ll want to keep in mind when you replace your card. Let me know if you need any help with that!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_0480608d-167f-4db7-b184-d1c94b702432",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459804,
+      "id": "chatcmpl-37dade24-dd99-4d56-adfd-55424cf27ff0",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5979a0e1b7",
+      "usage": {
+        "completion_time": 0.390563539,
+        "completion_tokens": 345,
+        "completion_tokens_details": {
+          "reasoning_tokens": 249
+        },
+        "prompt_time": 0.054628544,
+        "prompt_tokens": 1083,
+        "queue_time": 0.353841904,
+        "total_time": 0.445192083,
+        "total_tokens": 1428
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m85rvgepwbkrrwqja5sf61",
+        "seed": 1283509925
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! Your next invoice will be generated on the same day of the month that your plan started or last renewed. You can see the exact date in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan, next to \u201cNext invoice\u201d. That\u2019s the date you\u2019ll want to keep in mind when you replace your card. Let me know if you need any help with that!"
+        },
+        "id": "fc_0480608d-167f-4db7-b184-d1c94b702432",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 345,
+      "prompt_tokens": 1083
+    }
+  },
+  "retry_after": null
+}

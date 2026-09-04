@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:56:42.509655Z",
+  "failure_detail": null,
+  "fingerprint": "927619e3133dcc3a62b357f82f26b4cff1fbc9afb8cf32d23637694d0097a95d",
+  "outcome": "response",
+  "recording_id": "turn/788deea7e91c5ef9/consistency/sample-4/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see conversation context. The user asks: \"exec impersonation message, is it a scam?\" Likely they received an executive impersonation message asking to change payment details. According to policy, we should advise they verify directly via other channel and forward to support. The policy says: such messages are common fraud pattern, even if includes real account details. The employee should verify directly with the person via another channel before acting, and report to support.\n\nThus we can answer: Yes, likely a scam; you should verify via separate channel and forward the email to support. Provide short answer.\n\nWe have relevant excerpts. So we can answer.\n\nWe need to post_reply with answer.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"That kind of message is a classic executive\u2011impersonation scam. Even if it includes correct account details, attackers can obtain that information from public sources.\u202fYou should verify the request directly with the supposed sender using a separate communication channel, and forward the suspicious email to our support team so we can check it against your billing records and flag it if it\u2019s fraudulent.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_b4e86e59-a70d-4299-9a90-1c3ba12d81f9",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454602,
+      "id": "chatcmpl-3871413a-fece-4844-b816-e60efbf81e26",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_dc4ca88fa4",
+      "usage": {
+        "completion_time": 0.860509948,
+        "completion_tokens": 238,
+        "completion_tokens_details": {
+          "reasoning_tokens": 139
+        },
+        "prompt_time": 0.114303711,
+        "prompt_tokens": 1103,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.311077671,
+        "total_time": 0.974813659,
+        "total_tokens": 1341
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m3704resftfhw7wdejdwyd",
+        "seed": 1224956263
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "That kind of message is a classic executive\u2011impersonation scam. Even if it includes correct account details, attackers can obtain that information from public sources.\u202fYou should verify the request directly with the supposed sender using a separate communication channel, and forward the suspicious email to our support team so we can check it against your billing records and flag it if it\u2019s fraudulent."
+        },
+        "id": "fc_b4e86e59-a70d-4299-9a90-1c3ba12d81f9",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 238,
+      "prompt_tokens": 1103
+    }
+  },
+  "retry_after": null
+}

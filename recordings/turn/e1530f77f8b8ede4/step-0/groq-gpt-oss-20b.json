@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:28:06.383523Z",
+  "failure_detail": null,
+  "fingerprint": "a66dfe588c0a01308daa4ace401b506ff6b1d64b03e26b109647e4a8dafb4d3f",
+  "outcome": "response",
+  "recording_id": "turn/e1530f77f8b8ede4/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"This is causing data loss in production, our sync job is silently truncating large records and I urgently need the real payload size limit to fix it.\" They want the real payload size limit. The policy says: \"A webhook payload is capped at a fixed size, and a record whose full content would exceed it is delivered as a reference \u2014 an id and a truncated: true flag \u2014 rather than a truncated version of the content itself, so a consuming system should treat that flag as a signal to fetch the full record via the API rather than trust a partial payload.\" It doesn't give the numeric limit. The policy doesn't provide the size limit. So we cannot answer. According to rules: If the question is about money movement, etc. Not relevant. If ambiguous, we should not guess. The question is about the real payload size limit. The policy doesn't contain that. So we must escalate.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer is asking for the real payload size limit for webhook payloads. The policy excerpts do not provide a numeric value for the limit, only that there is a fixed cap and that records exceeding it are delivered as a reference. Since the policy does not contain the specific limit, I cannot provide an answer. Escalate to a human.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_4156feb0-1e55-412b-8d6e-3ae4fbc8d6cd",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460086,
+      "id": "chatcmpl-00af9aae-4ed6-4aac-b673-efa1e5b63c58",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_228717f27c",
+      "usage": {
+        "completion_time": 0.341967354,
+        "completion_tokens": 284,
+        "completion_tokens_details": {
+          "reasoning_tokens": 192
+        },
+        "prompt_time": 0.05364774,
+        "prompt_tokens": 1049,
+        "queue_time": 0.311778709,
+        "total_time": 0.395615094,
+        "total_tokens": 1333
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8ecczechthj7rb6a79y1d",
+        "seed": 1941725334
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer is asking for the real payload size limit for webhook payloads. The policy excerpts do not provide a numeric value for the limit, only that there is a fixed cap and that records exceeding it are delivered as a reference. Since the policy does not contain the specific limit, I cannot provide an answer. Escalate to a human."
+        },
+        "id": "fc_4156feb0-1e55-412b-8d6e-3ae4fbc8d6cd",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 284,
+      "prompt_tokens": 1049
+    }
+  },
+  "retry_after": null
+}

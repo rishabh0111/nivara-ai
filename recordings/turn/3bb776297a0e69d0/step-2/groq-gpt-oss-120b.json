@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:31:50.323395Z",
+  "failure_detail": null,
+  "fingerprint": "ae23904d67f83ea847c83722ea0c02fc5a19ce607202edb73cff55df263302d3",
+  "outcome": "response",
+  "recording_id": "turn/3bb776297a0e69d0/step-2/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The customer says \"refund currency difference\". Likely they are asking about a refund where the currency differs due to billing region correction. The policy excerpts talk about currency and billing region corrections: need to raise specific invoice, review case by case, cannot be fixed automatically. So answer: they need to raise a request with billing contact, the team will review. Provide guidance.\n\nWe must not mention policy. Provide short answer.\n\nThus: advise them to contact account owner or billing contact to raise the invoice, billing team will review case by case. Also note that settings cannot reverse past charges.\n\nLet's craft reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there \u2013 if you\u2019ve been charged in the wrong currency and need a refund for the difference, the billing team needs to review the specific invoice. Please have the account owner or an authorized billing contact raise the charge in question through the billing settings so we can investigate it case\u2011by\u2011case. Once we have the details, we\u2019ll work on correcting the amount.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_585f0c2f-ba17-4b82-a8a2-d84929efbe43",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453110,
+      "id": "chatcmpl-d8a4eb3b-62bb-4525-8ca3-0c676887dd3d",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9d1f936695",
+      "usage": {
+        "completion_time": 0.487144537,
+        "completion_tokens": 230,
+        "completion_tokens_details": {
+          "reasoning_tokens": 131
+        },
+        "prompt_time": 0.056917211,
+        "prompt_tokens": 1108,
+        "queue_time": 0.310862898,
+        "total_time": 0.544061748,
+        "total_tokens": 1338
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1sfk0em2aqtvfqfhj06cf",
+        "seed": 450533045
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there \u2013 if you\u2019ve been charged in the wrong currency and need a refund for the difference, the billing team needs to review the specific invoice. Please have the account owner or an authorized billing contact raise the charge in question through the billing settings so we can investigate it case\u2011by\u2011case. Once we have the details, we\u2019ll work on correcting the amount."
+        },
+        "id": "fc_585f0c2f-ba17-4b82-a8a2-d84929efbe43",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 230,
+      "prompt_tokens": 1108
+    }
+  },
+  "retry_after": null
+}

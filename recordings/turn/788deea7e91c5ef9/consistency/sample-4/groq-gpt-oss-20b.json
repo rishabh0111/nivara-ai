@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:35:32.139338Z",
+  "failure_detail": null,
+  "fingerprint": "46312661c1b0aa3c2b98388d25c10cf5f3a5de798e832923ff913b4e42cb54fd",
+  "outcome": "response",
+  "recording_id": "turn/788deea7e91c5ef9/consistency/sample-4/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user: \"exec impersonation message, is it a scam?\" They want to know if an executive impersonation message is a scam. According to policy, we must respond with policy: confirm that it's likely a scam, advise to verify with the person via other channel, report. The policy says: \"An employee who receives a request like this should verify it directly with the person it claims to be from, through a channel other than the one the message arrived on, before taking any action, and should report the message to support so the account can be checked for related activity.\" Also \"Payment method changes go through billing settings, never through unverified message.\" So we can answer: yes likely scam, verify, report. We can answer. The question: \"exec impersonation message, is it a scam?\" So answer: yes it's likely a scam. Provide steps. No mention of policy. Just short answer. So we can post_reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes, that sounds like a classic executive\u2011impersonation scam. Verify the request directly with the person it claims to be from using a separate channel (e.g., a phone call or a verified email). Don\u2019t make any changes based on the message, and forward the email to support so we can check for related activity.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_a43a21c5-13c8-4a26-9b0f-aa2317000492",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460532,
+      "id": "chatcmpl-41fbcd75-d1c7-41ec-9e4b-bc938183db34",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5979a0e1b7",
+      "usage": {
+        "completion_time": 0.364335478,
+        "completion_tokens": 280,
+        "completion_tokens_details": {
+          "reasoning_tokens": 192
+        },
+        "prompt_time": 0.08713168,
+        "prompt_tokens": 1103,
+        "queue_time": 0.357870712,
+        "total_time": 0.451467158,
+        "total_tokens": 1383
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8vzgce0hsbdzh75kcs6xt",
+        "seed": 1677990607
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes, that sounds like a classic executive\u2011impersonation scam. Verify the request directly with the person it claims to be from using a separate channel (e.g., a phone call or a verified email). Don\u2019t make any changes based on the message, and forward the email to support so we can check for related activity."
+        },
+        "id": "fc_a43a21c5-13c8-4a26-9b0f-aa2317000492",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 280,
+      "prompt_tokens": 1103
+    }
+  },
+  "retry_after": null
+}

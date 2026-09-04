@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T17:56:19.859753Z",
+  "failure_detail": null,
+  "fingerprint": "a532e3e929ec3327c634d747e224b4f1c4d3c0fbea68de610baf9bdd3869aaad",
+  "outcome": "response",
+  "recording_id": "turn/fa0262f769b5f9c6/consistency/sample-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: The user wants to know split of seats vs overage on invoice. The policy excerpts include info on reading an itemised invoice, how to see breakdown, that PDF includes same breakdown. So we can answer: go to Settings \u2192 Billing \u2192 Invoices, expand line items, seat charge breakdown, overage line shows metered quantity, PDF includes same breakdown. Provide steps. This is within policy. So we can post_reply.\n\nMake answer short, specific.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure thing! To see the exact split between seat charges and usage overages on your invoice:\\n\\n1. In the Meridian app, go to **Settings \u2192 Billing \u2192 Invoices**.\\n2. Open the invoice you need and click the arrow to **expand each line item**. The seat\u2011charge line will show how many seats were billed and the per\u2011seat rate, while any overage line will display the metered quantity that exceeded your plan\u2019s allowance.\\n3. If you prefer a PDF, download it from the same page \u2013 the PDF contains the identical itemised breakdown, so you can attach it directly to your budget review.\\n\\nThat will give you the detailed seat\u2011vs\u2011overage numbers you need for your meeting.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_87322c1b-d609-40e1-961f-054a211bbbf0",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371779,
+      "id": "chatcmpl-892d29f1-80d4-429b-80d4-fd298e0ab96a",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4727af4560",
+      "usage": {
+        "completion_time": 1.215812907,
+        "completion_tokens": 276,
+        "completion_tokens_details": {
+          "reasoning_tokens": 98
+        },
+        "prompt_time": 0.105712893,
+        "prompt_tokens": 1103,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.158742412,
+        "total_time": 1.3215257999999999,
+        "total_tokens": 1379
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hm7ebde0d93nq2w8aw6mtb",
+        "seed": 747354325
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure thing! To see the exact split between seat charges and usage overages on your invoice:\n\n1. In the Meridian app, go to **Settings \u2192 Billing \u2192 Invoices**.\n2. Open the invoice you need and click the arrow to **expand each line item**. The seat\u2011charge line will show how many seats were billed and the per\u2011seat rate, while any overage line will display the metered quantity that exceeded your plan\u2019s allowance.\n3. If you prefer a PDF, download it from the same page \u2013 the PDF contains the identical itemised breakdown, so you can attach it directly to your budget review.\n\nThat will give you the detailed seat\u2011vs\u2011overage numbers you need for your meeting."
+        },
+        "id": "fc_87322c1b-d609-40e1-961f-054a211bbbf0",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 276,
+      "prompt_tokens": 1103
+    }
+  },
+  "retry_after": null
+}

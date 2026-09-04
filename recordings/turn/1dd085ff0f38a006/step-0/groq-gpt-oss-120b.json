@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:16:38.384577Z",
+  "failure_detail": null,
+  "fingerprint": "2659d8ab9bb2622ff4a7f53de6902bf34ec42a03211e933c8e52124ed5223907",
+  "outcome": "response",
+  "recording_id": "turn/1dd085ff0f38a006/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user says: \"Import partly failed, no detail given.\" They likely want to know why some rows were rejected and how to see details. The policy excerpts DOC-016 explain that after import finishes, open Settings \u2192 Data \u2192 Import history and select the run to see per-row results. Also mention missing required fields, malformed email, duplicate etc. So we can answer with that info.\n\nWe must ensure not to mention policy. Provide short specific answer. Use post_reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When an import finishes but some rows are missing, the importer usually skips those rows due to per\u2011row validation (e.g., a missing required field, malformed email, or duplicate). To see why each row was rejected, go to **Settings \u2192 Data \u2192 Import history**, open the recent run, and review the per\u2011row results \u2013 the tool lists a reason for every row that didn\u2019t import. Fix the flagged rows and re\u2011run the import for just those rows.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_d81e592c-3c4c-4aba-9433-541aaa71a163",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372998,
+      "id": "chatcmpl-ed5ef4cc-c8ec-4033-873e-7cda4c17a001",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_bc9a6c9b5f",
+      "usage": {
+        "completion_time": 0.492059179,
+        "completion_tokens": 226,
+        "completion_tokens_details": {
+          "reasoning_tokens": 105
+        },
+        "prompt_time": 0.054291182,
+        "prompt_tokens": 1049,
+        "queue_time": 0.046190446,
+        "total_time": 0.546350361,
+        "total_tokens": 1275
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hncnj5e7ysqssx7pw6dhvz",
+        "seed": 1709782749
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When an import finishes but some rows are missing, the importer usually skips those rows due to per\u2011row validation (e.g., a missing required field, malformed email, or duplicate). To see why each row was rejected, go to **Settings \u2192 Data \u2192 Import history**, open the recent run, and review the per\u2011row results \u2013 the tool lists a reason for every row that didn\u2019t import. Fix the flagged rows and re\u2011run the import for just those rows."
+        },
+        "id": "fc_d81e592c-3c4c-4aba-9433-541aaa71a163",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 226,
+      "prompt_tokens": 1049
+    }
+  },
+  "retry_after": null
+}

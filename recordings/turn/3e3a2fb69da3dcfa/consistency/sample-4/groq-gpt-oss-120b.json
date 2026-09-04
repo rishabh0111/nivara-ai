@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:14:19.865111Z",
+  "failure_detail": null,
+  "fingerprint": "f4fc96ab9bb1892fb66d59eee71919793883141883054fb15c96ab96faaeafd0",
+  "outcome": "response",
+  "recording_id": "turn/3e3a2fb69da3dcfa/consistency/sample-4/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see if policy covers this. Customer says: \"Our last invoice still lists the old office. Can you correct it and resend?\" This is about correcting billing details on an invoice. Policy says:\n\n- DOC-003 part 1: legal name, billing address, tax ID set in Settings \u2192 Billing \u2192 Company details and are pulled onto every invoice generated after the change.\n- DOC-003 part 2: Meridian does not reissue invoices that have already been generated \u2014 a correction applies to invoices from that point forward only. This is a bookkeeping constraint.\n- DOC-003 part 3: Customers who need a corrected copy of a past invoice for their own records, rather than a reissue, can request one through support.\n\nThus, they cannot resend a corrected invoice; they can request a corrected copy through support. So answer: cannot reissue; you can request a corrected copy via support. That answers. It's allowed to answer based on policy. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there \u2013 we can\u2019t re\u2011issue an invoice that\u2019s already been generated, so we can\u2019t resend a corrected version. You can, however, request a corrected copy of that past invoice through support for your records.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_e88337e1-bd5e-4c5d-aaa4-aca5e81aaab0",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459259,
+      "id": "chatcmpl-517cfd15-1175-483d-882d-6aee06a61684",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_1d982b31b2",
+      "usage": {
+        "completion_time": 0.568406259,
+        "completion_tokens": 269,
+        "completion_tokens_details": {
+          "reasoning_tokens": 199
+        },
+        "prompt_time": 0.052296226,
+        "prompt_tokens": 1050,
+        "queue_time": 0.311005822,
+        "total_time": 0.620702485,
+        "total_tokens": 1319
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m7n504e87b19wzjt58fz0t",
+        "seed": 1790923076
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there \u2013 we can\u2019t re\u2011issue an invoice that\u2019s already been generated, so we can\u2019t resend a corrected version. You can, however, request a corrected copy of that past invoice through support for your records."
+        },
+        "id": "fc_e88337e1-bd5e-4c5d-aaa4-aca5e81aaab0",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 269,
+      "prompt_tokens": 1050
+    }
+  },
+  "retry_after": null
+}

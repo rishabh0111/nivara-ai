@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:36:45.748986Z",
+  "failure_detail": null,
+  "fingerprint": "d4d0a5772be9f03650f037a4742f4540a63ac663580628f507a1684e0417d382",
+  "outcome": "response",
+  "recording_id": "turn/96936560784a1260/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"A ticket opened Friday evening shows as breached by Saturday morning, which cannot be within our stated hours.\" They are complaining that ticket breached outside business hours. We have policy excerpts about response-time metrics: default counts every hour including nights, weekends, holidays. Business-hours version can be configured. So answer: explain that default counts all hours; if they want to exclude, configure business hours. So respond accordingly.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! I\u2019m sorry you\u2019re seeing a breach outside of your business hours. By default, the response\u2011time metric counts every hour a ticket sits unanswered \u2013 that includes nights, weekends and holidays. If you\u2019d like the metric to ignore time outside your normal hours, you can set up business hours in Settings\u202f\u2192\u202fReporting\u202f\u2192\u202fBusiness hours and switch the dashboard to \u201cbusiness hours\u201d mode. That will exclude those periods entirely from the calculation. Let me know if you\u2019d like help setting that up!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_929d7486-f3d6-42d9-8130-eefc29ddf68c",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460605,
+      "id": "chatcmpl-80f20671-0ac5-4c14-918c-b9f4b5bd2028",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_80501ff3a1",
+      "usage": {
+        "completion_time": 0.260956204,
+        "completion_tokens": 217,
+        "completion_tokens_details": {
+          "reasoning_tokens": 91
+        },
+        "prompt_time": 0.074156551,
+        "prompt_tokens": 1038,
+        "queue_time": 0.043027767,
+        "total_time": 0.335112755,
+        "total_tokens": 1255
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8y7q0evwsna59ak57dax1",
+        "seed": 1493032614
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! I\u2019m sorry you\u2019re seeing a breach outside of your business hours. By default, the response\u2011time metric counts every hour a ticket sits unanswered \u2013 that includes nights, weekends and holidays. If you\u2019d like the metric to ignore time outside your normal hours, you can set up business hours in Settings\u202f\u2192\u202fReporting\u202f\u2192\u202fBusiness hours and switch the dashboard to \u201cbusiness hours\u201d mode. That will exclude those periods entirely from the calculation. Let me know if you\u2019d like help setting that up!"
+        },
+        "id": "fc_929d7486-f3d6-42d9-8130-eefc29ddf68c",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 217,
+      "prompt_tokens": 1038
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:23:12.529595Z",
+  "failure_detail": null,
+  "fingerprint": "534c2f1d1419cfee4a76a6f7e8828afea23f6e2439422f8dc0482daa6e6a71d6",
+  "outcome": "response",
+  "recording_id": "turn/f4cd861bb8868bd6/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"slow pages for 20 min, platform-wide or us?\" They want to know if slowdown is platform-wide or local. According to DOC-047 parts, we should advise checking status page for that window; if nothing appears, likely local. Also mention status page history can be checked after fact. So answer: check status page, look for incident with start/end times; if none, likely local. Provide steps. That's within policy. No need to escalate. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! To see if the 20\u2011minute slowdown was a platform\u2011wide issue, start by checking Meridian\u2019s status page for the time window you experienced the delay. The status page logs every incident \u2013 even brief ones \u2013 with exact start and end times, so you can see if a platform\u2011wide degradation was recorded.\\n\\nIf you don\u2019t find any incident covering that period, the slowdown was probably local to your environment (e.g., a browser extension, your network, or a large data load in your workspace). The status page\u2019s history goes back beyond current incidents, so you can still look up earlier windows after the fact.\\n\\nLet me know if you need help navigating the status page!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_1a47114e-07fb-45c3-98ad-4f9ba962586e",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452592,
+      "id": "chatcmpl-45119bbd-5378-4db5-9961-f20b2bf07328",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c15aa9c1b7",
+      "usage": {
+        "completion_time": 0.604032877,
+        "completion_tokens": 280,
+        "completion_tokens_details": {
+          "reasoning_tokens": 111
+        },
+        "prompt_time": 0.281144059,
+        "prompt_tokens": 1038,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.157750252,
+        "total_time": 0.885176936,
+        "total_tokens": 1318
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m19njteb2940zy38v4g8pj",
+        "seed": 1462531798
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! To see if the 20\u2011minute slowdown was a platform\u2011wide issue, start by checking Meridian\u2019s status page for the time window you experienced the delay. The status page logs every incident \u2013 even brief ones \u2013 with exact start and end times, so you can see if a platform\u2011wide degradation was recorded.\n\nIf you don\u2019t find any incident covering that period, the slowdown was probably local to your environment (e.g., a browser extension, your network, or a large data load in your workspace). The status page\u2019s history goes back beyond current incidents, so you can still look up earlier windows after the fact.\n\nLet me know if you need help navigating the status page!"
+        },
+        "id": "fc_1a47114e-07fb-45c3-98ad-4f9ba962586e",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 280,
+      "prompt_tokens": 1038
+    }
+  },
+  "retry_after": null
+}

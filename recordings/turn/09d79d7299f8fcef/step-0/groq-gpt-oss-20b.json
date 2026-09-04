@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:25:57.360909Z",
+  "failure_detail": null,
+  "fingerprint": "97ae834895817c8500847dad9a48908809b27bf5160c384f63c73f21c591c246",
+  "outcome": "response",
+  "recording_id": "turn/09d79d7299f8fcef/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"This import failure is holding up onboarding for a whole team, half the rows silently failed and I have no idea which ones or why \u2014 I need this resolved fast.\"\n\nWe need to provide guidance: check import history, per-row results, reasons. Also fix flagged rows and re-run only those rows. Also mention duplicates. So answer: go to Settings \u2192 Data \u2192 Import history, select run, see per-row results, reasons. Then fix flagged rows and re-run only those rows. Also mention that duplicates will be updated if unchanged. Provide concise answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! To see which rows failed and why, go to **Settings \u2192 Data \u2192 Import history** and open the run that just finished. There you\u2019ll find a per\u2011row list with a reason for every row that didn\u2019t import. Once you\u2019ve fixed those rows, re\u2011run the import but only on the corrected rows \u2013 this avoids re\u2011processing the ones that already succeeded. If a row is unchanged from a previous successful import, it will be updated instead of duplicated. Let me know if you need any more help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_3f3e8682-1f4c-4146-b3bd-09dd95dfbae6",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459957,
+      "id": "chatcmpl-85414083-4dd1-4953-b5fe-e3e6be9f5324",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_2b688e7cc3",
+      "usage": {
+        "completion_time": 0.266249743,
+        "completion_tokens": 253,
+        "completion_tokens_details": {
+          "reasoning_tokens": 124
+        },
+        "prompt_time": 0.412295751,
+        "prompt_tokens": 1081,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.343541965,
+        "total_time": 0.678545494,
+        "total_tokens": 1334
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8ae34evsvjrwxrvnrba3r",
+        "seed": 68396693
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! To see which rows failed and why, go to **Settings \u2192 Data \u2192 Import history** and open the run that just finished. There you\u2019ll find a per\u2011row list with a reason for every row that didn\u2019t import. Once you\u2019ve fixed those rows, re\u2011run the import but only on the corrected rows \u2013 this avoids re\u2011processing the ones that already succeeded. If a row is unchanged from a previous successful import, it will be updated instead of duplicated. Let me know if you need any more help!"
+        },
+        "id": "fc_3f3e8682-1f4c-4146-b3bd-09dd95dfbae6",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 253,
+      "prompt_tokens": 1081
+    }
+  },
+  "retry_after": null
+}

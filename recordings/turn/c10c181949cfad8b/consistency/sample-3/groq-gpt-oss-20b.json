@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:31:25.459228Z",
+  "failure_detail": null,
+  "fingerprint": "c476838a9938f031b1234eefe21953a282c4fc238c54fb56ae480591277a7351",
+  "outcome": "response",
+  "recording_id": "turn/c10c181949cfad8b/consistency/sample-3/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to decide if we can answer. The question: \"I'm getting flooded with irrelevant notifications right now and need this narrowed down immediately.\" They want to reduce notification email volume. The policy excerpts give instructions: notification email settings are per person, in Profile \u2192 Notifications, separate from workspace-wide notification rules. Each notification type can be turned off independently. So answer: instruct them to go to Profile \u2192 Notifications and adjust settings. Provide guidance. The question is straightforward. So we can post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! You can quickly trim the notifications you receive by adjusting your personal settings. Go to\u202fProfile\u202f\u2192\u202fNotifications and toggle each type (assignment, mention, status change, digest, etc.) as you prefer. These changes apply only to your account and take effect immediately. Let me know if you need any more help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_60eb230a-92b3-4859-aa85-884024e31726",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460285,
+      "id": "chatcmpl-8671b350-f987-4a84-bd71-5f5fa2b1bd82",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_ef00694abe",
+      "usage": {
+        "completion_time": 0.203673914,
+        "completion_tokens": 188,
+        "completion_tokens_details": {
+          "reasoning_tokens": 100
+        },
+        "prompt_time": 0.075050381,
+        "prompt_tokens": 1048,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.280026237,
+        "total_time": 0.278724295,
+        "total_tokens": 1236
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8mesdeb6r40ednxx71ysn",
+        "seed": 706486368
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! You can quickly trim the notifications you receive by adjusting your personal settings. Go to\u202fProfile\u202f\u2192\u202fNotifications and toggle each type (assignment, mention, status change, digest, etc.) as you prefer. These changes apply only to your account and take effect immediately. Let me know if you need any more help!"
+        },
+        "id": "fc_60eb230a-92b3-4859-aa85-884024e31726",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 188,
+      "prompt_tokens": 1048
+    }
+  },
+  "retry_after": null
+}

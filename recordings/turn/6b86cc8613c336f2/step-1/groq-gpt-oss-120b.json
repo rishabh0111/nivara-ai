@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:26:23.130914Z",
+  "failure_detail": null,
+  "fingerprint": "9777e0b070bac62667a9c72c407d37838088d51b99a6f28e16f4cfedbce64b15",
+  "outcome": "response",
+  "recording_id": "turn/6b86cc8613c336f2/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The customer asks: \"Want to know exactly what the incident affected, if anything.\" Likely they want to know if an incident affected data, etc. According to policy, we can refer them to status page and post-incident summary. Provide answer: check status page for incident, look at component breakdown, and post-incident summary indicates whether data was affected. So answer accordingly.\n\nWe must not mention policy. Provide short specific answer.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can see exactly what was impacted by checking the incident on our status page. Each incident entry shows a component\u2011level breakdown (e.g., API, dashboard) so you can match the symptom you experienced. Once the incident is resolved, a written summary is added to the same entry; it details the affected window and explicitly notes whether any data was impacted. Look for the \u201csummary\u201d link on the incident you\u2019re interested in for the full details.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_56c98bb4-cf35-4cae-bd1d-788aaa478b9d",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452782,
+      "id": "chatcmpl-47f117db-dd93-42a1-9647-51d896cd44a5",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c15aa9c1b7",
+      "usage": {
+        "completion_time": 0.473128965,
+        "completion_tokens": 219,
+        "completion_tokens_details": {
+          "reasoning_tokens": 103
+        },
+        "prompt_time": 0.083902511,
+        "prompt_tokens": 1065,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.158035378,
+        "total_time": 0.557031476,
+        "total_tokens": 1284
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1ffp2e14ts89ba1nkhvfz",
+        "seed": 743299403
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can see exactly what was impacted by checking the incident on our status page. Each incident entry shows a component\u2011level breakdown (e.g., API, dashboard) so you can match the symptom you experienced. Once the incident is resolved, a written summary is added to the same entry; it details the affected window and explicitly notes whether any data was impacted. Look for the \u201csummary\u201d link on the incident you\u2019re interested in for the full details."
+        },
+        "id": "fc_56c98bb4-cf35-4cae-bd1d-788aaa478b9d",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 219,
+      "prompt_tokens": 1065
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:33:09.134381Z",
+  "failure_detail": null,
+  "fingerprint": "50f22f02eb92cf27960bcabc5352691e7e2210cb0bb434e9e3189999ab592377",
+  "outcome": "response",
+  "recording_id": "turn/152fcdd0500cdbc0/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"Does our response-time metric count weekends and holidays? Our weekend-heavy queue is dragging the number down.\" We have policy excerpts about response-time metric: part 1 says by default counts every hour a ticket sits unanswered, including nights, weekends and holidays \u2014 wall-clock measurement. So answer: yes, by default it counts weekends and holidays. Also mention business-hours version can exclude them. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 by default the response\u2011time metric counts every hour a ticket sits unanswered, including nights, weekends and holidays. If you\u2019d like to exclude those periods, you can enable a business\u2011hours version in Settings \u2192 Reporting \u2192 Business hours and switch the dashboard to \u201cbusiness hours\u201d mode.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_2aa203a3-95a1-4f19-aadd-252074cf4f57",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460389,
+      "id": "chatcmpl-c78fdf7e-1793-4a20-a154-c8554238570f",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c5a89987dc",
+      "usage": {
+        "completion_time": 0.307189095,
+        "completion_tokens": 174,
+        "completion_tokens_details": {
+          "reasoning_tokens": 93
+        },
+        "prompt_time": 0.12262111,
+        "prompt_tokens": 1066,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.042745269,
+        "total_time": 0.429810205,
+        "total_tokens": 1240
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8qm96emjbbmwyv4f9vb0t",
+        "seed": 245321395
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 by default the response\u2011time metric counts every hour a ticket sits unanswered, including nights, weekends and holidays. If you\u2019d like to exclude those periods, you can enable a business\u2011hours version in Settings \u2192 Reporting \u2192 Business hours and switch the dashboard to \u201cbusiness hours\u201d mode."
+        },
+        "id": "fc_2aa203a3-95a1-4f19-aadd-252074cf4f57",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 174,
+      "prompt_tokens": 1066
+    }
+  },
+  "retry_after": null
+}

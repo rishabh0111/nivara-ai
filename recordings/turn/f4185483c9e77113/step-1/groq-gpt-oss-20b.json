@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:24:09.530456Z",
+  "failure_detail": null,
+  "fingerprint": "2c40ac2e96b4e85dba03c3ca58674092448241f4d9050053aecc0479305494fd",
+  "outcome": "response",
+  "recording_id": "turn/f4185483c9e77113/step-1/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user: \"Wondering if there's a grace period before password login is cut off.\" They are asking about password login cut off. Likely about password reset? The policy excerpts mention unrequested password-reset email, but not about grace period. There's no policy excerpt about grace period. The question is ambiguous: could be about password login cut off after a reset? Or about account lockout? The policy doesn't cover that. So we should escalated. The user is asking about a grace period before password login is cut off. That might be about account lockout after failed attempts? Not covered. So we should escalated.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The user asks about a grace period before password login is cut off. No policy excerpt addresses this question. Escalate to a human for further assistance.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_b8c88a0d-c54f-4f3e-8125-9113b34a175c",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459849,
+      "id": "chatcmpl-87ef1337-7145-4bd0-ba04-5df3a6319e83",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_d3e146e1a5",
+      "usage": {
+        "completion_time": 0.203726468,
+        "completion_tokens": 181,
+        "completion_tokens_details": {
+          "reasoning_tokens": 127
+        },
+        "prompt_time": 0.058121821,
+        "prompt_tokens": 1080,
+        "queue_time": 0.279496007,
+        "total_time": 0.261848289,
+        "total_tokens": 1261
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8756besdr266xxttfqype",
+        "seed": 840265767
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The user asks about a grace period before password login is cut off. No policy excerpt addresses this question. Escalate to a human for further assistance."
+        },
+        "id": "fc_b8c88a0d-c54f-4f3e-8125-9113b34a175c",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 181,
+      "prompt_tokens": 1080
+    }
+  },
+  "retry_after": null
+}

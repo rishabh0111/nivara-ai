@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:16:14.202690Z",
+  "failure_detail": null,
+  "fingerprint": "6c899fce0171ccb117a4abfb01754dfbfcaa89448cca43dcc6212a5c77c16fb9",
+  "outcome": "response",
+  "recording_id": "turn/b7786dc7cd6bae3d/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Can I build a custom report that groups tickets by tag instead of the default status grouping?\" The policy excerpts include DOC-043 parts 1-3 about building custom report grouped by tag. So answer: Yes, you can select Tag as group-by dimension in custom report, etc. Provide short answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes\u2014you can create a custom report that groups tickets by tag. In Reports \u2192 Custom \u2192 New report, choose \u201cTag\u201d as the group\u2011by dimension; each tag will get its own row with the same metrics (count, average resolution time, etc.) that default reports show per status. Tickets with multiple tags appear under each relevant tag.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_25f55318-8bb4-439d-aaa7-89030904bfaa",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452174,
+      "id": "chatcmpl-b4f8d97d-bda1-4047-96a8-5a006aa8105c",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_49bfac06f1",
+      "usage": {
+        "completion_time": 0.471281057,
+        "completion_tokens": 173,
+        "completion_tokens_details": {
+          "reasoning_tokens": 79
+        },
+        "prompt_time": 0.294695737,
+        "prompt_tokens": 1047,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.28145936,
+        "total_time": 0.765976794,
+        "total_tokens": 1220
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0wx7ne0ev2j5se831dvq3",
+        "seed": 1881144993
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes\u2014you can create a custom report that groups tickets by tag. In Reports \u2192 Custom \u2192 New report, choose \u201cTag\u201d as the group\u2011by dimension; each tag will get its own row with the same metrics (count, average resolution time, etc.) that default reports show per status. Tickets with multiple tags appear under each relevant tag."
+        },
+        "id": "fc_25f55318-8bb4-439d-aaa7-89030904bfaa",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 173,
+      "prompt_tokens": 1047
+    }
+  },
+  "retry_after": null
+}

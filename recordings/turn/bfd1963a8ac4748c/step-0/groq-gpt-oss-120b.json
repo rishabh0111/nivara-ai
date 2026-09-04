@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:16:28.045606Z",
+  "failure_detail": null,
+  "fingerprint": "4e366a8e097ea4e8b84d70c7ed07f0a5db9ba984b15ccc4d1cfd7040368ec345",
+  "outcome": "response",
+  "recording_id": "turn/bfd1963a8ac4748c/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer using policy excerpts. The question: bulk import, half didn't go through, summary says some rows failed, no indication which rows or why. According to DOC-016 parts: after import finishes, open Settings \u2192 Data \u2192 Import history and select the run: it lists per-row result, including reason for every row that did not import. Also mention that import may silently drop rows due to per-row validation not shown on main screen. So answer: go to Import history to see details, fix flagged rows, re-run import for those rows. Provide steps. This is covered by policy. So we can post_reply.\n\nWe must keep answer short and specific, address customer directly. Provide steps.\n\nLet's craft reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there,\\n\\nWhen an import finishes, the main screen only shows a high\u2011level count. To see which rows were skipped and why, go to **Settings \u2192 Data \u2192 Import history**, select the import run you just performed, and review the per\u2011row results. The history view lists a reason for every row that didn\u2019t import (e.g., missing required field, malformed email, duplicate, etc.).\\n\\nFix the issues shown for those rows and then re\u2011run the import using just the corrected rows. This will avoid re\u2011processing the rows that already succeeded.\\n\\nLet me know if you need any more help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_ece6504a-14a0-4ce4-96a6-b7483088d60b",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372987,
+      "id": "chatcmpl-e200db6a-b644-4238-8c9f-a258f47d4aae",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9d1f936695",
+      "usage": {
+        "completion_time": 0.64548896,
+        "completion_tokens": 303,
+        "completion_tokens_details": {
+          "reasoning_tokens": 147
+        },
+        "prompt_time": 0.058333747,
+        "prompt_tokens": 1058,
+        "queue_time": 0.307397222,
+        "total_time": 0.703822707,
+        "total_tokens": 1361
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hncas7ebz9z4hjmc5y0722",
+        "seed": 153191122
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there,\n\nWhen an import finishes, the main screen only shows a high\u2011level count. To see which rows were skipped and why, go to **Settings \u2192 Data \u2192 Import history**, select the import run you just performed, and review the per\u2011row results. The history view lists a reason for every row that didn\u2019t import (e.g., missing required field, malformed email, duplicate, etc.).\n\nFix the issues shown for those rows and then re\u2011run the import using just the corrected rows. This will avoid re\u2011processing the rows that already succeeded.\n\nLet me know if you need any more help!"
+        },
+        "id": "fc_ece6504a-14a0-4ce4-96a6-b7483088d60b",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 303,
+      "prompt_tokens": 1058
+    }
+  },
+  "retry_after": null
+}

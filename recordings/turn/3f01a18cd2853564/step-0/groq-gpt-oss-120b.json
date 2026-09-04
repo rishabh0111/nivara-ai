@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:46:30.596996Z",
+  "failure_detail": null,
+  "fingerprint": "65bd27da19a529c35f87a4320715e241f8f701f6f6ea2cc83b74a82aadca93f6",
+  "outcome": "response",
+  "recording_id": "turn/3f01a18cd2853564/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to understand the customer's request: \"re-verify account on new email\". Likely they have an account whose email no longer exists and want to update email. According to policy DOC-068, updating email after old email no longer exists requires human verification case by case. So we must respond according to policy: advise them to contact support directly, as a human reviewer will verify identity via alternative means. So we can answer: they need to contact support, we cannot do standard password reset. Provide guidance. This is allowed from policy. So we can post a reply.\n\nWe must not mention policy. Provide short specific answer.\n\nThus use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Since the email currently on your account is no longer accessible, we can\u2019t use the usual email\u2011based verification. A support representative will need to verify your identity using alternative information (such as billing history or other account details) and then update the email for you. Please reply to this message or open a support ticket so we can review your request and make the change securely.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_58c0acf0-a52f-479b-a147-d4e546922d1e",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453990,
+      "id": "chatcmpl-4540e02b-8018-4ea2-ae4d-b4574a9d320e",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_854fa9be4c",
+      "usage": {
+        "completion_time": 0.637215275,
+        "completion_tokens": 233,
+        "completion_tokens_details": {
+          "reasoning_tokens": 133
+        },
+        "prompt_time": 0.051845112,
+        "prompt_tokens": 1048,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.276165216,
+        "total_time": 0.689060387,
+        "total_tokens": 1281
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2mawbea6v0kyxdjb90a74",
+        "seed": 1345996960
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Since the email currently on your account is no longer accessible, we can\u2019t use the usual email\u2011based verification. A support representative will need to verify your identity using alternative information (such as billing history or other account details) and then update the email for you. Please reply to this message or open a support ticket so we can review your request and make the change securely."
+        },
+        "id": "fc_58c0acf0-a52f-479b-a147-d4e546922d1e",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 233,
+      "prompt_tokens": 1048
+    }
+  },
+  "retry_after": null
+}

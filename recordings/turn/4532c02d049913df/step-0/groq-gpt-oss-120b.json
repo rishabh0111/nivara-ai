@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:37:32.946037Z",
+  "failure_detail": null,
+  "fingerprint": "fce106949ed24d5d1777f5f4bfb5793d7bd74745868398d9e4132cf99b13eb4d",
+  "outcome": "response",
+  "recording_id": "turn/4532c02d049913df/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user reports an unrecognised admin added to a workspace. According to DOC-060 parts: first step is remove the unrecognised user via Settings \u2192 People, and report to support for review. So we can give that answer. It's not about money, dispute, identity. So we can answer. Provide steps: remove admin, then report to support. Keep short.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"I\u2019m sorry you\u2019re seeing an unexpected admin in your workspace. Please remove the unrecognised admin right away by going to **Settings \u2192 People** and deleting the user. After you\u2019ve removed them, let us know by reporting the incident to support so a reviewer can investigate how the admin was added and determine any further actions needed.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c3189448-bf8f-4108-8048-a458eee6987c",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453452,
+      "id": "chatcmpl-0b56e759-2c75-4142-8c63-7c80f521d620",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c868cf1eaa",
+      "usage": {
+        "completion_time": 0.376453373,
+        "completion_tokens": 178,
+        "completion_tokens_details": {
+          "reasoning_tokens": 86
+        },
+        "prompt_time": 1.006589625,
+        "prompt_tokens": 1125,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.362067519,
+        "total_time": 1.383042998,
+        "total_tokens": 1303
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m23x60eg8acyt3xrv1ev2v",
+        "seed": 1728018133
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "I\u2019m sorry you\u2019re seeing an unexpected admin in your workspace. Please remove the unrecognised admin right away by going to **Settings \u2192 People** and deleting the user. After you\u2019ve removed them, let us know by reporting the incident to support so a reviewer can investigate how the admin was added and determine any further actions needed."
+        },
+        "id": "fc_c3189448-bf8f-4108-8048-a458eee6987c",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 178,
+      "prompt_tokens": 1125
+    }
+  },
+  "retry_after": null
+}

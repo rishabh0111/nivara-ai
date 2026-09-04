@@ -1,0 +1,78 @@
+{
+  "captured_at": "2026-09-03T18:36:28.663450Z",
+  "failure_detail": null,
+  "fingerprint": "6e339eca7d58f7ed052dd22e55392d02148cdb19f8f04d132ed5d6c452c6f1a3",
+  "outcome": "response",
+  "recording_id": "turn/0b136a85a145207f/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to read conversation.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{}",
+                  "name": "read_conversation"
+                },
+                "id": "fc_8a7f068e-4d0f-4d52-89e5-3b57ba8af28c",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460588,
+      "id": "chatcmpl-9f40f143-67d6-411e-8e1d-e98a1b1b905d",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_d23c14756c",
+      "usage": {
+        "completion_time": 0.040084154,
+        "completion_tokens": 27,
+        "completion_tokens_details": {
+          "reasoning_tokens": 7
+        },
+        "prompt_time": 0.504244935,
+        "prompt_tokens": 1114,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.360848839,
+        "total_time": 0.544329089,
+        "total_tokens": 1141
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8xpmcewbbm53fctw2jqvn",
+        "seed": 642450882
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {},
+        "id": "fc_8a7f068e-4d0f-4d52-89e5-3b57ba8af28c",
+        "name": "read_conversation"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 27,
+      "prompt_tokens": 1114
+    }
+  },
+  "retry_after": null
+}

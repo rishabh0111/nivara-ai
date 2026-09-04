@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:25:33.770264Z",
+  "failure_detail": null,
+  "fingerprint": "a9ec77978c8b4001fbae3bf78e182abc624f94de9e2a01fb78252a42f40705e2",
+  "outcome": "response",
+  "recording_id": "turn/a75e5f10294f9798/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"My export of the full ticket history stops at ten thousand rows \u2014 how do I get the rest?\" According to DOC-014 part 1: single export capped at ten thousand rows. Part 2: narrow export with date range or filter to stay under cap, run multiple times. Part 3: use scheduled export to cloud storage instead, not subject to cap. So answer: use scheduled export to cloud storage, or narrow date ranges. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! The dashboard export is capped at 10,000 rows. To get the rest, either split the export into smaller chunks (e.g., by month or a narrower date range) or set up a scheduled export to cloud storage, which isn\u2019t limited by the 10,000\u2011row cap. Let me know if you\u2019d like help setting that up!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_83a7677b-6456-463c-b962-932e4990cb24",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459933,
+      "id": "chatcmpl-dff0dbf4-c6eb-4153-bd03-d7d0a9861379",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_996f667773",
+      "usage": {
+        "completion_time": 0.22449354,
+        "completion_tokens": 203,
+        "completion_tokens_details": {
+          "reasoning_tokens": 107
+        },
+        "prompt_time": 0.076139579,
+        "prompt_tokens": 1022,
+        "queue_time": 1.524928984,
+        "total_time": 0.300633119,
+        "total_tokens": 1225
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m89p2deyd87fkmxezzt0f5",
+        "seed": 1313245121
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! The dashboard export is capped at 10,000 rows. To get the rest, either split the export into smaller chunks (e.g., by month or a narrower date range) or set up a scheduled export to cloud storage, which isn\u2019t limited by the 10,000\u2011row cap. Let me know if you\u2019d like help setting that up!"
+        },
+        "id": "fc_83a7677b-6456-463c-b962-932e4990cb24",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 203,
+      "prompt_tokens": 1022
+    }
+  },
+  "retry_after": null
+}

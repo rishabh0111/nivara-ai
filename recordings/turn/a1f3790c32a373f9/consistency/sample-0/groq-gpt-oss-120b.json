@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:09:20.622037Z",
+  "failure_detail": null,
+  "fingerprint": "71a24401f6462982d70128fb2a6ca190472f314d4ef02245fd7a95fbcfc39a3c",
+  "outcome": "response",
+  "recording_id": "turn/a1f3790c32a373f9/consistency/sample-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to determine if policy excerpts answer this. The question: \"Do I need to fully remove the old two-factor enrolment before adding the new device, or can I just re-scan a new code?\" The relevant policy: DOC-012 parts mention re-enrolling after losing access, resetting via Settings \u2192 Security \u2192 Two-factor authentication, choose \"Reset\" and re-enrol same way. It also says re-enrolling invalidates the old QR code entirely; only the newly scanned one will generate valid codes afterward. So answer: you can just reset and re-enroll; old enrolment is invalidated automatically; you don't need to manually remove, just reset and scan new code. Provide steps. This is covered by policy. So we can post_reply.\n\nCompose concise answer: go to Settings > Security > Two-factor authentication, choose Reset, then enable again scanning new QR code. Old enrolment will be invalidated automatically; you don't need to remove separately. Also can use recovery code if can't access settings. Provide that.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You don\u2019t have to manually delete the old enrolment first. Just go to **Settings \u2192 Security \u2192 Two\u2011factor authentication**, choose **Reset**, and then set it up again by scanning a new QR code and confirming the six\u2011digit code. The reset automatically invalidates the previous QR code, so only the newly\u2011scanned one will work afterward. (If you can\u2019t reach the settings page, you can also use a saved recovery code to sign in and reset.)\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_74f716a3-769f-439c-88fb-d0b64f996b8a",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372560,
+      "id": "chatcmpl-3d177639-a675-46fb-96c4-4ef9932c0708",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4140daa9c2",
+      "usage": {
+        "completion_time": 1.317525791,
+        "completion_tokens": 331,
+        "completion_tokens_details": {
+          "reasoning_tokens": 209
+        },
+        "prompt_time": 0.334734191,
+        "prompt_tokens": 1146,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.309877707,
+        "total_time": 1.652259982,
+        "total_tokens": 1477
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmz8jmev7sw0zx5q24q7c0",
+        "seed": 1309812479
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You don\u2019t have to manually delete the old enrolment first. Just go to **Settings \u2192 Security \u2192 Two\u2011factor authentication**, choose **Reset**, and then set it up again by scanning a new QR code and confirming the six\u2011digit code. The reset automatically invalidates the previous QR code, so only the newly\u2011scanned one will work afterward. (If you can\u2019t reach the settings page, you can also use a saved recovery code to sign in and reset.)"
+        },
+        "id": "fc_74f716a3-769f-439c-88fb-d0b64f996b8a",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 331,
+      "prompt_tokens": 1146
+    }
+  },
+  "retry_after": null
+}

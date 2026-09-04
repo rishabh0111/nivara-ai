@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T17:41:47.048301Z",
+  "failure_detail": null,
+  "fingerprint": "1082d70c91cf8808816844de8b36c5a4c70f857ee4bcc271e8823c05fa9373ac",
+  "outcome": "response",
+  "recording_id": "turn/2fc1b555ec987417/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"Our accountant is asking me for last quarter's invoices and I only see the newest one in the dashboard \u2014 can you pull them for her?\" This is about retrieving past invoices. According to DOC-001: \"Open Settings \u2192 Billing \u2192 Invoices to see the full list, ordered by billing date with the most recent at the top. The billing tab's default view only surfaces the current month's invoice on the summary card; the invoices table below it holds every prior one.\"\n\nWe can answer: instruct them to go to Settings \u2192 Billing \u2192 Invoices to view all past invoices. We cannot pull them for them; we can guide them. So we can provide that answer.\n\nWe must not mention policy. Provide short specific answer.\n\nThus we will post_reply with instructions.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can view all past invoices in the Invoices table. Go to **Settings \u2192 Billing \u2192 Invoices** \u2013 the summary card only shows the current month\u2019s invoice, but the table below lists every prior invoice, ordered with the most recent at the top. From there you can download the last quarter\u2019s invoices for your accountant.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_5b7a1d6a-3f0e-49a2-acac-1f72f954f6a0",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788370906,
+      "id": "chatcmpl-c61cf70f-9f43-4758-ad99-0c8f8443f6a8",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_1d982b31b2",
+      "usage": {
+        "completion_time": 0.547035423,
+        "completion_tokens": 259,
+        "completion_tokens_details": {
+          "reasoning_tokens": 168
+        },
+        "prompt_time": 0.061277982,
+        "prompt_tokens": 1055,
+        "queue_time": 0.308458847,
+        "total_time": 0.608313405,
+        "total_tokens": 1314
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hkcttfef1sywrfzs0kk2nn",
+        "seed": 405270823
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can view all past invoices in the Invoices table. Go to **Settings \u2192 Billing \u2192 Invoices** \u2013 the summary card only shows the current month\u2019s invoice, but the table below lists every prior invoice, ordered with the most recent at the top. From there you can download the last quarter\u2019s invoices for your accountant."
+        },
+        "id": "fc_5b7a1d6a-3f0e-49a2-acac-1f72f954f6a0",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 259,
+      "prompt_tokens": 1055
+    }
+  },
+  "retry_after": null
+}

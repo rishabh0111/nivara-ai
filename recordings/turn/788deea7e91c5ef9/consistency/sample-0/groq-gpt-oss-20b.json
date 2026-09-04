@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:35:20.418400Z",
+  "failure_detail": null,
+  "fingerprint": "46312661c1b0aa3c2b98388d25c10cf5f3a5de798e832923ff913b4e42cb54fd",
+  "outcome": "response",
+  "recording_id": "turn/788deea7e91c5ef9/consistency/sample-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user asks: \"exec impersonation message, is it a scam?\" They want to know if an executive impersonation message is a scam. According to policy: The policy says that such messages are a common fraud pattern. The user is asking if it is a scam. We can answer: Yes, it's likely a scam. But policy says we should verify. We can provide a short answer: \"Yes, it's likely a scam, you should verify with the executive.\" The policy says: \"A message that impersonates an executive and asks an employee to urgently change payment details is a common fraud pattern.\" The user didn't specify if it's about payment details. They just said \"exec impersonation message, is it a scam?\" We can respond that yes, it is likely a scam. But policy says we must not provide general knowledge? Actually we can answer from policy. The policy says that such messages are common fraud patterns, and we should verify. So we can say: \"Yes, it is likely a scam. You should verify directly with the executive and report the message to support.\" That is allowed. The user is not asking about money movement or fraudulent charges. It's about a message. So we can answer. We should not mention policy. Just give short answer. So we can do post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes, it\u2019s almost certainly a scam. Executive\u2011impersonation requests are a common fraud pattern. Verify the request directly with the executive through another channel, and report the message to support so it can be checked against your account.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_dfa73c17-e560-4ddf-b02d-4902d94d1432",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460520,
+      "id": "chatcmpl-4cad4b90-d4c5-4833-87dc-bb375847b1e2",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_639a5351c8",
+      "usage": {
+        "completion_time": 0.4415953,
+        "completion_tokens": 333,
+        "completion_tokens_details": {
+          "reasoning_tokens": 264
+        },
+        "prompt_time": 0.065821048,
+        "prompt_tokens": 1103,
+        "queue_time": 0.313457695,
+        "total_time": 0.507416348,
+        "total_tokens": 1436
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8vkyeewrae5fmbja47ew2",
+        "seed": 1157447474
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes, it\u2019s almost certainly a scam. Executive\u2011impersonation requests are a common fraud pattern. Verify the request directly with the executive through another channel, and report the message to support so it can be checked against your account."
+        },
+        "id": "fc_dfa73c17-e560-4ddf-b02d-4902d94d1432",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 333,
+      "prompt_tokens": 1103
+    }
+  },
+  "retry_after": null
+}

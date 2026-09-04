@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:21:22.093631Z",
+  "failure_detail": null,
+  "fingerprint": "3d74f53cd7a0e5018ffdb1e971b4da38c380fcbc2e4f756c3c494c6e7625def3",
+  "outcome": "response",
+  "recording_id": "turn/b3daee1bc46e95fc/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Does the importer detect and skip rows that already exist, or does every re-import create new records regardless?\" This is about duplicate detection on re-import. The policy excerpts include DOC-019: \"The importer matches existing records by email for contacts, or by the record's own unique identifier where one is provided in the file, and updates a match in place rather than creating a second copy.\" Also about correction to email address or identifier: \"If the correction was to the email address or identifier used for matching, the importer has no way to recognise it as the same row, and the safest approach is to remove the already-succeeded rows from the corrected file before re-running it.\"\n\nThus answer: Yes, importer detects duplicates by email or unique identifier and updates existing records rather than creating new ones. If you change the email/identifier, it won't match and will create new rows, so you should remove already succeeded rows.\n\nWe need to post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"The importer does try to avoid duplicates. It matches existing contacts by email (or by the record\u2019s unique identifier if you include one in the file) and will update that record in place instead of creating a second copy. If you change the email address or identifier used for matching, the importer can\u2019t recognize it as the same row and will treat it as new, so in that case you should remove the rows that already succeeded before re\u2011importing.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c4d88b7c-3092-4bad-a9df-46b6e7c57784",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373282,
+      "id": "chatcmpl-a1f52807-ddf2-423c-bf9c-b120854f22ef",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_3166198c1d",
+      "usage": {
+        "completion_time": 0.668279336,
+        "completion_tokens": 320,
+        "completion_tokens_details": {
+          "reasoning_tokens": 204
+        },
+        "prompt_time": 0.056882294,
+        "prompt_tokens": 1053,
+        "queue_time": 0.654937293,
+        "total_time": 0.72516163,
+        "total_tokens": 1373
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnn9xfectrs1sjsgcj4q8g",
+        "seed": 260894044
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "The importer does try to avoid duplicates. It matches existing contacts by email (or by the record\u2019s unique identifier if you include one in the file) and will update that record in place instead of creating a second copy. If you change the email address or identifier used for matching, the importer can\u2019t recognize it as the same row and will treat it as new, so in that case you should remove the rows that already succeeded before re\u2011importing."
+        },
+        "id": "fc_c4d88b7c-3092-4bad-a9df-46b6e7c57784",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 320,
+      "prompt_tokens": 1053
+    }
+  },
+  "retry_after": null
+}

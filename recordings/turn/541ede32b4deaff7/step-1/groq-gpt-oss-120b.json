@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:26:10.090133Z",
+  "failure_detail": null,
+  "fingerprint": "1615599fdb521003cd090e0d5690af951be76b07e197f2847ab4678f2ec0403c",
+  "outcome": "response",
+  "recording_id": "turn/541ede32b4deaff7/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"rotating old API key, does old one die instantly\". They ask if old key is revoked instantly when rotating. According to DOC-023: generating new key does not automatically revoke old; both valid until old explicitly revoked. Overlap window exists for rotation. So answer: No, old key remains active until you manually revoke it; you can revoke via Settings \u2192 Developer \u2192 API keys. Provide brief explanation. This is allowed. So we post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"No \u2013 creating a new API key does **not** instantly disable the old one. The old key stays active until you manually revoke it from Settings \u2192 Developer \u2192\u202fAPI keys. This overlap lets you deploy the new key, verify everything works, and then retire the old key without any downtime.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_1eaca166-eccf-4f19-adef-7430e79c5712",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373569,
+      "id": "chatcmpl-f8544982-0050-405a-8e33-d5f4020d095d",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_93703442d9",
+      "usage": {
+        "completion_time": 0.703296158,
+        "completion_tokens": 189,
+        "completion_tokens_details": {
+          "reasoning_tokens": 105
+        },
+        "prompt_time": 0.060802964,
+        "prompt_tokens": 1087,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.367971976,
+        "total_time": 0.764099122,
+        "total_tokens": 1276
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hny34femmt5s03j9ygd39w",
+        "seed": 13679534
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "No \u2013 creating a new API key does **not** instantly disable the old one. The old key stays active until you manually revoke it from Settings \u2192 Developer \u2192\u202fAPI keys. This overlap lets you deploy the new key, verify everything works, and then retire the old key without any downtime."
+        },
+        "id": "fc_1eaca166-eccf-4f19-adef-7430e79c5712",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 189,
+      "prompt_tokens": 1087
+    }
+  },
+  "retry_after": null
+}

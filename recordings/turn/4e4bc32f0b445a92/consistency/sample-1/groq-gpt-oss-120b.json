@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:48:30.363447Z",
+  "failure_detail": null,
+  "fingerprint": "f62defbeda4602884faef6deb6a2cc2e5f37edac3d656e6bb30a2fb7c047d561",
+  "outcome": "response",
+  "recording_id": "turn/4e4bc32f0b445a92/consistency/sample-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to decide action. Customer says: \"transfer paid, not applied, trace it\". This is about a bank transfer that has been paid but not applied to account. Policy excerpts DOC-070 cover exactly that: how to trace, need to provide transfer date, amount, reference to billing team. So we can answer with guidance: ask them to provide transfer date, amount, reference, and that billing team will investigate. Provide short answer. This is within policy, not disallowed. So we can post_reply.\n\nCompose answer: \"If your bank transfer has cleared on your side but hasn't been applied, our billing team can trace it. Please send us the transfer date, amount, and the reference you used, and they'll match it to your account.\" Keep short.\n\nProceed.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If your bank transfer has cleared on your side but hasn't been applied to your account, our billing team can trace it for you. Please provide the transfer date, the exact amount, and the reference you used for the transfer, and we\u2019ll match it to your account and invoice.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_ab35891a-afc1-468b-8836-bcc5bde52666",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454110,
+      "id": "chatcmpl-4d5bfc26-eef8-448d-85f9-74e0d76be021",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5a93aea882",
+      "usage": {
+        "completion_time": 0.543496864,
+        "completion_tokens": 240,
+        "completion_tokens_details": {
+          "reasoning_tokens": 159
+        },
+        "prompt_time": 0.245025496,
+        "prompt_tokens": 1111,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.158599082,
+        "total_time": 0.78852236,
+        "total_tokens": 1351
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2r04tefh85wxzx1k82h34",
+        "seed": 1898491377
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If your bank transfer has cleared on your side but hasn't been applied to your account, our billing team can trace it for you. Please provide the transfer date, the exact amount, and the reference you used for the transfer, and we\u2019ll match it to your account and invoice."
+        },
+        "id": "fc_ab35891a-afc1-468b-8836-bcc5bde52666",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 240,
+      "prompt_tokens": 1111
+    }
+  },
+  "retry_after": null
+}

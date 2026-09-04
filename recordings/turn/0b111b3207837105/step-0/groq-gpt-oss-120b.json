@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T15:43:52.714958Z",
+  "failure_detail": null,
+  "fingerprint": "48468d9febf000a20b9e2ae2ebbcf59aa725d7a8c9c6156d5b5ae36ac0b9a5d4",
+  "outcome": "response",
+  "recording_id": "turn/0b111b3207837105/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: they want to know which endpoints are considered stable vs which might shift. Provide answer: stable endpoints are marked with stability tag stable, only those have deprecation notice commitment. Beta can change shape without same advance notice, experimental can be removed. Also recommend subscribing to changelog feed to get notices before they take effect. So answer using provided excerpts. No need to escalate. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"In Meridian\u2019s API reference every endpoint is labeled with a stability tag next to its heading:\\n- **stable** \u2013 these endpoints are covered by the deprecation\u2011notice commitment in the API changelog and won\u2019t change or be removed without advance notice.\\n- **beta** \u2013 these can change shape without the same advance notice a stable endpoint gets.\\n- **experimental** \u2013 these may be removed outright.\\n\\nTo stay ahead of any changes, subscribe to the changelog feed \u2013 it surfaces stability changes or deprecation notices before they take effect, so you can adjust your integration before it breaks.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_42f1eb30-85c6-488c-800a-78f970dc61db",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788450232,
+      "id": "chatcmpl-d50d1f9f-8c8c-42c5-a402-efee4892e257",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c800245357",
+      "usage": {
+        "completion_time": 0.594105972,
+        "completion_tokens": 238,
+        "completion_tokens_details": {
+          "reasoning_tokens": 91
+        },
+        "prompt_time": 0.296684691,
+        "prompt_tokens": 1061,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.281677746,
+        "total_time": 0.890790663,
+        "total_tokens": 1299
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kz1n4xe23sryxp4npab0g1",
+        "seed": 537986967
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "In Meridian\u2019s API reference every endpoint is labeled with a stability tag next to its heading:\n- **stable** \u2013 these endpoints are covered by the deprecation\u2011notice commitment in the API changelog and won\u2019t change or be removed without advance notice.\n- **beta** \u2013 these can change shape without the same advance notice a stable endpoint gets.\n- **experimental** \u2013 these may be removed outright.\n\nTo stay ahead of any changes, subscribe to the changelog feed \u2013 it surfaces stability changes or deprecation notices before they take effect, so you can adjust your integration before it breaks."
+        },
+        "id": "fc_42f1eb30-85c6-488c-800a-78f970dc61db",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 238,
+      "prompt_tokens": 1061
+    }
+  },
+  "retry_after": null
+}

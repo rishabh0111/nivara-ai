@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:07:20.210227Z",
+  "failure_detail": null,
+  "fingerprint": "956080d3df158dcaf072583f0b6517a6e893f794913f419f25f00f9d67e6f418",
+  "outcome": "response",
+  "recording_id": "turn/c10c181949cfad8b/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer using policy excerpts. The user wants to narrow notifications. The policy says notification settings are per person, in Profile \u2192 Notifications, separate from workspace-wide rules. Each type can be turned off independently; to get only assigned notifications, leave assignment on and turn others off. Changes take effect immediately.\n\nThus we can provide instructions: go to Profile > Notifications, turn off mention, status change, digest, keep assignment. Also note changes immediate and only affect your account.\n\nWe must post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! You can trim your notification volume right away from your own profile:\\n\\n1. Open **Profile \u2192 Notifications**.\\n2. Turn off the types you don\u2019t need \u2013 e.g., **Mention**, **Status change**, and **Digest** emails.\\n3. Keep **Assignment** notifications on if you only want alerts for items assigned to you.\\n\\nThese changes take effect immediately and only affect your account; no admin changes are required. Let me know if you need any more help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_521a2a45-b460-4739-9db4-1e63f2f9846f",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451639,
+      "id": "chatcmpl-f0ba4196-48d1-44a8-875d-0832b32d0dde",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_bb691ea66b",
+      "usage": {
+        "completion_time": 0.709081183,
+        "completion_tokens": 231,
+        "completion_tokens_details": {
+          "reasoning_tokens": 102
+        },
+        "prompt_time": 0.124192613,
+        "prompt_tokens": 999,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.363932015,
+        "total_time": 0.833273796,
+        "total_tokens": 1230
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0ckc2e8d9wbernehsak3q",
+        "seed": 478018453
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! You can trim your notification volume right away from your own profile:\n\n1. Open **Profile \u2192 Notifications**.\n2. Turn off the types you don\u2019t need \u2013 e.g., **Mention**, **Status change**, and **Digest** emails.\n3. Keep **Assignment** notifications on if you only want alerts for items assigned to you.\n\nThese changes take effect immediately and only affect your account; no admin changes are required. Let me know if you need any more help!"
+        },
+        "id": "fc_521a2a45-b460-4739-9db4-1e63f2f9846f",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 231,
+      "prompt_tokens": 999
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:32:47.768604Z",
+  "failure_detail": null,
+  "fingerprint": "54d54fb97b7e67569eeeb163b7c30f8b8939d58977d115ac0bca9217a4c59c79",
+  "outcome": "response",
+  "recording_id": "turn/92023b7d4f5b57e9/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The customer says \"billed after cancelling, reverse it\". This is about a charge after cancellation. According to DOC-055, this is a billing discrepancy, handled by billing team, need to raise with date of cancellation. So we should respond: advise them to contact billing team, provide cancellation date, etc. We can give short answer: we\u2019ll investigate, need date, etc. That's allowed. Not about money movement? It's about reversing a charge, which is a billing discrepancy. The policy says it's handled case by case by human reviewer. So we can respond with guidance: ask them to submit a request with cancellation date, and we\u2019ll investigate. That is within policy. So we can post_reply.\n\nWe must keep answer short and specific, address customer directly. Provide steps.\n\nLet's craft: \"I\u2019m sorry you were charged after canceling. This is treated as a billing discrepancy. Please provide the date you submitted the cancellation so our billing team can review and correct it. They\u2019ll check the timing and let you know the outcome.\"\n\nYes.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"I\u2019m sorry you were charged after canceling. This is treated as a billing discrepancy and is reviewed by our billing team. Please let us know the exact date you submitted the cancellation so we can investigate the timing of the charge and correct it if needed.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_7a7a61ed-cfe3-4dde-95a6-4ab50e59898d",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453167,
+      "id": "chatcmpl-9ea474fc-1bea-455b-a42b-4c70775a91de",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_3166198c1d",
+      "usage": {
+        "completion_time": 0.817132401,
+        "completion_tokens": 298,
+        "completion_tokens_details": {
+          "reasoning_tokens": 222
+        },
+        "prompt_time": 0.348892792,
+        "prompt_tokens": 1100,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.308084186,
+        "total_time": 1.166025193,
+        "total_tokens": 1398
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1v70aey9tafh1hyzcn521",
+        "seed": 1122620872
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "I\u2019m sorry you were charged after canceling. This is treated as a billing discrepancy and is reviewed by our billing team. Please let us know the exact date you submitted the cancellation so we can investigate the timing of the charge and correct it if needed."
+        },
+        "id": "fc_7a7a61ed-cfe3-4dde-95a6-4ab50e59898d",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 298,
+      "prompt_tokens": 1100
+    }
+  },
+  "retry_after": null
+}

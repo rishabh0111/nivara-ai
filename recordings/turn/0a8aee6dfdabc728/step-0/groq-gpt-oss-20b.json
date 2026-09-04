@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:28:57.586864Z",
+  "failure_detail": null,
+  "fingerprint": "69543499430fb1fc04cfe25aae68bcb2fe97cbc4e4eab215941bc1745743cc42",
+  "outcome": "response",
+  "recording_id": "turn/0a8aee6dfdabc728/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer the question. The user asks: \"Is there a versioning or deprecation policy that would have flagged that earlier change in advance, or is stability only implied rather than documented?\" They are asking about API endpoints stability, versioning, deprecation policy. The policy excerpts mention that endpoints are marked with stability tags: stable, beta, experimental. Only stable endpoints carry deprecation-notice commitment described in the API changelog policy. Subscribing to changelog feed surfaces a stability change or deprecation notice before it takes effect. Also beta endpoints can change shape without same advance notice, experimental can be removed outright. The changelog is record of what changed and when. So answer: yes, there is a documented policy: endpoints have stability tags, stable endpoints have deprecation notice commitment, you can subscribe to changelog feed to get notice before change. Beta endpoints may change shape without notice, experimental may be removed. So stability is documented. Provide that. Also mention that the changelog is the record. So answer accordingly.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 Meridian\u2019s API policy is fully documented. Every endpoint in the reference is tagged with a stability level: `stable`, `beta` or `experimental`. Only `stable` endpoints are guaranteed a deprecation\u2011notice commitment, and you can subscribe to the changelog feed to receive a stability change or deprecation notice before it takes effect. `Beta` endpoints may change shape without the same advance notice, and `experimental` endpoints can be removed outright. The changelog itself is the official record of what changed and when, so that\u2019s where you should check before relying on a beta endpoint in production.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f0cd8a16-b695-4c14-8775-69d91094294f",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460137,
+      "id": "chatcmpl-18b44095-df72-495c-90ae-e43dabc91ed4",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e99e93f2ac",
+      "usage": {
+        "completion_time": 0.382112153,
+        "completion_tokens": 355,
+        "completion_tokens_details": {
+          "reasoning_tokens": 211
+        },
+        "prompt_time": 0.316111398,
+        "prompt_tokens": 1057,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.04334508,
+        "total_time": 0.698223551,
+        "total_tokens": 1412
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8fy3nerja3aafkak6mhg9",
+        "seed": 1760540154
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 Meridian\u2019s API policy is fully documented. Every endpoint in the reference is tagged with a stability level: `stable`, `beta` or `experimental`. Only `stable` endpoints are guaranteed a deprecation\u2011notice commitment, and you can subscribe to the changelog feed to receive a stability change or deprecation notice before it takes effect. `Beta` endpoints may change shape without the same advance notice, and `experimental` endpoints can be removed outright. The changelog itself is the official record of what changed and when, so that\u2019s where you should check before relying on a beta endpoint in production."
+        },
+        "id": "fc_f0cd8a16-b695-4c14-8775-69d91094294f",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 355,
+      "prompt_tokens": 1057
+    }
+  },
+  "retry_after": null
+}

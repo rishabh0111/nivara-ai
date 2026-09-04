@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T18:03:06.751990Z",
+  "failure_detail": null,
+  "fingerprint": "de4a0e15daa50d3e7e5c18f3e422d18eeef64e4d37209ae27229feaacf849198",
+  "outcome": "response",
+  "recording_id": "turn/a983cdace28ca1cc/consistency/sample-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to interpret the user's query: \"no SSO button, was I set up?\" They are asking why they don't see SSO button. This matches policy excerpts about why staff might not see SSO on sign-in. The relevant excerpts: DOC-010 part 1: SSO sign-in option only appears for email domain configured and only once identity provider sync has created the account. Also DOC-010 part 3: admin can check whether the account exists from Settings \u2192 People, where an SSO-provisioned account is marked with identity provider; its absence means sync hasn't created it yet.\n\nThus we can answer: The SSO button appears only if your domain is set up for SSO and your account has been provisioned via the IdP sync. Ask admin to verify account exists in Settings \u2192 People; if not, sync hasn't run yet. Also ensure domain is configured. Provide steps.\n\nWe have sufficient info; answer directly.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"The SSO sign\u2011in button only shows up for staff whose email domain is configured for SSO **and** whose account has already been created by the identity\u2011provider sync. If you don\u2019t see the button, it usually means one of two things:\\n\\n1. Your workspace hasn\u2019t added your email domain to the SSO configuration yet.\\n2. The sync hasn\u2019t created your account \u2013 an admin can verify this in **Settings \u2192 People**; an SSO\u2011provisioned account will be listed with the identity provider shown next to it. If it\u2019s missing, the sync hasn\u2019t run or your account wasn\u2019t provisioned.\\n\\nAsk your admin to check the domain settings and confirm that your account appears in the People list. Once the account is provisioned, the SSO button will appear on the sign\u2011in screen.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_21edf48b-cba6-47de-baae-5bd5465a8527",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372186,
+      "id": "chatcmpl-59d51015-2e66-4bdb-a2f9-13260ac1031e",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_02b0d31eca",
+      "usage": {
+        "completion_time": 0.820617373,
+        "completion_tokens": 390,
+        "completion_tokens_details": {
+          "reasoning_tokens": 192
+        },
+        "prompt_time": 0.064329948,
+        "prompt_tokens": 1084,
+        "queue_time": 0.311058225,
+        "total_time": 0.884947321,
+        "total_tokens": 1474
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmkw9wef096ekr2y4j06qt",
+        "seed": 165751404
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "The SSO sign\u2011in button only shows up for staff whose email domain is configured for SSO **and** whose account has already been created by the identity\u2011provider sync. If you don\u2019t see the button, it usually means one of two things:\n\n1. Your workspace hasn\u2019t added your email domain to the SSO configuration yet.\n2. The sync hasn\u2019t created your account \u2013 an admin can verify this in **Settings \u2192 People**; an SSO\u2011provisioned account will be listed with the identity provider shown next to it. If it\u2019s missing, the sync hasn\u2019t run or your account wasn\u2019t provisioned.\n\nAsk your admin to check the domain settings and confirm that your account appears in the People list. Once the account is provisioned, the SSO button will appear on the sign\u2011in screen."
+        },
+        "id": "fc_21edf48b-cba6-47de-baae-5bd5465a8527",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 390,
+      "prompt_tokens": 1084
+    }
+  },
+  "retry_after": null
+}

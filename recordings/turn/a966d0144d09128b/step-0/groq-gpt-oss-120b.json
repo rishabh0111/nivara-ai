@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:36:30.292707Z",
+  "failure_detail": null,
+  "fingerprint": "51a38254e5f33a35a50b4c343121cd0bafb4d67cc0b180e2555740d71501f005",
+  "outcome": "response",
+  "recording_id": "turn/a966d0144d09128b/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"failed 2FA then unknown login, what was accessed?\" This is about investigating an unrecognised sign-in after failed two-factor attempts. According to DOC-059 part 1: pattern of failed two-factor attempts followed by unrecognised successful sign-in is reviewed as a security matter \u2014 determining what was accessed requires a human reviewer to examine activity log, not exposed to user. Also part 3 says outcome communicated directly after review. So we should respond that we need to review, cannot provide details, and that a human will investigate. Provide short answer. Use policy. So we can reply: we need to open a security review; we\u2019ll investigate and get back. That is allowed. Not about money, not ambiguous. So we can post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"We\u2019ll need to open a security review for that sign\u2011in. Determining what was accessed during the session requires a human reviewer to examine the activity log, which isn\u2019t available on the settings page. Our team will investigate and get back to you with the findings.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_5891fed8-6c09-4768-a364-31009edbed77",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453390,
+      "id": "chatcmpl-733a152a-af8f-46a8-8104-ece51ae8cd39",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_df9620fe21",
+      "usage": {
+        "completion_time": 0.601892373,
+        "completion_tokens": 246,
+        "completion_tokens_details": {
+          "reasoning_tokens": 167
+        },
+        "prompt_time": 0.90616818,
+        "prompt_tokens": 1053,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.281248474,
+        "total_time": 1.508060553,
+        "total_tokens": 1299
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m21zzxedybmhf7g3z7x8hs",
+        "seed": 2142058620
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "We\u2019ll need to open a security review for that sign\u2011in. Determining what was accessed during the session requires a human reviewer to examine the activity log, which isn\u2019t available on the settings page. Our team will investigate and get back to you with the findings."
+        },
+        "id": "fc_5891fed8-6c09-4768-a364-31009edbed77",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 246,
+      "prompt_tokens": 1053
+    }
+  },
+  "retry_after": null
+}

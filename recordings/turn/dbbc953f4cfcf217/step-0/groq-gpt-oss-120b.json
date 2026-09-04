@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T15:43:08.746759Z",
+  "failure_detail": null,
+  "fingerprint": "46ffde063009d705bb22b843167fa7b534860448b9a5607ad43c1227e2806caf",
+  "outcome": "response",
+  "recording_id": "turn/dbbc953f4cfcf217/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"how does pagination work?\" Likely about API pagination. The policy excerpts provide info: list endpoints return one page, next_cursor indicates more, follow until absent. So we can answer using those excerpts. Provide short specific answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When you call a list endpoint, Meridian returns a single page of results along with a `next_cursor` field if there are more pages. To get the full result set, keep calling the endpoint with the provided `next_cursor` and repeat this loop until the response no longer includes a `next_cursor`. That indicates you\u2019ve reached the last page.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_2c735f1c-5a2a-40b1-b190-8865f0210335",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788450188,
+      "id": "chatcmpl-aef39453-cb8f-466a-8222-719195f2b2d5",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c15aa9c1b7",
+      "usage": {
+        "completion_time": 0.341747886,
+        "completion_tokens": 158,
+        "completion_tokens_details": {
+          "reasoning_tokens": 63
+        },
+        "prompt_time": 0.061639303,
+        "prompt_tokens": 1053,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "queue_time": 0.158502886,
+        "total_time": 0.403387189,
+        "total_tokens": 1211
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kz0aqpe8sbz7n3p4t9ndeb",
+        "seed": 1511513897
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When you call a list endpoint, Meridian returns a single page of results along with a `next_cursor` field if there are more pages. To get the full result set, keep calling the endpoint with the provided `next_cursor` and repeat this loop until the response no longer includes a `next_cursor`. That indicates you\u2019ve reached the last page."
+        },
+        "id": "fc_2c735f1c-5a2a-40b1-b190-8865f0210335",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 158,
+      "prompt_tokens": 1053
+    }
+  },
+  "retry_after": null
+}

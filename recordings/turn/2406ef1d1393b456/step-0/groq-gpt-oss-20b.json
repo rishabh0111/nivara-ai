@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:35:34.113539Z",
+  "failure_detail": null,
+  "fingerprint": "d962e7a49080b1e61a9218328aeb28170ca2858e159a93fe4e3fe94833f6eb1f",
+  "outcome": "response",
+  "recording_id": "turn/2406ef1d1393b456/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our own logs show far more API calls going out than the usage dashboard reports for this month.\" They are concerned about discrepancy between logs and dashboard. Which policy excerpt addresses this? There's DOC-053 about disputing usage overage charge, but that's about overage charges. There's DOC-023 about rotating API key, but not relevant. There's DOC-022 about webhook delivery status. Not relevant. There's no direct policy about discrepancy between logs and dashboard. The question is about usage dashboard vs logs. The policy excerpt about usage overage disputes mentions raw usage record vs dashboard. That might be relevant: \"The review compares the raw usage record \u2014 not just the total shown on the invoice \u2014 against the threshold that would trigger an overage, which can surface causes a customer would not see from the dashboard alone, such as a metering bug, a misconfigured integration generating unexpected usage, or usage that genuinely occurred but was not visible from the view the customer was checking.\" That addresses discrepancy between raw usage and dashboard. So we can answer: The dashboard shows aggregated usage; raw logs may show more. For discrepancy, you can request a usage review. But policy says review compares raw usage record. So we can advise to request a usage review. But is that within policy? The policy excerpt says \"The review compares the raw usage record \u2014 not just the total shown on the invoice \u2014 against the threshold that would trigger an overage, which can surface causes a customer would not see from the dashboard alone.\" So we can say: If you see discrepancy, you can request a usage review. But the policy excerpt doesn't explicitly say how to request. But we can answer: The dashboard may not show all calls; you can request a usage review. That is likely acceptable. The question is not about money movement or disputed charge. It's about usage discrepancy. So we can answer. Use short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! The dashboard shows aggregated usage, but your own logs capture every call. If you\u2019re seeing a mismatch, it could be due to a metering bug or a mis\u2011configured integration that\u2019s generating extra usage. You can request a usage review \u2013 we\u2019ll compare the raw usage records against the dashboard to pinpoint the cause. Let me know if you\u2019d like me to start that review for you!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_90c60251-cd82-43b0-b1f0-d6e5f6c4eb10",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460534,
+      "id": "chatcmpl-f41af463-398d-462a-aefc-22904bb7ccec",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9340e7d14d",
+      "usage": {
+        "completion_time": 0.571822336,
+        "completion_tokens": 495,
+        "completion_tokens_details": {
+          "reasoning_tokens": 392
+        },
+        "prompt_time": 0.077107791,
+        "prompt_tokens": 1086,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.278993857,
+        "total_time": 0.648930127,
+        "total_tokens": 1581
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8w1dketjb80r2fb0dc93z",
+        "seed": 650319061
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! The dashboard shows aggregated usage, but your own logs capture every call. If you\u2019re seeing a mismatch, it could be due to a metering bug or a mis\u2011configured integration that\u2019s generating extra usage. You can request a usage review \u2013 we\u2019ll compare the raw usage records against the dashboard to pinpoint the cause. Let me know if you\u2019d like me to start that review for you!"
+        },
+        "id": "fc_90c60251-cd82-43b0-b1f0-d6e5f6c4eb10",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 495,
+      "prompt_tokens": 1086
+    }
+  },
+  "retry_after": null
+}

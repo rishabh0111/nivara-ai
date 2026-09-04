@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:21:37.772242Z",
+  "failure_detail": null,
+  "fingerprint": "8f508955a897d4b81b7298ab1786227e28238412033e5f0b5a35645c7eb6d7aa",
+  "outcome": "response",
+  "recording_id": "turn/dc547a88e7c4abfe/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Is invoice history only available for the current month, or is there a full archive somewhere I'm not seeing?\" According to DOC-001 part 2: \"Open Settings \u2192 Billing \u2192 Invoices to see the full list, ordered by billing date with the most recent at the top. The billing tab's default view only surfaces the current month's invoice on the summary card; the invoices table below it holds every prior one.\" Also part 1: \"Every invoice Meridian generates is kept in your workspace's billing history for as long as the account is active, not just the current billing period.\" So answer: full archive available in Settings > Billing > Invoices. Provide guidance. No escalation needed.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! All of your past invoices are kept in your workspace\u2019s billing history. Go to Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fInvoices \u2013 the table below the summary card lists every invoice, ordered by billing date with the most recent on top. The default view only shows the current month\u2019s invoice, but you can scroll or search to see the full archive.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_9a7928b7-7c4b-4420-8002-16fcf88bb3a3",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459697,
+      "id": "chatcmpl-e35385c5-44b5-4cef-8009-d0370f724b85",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_75c733514d",
+      "usage": {
+        "completion_time": 0.25745385,
+        "completion_tokens": 246,
+        "completion_tokens_details": {
+          "reasoning_tokens": 152
+        },
+        "prompt_time": 0.058500729,
+        "prompt_tokens": 1016,
+        "queue_time": 0.155894837,
+        "total_time": 0.315954579,
+        "total_tokens": 1262
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m82h0weahbp8xxhzex55d7",
+        "seed": 81212996
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! All of your past invoices are kept in your workspace\u2019s billing history. Go to Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fInvoices \u2013 the table below the summary card lists every invoice, ordered by billing date with the most recent on top. The default view only shows the current month\u2019s invoice, but you can scroll or search to see the full archive."
+        },
+        "id": "fc_9a7928b7-7c4b-4420-8002-16fcf88bb3a3",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 246,
+      "prompt_tokens": 1016
+    }
+  },
+  "retry_after": null
+}

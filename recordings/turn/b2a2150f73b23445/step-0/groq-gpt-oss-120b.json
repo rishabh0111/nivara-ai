@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T17:01:53.930984Z",
+  "failure_detail": null,
+  "fingerprint": "931b76d5ff9512a7a5e07ad87562d74168adca55bb7d1b203772cb86b6183132",
+  "outcome": "response",
+  "recording_id": "turn/b2a2150f73b23445/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to determine if we can answer from policy excerpts. The question: \"One of our newer agents can see billing information that should be admin-only, and we are not sure why.\"\n\nWe have policy excerpts about admin added, SSO, changing seat role, finding past invoices. The relevant excerpt: Changing a seat's role says seat's role can be changed from Settings \u2192 People without removing and re-adding, and role determines permissions. Also assignment history etc. Billing info likely admin-only. So maybe the agent has admin role inadvertently. The answer: check the seat's role in Settings \u2192 People, ensure they are set to agent not admin. Also note that admin can see billing; agents cannot. So instruct to verify role.\n\nWe have policy excerpt about changing seat's role. That can be used. Provide steps: go to Settings \u2192 People, locate the user, see role, change if needed. Also note that role change does not affect identity/history.\n\nThus we can answer using DOC-033. Provide short answer.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there,\\n\\nBilling information is only visible to admins. Please check the newer agent\u2019s seat role:\\n\\n1. Open **Settings \u2192 People**.\\n2. Locate the user\u2019s entry and look at the **Role** column.\\n3. If they are set to **admin**, change the role to **agent** (or observer) using the same Settings \u2192 People screen \u2013 you don\u2019t need to remove and re\u2011add them.\\n\\nChanging the role won\u2019t affect their identity or history; it simply limits what they can see and do, including hiding admin\u2011only billing data.\\n\\nLet us know if the role is already correct and you\u2019re still seeing the issue.\\n\\nThanks!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f1b0cfe3-e79a-487d-a074-6ff7d4a2bc73",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454913,
+      "id": "chatcmpl-540193df-eba2-4b83-b982-ad4c3ec40882",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_6b677c2caf",
+      "usage": {
+        "completion_time": 0.820935018,
+        "completion_tokens": 384,
+        "completion_tokens_details": {
+          "reasoning_tokens": 213
+        },
+        "prompt_time": 0.079716295,
+        "prompt_tokens": 1086,
+        "queue_time": 0.391589103,
+        "total_time": 0.900651313,
+        "total_tokens": 1470
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m3ggd6en8vbmtfasfe35mb",
+        "seed": 1180252501
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there,\n\nBilling information is only visible to admins. Please check the newer agent\u2019s seat role:\n\n1. Open **Settings \u2192 People**.\n2. Locate the user\u2019s entry and look at the **Role** column.\n3. If they are set to **admin**, change the role to **agent** (or observer) using the same Settings \u2192 People screen \u2013 you don\u2019t need to remove and re\u2011add them.\n\nChanging the role won\u2019t affect their identity or history; it simply limits what they can see and do, including hiding admin\u2011only billing data.\n\nLet us know if the role is already correct and you\u2019re still seeing the issue.\n\nThanks!"
+        },
+        "id": "fc_f1b0cfe3-e79a-487d-a074-6ff7d4a2bc73",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 384,
+      "prompt_tokens": 1086
+    }
+  },
+  "retry_after": null
+}

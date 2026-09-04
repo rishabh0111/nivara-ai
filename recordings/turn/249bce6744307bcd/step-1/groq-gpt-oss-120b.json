@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:28:14.060791Z",
+  "failure_detail": null,
+  "fingerprint": "3345ba966c698b1fe7b2867115eaa47cd656f7aa62f486eb513495c06241f6d2",
+  "outcome": "response",
+  "recording_id": "turn/249bce6744307bcd/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The customer asks \"service credit calculation?\" Likely they want to know how uptime service credits are calculated. The policy excerpts provide info: credit is percentage of billing period charges, scaled to uptime shortfall, applied to future invoice; exact percentages are in contract; they should reference contract and can ask support to confirm incident's measured uptime impact.\n\nWe can answer: explain generally and note they need to check contract for exact schedule, and we can confirm incident impact if they provide details. Provide short answer.\n\nThus we can post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there!\u202fMeridian\u2019s uptime service credits are calculated as a percentage of the charges for the billing period, scaled to how far the actual uptime fell short of the guarantee in your contract. The exact guarantee percentage and credit schedule are set out in your workspace\u2019s order form or contract, so you\u2019ll need to refer to those documents for the specific numbers that apply to you. If you have a particular incident in mind, let us know and we can confirm the measured uptime impact against your contract\u2019s schedule.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_2e97eb5b-899d-41c1-97e5-843d9804b518",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452893,
+      "id": "chatcmpl-f1f6cd98-20d9-442a-ad89-3f10bc022381",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_6dedd2be22",
+      "usage": {
+        "completion_time": 1.05345824,
+        "completion_tokens": 243,
+        "completion_tokens_details": {
+          "reasoning_tokens": 116
+        },
+        "prompt_time": 0.094905104,
+        "prompt_tokens": 1091,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.158585115,
+        "total_time": 1.148363344,
+        "total_tokens": 1334
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1jvwdeh5v7s720heyvnxb",
+        "seed": 265135338
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there!\u202fMeridian\u2019s uptime service credits are calculated as a percentage of the charges for the billing period, scaled to how far the actual uptime fell short of the guarantee in your contract. The exact guarantee percentage and credit schedule are set out in your workspace\u2019s order form or contract, so you\u2019ll need to refer to those documents for the specific numbers that apply to you. If you have a particular incident in mind, let us know and we can confirm the measured uptime impact against your contract\u2019s schedule."
+        },
+        "id": "fc_2e97eb5b-899d-41c1-97e5-843d9804b518",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 243,
+      "prompt_tokens": 1091
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:22:29.060738Z",
+  "failure_detail": null,
+  "fingerprint": "69802cf8b9565da191492aa2037c0803e5ce753d0067008e061fca03d76bda2a",
+  "outcome": "response",
+  "recording_id": "turn/52d62ca6f704e8c2/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "The user says: \"invoice breakdown by line item\". They want to know how to see breakdown. According to policy, we can answer: open Settings \u2192 Billing \u2192 Invoices, expand line items, etc. Provide instructions. No money movement or dispute. So we can answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! To see the breakdown of each line item on an invoice:\\n\\n1. Go to **Settings \u2192 Billing \u2192 Invoices**.\\n2. Open the invoice you\u2019re interested in.\\n3. Expand a line item \u2013 you\u2019ll see its own breakdown (e.g., a seat charge will show how many seats were billed and the per\u2011seat rate, and an overage line will show the metered quantity beyond the plan\u2019s limit).\\n\\nThe downloadable PDF contains the same breakdown, so you can attach it to an internal budget review without needing dashboard access.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_63670e42-793c-45ad-a366-20bf9c71895d",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459749,
+      "id": "chatcmpl-12cba8a1-0f15-4deb-889d-228d348e396e",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e23fc997ca",
+      "usage": {
+        "completion_time": 0.208997435,
+        "completion_tokens": 196,
+        "completion_tokens_details": {
+          "reasoning_tokens": 57
+        },
+        "prompt_time": 0.051103627,
+        "prompt_tokens": 1026,
+        "queue_time": 0.156976792,
+        "total_time": 0.260101062,
+        "total_tokens": 1222
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8438qevqv825wpqq2r3cz",
+        "seed": 969910262
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! To see the breakdown of each line item on an invoice:\n\n1. Go to **Settings \u2192 Billing \u2192 Invoices**.\n2. Open the invoice you\u2019re interested in.\n3. Expand a line item \u2013 you\u2019ll see its own breakdown (e.g., a seat charge will show how many seats were billed and the per\u2011seat rate, and an overage line will show the metered quantity beyond the plan\u2019s limit).\n\nThe downloadable PDF contains the same breakdown, so you can attach it to an internal budget review without needing dashboard access."
+        },
+        "id": "fc_63670e42-793c-45ad-a366-20bf9c71895d",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 196,
+      "prompt_tokens": 1026
+    }
+  },
+  "retry_after": null
+}

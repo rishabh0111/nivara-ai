@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:25:17.838877Z",
+  "failure_detail": null,
+  "fingerprint": "d1efbf6575f34be0269683aa20affa2e104bdf5914e2bc1f505e10426f3e269e",
+  "outcome": "response",
+  "recording_id": "turn/179e4967a693c294/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"This is a mess post-merger, we have two separate login flows into the same workspace and I need to know today which identity providers you actually support so we can pick one.\"\n\nWe have policy excerpts about identity providers supported for SSO. The article \"Identity providers Meridian supports for SSO\" presumably lists them. But the excerpt only says that a workspace configures exactly one identity provider at a time, tied to email domains. It doesn't list the providers. The policy excerpt does not contain the list. So we cannot answer. We must either answer with the list if it was in the excerpt. But it's not. So we must either ask for clarification or we must \"escalate\" because we cannot answer from policy. The question is ambiguous: they want to know which identity providers are supported. The policy excerpt does not contain that list. So we must \"escalate\".",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The policy excerpts provided do not list the identity providers Meridian supports for SSO. The customer is asking for that list, which is not included in the excerpts. Therefore I cannot answer from policy and must hand the conversation to a human.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_d1b85f54-4bdd-4e85-ab6d-8dcdc5d352e9",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459917,
+      "id": "chatcmpl-5d49abf8-ec5c-4d30-bf8d-94436c77f06c",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_84bb35977d",
+      "usage": {
+        "completion_time": 0.33097522,
+        "completion_tokens": 261,
+        "completion_tokens_details": {
+          "reasoning_tokens": 191
+        },
+        "prompt_time": 0.126812291,
+        "prompt_tokens": 1065,
+        "queue_time": 0.318457211,
+        "total_time": 0.457787511,
+        "total_tokens": 1326
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m897qkemqbm9r7x6qvv8vk",
+        "seed": 413305832
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The policy excerpts provided do not list the identity providers Meridian supports for SSO. The customer is asking for that list, which is not included in the excerpts. Therefore I cannot answer from policy and must hand the conversation to a human."
+        },
+        "id": "fc_d1b85f54-4bdd-4e85-ab6d-8dcdc5d352e9",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 261,
+      "prompt_tokens": 1065
+    }
+  },
+  "retry_after": null
+}

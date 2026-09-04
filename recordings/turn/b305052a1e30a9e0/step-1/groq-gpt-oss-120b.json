@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:32:15.949385Z",
+  "failure_detail": null,
+  "fingerprint": "7df0b0e3896015be91134a52b24fd3040540fb45a50244496db7c06468d01ce0",
+  "outcome": "response",
+  "recording_id": "turn/b305052a1e30a9e0/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"cancelled but still billed, reverse and confirm no more renewals\". This is about a charge after cancellation. According to DOC-055, this is a billing discrepancy, handled by human reviewer. The policy says the account owner should raise it with the date the cancellation was submitted. So we should respond that they need to contact billing team, provide cancellation date, and we will investigate. We can give guidance: they should submit a request with date, and we will review. That's allowed. Provide short answer.\n\nWe must not mention policy. Provide answer: Apologize, ask for cancellation date, say we will investigate and ensure no further renewals. That aligns with policy.\n\nThus we can post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"I\u2019m sorry you were charged after canceling. This is treated as a billing discrepancy and our billing team will need to review the timing of your cancellation and the charge. Please reply with the date you submitted the cancellation request, and we\u2019ll investigate the charge and confirm that no further renewals will occur.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c0ee21c7-fb45-4f30-8aa6-7eef5b5e5a9b",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453135,
+      "id": "chatcmpl-cf9d4a77-eaf9-45a9-8733-209765403f4c",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_f73454f048",
+      "usage": {
+        "completion_time": 0.578155491,
+        "completion_tokens": 242,
+        "completion_tokens_details": {
+          "reasoning_tokens": 156
+        },
+        "prompt_time": 0.270414205,
+        "prompt_tokens": 1079,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.919726089,
+        "total_time": 0.848569696,
+        "total_tokens": 1321
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1t7see43azva1gerkaz1y",
+        "seed": 648857071
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "I\u2019m sorry you were charged after canceling. This is treated as a billing discrepancy and our billing team will need to review the timing of your cancellation and the charge. Please reply with the date you submitted the cancellation request, and we\u2019ll investigate the charge and confirm that no further renewals will occur."
+        },
+        "id": "fc_c0ee21c7-fb45-4f30-8aa6-7eef5b5e5a9b",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 242,
+      "prompt_tokens": 1079
+    }
+  },
+  "retry_after": null
+}

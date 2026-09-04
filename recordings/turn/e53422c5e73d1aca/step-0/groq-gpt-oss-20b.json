@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:29:29.846530Z",
+  "failure_detail": null,
+  "fingerprint": "1a235cc8ec86342888d32d9fb12359f4a6160752b7b7263d68b1e31e0724d895",
+  "outcome": "response",
+  "recording_id": "turn/e53422c5e73d1aca/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"I want to remove a seat belonging to someone who's left the company and give it to a new hire, but I'm not sure whether doing that mid-cycle results in us being charged for two seats simultaneously.\"\n\nWe have policy excerpts: DOC-029 part 1 and 2 and 3. They say removing a person frees seat immediately, inviting new person into that freed seat does not add a new seat to count as long as it happens within same billing cycle. The seat count that matters is highest number of seats occupied at any point in cycle. So no overage charge. So answer: remove first, then invite new hire, no double charge. Also mention that next invoice will show one seat. So we can answer. No escalation needed.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! If you remove the departed employee first and then invite the new hire into that same seat within the same billing cycle, you won\u2019t be charged for two seats at once. The seat count that matters is the highest number of seats occupied at any point in the cycle, so as long as the removal and re\u2011assignment happen in the same cycle, you\u2019ll only see one seat on the next invoice. Feel free to go ahead and make the change!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_cf1251d0-91e8-4337-b5c8-145798b276a9",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460169,
+      "id": "chatcmpl-58a777e4-9743-45ba-9298-e70bb241d067",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_639a5351c8",
+      "usage": {
+        "completion_time": 0.338382268,
+        "completion_tokens": 273,
+        "completion_tokens_details": {
+          "reasoning_tokens": 159
+        },
+        "prompt_time": 0.056997738,
+        "prompt_tokens": 1115,
+        "queue_time": 0.309148331,
+        "total_time": 0.395380006,
+        "total_tokens": 1388
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8gxrmeks9rtvg9q7q1c2t",
+        "seed": 952355499
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! If you remove the departed employee first and then invite the new hire into that same seat within the same billing cycle, you won\u2019t be charged for two seats at once. The seat count that matters is the highest number of seats occupied at any point in the cycle, so as long as the removal and re\u2011assignment happen in the same cycle, you\u2019ll only see one seat on the next invoice. Feel free to go ahead and make the change!"
+        },
+        "id": "fc_cf1251d0-91e8-4337-b5c8-145798b276a9",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 273,
+      "prompt_tokens": 1115
+    }
+  },
+  "retry_after": null
+}

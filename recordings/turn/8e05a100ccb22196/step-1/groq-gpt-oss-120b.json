@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T15:47:11.890551Z",
+  "failure_detail": null,
+  "fingerprint": "230776220feda672cca351d8e23ef43c136c4727bb9c1fb97f8a6fe1b6f1852d",
+  "outcome": "response",
+  "recording_id": "turn/8e05a100ccb22196/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Is the seat limit tied to our specific plan tier, or is it some other kind of restriction unrelated to seats?\" This is about seat limits and plan tiers. The policy excerpts explain seat limits are per plan tier, shown in Settings \u2192 Billing \u2192 Plan, and raising limit via adding seats or upgrading. So answer: Yes, seat limit is tied to plan tier. Provide brief answer. Use policy. No need to escalate. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"The seat limit is directly tied to the plan tier you\u2019re on. Each tier has a maximum number of seats included, which you can see in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan. If you need more seats, you can either purchase additional seats (if your plan allows it) or upgrade to a tier with a higher seat limit.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_12c8e17e-8c43-40f2-a4ba-203e9a2a4545",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788450431,
+      "id": "chatcmpl-6f46b3be-b9db-4197-b27c-fe64621812ca",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5a93aea882",
+      "usage": {
+        "completion_time": 0.439603801,
+        "completion_tokens": 197,
+        "completion_tokens_details": {
+          "reasoning_tokens": 103
+        },
+        "prompt_time": 0.03619321,
+        "prompt_tokens": 1062,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.158002369,
+        "total_time": 0.475797011,
+        "total_tokens": 1259
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kz7r82eh5scsgb7wkbs15x",
+        "seed": 569025910
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "The seat limit is directly tied to the plan tier you\u2019re on. Each tier has a maximum number of seats included, which you can see in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan. If you need more seats, you can either purchase additional seats (if your plan allows it) or upgrade to a tier with a higher seat limit."
+        },
+        "id": "fc_12c8e17e-8c43-40f2-a4ba-203e9a2a4545",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 197,
+      "prompt_tokens": 1062
+    }
+  },
+  "retry_after": null
+}

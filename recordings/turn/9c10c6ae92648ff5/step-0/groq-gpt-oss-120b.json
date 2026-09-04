@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:59:02.701711Z",
+  "failure_detail": null,
+  "fingerprint": "96ac7154da5ec289571988f999dbaf85a16a2f223f8cd6be4ab4e80ed3a9b4ee",
+  "outcome": "response",
+  "recording_id": "turn/9c10c6ae92648ff5/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"A thread we imported from an old Slack channel is missing a couple of replies that I know were posted.\" This is about import missing rows. The policy excerpts about import rejecting rows with no visible error. We can explain that import may silently drop rows due to per-row validation errors like missing required fields, malformed email, duplicate, etc. Suggest checking import history for per-row results, fix flagged rows, re-run import for those rows. So answer accordingly.\n\nWe have relevant excerpts: DOC-016 parts 1-3. Provide guidance. So we can post reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When an import finishes, any rows that didn\u2019t make it are usually being skipped by a per\u2011row validation that isn\u2019t shown on the main screen (e.g., a missing required field, a malformed email address, or a duplicate). You can see exactly which rows were rejected by opening **Settings \u2192 Data \u2192 Import history**, selecting the run, and reviewing the per\u2011row results \u2013 each failed row will have a reason listed.\\n\\nFix the issues on the flagged rows and then re\u2011run the import for just those rows (instead of the whole file) to avoid re\u2011processing the rows that already succeeded. This should bring the missing replies back into the thread.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c99242ab-08f7-4dc3-8341-467a26fef066",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454742,
+      "id": "chatcmpl-144641b8-55e5-4693-95b6-16d4af989734",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_84bf0227ec",
+      "usage": {
+        "completion_time": 0.608988339,
+        "completion_tokens": 289,
+        "completion_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "prompt_time": 0.062393639,
+        "prompt_tokens": 1057,
+        "queue_time": 0.15911976,
+        "total_time": 0.671381978,
+        "total_tokens": 1346
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m3b9fzexbbvbx24n0t4ypt",
+        "seed": 1293833759
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When an import finishes, any rows that didn\u2019t make it are usually being skipped by a per\u2011row validation that isn\u2019t shown on the main screen (e.g., a missing required field, a malformed email address, or a duplicate). You can see exactly which rows were rejected by opening **Settings \u2192 Data \u2192 Import history**, selecting the run, and reviewing the per\u2011row results \u2013 each failed row will have a reason listed.\n\nFix the issues on the flagged rows and then re\u2011run the import for just those rows (instead of the whole file) to avoid re\u2011processing the rows that already succeeded. This should bring the missing replies back into the thread."
+        },
+        "id": "fc_c99242ab-08f7-4dc3-8341-467a26fef066",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 289,
+      "prompt_tokens": 1057
+    }
+  },
+  "retry_after": null
+}

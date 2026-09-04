@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:26:46.378670Z",
+  "failure_detail": null,
+  "fingerprint": "a3e690d9f0d8c53061b0d79eeda84cd5aea3a157e6b6138bd5cf4dbd6b4a176e",
+  "outcome": "response",
+  "recording_id": "turn/29e7071991ac2b11/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer the question: \"Worried a re-import will double up existing records.\" The policy excerpts provide info about avoiding duplicates when re-importing a corrected file. We should explain that importer matches by email or unique identifier, updates in place, etc. Also mention if correction was to email or identifier, need to remove already succeeded rows. So answer: reassure that duplicates won't happen if matching fields unchanged; if changed, remove rows. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If you re\u2011import a file that contains rows that already imported, the system will match them by email (for contacts) or by the unique identifier you supplied. It will update the existing record instead of creating a duplicate. This works as long as the field you\u2019re using for matching hasn\u2019t changed. If you corrected the email or identifier itself, the importer can\u2019t recognise the row as the same one, so the safest approach is to delete the already\u2011imported rows from the corrected file before re\u2011running it. That way you won\u2019t end up with duplicates.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_5c99eac9-b89d-4748-9f58-85fce0737cfa",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460006,
+      "id": "chatcmpl-54ae79ac-3ee2-424e-bfb4-9b2b23d6a830",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4f7e7dc26e",
+      "usage": {
+        "completion_time": 0.30658971,
+        "completion_tokens": 232,
+        "completion_tokens_details": {
+          "reasoning_tokens": 95
+        },
+        "prompt_time": 0.056199107,
+        "prompt_tokens": 1036,
+        "queue_time": 0.281641351,
+        "total_time": 0.362788817,
+        "total_tokens": 1268
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8byared581md5kv3ka7j0",
+        "seed": 1337731839
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If you re\u2011import a file that contains rows that already imported, the system will match them by email (for contacts) or by the unique identifier you supplied. It will update the existing record instead of creating a duplicate. This works as long as the field you\u2019re using for matching hasn\u2019t changed. If you corrected the email or identifier itself, the importer can\u2019t recognise the row as the same one, so the safest approach is to delete the already\u2011imported rows from the corrected file before re\u2011running it. That way you won\u2019t end up with duplicates."
+        },
+        "id": "fc_5c99eac9-b89d-4748-9f58-85fce0737cfa",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 232,
+      "prompt_tokens": 1036
+    }
+  },
+  "retry_after": null
+}

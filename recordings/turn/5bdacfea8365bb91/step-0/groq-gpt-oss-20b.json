@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:29:12.561882Z",
+  "failure_detail": null,
+  "fingerprint": "f4b607bfcc990e7de8adabb2d5ed9d4392f53ab45c9a92802b5397ff62eed559",
+  "outcome": "response",
+  "recording_id": "turn/5bdacfea8365bb91/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"Our office manager tried to add a fifth teammate and got blocked with no explanation \u2014 she asked me to find out if there's a seat limit and how to raise it.\" This is about seat limits. The policy excerpts provide info. We can answer: yes, seat limit per plan. How to raise: add seats within current tier if allowed, or upgrade plan. Both take effect immediately. Also mention that removing a person frees seat. So answer accordingly.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! Yes, each plan has a maximum number of seats. You can see the limit and how many seats are currently used in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan. If you\u2019re hitting the limit, you can either add extra seats (if your current tier allows purchasing more) or upgrade to a higher tier. Once you confirm the change, it takes effect immediately, and you can resend the invite. Let me know if you need help with the upgrade or adding seats!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_900088a4-bd05-4780-9ca0-00b826c07987",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460152,
+      "id": "chatcmpl-79af1791-2e2c-48cd-977e-cb198a50af88",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9b8528b477",
+      "usage": {
+        "completion_time": 0.239299686,
+        "completion_tokens": 219,
+        "completion_tokens_details": {
+          "reasoning_tokens": 100
+        },
+        "prompt_time": 0.460351329,
+        "prompt_tokens": 1055,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.277498458,
+        "total_time": 0.699651015,
+        "total_tokens": 1274
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8gcrge8j9g7pedw5hcvwh",
+        "seed": 1258756495
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! Yes, each plan has a maximum number of seats. You can see the limit and how many seats are currently used in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPlan. If you\u2019re hitting the limit, you can either add extra seats (if your current tier allows purchasing more) or upgrade to a higher tier. Once you confirm the change, it takes effect immediately, and you can resend the invite. Let me know if you need help with the upgrade or adding seats!"
+        },
+        "id": "fc_900088a4-bd05-4780-9ca0-00b826c07987",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 219,
+      "prompt_tokens": 1055
+    }
+  },
+  "retry_after": null
+}

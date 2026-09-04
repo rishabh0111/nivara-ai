@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:49:06.208872Z",
+  "failure_detail": null,
+  "fingerprint": "497026c138d17b7af2d216ad2e51f62211294175feb08a0ee640b8e6cd01f41d",
+  "outcome": "response",
+  "recording_id": "turn/e4446e4d23cbf914/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"After a lost-card incident, I want our old payment method fully removed from the account \u2014 can you confirm no charge can ever be attempted against it again?\" This is about confirming that removed card is fully gone and cannot be charged. The policy says: \"Whether every trace of a removed card is fully gone from the billing system, and not just hidden from the settings page, is a question the billing team confirms directly rather than something the settings page itself asserts \u2014 this matters specifically after a lost-card incident, where the concern is about the card being usable elsewhere rather than just unlisted here.\" Also: \"Because this involves confirming the state of the account's billing record rather than just its visible settings, it is handled case by case by the billing team on request, and the account owner or billing contact should raise it after removing the method themselves.\"\n\nThus we cannot confirm directly; we must tell them to contact billing team. According to policy, we can answer: need to raise request to billing team. So we can respond: you need to ask billing team to confirm removal; they handle case by case. Provide guidance: go to Settings \u2192 Billing \u2192 Payment method to remove, then contact billing. That is within policy. So we can answer.\n\nWe must not mention policy. Provide short answer. Use post_reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can remove the card yourself in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPayment method, but confirming that the card is completely erased from our billing system (so it can never be charged again) is handled case\u2011by\u2011case by our billing team. After you\u2019ve removed the method, please have the account owner or billing contact reach out to billing to request a formal confirmation that the card is fully removed.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_43d1383a-fc71-46da-bb08-dc2798a292c7",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454146,
+      "id": "chatcmpl-44b611d0-9833-434b-9515-c5c608e79ea7",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4727af4560",
+      "usage": {
+        "completion_time": 0.800093304,
+        "completion_tokens": 384,
+        "completion_tokens_details": {
+          "reasoning_tokens": 277
+        },
+        "prompt_time": 0.296629062,
+        "prompt_tokens": 1111,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.162101449,
+        "total_time": 1.096722366,
+        "total_tokens": 1495
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2s2vaeem9dfx40qkbpw67",
+        "seed": 704188337
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can remove the card yourself in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPayment method, but confirming that the card is completely erased from our billing system (so it can never be charged again) is handled case\u2011by\u2011case by our billing team. After you\u2019ve removed the method, please have the account owner or billing contact reach out to billing to request a formal confirmation that the card is fully removed."
+        },
+        "id": "fc_43d1383a-fc71-46da-bb08-dc2798a292c7",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 384,
+      "prompt_tokens": 1111
+    }
+  },
+  "retry_after": null
+}

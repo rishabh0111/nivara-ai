@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:02:58.265887Z",
+  "failure_detail": null,
+  "fingerprint": "1cfc5ff9e92ed194f7b1be52b5a61b1b521d1b7e965ecd5a1f44a0dcc0565551",
+  "outcome": "response",
+  "recording_id": "turn/a983cdace28ca1cc/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"no SSO button, was I set up?\" The user is asking why they don't see SSO button, maybe not set up. According to DOC-010 part 1: SSO sign-in option only appears for an email domain the workspace has configured for SSO, and only once the identity provider sync has actually created that person's account. Also DOC-010 part 3: admin can check whether the account exists from Settings \u2192 People, where an SSO-provisioned account is marked with the identity provider it came from; its absence means the sync has not created it yet.\n\nThus answer: The SSO button appears only if your domain is configured and the sync has created your account. Ask admin to verify account exists in Settings \u2192 People; if not, sync hasn't run yet. Also ensure SSO is enabled but password sign-in still works. Provide steps.\n\nWe must keep answer short and specific. Provide guidance. Use policy excerpts. No need to mention policy. Provide answer.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"The SSO sign\u2011in button only shows up when two things are true:\\n1. Your workspace has configured SSO for your email domain, and\\n2. The identity\u2011provider sync has already created your account in Meridian.\\nIf the button is missing, it usually means the sync hasn\u2019t created your account yet. An admin can confirm this in **Settings \u2192 People** \u2013 SSO\u2011provisioned accounts are listed with the identity provider name. If you don\u2019t see your account there, the sync is still pending or your domain isn\u2019t set up for SSO. Ask your admin to check the SSO configuration and ensure the sync runs, after which the SSO button should appear.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_aa4bbbb6-1d0f-4297-a967-53d7db9964d5",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372178,
+      "id": "chatcmpl-10c0c274-8082-40b0-9180-d2b382ffbfab",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c800245357",
+      "usage": {
+        "completion_time": 0.816315719,
+        "completion_tokens": 385,
+        "completion_tokens_details": {
+          "reasoning_tokens": 218
+        },
+        "prompt_time": 0.116511647,
+        "prompt_tokens": 1070,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.273150794,
+        "total_time": 0.932827366,
+        "total_tokens": 1455
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmkm3he2g9k6ebx7yjsm46",
+        "seed": 1274189946
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "The SSO sign\u2011in button only shows up when two things are true:\n1. Your workspace has configured SSO for your email domain, and\n2. The identity\u2011provider sync has already created your account in Meridian.\nIf the button is missing, it usually means the sync hasn\u2019t created your account yet. An admin can confirm this in **Settings \u2192 People** \u2013 SSO\u2011provisioned accounts are listed with the identity provider name. If you don\u2019t see your account there, the sync is still pending or your domain isn\u2019t set up for SSO. Ask your admin to check the SSO configuration and ensure the sync runs, after which the SSO button should appear."
+        },
+        "id": "fc_aa4bbbb6-1d0f-4297-a967-53d7db9964d5",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 385,
+      "prompt_tokens": 1070
+    }
+  },
+  "retry_after": null
+}

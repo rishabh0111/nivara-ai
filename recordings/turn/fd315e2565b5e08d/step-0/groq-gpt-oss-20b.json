@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:32:59.354723Z",
+  "failure_detail": null,
+  "fingerprint": "440c081594e1d075259897d51183e3c14fb580c732979cf8ac8ce7c35029901a",
+  "outcome": "response",
+  "recording_id": "turn/fd315e2565b5e08d/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: \"Not sure if historical usage data is self-serve.\" The policy excerpts: DOC-041 parts 1-3 explain that usage data for current and prior billing period is available directly from Settings \u2192 Billing \u2192 Usage, exportable as CSV. Usage older than two most recent billing periods is retained but not shown by default; can still be pulled with custom date range from same export, as long as within retention window. For audit needing specific quarter, exporting with that quarter's exact date range from usage screen produces same data as request to support would, without wait.\n\nThus answer: Yes, self-serve via Settings \u2192 Billing \u2192 Usage, export CSV, can specify date ranges for older data within retention. Provide guidance. No need to mention policy. Just answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 you can get historical usage data yourself. In your workspace go to Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fUsage. From there you can export a CSV of the current and previous billing period. If you need data older than the two most recent periods, you can still pull it by selecting a custom date range on the same screen (as long as it falls within the workspace\u2019s data\u2011retention window). For a specific quarter, just set the exact date range for that quarter and export \u2013 it will give you the same information you\u2019d get from a support request, but instantly.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_e0fea1d4-6e1d-47b7-8d60-1a40ffc1a4bf",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460379,
+      "id": "chatcmpl-d44b287d-aa2d-4835-864e-0857e6f32c29",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5979a0e1b7",
+      "usage": {
+        "completion_time": 0.357618513,
+        "completion_tokens": 299,
+        "completion_tokens_details": {
+          "reasoning_tokens": 159
+        },
+        "prompt_time": 0.051670352,
+        "prompt_tokens": 1039,
+        "queue_time": 0.364757906,
+        "total_time": 0.409288865,
+        "total_tokens": 1338
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8qa3xe03vgwqtm149ck52",
+        "seed": 1523420832
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 you can get historical usage data yourself. In your workspace go to Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fUsage. From there you can export a CSV of the current and previous billing period. If you need data older than the two most recent periods, you can still pull it by selecting a custom date range on the same screen (as long as it falls within the workspace\u2019s data\u2011retention window). For a specific quarter, just set the exact date range for that quarter and export \u2013 it will give you the same information you\u2019d get from a support request, but instantly."
+        },
+        "id": "fc_e0fea1d4-6e1d-47b7-8d60-1a40ffc1a4bf",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 299,
+      "prompt_tokens": 1039
+    }
+  },
+  "retry_after": null
+}

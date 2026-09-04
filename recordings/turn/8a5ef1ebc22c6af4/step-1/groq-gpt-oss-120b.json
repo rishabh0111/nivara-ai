@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:15:37.452145Z",
+  "failure_detail": null,
+  "fingerprint": "592dd51e5dc6f0088fc61bbf991455401f95e706d9c8ea90d73d7062c0fb37e8",
+  "outcome": "response",
+  "recording_id": "turn/8a5ef1ebc22c6af4/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We have a short message: \"Metric looks bad, not sure if the calculation is fair.\"\n\nWe need to determine if we can answer from policy excerpts. The excerpts are about response-time metrics: default counts every hour, business-hours version, can show both side by side. The customer says metric looks bad, not sure if calculation is fair. Likely they are asking about response-time metric calculation. We can answer using the policy: explain default metric counts all hours, business-hours version can be configured, can compare side by side. Provide short answer.\n\nCheck rules: answer only from policy excerpts. We have relevant excerpts. So we can respond.\n\nWe need to keep answer short and specific, address the customer directly.\n\nThus we will post a reply summarizing: By default it's wall-clock, includes nights/weekends, you can configure business-hours metric, and view both side by side.\n\nLet's craft.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! The response\u2011time metric you\u2019re seeing is the default wall\u2011clock measurement, which counts every hour a ticket is unanswered\u2014including nights, weekends and holidays. If you prefer a metric that only includes your business hours, you can set business hours in Settings \u2192 Reporting \u2192 Business hours and switch the dashboard to \u201cbusiness hours\u201d mode; this excludes non\u2011working time entirely. You can also display both the wall\u2011clock and business\u2011hours metrics side\u2011by\u2011side on a custom dashboard for context. Let me know if you need help configuring this!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_da463f2f-fa22-4f4e-9541-8430119b496c",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452137,
+      "id": "chatcmpl-aed801a6-741b-4dd2-bd62-3bd16220ab79",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_87b3c396db",
+      "usage": {
+        "completion_time": 0.825822986,
+        "completion_tokens": 319,
+        "completion_tokens_details": {
+          "reasoning_tokens": 182
+        },
+        "prompt_time": 0.056490063,
+        "prompt_tokens": 1032,
+        "queue_time": 0.282278136,
+        "total_time": 0.882313049,
+        "total_tokens": 1351
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0vsafe21t3j8440g8yv4y",
+        "seed": 2135003928
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! The response\u2011time metric you\u2019re seeing is the default wall\u2011clock measurement, which counts every hour a ticket is unanswered\u2014including nights, weekends and holidays. If you prefer a metric that only includes your business hours, you can set business hours in Settings \u2192 Reporting \u2192 Business hours and switch the dashboard to \u201cbusiness hours\u201d mode; this excludes non\u2011working time entirely. You can also display both the wall\u2011clock and business\u2011hours metrics side\u2011by\u2011side on a custom dashboard for context. Let me know if you need help configuring this!"
+        },
+        "id": "fc_da463f2f-fa22-4f4e-9541-8430119b496c",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 319,
+      "prompt_tokens": 1032
+    }
+  },
+  "retry_after": null
+}

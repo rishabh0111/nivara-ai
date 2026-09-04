@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:38:41.879637Z",
+  "failure_detail": null,
+  "fingerprint": "fd2ccae137d89ee120fdc6ceb938c95dca34afa6765fc37bd02e18572508d6f8",
+  "outcome": "response",
+  "recording_id": "turn/1717c21f01c96668/consistency/sample-2/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to read the conversation to see what the user asked. The user says \"SSO pointing somewhere wrong, help\". Likely they have an SSO configuration pointing to a wrong identity provider domain. The policy excerpts include guidance on reporting unrecognised change to SSO configuration and troubleshooting redirect loop. The question is ambiguous? The user says SSO pointing somewhere wrong, help. Could be they need to revert SSO config or troubleshoot redirect loop. The policy says: if unrecognised change, admin can revert SSO config from Settings \u2192 Security \u2192 SSO, and report to support. Also troubleshooting redirect loop: check callback URL matches reply URL. Which answer fits? The user likely wants help fixing SSO pointing wrong. The policy says an admin who still has access can revert SSO config to disable it or point it back at correct provider, and should report change. So we can answer with steps: go to Settings \u2192 Security \u2192 SSO, revert or correct, then report to support. That seems covered by DOC-061. That answers the question.\n\nThus we can post reply with those steps.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If your SSO configuration is pointing to an unexpected identity\u2011provider domain, it\u2019s likely been changed unintentionally. An admin who still has access can fix it by:\\n\\n1. Going to **Settings \u2192 Security \u2192 SSO**.\\n2. Either disabling the SSO integration or updating the configuration to point back at the correct provider.\\n3. Saving the changes.\\n\\nAfter you\u2019ve corrected the setting, please let our support team know what you changed so a reviewer can examine when and how the setting was altered and which account made the change.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_d3fbd53c-a431-4d6f-bdad-47c2707d6812",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453521,
+      "id": "chatcmpl-9076ce06-a902-44b6-bb23-a722a0124c18",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c868cf1eaa",
+      "usage": {
+        "completion_time": 0.759577512,
+        "completion_tokens": 364,
+        "completion_tokens_details": {
+          "reasoning_tokens": 225
+        },
+        "prompt_time": 0.053878397,
+        "prompt_tokens": 1182,
+        "queue_time": 0.365397951,
+        "total_time": 0.813455909,
+        "total_tokens": 1546
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2619hebk993pgehgy893y",
+        "seed": 836720375
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If your SSO configuration is pointing to an unexpected identity\u2011provider domain, it\u2019s likely been changed unintentionally. An admin who still has access can fix it by:\n\n1. Going to **Settings \u2192 Security \u2192 SSO**.\n2. Either disabling the SSO integration or updating the configuration to point back at the correct provider.\n3. Saving the changes.\n\nAfter you\u2019ve corrected the setting, please let our support team know what you changed so a reviewer can examine when and how the setting was altered and which account made the change."
+        },
+        "id": "fc_d3fbd53c-a431-4d6f-bdad-47c2707d6812",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 364,
+      "prompt_tokens": 1182
+    }
+  },
+  "retry_after": null
+}

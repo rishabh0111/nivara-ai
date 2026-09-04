@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T17:01:26.858840Z",
+  "failure_detail": null,
+  "fingerprint": "725de12ab564860a13cb119d1b40961fa07c3423ef8b36bf322d6df1274ef983",
+  "outcome": "response",
+  "recording_id": "turn/3c46de4d705f2e31/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: filtering queue by tag shows tickets not tagged that way. This is about queue filtering behavior. We have an excerpt about custom report grouping by tag, but not about queue filtering. There's also excerpt about export filter independence. Not directly about queue filter. No policy about this. Could be ambiguous? The question is about why filter shows tickets not tagged. Could be due to tickets with multiple tags counted under each tag? In custom report, a ticket with more than one tag is counted once under each tag. But queue filter maybe similar? Not covered. The provided excerpts do not directly answer. So we must escalate.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer reports that filtering the queue by the tag \\\"urgent-billing\\\" shows tickets not tagged that way. The provided policy excerpts cover custom report grouping by tag, invoice itemisation, export filters, fraudulent billing emails, and seat billing disputes, none of which address queue tag filtering behavior. Since there is no relevant answer in the excerpts, we must escalate to a human.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_59b815fe-f49c-4105-8c41-d594e7b0b7c9",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454886,
+      "id": "chatcmpl-35bffe1c-006a-4335-8e15-cdafa41991f6",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_8ea50c0161",
+      "usage": {
+        "completion_time": 0.499414448,
+        "completion_tokens": 236,
+        "completion_tokens_details": {
+          "reasoning_tokens": 135
+        },
+        "prompt_time": 0.88703007,
+        "prompt_tokens": 1175,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.306611824,
+        "total_time": 1.386444518,
+        "total_tokens": 1411
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m3fnqae10se0pt4xktzn15",
+        "seed": 1672067852
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer reports that filtering the queue by the tag \"urgent-billing\" shows tickets not tagged that way. The provided policy excerpts cover custom report grouping by tag, invoice itemisation, export filters, fraudulent billing emails, and seat billing disputes, none of which address queue tag filtering behavior. Since there is no relevant answer in the excerpts, we must escalate to a human."
+        },
+        "id": "fc_59b815fe-f49c-4105-8c41-d594e7b0b7c9",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 236,
+      "prompt_tokens": 1175
+    }
+  },
+  "retry_after": null
+}

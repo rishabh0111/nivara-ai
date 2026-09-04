@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T15:44:26.750616Z",
+  "failure_detail": null,
+  "fingerprint": "a68289b88382f8e8fcf645886737cf169c32ca52f62f05d39565aa78030a183f",
+  "outcome": "response",
+  "recording_id": "turn/0a8aee6dfdabc728/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Is there a versioning or deprecation policy that would have flagged that earlier change in advance, or is stability only implied rather than documented?\" They ask about versioning/deprecation policy, earlier change flagged in advance, stability implied or documented. The relevant policy excerpts are about API endpoints stability tags and changelog feed. We can answer: stable endpoints have deprecation-notice commitment, changelog feed surfaces stability change or deprecation notice before it takes effect. Beta and experimental have less guarantee. So answer: Yes, there is a policy: stable endpoints are marked and deprecation notices are provided via changelog feed; you can subscribe to changelog feed to get advance notice. Stability is documented via tags. So answer accordingly.\n\nWe must not mention policy excerpts. Provide short answer. Use post_reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 Meridian documents endpoint stability in the API reference. Each endpoint is tagged as\u202fstable,\u202fbeta\u202for\u202fexperimental, and only the\u202fstable\u202fendpoints are covered by the deprecation\u2011notice commitment. If you subscribe to the API changelog feed, you\u2019ll receive a stability change or deprecation notice before it takes effect, so you can act before an integration breaks. Beta and experimental endpoints don\u2019t have the same advance\u2011notice guarantees.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_1ab82939-b286-4b01-a48b-7c9c5ec4f621",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788450266,
+      "id": "chatcmpl-b8a47b91-2eae-4a4a-a442-00aefa0c3549",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_803c0ba83d",
+      "usage": {
+        "completion_time": 0.613053006,
+        "completion_tokens": 291,
+        "completion_tokens_details": {
+          "reasoning_tokens": 174
+        },
+        "prompt_time": 0.178079254,
+        "prompt_tokens": 1110,
+        "queue_time": 0.364767553,
+        "total_time": 0.79113226,
+        "total_tokens": 1401
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kz2peweeq9vf2mvw7g1mp9",
+        "seed": 669985830
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 Meridian documents endpoint stability in the API reference. Each endpoint is tagged as\u202fstable,\u202fbeta\u202for\u202fexperimental, and only the\u202fstable\u202fendpoints are covered by the deprecation\u2011notice commitment. If you subscribe to the API changelog feed, you\u2019ll receive a stability change or deprecation notice before it takes effect, so you can act before an integration breaks. Beta and experimental endpoints don\u2019t have the same advance\u2011notice guarantees."
+        },
+        "id": "fc_1ab82939-b286-4b01-a48b-7c9c5ec4f621",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 291,
+      "prompt_tokens": 1110
+    }
+  },
+  "retry_after": null
+}

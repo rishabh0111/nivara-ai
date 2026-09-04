@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T17:54:55.340807Z",
+  "failure_detail": null,
+  "fingerprint": "6b62fbe5d0dee5dbad96a06eaaa99caf971ca5d16ca5c3d8fcf64968b1048893",
+  "outcome": "response",
+  "recording_id": "turn/c333048b87c99c5e/consistency/sample-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see the conversation: The user says \"wire transfer ok?\" Very short. We need to decide if we have policy excerpts that answer. The excerpts talk about tracing bank transfer payments that haven't been applied, and fraudulent emails. The question \"wire transfer ok?\" ambiguous. Could be asking if a wire transfer is okay, maybe they received a request to wire money? Could be about verifying a wire transfer request. The policy says Meridian never asks a customer to wire funds to a bank account communicated by email, and never asks for payment outside of configured methods. So we could answer that they should not wire money unless it's through configured methods. But the question is ambiguous. Could be asking if a wire transfer they made is okay? That would be about money movement; policy says if about money movement, disputed or fraudulent charge, or identity/account-recovery docs, we must escalate. This is about money movement (wire transfer). So per rule: \"If the question is about money movement, a disputed or fraudulent charge, or identity or account-recovery documents, `escalate`.\" This is about a wire transfer, which is money movement. So we should escalate. Also ambiguous. So we should escalate.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer asked \\\"wire transfer ok?\\\" which concerns a money movement (wire transfer). According to policy, any question about money movement must be escalated to a human. The request is ambiguous and could involve verification of a payment method, so we cannot safely answer from the provided excerpts.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_7ba6b1ad-fb2f-4f1a-9003-b433135f23c0",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371694,
+      "id": "chatcmpl-c3d0d630-5645-446e-956d-21f81f4720d6",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9241e9962b",
+      "usage": {
+        "completion_time": 0.861289031,
+        "completion_tokens": 329,
+        "completion_tokens_details": {
+          "reasoning_tokens": 245
+        },
+        "prompt_time": 0.340864994,
+        "prompt_tokens": 1123,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.362339733,
+        "total_time": 1.202154025,
+        "total_tokens": 1452
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hm4vtzecz8h4f131gkawz4",
+        "seed": 1367856757
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer asked \"wire transfer ok?\" which concerns a money movement (wire transfer). According to policy, any question about money movement must be escalated to a human. The request is ambiguous and could involve verification of a payment method, so we cannot safely answer from the provided excerpts."
+        },
+        "id": "fc_7ba6b1ad-fb2f-4f1a-9003-b433135f23c0",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 329,
+      "prompt_tokens": 1123
+    }
+  },
+  "retry_after": null
+}

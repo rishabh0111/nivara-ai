@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T18:36:44.372588Z",
+  "failure_detail": null,
+  "fingerprint": "139e66e8f289b3ed4bee648f4216f2f75d6d5bee58a50bdf1685d101412df728",
+  "outcome": "response",
+  "recording_id": "turn/9834b67063a09e60/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"When I use a canned response the {{contact_name}} placeholder is not being replaced \u2014 it just sends literally.\" This is about placeholders in canned responses. The policy excerpts provided do not mention canned responses or placeholders. There's no excerpt about that. So we must either answer from policy or if not present, we must escalate. The policy says: \"Answer only from the policy excerpts provided. If they do not contain the answer, `escalate`.\" So we must check if any excerpt covers placeholders. None. So we must escalated. Also the question is not about money movement, dispute, identity, etc. It's about a feature. So we should escalated.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"Customer reports that the {{contact_name}} placeholder in a canned response is not being replaced and is sent literally. The policy excerpts provided do not contain any information about placeholder replacement in canned responses. Therefore I cannot provide an answer based on the available policy. Escalating to a human for further assistance.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_fb32b0f6-64ab-4034-9bf7-4dbfeeb41be2",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460604,
+      "id": "chatcmpl-cf9be1ba-5030-4da6-948d-999cf4639614",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_8d13edce1d",
+      "usage": {
+        "completion_time": 0.262152986,
+        "completion_tokens": 231,
+        "completion_tokens_details": {
+          "reasoning_tokens": 148
+        },
+        "prompt_time": 0.175745557,
+        "prompt_tokens": 1131,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.346291884,
+        "total_time": 0.437898543,
+        "total_tokens": 1362
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8y639eh88a8877x2x980r",
+        "seed": 2061939110
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "Customer reports that the {{contact_name}} placeholder in a canned response is not being replaced and is sent literally. The policy excerpts provided do not contain any information about placeholder replacement in canned responses. Therefore I cannot provide an answer based on the available policy. Escalating to a human for further assistance."
+        },
+        "id": "fc_fb32b0f6-64ab-4034-9bf7-4dbfeeb41be2",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 231,
+      "prompt_tokens": 1131
+    }
+  },
+  "retry_after": null
+}

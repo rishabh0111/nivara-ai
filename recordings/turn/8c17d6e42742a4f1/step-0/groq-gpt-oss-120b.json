@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:28:53.627271Z",
+  "failure_detail": null,
+  "fingerprint": "6f42d64ecc19834d450e2714e931f4e0f095b5de0cb0d4520cbbb499b130e409",
+  "outcome": "response",
+  "recording_id": "turn/8c17d6e42742a4f1/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Is there a documented payload size ceiling for webhooks, or does it vary depending on the event type?\" The policy excerpts mention that webhook payload is capped at a fixed size, and large records are delivered as reference with truncated flag. So answer: Yes, there is a fixed size cap; not per event type. Provide that info. Use excerpts. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! Meridian webhooks have a fixed payload size limit. When a record\u2019s full content would exceed that limit, the webhook sends only an ID with a `truncated: true` flag instead of the full data, and you should fetch the complete record via the API. The limit isn\u2019t different per event type\u2014it\u2019s the same across all webhook events.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_cb88042e-1dde-43b7-b492-0800cba9c337",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373733,
+      "id": "chatcmpl-325a6eb9-ec28-424b-9662-2a74155c8a6f",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_854fa9be4c",
+      "usage": {
+        "completion_time": 0.397799837,
+        "completion_tokens": 186,
+        "completion_tokens_details": {
+          "reasoning_tokens": 88
+        },
+        "prompt_time": 0.241156427,
+        "prompt_tokens": 1059,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.276585711,
+        "total_time": 0.638956264,
+        "total_tokens": 1245
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hp335ge56std337je98z97",
+        "seed": 1359381032
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! Meridian webhooks have a fixed payload size limit. When a record\u2019s full content would exceed that limit, the webhook sends only an ID with a `truncated: true` flag instead of the full data, and you should fetch the complete record via the API. The limit isn\u2019t different per event type\u2014it\u2019s the same across all webhook events."
+        },
+        "id": "fc_cb88042e-1dde-43b7-b492-0800cba9c337",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 186,
+      "prompt_tokens": 1059
+    }
+  },
+  "retry_after": null
+}

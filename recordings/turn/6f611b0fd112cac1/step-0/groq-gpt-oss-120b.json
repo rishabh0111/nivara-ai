@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T17:51:07.411195Z",
+  "failure_detail": null,
+  "fingerprint": "c561d1b9bb9079a2be52a57221599ea2c0493f9664de6a9093e947c814cbcad2",
+  "outcome": "response",
+  "recording_id": "turn/6f611b0fd112cac1/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Is the invoice recipient tied to my personal login, or can I set a separate email address just for billing?\" This is about invoice recipient email. The policy says default invoice emails go to workspace's billing contact, usually whoever set up billing originally. To send invoices to a different address, open Settings \u2192 Billing \u2192 Recipients and add or replace the billing contact email. Multiple recipients can be added, so a shared inbox can be added alongside rather than instead of an individual's address. So answer: not tied to personal login; you can set separate email address in Settings \u2192 Billing \u2192 Recipients, add multiple recipients, etc.\n\nWe must post_reply with concise answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Invoice emails aren\u2019t tied to your personal login. By default they go to the workspace\u2019s billing contact (usually the person who set up billing), but you can change that. Go to **Settings \u2192 Billing \u2192 Recipients** and add or replace the billing contact email. You can even add multiple addresses (e.g., a shared finance inbox) so invoices are sent to a separate billing address rather than your personal one.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c4b6e7fb-cb6a-4b22-8a1e-7f753cd9ef09",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371467,
+      "id": "chatcmpl-c24d2873-99bb-4bea-afea-dcca40427e29",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_84bf0227ec",
+      "usage": {
+        "completion_time": 0.538851336,
+        "completion_tokens": 255,
+        "completion_tokens_details": {
+          "reasoning_tokens": 146
+        },
+        "prompt_time": 0.05478157,
+        "prompt_tokens": 984,
+        "queue_time": 0.15737585,
+        "total_time": 0.593632906,
+        "total_tokens": 1239
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hkxy99ekyr177xrp3xep85",
+        "seed": 1042044838
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Invoice emails aren\u2019t tied to your personal login. By default they go to the workspace\u2019s billing contact (usually the person who set up billing), but you can change that. Go to **Settings \u2192 Billing \u2192 Recipients** and add or replace the billing contact email. You can even add multiple addresses (e.g., a shared finance inbox) so invoices are sent to a separate billing address rather than your personal one."
+        },
+        "id": "fc_c4b6e7fb-cb6a-4b22-8a1e-7f753cd9ef09",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 255,
+      "prompt_tokens": 984
+    }
+  },
+  "retry_after": null
+}

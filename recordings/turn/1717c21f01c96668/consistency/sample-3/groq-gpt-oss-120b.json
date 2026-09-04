@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:38:53.175798Z",
+  "failure_detail": null,
+  "fingerprint": "fd2ccae137d89ee120fdc6ceb938c95dca34afa6765fc37bd02e18572508d6f8",
+  "outcome": "response",
+  "recording_id": "turn/1717c21f01c96668/consistency/sample-3/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to infer the customer's question: \"SSO pointing somewhere wrong, help\". Likely they have an SSO configuration that is pointing to wrong identity provider domain, causing issues. The policy excerpts cover:\n\n- Reporting an unrecognised change to SSO configuration: steps for admin to revert config and report to support.\n\n- Troubleshooting an SSO redirect loop: checking callback URL matches reply URL.\n\nThe user says \"SSO pointing somewhere wrong, help\". Could be about unrecognised SSO config change. We can answer using DOC-061 part 1 and part 2. Provide guidance: revert SSO config, go to Settings\u2192Security\u2192SSO, disable or point back to correct provider, and report to support.\n\nThat's a complete answer. Not about money, identity, etc. Not ambiguous. So we can post_reply.\n\nLet's craft a concise answer: instruct them to go to Settings > Security > SSO, change back or disable, then report to support.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If your workspace\u2019s SSO configuration is pointing to an identity\u2011provider domain you don\u2019t recognise, it\u2019s likely been changed unintentionally (or maliciously). An admin who still has access should:\\n\\n1. Open **Settings \u2192 Security \u2192 SSO**.\\n2. Either disable the SSO integration or change the configuration so it points back at the correct identity\u2011provider.\\n3. Save the changes.\\n4. Immediately report the change to Meridian support so a reviewer can audit when and how the setting was altered and which account made the change.\\n\\nThis will stop users from being redirected to the wrong location and let the team investigate the cause.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_983ea3bf-439d-40f6-bbdb-373c29c41a21",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453533,
+      "id": "chatcmpl-f0b14f9a-de9a-4a8c-8d79-0aa7ed96060f",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_87b3c396db",
+      "usage": {
+        "completion_time": 0.755466827,
+        "completion_tokens": 360,
+        "completion_tokens_details": {
+          "reasoning_tokens": 200
+        },
+        "prompt_time": 0.076453372,
+        "prompt_tokens": 1182,
+        "queue_time": 0.335396196,
+        "total_time": 0.831920199,
+        "total_tokens": 1542
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m26cavendbb58apx2240qm",
+        "seed": 1973190937
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If your workspace\u2019s SSO configuration is pointing to an identity\u2011provider domain you don\u2019t recognise, it\u2019s likely been changed unintentionally (or maliciously). An admin who still has access should:\n\n1. Open **Settings \u2192 Security \u2192 SSO**.\n2. Either disable the SSO integration or change the configuration so it points back at the correct identity\u2011provider.\n3. Save the changes.\n4. Immediately report the change to Meridian support so a reviewer can audit when and how the setting was altered and which account made the change.\n\nThis will stop users from being redirected to the wrong location and let the team investigate the cause."
+        },
+        "id": "fc_983ea3bf-439d-40f6-bbdb-373c29c41a21",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 360,
+      "prompt_tokens": 1182
+    }
+  },
+  "retry_after": null
+}

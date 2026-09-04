@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:27:52.593076Z",
+  "failure_detail": null,
+  "fingerprint": "784705918dc0c430c0d4e70f42ede18ca13c37c2f803539c1c822c0a63728cf2",
+  "outcome": "response",
+  "recording_id": "turn/25ef4fd52f9a2a3d/consistency/sample-4/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer about rotating an API key: does revoking old key immediately or overlap. The policy excerpts: generating a new key does not automatically revoke old one; both valid until revoked. Overlap window: you can deploy new key, confirm, then revoke old key. So answer: old key remains valid until you explicitly revoke it; you can have overlap. So we can answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"When you generate a new API key, the old one stays active until you revoke it yourself. You can deploy the new key, confirm it works, and then revoke the old key\u2014so there\u2019s an overlap window, not an immediate invalidation.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_1b7cbd99-7a7f-403a-b2ed-2fd23a6a0dad",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460072,
+      "id": "chatcmpl-d8b62856-ddc6-4abb-bd39-0ca9891a2028",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_99996fee8e",
+      "usage": {
+        "completion_time": 0.194319581,
+        "completion_tokens": 156,
+        "completion_tokens_details": {
+          "reasoning_tokens": 84
+        },
+        "prompt_time": 0.057224732,
+        "prompt_tokens": 1119,
+        "queue_time": 0.590316736,
+        "total_time": 0.251544313,
+        "total_tokens": 1275
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8dysse9yvvcsy11yb8qvk",
+        "seed": 1646708929
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "When you generate a new API key, the old one stays active until you revoke it yourself. You can deploy the new key, confirm it works, and then revoke the old key\u2014so there\u2019s an overlap window, not an immediate invalidation."
+        },
+        "id": "fc_1b7cbd99-7a7f-403a-b2ed-2fd23a6a0dad",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 156,
+      "prompt_tokens": 1119
+    }
+  },
+  "retry_after": null
+}

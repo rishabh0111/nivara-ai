@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:21:47.816921Z",
+  "failure_detail": null,
+  "fingerprint": "d0f6ea51acba84d03f9d6f6b7efa51c5ae89434c9af05adc76f32009f109097d",
+  "outcome": "response",
+  "recording_id": "turn/dbaf311e2a8f12d9/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: \"need our legal name fixed on invoices\". The policy says: legal name set in Settings \u2192 Billing \u2192 Company details. Changing it will apply to future invoices only. Past invoices cannot be reissued; can request a corrected copy for records. So answer: instruct to update company details, note that only future invoices will reflect change, past invoices remain unchanged but can request copy. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! To update the legal name on your invoices, go to Settings \u2192 Billing \u2192 Company details and change the legal name there. The change will apply to invoices generated after you save it. Past invoices won\u2019t be re\u2011issued, but if you need a corrected copy for your records you can request one through support. Let me know if you need help with that!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_893c36f5-6eaa-4914-aa36-c808ec1ceaab",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459707,
+      "id": "chatcmpl-dee5e84f-8295-4b4a-8984-81711d772000",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_d3e146e1a5",
+      "usage": {
+        "completion_time": 0.267284447,
+        "completion_tokens": 181,
+        "completion_tokens_details": {
+          "reasoning_tokens": 85
+        },
+        "prompt_time": 0.059771969,
+        "prompt_tokens": 988,
+        "queue_time": 0.27841073,
+        "total_time": 0.327056416,
+        "total_tokens": 1169
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m82tk3ey6tt8st149gyjpx",
+        "seed": 1327811419
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! To update the legal name on your invoices, go to Settings \u2192 Billing \u2192 Company details and change the legal name there. The change will apply to invoices generated after you save it. Past invoices won\u2019t be re\u2011issued, but if you need a corrected copy for your records you can request one through support. Let me know if you need help with that!"
+        },
+        "id": "fc_893c36f5-6eaa-4914-aa36-c808ec1ceaab",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 181,
+      "prompt_tokens": 988
+    }
+  },
+  "retry_after": null
+}

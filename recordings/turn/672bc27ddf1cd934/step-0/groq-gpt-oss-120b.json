@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T15:42:50.058733Z",
+  "failure_detail": null,
+  "fingerprint": "cc72a8cdbac5ab142f2397aced921ed223e993ffeb6cb710029a8afd6d46cee8",
+  "outcome": "response",
+  "recording_id": "turn/672bc27ddf1cd934/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our backend developer found that records past page one weren't showing up and asked me to check how the API's pagination is meant to work.\"\n\nWe have relevant excerpts DOC-026 parts 1-3 describing pagination: list endpoints return one page, with next_cursor field; need to follow cursor until absent; otherwise only first page. So answer: explain that you must check next_cursor and loop until none, etc.\n\nWe should provide short specific answer. Use post_reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Meridian\u2019s list endpoints return results one page at a time. Each response includes a `next_cursor` field when there are more pages; if `next_cursor` is missing, you\u2019ve reached the last page. To retrieve all records you need to loop: call the endpoint, read the `next_cursor`, and immediately request the next page using that cursor. Continue this process until the response no longer contains a `next_cursor`. If you only read the first page, you\u2019ll see the behavior your developer described\u2014records beyond page one will be silently omitted.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_5faae3c7-279b-4df6-9ce0-b716d9999b59",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788450169,
+      "id": "chatcmpl-6e2df5cd-f598-473a-877e-14ad0e78df91",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5082008e34",
+      "usage": {
+        "completion_time": 0.56243616,
+        "completion_tokens": 244,
+        "completion_tokens_details": {
+          "reasoning_tokens": 107
+        },
+        "prompt_time": 0.064442393,
+        "prompt_tokens": 1054,
+        "queue_time": 0.284512755,
+        "total_time": 0.626878553,
+        "total_tokens": 1298
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kyzqv2eppshh0dvncw0e4h",
+        "seed": 1526462193
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Meridian\u2019s list endpoints return results one page at a time. Each response includes a `next_cursor` field when there are more pages; if `next_cursor` is missing, you\u2019ve reached the last page. To retrieve all records you need to loop: call the endpoint, read the `next_cursor`, and immediately request the next page using that cursor. Continue this process until the response no longer contains a `next_cursor`. If you only read the first page, you\u2019ll see the behavior your developer described\u2014records beyond page one will be silently omitted."
+        },
+        "id": "fc_5faae3c7-279b-4df6-9ce0-b716d9999b59",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 244,
+      "prompt_tokens": 1054
+    }
+  },
+  "retry_after": null
+}

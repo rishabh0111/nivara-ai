@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:44:53.132288Z",
+  "failure_detail": null,
+  "fingerprint": "1a9c7aae9d4c7bf5cb198bf76937c306471fa9fd226e128cabf8fd28a2695ad9",
+  "outcome": "response",
+  "recording_id": "turn/fe993c4fa3f7b79e/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer the customer's question: \"acquisition transfer, what's required\". Likely they ask about transferring ownership after an acquisition. According to policy excerpts, we have details: need documentation establishing acquisition (public announcements, legal docs, confirmation from contact), reviewer coordinates transfer, process starts with acquiring company's representative contacting support directly. Also reviewer verifies new contact's standing.\n\nThus we can answer: they need to have acquiring company's representative contact support, provide documentation like public announcement, legal docs, or confirmation from a contact at acquired company. Then support will review and verify standing before transferring.\n\nWe must ensure not to mention policy excerpts. Provide short specific answer.\n\nThus we will post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"To transfer workspace ownership after an acquisition, the acquiring company\u2019s representative needs to contact our support team directly and provide documentation that proves the acquisition is real. Acceptable proof includes public announcements, legal paperwork, or a confirmation from a contact at the acquired company. Once we receive that, a reviewer will verify the requester\u2019s authority to act on behalf of the acquiring company and then complete the ownership transfer.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_9ab494ba-4518-40d4-8ece-78cb42b44b12",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453892,
+      "id": "chatcmpl-cafe5c7d-581f-4d9e-a92b-e61190f10473",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_f640395b96",
+      "usage": {
+        "completion_time": 0.59825416,
+        "completion_tokens": 241,
+        "completion_tokens_details": {
+          "reasoning_tokens": 137
+        },
+        "prompt_time": 0.036371561,
+        "prompt_tokens": 1041,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.306469818,
+        "total_time": 0.634625721,
+        "total_tokens": 1282
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2hbs8ezy83nqxe8pmf438",
+        "seed": 54532869
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "To transfer workspace ownership after an acquisition, the acquiring company\u2019s representative needs to contact our support team directly and provide documentation that proves the acquisition is real. Acceptable proof includes public announcements, legal paperwork, or a confirmation from a contact at the acquired company. Once we receive that, a reviewer will verify the requester\u2019s authority to act on behalf of the acquiring company and then complete the ownership transfer."
+        },
+        "id": "fc_9ab494ba-4518-40d4-8ece-78cb42b44b12",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 241,
+      "prompt_tokens": 1041
+    }
+  },
+  "retry_after": null
+}

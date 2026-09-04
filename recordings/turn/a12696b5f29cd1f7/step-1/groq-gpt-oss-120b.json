@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:34:36.007565Z",
+  "failure_detail": null,
+  "fingerprint": "aee025bc18503308ecf92f8ae4ea6769159af3961a93f79f0c682e7201d67cb0",
+  "outcome": "response",
+  "recording_id": "turn/a12696b5f29cd1f7/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"suspicious login then billing email changed, compromised?\" This matches DOC-057 part 1: login from unfamiliar location followed by change to sensitive account details like billing contact email is pattern for security review, handled by human reviewer. Also DOC-057 part 2: reporting starts with contacting support directly, not trying to undo change. So answer: Yes, likely compromised, you should contact support, they will review. Also advise to change password and reset 2FA per DOC-059. Provide steps: change password, reset 2FA, then contact support to request activity review. Keep short. No need to escalate because we have policy answer. Provide answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there,\\n\\nA login from an unfamiliar location followed by a change to a sensitive detail such as the billing contact email matches the pattern we treat as a possible account compromise. The next step is to have a human security reviewer look at the activity.\\n\\nPlease change your password immediately and, if possible, reset your two\u2011factor authentication enrollment to invalidate the compromised session. Then contact our support team directly (you can reply here or email support) so we can review the account activity and reverse any unauthorized changes.\\n\\nLet us know if you need any help with the password or 2FA reset.\\n\\nThanks,\\nMeridian Support\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f9e0cbbf-e5b2-4305-b02f-1c52e5a5ec8c",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453275,
+      "id": "chatcmpl-e21d31a1-d1f1-47db-b5c6-fe3450b54d4f",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5082008e34",
+      "usage": {
+        "completion_time": 0.787279021,
+        "completion_tokens": 305,
+        "completion_tokens_details": {
+          "reasoning_tokens": 148
+        },
+        "prompt_time": 0.071713737,
+        "prompt_tokens": 1090,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.283259751,
+        "total_time": 0.858992758,
+        "total_tokens": 1395
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1yh2nejhahsy0f5jdz5g9",
+        "seed": 1588742388
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there,\n\nA login from an unfamiliar location followed by a change to a sensitive detail such as the billing contact email matches the pattern we treat as a possible account compromise. The next step is to have a human security reviewer look at the activity.\n\nPlease change your password immediately and, if possible, reset your two\u2011factor authentication enrollment to invalidate the compromised session. Then contact our support team directly (you can reply here or email support) so we can review the account activity and reverse any unauthorized changes.\n\nLet us know if you need any help with the password or 2FA reset.\n\nThanks,\nMeridian Support"
+        },
+        "id": "fc_f9e0cbbf-e5b2-4305-b02f-1c52e5a5ec8c",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 305,
+      "prompt_tokens": 1090
+    }
+  },
+  "retry_after": null
+}

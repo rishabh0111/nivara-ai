@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:46:38.571721Z",
+  "failure_detail": null,
+  "fingerprint": "6e095542d98569eb42588164a56644fc11b14fd5d8af4d5d04d4d20a20efa195",
+  "outcome": "response",
+  "recording_id": "turn/574d38fa8c55cbca/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Our card on file expired and the failed renewal suspended our workspace \u2014 can the new card be charged immediately and access restored?\" According to DOC-069 parts: When a new payment method is added, the workspace is reviewed, not restored instantly; billing team confirms new charge succeeds before lifting suspension. Adding new card is self-service, but retry and restoration processed by billing team, generally within a short window after new card is added rather than instantly, since charge attempt can take a moment. Also timing is confirmed by billing team, not promised. So answer: The new card will be charged after billing team processes, not instantly; restoration occurs shortly after successful charge, but exact timing varies. Provide guidance: add new card in Settings \u2192 Billing \u2192 Payment method; then billing team will retry and restore access soon. So we can answer.\n\nWe must keep answer short and specific, address customer directly. Use policy excerpts. No mention of policy. Provide answer.\n\nThus we will post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! Once you add a new payment method in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPayment method, our billing team will retry the failed charge and, once it succeeds, lift the suspension. This isn\u2019t instant \u2013 the team reviews the new charge and typically restores access within a short window, but the exact timing can vary. Adding the new card a day or two before the next invoice helps ensure it\u2019s used for the upcoming charge.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_5448dc87-e767-4426-89e4-4d2d76d0e536",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453998,
+      "id": "chatcmpl-4a6d1b51-09d5-4dfd-b40c-8636742cd9d4",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_fe269835c7",
+      "usage": {
+        "completion_time": 0.800767617,
+        "completion_tokens": 323,
+        "completion_tokens_details": {
+          "reasoning_tokens": 209
+        },
+        "prompt_time": 0.246123302,
+        "prompt_tokens": 1061,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.314900636,
+        "total_time": 1.046890919,
+        "total_tokens": 1384
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m2mjgke0v90p9g962mcx3z",
+        "seed": 1661484671
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! Once you add a new payment method in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fPayment method, our billing team will retry the failed charge and, once it succeeds, lift the suspension. This isn\u2019t instant \u2013 the team reviews the new charge and typically restores access within a short window, but the exact timing can vary. Adding the new card a day or two before the next invoice helps ensure it\u2019s used for the upcoming charge."
+        },
+        "id": "fc_5448dc87-e767-4426-89e4-4d2d76d0e536",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 323,
+      "prompt_tokens": 1061
+    }
+  },
+  "retry_after": null
+}

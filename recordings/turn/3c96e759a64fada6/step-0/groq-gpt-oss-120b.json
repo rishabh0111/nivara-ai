@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T17:49:46.902699Z",
+  "failure_detail": null,
+  "fingerprint": "1fc0e9ae54eb7fa77665dbce2d81317a6189e5cb88dc31374d89d45f107e62fa",
+  "outcome": "response",
+  "recording_id": "turn/3c96e759a64fada6/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Can a corrected legal name be applied to invoices already sent, or only to ones generated after I update it?\" This is about correcting billing details on invoices. The policy says: Meridian does not reissue invoices that have already been generated \u2014 a correction applies to invoices from that point forward only. Also legal name, billing address, tax ID are set in Settings and pulled onto every invoice generated after the change. So answer: only to future invoices; past invoices cannot be reissued, but you can request a corrected copy for records. Provide short answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! When you update the legal name (or other company details) in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fCompany details, the change is applied only to invoices generated after the change. Meridian doesn\u2019t re\u2011issue invoices that have already been sent, though you can ask support for a corrected copy of a past invoice for your records if needed.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_e1ccb769-3366-4f3f-9776-bc6056d7b763",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371386,
+      "id": "chatcmpl-ac98a564-9def-42e7-9de9-aa744ce4ca1c",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_19b184c447",
+      "usage": {
+        "completion_time": 0.499023491,
+        "completion_tokens": 223,
+        "completion_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "prompt_time": 0.269784244,
+        "prompt_tokens": 1022,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.363755155,
+        "total_time": 0.768807735,
+        "total_tokens": 1245
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hkvf4ge2avx5staga816qf",
+        "seed": 609893701
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! When you update the legal name (or other company details) in Settings\u202f\u2192\u202fBilling\u202f\u2192\u202fCompany details, the change is applied only to invoices generated after the change. Meridian doesn\u2019t re\u2011issue invoices that have already been sent, though you can ask support for a corrected copy of a past invoice for your records if needed."
+        },
+        "id": "fc_e1ccb769-3366-4f3f-9776-bc6056d7b763",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 223,
+      "prompt_tokens": 1022
+    }
+  },
+  "retry_after": null
+}

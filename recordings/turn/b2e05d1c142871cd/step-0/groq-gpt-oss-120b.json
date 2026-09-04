@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:38:08.998841Z",
+  "failure_detail": null,
+  "fingerprint": "36b70d92001a90cacf69f795d2b3d2e23256b6477af7d1f4d27c7ae932c29810",
+  "outcome": "response",
+  "recording_id": "turn/b2e05d1c142871cd/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to determine appropriate action. The user says: \"Our staff are being redirected to an unknown domain to sign in right now and I need this looked into urgently.\"\n\nThis is about unrecognized change to SSO configuration, potential compromise. Policy excerpt DOC-061 part 1 says: \"An SSO configuration pointing at an identity provider domain the workspace does not recognise is treated as a potential compromise of an admin-level setting, since changing where sign-in redirects to is exactly the kind of change an attacker with admin access would make to intercept future logins.\"\n\nAlso part 3 says review looks at credentials exposure case by case.\n\nThus we can answer based on policy. Provide guidance: report as potential compromise, steps: treat as suspicious, investigate, possibly revert SSO config, check for credential exposure, etc. The policy excerpt gives some info. We can answer.\n\nWe must answer only from policy excerpts. We can summarize: This is a potential compromise; we need to investigate; we will review if credentials exposed; treat case by case.\n\nProvide short answer.\n\nProceed with post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"It sounds like the SSO configuration has been changed to point at an unfamiliar identity\u2011provider domain.\u202fMeridian treats that as a potential admin\u2011level compromise, since an attacker could use it to intercept future logins. Our team will review the change, check whether any credentials may have been exposed during the window, and work with you to revert the SSO settings to the correct domain. We\u2019ll keep you updated as we investigate.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_8057a1b1-c236-4bde-b5e4-c52885c175b2",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788453488,
+      "id": "chatcmpl-2253b061-b1da-4637-9255-cb2b88bec8be",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_3166198c1d",
+      "usage": {
+        "completion_time": 0.711751145,
+        "completion_tokens": 332,
+        "completion_tokens_details": {
+          "reasoning_tokens": 219
+        },
+        "prompt_time": 0.315356143,
+        "prompt_tokens": 1120,
+        "queue_time": 0.371416384,
+        "total_time": 1.027107288,
+        "total_tokens": 1452
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m250h6em4tgmcgc4hx9khs",
+        "seed": 805226124
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "It sounds like the SSO configuration has been changed to point at an unfamiliar identity\u2011provider domain.\u202fMeridian treats that as a potential admin\u2011level compromise, since an attacker could use it to intercept future logins. Our team will review the change, check whether any credentials may have been exposed during the window, and work with you to revert the SSO settings to the correct domain. We\u2019ll keep you updated as we investigate."
+        },
+        "id": "fc_8057a1b1-c236-4bde-b5e4-c52885c175b2",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 332,
+      "prompt_tokens": 1120
+    }
+  },
+  "retry_after": null
+}

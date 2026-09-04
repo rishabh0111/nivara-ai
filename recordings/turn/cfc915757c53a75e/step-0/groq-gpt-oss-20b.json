@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:36:35.731187Z",
+  "failure_detail": null,
+  "fingerprint": "78be2e15d9b47290531d9e4c63753990ab7e468af1aa2fc8c5075768a0d03ff8",
+  "outcome": "response",
+  "recording_id": "turn/cfc915757c53a75e/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"We turned on an IP allowlist for admin logins and now half our team working from home cannot sign in.\" This is about IP allowlist for admin logins. The policy excerpts mention SSO, but not IP allowlist. There's no policy excerpt about IP allowlist. The question is about a technical issue: IP allowlist for admin logins causing sign-in issues. This is not about money movement, disputed charge, identity or account recovery. It's about a configuration issue. The policy excerpts do not cover IP allowlist. So we cannot answer from policy. We should either find relevant policy. But we only have the excerpts. There's no mention of IP allowlist. So we must either guess or we must ask for more info. The instructions: If the question is ambiguous or not covered, we should `escalate`. The question is not ambiguous but the policy doesn't cover it. So we should `escalate`.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer is reporting an issue with IP allowlist for admin logins preventing some team members from signing in. The provided policy excerpts do not contain information about IP allowlist configuration or troubleshooting. Therefore, I cannot provide a correct answer from policy and should hand this conversation to a human for further assistance.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_55d5183e-0f82-49cb-8b0b-66a9692de08d",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460595,
+      "id": "chatcmpl-fc6df2ac-7af9-411f-9c0a-586154b84b7a",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_a4315eb300",
+      "usage": {
+        "completion_time": 0.33509202,
+        "completion_tokens": 281,
+        "completion_tokens_details": {
+          "reasoning_tokens": 198
+        },
+        "prompt_time": 0.053705557,
+        "prompt_tokens": 1069,
+        "queue_time": 0.316949102,
+        "total_time": 0.388797577,
+        "total_tokens": 1350
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8xxjae2a90hmkw0wtmhbm",
+        "seed": 372469184
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer is reporting an issue with IP allowlist for admin logins preventing some team members from signing in. The provided policy excerpts do not contain information about IP allowlist configuration or troubleshooting. Therefore, I cannot provide a correct answer from policy and should hand this conversation to a human for further assistance."
+        },
+        "id": "fc_55d5183e-0f82-49cb-8b0b-66a9692de08d",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 281,
+      "prompt_tokens": 1069
+    }
+  },
+  "retry_after": null
+}

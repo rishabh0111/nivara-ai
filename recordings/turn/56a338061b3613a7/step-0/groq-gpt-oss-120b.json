@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T17:13:05.353967Z",
+  "failure_detail": null,
+  "fingerprint": "b399515f459d3fd5a464a2ac8f35c0e8de81a87ecd7bd400b289a1bb4b6d5b33",
+  "outcome": "response",
+  "recording_id": "turn/56a338061b3613a7/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"I set up a rule to auto-assign tickets tagged \u201cbilling\u201d to one agent, but they are landing unassigned.\"\n\nWe need to see if any policy excerpt covers auto-assignment rules. The provided excerpts are about custom reports grouped by tag, seat role changes, seat reassigning, restoring access after failed payment, charges after cancellation. None directly address auto-assignment rules. So we cannot answer from policy. According to rules: Answer only from policy excerpts; if they do not contain answer, we must escalate. Also not about money movement, disputed charge, identity, etc. So we should escalate.\n\nWe need to write internal note: what the customer asked, what we found, why we stopped.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer asks why auto-assignment rules for tickets tagged \\\"billing\\\" are not assigning tickets to the intended agent. None of the provided policy excerpts cover ticket assignment rules or troubleshooting auto-assignment. Since the answer cannot be derived from the available policy content, I must escalate the conversation.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_79781e54-0517-4ce8-97a1-9c6821b59cf3",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788455585,
+      "id": "chatcmpl-a5bca6b7-449d-44c8-8fdc-557f3ac6831e",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_02b0d31eca",
+      "usage": {
+        "completion_time": 0.515116533,
+        "completion_tokens": 240,
+        "completion_tokens_details": {
+          "reasoning_tokens": 157
+        },
+        "prompt_time": 0.064978168,
+        "prompt_tokens": 1170,
+        "queue_time": 0.314936381,
+        "total_time": 0.580094701,
+        "total_tokens": 1410
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m450p0eqtb4qvq4xrcypsd",
+        "seed": 1576527563
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer asks why auto-assignment rules for tickets tagged \"billing\" are not assigning tickets to the intended agent. None of the provided policy excerpts cover ticket assignment rules or troubleshooting auto-assignment. Since the answer cannot be derived from the available policy content, I must escalate the conversation."
+        },
+        "id": "fc_79781e54-0517-4ce8-97a1-9c6821b59cf3",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 240,
+      "prompt_tokens": 1170
+    }
+  },
+  "retry_after": null
+}

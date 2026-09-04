@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:27:45.076082Z",
+  "failure_detail": null,
+  "fingerprint": "2b59a372cdebf05716c2747cd323d037b00e8b42759aad228d6bfa4713049efb",
+  "outcome": "response",
+  "recording_id": "turn/3410987c7b04777c/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The customer asks: \"Trying to understand what we're owed after that outage.\" This is about service credits (uptime service credits). Policy excerpt DOC-050 says: \"A customer checking whether a specific incident qualifies, and for how much, should reference their own contract's schedule and can ask support to confirm the incident's measured uptime impact against it.\"\n\nThus we can answer: they should reference contract schedule and we can confirm measured uptime impact. Provide guidance. This is allowed. Not about money movement directly? It's about service credits owed, which is a financial question but policy says about uptime service credits. It's not a disputed charge, but a question about what they're owed after outage. According to policy, we can answer using DOC-050. So we respond: advise to check contract schedule, we can confirm impact.\n\nWe must keep answer short and specific. Provide answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"To determine any service\u2011credit entitlement, please refer to the uptime\u2011service\u2011credit schedule in your contract. Once you\u2019ve identified the relevant clause, let us know which incident you\u2019re reviewing and we can confirm the measured uptime impact against that schedule.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_7ac51c79-2cc6-43dd-894b-fe311e1b9b9b",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452864,
+      "id": "chatcmpl-1e319c8a-0f56-4fa6-85af-cb3431ea4db5",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_77b12279f9",
+      "usage": {
+        "completion_time": 0.640668202,
+        "completion_tokens": 259,
+        "completion_tokens_details": {
+          "reasoning_tokens": 184
+        },
+        "prompt_time": 0.777659406,
+        "prompt_tokens": 1019,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.308026918,
+        "total_time": 1.418327608,
+        "total_tokens": 1278
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1hywke3f8xtknt9wnx4k0",
+        "seed": 1699055922
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "To determine any service\u2011credit entitlement, please refer to the uptime\u2011service\u2011credit schedule in your contract. Once you\u2019ve identified the relevant clause, let us know which incident you\u2019re reviewing and we can confirm the measured uptime impact against that schedule."
+        },
+        "id": "fc_7ac51c79-2cc6-43dd-894b-fe311e1b9b9b",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 259,
+      "prompt_tokens": 1019
+    }
+  },
+  "retry_after": null
+}

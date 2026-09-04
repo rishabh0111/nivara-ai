@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T15:44:47.116878Z",
+  "failure_detail": null,
+  "fingerprint": "f7a33b46e052a32101bd85c54aa8265acfbb8778580ae068edfa77281a4e1d7a",
+  "outcome": "response",
+  "recording_id": "turn/fa971fcd4c1ca434/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer using policy excerpts. The question: \"I'm trying to invite a fifth teammate and it's blocked with no explanation \u2014 is there a seat limit on our plan, and how do I raise it?\" This is about seat limits, inviting blocked due to no seats. The policy excerpts cover seat limits by plan, raising limit, block invite, etc. So we can answer: Yes, each plan has a max seats, visible in Settings > Billing > Plan. If invite blocked, you have reached limit. To raise, either add seats within current tier if allowed, or upgrade to higher tier. Both changes take effect immediately, and you can resend invite after. Provide steps. So we can construct a short answer.\n\nWe must use only policy excerpts, not external knowledge. The excerpts provide needed info. We'll produce a final answer.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there!\u202fWhen an invite is blocked with \u201cno seats available,\u201d it means your workspace has hit the seat limit for your current plan. You can see the limit and how many seats you\u2019re using in **Settings \u2192 Billing \u2192 Plan**.\\n\\nTo increase the limit you have two options:\\n1. **Add extra seats** \u2013 if your plan allows purchasing additional seats beyond the included count, you can buy more directly from the same Billing page.\\n2. **Upgrade the plan** \u2013 choose a tier with a higher included seat limit.\\n\\nBoth changes take effect immediately, so after confirming the change you can resend the invitation right away.\\n\\nLet me know if you need any help navigating the Billing settings!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f94b3b40-545a-4dc3-8f3c-c3caa17f40dc",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788450286,
+      "id": "chatcmpl-f659be58-4548-484f-88d6-65ab78400266",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_87b3c396db",
+      "usage": {
+        "completion_time": 0.715498283,
+        "completion_tokens": 342,
+        "completion_tokens_details": {
+          "reasoning_tokens": 169
+        },
+        "prompt_time": 0.056308966,
+        "prompt_tokens": 1052,
+        "queue_time": 0.276569003,
+        "total_time": 0.771807249,
+        "total_tokens": 1394
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kz3a50e9fa3q28w61xzwe3",
+        "seed": 350298808
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there!\u202fWhen an invite is blocked with \u201cno seats available,\u201d it means your workspace has hit the seat limit for your current plan. You can see the limit and how many seats you\u2019re using in **Settings \u2192 Billing \u2192 Plan**.\n\nTo increase the limit you have two options:\n1. **Add extra seats** \u2013 if your plan allows purchasing additional seats beyond the included count, you can buy more directly from the same Billing page.\n2. **Upgrade the plan** \u2013 choose a tier with a higher included seat limit.\n\nBoth changes take effect immediately, so after confirming the change you can resend the invitation right away.\n\nLet me know if you need any help navigating the Billing settings!"
+        },
+        "id": "fc_f94b3b40-545a-4dc3-8f3c-c3caa17f40dc",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 342,
+      "prompt_tokens": 1052
+    }
+  },
+  "retry_after": null
+}

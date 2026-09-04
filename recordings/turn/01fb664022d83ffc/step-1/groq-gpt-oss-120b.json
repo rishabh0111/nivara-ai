@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T17:00:31.119463Z",
+  "failure_detail": null,
+  "fingerprint": "b1f5acb08fa46537463dafe9e7751d012bbd5991248f0fcacea9c3277829114c",
+  "outcome": "response",
+  "recording_id": "turn/01fb664022d83ffc/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: they set up a rule to escalate any urgent ticket unanswered after fifteen minutes, but nothing has escalated. This is about response-time metrics? The policy excerpt DOC-042 says response-time metric counts every hour a ticket sits unanswered, including nights, weekends, holidays; it's wall-clock measurement, not business-hours. But the question is about escalation rule not working. There's no policy excerpt about escalation rules. The provided excerpts don't cover that. So we must escalate because we don't have answer. Also it's not about money, fraud, identity. It's ambiguous? Not exactly. But we lack policy. So we must use escalate.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer asks why their escalation rule for urgent tickets after 15 minutes hasn't triggered. The provided policy excerpts cover response-time metrics, API rate limits, status page incidents, report delivery, and payment method impersonation, none of which address escalation rule behavior. Since we cannot answer from the given policy, we must escalate.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_42098620-f1d6-4ff7-a5cc-aaa82204ed39",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454830,
+      "id": "chatcmpl-833d2bcb-2828-45f5-98c3-ec93744c9af6",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4727af4560",
+      "usage": {
+        "completion_time": 0.591418872,
+        "completion_tokens": 227,
+        "completion_tokens_details": {
+          "reasoning_tokens": 137
+        },
+        "prompt_time": 0.07469488,
+        "prompt_tokens": 1131,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.159027516,
+        "total_time": 0.666113752,
+        "total_tokens": 1358
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m3e011eh784skx9e102pr8",
+        "seed": 60899527
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer asks why their escalation rule for urgent tickets after 15 minutes hasn't triggered. The provided policy excerpts cover response-time metrics, API rate limits, status page incidents, report delivery, and payment method impersonation, none of which address escalation rule behavior. Since we cannot answer from the given policy, we must escalate."
+        },
+        "id": "fc_42098620-f1d6-4ff7-a5cc-aaa82204ed39",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 227,
+      "prompt_tokens": 1131
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T15:47:05.099089Z",
+  "failure_detail": null,
+  "fingerprint": "7cb2580b94cd7f5313bc386169e1e2a81f8cb246deb7cbce206b75125ed13131",
+  "outcome": "response",
+  "recording_id": "turn/594417e2b23ac818/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"When I try to invite a fifth person to the workspace the invite fails with no clear message, and I'm wondering whether our plan simply has a four-seat limit and if so what it takes to raise it.\"\n\nWe have policy excerpts about seat limits by plan, raising limit, adding seats, upgrading tier. So we can answer: Yes, each plan has a max seats; you can see in Settings \u2192 Billing \u2192 Plan. If invite blocked, you reached limit. To raise, either purchase additional seats if plan allows, or upgrade to higher tier. Changes take effect immediately; you can resend invite after.\n\nThus we can answer accordingly. Use short specific answer. No need to read conversation. We'll post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! The invite is being blocked because your workspace has hit the seat limit for your current plan. You can see the maximum seats allowed and how many are in use under **Settings \u2192 Billing \u2192 Plan**. To add a fifth seat you have two options:\\n\\n1. **Buy extra seats** \u2013 if your current tier lets you purchase additional seats beyond the included count, you can add them there.\\n2. **Upgrade your plan** \u2013 switch to a higher\u2011tier plan that includes more seats.\\n\\nOnce you increase the limit (or add a seat), the change takes effect immediately and you can resend the invite right away.\\n\\nLet me know if you need help navigating the Billing page or choosing a plan!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_7c07a183-3958-406f-9ce5-31518a829825",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788450424,
+      "id": "chatcmpl-7e96386d-1757-4946-951e-7a330151fd06",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_9241e9962b",
+      "usage": {
+        "completion_time": 0.702921811,
+        "completion_tokens": 329,
+        "completion_tokens_details": {
+          "reasoning_tokens": 155
+        },
+        "prompt_time": 0.116656477,
+        "prompt_tokens": 1063,
+        "queue_time": 0.419625851,
+        "total_time": 0.819578288,
+        "total_tokens": 1392
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kz7gpre6sv4m07dgwsf7ck",
+        "seed": 1604104500
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! The invite is being blocked because your workspace has hit the seat limit for your current plan. You can see the maximum seats allowed and how many are in use under **Settings \u2192 Billing \u2192 Plan**. To add a fifth seat you have two options:\n\n1. **Buy extra seats** \u2013 if your current tier lets you purchase additional seats beyond the included count, you can add them there.\n2. **Upgrade your plan** \u2013 switch to a higher\u2011tier plan that includes more seats.\n\nOnce you increase the limit (or add a seat), the change takes effect immediately and you can resend the invite right away.\n\nLet me know if you need help navigating the Billing page or choosing a plan!"
+        },
+        "id": "fc_7c07a183-3958-406f-9ce5-31518a829825",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 329,
+      "prompt_tokens": 1063
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:26:57.866732Z",
+  "failure_detail": null,
+  "fingerprint": "3becb88bd3bcb07b93bc00dd72a826e55c047e71f147e058a5731479b1637121",
+  "outcome": "response",
+  "recording_id": "turn/48d0681f5efc6e71/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: which export format is best suited for opening directly in the spreadsheet tool they use, since a few options are offered. The policy says: exports are offered in CSV and in a spreadsheet-native format for the two most common spreadsheet tools, selectable from a dropdown. CSV is safest but loses column types; native formats preserve column types. For a one-off download destined for a specific tool, picking that tool's native format avoids a manual reformatting step CSV would otherwise require.\n\nThus answer: choose the native format for that spreadsheet tool. So answer: pick the native format for the tool they use. Provide explanation.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If you\u2019re exporting to a specific spreadsheet application, choose that tool\u2019s native export format from the dropdown. The native format keeps column types and avoids the extra re\u2011formatting step that CSV would need. CSV is a safe fallback if you\u2019re unsure, but for a one\u2011off download into a particular spreadsheet, the native format is the best choice.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_2dc10476-7309-4e65-8ccd-970b451cd85f",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460017,
+      "id": "chatcmpl-a9960c9a-4be3-4222-929c-1c9866eedb4d",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_ef00694abe",
+      "usage": {
+        "completion_time": 0.248085184,
+        "completion_tokens": 221,
+        "completion_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "prompt_time": 0.253608505,
+        "prompt_tokens": 1052,
+        "queue_time": 0.516291551,
+        "total_time": 0.501693689,
+        "total_tokens": 1273
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8c94serr8yxrrgwhsqpcz",
+        "seed": 463817260
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If you\u2019re exporting to a specific spreadsheet application, choose that tool\u2019s native export format from the dropdown. The native format keeps column types and avoids the extra re\u2011formatting step that CSV would need. CSV is a safe fallback if you\u2019re unsure, but for a one\u2011off download into a particular spreadsheet, the native format is the best choice."
+        },
+        "id": "fc_2dc10476-7309-4e65-8ccd-970b451cd85f",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 221,
+      "prompt_tokens": 1052
+    }
+  },
+  "retry_after": null
+}

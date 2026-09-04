@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:34:26.099711Z",
+  "failure_detail": null,
+  "fingerprint": "ed39ba167c301e4ca7b05286dc5f457d3bd7d8dc02d4e2f4a1c442186be3c91c",
+  "outcome": "response",
+  "recording_id": "turn/f12c939453ed4d5d/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer: how to subscribe to incident notifications. The policy excerpts mention that the status page has a Subscribe option offering email, SMS or webhook. Also can scope to specific components. So answer: go to status page, click Subscribe, choose method, can scope to components. Provide instructions. No policy about money or identity. So we can answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! You can subscribe directly from our status page. Open the status page, click the **Subscribe** button, and choose email, SMS or a webhook. If you only want alerts for certain components, you can scope the subscription to those components. That way your team will get real\u2011time updates as incidents open, update, or resolve. Let me know if you need help setting it up!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f6da90f0-d28b-4400-80bf-f528c996867a",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460465,
+      "id": "chatcmpl-4994695e-aefb-4387-a3db-0df072699a19",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_639a5351c8",
+      "usage": {
+        "completion_time": 0.242683681,
+        "completion_tokens": 175,
+        "completion_tokens_details": {
+          "reasoning_tokens": 73
+        },
+        "prompt_time": 0.059016954,
+        "prompt_tokens": 1008,
+        "queue_time": 0.306277794,
+        "total_time": 0.301700635,
+        "total_tokens": 1183
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8sz6meme8d8rmbwegyzza",
+        "seed": 1119621972
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! You can subscribe directly from our status page. Open the status page, click the **Subscribe** button, and choose email, SMS or a webhook. If you only want alerts for certain components, you can scope the subscription to those components. That way your team will get real\u2011time updates as incidents open, update, or resolve. Let me know if you need help setting it up!"
+        },
+        "id": "fc_f6da90f0-d28b-4400-80bf-f528c996867a",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 175,
+      "prompt_tokens": 1008
+    }
+  },
+  "retry_after": null
+}

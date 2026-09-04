@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:24:31.501614Z",
+  "failure_detail": null,
+  "fingerprint": "50938b07ca2804ee80e295606ae2abba722f101e31910363c74737ad0b4f6168",
+  "outcome": "response",
+  "recording_id": "turn/44d5a426997c6f89/step-1/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer. The question: \"missing SSO option?\" The policy says SSO sign-in option only appears for email domain configured for SSO and after sync created account. Also new hire may sign in before sync. So answer: check domain config, sync, account existence. Provide steps.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi! The SSO button only shows up if your workspace has SSO enabled for your email domain and the user\u2019s account has already been created by the identity\u2011provider sync. Here\u2019s what you can check:\\n\\n1. **Domain is configured** \u2013 In Settings \u2192 Security \u2192 SSO, make sure your domain is listed.\\n2. **Sync has run** \u2013 The sync runs on a schedule; if you\u2019re a new hire, you might be signing in before the next sync. Wait a bit or ask an admin to trigger a sync.\\n3. **Account exists** \u2013 An admin can look in Settings \u2192 People. An SSO\u2011provisioned account will be marked with the identity provider it came from. If it\u2019s missing, the sync hasn\u2019t created it yet.\\n\\nIf after a sync the button still isn\u2019t there, let me know and we\u2019ll dig deeper. Thanks!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_dccdeed1-4663-4749-8359-89d32c10f6c5",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788459871,
+      "id": "chatcmpl-3d6d8e9e-2682-45ef-93c3-9f5987720d97",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_80501ff3a1",
+      "usage": {
+        "completion_time": 0.293681989,
+        "completion_tokens": 270,
+        "completion_tokens_details": {
+          "reasoning_tokens": 62
+        },
+        "prompt_time": 0.07474758,
+        "prompt_tokens": 1093,
+        "queue_time": 0.057117177,
+        "total_time": 0.368429569,
+        "total_tokens": 1363
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m87ts9eaqs9epek365whkx",
+        "seed": 156449734
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi! The SSO button only shows up if your workspace has SSO enabled for your email domain and the user\u2019s account has already been created by the identity\u2011provider sync. Here\u2019s what you can check:\n\n1. **Domain is configured** \u2013 In Settings \u2192 Security \u2192 SSO, make sure your domain is listed.\n2. **Sync has run** \u2013 The sync runs on a schedule; if you\u2019re a new hire, you might be signing in before the next sync. Wait a bit or ask an admin to trigger a sync.\n3. **Account exists** \u2013 An admin can look in Settings \u2192 People. An SSO\u2011provisioned account will be marked with the identity provider it came from. If it\u2019s missing, the sync hasn\u2019t created it yet.\n\nIf after a sync the button still isn\u2019t there, let me know and we\u2019ll dig deeper. Thanks!"
+        },
+        "id": "fc_dccdeed1-4663-4749-8359-89d32c10f6c5",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 270,
+      "prompt_tokens": 1093
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:22:17.332704Z",
+  "failure_detail": null,
+  "fingerprint": "47f179a4b5bbc8bed8a91bdf34889a3d0ab32cacf06e84f7cfce7f7faa408384",
+  "outcome": "response",
+  "recording_id": "turn/2e6e073a3210700e/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user asks: \"There are a few export format options offered and I'm not sure which one is actually compatible with the spreadsheet tool my team standardises on \u2014 does it matter which I choose?\" This is about export format compatibility. The policy says: Exports are offered in CSV and native spreadsheet formats selectable from dropdown. CSV is safest default for compatibility with any tool, but loses column types and needs reformatting. Native formats preserve column types and avoid reformatting. For a one-off download destined for a specific tool, picking that tool's native format avoids manual reformatting step CSV would otherwise require.\n\nThus answer: Choose the native format for your team's spreadsheet tool to preserve column types and avoid reformatting; CSV works universally but you may need to reformat dates/numbers. So answer accordingly.\n\nWe must post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! Meridian lets you export data either as CSV (the universal fallback) or in the native spreadsheet format for the two most common spreadsheet tools. If you pick the native format that matches the spreadsheet your team uses, the export will keep the original column types (dates, numbers, etc.) and you won\u2019t need to re\u2011format anything after the download. CSV will always work with any tool, but dates and numbers come through as plain text, so you\u2019d have to clean them up manually. In short, choose your team\u2019s native format for the smoothest experience; use CSV only if you need a format that works with every possible program.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_43807d58-18da-40f0-9d42-6e19b88db63a",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788373336,
+      "id": "chatcmpl-6ebe464a-4663-4c41-a3a3-49f26dc86469",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e1a78f200e",
+      "usage": {
+        "completion_time": 0.701735899,
+        "completion_tokens": 334,
+        "completion_tokens_details": {
+          "reasoning_tokens": 178
+        },
+        "prompt_time": 0.6104419,
+        "prompt_tokens": 1038,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.367796047,
+        "total_time": 1.312177799,
+        "total_tokens": 1372
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hnpz7qex1a1fnqrs32kaj4",
+        "seed": 448737364
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! Meridian lets you export data either as CSV (the universal fallback) or in the native spreadsheet format for the two most common spreadsheet tools. If you pick the native format that matches the spreadsheet your team uses, the export will keep the original column types (dates, numbers, etc.) and you won\u2019t need to re\u2011format anything after the download. CSV will always work with any tool, but dates and numbers come through as plain text, so you\u2019d have to clean them up manually. In short, choose your team\u2019s native format for the smoothest experience; use CSV only if you need a format that works with every possible program."
+        },
+        "id": "fc_43807d58-18da-40f0-9d42-6e19b88db63a",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 334,
+      "prompt_tokens": 1038
+    }
+  },
+  "retry_after": null
+}

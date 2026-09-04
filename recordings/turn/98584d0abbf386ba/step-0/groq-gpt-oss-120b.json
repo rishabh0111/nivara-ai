@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:54:02.992907Z",
+  "failure_detail": null,
+  "fingerprint": "484d83c5480ecd5c2834675a5c2dcaead7c113da77b266affca959c33b439f49",
+  "outcome": "response",
+  "recording_id": "turn/98584d0abbf386ba/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to determine appropriate action. The user says: \"This invoice demands payment soon and doesn't match our records at all \u2014 I need to know urgently if it's fake.\"\n\nThis is about a suspicious invoice, possibly fraudulent. The policy excerpts include:\n\n- DOC-077: \"Verifying a suspicious invoice\": Genuine invoices reflect actual plan, seats, usage; an invoice referencing amount or due date with no corresponding entry in account's billing history is a mismatch worth investigating before any payment is made.\n\n- Also DOC-075: about fraudulent billing emails: Meridian never asks a customer to wire funds to a bank account communicated by email, etc.\n\nThe user is asking to verify if invoice is fake. This is about potential fraud. The policy says we can provide guidance? The policy excerpt says it's a mismatch worth investigating before payment. We can answer based on that: advise to not pay, verify via billing settings, contact support, etc. The policy does not forbid answering. It's not about money movement (they are not requesting to move money), it's about verifying invoice authenticity. So we can answer.\n\nWe should give short specific answer: advise that if invoice doesn't match billing history, it's likely fraudulent, do not pay, verify via official billing portal, contact support, etc.\n\nWe must use only policy excerpts. So we can reference that genuine invoices reflect actual plan, and mismatches are worth investigating. Also mention that Meridian never asks to wire funds via email.\n\nThus answer: \"If the invoice amount/due date doesn't match your account's billing history, it's likely fraudulent. Do not pay. Verify through your account's billing settings or contact support. Meridian never asks for wire transfers via email.\"\n\nWe need to post reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If an invoice\u2019s amount or due date doesn\u2019t match any entry in your account\u2019s billing history, that\u2019s a strong sign it\u2019s not a legitimate Meridian invoice.\u202fMeridian invoices always reflect the actual plan, seats, and usage for a real billing period, and we never ask customers to wire money or pay via email outside of the payment methods configured in the account\u2019s billing settings.\u202fPlease do not make any payment on this invoice. Verify the invoice details directly in your account\u2019s billing settings or open a support ticket so we can investigate and provide a corrected copy if needed.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f241fed5-af0b-46df-ab9a-8d1215bdd3a5",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454442,
+      "id": "chatcmpl-94a5aa76-f2d5-4aa2-8d44-b0884d5cd273",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_47082602e2",
+      "usage": {
+        "completion_time": 1.206759042,
+        "completion_tokens": 486,
+        "completion_tokens_details": {
+          "reasoning_tokens": 344
+        },
+        "prompt_time": 0.651348689,
+        "prompt_tokens": 1088,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.307521246,
+        "total_time": 1.858107731,
+        "total_tokens": 1574
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m323gcegb9z092h80qjnm2",
+        "seed": 594118831
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If an invoice\u2019s amount or due date doesn\u2019t match any entry in your account\u2019s billing history, that\u2019s a strong sign it\u2019s not a legitimate Meridian invoice.\u202fMeridian invoices always reflect the actual plan, seats, and usage for a real billing period, and we never ask customers to wire money or pay via email outside of the payment methods configured in the account\u2019s billing settings.\u202fPlease do not make any payment on this invoice. Verify the invoice details directly in your account\u2019s billing settings or open a support ticket so we can investigate and provide a corrected copy if needed."
+        },
+        "id": "fc_f241fed5-af0b-46df-ab9a-8d1215bdd3a5",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 486,
+      "prompt_tokens": 1088
+    }
+  },
+  "retry_after": null
+}

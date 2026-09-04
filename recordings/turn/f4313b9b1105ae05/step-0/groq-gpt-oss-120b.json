@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T15:58:09.440645Z",
+  "failure_detail": null,
+  "fingerprint": "56978040946355e89c291b63a9e75a5c2dae9eedb60c461dba28d62b50ff8f12",
+  "outcome": "response",
+  "recording_id": "turn/f4313b9b1105ae05/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Does removing one member and adding another in the same cycle count as one seat or two for billing purposes?\" According to DOC-029 parts: removing a person frees seat immediately, inviting new person into that freed seat does not add a new seat to count as long as within same billing cycle; seat count for billing is highest number of seats occupied at any point in cycle. Also next invoice bills seat count as of invoice date, so same-cycle reassignment shows as one seat, not two. Also removing departed employee before inviting new hire keeps occupied count from exceeding paid seat count and avoids overage.\n\nThus answer: It counts as one seat, not two, as long as you remove before adding (or within same cycle). Provide concise answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"It counts as a single seat. When you remove a member and then add a new one within the same billing cycle, the seat is freed immediately and the new hire occupies that same seat, so the highest seat count for the cycle remains unchanged and you\u2019re billed for one seat, not two.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_fc785299-57a3-48ad-8242-523155264e82",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451089,
+      "id": "chatcmpl-070c9a55-835f-40bd-b276-81540e14a9f9",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_bb691ea66b",
+      "usage": {
+        "completion_time": 0.634283214,
+        "completion_tokens": 246,
+        "completion_tokens_details": {
+          "reasoning_tokens": 162
+        },
+        "prompt_time": 0.309353456,
+        "prompt_tokens": 1096,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.362030541,
+        "total_time": 0.94363667,
+        "total_tokens": 1342
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1kzvsheef3rgfnz9thzv165",
+        "seed": 730897839
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "It counts as a single seat. When you remove a member and then add a new one within the same billing cycle, the seat is freed immediately and the new hire occupies that same seat, so the highest seat count for the cycle remains unchanged and you\u2019re billed for one seat, not two."
+        },
+        "id": "fc_fc785299-57a3-48ad-8242-523155264e82",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 246,
+      "prompt_tokens": 1096
+    }
+  },
+  "retry_after": null
+}

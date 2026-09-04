@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T17:50:10.555396Z",
+  "failure_detail": null,
+  "fingerprint": "d708e8fb21e3934ba6cca958322e75841f810c0bacd67a7f588c6d9ac81a9353",
+  "outcome": "response",
+  "recording_id": "turn/30112b83f3693ea4/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer using policy excerpts. The question: \"How do I get invoices sent to a shared finance inbox instead of just the admin's personal email?\" This is about changing who receives invoice emails. The policy excerpts (DOC-004) provide steps: open Settings \u2192 Billing \u2192 Recipients and add or replace the billing contact email. Multiple recipients can be added, so a shared inbox can be added alongside rather than instead of an individual's address. Also note default is billing contact. Change applies to next invoice, not past.\n\nThus we can answer with those steps. No need to escalate. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Sure! By default invoice emails go to the workspace\u2019s billing contact. To have them also go to a shared finance inbox, go to **Settings \u2192 Billing \u2192 Recipients** in your account. From there you can add the shared inbox address (or replace the existing contact). You can keep the admin\u2019s personal address as well \u2013 multiple recipients are allowed. The new setting takes effect on the next invoice generated; past invoices won\u2019t be resent.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_c6ee70c5-0d7f-4f95-b581-7e163437cf59",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371410,
+      "id": "chatcmpl-d27bb04e-44f2-4ceb-a4dc-2fd8396b7258",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_c15aa9c1b7",
+      "usage": {
+        "completion_time": 0.505668277,
+        "completion_tokens": 238,
+        "completion_tokens_details": {
+          "reasoning_tokens": 124
+        },
+        "prompt_time": 0.049884846,
+        "prompt_tokens": 992,
+        "queue_time": 0.158504925,
+        "total_time": 0.555553123,
+        "total_tokens": 1230
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hkw6sheads5c9c5b4x3zgr",
+        "seed": 1110192326
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Sure! By default invoice emails go to the workspace\u2019s billing contact. To have them also go to a shared finance inbox, go to **Settings \u2192 Billing \u2192 Recipients** in your account. From there you can add the shared inbox address (or replace the existing contact). You can keep the admin\u2019s personal address as well \u2013 multiple recipients are allowed. The new setting takes effect on the next invoice generated; past invoices won\u2019t be resent."
+        },
+        "id": "fc_c6ee70c5-0d7f-4f95-b581-7e163437cf59",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 238,
+      "prompt_tokens": 992
+    }
+  },
+  "retry_after": null
+}

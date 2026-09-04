@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:12:29.312729Z",
+  "failure_detail": null,
+  "fingerprint": "edc878271df9f53a67c15e346fb35acfa8ba71d0cf2eac3c209b532d3106f5d6",
+  "outcome": "response",
+  "recording_id": "turn/db5801dc57d75725/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Does a custom domain need a CNAME pointed at Meridian, or is there also a verification TXT record required?\" This is about setting up a custom domain. The policy excerpts say: Two records are required: a CNAME pointing the chosen subdomain at Meridian's portal address, and a TXT record used to verify ownership before activation. So answer: Yes, both required. Provide short answer. Use post_reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes \u2013 setting up a custom domain requires two DNS records. You need a CNAME that points your chosen subdomain to Meridian\u2019s portal address, and you also need to add a TXT record for domain\u2011ownership verification before the custom domain can be activated.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_94af30a6-a6a6-42a4-8871-00686a80af39",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451949,
+      "id": "chatcmpl-b8265c6f-fa48-46be-8353-238eab3dd6dc",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_47082602e2",
+      "usage": {
+        "completion_time": 0.365381719,
+        "completion_tokens": 172,
+        "completion_tokens_details": {
+          "reasoning_tokens": 96
+        },
+        "prompt_time": 2.994785957,
+        "prompt_tokens": 1103,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.307975238,
+        "total_time": 3.360167676,
+        "total_tokens": 1275
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0nz4kefk82jz7kzrbywr0",
+        "seed": 1421585561
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes \u2013 setting up a custom domain requires two DNS records. You need a CNAME that points your chosen subdomain to Meridian\u2019s portal address, and you also need to add a TXT record for domain\u2011ownership verification before the custom domain can be activated."
+        },
+        "id": "fc_94af30a6-a6a6-42a4-8871-00686a80af39",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 172,
+      "prompt_tokens": 1103
+    }
+  },
+  "retry_after": null
+}

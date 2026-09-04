@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:02:35.937518Z",
+  "failure_detail": null,
+  "fingerprint": "ffe5a6d4f171297dc774dbe1993666936720fdb7bfd842f8aa19d4241431f5ff",
+  "outcome": "response",
+  "recording_id": "turn/5ab532a880f810c2/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"SSO vs password, both at once?\" Likely they ask if both SSO and password sign-in can be enabled simultaneously. According to DOC-009 part 1: Enabling SSO does not immediately disable password sign-in; both coexist until admin turns password sign-in off via Require SSO. So answer: Yes, both can be used until you enable Require SSO. Provide brief explanation. No need to escalate. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes. When you first enable SSO, password sign\u2011in remains active, so staff can log in with either method. Password sign\u2011in is only disabled when you later turn on **Require SSO** in Settings \u2192 Security \u2192 SSO.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_b92d8c1c-e3bb-4964-98b8-3c75f60b316f",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372155,
+      "id": "chatcmpl-30f9c3c9-02ac-46e5-83c2-b61d85ff1df9",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_e1a78f200e",
+      "usage": {
+        "completion_time": 0.378412362,
+        "completion_tokens": 178,
+        "completion_tokens_details": {
+          "reasoning_tokens": 104
+        },
+        "prompt_time": 0.048611781,
+        "prompt_tokens": 1027,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.362706032,
+        "total_time": 0.427024143,
+        "total_tokens": 1205
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmjykmepxr99pv0ex81j56",
+        "seed": 2047564547
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes. When you first enable SSO, password sign\u2011in remains active, so staff can log in with either method. Password sign\u2011in is only disabled when you later turn on **Require SSO** in Settings \u2192 Security \u2192 SSO."
+        },
+        "id": "fc_b92d8c1c-e3bb-4964-98b8-3c75f60b316f",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 178,
+      "prompt_tokens": 1027
+    }
+  },
+  "retry_after": null
+}

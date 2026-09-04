@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T16:56:49.778778Z",
+  "failure_detail": null,
+  "fingerprint": "d71c61d3f0b4b5532cf66294f1d1c37a44b3d1ece8a35644d94f3a42d9bd6fe6",
+  "outcome": "response",
+  "recording_id": "turn/85b94661d15c09ed/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"I got a password-reset email I never requested \u2014 is someone actively trying to take over my account?\" According to DOC-079 parts: unrequested password-reset email means someone entered email into reset flow; email itself doesn't grant access; safest response: don't click, check settings, change password proactively; reporting to support lets recent access history be checked as it could be first step. So answer: explain that it indicates someone attempted reset, not necessarily takeover yet, but you should not click, change password, review security settings, possibly enable 2FA, and you can report to support for review. Provide concise answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there,\\n\\nAn unrequested password\u2011reset email means someone entered your email address into the reset flow \u2013 the email itself doesn\u2019t give them access unless they click the link and complete the reset. It\u2019s a warning sign that someone may be probing your account.\\n\\nThe safest steps are:\\n1. **Don\u2019t click the link.**\\n2. Go directly to the app/website, review your sign\u2011in and security settings, and **change your password** as a precaution.\\n3. If you use two\u2011factor authentication, consider resetting it as well.\\n4. Report the email to our support team so we can check your recent access history for any other suspicious activity.\\n\\nTaking these actions will protect your account even if the reset attempt was just a test.\\n\\nLet us know if you need any further help!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_87d1c744-0f3c-4c58-81ed-c8f9bff826b0",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788454609,
+      "id": "chatcmpl-11b88e8b-59ac-468f-bec6-aecedb508b17",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_6c36ac20de",
+      "usage": {
+        "completion_time": 0.714766487,
+        "completion_tokens": 337,
+        "completion_tokens_details": {
+          "reasoning_tokens": 137
+        },
+        "prompt_time": 0.360890136,
+        "prompt_tokens": 1087,
+        "queue_time": 0.37460811,
+        "total_time": 1.075656623,
+        "total_tokens": 1424
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m3777hew29ca6r79b24xbe",
+        "seed": 971678474
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there,\n\nAn unrequested password\u2011reset email means someone entered your email address into the reset flow \u2013 the email itself doesn\u2019t give them access unless they click the link and complete the reset. It\u2019s a warning sign that someone may be probing your account.\n\nThe safest steps are:\n1. **Don\u2019t click the link.**\n2. Go directly to the app/website, review your sign\u2011in and security settings, and **change your password** as a precaution.\n3. If you use two\u2011factor authentication, consider resetting it as well.\n4. Report the email to our support team so we can check your recent access history for any other suspicious activity.\n\nTaking these actions will protect your account even if the reset attempt was just a test.\n\nLet us know if you need any further help!"
+        },
+        "id": "fc_87d1c744-0f3c-4c58-81ed-c8f9bff826b0",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 337,
+      "prompt_tokens": 1087
+    }
+  },
+  "retry_after": null
+}

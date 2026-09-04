@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:12:58.167186Z",
+  "failure_detail": null,
+  "fingerprint": "bd3b1bd8e232749e54a4e1b7d8212baac7acc733aca43539a52a221793fac7d9",
+  "outcome": "response",
+  "recording_id": "turn/d312501f3ed16ec3/step-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"scheduled report stopped, still configured?\" Likely they want to know if the scheduled report is still configured after it stopped. The relevant policy is DOC-040 about checking whether a scheduled report is still running. We can explain how to check: go to Settings \u2192 Reports \u2192 Scheduled, see run history, see if disabled, check recipient list for bouncing, etc.\n\nWe must not mention policy. Provide short specific answer. Use post_reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can verify the status of the report in Settings \u2192 Reports \u2192 Scheduled. The page shows each scheduled report and its recent run history. If the report is disabled, it will be marked as such. If it\u2019s still enabled but not delivering, check the run history \u2013 a failed run will show a reason, often related to a bouncing recipient address. Meridian pauses delivery to bouncing emails while keeping the schedule active, which can make it look like the whole report stopped. Reviewing the run history will tell you whether the schedule is still configured or if delivery issues need to be addressed.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_75c46850-d9fb-4975-8833-38c0a0a0929a",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451978,
+      "id": "chatcmpl-109d6210-a6a4-483f-a445-e56ac9c2fe06",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_6c36ac20de",
+      "usage": {
+        "completion_time": 0.511850051,
+        "completion_tokens": 241,
+        "completion_tokens_details": {
+          "reasoning_tokens": 101
+        },
+        "prompt_time": 1.145676489,
+        "prompt_tokens": 1082,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.310118864,
+        "total_time": 1.65752654,
+        "total_tokens": 1323
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0pwz7ea3t785srf0d6bry",
+        "seed": 115904235
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can verify the status of the report in Settings \u2192 Reports \u2192 Scheduled. The page shows each scheduled report and its recent run history. If the report is disabled, it will be marked as such. If it\u2019s still enabled but not delivering, check the run history \u2013 a failed run will show a reason, often related to a bouncing recipient address. Meridian pauses delivery to bouncing emails while keeping the schedule active, which can make it look like the whole report stopped. Reviewing the run history will tell you whether the schedule is still configured or if delivery issues need to be addressed."
+        },
+        "id": "fc_75c46850-d9fb-4975-8833-38c0a0a0929a",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 241,
+      "prompt_tokens": 1082
+    }
+  },
+  "retry_after": null
+}

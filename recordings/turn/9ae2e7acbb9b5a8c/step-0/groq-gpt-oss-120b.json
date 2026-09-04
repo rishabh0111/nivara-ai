@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:11:49.267887Z",
+  "failure_detail": null,
+  "fingerprint": "746576dd78d41232a2f43e4277601fb03c23c5521f5c59144244669b380ebaae",
+  "outcome": "response",
+  "recording_id": "turn/9ae2e7acbb9b5a8c/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"custom domain setup, which DNS records?\" This is about setting up a custom domain for support portal. The policy excerpts provide answer: need CNAME pointing subdomain to Meridian's portal address, and a TXT record for verification. Also mention that you configure from Settings \u2192 General \u2192 Custom domain, which shows exact DNS records. So answer: you need to add a CNAME and a TXT record. Provide brief steps. Use policy excerpts. No need to escalate. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"To set up a custom domain for your support portal, you\u2019ll need two DNS records added at your DNS provider:\\n1. **CNAME record** \u2013 points the subdomain you want to use (e.g.,\u202fsupport.yourcompany.com) to Meridian\u2019s portal address.\\n2. **TXT record** \u2013 used by Meridian to verify that you own the domain before the custom domain is activated.\\nYou can enter your desired domain in Settings \u2192 General \u2192 Custom domain, and the page will show the exact values to use for both records. After adding them, verification runs automatically (it may take up to your DNS provider\u2019s propagation time).\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_be98005a-47d9-4c6b-be95-740ed15cd990",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451909,
+      "id": "chatcmpl-1de99927-2b57-4589-b6b8-36dfb241e7a5",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_0adba2bb92",
+      "usage": {
+        "completion_time": 0.687706782,
+        "completion_tokens": 267,
+        "completion_tokens_details": {
+          "reasoning_tokens": 110
+        },
+        "prompt_time": 1.402600152,
+        "prompt_tokens": 1054,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.358191145,
+        "total_time": 2.090306934,
+        "total_tokens": 1321
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0ms58ebrr17bx0ta5yt5c",
+        "seed": 1557268914
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "To set up a custom domain for your support portal, you\u2019ll need two DNS records added at your DNS provider:\n1. **CNAME record** \u2013 points the subdomain you want to use (e.g.,\u202fsupport.yourcompany.com) to Meridian\u2019s portal address.\n2. **TXT record** \u2013 used by Meridian to verify that you own the domain before the custom domain is activated.\nYou can enter your desired domain in Settings \u2192 General \u2192 Custom domain, and the page will show the exact values to use for both records. After adding them, verification runs automatically (it may take up to your DNS provider\u2019s propagation time)."
+        },
+        "id": "fc_be98005a-47d9-4c6b-be95-740ed15cd990",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 267,
+      "prompt_tokens": 1054
+    }
+  },
+  "retry_after": null
+}

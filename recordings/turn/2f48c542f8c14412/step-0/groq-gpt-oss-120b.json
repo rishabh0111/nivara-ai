@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:29:03.715165Z",
+  "failure_detail": null,
+  "fingerprint": "a37fa1232d5d651f2bf98c1e9e1a1150cda4a9d970f81a3f280a1043eef957ca",
+  "outcome": "response",
+  "recording_id": "turn/2f48c542f8c14412/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user says \"duplicate charge, refund it\". This is about a disputed or duplicate charge. According to policy, duplicate charges are reviewed by billing team, not automatically reversed. We can explain that they need to raise a review, and it takes a few business days, outcome not guaranteed. Provide guidance. This is allowed to answer from policy. Not about money movement? It's about refund, but policy says we can explain process. It's not a direct request for refund but asking for refund. We can respond with info: need to raise dispute, billing team will review, etc. So we can post_reply.\n\nWe must keep short and specific. Provide answer: explain that duplicate charges are reviewed, not auto refunded, they should contact billing team via support, etc.\n\nLet's craft reply.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Hi there! If you see a duplicate charge, our billing team needs to review it before any refund can be issued. Duplicate charges aren\u2019t automatically reversed from the dashboard because we have to verify the payment processor\u2019s records against our own. Please open a billing dispute (or have the account owner or an authorized billing contact do so) and our team will investigate the charge. These reviews usually resolve within a few business days, and any credit will be applied to a future invoice rather than refunded directly. Let us know if you need help starting the review.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_a168414d-e91d-4c19-8b97-ae5046a5ebac",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788452943,
+      "id": "chatcmpl-8c58977f-c2b7-4ea1-a877-0bce5ce0d349",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_4200b3f836",
+      "usage": {
+        "completion_time": 0.676377537,
+        "completion_tokens": 302,
+        "completion_tokens_details": {
+          "reasoning_tokens": 167
+        },
+        "prompt_time": 1.312047547,
+        "prompt_tokens": 1079,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.310726215,
+        "total_time": 1.988425084,
+        "total_tokens": 1381
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m1mbjne669d5fm2hvxnk10",
+        "seed": 729284409
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Hi there! If you see a duplicate charge, our billing team needs to review it before any refund can be issued. Duplicate charges aren\u2019t automatically reversed from the dashboard because we have to verify the payment processor\u2019s records against our own. Please open a billing dispute (or have the account owner or an authorized billing contact do so) and our team will investigate the charge. These reviews usually resolve within a few business days, and any credit will be applied to a future invoice rather than refunded directly. Let us know if you need help starting the review."
+        },
+        "id": "fc_a168414d-e91d-4c19-8b97-ae5046a5ebac",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 302,
+      "prompt_tokens": 1079
+    }
+  },
+  "retry_after": null
+}

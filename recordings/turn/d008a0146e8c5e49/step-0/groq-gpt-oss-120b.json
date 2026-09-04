@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:08:00.711983Z",
+  "failure_detail": null,
+  "fingerprint": "fb034acbe534e49ced0e8c0a057b9ce5d968e1560744ab4a4e454724d550f850",
+  "outcome": "response",
+  "recording_id": "turn/d008a0146e8c5e49/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The user says \"Too many notifications, want fewer.\" This is about reducing notification email volume. We have relevant policy excerpts DOC-036 parts. So we can answer: go to Profile \u2192 Notifications, turn off types, etc. Provide steps. Must be short and specific. Use post_reply.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"You can trim your own notification volume in your profile settings. Open **Profile \u2192 Notifications** and turn off the types you don\u2019t need (e.g., mention, status\u2011change, digest). Leave the **Assignment** notifications on if you only want alerts for items assigned to you. Changes take effect immediately and only affect your account.\\n\\nIf you need any further help, just let us know!\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_73b8bb8c-341b-4a75-94e3-4974975afcde",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451680,
+      "id": "chatcmpl-6980b55a-7652-411c-a39e-04e1193eb190",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_fe269835c7",
+      "usage": {
+        "completion_time": 0.367193232,
+        "completion_tokens": 175,
+        "completion_tokens_details": {
+          "reasoning_tokens": 69
+        },
+        "prompt_time": 0.083878592,
+        "prompt_tokens": 994,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.314597136,
+        "total_time": 0.451071824,
+        "total_tokens": 1169
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m0dvexejnacqzbyg4882d9",
+        "seed": 1190607063
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "You can trim your own notification volume in your profile settings. Open **Profile \u2192 Notifications** and turn off the types you don\u2019t need (e.g., mention, status\u2011change, digest). Leave the **Assignment** notifications on if you only want alerts for items assigned to you. Changes take effect immediately and only affect your account.\n\nIf you need any further help, just let us know!"
+        },
+        "id": "fc_73b8bb8c-341b-4a75-94e3-4974975afcde",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 175,
+      "prompt_tokens": 994
+    }
+  },
+  "retry_after": null
+}

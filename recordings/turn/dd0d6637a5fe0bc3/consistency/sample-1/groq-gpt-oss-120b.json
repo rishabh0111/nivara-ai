@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-03T16:04:45.954496Z",
+  "failure_detail": null,
+  "fingerprint": "015e4d5022433ae10ac07b11791cbf7909de0aef084a657ccee551e50ccbf9d0",
+  "outcome": "response",
+  "recording_id": "turn/dd0d6637a5fe0bc3/consistency/sample-1/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to see what the question is. Customer says: \"Times just look wrong everywhere in the app.\" Need to determine what policy excerpt covers this. The excerpts we have: currency billing region corrections, re-enrolling two-factor authentication, response-time metrics counting every hour. None about times display. So we cannot answer. Must escalate. Also it's ambiguous? It's about times display maybe timezone settings, but no policy excerpt. So per rules, if not covered, escalate.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"reason\":\"The customer reports that times look wrong everywhere in the app. None of the provided policy excerpts address time display issues or related settings. Since there is no applicable answer in the given excerpts, I must escalate the conversation.\"}",
+                  "name": "escalate"
+                },
+                "id": "fc_f797a082-bbbf-4016-b9f3-87b7be223d87",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788451485,
+      "id": "chatcmpl-06e7d028-26ef-40bb-ad58-faca189fd7ed",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5a93aea882",
+      "usage": {
+        "completion_time": 0.9221524,
+        "completion_tokens": 165,
+        "completion_tokens_details": {
+          "reasoning_tokens": 96
+        },
+        "prompt_time": 0.035416932,
+        "prompt_tokens": 1100,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.157960567,
+        "total_time": 0.957569332,
+        "total_tokens": 1265
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m07x4kesdaenqwe5mmeern",
+        "seed": 1245152823
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "reason": "The customer reports that times look wrong everywhere in the app. None of the provided policy excerpts address time display issues or related settings. Since there is no applicable answer in the given excerpts, I must escalate the conversation."
+        },
+        "id": "fc_f797a082-bbbf-4016-b9f3-87b7be223d87",
+        "name": "escalate"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 165,
+      "prompt_tokens": 1100
+    }
+  },
+  "retry_after": null
+}

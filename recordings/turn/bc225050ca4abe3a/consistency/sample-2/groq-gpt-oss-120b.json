@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-09-02T18:07:24.661361Z",
+  "failure_detail": null,
+  "fingerprint": "a5eb20ba39d8fed865c5465e67e0b9d3f2d79853c7fac76d115c469426ae4c4a",
+  "outcome": "response",
+  "recording_id": "turn/bc225050ca4abe3a/consistency/sample-2/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "gate-consistency-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to infer the customer's question. They say: \"new phone, 2FA codes wrong now\". Likely they upgraded phone, reinstalled authenticator app, codes are wrong. They need to re-enroll 2FA. Policy excerpts include steps to reset 2FA: go to Settings \u2192 Security \u2192 Two-factor authentication, choose \u201cReset\u201d and re-enrol, scanning new QR code, confirming with fresh six-digit code. Also mention using saved recovery code if cannot reach settings.\n\nThus we can answer with those steps. No need to ask for code. It's not about money or fraud. Provide instructions.\n\nWe must post_reply with short specific answer.\n\n",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"If you\u2019ve upgraded your phone and the authenticator app is generating codes that don\u2019t work, you need to reset and re\u2011enroll 2FA.\\n\\n1. In Meridian, go to **Settings \u2192 Security \u2192 Two\u2011factor authentication**.\\n2. Tap **Reset**.\\n3. Follow the normal setup flow: scan the new QR code with your authenticator app and enter the fresh six\u2011digit code it generates.\\n\\nIf you can\u2019t reach the settings page because you don\u2019t have a working code, use a saved recovery code from the original enrollment to sign in, then reset 2FA from the same Settings page.\\n\\nAfter re\u2011enrolling, the new codes will match what Meridian expects.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_126b31c5-dcb4-4489-ad86-a1e6b870656a",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788372444,
+      "id": "chatcmpl-622e7ae0-1555-4016-b15d-138cae160e5d",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_dc4ca88fa4",
+      "usage": {
+        "completion_time": 0.709705039,
+        "completion_tokens": 310,
+        "completion_tokens_details": {
+          "reasoning_tokens": 135
+        },
+        "prompt_time": 0.143415551,
+        "prompt_tokens": 1156,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "queue_time": 0.312509545,
+        "total_time": 0.85312059,
+        "total_tokens": 1466
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hmvr55eahanavg63h5x1ra",
+        "seed": 1224614920
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "If you\u2019ve upgraded your phone and the authenticator app is generating codes that don\u2019t work, you need to reset and re\u2011enroll 2FA.\n\n1. In Meridian, go to **Settings \u2192 Security \u2192 Two\u2011factor authentication**.\n2. Tap **Reset**.\n3. Follow the normal setup flow: scan the new QR code with your authenticator app and enter the fresh six\u2011digit code it generates.\n\nIf you can\u2019t reach the settings page because you don\u2019t have a working code, use a saved recovery code from the original enrollment to sign in, then reset 2FA from the same Settings page.\n\nAfter re\u2011enrolling, the new codes will match what Meridian expects."
+        },
+        "id": "fc_126b31c5-dcb4-4489-ad86-a1e6b870656a",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 310,
+      "prompt_tokens": 1156
+    }
+  },
+  "retry_after": null
+}

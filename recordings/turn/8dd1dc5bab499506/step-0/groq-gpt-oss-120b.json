@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-02T17:52:16.613965Z",
+  "failure_detail": null,
+  "fingerprint": "1c326c4514b47432f123a0c87875027483f77200a97315f15b3d27b858b83bc6",
+  "outcome": "response",
+  "recording_id": "turn/8dd1dc5bab499506/step-0/groq-gpt-oss-120b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-120b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"Does Meridian accept payment by bank transfer? Our finance team won't sign off on the annual contract otherwise.\"\n\nWe have policy excerpts: DOC-005 says annual contracts can be paid by bank transfer against an invoice, arranged through support before contract starts, not self-serve. Also monthly plans are card-only; a workspace wanting bank transfer needs to be on an annual term first.\n\nThus answer: Yes, bank transfer is accepted for annual contracts, need to arrange via support before contract starts, set up invoiced billing, not automatic card charges. Provide that info.\n\nWe should not mention policy. Just answer.\n\nThus we will post_reply with concise answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"Yes\u2014Meridian can accept a bank\u2011transfer payment, but only for annual contracts. You\u2019ll need to arrange the transfer with our support team before the contract starts so we can set up invoiced billing (it isn\u2019t a self\u2011service option). Monthly plans are card\u2011only.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_b4cdad8e-6834-407e-a49f-3adfdea3d47c",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788371536,
+      "id": "chatcmpl-351ef170-ac50-4d45-8363-773f93f3e641",
+      "model": "openai/gpt-oss-120b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_5781dfb07c",
+      "usage": {
+        "completion_time": 0.472880259,
+        "completion_tokens": 226,
+        "completion_tokens_details": {
+          "reasoning_tokens": 143
+        },
+        "prompt_time": 0.060828252,
+        "prompt_tokens": 1043,
+        "queue_time": 0.272260546,
+        "total_time": 0.533708511,
+        "total_tokens": 1269
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1hm01gzeqta9prbqfh67ewv",
+        "seed": 1481877643
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "Yes\u2014Meridian can accept a bank\u2011transfer payment, but only for annual contracts. You\u2019ll need to arrange the transfer with our support team before the contract starts so we can set up invoiced billing (it isn\u2019t a self\u2011service option). Monthly plans are card\u2011only."
+        },
+        "id": "fc_b4cdad8e-6834-407e-a49f-3adfdea3d47c",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 226,
+      "prompt_tokens": 1043
+    }
+  },
+  "retry_after": null
+}

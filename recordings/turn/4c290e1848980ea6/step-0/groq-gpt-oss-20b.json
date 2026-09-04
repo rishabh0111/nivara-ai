@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:28:00.989097Z",
+  "failure_detail": null,
+  "fingerprint": "6ee0623632a5bb6b00457ce28b7aa806ca8d325e1b90824ad75daaaeef1ce5ea",
+  "outcome": "response",
+  "recording_id": "turn/4c290e1848980ea6/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer from policy excerpts. The question: \"does key rotation cause downtime?\" We have policy about rotating an API key. The policy says: \"This overlap window exists so a key can be rotated without a moment of downtime: deploy the new key to whatever uses the old one, confirm it works, and only then revoke the old key from the same screen.\" So answer: No, if you follow overlap window, no downtime. Provide short answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"No, if you follow the overlap window when rotating an API key you can avoid any downtime. Deploy the new key first, confirm it works, and then revoke the old key. This keeps the service running continuously.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_f523e2f6-de6a-42e7-b48e-c5c5716b4fcb",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460080,
+      "id": "chatcmpl-8775a353-7806-42d4-a7dd-c850d0deb33c",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_1c0f5282a2",
+      "usage": {
+        "completion_time": 0.204008696,
+        "completion_tokens": 159,
+        "completion_tokens_details": {
+          "reasoning_tokens": 94
+        },
+        "prompt_time": 0.074481256,
+        "prompt_tokens": 1047,
+        "queue_time": 0.483368824,
+        "total_time": 0.278489952,
+        "total_tokens": 1206
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8e6zhemnb9q55zyxexatj",
+        "seed": 361396455
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "No, if you follow the overlap window when rotating an API key you can avoid any downtime. Deploy the new key first, confirm it works, and then revoke the old key. This keeps the service running continuously."
+        },
+        "id": "fc_f523e2f6-de6a-42e7-b48e-c5c5716b4fcb",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 159,
+      "prompt_tokens": 1047
+    }
+  },
+  "retry_after": null
+}

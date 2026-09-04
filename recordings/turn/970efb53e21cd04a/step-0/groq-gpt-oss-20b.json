@@ -1,0 +1,77 @@
+{
+  "captured_at": "2026-09-03T18:32:02.556639Z",
+  "failure_detail": null,
+  "fingerprint": "d36b8c59e73dfb29a0122c4b59d2b8035a31e839c8f8f1814d683d74e3b8d4d2",
+  "outcome": "response",
+  "recording_id": "turn/970efb53e21cd04a/step-0/groq-gpt-oss-20b",
+  "request_snapshot": {
+    "model": "openai/gpt-oss-20b",
+    "prompt_version": "agent-v1",
+    "provider": "groq"
+  },
+  "response": {
+    "content": null,
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "reasoning": "We need to answer based on policy excerpts. The question: \"If I rename our workspace after a rebrand, does that break any URLs or integrations that reference the old name?\" According to DOC-038 parts 1-3: renaming display name is cosmetic only, does not change URL, API base path, identifiers. Integrations continue to point to same workspace by underlying id, no reconfiguration needed. Only old name may persist in email addresses or subdomains configured separately, not automatically updated. So answer: No, it doesn't break URLs or integrations; only separate email addresses/subdomains may need manual update. Provide concise answer.",
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"message\":\"No, renaming the workspace\u2019s display name is purely cosmetic. It doesn\u2019t change the workspace\u2019s URL, API base path, or any identifiers that integrations or webhooks use, so existing integrations keep working without re\u2011configuration. The only place the old name might still appear is in any email addresses or subdomains you set up separately \u2013 those are independent and would need to be updated manually if you want them to reflect the new name.\"}",
+                  "name": "post_reply"
+                },
+                "id": "fc_23be74a8-99ff-422a-858a-7eda3e1a5b62",
+                "type": "function"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1788460322,
+      "id": "chatcmpl-80aded9a-e732-4208-a3c3-cc0958ee71a7",
+      "model": "openai/gpt-oss-20b",
+      "object": "chat.completion",
+      "service_tier": "on_demand",
+      "system_fingerprint": "fp_587d0d67cc",
+      "usage": {
+        "completion_time": 0.280120213,
+        "completion_tokens": 239,
+        "completion_tokens_details": {
+          "reasoning_tokens": 129
+        },
+        "prompt_time": 0.052358978,
+        "prompt_tokens": 1018,
+        "queue_time": 0.951238174,
+        "total_time": 0.332479191,
+        "total_tokens": 1257
+      },
+      "usage_breakdown": null,
+      "x_groq": {
+        "id": "req_01m1m8njcsec084f25r0jt0z6g",
+        "seed": 659860615
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [
+      {
+        "arguments": {
+          "message": "No, renaming the workspace\u2019s display name is purely cosmetic. It doesn\u2019t change the workspace\u2019s URL, API base path, or any identifiers that integrations or webhooks use, so existing integrations keep working without re\u2011configuration. The only place the old name might still appear is in any email addresses or subdomains you set up separately \u2013 those are independent and would need to be updated manually if you want them to reflect the new name."
+        },
+        "id": "fc_23be74a8-99ff-422a-858a-7eda3e1a5b62",
+        "name": "post_reply"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 239,
+      "prompt_tokens": 1018
+    }
+  },
+  "retry_after": null
+}
