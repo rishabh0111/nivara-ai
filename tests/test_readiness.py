@@ -93,6 +93,15 @@ def test_qdrant_reachable_reports_ok():
     assert check_qdrant(QDRANT_BASE_URL) == "ok"
 
 
+def test_an_api_key_does_not_break_a_local_unauthenticated_qdrant():
+    # The compose network's Qdrant has no auth to check, so an `api-key`
+    # header is extra and harmless — proving it doesn't regress the local
+    # path is what's testable here; that a managed cluster actually requires
+    # the header is Qdrant Cloud's own contract, not something reproducible
+    # against the unauthenticated stack this suite runs against.
+    assert check_qdrant(QDRANT_BASE_URL, "some-arbitrary-key") == "ok"
+
+
 def test_qdrant_unreachable_is_told_apart_from_the_api():
     assert check_qdrant("http://127.0.0.1:1") == "unreachable"
 

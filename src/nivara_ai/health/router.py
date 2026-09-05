@@ -44,7 +44,7 @@ def readiness(response: Response) -> dict:
     """
 
     api_status = check_assistant_token(settings.api_base_url, settings.assistant_token)
-    qdrant_status = check_qdrant(settings.qdrant_url)
+    qdrant_status = check_qdrant(settings.qdrant_url, settings.qdrant_api_key or None)
 
     ready = api_status == "ok" and qdrant_status == "ok"
     response.status_code = (

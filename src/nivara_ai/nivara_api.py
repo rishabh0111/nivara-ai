@@ -49,12 +49,23 @@ def check_assistant_token(
     return "ok" if response.status_code == 200 else "unauthenticated"
 
 
-def check_qdrant(url: str, timeout: float = 5.0) -> DependencyStatus:
+def check_qdrant(
+    url: str, api_key: str | None = None, timeout: float = 5.0
+) -> DependencyStatus:
     """Qdrant's own readiness, kept separate so an index outage never reads
-    as a credential problem."""
+    as a credential problem.
+
+    `api_key` matters here exactly as it does for `QdrantClient` itself: a
+    managed cluster (Qdrant Cloud) requires the `api-key` header on every
+    request, `/readyz` included, and refuses an unauthenticated one — which
+    this function used to report as `"unreachable"`, indistinguishable from
+    the cluster actually being down.
+    """
+
+    headers = {"api-key": api_key} if api_key else None
 
     try:
-        response = httpx.get(f"{url}/readyz", timeout=timeout)
+        response = httpx.get(f"{url}/readyz", headers=headers, timeout=timeout)
     except httpx.HTTPError:
         return "unreachable"
 
