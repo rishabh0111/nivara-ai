@@ -179,10 +179,23 @@ class LocalEmbedder:
     def __init__(self, dense_model: str = DENSE_MODEL) -> None:
         self._dense_model = dense_model
 
-    def embed_query(self, text: str) -> EncodedText:
+    def embed_query(self, text: str, *, late_interaction: bool = True) -> EncodedText:
+        """`late_interaction=False` skips both the encode *and* the encoder's
+        own construction — `Retriever.search` passes `self._rerank` here, so
+        a query run with reranking off (the deployed default: see
+        `retriever.py`'s module docstring) never even loads the
+        late-interaction model. It is ~126 MB resident for a vector nothing
+        on that path reads (`eval/retrieval_ablation.md`, "Encoder
+        footprint") — dead weight worth not paying for on a 512 MB instance,
+        found live when a single cold Turn's model loading alone exceeded
+        it. `embed_passages` (build time) always computes all three: the
+        indexed point's late-interaction vector has to exist for the
+        `rerank=True` toggle regardless of what the live default is today.
+        """
+
         dense = next(iter(_dense_encoder(self._dense_model).query_embed([text])))
         sparse = next(iter(_sparse_encoder().query_embed([text])))
-        late = next(iter(_late_interaction_encoder().query_embed([text])))
+        late = next(iter(_late_interaction_encoder().query_embed([text]))) if late_interaction else []
         return _pack(dense, sparse, late)
 
     def embed_passages(self, texts: Sequence[str]) -> list[EncodedText]:

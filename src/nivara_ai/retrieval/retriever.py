@@ -270,7 +270,10 @@ class Retriever:
     def search(self, scope: TenantScope, query: str, *, limit: int = 5) -> list[RetrievedChunk]:
         require_scope(scope)
 
-        vectors = self._embedder.embed_query(query)
+        # Skips loading and running the late-interaction encoder entirely
+        # when this Retriever won't rerank (the deployed default) — nothing
+        # in `execute_query`'s "hybrid" mode below reads it.
+        vectors = self._embedder.embed_query(query, late_interaction=self._rerank)
         response = execute_query(
             self._client,
             collection=self._collection,
