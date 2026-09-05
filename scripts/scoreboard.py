@@ -53,6 +53,7 @@ _ROLLUPS_PATH = _REPO_ROOT / "eval" / "scoreboard_rollups.jsonl"
 
 _DEFAULT_API = os.environ.get("NIVARA_API_BASE_URL", "http://localhost:3000")
 _DEFAULT_QDRANT = os.environ.get("NIVARA_QDRANT_URL", "http://localhost:6333")
+_DEFAULT_QDRANT_API_KEY = os.environ.get("NIVARA_QDRANT_API_KEY", "")
 
 
 def _pending_live(now: datetime) -> LiveDeflection:
@@ -74,6 +75,7 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--api-base-url", default=_DEFAULT_API)
     parser.add_argument("--qdrant-url", default=_DEFAULT_QDRANT)
+    parser.add_argument("--qdrant-api-key", default=_DEFAULT_QDRANT_API_KEY)
     parser.add_argument(
         "--offline-only",
         action="store_true",
@@ -133,7 +135,7 @@ def main(argv: list[str] | None = None) -> int:
             sink.write(json.dumps(scoreboard.rollup()) + "\n")
         print(f"appended a rollup to {_ROLLUPS_PATH.name}")
 
-    alive = keep_vector_store_alive(arguments.qdrant_url)
+    alive = keep_vector_store_alive(arguments.qdrant_url, arguments.qdrant_api_key or None)
     print(f"vector store keep-alive: {'ok' if alive else 'unreachable (logged, not fatal)'}")
 
     if scoreboard.drift.alert:
