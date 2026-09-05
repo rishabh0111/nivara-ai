@@ -35,8 +35,8 @@ what the table kept, not placeholders.
 
 from __future__ import annotations
 
+import threading
 from dataclasses import dataclass
-from functools import lru_cache
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -84,25 +84,64 @@ class EncodedText:
     late_interaction: list[list[float]]
 
 
-@lru_cache(maxsize=2)
+#: One lock shared across all three encoders rather than one each — the
+#: failure this guards against is memory, not time: two Turns landing at
+#: once on a cold instance each import fastembed and load an ONNX model
+#: concurrently, and a 512 MB instance (ADR-0003) has no room for two of
+#: anything. A shared lock means a second Turn's retrieval simply waits
+#: for the first encoder to finish loading rather than loading its own
+#: copy alongside it — found live: repeated concurrent Turns against the
+#: deployed instance triggered Render's own memory-limit restart, wiping
+#: whatever had loaded and paying the load cost again on top of whatever
+#: caused the spike in the first place.
+#:
+#: `lru_cache` alone doesn't close this: a cache *miss* releases its lock
+#: before calling the wrapped function, so two threads missing at once
+#: both call it and both pay the load, and the cache just discards
+#: whichever finishes last. The dicts below are memoized by hand instead,
+#: with the lock held around the whole check-then-build so a second
+#: caller's check always lands after the first caller's build has
+#: already populated the cache — the standard double-checked-locking
+#: shape, safe here because a plain dict lookup outside the lock is a
+#: single bytecode-level read the GIL already makes atomic.
+_encoder_lock = threading.Lock()
+_dense_encoders: dict[str, object] = {}
+_sparse_encoder_instance = None
+_late_interaction_encoder_instance = None
+
+
 def _dense_encoder(model: str = DENSE_MODEL):
-    from fastembed import TextEmbedding
+    if model not in _dense_encoders:
+        with _encoder_lock:
+            if model not in _dense_encoders:
+                from fastembed import TextEmbedding
 
-    return TextEmbedding(model)
+                _dense_encoders[model] = TextEmbedding(model)
+    return _dense_encoders[model]
 
 
-@lru_cache(maxsize=1)
 def _sparse_encoder():
-    from fastembed import SparseTextEmbedding
+    global _sparse_encoder_instance
+    if _sparse_encoder_instance is None:
+        with _encoder_lock:
+            if _sparse_encoder_instance is None:
+                from fastembed import SparseTextEmbedding
 
-    return SparseTextEmbedding(SPARSE_MODEL)
+                _sparse_encoder_instance = SparseTextEmbedding(SPARSE_MODEL)
+    return _sparse_encoder_instance
 
 
-@lru_cache(maxsize=1)
 def _late_interaction_encoder():
-    from fastembed import LateInteractionTextEmbedding
+    global _late_interaction_encoder_instance
+    if _late_interaction_encoder_instance is None:
+        with _encoder_lock:
+            if _late_interaction_encoder_instance is None:
+                from fastembed import LateInteractionTextEmbedding
 
-    return LateInteractionTextEmbedding(LATE_INTERACTION_MODEL)
+                _late_interaction_encoder_instance = LateInteractionTextEmbedding(
+                    LATE_INTERACTION_MODEL
+                )
+    return _late_interaction_encoder_instance
 
 
 def _pack(dense, sparse, late) -> EncodedText:
