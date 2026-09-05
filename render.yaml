@@ -28,6 +28,8 @@ services:
         sync: false # the deployed Nivara API's URL
       - key: NIVARA_QDRANT_URL
         sync: false # Qdrant Cloud cluster URL
+      - key: NIVARA_QDRANT_API_KEY
+        sync: false # Qdrant Cloud requires one; every QdrantClient construction passes it
       - key: NIVARA_ASSISTANT_TOKEN
         sync: false # the seed's 'Deflection assistant' token — rotates on reseed
       - key: NIVARA_MODEL_TRANSPORT

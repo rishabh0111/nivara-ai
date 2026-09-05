@@ -193,7 +193,9 @@ class TurnRunner:
         if retriever is None:
             from qdrant_client import QdrantClient
 
-            retriever = Retriever(QdrantClient(url=settings.qdrant_url))
+            retriever = Retriever(
+                QdrantClient(url=settings.qdrant_url, api_key=settings.qdrant_api_key or None)
+            )
         if model_client is None:
             from nivara_ai.model.chain import build_model_client_from_settings
 

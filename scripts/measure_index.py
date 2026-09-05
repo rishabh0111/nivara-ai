@@ -85,7 +85,7 @@ def main(argv: list[str]) -> int:
 
     from qdrant_client import QdrantClient
 
-    client = QdrantClient(url=settings.qdrant_url)
+    client = QdrantClient(url=settings.qdrant_url, api_key=settings.qdrant_api_key or None)
     chunks = load_chunks()
     embedder = LocalEmbedder()
     scope = scope_for_indexing(settings.retrieval_tenant_id)

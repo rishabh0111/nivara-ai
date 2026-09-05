@@ -19,6 +19,13 @@ class Settings(BaseSettings):
     api_base_url: str = "http://api:3000"
     qdrant_url: str = "http://qdrant:6333"
 
+    # Empty against the compose network's own Qdrant, which has no auth.
+    # A managed cluster (Qdrant Cloud) requires one — every QdrantClient
+    # construction in this codebase passes `settings.qdrant_api_key or None`
+    # rather than the empty string, so a bare local Qdrant is never sent a
+    # bogus "api-key: " header it would otherwise have to ignore.
+    qdrant_api_key: str = ""
+
     # The Tenant this service answers under (ADR-0002: Meridian is the
     # Tenant). Fixed at deploy time from the same source of truth as the
     # credential. `scripts/index_corpus.py` reads it now; the request path
