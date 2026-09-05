@@ -81,6 +81,10 @@ jobs:
           # needs its real URL here.
           NIVARA_API_BASE_URL: ${{ vars.NIVARA_SCOREBOARD_API_URL || 'http://localhost:3000' }}
           NIVARA_QDRANT_URL: ${{ vars.NIVARA_SCOREBOARD_QDRANT_URL || 'http://localhost:6333' }}
+          # A secret, not a variable, unlike the URL above: this is credential
+          # material for the managed Qdrant, not a location. Empty against the
+          # throwaway compose stack's own Qdrant, which has no auth to give it.
+          NIVARA_QDRANT_API_KEY: ${{ secrets.NIVARA_SCOREBOARD_QDRANT_API_KEY }}
         run: python scripts/scoreboard.py --fail-on-drift
 
       - name: Commit the refreshed artifact and rollup
