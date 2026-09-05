@@ -3,6 +3,7 @@ import contextlib
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from starlette.routing import Route
 
 from nivara_ai.config import settings
@@ -41,6 +42,23 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(title="nivara-ai", lifespan=lifespan)
+
+# The Widget ingress runs on tenants' own sites (CONTEXT.md: "Ingress"), so
+# its origins cannot be enumerated here any more than they can on the API's
+# own `/widget/sessions` (nivara-api-nestjs's browserCorsPolicy). A wildcard
+# is safe specifically because nothing under /widget takes a cookie: the
+# Widget forwards its nvw_ session as a bearer credential, whose legitimacy
+# was already judged once, per Tenant, at mint time by the API's origin
+# allowlist. CORS here is not that gate, so it can afford to reflect any
+# origin rather than pretend to a second, narrower one it has no list for.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["GET", "POST"],
+    allow_headers=["Authorization", "Content-Type"],
+)
+
 app.include_router(health_router)
 app.include_router(turn_router)
 app.include_router(widget_router)
