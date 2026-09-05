@@ -106,3 +106,20 @@ class TestFailuresAfterTheStreamOpened:
 
         events = _events(list(turn_events(raise_missing)))
         assert events[-1] == ("error", {"code": "not_found", "message": "No such conversation."})
+
+    def test_any_other_failure_still_ends_the_stream_with_an_error_event(self):
+        # Found live: a write the API refuses for a reason no outcome models
+        # (here, an httpx error standing in for one) used to propagate out of
+        # the generator uncaught, closing the stream with no terminal event
+        # at all — the Widget's "connecting" never resolves one way or the
+        # other. Whatever the exception's own type, the wire must still get
+        # a clean `error`, not silence.
+        def raise_unexpected() -> TurnResult:
+            raise RuntimeError("the API refused a write for a reason nothing here models")
+
+        events = _events(list(turn_events(raise_unexpected)))
+        assert events[-1] == (
+            "error",
+            {"code": "internal_error", "message": "Something went wrong answering this."},
+        )
+        assert "done" not in [name for name, _ in events]

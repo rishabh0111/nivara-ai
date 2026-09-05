@@ -28,6 +28,7 @@ from __future__ import annotations
 
 import json
 import time
+import traceback
 from collections.abc import Callable, Iterator
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
@@ -93,6 +94,22 @@ def turn_events(
         except ConversationNotFound:
             yield SseEvent(
                 "error", {"code": "not_found", "message": "No such conversation."}
+            ).render()
+            return
+        except Exception:
+            # Anything else `run` can raise — a write the API refused for a
+            # reason no outcome above models (a transient 5xx, a Ticket the
+            # Assistant token cannot reach), not only the two named cases.
+            # Without this, the generator's own exception just ends the ASGI
+            # response: no `error`, no `done`, and the Widget is left showing
+            # "connecting" forever with nothing to tell that apart from a
+            # slow Answer. Printed rather than left to propagate, because
+            # catching it here is exactly what stops it from reaching
+            # uvicorn's own crash log on its way out.
+            traceback.print_exc()
+            yield SseEvent(
+                "error",
+                {"code": "internal_error", "message": "Something went wrong answering this."},
             ).render()
             return
 
