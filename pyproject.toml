@@ -14,7 +14,13 @@ dependencies = [
     # because ticket 11's per-Tenant IDF corpus (the `idf` search parameter,
     # ADR-0006) and server-side late-interaction reranking both need it.
     "qdrant-client>=1.19,<1.20",
-    "fastembed>=0.4",
+    # Pinned exactly, not a floor: a newer fastembed or onnxruntime is a
+    # second, independent way the committed encoder output can move, on top
+    # of the CPU-dependent rounding tests/retrieval/test_embedding.py already
+    # has to tolerate. Pinning removes that axis so a real regression there
+    # is not confused with a version bump.
+    "fastembed==0.8.0",
+    "onnxruntime==1.29.0",
     # Ticket 12's ablation computes the exact-nearest-neighbour baseline row
     # in-process — the arithmetic a dot-product retriever tops out at — from
     # the raw dense vectors. fastembed already pulls numpy; this makes the
