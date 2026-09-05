@@ -26,6 +26,15 @@ class Settings(BaseSettings):
     # bogus "api-key: " header it would otherwise have to ignore.
     qdrant_api_key: str = ""
 
+    # qdrant-client's own default when none is passed — fine against the
+    # compose network's same-host Qdrant, too short against a managed
+    # cluster: a build-time upsert batch carries a dense, a sparse and a
+    # late-interaction (per-token) vector per chunk, and that easily
+    # outruns 5 seconds on an uplink slower than the CI runner's. Every
+    # QdrantClient construction passes this, so raising it for an indexing
+    # run against Qdrant Cloud costs the request path nothing by default.
+    qdrant_timeout: int = 5
+
     # The Tenant this service answers under (ADR-0002: Meridian is the
     # Tenant). Fixed at deploy time from the same source of truth as the
     # credential. `scripts/index_corpus.py` reads it now; the request path

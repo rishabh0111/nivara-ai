@@ -118,7 +118,11 @@ def main(argv: list[str]) -> int:
 
     from qdrant_client import QdrantClient
 
-    client = QdrantClient(url=settings.qdrant_url, api_key=settings.qdrant_api_key or None)
+    client = QdrantClient(
+        url=settings.qdrant_url,
+        api_key=settings.qdrant_api_key or None,
+        timeout=settings.qdrant_timeout,
+    )
 
     queries = load_labelled_queries()
     if sample is not None:

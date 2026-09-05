@@ -1,6 +1,8 @@
-"""Every `QdrantClient` construction passes `api_key`, so a managed cluster
-(Qdrant Cloud, which requires one) is never one call site away from an
-authentication failure nobody noticed locally, where Qdrant has none to check.
+"""Every `QdrantClient` construction passes `api_key` and `timeout`, so a
+managed cluster (Qdrant Cloud) is never one call site away from an
+authentication failure, or a write timeout, that nobody noticed locally
+against the same-host compose Qdrant — which has no auth to check and no
+network latency to spend qdrant-client's 5-second default against.
 
 Scans `src/` and `scripts/` for the constructor call rather than asserting it
 once — the same enforcement-by-parsing `tests/harness/test_no_sliding_scores.py`
@@ -42,6 +44,20 @@ def test_every_construction_passes_an_api_key(path: Path, args: str):
         f"{path.relative_to(_ROOT)} constructs QdrantClient without api_key= — "
         "a managed cluster (Qdrant Cloud) requires one, and settings.qdrant_api_key "
         "is empty against a local, unauthenticated Qdrant, so passing it is free."
+    )
+
+
+@pytest.mark.parametrize(
+    "path,args", _construction_sites(), ids=lambda v: str(v) if isinstance(v, Path) else v[:40]
+)
+def test_every_construction_passes_a_timeout(path: Path, args: str):
+    assert "timeout=" in args, (
+        f"{path.relative_to(_ROOT)} constructs QdrantClient without timeout= — "
+        "qdrant-client's own default (5 seconds) is fine against the compose "
+        "network's same-host Qdrant, but a build-time upsert batch against a "
+        "managed cluster carries a dense, sparse and late-interaction vector "
+        "per chunk and can easily outrun it, turning a slow uplink into a "
+        "spurious WriteTimeout rather than a slow-but-successful build."
     )
 
 

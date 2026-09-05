@@ -74,7 +74,11 @@ def main(argv: list[str]) -> int:
     classifier.save(CLASSIFIER_PATH)
     print(f"  {len(classifier.weights)} terms → {CLASSIFIER_PATH.relative_to(_REPO_ROOT)}")
 
-    client = QdrantClient(url=settings.qdrant_url, api_key=settings.qdrant_api_key or None)
+    client = QdrantClient(
+        url=settings.qdrant_url,
+        api_key=settings.qdrant_api_key or None,
+        timeout=settings.qdrant_timeout,
+    )
     scope = resolve_configured_scope(settings.retrieval_tenant_id)
 
     print("building the Free-signal table over the labelled set…")

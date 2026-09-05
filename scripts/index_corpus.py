@@ -33,7 +33,11 @@ def main(argv: list[str]) -> int:
 
     from qdrant_client import QdrantClient
 
-    client = QdrantClient(url=settings.qdrant_url, api_key=settings.qdrant_api_key or None)
+    client = QdrantClient(
+        url=settings.qdrant_url,
+        api_key=settings.qdrant_api_key or None,
+        timeout=settings.qdrant_timeout,
+    )
     chunks = load_chunks()
 
     ensure_collection(client, recreate=True)
