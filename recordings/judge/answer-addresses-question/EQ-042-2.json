@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:12:24.491185Z",
+  "failure_detail": null,
+  "fingerprint": "a1e2b41fd84cab645b404fdc57a272c5a5c3fa4801993069efe44c20a9abb16e",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-042-2",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the customer's question about whether weekends are inflating the metric by explaining how the default wall-clock measurement works, and provides helpful context on how to get a business-hours version for their report.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the customer's question about whether weekends are inflating the metric by explaining how the default wall-clock measurement works, and provides helpful context on how to get a business-hours version for their report.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPsMz2MxJd/b6G6kSet5ujlhrJwvRKJGxnVTAdxN/f0o972gKqQqQ1NYyrAUuJdFBFrTr2dE6vL+65Uzie4k6z2Fx4CAH5a3XhnNQrCK/p+fPBpL7EJlMX"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599544,
+      "id": "99ybap6fKJHFg8UPj5migQg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 46,
+        "prompt_tokens": 497,
+        "total_tokens": 543
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 46,
+      "prompt_tokens": 497
+    }
+  },
+  "retry_after": null
+}

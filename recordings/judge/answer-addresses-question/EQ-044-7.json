@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:14:30.391910Z",
+  "failure_detail": null,
+  "fingerprint": "1e8530359fb55674b9a992dccf01cf0d1e7b6289c1c4b9bfd82d100563d63c20",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-044-7",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the customer's query about read-only dashboard links using the retrieved information.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the customer's query about read-only dashboard links using the retrieved information.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPq2k37bm0at8N7/mtt/C2StrkzG//FmeK2+Wk/rRutLiKtJ8DEbUwrX9MrxDCkt3YxP3NUS4DzGhVR8EUbD5qg0zVeGG4z+/IN1DbBihwOcUBMr8UNkmI"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599670,
+      "id": "dd2basCFKebmjuMPh8WYiAs",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 22,
+        "prompt_tokens": 440,
+        "total_tokens": 462
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 22,
+      "prompt_tokens": 440
+    }
+  },
+  "retry_after": null
+}

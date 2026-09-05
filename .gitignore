@@ -1,0 +1,39 @@
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+
+# Real configuration never gets committed. `.env.example` documents the keys.
+.env
+.env.*
+!.env.example
+
+# The API's OpenAPI document is deliberately *not* ignored here. Unlike the API
+# repository, where it is emitted, this repository commits its own copy and
+# checks it for drift.
+
+.DS_Store
+*.log
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.venv/
+build/
+
+# Regenerable pre-review snapshots. `sensitive.jsonl` and
+# retrieval_labels.jsonl are the committed, human-reviewed artifacts; the
+# draft/proposed files these two names would otherwise write are a scripted
+# generator's transient output, not kept in the repo once review is done —
+# `python scripts/generate_eval_questions.py [--labels]` recreates them
+# locally any time a fresh one is wanted, e.g. after new sensitive Scenarios
+# are added.
+eval/sensitive_draft.jsonl
+eval/retrieval_labels_proposed.jsonl
+# The judge hand-label template: `python scripts/select_judge_sample.py`
+# regenerates it locally any time the answered set changes. A person's
+# completed copy is what gets committed, as `eval/judge_hand_labels.jsonl`.
+eval/judge_hand_labels_template.jsonl

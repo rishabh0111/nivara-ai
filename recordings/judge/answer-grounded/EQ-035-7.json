@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:14:17.012248Z",
+  "failure_detail": null,
+  "fingerprint": "8de4cc3272d7dca4eb19bde36fb97679ff2a48858c747b55d1252f976b666fae",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-035-7",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer accurately reflects the information about search indexing delays and reporting thresholds found in chunks DOC-035#0, DOC-035#1, and DOC-035#2.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer accurately reflects the information about search indexing delays and reporting thresholds found in chunks DOC-035#0, DOC-035#1, and DOC-035#2.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPn9Pklt0S9hHgaR3NnCSFP22ZRPVOBzI1ekbQnbBCF5w3vnX3Ei8Oqp6S+e/fhQtnArc23O7qDuSHJgqCY7xG4/AWzdEiP4KGgZPxzFvDGFCkUgnGaZjT"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599656,
+      "id": "aN2basHMCsr44-EPzKmMsAY",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 43,
+        "prompt_tokens": 491,
+        "total_tokens": 534
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 43,
+      "prompt_tokens": 491
+    }
+  },
+  "retry_after": null
+}

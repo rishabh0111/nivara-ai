@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:12:51.491490Z",
+  "failure_detail": null,
+  "fingerprint": "45f881c0490f97fe7406e1a82373d100faad4f1a0151e0ae832b51fb7887d0bf",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-035-5",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the agent's observation about a newly created record not appearing in search immediately, explaining it as normal indexing lag based on the retrieved documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the agent's observation about a newly created record not appearing in search immediately, explaining it as normal indexing lag based on the retrieved documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPUE5kvpgex/O4w8pbWvyiOIhG54AAp34hOGRBxShKt/8NMJBEaCjkUBaQByTN6H+sjt50qzi/8Nf1/8wBe3gwDOsJx0wChvYR2HTf15ikIUmk7kdL9iw3"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599571,
+      "id": "Et2basigKb_84-EPx6zi2Qs",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 34,
+        "prompt_tokens": 537,
+        "total_tokens": 571
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 34,
+      "prompt_tokens": 537
+    }
+  },
+  "retry_after": null
+}

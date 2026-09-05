@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:14:12.636064Z",
+  "failure_detail": null,
+  "fingerprint": "7e6ea3d79a73045bf09f5d81f66fc7ed45b5a5003d2456869452aa3f6e0bd6a0",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-001-2",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the customer's issue of not being able to find last month's invoice on the billing page by explaining where to look (the invoices table below the summary card) and what to do if it's missing entirely.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the customer's issue of not being able to find last month's invoice on the billing page by explaining where to look (the invoices table below the summary card) and what to do if it's missing entirely.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPhg3Cq1FEksr87O8eNls5sChfNSHiwSNdlCKkMn6IVuTtOBu/jk+1lHbFamDusCV9h2HiYtWM0wBlHiMxOUi5MKYuKKWroOxzJbbrLl97kJ3fDg7RP1dU"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599652,
+      "id": "Y92baof0KJO8juMP1PO4yAw",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 51,
+        "prompt_tokens": 574,
+        "total_tokens": 625
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 51,
+      "prompt_tokens": 574
+    }
+  },
+  "retry_after": null
+}

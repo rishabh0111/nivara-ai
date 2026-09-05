@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:16:00.423869Z",
+  "failure_detail": null,
+  "fingerprint": "bc84556dbb35fa8091339b8b087c95c9a0184ae5dc8fba80dc2e804d3066abee",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-027-5",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe customer asked how to find which endpoints are officially considered stable, and the answer correctly explained that endpoints marked with the \"stable\" stability tag in the API reference are the ones officially considered stable, directly using the retrieved documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe customer asked how to find which endpoints are officially considered stable, and the answer correctly explained that endpoints marked with the \"stable\" stability tag in the API reference are the ones officially considered stable, directly using the retrieved documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPRkabN3PGy+N6RJlCjNd5Yomva777L8NoYSRjT9r2lQ5mstlFaaYTpTdhxtifUCIxoqj7gkHQSHprpEGPwK+UTvPMRDVsP7ubTVdWkbm/vAya/a0cYCaP"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599760,
+      "id": "z92baoa0KLiqg8UP0b_HoAc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 47,
+        "prompt_tokens": 533,
+        "total_tokens": 580
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 47,
+      "prompt_tokens": 533
+    }
+  },
+  "retry_after": null
+}

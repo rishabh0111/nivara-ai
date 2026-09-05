@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:15:38.094463Z",
+  "failure_detail": null,
+  "fingerprint": "65bf953f0f6295f4730ccaa913d53a27217292baf2da34aa4eea4bee4c779180",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-016-4",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nEvery claim in the answer is directly supported by the retrieved chunks (specifically DOC-016#0, DOC-016#1, and DOC-016#2).",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nEvery claim in the answer is directly supported by the retrieved chunks (specifically DOC-016#0, DOC-016#1, and DOC-016#2).",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPyylqvw3fDsbNsVWX0xCTrjTSnmGX/F9NkVSJefO8vv993sfOBtcNBWPeNjXVBX84JQ06pSk/rEh2xJV9xl56XdVdXFKXRccHXxW7k5LGsMynpfMB81sc"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599737,
+      "id": "ud2batSTC9ykqfkP3Zyi-Ac",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 41,
+        "prompt_tokens": 526,
+        "total_tokens": 567
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 41,
+      "prompt_tokens": 526
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:10:13.833835Z",
+  "failure_detail": null,
+  "fingerprint": "d73b66dfd02ffee335490c4d071708c8eb511c64c483df92f3adbd460d497a5b",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-018-4",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe system's answer accurately reflects that standard exports include closed records unless filtered out on the export screen, which is supported by chunk DOC-018#0.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe system's answer accurately reflects that standard exports include closed records unless filtered out on the export screen, which is supported by chunk DOC-018#0.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPjYPij89MdKUamnSUb55RJB1J+TaZUIq5Q3RtqLcKWm9nxtGakSWJLOHoQM/Ip2LQUU6EdjqqPXnxD5ydSwBYMFYAQI3vbEiLXHMf1YI7vP8a1p/yWdu8"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599413,
+      "id": "ddybarnKCuK5g8UP4v-hyQc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 36,
+        "prompt_tokens": 414,
+        "total_tokens": 450
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 36,
+      "prompt_tokens": 414
+    }
+  },
+  "retry_after": null
+}

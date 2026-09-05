@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:16:09.534555Z",
+  "failure_detail": null,
+  "fingerprint": "a7e7a0172094d1601616b986ab21ff690bad9ee2b0f4eaabff1ba5b7fe3756e5",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-062-4",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe system's answer directly addresses the customer's concern about a hijacked webhook and data exposure risk by providing immediate mitigation steps (disabling/repointing) and guidance on reporting it to support for a security investigation, using the retrieved documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe system's answer directly addresses the customer's concern about a hijacked webhook and data exposure risk by providing immediate mitigation steps (disabling/repointing) and guidance on reporting it to support for a security investigation, using the retrieved documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPLf1jxlZ9//LCAN6GHiSzomEJS5EEPyQXzBjYrjNPy/7NK7zfBAA63BRnZ8W/HB1whmTPEPenkrX3fquusFQZdJICNdV04+QhfzLQq0f/mbQ6V/YAh04E"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599769,
+      "id": "2N2bar7uKajdg8UPkruckAs",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 51,
+        "prompt_tokens": 548,
+        "total_tokens": 599
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 51,
+      "prompt_tokens": 548
+    }
+  },
+  "retry_after": null
+}

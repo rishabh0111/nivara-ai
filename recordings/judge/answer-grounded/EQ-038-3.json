@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:14:35.120943Z",
+  "failure_detail": null,
+  "fingerprint": "f23d9cd8533610ac202d951b4602f276d4682c9e2f7582ba01e71af456b97192",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-038-3",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer accurately reflects the retrieved documentation regarding workspace renaming (cosmetic display name change, URLs, webhooks, integrations, and independent subdomains/emails) without introducing outside information.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer accurately reflects the retrieved documentation regarding workspace renaming (cosmetic display name change, URLs, webhooks, integrations, and independent subdomains/emails) without introducing outside information.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPZ5Ca8O2zDGzXLDHTfgtDLX5Ok6HbT8hTO3QOMIS+iYa7Dz4Q7ajZctMLmTzAmBgUOuRfoZVQIojgAqkQfW9mflL6CSEA7+CL26Tluh5G6HtI+sGNyoDl"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599674,
+      "id": "et2bar3CCuysjuMP8vDTkAk",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 38,
+        "prompt_tokens": 526,
+        "total_tokens": 564
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 38,
+      "prompt_tokens": 526
+    }
+  },
+  "retry_after": null
+}

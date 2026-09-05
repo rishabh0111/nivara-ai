@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:18:20.198952Z",
+  "failure_detail": null,
+  "fingerprint": "ce39a34665d82f5db130d2cd4d884508c3ce20afab107459e0d5a11fad525e07",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/RP-009",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe system's answer accurately reflects the information provided in the retrieved chunks (DOC-002#0 and DOC-002#1) regarding how and when to switch to an annual plan and how the billing and renewal date work, with no outside claims added.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe system's answer accurately reflects the information provided in the retrieved chunks (DOC-002#0 and DOC-002#1) regarding how and when to switch to an annual plan and how the billing and renewal date work, with no outside claims added.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIP6jhMDjCzwfbny0QpGzIAv+zhqYTBxxACq3kROM85GtWxVrTC7EWvhpOf5Lcj6/hunxLPAuoqNOHR2cFvkWVoVImqUPyYBQe6hayFzeMYjPes373ZfFYD"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599899,
+      "id": "W96bapPIDe6_g8UP3NWi0Ao",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 58,
+        "prompt_tokens": 510,
+        "total_tokens": 568
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 58,
+      "prompt_tokens": 510
+    }
+  },
+  "retry_after": null
+}

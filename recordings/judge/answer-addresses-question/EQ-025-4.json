@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:22:28.009875Z",
+  "failure_detail": null,
+  "fingerprint": "313353cd50d7c050782472ef74e8af2e8078f50ae643459d4adfe1bb16874763",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-025-4",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the customer's request on how to fire a test event using the provided documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the customer's request on how to fire a test event using the provided documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPRbktJmOfSiqONdXDM8B+FXzTSUKmdK8u6aab9mpk0e+ECqrmp4ALo25zDiogpUfqbSU1dUCjPqZpcTvAVLHyXoejC1blUrtiQ+u+sOqBE3faEDAxFT+5"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600147,
+      "id": "Ut-baqL_K9y2g8UPiOvesQg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 23,
+        "prompt_tokens": 454,
+        "total_tokens": 477
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 23,
+      "prompt_tokens": 454
+    }
+  },
+  "retry_after": null
+}

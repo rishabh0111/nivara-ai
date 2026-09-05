@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:15:42.696514Z",
+  "failure_detail": null,
+  "fingerprint": "2680d0ce39d15cd82bc4986d1aefe4522290e085096a70a7bf71a793de5907b4",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-016-4",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe system's answer directly addresses the customer's issue of a partial import failure with no initial detail by explaining why it happens and how to find the specific error log in the import history.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe system's answer directly addresses the customer's issue of a partial import failure with no initial detail by explaining why it happens and how to find the specific error log in the import history.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIP7DyCC6PsguqUXBhJED338TjXQ0rYB6we1ev21qhnbqtSq5L+/wmJEcbnseRoajQ6gDn2PGnApgVWsCpxDhjtMzFykUid1fXMxAig2XBTXAhEmc6DIj2r"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599742,
+      "id": "vd2bat7mKIOtg8UP-JC52Qc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 41,
+        "prompt_tokens": 524,
+        "total_tokens": 565
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 41,
+      "prompt_tokens": 524
+    }
+  },
+  "retry_after": null
+}

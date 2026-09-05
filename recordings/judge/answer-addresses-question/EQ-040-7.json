@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:22:00.769868Z",
+  "failure_detail": null,
+  "fingerprint": "8b1ac8f2fa3ef4ca6692bc01b9b04f8865288e41554e04e6c49a2d1b1237e71e",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-040-7",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe system's answer directly addresses the customer's question on how to check the status of a report schedule using the exact navigation steps and details provided in the retrieved documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe system's answer directly addresses the customer's question on how to check the status of a report schedule using the exact navigation steps and details provided in the retrieved documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIP70Ew5hiNhu1A+A55ngq9tWlP1TrNtyjnKLX8vvzZcY3INVZ+6VaGNvvNedNsVjqkQTSbijTBtDiZx2G6nzJkXIDY0b2jHw+oOAANQwHPadGI0Nl5uXXB"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600120,
+      "id": "N9-baomUK5-FjuMPgorc0Ak",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 37,
+        "prompt_tokens": 566,
+        "total_tokens": 603
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 37,
+      "prompt_tokens": 566
+    }
+  },
+  "retry_after": null
+}

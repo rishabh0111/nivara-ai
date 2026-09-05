@@ -1,0 +1,878 @@
+{
+  "meta": {
+    "generated_at": "2026-09-05",
+    "host": "Linux x86_64, Python 3.14.7",
+    "keyfree_levels": "component, trajectory",
+    "trajectory_source": "traffic/turns.jsonl",
+    "prompt_versions": [
+      "agent-v1@8bf9e9bbb2d8",
+      "gate-consistency-v1@327a0972e038"
+    ],
+    "levels_run": [
+      "end-to-end",
+      "trajectory",
+      "component"
+    ],
+    "recordings": {
+      "count": 1428,
+      "captured_first": "2026-09-02",
+      "captured_last": "2026-09-05",
+      "prompt_versions": [
+        "agent-v1",
+        "gate-consistency-v1",
+        "judge-v1"
+      ],
+      "models": [
+        "gemini-3.5-flash-lite",
+        "openai/gpt-oss-120b",
+        "openai/gpt-oss-20b"
+      ],
+      "providers": [
+        "gemini",
+        "groq"
+      ]
+    }
+  },
+  "levels": [
+    {
+      "level": "end-to-end",
+      "tier": "unspecified",
+      "categories": [
+        {
+          "category": "account-configuration",
+          "cases": 48,
+          "scored": 48,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "correct-disposition",
+              "kind": "code",
+              "passed": 47,
+              "scored": 48,
+              "failed": 1,
+              "rate": 0.9792
+            }
+          ]
+        },
+        {
+          "category": "account-recovery-ownership",
+          "cases": 30,
+          "scored": 30,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "correct-disposition",
+              "kind": "code",
+              "passed": 29,
+              "scored": 30,
+              "failed": 1,
+              "rate": 0.9667
+            },
+            {
+              "name": "not-false-deflection",
+              "kind": "code",
+              "passed": 29,
+              "scored": 30,
+              "failed": 1,
+              "rate": 0.9667
+            }
+          ]
+        },
+        {
+          "category": "api-integrations",
+          "cases": 56,
+          "scored": 56,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "correct-disposition",
+              "kind": "code",
+              "passed": 48,
+              "scored": 56,
+              "failed": 8,
+              "rate": 0.8571
+            }
+          ]
+        },
+        {
+          "category": "billing-disputes",
+          "cases": 30,
+          "scored": 30,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "correct-disposition",
+              "kind": "code",
+              "passed": 29,
+              "scored": 30,
+              "failed": 1,
+              "rate": 0.9667
+            },
+            {
+              "name": "not-false-deflection",
+              "kind": "code",
+              "passed": 29,
+              "scored": 30,
+              "failed": 1,
+              "rate": 0.9667
+            }
+          ]
+        },
+        {
+          "category": "billing-invoicing",
+          "cases": 56,
+          "scored": 56,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "correct-disposition",
+              "kind": "code",
+              "passed": 49,
+              "scored": 56,
+              "failed": 7,
+              "rate": 0.875
+            }
+          ]
+        },
+        {
+          "category": "data-export-import",
+          "cases": 56,
+          "scored": 56,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "correct-disposition",
+              "kind": "code",
+              "passed": 53,
+              "scored": 56,
+              "failed": 3,
+              "rate": 0.9464
+            }
+          ]
+        },
+        {
+          "category": "fraudulent-communications",
+          "cases": 30,
+          "scored": 30,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "correct-disposition",
+              "kind": "code",
+              "passed": 28,
+              "scored": 30,
+              "failed": 2,
+              "rate": 0.9333
+            },
+            {
+              "name": "not-false-deflection",
+              "kind": "code",
+              "passed": 28,
+              "scored": 30,
+              "failed": 2,
+              "rate": 0.9333
+            }
+          ]
+        },
+        {
+          "category": "incidents-outages",
+          "cases": 40,
+          "scored": 40,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "correct-disposition",
+              "kind": "code",
+              "passed": 39,
+              "scored": 40,
+              "failed": 1,
+              "rate": 0.975
+            }
+          ]
+        },
+        {
+          "category": "payment-method-changes",
+          "cases": 30,
+          "scored": 30,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "correct-disposition",
+              "kind": "code",
+              "passed": 29,
+              "scored": 30,
+              "failed": 1,
+              "rate": 0.9667
+            },
+            {
+              "name": "not-false-deflection",
+              "kind": "code",
+              "passed": 29,
+              "scored": 30,
+              "failed": 1,
+              "rate": 0.9667
+            }
+          ]
+        },
+        {
+          "category": "reporting-analytics",
+          "cases": 48,
+          "scored": 48,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "correct-disposition",
+              "kind": "code",
+              "passed": 48,
+              "scored": 48,
+              "failed": 0,
+              "rate": 1.0
+            }
+          ]
+        },
+        {
+          "category": "seats-plan-management",
+          "cases": 48,
+          "scored": 48,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "correct-disposition",
+              "kind": "code",
+              "passed": 47,
+              "scored": 48,
+              "failed": 1,
+              "rate": 0.9792
+            }
+          ]
+        },
+        {
+          "category": "sso-authentication",
+          "cases": 48,
+          "scored": 48,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "correct-disposition",
+              "kind": "code",
+              "passed": 41,
+              "scored": 48,
+              "failed": 7,
+              "rate": 0.8542
+            }
+          ]
+        },
+        {
+          "category": "suspicious-account-activity",
+          "cases": 30,
+          "scored": 30,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "correct-disposition",
+              "kind": "code",
+              "passed": 28,
+              "scored": 30,
+              "failed": 2,
+              "rate": 0.9333
+            },
+            {
+              "name": "not-false-deflection",
+              "kind": "code",
+              "passed": 28,
+              "scored": 30,
+              "failed": 2,
+              "rate": 0.9333
+            }
+          ]
+        },
+        {
+          "category": "real-phrasing",
+          "cases": 50,
+          "scored": 45,
+          "pending": 5,
+          "checks": [
+            {
+              "name": "answered",
+              "kind": "code",
+              "passed": 22,
+              "scored": 45,
+              "failed": 23,
+              "rate": 0.4889
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "5/600 cases pending a Record run \u2014 replay found no committed Recording (recordings/README.md)."
+      ]
+    },
+    {
+      "level": "trajectory",
+      "tier": null,
+      "categories": [
+        {
+          "category": "generated-ordinary",
+          "cases": 140,
+          "scored": 140,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "tool-names-real",
+              "kind": "code",
+              "passed": 139,
+              "scored": 140,
+              "failed": 1,
+              "rate": 0.9929
+            },
+            {
+              "name": "arguments-valid",
+              "kind": "code",
+              "passed": 140,
+              "scored": 140,
+              "failed": 0,
+              "rate": 1.0
+            },
+            {
+              "name": "order-sane",
+              "kind": "code",
+              "passed": 140,
+              "scored": 140,
+              "failed": 0,
+              "rate": 1.0
+            },
+            {
+              "name": "read-result-handled",
+              "kind": "code",
+              "passed": 140,
+              "scored": 140,
+              "failed": 0,
+              "rate": 1.0
+            },
+            {
+              "name": "no-redundant-calls",
+              "kind": "code",
+              "passed": 140,
+              "scored": 140,
+              "failed": 0,
+              "rate": 1.0
+            },
+            {
+              "name": "outcome-matches-actions",
+              "kind": "code",
+              "passed": 140,
+              "scored": 140,
+              "failed": 0,
+              "rate": 1.0
+            },
+            {
+              "name": "within-step-ceiling",
+              "kind": "code",
+              "passed": 140,
+              "scored": 140,
+              "failed": 0,
+              "rate": 1.0
+            },
+            {
+              "name": "within-token-ceiling",
+              "kind": "code",
+              "passed": 140,
+              "scored": 140,
+              "failed": 0,
+              "rate": 1.0
+            }
+          ]
+        },
+        {
+          "category": "sensitive",
+          "cases": 70,
+          "scored": 70,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "tool-names-real",
+              "kind": "code",
+              "passed": 70,
+              "scored": 70,
+              "failed": 0,
+              "rate": 1.0
+            },
+            {
+              "name": "arguments-valid",
+              "kind": "code",
+              "passed": 70,
+              "scored": 70,
+              "failed": 0,
+              "rate": 1.0
+            },
+            {
+              "name": "order-sane",
+              "kind": "code",
+              "passed": 70,
+              "scored": 70,
+              "failed": 0,
+              "rate": 1.0
+            },
+            {
+              "name": "read-result-handled",
+              "kind": "code",
+              "passed": 70,
+              "scored": 70,
+              "failed": 0,
+              "rate": 1.0
+            },
+            {
+              "name": "no-redundant-calls",
+              "kind": "code",
+              "passed": 70,
+              "scored": 70,
+              "failed": 0,
+              "rate": 1.0
+            },
+            {
+              "name": "outcome-matches-actions",
+              "kind": "code",
+              "passed": 70,
+              "scored": 70,
+              "failed": 0,
+              "rate": 1.0
+            },
+            {
+              "name": "within-step-ceiling",
+              "kind": "code",
+              "passed": 70,
+              "scored": 70,
+              "failed": 0,
+              "rate": 1.0
+            },
+            {
+              "name": "within-token-ceiling",
+              "kind": "code",
+              "passed": 70,
+              "scored": 70,
+              "failed": 0,
+              "rate": 1.0
+            }
+          ]
+        },
+        {
+          "category": "real-phrasing",
+          "cases": 50,
+          "scored": 50,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "tool-names-real",
+              "kind": "code",
+              "passed": 50,
+              "scored": 50,
+              "failed": 0,
+              "rate": 1.0
+            },
+            {
+              "name": "arguments-valid",
+              "kind": "code",
+              "passed": 50,
+              "scored": 50,
+              "failed": 0,
+              "rate": 1.0
+            },
+            {
+              "name": "order-sane",
+              "kind": "code",
+              "passed": 50,
+              "scored": 50,
+              "failed": 0,
+              "rate": 1.0
+            },
+            {
+              "name": "read-result-handled",
+              "kind": "code",
+              "passed": 50,
+              "scored": 50,
+              "failed": 0,
+              "rate": 1.0
+            },
+            {
+              "name": "no-redundant-calls",
+              "kind": "code",
+              "passed": 50,
+              "scored": 50,
+              "failed": 0,
+              "rate": 1.0
+            },
+            {
+              "name": "outcome-matches-actions",
+              "kind": "code",
+              "passed": 50,
+              "scored": 50,
+              "failed": 0,
+              "rate": 1.0
+            },
+            {
+              "name": "within-step-ceiling",
+              "kind": "code",
+              "passed": 50,
+              "scored": 50,
+              "failed": 0,
+              "rate": 1.0
+            },
+            {
+              "name": "within-token-ceiling",
+              "kind": "code",
+              "passed": 50,
+              "scored": 50,
+              "failed": 0,
+              "rate": 1.0
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "Step ceiling 4 from settings.max_steps; token ceiling 8000 from settings.per_turn_token_ceiling \u2014 the same bounds the loop enforces live (nivara_ai.turn.ceilings).",
+        "No cost-ceiling check yet: Trace.cost_usd is None until ticket 21 pins the provider list prices (decision 46), so the token total stands in for the cost ceiling the spec asks for."
+      ]
+    },
+    {
+      "level": "component",
+      "tier": null,
+      "categories": [
+        {
+          "category": "account-configuration",
+          "cases": 48,
+          "scored": 48,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "free-signals-decisive",
+              "kind": "code",
+              "passed": 44,
+              "scored": 48,
+              "failed": 4,
+              "rate": 0.9167
+            },
+            {
+              "name": "not-false-escalation",
+              "kind": "code",
+              "passed": 48,
+              "scored": 48,
+              "failed": 0,
+              "rate": 1.0
+            }
+          ]
+        },
+        {
+          "category": "account-recovery-ownership",
+          "cases": 30,
+          "scored": 30,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "free-signals-decisive",
+              "kind": "code",
+              "passed": 29,
+              "scored": 30,
+              "failed": 1,
+              "rate": 0.9667
+            },
+            {
+              "name": "not-false-deflection",
+              "kind": "code",
+              "passed": 30,
+              "scored": 30,
+              "failed": 0,
+              "rate": 1.0
+            }
+          ]
+        },
+        {
+          "category": "api-integrations",
+          "cases": 56,
+          "scored": 56,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "free-signals-decisive",
+              "kind": "code",
+              "passed": 54,
+              "scored": 56,
+              "failed": 2,
+              "rate": 0.9643
+            },
+            {
+              "name": "not-false-escalation",
+              "kind": "code",
+              "passed": 56,
+              "scored": 56,
+              "failed": 0,
+              "rate": 1.0
+            }
+          ]
+        },
+        {
+          "category": "billing-disputes",
+          "cases": 30,
+          "scored": 30,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "free-signals-decisive",
+              "kind": "code",
+              "passed": 29,
+              "scored": 30,
+              "failed": 1,
+              "rate": 0.9667
+            },
+            {
+              "name": "not-false-deflection",
+              "kind": "code",
+              "passed": 30,
+              "scored": 30,
+              "failed": 0,
+              "rate": 1.0
+            }
+          ]
+        },
+        {
+          "category": "billing-invoicing",
+          "cases": 56,
+          "scored": 56,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "free-signals-decisive",
+              "kind": "code",
+              "passed": 50,
+              "scored": 56,
+              "failed": 6,
+              "rate": 0.8929
+            },
+            {
+              "name": "not-false-escalation",
+              "kind": "code",
+              "passed": 51,
+              "scored": 56,
+              "failed": 5,
+              "rate": 0.9107
+            }
+          ]
+        },
+        {
+          "category": "data-export-import",
+          "cases": 56,
+          "scored": 56,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "free-signals-decisive",
+              "kind": "code",
+              "passed": 56,
+              "scored": 56,
+              "failed": 0,
+              "rate": 1.0
+            },
+            {
+              "name": "not-false-escalation",
+              "kind": "code",
+              "passed": 56,
+              "scored": 56,
+              "failed": 0,
+              "rate": 1.0
+            }
+          ]
+        },
+        {
+          "category": "fraudulent-communications",
+          "cases": 30,
+          "scored": 30,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "free-signals-decisive",
+              "kind": "code",
+              "passed": 28,
+              "scored": 30,
+              "failed": 2,
+              "rate": 0.9333
+            },
+            {
+              "name": "not-false-deflection",
+              "kind": "code",
+              "passed": 30,
+              "scored": 30,
+              "failed": 0,
+              "rate": 1.0
+            }
+          ]
+        },
+        {
+          "category": "incidents-outages",
+          "cases": 40,
+          "scored": 40,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "free-signals-decisive",
+              "kind": "code",
+              "passed": 39,
+              "scored": 40,
+              "failed": 1,
+              "rate": 0.975
+            },
+            {
+              "name": "not-false-escalation",
+              "kind": "code",
+              "passed": 39,
+              "scored": 40,
+              "failed": 1,
+              "rate": 0.975
+            }
+          ]
+        },
+        {
+          "category": "payment-method-changes",
+          "cases": 30,
+          "scored": 30,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "free-signals-decisive",
+              "kind": "code",
+              "passed": 29,
+              "scored": 30,
+              "failed": 1,
+              "rate": 0.9667
+            },
+            {
+              "name": "not-false-deflection",
+              "kind": "code",
+              "passed": 30,
+              "scored": 30,
+              "failed": 0,
+              "rate": 1.0
+            }
+          ]
+        },
+        {
+          "category": "reporting-analytics",
+          "cases": 48,
+          "scored": 48,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "free-signals-decisive",
+              "kind": "code",
+              "passed": 48,
+              "scored": 48,
+              "failed": 0,
+              "rate": 1.0
+            },
+            {
+              "name": "not-false-escalation",
+              "kind": "code",
+              "passed": 48,
+              "scored": 48,
+              "failed": 0,
+              "rate": 1.0
+            }
+          ]
+        },
+        {
+          "category": "seats-plan-management",
+          "cases": 48,
+          "scored": 48,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "free-signals-decisive",
+              "kind": "code",
+              "passed": 47,
+              "scored": 48,
+              "failed": 1,
+              "rate": 0.9792
+            },
+            {
+              "name": "not-false-escalation",
+              "kind": "code",
+              "passed": 47,
+              "scored": 48,
+              "failed": 1,
+              "rate": 0.9792
+            }
+          ]
+        },
+        {
+          "category": "sso-authentication",
+          "cases": 48,
+          "scored": 48,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "free-signals-decisive",
+              "kind": "code",
+              "passed": 43,
+              "scored": 48,
+              "failed": 5,
+              "rate": 0.8958
+            },
+            {
+              "name": "not-false-escalation",
+              "kind": "code",
+              "passed": 47,
+              "scored": 48,
+              "failed": 1,
+              "rate": 0.9792
+            }
+          ]
+        },
+        {
+          "category": "suspicious-account-activity",
+          "cases": 30,
+          "scored": 30,
+          "pending": 0,
+          "checks": [
+            {
+              "name": "free-signals-decisive",
+              "kind": "code",
+              "passed": 28,
+              "scored": 30,
+              "failed": 2,
+              "rate": 0.9333
+            },
+            {
+              "name": "not-false-deflection",
+              "kind": "code",
+              "passed": 30,
+              "scored": 30,
+              "failed": 0,
+              "rate": 1.0
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "Operating point 0.023, Uncertain band [0.023, 0.213] (gate/model.json, calibration d0052157cc6380ab).",
+        "26/550 labelled questions reach the Uncertain band; the rest are ruled with no model call.",
+        "`not-false-escalation` / `not-false-deflection` count only the placements the Free signals make *outside* the band \u2014 a case in the band gets self-consistency and, on a split, one clarifying Turn before anything is posted. So the false-escalation here is below `eval/gate_calibration.md`'s operating-point figure: the difference is the band.",
+        "Placement uses the committed `gate/model.json` (the rounded model the request path runs), so the band count can differ by a case or two from `eval/gate_calibration.md`'s fit-precision fraction.",
+        "Replayed from eval/gate_calibration.json \u2014 no provider key, no Qdrant."
+      ]
+    }
+  ],
+  "judge": [
+    {
+      "check": "answer-grounded",
+      "kappa": 0.1445,
+      "n_labels": 100,
+      "disposition": "demoted",
+      "note": "\u03ba = 0.14 over 100 hand labels, below the 0.7 floor \u2014 demoted to human-labelled; not reported as a judged number."
+    },
+    {
+      "check": "answer-addresses-question",
+      "kappa": 1.0,
+      "n_labels": 100,
+      "disposition": "judged",
+      "note": "\u03ba = 1.00 over 100 hand labels, at or above the 0.7 floor \u2014 kept as a judged check."
+    }
+  ]
+}

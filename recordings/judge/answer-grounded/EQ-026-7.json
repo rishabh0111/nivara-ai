@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:13:59.400345Z",
+  "failure_detail": null,
+  "fingerprint": "7b6d2f9bb80dccd2f81569f56ad71ca953518a9580cba84d9871b77be8a49b97",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-026-7",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "NO\nThe retrieved chunks do not mention the product name \"Meridian\".",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "NO\nThe retrieved chunks do not mention the product name \"Meridian\".",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPA9/543vChr9LLWoXExJBRc2O7JT432mcI3492gFA0nUBNoL+nvnkadqNbPU3M4XNI+i6hJBQ8xYjw/LsvMy5Cve4JWVDz1+eHBMGlBEShs0ySgTqhrRM"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599638,
+      "id": "Vt2basLAC72ug8UPrN-p4Ac",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 15,
+        "prompt_tokens": 516,
+        "total_tokens": 531
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 15,
+      "prompt_tokens": 516
+    }
+  },
+  "retry_after": null
+}

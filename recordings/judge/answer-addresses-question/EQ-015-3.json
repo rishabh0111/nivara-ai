@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:21:33.823512Z",
+  "failure_detail": null,
+  "fingerprint": "f567bc6748b65a8472e85da22970481e962ed40280daaff43e4df14e8d4844d1",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-015-3",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe customer asked which column names the importer expects, and the answer directly lists the required and optional headers based on the retrieved documents.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe customer asked which column names the importer expects, and the answer directly lists the required and optional headers based on the retrieved documents.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPCQZt1o1ptfv4V1+sWRBVe0A0UnOaIfSitbkTRD0FvqeyA6DnlMFB9ycS5hqYjsNmup8Bok7koDgePTB6cLgEJ+D/DxwW4JmY4eLh526Gr9UT2NjGVkB1"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600093,
+      "id": "HN-bav_vKumog8UPk5WUoQc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 28,
+        "prompt_tokens": 597,
+        "total_tokens": 625
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 28,
+      "prompt_tokens": 597
+    }
+  },
+  "retry_after": null
+}

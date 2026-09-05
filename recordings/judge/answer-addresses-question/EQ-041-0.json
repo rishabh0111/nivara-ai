@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:16:54.696537Z",
+  "failure_detail": null,
+  "fingerprint": "8fbdc0ecd4d3a6d4c7d2fd5b575da51a4120f73b5c4fccad0d793bca89a25355",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-041-0",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses whether the user needs to request the data separately or if they can get it themselves for last quarter's usage.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses whether the user needs to request the data separately or if they can get it themselves for last quarter's usage.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPS++pcsRHQcUbE05fq+YDgFrE6ZpkSNDYXyE7uLdtaSXLxDn9+tLRNzn/62LtJqIYV46DRQg+gDdOZzR093LIfCqzLvzSatEchMm6ETCg9VWj8/ZTePfp"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599814,
+      "id": "Bd6baoHnKp3-4-EPyZSssQg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 473,
+        "total_tokens": 502
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 29,
+      "prompt_tokens": 473
+    }
+  },
+  "retry_after": null
+}

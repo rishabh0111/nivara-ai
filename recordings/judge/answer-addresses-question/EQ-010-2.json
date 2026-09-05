@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:16:36.712943Z",
+  "failure_detail": null,
+  "fingerprint": "7f074a4196f82e6679bef76514c9e4c95042b00ac2b791f43de6fda6f40d979b",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-010-2",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the user's issue about the missing SSO option and explains how an admin can check if they have been provisioned, which matches the retrieved documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the user's issue about the missing SSO option and explains how an admin can check if they have been provisioned, which matches the retrieved documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPvnhHaijhCE7vFDVKDtPLfdrNp/xoGVGjnCKQn/VWK6CooyOy7p3vQ0GVSVM/Kc3dyIcC0D3Hw3jCXEhS+SlfKTzYM84mAeqwEmH8Wz9RuUsgY0nK2la/"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599796,
+      "id": "892baqKFKsPcg8UPpPKbgQk",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 36,
+        "prompt_tokens": 487,
+        "total_tokens": 523
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 36,
+      "prompt_tokens": 487
+    }
+  },
+  "retry_after": null
+}

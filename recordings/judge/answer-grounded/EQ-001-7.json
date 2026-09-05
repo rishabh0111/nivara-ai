@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:09:34.571112Z",
+  "failure_detail": null,
+  "fingerprint": "c8353edaab0322c7b1348a66dc8c6ff4e35e6cc7b86b1dcc858871868cdcf0b3",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-001-7",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nAll steps and explanations in the answer are directly sourced from chunks DOC-001#0, DOC-001#1, and DOC-001#2.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nAll steps and explanations in the answer are directly sourced from chunks DOC-001#0, DOC-001#1, and DOC-001#2.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPqJ2gHpETXZWx7sSZ2U0ND9weBdHEmnRik/xSTvpRrOZ1OQua/+3zVXSxWwtN2D6zWCjBbLFp1pdA0l4cYY9iVHwFSW9fdXnsOzjKc8tv89wjaO6Ce2tX"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599374,
+      "id": "Tdybap-UJJ-FjuMPvLLe-AY",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 39,
+        "prompt_tokens": 494,
+        "total_tokens": 533
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 39,
+      "prompt_tokens": 494
+    }
+  },
+  "retry_after": null
+}

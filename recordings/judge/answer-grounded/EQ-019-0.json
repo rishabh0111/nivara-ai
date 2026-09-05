@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:12:29.037501Z",
+  "failure_detail": null,
+  "fingerprint": "81cc8d4dc4b3f27b90d8ae8c206950ffc167027e3eba3e42212ccc56aab94ad9",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-019-0",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer accurately reflects the retrieved documentation regarding record matching, updating rather than duplicating, and handling cases where the matching field was changed.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer accurately reflects the retrieved documentation regarding record matching, updating rather than duplicating, and handling cases where the matching field was changed.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIP/W7ilqNoxvloJ9qzg9pTQiKOpK4MJGqTru8BjExFAbq4EVreVZREodfyUvTklyr9N8Kkg4rtHkXRIfXUbqvni+29CALHRYwtALsMIVQbg+V9p9zpu4Ii"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599548,
+      "id": "_NybaqHBCuK5g8UP4v-hyQc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 28,
+        "prompt_tokens": 504,
+        "total_tokens": 532
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 28,
+      "prompt_tokens": 504
+    }
+  },
+  "retry_after": null
+}

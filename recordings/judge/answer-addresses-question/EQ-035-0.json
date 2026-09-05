@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:24:06.466061Z",
+  "failure_detail": null,
+  "fingerprint": "85681023ee89c03ea5d8daf61728142f062fe7d79ca11b152f2bd9d0fd655571",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-035-0",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses why a newly created record cannot be found via search while it is visible in browse views, referencing the expected indexing delay explained in the retrieved chunks.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses why a newly created record cannot be found via search while it is visible in browse views, referencing the expected indexing delay explained in the retrieved chunks.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIP27RGBJmXNbBgTuhtn7V432ux18KBxB9zUi3mmZ/pScOUT/7b2OKyaTkWtgP1ewxwL40+oQnfag2ZYC8G6amThToy++u+KFraHUfuvhMCbcunjT8FAYl5"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600246,
+      "id": "td-barHNK_K3qfkP8dTkgQs",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 35,
+        "prompt_tokens": 531,
+        "total_tokens": 566
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 35,
+      "prompt_tokens": 531
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:22:41.010198Z",
+  "failure_detail": null,
+  "fingerprint": "8300de49a84c78f33f9b495e96fd6f8b0aa4335323c55ff8bfe988340d7a1fac",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-025-2",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "NO\nThe chunks do not mention the product name \"Meridian\" or the exact UI text \"click **Send test event**\".",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "NO\nThe chunks do not mention the product name \"Meridian\" or the exact UI text \"click **Send test event**\".",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPRqFhXFn5UPdeR5N5ZfEGT1ODIMvElG1W9FBmNtFp9r3nJbOgJH3ucaxD3xUHLl58g06QS6KhHeFXV54I2Qq89B73PGCQG7wzKKJBRztAdXn6uR/iqBLS"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600160,
+      "id": "YN-bao7IC5-FjuMPgorc0Ak",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 27,
+        "prompt_tokens": 469,
+        "total_tokens": 496
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 27,
+      "prompt_tokens": 469
+    }
+  },
+  "retry_after": null
+}

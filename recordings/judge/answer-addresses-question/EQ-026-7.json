@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:14:03.482090Z",
+  "failure_detail": null,
+  "fingerprint": "90a46e15e9c6d56e60ffff36da06f4f304572ce5acf753f01121de3587c7a1b6",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-026-7",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly and accurately explains how pagination works based on the retrieved documentation chunks.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly and accurately explains how pagination works based on the retrieved documentation chunks.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPmvOE98YGkq4SZVfRaF91af9VG2xtUjMaEM864zRXA5cMZ5KDFKbq3Ayjunj8l29gf2pzXK8tkwKikDmf/uu7TAvIv9s86GMRR6knflnVjs3U6by6V21P"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599643,
+      "id": "Wt2bapjIKaPdg8UPktPsgQk",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 18,
+        "prompt_tokens": 514,
+        "total_tokens": 532
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 18,
+      "prompt_tokens": 514
+    }
+  },
+  "retry_after": null
+}

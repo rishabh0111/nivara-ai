@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:09:25.303643Z",
+  "failure_detail": null,
+  "fingerprint": "7a1c5ec4aad3e123c61e2d8ea98d12d507cc2e149836baafe65a3bec22c46b2c",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-006-3",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses whether there is a version or view that separates seat cost, add-ons, and usage overage into their own lines, explaining that the web view in Settings \u2192 Billing \u2192 Invoices provides this line-by-line breakdown.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses whether there is a version or view that separates seat cost, add-ons, and usage overage into their own lines, explaining that the web view in Settings \u2192 Billing \u2192 Invoices provides this line-by-line breakdown.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPcdKgd5LLfRTa/69RRIWikvH2LUmBoVFl17Ul8JvsH2N0Kyo2Oh0XrXHyFcrnrTw49VuTf6/fyltHqgWYcdaTCC9Ywm7hRSnKJL3Zt+vF+ghHrJ6twPtE"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599365,
+      "id": "RNybauaHG62yg8UPwuTxuQg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 52,
+        "prompt_tokens": 577,
+        "total_tokens": 629
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 52,
+      "prompt_tokens": 577
+    }
+  },
+  "retry_after": null
+}

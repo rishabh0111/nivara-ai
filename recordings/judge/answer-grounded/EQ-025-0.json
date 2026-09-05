@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:23:34.872859Z",
+  "failure_detail": null,
+  "fingerprint": "a1972d157e19cc13448213faf5b0eba6d1fc06bc1fde1ad0182cfaea5f0c2114",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-025-0",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "NO\nThe retrieved chunks do not mention \"Meridian dashboard\".",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "NO\nThe retrieved chunks do not mention \"Meridian dashboard\".",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIP/oJQ7JdBz+HEW4no3qdfxtSgwjyfOhXtZxQ6UF1xqa8sh3qivU2d6GCFfCputL10tQH9+C/qPWXvZtqZHcfs+wQfVjtvDluicwpMuQi31ywASlYHrci5"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600214,
+      "id": "lt-basCxDbiqg8UP0b_HoAc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 13,
+        "prompt_tokens": 503,
+        "total_tokens": 516
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 13,
+      "prompt_tokens": 503
+    }
+  },
+  "retry_after": null
+}

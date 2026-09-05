@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:21:11.100485Z",
+  "failure_detail": null,
+  "fingerprint": "905571d33e88a2b7a8576d3613a628be69367de68d4979c1b23339495d1ea6b5",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-028-4",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nEvery claim in the answer (seat limit location, blocking behavior, seat freeing rules, and upgrading) is directly supported by DOC-028#0 and DOC-029#0.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nEvery claim in the answer (seat limit location, blocking behavior, seat freeing rules, and upgrading) is directly supported by DOC-028#0 and DOC-029#0.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPJPyNxM6dC97vQRPrcqmzkqVwULknYHrQSOO5ds9KsgBs07KBGbvm0FyGZ7BKUQXp0hx/Fbq22yCTMyTQNXdopawP5NsbLZL2m3MVT9CeFBAQBm+ammj5"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600070,
+      "id": "Bt-bao7oCu6_g8UP_d6C2Ag",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 42,
+        "prompt_tokens": 597,
+        "total_tokens": 639
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 42,
+      "prompt_tokens": 597
+    }
+  },
+  "retry_after": null
+}

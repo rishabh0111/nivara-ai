@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:17:12.824219Z",
+  "failure_detail": null,
+  "fingerprint": "665ed8b019f2775c559879ac1d3e31e066ed51ce71bc33775734e34be98fcdaa",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-002-4",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe customer asked about the timing of an annual switch, and the system correctly answered that it takes effect immediately.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe customer asked about the timing of an annual switch, and the system correctly answered that it takes effect immediately.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPWjjBWe6nq/qHJicFM+AW0K6ObLWfUq2Yx+1R3euqsonRwi/3E9AiSouIR2JzXYUMQt5JUcmUM2+QkIHWpljr7yhSOFNJpNS21NPzcA+B/e2OYrmJTPTB"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599832,
+      "id": "F96bao6PK-mog8UPk5WUoQc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 24,
+        "prompt_tokens": 462,
+        "total_tokens": 486
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 24,
+      "prompt_tokens": 462
+    }
+  },
+  "retry_after": null
+}

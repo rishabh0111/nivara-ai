@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:19:50.313273Z",
+  "failure_detail": null,
+  "fingerprint": "30fc9a194b2b4c61231736778be0a99fc37a7e7ad0e4dc7e4cb89c5c577b2de2",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-002-0",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe system's answer accurately reflects the information in chunk DOC-002#1 regarding switching to annual billing taking effect immediately, being charged right away, being prorated, and the renewal date resetting.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe system's answer accurately reflects the information in chunk DOC-002#1 regarding switching to annual billing taking effect immediately, being charged right away, being prorated, and the renewal date resetting.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPtaYMx9v6xkob6I8pnh7zzSZYgUVlH/R7I9X6FNH3udY3Avdhx86z3gjBtFlBHwZJ834TLQhGZpEDAXy719aTSfrQFQg9FzB0mZAIryuJTZ53sOJSyMrK"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599990,
+      "id": "td6baqu7C935g8UPssWI-Qc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 44,
+        "prompt_tokens": 495,
+        "total_tokens": 539
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 44,
+      "prompt_tokens": 495
+    }
+  },
+  "retry_after": null
+}

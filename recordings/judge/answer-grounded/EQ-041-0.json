@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:16:50.390748Z",
+  "failure_detail": null,
+  "fingerprint": "a929141ddccf815e793cded3480934bcdf1b08830347f157570a19342ac26b39",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-041-0",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer accurately reflects that the data can be exported directly from Settings \u2192 Billing \u2192 Usage using a custom date range, that it produces the same data as a support request without the wait, and that it is subject to the workspace's data retention window, all of which are supported by chunks DOC-041#0, DOC-041#1, and DOC-041#2.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer accurately reflects that the data can be exported directly from Settings \u2192 Billing \u2192 Usage using a custom date range, that it produces the same data as a support request without the wait, and that it is subject to the workspace's data retention window, all of which are supported by chunks DOC-041#0, DOC-041#1, and DOC-041#2.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIP9nUc6XoAfsEtA3t7FCnqaIaTGOjHpkG9zmm/Q2i31oRfkcQFwITx4OZbPMynn+CfXy2G1XIwCyAB0Fr2s6XNuTOpIezRRSqytAUzFlyTHr1RqaIwJ0sz"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599810,
+      "id": "Ad6bavbsD_K3qfkP8dTkgQs",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 85,
+        "prompt_tokens": 475,
+        "total_tokens": 560
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 85,
+      "prompt_tokens": 475
+    }
+  },
+  "retry_after": null
+}

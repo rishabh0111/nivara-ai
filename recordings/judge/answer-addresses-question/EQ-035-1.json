@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:19:27.396417Z",
+  "failure_detail": null,
+  "fingerprint": "1a70dcc5c3c968c2183c5e56d8cafb035a6432b3061c69d4b25111f8ea85db2c",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-035-1",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe system's answer directly addresses the customer's issue about a newly created record missing from search, using the provided context correctly.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe system's answer directly addresses the customer's issue about a newly created record missing from search, using the provided context correctly.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPYOq511Nebblf8zHRT+94PwGLkNMRZgc8YKnS5Xt10FeTWhWvOeGCnIxOiHdcVXh8yHG/Zqzccyd1Iw3Z461BXctkjDWru1Jb4N/tkAqy0zJVv84hUG5h"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599967,
+      "id": "nt6bav6UK_uSg8UP7Z_ygAs",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 485,
+        "total_tokens": 514
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 29,
+      "prompt_tokens": 485
+    }
+  },
+  "retry_after": null
+}

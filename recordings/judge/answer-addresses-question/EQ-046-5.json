@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:18:33.512668Z",
+  "failure_detail": null,
+  "fingerprint": "4579c1e7169ab1f5192c566fe7c184428783cc2c81138ca3407dbd4cf55855b0",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-046-5",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses how the customer can check if the brief 503 window matches a known incident using the status page, matching the retrieved documentation and the user's prompt.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses how the customer can check if the brief 503 window matches a known incident using the status page, matching the retrieved documentation and the user's prompt.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPAswvJGStzqJ/C4KUXLAR5K+O3jxe+0RWyY0hU1hggT6yZ6ov1qZVzSr50VJnPuxnoM9awhyKgIHVRMgZk3udtIU+KzGMXQxUrqDI5zhr0iqc6OhFvq2K"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599913,
+      "id": "aN6bav-2KoCtg8UPverc8Qg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 39,
+        "prompt_tokens": 546,
+        "total_tokens": 585
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 39,
+      "prompt_tokens": 546
+    }
+  },
+  "retry_after": null
+}

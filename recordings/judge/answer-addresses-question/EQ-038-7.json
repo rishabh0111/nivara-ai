@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:17:03.502837Z",
+  "failure_detail": null,
+  "fingerprint": "2317d4c0faca2875d34854e4a2dbd84f1bbeec14ca97b8db61ab89de07527f07",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-038-7",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses whether renaming breaks integrations based on the retrieved documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses whether renaming breaks integrations based on the retrieved documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPeuJEKONOFEA2uQ4RqLkkki3mbkmycZO1qKQN9yf2Z2GL0OZGR7AG50nmAP17Usun8Gt0ofKLzJ/vGmt1CWWTIz4cF78bCqrk0JtThFFtMafSUay4ShNk"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599823,
+      "id": "Dt6basfDKM63g8UPm-XyyQg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 16,
+        "prompt_tokens": 433,
+        "total_tokens": 449
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 16,
+      "prompt_tokens": 433
+    }
+  },
+  "retry_after": null
+}

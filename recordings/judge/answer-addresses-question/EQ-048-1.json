@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:21:24.431606Z",
+  "failure_detail": null,
+  "fingerprint": "ed3dca4096b9bf55659759c974938927f7263971a7e016f49d30c2b22bef76a7",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-048-1",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe system's answer directly and accurately addresses the customer's question about how to subscribe to incident alerts using the information from the retrieved chunks.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe system's answer directly and accurately addresses the customer's question about how to subscribe to incident alerts using the information from the retrieved chunks.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIP+byVg03BRpAr+k/l9Fno8OBeHHJPZgiHF5O1W4lWPQj8dgxk52ZqsZccLt5snUo7wBRd5DbIqCnxUPhS9mRCBULxnDKrtHPDb+BxZazY8mCx93mc723Z"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600084,
+      "id": "E9-baqb2KvudjuMPp92JwAg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 452,
+        "total_tokens": 483
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 31,
+      "prompt_tokens": 452
+    }
+  },
+  "retry_after": null
+}

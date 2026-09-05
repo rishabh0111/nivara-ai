@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:20:22.159619Z",
+  "failure_detail": null,
+  "fingerprint": "90f3139219ba79a8d122d39d29469759d74f6f567a7470af1de011a57fa7663d",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-011-6",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses whether two-factor authentication is set up individually or requires admin action for the whole workspace.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses whether two-factor authentication is set up individually or requires admin action for the whole workspace.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPNvoZEa5+Gans/HiezYwA5yBTQN2pmcbShGbUaV+L6MkfO9k9j4L329Yqu4/clICYtuPFbgcQdbGZOlSqrovq+XB/JqIlMMlwN4G8g7ZuONK9u8umhvLs"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600021,
+      "id": "1N6bauGhKeaujuMPz9ajmAs",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 24,
+        "prompt_tokens": 495,
+        "total_tokens": 519
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 24,
+      "prompt_tokens": 495
+    }
+  },
+  "retry_after": null
+}

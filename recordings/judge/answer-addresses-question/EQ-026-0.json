@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:10:15.905003Z",
+  "failure_detail": null,
+  "fingerprint": "50d01338a036ff1301f64232ce5e8acf560b808cfe9b8b6e2c2ab466a462617a",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-026-0",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe system's answer directly addresses the customer's question about fixing pagination in their integration to retrieve records beyond the first page, using the retrieved documentation chunks correctly.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe system's answer directly addresses the customer's question about fixing pagination in their integration to retrieve records beyond the first page, using the retrieved documentation chunks correctly.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIP11fON0LN7oe7h8DixFNKc3egfmX5wXREyJ868fgKWttosY2GGJLukGNVhvFr5PYBepNzIJtwwpvpkQyIKKLgsZEEnTvdeZHRfIcjXYv5lCiDRJw5gG92"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599415,
+      "id": "d9ybasSKDZXlg8UPtcvBsQI",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 35,
+        "prompt_tokens": 624,
+        "total_tokens": 659
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 35,
+      "prompt_tokens": 624
+    }
+  },
+  "retry_after": null
+}

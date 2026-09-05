@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:14:57.955934Z",
+  "failure_detail": null,
+  "fingerprint": "e4e44c34956ca2729745000eec9260965187a4ce78db340c7a0eaebba9850a30",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-029-1",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe system's answer directly addresses the customer's question about swapping seats while avoiding a double charge using the provided retrieval chunks.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe system's answer directly addresses the customer's question about swapping seats while avoiding a double charge using the provided retrieval chunks.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPlpj1eLsbLjLOEIdQSpQ+h+qt1QgnK5jQhj16Kh4fuIDWfAEovnFII23m3oMB2cSu+lhup+ZzdHIztXzkd1loY5oimTAMAkrA6GaeCTZl5vNeU0csYMPe"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599697,
+      "id": "kN2basf0KYSFjuMPyJPr4Qs",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 28,
+        "prompt_tokens": 540,
+        "total_tokens": 568
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 28,
+      "prompt_tokens": 540
+    }
+  },
+  "retry_after": null
+}

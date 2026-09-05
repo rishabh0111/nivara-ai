@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:23:48.700931Z",
+  "failure_detail": null,
+  "fingerprint": "b9b9b30f70d7b08a0e700838da6134bf9af3816475bc8d6dac9e5fc9e4f216f9",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-009-5",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe system directly answers whether flipping on SSO immediately blocks unprovisioned staff, explaining that password sign-in coexists until explicitly required otherwise.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe system directly answers whether flipping on SSO immediately blocks unprovisioned staff, explaining that password sign-in coexists until explicitly required otherwise.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIP+/jYeAw6U935IfQValLtBcu25cBMq8G/9Qw1RAXX+EgWlGzL4djI/wdEy6khE0rZNi4lBj6Ak0/AKuI2cbmIybpA+jnxjDRYq0+7xXrqpGBR/3tAFQPC"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600228,
+      "id": "o9-bao21K62yg8UPwuTxuQg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 553,
+        "total_tokens": 583
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 30,
+      "prompt_tokens": 553
+    }
+  },
+  "retry_after": null
+}

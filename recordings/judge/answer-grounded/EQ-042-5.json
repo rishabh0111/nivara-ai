@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:24:11.023907Z",
+  "failure_detail": null,
+  "fingerprint": "bcb6e0bb3ced9d28c4d1ec937d7229139f9ee20ba481c971b141a6d63c7dd5c0",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-042-5",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe response accurately reflects the retrieved documentation regarding the default wall-clock behavior and the business-hours configuration setting.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe response accurately reflects the retrieved documentation regarding the default wall-clock behavior and the business-hours configuration setting.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPuR08/2PtEiMPllwfL/ZJnhW5vR3EU/GaOrPlrHr50zdQ7zZOiwAtfg5shpVebG2xvm4Dlynd/dkEh6toQ/a3ob9roif4SRK4+MBHpXYVnrJSnX8FoXRd"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600250,
+      "id": "ut-bav7GC_uSg8UP2Z_ygAs",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 24,
+        "prompt_tokens": 521,
+        "total_tokens": 545
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 24,
+      "prompt_tokens": 521
+    }
+  },
+  "retry_after": null
+}

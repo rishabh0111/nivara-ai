@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:22:36.747795Z",
+  "failure_detail": null,
+  "fingerprint": "5af1bf7027a9782060536715a7d41919fdcdae03d7b172178c23a88c3ad8dd6d",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-007-3",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe system's answer directly explains that invoices go out on the same calendar day of the month as the workspace's original billing date and tells the customer exactly where to find that specific date in their settings.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe system's answer directly explains that invoices go out on the same calendar day of the month as the workspace's original billing date and tells the customer exactly where to find that specific date in their settings.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPJUTx7np0VN7wdbltrFO97lXjmQNzunzfcdHKE6790J24xsS1RJHQGJYkUQUCNnr2pQE7a+QgYZWh1uXlBL15sDkUFx/7fDsJ9675b6ZIhEdp5CwdcBkI"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600156,
+      "id": "W9-baqPwOpXlg8UPtcvBsQI",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 44,
+        "prompt_tokens": 510,
+        "total_tokens": 554
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 44,
+      "prompt_tokens": 510
+    }
+  },
+  "retry_after": null
+}

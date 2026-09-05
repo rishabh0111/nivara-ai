@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:20:35.111245Z",
+  "failure_detail": null,
+  "fingerprint": "c6f6208d1210322187d78ea4eb233e5c7ae31896f89f29887864ab0b3cef15dd",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-013-5",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "NO\nThe retrieved chunks state that Meridian supports \"any identity provider that speaks SAML 2.0 or OpenID Connect, which covers the major providers in common use,\" but the Answer specifically names \"Azure AD, Okta, Google Workspace, etc.,\" which are not mentioned anywhere in the retrieved chunks.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "NO\nThe retrieved chunks state that Meridian supports \"any identity provider that speaks SAML 2.0 or OpenID Connect, which covers the major providers in common use,\" but the Answer specifically names \"Azure AD, Okta, Google Workspace, etc.,\" which are not mentioned anywhere in the retrieved chunks.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIP5ieVVkcQB2GSqobLsCYuwZZl4+Bn4IOy3skEfaWmJjnxTSAjKSTt2RNIZuk4BTM8EfSRswpK1YzYu1woEUTrjJzhyXXBj/pdQIfbHQ3hIEChjuk0aATy"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600034,
+      "id": "4t6bavO7DO6_g8UPoJqH6AY",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 62,
+        "prompt_tokens": 569,
+        "total_tokens": 631
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 62,
+      "prompt_tokens": 569
+    }
+  },
+  "retry_after": null
+}

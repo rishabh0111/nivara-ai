@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:19:45.600297Z",
+  "failure_detail": null,
+  "fingerprint": "bd53342544678c89562092b95c78fbee735711e9d1eb69491b095e5eaa7fe03e",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-011-3",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the customer's question about where the two-factor/MFA option is located in the account settings.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the customer's question about where the two-factor/MFA option is located in the account settings.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPmXEQ0lDg7Af1Prk50TQHm8yVVckx+nPcnEyY7tN0eMpbQZjgWwZBpK8zFVquCpHB2MxS8KfPc9IyQQJlNkdfA3qO5emx+/OfC0Wps7/7JUrH4OFvnK/b"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599985,
+      "id": "sN6bas7RKrS8mNMPqZvB6Ak",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 28,
+        "prompt_tokens": 496,
+        "total_tokens": 524
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 28,
+      "prompt_tokens": 496
+    }
+  },
+  "retry_after": null
+}

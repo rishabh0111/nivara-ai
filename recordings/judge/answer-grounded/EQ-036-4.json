@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:13:40.950746Z",
+  "failure_detail": null,
+  "fingerprint": "d8563ca3e58934b8c332f418b371a288bf9a48c3a1a50731074dfb988f191023",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-036-4",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe response accurately reflects the retrieved chunks regarding profile notification settings, specific types (mention, status-change, digest, assignment), and the immediate effect on the user's account.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe response accurately reflects the retrieved chunks regarding profile notification settings, specific types (mention, status-change, digest, assignment), and the immediate effect on the user's account.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPxSwPpiBNd2Nwpx33aKAvWesye9Y5ltJkI8uuZQqE/tmrulnojUVzkvw1lHh58RavfZPyb38n36LdmlTIbiFcPK0MrDTHYPNFlnD4vyVKMX6KEcabj/RB"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599620,
+      "id": "RN2baub5CoOtg8UP-JC52Qc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 38,
+        "prompt_tokens": 471,
+        "total_tokens": 509
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 38,
+      "prompt_tokens": 471
+    }
+  },
+  "retry_after": null
+}

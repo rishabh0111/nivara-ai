@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:24:38.006859Z",
+  "failure_detail": null,
+  "fingerprint": "0aa99f8cc3995ec4d8240b67dc16422802629b972c4fc90dba7fc845b0cacf33",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/RP-034",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nEvery claim in the answer (such as webhook deliveries failing before reaching the system, expired TLS certificates, firewall changes, and non-2xx status) is directly supported by chunk DOC-022#0.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nEvery claim in the answer (such as webhook deliveries failing before reaching the system, expired TLS certificates, firewall changes, and non-2xx status) is directly supported by chunk DOC-022#0.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPQb6wsgwKb9j0qZ+d1va5IoEFEhRACIGMmJ/0rTTCWxEVWBALQ4HjI2pXi1zbHqhLvNE/dAEGgGJTWUipKl7V14Yu3gqau8LwbpmLItagFZ5mK0Nc3EGu"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600277,
+      "id": "1d-bavibDpHFg8UPj5migQg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 45,
+        "prompt_tokens": 535,
+        "total_tokens": 580
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 45,
+      "prompt_tokens": 535
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:15:29.194009Z",
+  "failure_detail": null,
+  "fingerprint": "129a0349b6c345107fb26f8e6f593a60209c8f8885231c0d91aed758543fbe8c",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-034-3",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe Answer accurately reflects the retrieved information regarding UTC storage, workspace defaults, personal profile settings overriding the default, and how the timezones affect what users see.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe Answer accurately reflects the retrieved information regarding UTC storage, workspace defaults, personal profile settings overriding the default, and how the timezones affect what users see.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIP6IMctj+cJ33mSWBic3S9pf7rlRxOkX9snNz4XnbF5Lr5I9yIAl+FMMKSv2AEOdaD/i1eU1g2LyRlC67oK757XpUOL7O1k1fe7nYDTjkFTot1EnMTSO+D"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599729,
+      "id": "sN2baqnOC7iqg8UP0b_HoAc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 33,
+        "prompt_tokens": 553,
+        "total_tokens": 586
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 33,
+      "prompt_tokens": 553
+    }
+  },
+  "retry_after": null
+}

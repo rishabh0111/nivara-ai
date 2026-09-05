@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:24:15.473790Z",
+  "failure_detail": null,
+  "fingerprint": "fce11e2bee0a7918bc20292996e09502bca58c83eb303d2e6d2309002d1ad4f5",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-042-5",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the user's question about whether the default response-time metric factors out weekends and holidays by confirming that it does not (it is a wall-clock measurement), while also helpfully explaining how to enable the business-hours version if needed.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the user's question about whether the default response-time metric factors out weekends and holidays by confirming that it does not (it is a wall-clock measurement), while also helpfully explaining how to enable the business-hours version if needed.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIP3syR8nDfjjSW7YMyBvTQnoXLOlHTt3osTqqtUrtqDwnCxsuNPZgkc/aQsVAJuVt9WG1z9BG54tY/pODcz9SG7Z9JhTQPfrEeEf0rL/I5VLFDwFes5ieY"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600255,
+      "id": "vt-bat_XK4LCg8UPstyB0Qg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 55,
+        "prompt_tokens": 519,
+        "total_tokens": 574
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 55,
+      "prompt_tokens": 519
+    }
+  },
+  "retry_after": null
+}

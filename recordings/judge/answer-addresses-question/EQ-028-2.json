@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:09:29.247702Z",
+  "failure_detail": null,
+  "fingerprint": "fc42cf828c44da6633936654fbbe91908f022e80ef37844abe919a5f44752b0d",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-028-2",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer addresses both whether there is a seat cap and how fast it can be raised (instantly), matching the retrieved information.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer addresses both whether there is a seat cap and how fast it can be raised (instantly), matching the retrieved information.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPtXtf1As8iK7SHZGYRHs6YhtqbOf/1lFmg/uusnOyaveBewg8qddBaFBeJo/8eF+UHUzMC7aHxmXLAaDbbyOsrpq7WQrApVf8BrkyFxJvNmF4pkij2oxo"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599369,
+      "id": "SNybatrGIa6lg8UPyILtiAs",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 28,
+        "prompt_tokens": 565,
+        "total_tokens": 593
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 28,
+      "prompt_tokens": 565
+    }
+  },
+  "retry_after": null
+}

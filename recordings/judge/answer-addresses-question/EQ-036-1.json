@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:19:18.697457Z",
+  "failure_detail": null,
+  "fingerprint": "1885efda4b0e13a242d8999730c6f0532c6ccb3e9eb3f4c8c5dc470326e90bb7",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-036-1",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the customer's request to only be notified for their own assignments by providing the exact steps from the retrieved documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the customer's request to only be notified for their own assignments by providing the exact steps from the retrieved documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPK5JwBEYLkaZLDXYHK3WKvRlYjRf1b2W+olUWx3SEkK7zVmiJzQ7npCBHM/bL99r2lYg6zVJgaDKHjEn1j8iuki9jKom5w71ELU4baSCk8v+fT8kY8dZx"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599958,
+      "id": "ld6baqjEKdflg8UPmqzl-Aw",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 523,
+        "total_tokens": 552
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 29,
+      "prompt_tokens": 523
+    }
+  },
+  "retry_after": null
+}

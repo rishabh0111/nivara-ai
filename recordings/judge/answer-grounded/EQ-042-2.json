@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:12:19.963199Z",
+  "failure_detail": null,
+  "fingerprint": "5418f11575bb76c04b4e055f1df4cfee2b9ea6e667ea48028545e0d87951b5e0",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-042-2",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer accurately reflects the retrieved documentation regarding the wall-clock measurement (including weekends) and the custom side-by-side dashboard feature.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer accurately reflects the retrieved documentation regarding the wall-clock measurement (including weekends) and the custom side-by-side dashboard feature.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPz9gfT5vx3hYn9Eb2iysTSHqP4af1vEIqq0aiUJHpS3o7ArEGOsB6gBjbCUIq+6rQFAl3yr+2gtzBmvJEeOHIdMpaqzt5/H+wUz1PfXBKt/WZohRdSSBm"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599539,
+      "id": "89ybauSDC_uSg8UP2J_ygAs",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 499,
+        "total_tokens": 529
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 30,
+      "prompt_tokens": 499
+    }
+  },
+  "retry_after": null
+}

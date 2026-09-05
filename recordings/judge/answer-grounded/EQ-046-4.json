@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:16:40.968213Z",
+  "failure_detail": null,
+  "fingerprint": "c660350eb63f32babf0734562c3c755a517180ba3f33e2fd3361bced087a77a8",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-046-4",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer accurately reflects the retrieved information regarding checking the status page for incidents, start/end times, 503 responses, and local troubleshooting if nothing is listed.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer accurately reflects the retrieved information regarding checking the status page for incidents, start/end times, 503 responses, and local troubleshooting if nothing is listed.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIP2cYDzXFN64BcnZngKSgAEgiTdQhLr9K5Zli8Ze96IfreKF1k1/4Xom3PokAYt8SgZgMIb5TELdK/o9ZQXwKTA4zEbZ28tR6PviInX9f7j9b3vtSzb11T"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599800,
+      "id": "-N2baoqwDKH5g8UP8YWi6Ac",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 36,
+        "prompt_tokens": 529,
+        "total_tokens": 565
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 36,
+      "prompt_tokens": 529
+    }
+  },
+  "retry_after": null
+}

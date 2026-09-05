@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:20:48.552013Z",
+  "failure_detail": null,
+  "fingerprint": "499c0daf33b47aae5e5dec022ea5991c2a913cef0107793afbed06bf3a0739a5",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-003-7",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the customer's question about backdating a name correction on invoices by explaining that Meridian does not reissue past invoices and changes only apply moving forward.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the customer's question about backdating a name correction on invoices by explaining that Meridian does not reissue past invoices and changes only apply moving forward.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPzEjwhfuQpb7DUJgGVZI/4F4K35kjSmGbg1e23rOUBTHBqaRzPFWKzJ8yhnfW5M2LL17QOgBwpUfyneADPGUVgtaAPUWxJuRI8KjvZw6JqvkLSAfPgFR9"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600048,
+      "id": "796baoHsKeK5g8UP4v-hyQc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 35,
+        "prompt_tokens": 456,
+        "total_tokens": 491
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 35,
+      "prompt_tokens": 456
+    }
+  },
+  "retry_after": null
+}

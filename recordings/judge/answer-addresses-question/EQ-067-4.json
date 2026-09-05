@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:17:39.549610Z",
+  "failure_detail": null,
+  "fingerprint": "9189d355dc73e22c8c8a698f8a8ff0d7c8a8924f4baa0052b0b68cff525b3de2",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-067-4",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe system's answer directly addresses the requirements for an acquisition transfer as outlined in the retrieved documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe system's answer directly addresses the requirements for an acquisition transfer as outlined in the retrieved documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPA8hn7797mm+rvWVg05h81FvHCOYp5n50HCWG7V6hB/6/wpdZJtcBY6Cpi7VzdIjo4SLzK5Js67RY1cO+pBuSFBGouUxn4rpM8VQbFDucee87XhmH96ZZ"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599859,
+      "id": "Mt6baqykKdrdg8UP7OGmoAc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 22,
+        "prompt_tokens": 508,
+        "total_tokens": 530
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 22,
+      "prompt_tokens": 508
+    }
+  },
+  "retry_after": null
+}

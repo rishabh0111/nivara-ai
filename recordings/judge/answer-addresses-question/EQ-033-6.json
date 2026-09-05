@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:10:18.717722Z",
+  "failure_detail": null,
+  "fingerprint": "1f5a15331b27fcc83a720fe3100f8fcd111993701912c56ad9d45a4ace8480b8",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-033-6",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses whether historical assignments are preserved or if the change only affects future capabilities, fully matching the customer's question using the retrieved documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses whether historical assignments are preserved or if the change only affects future capabilities, fully matching the customer's question using the retrieved documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPubfqqXdTdp5RnI0BSL6zQHD2yxAvvxsCU+WXPw7cg2ldR4M5oaF8LGOPAaPfde8I+v1KvSWWBap6z8frG2iJO6cEO7l2DfzoALQPODiOA/JLZC+iUUdz"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599418,
+      "id": "etybat5W-5KDxQ_tn_KACw",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 493,
+        "total_tokens": 525
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 32,
+      "prompt_tokens": 493
+    }
+  },
+  "retry_after": null
+}

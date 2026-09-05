@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:09:24.291763Z",
+  "failure_detail": null,
+  "fingerprint": "9d4a5ffa34e20a4bcffd1f5a9968dcaae779e615587f0a0eea264c5f32a571e1",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-006-3",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe retrieved chunks state that invoices break down into seat charges, add-ons, and overages, and that you can open the invoice from Settings \u2192 Billing \u2192 Invoices and expand a line item to see the breakdown. The distinction about the PDF versus the web view is a reasonable inference based on the customer stating \"The PDF invoice just shows one total\" and the documentation stating how to view the breakdown in the portal.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe retrieved chunks state that invoices break down into seat charges, add-ons, and overages, and that you can open the invoice from Settings \u2192 Billing \u2192 Invoices and expand a line item to see the breakdown. The distinction about the PDF versus the web view is a reasonable inference based on the customer stating \"The PDF invoice just shows one total\" and the documentation stating how to view the breakdown in the portal.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPpWtKj40WzIn2bEGlfbqmeOzWSjgU/GvKmaZh2cqUpW1J2THK56m3F1BDC0dsxUaAxD1ciC4CyExw7nhY2WO2omvOhWJiskFo9H/xGxNG1hPN6rTW14Fh"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599364,
+      "id": "Q9ybaqLBDYjVqfkPqP-J-Qc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 86,
+        "prompt_tokens": 579,
+        "total_tokens": 665
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 86,
+      "prompt_tokens": 579
+    }
+  },
+  "retry_after": null
+}

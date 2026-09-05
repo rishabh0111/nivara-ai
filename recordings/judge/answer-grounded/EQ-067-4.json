@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:17:35.086711Z",
+  "failure_detail": null,
+  "fingerprint": "0809ed15f6e08bc9e2efa19496bfa6d83c5885a1090b3d1c5b9793638ffeb0f5",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-067-4",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer accurately reflects the retrieval chunks regarding contacting support, providing documentation (announcements, legal paperwork, company confirmation), and the reviewer verifying the request.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer accurately reflects the retrieval chunks regarding contacting support, providing documentation (announcements, legal paperwork, company confirmation), and the reviewer verifying the request.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPtulIacurJkhjsFjKonfQs6Vpw2uqUyoXIFgEusfsa3bGA0sAmbUWgq8Cv68l08gX2eNynFyweg5vVb6xzgEpnHEPJur3PDqcPdrcoA8HN7QWAg3k6mFl"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599854,
+      "id": "Lt6baqSqCuK5g8UP4v-hyQc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 510,
+        "total_tokens": 542
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 32,
+      "prompt_tokens": 510
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "check": "answer-grounded",
+    "kappa": 0.1445,
+    "n_labels": 100,
+    "disposition": "demoted",
+    "note": "\u03ba = 0.14 over 100 hand labels, below the 0.7 floor \u2014 demoted to human-labelled; not reported as a judged number."
+  },
+  {
+    "check": "answer-addresses-question",
+    "kappa": 1.0,
+    "n_labels": 100,
+    "disposition": "judged",
+    "note": "\u03ba = 1.00 over 100 hand labels, at or above the 0.7 floor \u2014 kept as a judged check."
+  }
+]

@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:22:05.055132Z",
+  "failure_detail": null,
+  "fingerprint": "551c656af1b9fff30c5e15c1aaab73b6a24cf57bf562675b4465976219a73347",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-006-5",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer accurately reflects the steps in the retrieved chunks for viewing line items (Settings \u2192 Billing \u2192 Invoices and expanding line items) and notes the details about PDFs and breakdowns present in the retrieved texts.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer accurately reflects the steps in the retrieved chunks for viewing line items (Settings \u2192 Billing \u2192 Invoices and expanding line items) and notes the details about PDFs and breakdowns present in the retrieved texts.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPDtMNYV2TZJKRZRDd9dhhrje8Bba8qVN6xukQIhK0CQ95B2DMUEkUtgcpgwjcya/JZfhCPP42PC8hunBdoRCHXxVkdvtMYyLFqFwgCut2fapD4/AT2rcJ"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600125,
+      "id": "PN-baqnDEtO0g8UPi-Ct6Ak",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 42,
+        "prompt_tokens": 524,
+        "total_tokens": 566
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 42,
+      "prompt_tokens": 524
+    }
+  },
+  "retry_after": null
+}

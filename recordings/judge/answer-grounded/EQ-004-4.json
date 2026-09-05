@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:17:16.914217Z",
+  "failure_detail": null,
+  "fingerprint": "cc810a842123943d9118c043e57dd38afa42f4af9cd2d88be0bbb54d53101c20",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-004-4",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer accurately reflects the path provided in chunk DOC-004#1 and correctly describes the functionality of adding or replacing email addresses for invoice emails as supported by the retrieved text.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer accurately reflects the path provided in chunk DOC-004#1 and correctly describes the functionality of adding or replacing email addresses for invoice emails as supported by the retrieved text.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPV7hYSLdbOA+ZaryNy5aX7H824bwPpiyIkxiqFZVqX2fGgJkfw89Z5Woqhglv2zbNMV4LYwciFLrmVsXUwY9nMDMei4xI6qNjlolmClN8V7j9hz03gbMq"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599836,
+      "id": "HN6basjACvK3qfkP8dTkgQs",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 39,
+        "prompt_tokens": 461,
+        "total_tokens": 500
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 39,
+      "prompt_tokens": 461
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:16:23.152993Z",
+  "failure_detail": null,
+  "fingerprint": "5bc8d0a1e22dab371b1c0434da95c79b23a8faa4233b1b8bc0fbf692c738175c",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-032-2",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer accurately reflects the retrieved information regarding automations during migration, tier-gated features, and where to check the rule status.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer accurately reflects the retrieved information regarding automations during migration, tier-gated features, and where to check the rule status.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPLa+g3BK0BMZ88yXYq4Bvxt9E6L2PZGglTJcjki9jTQCxrrZvqPRILn3wiuqdQmni8MNh+0e5zqbv00xo7trYXQN+Arh41ElWNKC8/g8rYmHzeCqfT1Y8"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599782,
+      "id": "5t2baobfCpO8juMP1PO4yAw",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 552,
+        "total_tokens": 581
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 29,
+      "prompt_tokens": 552
+    }
+  },
+  "retry_after": null
+}

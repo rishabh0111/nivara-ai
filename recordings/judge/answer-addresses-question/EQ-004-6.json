@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:18:15.594362Z",
+  "failure_detail": null,
+  "fingerprint": "6cf6d502aca4b07b67d3cb94e291c1d7a351aa63f172fd5904cd24a9ed6fd896",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-004-6",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses whether the invoice recipient is tied to the personal login and confirms that a separate email address can be set for billing.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses whether the invoice recipient is tied to the personal login and confirms that a separate email address can be set for billing.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPf0mwE5kAmQclUi65FlNRRwvevKowIdW7+H0zeVcFan4UGcZDjcAdDqldblALiBT/RVPu4c5XoBTpDW4BWoTjggcLEIEJA8k+MbrHapQNxNdU5o6AWGVy"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599895,
+      "id": "Vt6bapOcK_q2g8UPjrinyQc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 462,
+        "total_tokens": 491
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 29,
+      "prompt_tokens": 462
+    }
+  },
+  "retry_after": null
+}

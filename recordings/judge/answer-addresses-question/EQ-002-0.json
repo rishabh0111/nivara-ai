@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:19:54.729114Z",
+  "failure_detail": null,
+  "fingerprint": "e9a70e8175b03783cfaef697f7045ef767a0d1ae18a70b8c34cc3e9911a98417",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-002-0",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses whether the discount/annual billing applies right away or at renewal, confirming that it takes effect immediately based on the retrieved documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses whether the discount/annual billing applies right away or at renewal, confirming that it takes effect immediately based on the retrieved documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPgNy/qeKJ5qpbabnwzwebGp1kY63zfvxG+IfHsXHoXtRzrb+q6JaHEslPq+0ZPVtLZn0Nvgf/oHlBXoF1rCpRGgyU60T0ycvVkve7d4/LGS7X5xRcVjF6"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599994,
+      "id": "ud6batiaK-K5g8UP4v-hyQc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 493,
+        "total_tokens": 524
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 31,
+      "prompt_tokens": 493
+    }
+  },
+  "retry_after": null
+}

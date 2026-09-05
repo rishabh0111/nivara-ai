@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:23:03.454613Z",
+  "failure_detail": null,
+  "fingerprint": "f3ce99a48bfa8e688d3e055a5998609c6fa39a93ed245d9f912d72098b66bab1",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-040-5",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe system directly addresses how to check if the scheduled report is still configured to run, using the exact navigation steps and troubleshooting details provided in the retrieved chunks.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe system directly addresses how to check if the scheduled report is still configured to run, using the exact navigation steps and troubleshooting details provided in the retrieved chunks.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPDD8Vdh0J1ZVreIw/aS2vG7wrGzAaVSNpKoL5ZIU8SA3G0VsM6hwkQoaY8mGso7e1mQB80BlV7wh5sxGXWdq8bvhTlQj6ltxUlVlPJTmH6Cu27q+YQDbJ"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600183,
+      "id": "dt-bapidKoSFjuMPyJPr4Qs",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 33,
+        "prompt_tokens": 603,
+        "total_tokens": 636
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 33,
+      "prompt_tokens": 603
+    }
+  },
+  "retry_after": null
+}

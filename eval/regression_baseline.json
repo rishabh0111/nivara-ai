@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-09-04",
+  "source": "eval/harness_results.json",
+  "note": "Per-category False deflection (CONTEXT.md), the number scripts/ci_regression_gate.py fails a pull request on any per-category rise in. Regenerate with `python scripts/ci_regression_gate.py --write-baseline` after a deliberate, reviewed behaviour change. See docs/adr/0004-the-harness-replays-frozen-recordings-and-a-prompt-change-costs-a-record-run.md.",
+  "recordings": {
+    "count": 1228,
+    "captured_first": "2026-09-02",
+    "captured_last": "2026-09-03",
+    "prompt_versions": [
+      "agent-v1",
+      "gate-consistency-v1"
+    ],
+    "models": [
+      "openai/gpt-oss-120b",
+      "openai/gpt-oss-20b"
+    ],
+    "providers": [
+      "groq"
+    ]
+  },
+  "false_deflection": {
+    "component/account-recovery-ownership": {
+      "failed": 0,
+      "scored": 30
+    },
+    "component/billing-disputes": {
+      "failed": 0,
+      "scored": 30
+    },
+    "component/fraudulent-communications": {
+      "failed": 0,
+      "scored": 30
+    },
+    "component/payment-method-changes": {
+      "failed": 0,
+      "scored": 30
+    },
+    "component/suspicious-account-activity": {
+      "failed": 0,
+      "scored": 30
+    }
+  },
+  "regression_cases": [
+    "RC-001",
+    "RC-002"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:15:24.425798Z",
+  "failure_detail": null,
+  "fingerprint": "6d77ca4c470ae5bff25d6031494ab47d09864521d8945197ffee37e19e2d1944",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-028-5",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses both parts of the customer's question: whether there is a seat limit (yes, based on the plan tier) and how to raise it (by adding extra seats or upgrading the plan).",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses both parts of the customer's question: whether there is a seat limit (yes, based on the plan tier) and how to raise it (by adding extra seats or upgrading the plan).",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPNgi0vWB++fLsmF8KX9OOYQqc3t3xAvyyBfYa2Qb2y4tZSuJQAcY2jes/ovBsBRgB09tdRCP+3s6JnyloRNZrp/M5rHTzJyk+VZKayJCJoDSqnb5AbSZ/"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599724,
+      "id": "q92baoOFKr2ug8UPrN-p4Ac",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 45,
+        "prompt_tokens": 624,
+        "total_tokens": 669
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 45,
+      "prompt_tokens": 624
+    }
+  },
+  "retry_after": null
+}

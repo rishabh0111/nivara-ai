@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:24:42.556856Z",
+  "failure_detail": null,
+  "fingerprint": "a4fc3617871fec643149fce654fe264d38fffa2f39d0de5d06db36d1289d5bd9",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/RP-034",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the customer's issue about Slack tickets stopping with no errors by using the provided documentation on webhook delivery failures.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the customer's issue about Slack tickets stopping with no errors by using the provided documentation on webhook delivery failures.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPEn3Ucv+9HG34oeODdaZUoc8tKpD6T8JNqnCBX8Q8CKQg/5rT2eSWj9Ktc47/WOYErobHfW1sTw1G66BrdfqJZ6NyhDT6/7JNG2Yr72SWuwkteZiNV5l9"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600282,
+      "id": "2d-baqucK8ncg8UP-pmpgAs",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 28,
+        "prompt_tokens": 533,
+        "total_tokens": 561
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 28,
+      "prompt_tokens": 533
+    }
+  },
+  "retry_after": null
+}

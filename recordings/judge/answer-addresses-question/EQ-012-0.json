@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:13:54.570193Z",
+  "failure_detail": null,
+  "fingerprint": "8f960c6f169a161b77bddfa7c24f1bc1249ebf3a56062bc3c738f0ed0bc24817",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-012-0",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the customer's specific problem regarding a reinstalled authenticator app and how to re-enrol using the retrieved documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the customer's specific problem regarding a reinstalled authenticator app and how to re-enrol using the retrieved documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPXK250CRTTuz/SA/jS/YMdaK20/qm2UAmKyREIt5ievI6o2/S/HQbLvRXqfaACQIGy4Is9wKyxWl4TwMX9nDxwaHKZeVaEPYxxR/Rhe8rRTfkXF1Z+/S3"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599634,
+      "id": "Ud2bapSpKZO8juMP1PO4yAw",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 588,
+        "total_tokens": 619
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 31,
+      "prompt_tokens": 588
+    }
+  },
+  "retry_after": null
+}

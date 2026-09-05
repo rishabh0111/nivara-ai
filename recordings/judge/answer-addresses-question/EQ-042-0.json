@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:10:29.666827Z",
+  "failure_detail": null,
+  "fingerprint": "f156ddd227e5bb2bbecc6326e67b506dc6478625fa1c050ab443ad311ee09147",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-042-0",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses whether weekends and holidays are counted in the response-time metric and offers the relevant solution for their weekend-heavy queue.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses whether weekends and holidays are counted in the response-time metric and offers the relevant solution for their weekend-heavy queue.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPM6AgqNBFAFiYuZB1pn88WoTlvphyHqdy/i+Dv30hg0vOlYJaBnk9lkFX4Ar0ldvz1MLYzuBlUfOajT7zZGROKwIt/eEZBzC9p+yUgstTfZqY53dgT7+X"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599429,
+      "id": "hNybavyWNe6_g8UP3NWi0Ao",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 527,
+        "total_tokens": 557
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 30,
+      "prompt_tokens": 527
+    }
+  },
+  "retry_after": null
+}

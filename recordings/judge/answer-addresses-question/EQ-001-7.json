@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:12:15.317234Z",
+  "failure_detail": null,
+  "fingerprint": "5c31009b9f15a813e9bc5368dcd7000c9f634489e388b9001245e8635a887410",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-001-7",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses how to find past invoices based on the provided documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses how to find past invoices based on the provided documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPwyE1MfcqB6qtDjhnXtlyZG5gMcr4/vigaD0aNnrrwvqlS9x6la91N7GsXv9uGhmoDECC7hRRCrigrjaEHSZxkXWphkuhtz5lhEo4ODKRfaqoFKN+GO/b"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599535,
+      "id": "7tybapzOKfOqg8UPufbbwAg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 17,
+        "prompt_tokens": 492,
+        "total_tokens": 509
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 17,
+      "prompt_tokens": 492
+    }
+  },
+  "retry_after": null
+}

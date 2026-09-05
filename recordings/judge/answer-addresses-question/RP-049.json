@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:13:36.549173Z",
+  "failure_detail": null,
+  "fingerprint": "fe41323fcd841fbcde90ecaccb653b395639edb3e5c43a230bea7d5ee2327f73",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/RP-049",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the customer's request to correct and resend/provide the past invoice, explaining the policy on reissuing while offering the correct alternative (a corrected copy for records) based on the documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the customer's request to correct and resend/provide the past invoice, explaining the policy on reissuing while offering the correct alternative (a corrected copy for records) based on the documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPWfT4ENyMVJXMgI5tSawQSlbafLwGQIDO17ubnOMTI+ZW9a/gb+ULxBQqeY25SQVgbYMGKLfuOngywZM1fjRbDPWHiVa3tV8/5QITGuaMH2x/6Le1UlfL"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599616,
+      "id": "P92basP7KZveg8UPyr7xqQU",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 46,
+        "prompt_tokens": 513,
+        "total_tokens": 559
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 46,
+      "prompt_tokens": 513
+    }
+  },
+  "retry_after": null
+}

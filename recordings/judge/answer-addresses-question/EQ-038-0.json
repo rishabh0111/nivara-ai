@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:18:51.590782Z",
+  "failure_detail": null,
+  "fingerprint": "6c121cecc5d8e9ff06255a67a5a29cfe198b0870e499e6be06e55811b09915d9",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-038-0",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe system's answer directly addresses whether renaming a workspace breaks URLs or integrations, using the retrieved documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe system's answer directly addresses whether renaming a workspace breaks URLs or integrations, using the retrieved documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPyRBV1KsL3igF8mZhMkKhmjJOGJ7ovktcEjgcNOC734JWlT4Rm1EyVqYvurwQaq9zLcdO1c9O1c8hRJnloBB0lZfx2IpfKgYULloEXX6tY3Fp77V4NOMD"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599931,
+      "id": "et6baoqqMtO0g8UPi-Ct6Ak",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 23,
+        "prompt_tokens": 488,
+        "total_tokens": 511
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 23,
+      "prompt_tokens": 488
+    }
+  },
+  "retry_after": null
+}

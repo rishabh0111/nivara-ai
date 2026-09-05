@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:17:52.971260Z",
+  "failure_detail": null,
+  "fingerprint": "147794a990d7623bc9897b9ef96b7626d0a000b9c36cb5d36a605a0786b9347a",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-034-1",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer accurately reflects the retrieval chunks regarding workspace and personal timezone settings.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer accurately reflects the retrieval chunks regarding workspace and personal timezone settings.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPZVXDMFoQWyIc/WoU4IP/Zn9xzA8Qd0FvLTOKHKu4d7neqknWxJmAoTcBT05ChvimXfZ/g4dZDVCp305yHMVXI60vYdNDPuayxmmfScegFcyGtBjO+zXD"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599872,
+      "id": "QN6bauGpCqKqg8UPrLDjmQY",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 16,
+        "prompt_tokens": 538,
+        "total_tokens": 554
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 16,
+      "prompt_tokens": 538
+    }
+  },
+  "retry_after": null
+}

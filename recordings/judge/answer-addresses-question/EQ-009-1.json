@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:23:30.883303Z",
+  "failure_detail": null,
+  "fingerprint": "7034c88aebc262c79baf9de43c4f782f6e198ea32b28b171d11d816f3886074e",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-009-1",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly and accurately addresses the customer's question about whether turning on SSO immediately disables password login.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly and accurately addresses the customer's question about whether turning on SSO immediately disables password login.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPM97BRHBg3eIUajO2e9DMhCtpJC7t82QCrPkSDUiGsruS4Jy9A3P20Ff++h5vRx+ZAYIUaZNknPK2V+wp14MyYpIMBMP4Szz3UmjZgys+QKGo4VQitpst"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600210,
+      "id": "kd-baviVK6H5g8UPs4Si6Ac",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 23,
+        "prompt_tokens": 408,
+        "total_tokens": 431
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 23,
+      "prompt_tokens": 408
+    }
+  },
+  "retry_after": null
+}

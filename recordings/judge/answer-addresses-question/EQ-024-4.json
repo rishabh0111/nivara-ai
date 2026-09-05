@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:15:51.518266Z",
+  "failure_detail": null,
+  "fingerprint": "ca898b1daadd2ff56570216488b6d13aae51fc66987dd04333998970dc8c4b5b",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-024-4",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the customer's suspicion about a payload size limit cutting off data by explaining how the system actually handles large records using references and the `truncated: true` flag.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the customer's suspicion about a payload size limit cutting off data by explaining how the system actually handles large records using references and the `truncated: true` flag.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPgtK7+4abZqs2etkU9s7a5vJhFQ528k719DNTs9Y7wZXgQcH/LvWEd1nmU0oupHrMe8Y6P+Y69UDHkOMBfiiyj6NlGgAtyJ3Y2DFxcrdhcLYqG8anlGLa"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599751,
+      "id": "xt2barDHKvuSg8UP7Z_ygAs",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 39,
+        "prompt_tokens": 587,
+        "total_tokens": 626
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 39,
+      "prompt_tokens": 587
+    }
+  },
+  "retry_after": null
+}

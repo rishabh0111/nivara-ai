@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:13:13.795176Z",
+  "failure_detail": null,
+  "fingerprint": "f9a7c3acf0007fbc0b6caf560a00050cac3f8cedfd766330185c56b3432c2065",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-031-0",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer accurately reflects the retrieved documentation regarding downgrading, hidden data, and retention window exceptions without introducing outside information.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer accurately reflects the retrieved documentation regarding downgrading, hidden data, and retention window exceptions without introducing outside information.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPJFpRsav2A8+slYy7A5/jEYami15Xt/ykxiHxz4V3EG58vVnGH/ZJUvIySK2jG8j5T7TXiH29B9Ex5D50WVzXqPcTzrGsCQONLQlq2LNT4O2z1IPhPrNi"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599593,
+      "id": "Kd2baobRCaLFg8UP-_KX4Ac",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 26,
+        "prompt_tokens": 549,
+        "total_tokens": 575
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 26,
+      "prompt_tokens": 549
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:22:18.387076Z",
+  "failure_detail": null,
+  "fingerprint": "c78ea98bf119622cf2e7d626d18bf837ae5cc9e81a48affc48beb5789f0442b0",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-004-5",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses how to route invoice emails to finance@ourcompany.com by navigating to the correct settings page as outlined in the retrieved documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses how to route invoice emails to finance@ourcompany.com by navigating to the correct settings page as outlined in the retrieved documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPqGp5iVgpexdSUfqIZJR8lFG3gzKhx/QOLP0ZjyDnsYjGYdyYDU/+HC8CtWi4xZmD7zQyBMUvKPL2i2Gz5enU/PiZQHbO8wQgQrxHYCJqMpnvQanifDTd"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600138,
+      "id": "Sd-bauvRKoLCg8UPwNyB0Qg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 522,
+        "total_tokens": 554
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 32,
+      "prompt_tokens": 522
+    }
+  },
+  "retry_after": null
+}

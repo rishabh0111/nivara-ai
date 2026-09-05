@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:12:42.320531Z",
+  "failure_detail": null,
+  "fingerprint": "9aa4c646b625754cc2477f8903020d90423e3555b0a8bcc8d2c94f9d6727f428",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-035-3",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the customer's specific question about the delay in search indexing for newly created records, using the provided documentation chunks.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the customer's specific question about the delay in search indexing for newly created records, using the provided documentation chunks.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPmyXDXHhv6j586kerRwlRU3g/PLu2EUAzs6SBXJvf7P120dmIu38TMNcst4oSJ8lXIpqkOelu/urK7x/bM+nhlPldzgSRhuHicodMagXUMNaC64yxnx3Q"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599562,
+      "id": "Cd2bav-8Kavfg8UPpbXH-Qc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 498,
+        "total_tokens": 527
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 29,
+      "prompt_tokens": 498
+    }
+  },
+  "retry_after": null
+}

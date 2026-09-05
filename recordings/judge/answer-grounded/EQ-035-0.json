@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:10:16.708362Z",
+  "failure_detail": null,
+  "fingerprint": "57f1e5eec1bd3d90e7d009e353207cc016755d063ec6437cbfccce438526cde1",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-035-0",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer accurately reflects the information provided in chunks DOC-035#0, DOC-035#1, and DOC-035#2 regarding indexing lag, browse behavior versus search behavior, and when to report the issue.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer accurately reflects the information provided in chunks DOC-035#0, DOC-035#1, and DOC-035#2 regarding indexing lag, browse behavior versus search behavior, and when to report the issue.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIP7aYPjFhWRgFqQfnkIwrygUagpa1emHDpOMZGmzL5b0kVZ42H9cyV0JJfVi66QiFK+u8LYYZegv75HfP7UqeE11hxOjzpc0T1dVUsc8MtAjeM0zasGNcI"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599416,
+      "id": "eNybao_KAZy0g8UPkLKn0Qg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 52,
+        "prompt_tokens": 533,
+        "total_tokens": 585
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 52,
+      "prompt_tokens": 533
+    }
+  },
+  "retry_after": null
+}

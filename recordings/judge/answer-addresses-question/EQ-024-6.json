@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:15:06.542138Z",
+  "failure_detail": null,
+  "fingerprint": "ebb609488eb84a998891f3e586140919e517909c32d9b297356cabf9cb168534",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-024-6",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses whether there is a documented payload size ceiling and whether it varies by event type.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses whether there is a documented payload size ceiling and whether it varies by event type.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIP/0cEjBVT4fTcRiGlYXDsI4br+E4Ro7q4s2fEwPfUo+70AxoPjhGhcs+McKJE8NB8AezMb7AFM+jWaXUHcY9GrEm6wfclVO4hGfPCsbX1RqXdsfoIhLZk"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599706,
+      "id": "md2barfOKqjdg8UPzL2ckAs",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 22,
+        "prompt_tokens": 516,
+        "total_tokens": 538
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 22,
+      "prompt_tokens": 516
+    }
+  },
+  "retry_after": null
+}

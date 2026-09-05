@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:10:27.413283Z",
+  "failure_detail": null,
+  "fingerprint": "30b3b5b4c39f7d6240007dbb13b3de83d5255c0326acb8b523f89e22ba5c89ca",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-050-4",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe system correctly directs the customer to their contract schedule and offers to confirm the incident's measured uptime impact, which directly answers how to understand what they are owed following an outage.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe system correctly directs the customer to their contract schedule and offers to confirm the incident's measured uptime impact, which directly answers how to understand what they are owed following an outage.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPsQZPT3IeKE4Ywbq1thrPqMLoXRV+sRbVRiTzBh1Uk8NwhqX6gebAZXXq9bmtTuxbyGsvrrSHcIsMccKf71B0F5N2VcNR9LO7jrJKfoTF90JIuAOjTYZU"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599427,
+      "id": "gtybas2IAdPnqfkPmYaksQc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 38,
+        "prompt_tokens": 426,
+        "total_tokens": 464
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 38,
+      "prompt_tokens": 426
+    }
+  },
+  "retry_after": null
+}

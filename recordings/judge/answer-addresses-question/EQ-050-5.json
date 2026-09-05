@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:09:27.376693Z",
+  "failure_detail": null,
+  "fingerprint": "dba824507f951b0cd172ce22db9ab1b106b8ba9bb534ed804500d8fe872abf24",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-050-5",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe system's answer directly addresses the customer's inquiry regarding how the uptime guarantee and service credit are calculated, citing the relevant contract terms and calculation method provided in the retrieved chunks.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe system's answer directly addresses the customer's inquiry regarding how the uptime guarantee and service credit are calculated, citing the relevant contract terms and calculation method provided in the retrieved chunks.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPVgbd98JfP7u1CKlGKFknNSwGrYtqZSZ573nBDj4A9cRKpr7gHyNbMIVvJueoBmnfkOCZSKL5Sgcckxe8QbmFcjk52LUNFoWrneBJPexeP8sOAVuT0NAr"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599367,
+      "id": "RtybataMI83ag8UPr_-1kQo",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 39,
+        "prompt_tokens": 614,
+        "total_tokens": 653
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 39,
+      "prompt_tokens": 614
+    }
+  },
+  "retry_after": null
+}

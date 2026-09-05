@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:09:33.446300Z",
+  "failure_detail": null,
+  "fingerprint": "197a36454ff198dd22f4c9d0e1fb9746b4a9cbf514ae75dfee5df1e08d6729e0",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-049-1",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses whether data was affected in post-incident summaries, matching the customer's query.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses whether data was affected in post-incident summaries, matching the customer's query.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPt/sLCvTaVXbabdM6KQJgI/0tp+s89HP/FPG70kMunb+njPrE2KBAaF74RqB9zRfHS7NnVrDW9W5moRd1ba0E6Qyn7Zz1Pa7v7CqQXQHVqMzZwVCSFsei"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599373,
+      "id": "TNybatnpHPy2g8UPlZ2giQs",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 23,
+        "prompt_tokens": 482,
+        "total_tokens": 505
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 23,
+      "prompt_tokens": 482
+    }
+  },
+  "retry_after": null
+}

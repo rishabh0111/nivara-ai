@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:15:15.414505Z",
+  "failure_detail": null,
+  "fingerprint": "0fadb6ca2e4aff384ab513433d7e9a5cef07d7b88e4d42bec882db6272f99e29",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-040-0",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses how to check if the scheduled report is still set up correctly and why it stopped arriving, using the retrieved documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses how to check if the scheduled report is still set up correctly and why it stopped arriving, using the retrieved documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPa02e5hLIQK4QATW5TSLG68mwsjwSft/G7Byca+e/k9qoYzH0dDEGQeDXK0BOwvwUtcFYTD6W9gKdHxp1BMYwQkW4X4uuwN352YHAgVE1r0Z9lpTLl2GG"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599715,
+      "id": "ot2baqSiLICtg8UPverc8Qg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 622,
+        "total_tokens": 651
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 29,
+      "prompt_tokens": 622
+    }
+  },
+  "retry_after": null
+}

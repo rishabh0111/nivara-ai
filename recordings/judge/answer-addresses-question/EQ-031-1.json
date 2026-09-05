@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:09:31.299536Z",
+  "failure_detail": null,
+  "fingerprint": "3b0a3113fbfee70ca15f9bb955f963e222473877cc6794f1e6fe188d19fc3ad4",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-031-1",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses whether data gets deleted or hidden upon a downgrade, which is precisely what the customer asked.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses whether data gets deleted or hidden upon a downgrade, which is precisely what the customer asked.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPIClRb9UMSb5m6wf4iQa/LgGVmLwIdJG7XAlVAKgSu8agtElxeqWr21VsT/0fnuwlKu9ceY9xydnXhw1VyZ7yufY3Jihwsdqy64peo6zlE8rejDZa9LzN"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599371,
+      "id": "StybarinGdO0g8UPi-Ct6Ak",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 24,
+        "prompt_tokens": 493,
+        "total_tokens": 517
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 24,
+      "prompt_tokens": 493
+    }
+  },
+  "retry_after": null
+}

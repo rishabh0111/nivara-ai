@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:24:33.433225Z",
+  "failure_detail": null,
+  "fingerprint": "2b610c52d36faa6c9beadf559c9135a7a28bc74a2b4fe2b2cf7bfe697771f9da",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-027-1",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe system correctly identified that endpoints marked with the `stable` stability tag are the safe ones to build on, directly answering the user's question using the retrieved documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe system correctly identified that endpoints marked with the `stable` stability tag are the safe ones to build on, directly answering the user's question using the retrieved documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIP/dIRTiaah6XenwH91sKCOe4Vox2C666VYWWWygYf1p31yZdh7D5wBFfso8z+GuJYDfvjRLLw3S5VWwicxKjFcdyR3z7ePv+7fa4Lznwgi+qKiv0CbOmN"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600273,
+      "id": "0N-baq-0LOXcg8UPzoyR0Ag",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 36,
+        "prompt_tokens": 551,
+        "total_tokens": 587
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 36,
+      "prompt_tokens": 551
+    }
+  },
+  "retry_after": null
+}

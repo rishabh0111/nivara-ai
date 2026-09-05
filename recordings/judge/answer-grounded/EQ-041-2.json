@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:14:44.250985Z",
+  "failure_detail": null,
+  "fingerprint": "9a0af2a07fae6c1726be47d2a20227b4e2d6bedf2326f027bc82389e15c57199",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-041-2",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer accurately reflects the retrieved documentation, stating that the user can pull the data themselves via Settings \u2192 Billing \u2192 Usage and export it to CSV without needing support.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer accurately reflects the retrieved documentation, stating that the user can pull the data themselves via Settings \u2192 Billing \u2192 Usage and export it to CSV without needing support.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIP9Oi/zNqoWAupuC51ZT3u1SAVKPaggE11J7S+5XsR3LRnctwLfZmgJFnpoUfytRwG/QyC2SuJnqW6UfJpnWBwc6rQcWXLsrvx5eG0TSBKq2V1LKR8t6yv"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599684,
+      "id": "g92base8CpHFg8UPj5migQg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 34,
+        "prompt_tokens": 493,
+        "total_tokens": 527
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 34,
+      "prompt_tokens": 493
+    }
+  },
+  "retry_after": null
+}

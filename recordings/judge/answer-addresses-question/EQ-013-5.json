@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:20:39.566675Z",
+  "failure_detail": null,
+  "fingerprint": "aed2d65a5824d7c73232a224045bd4380330900362979adcd8c4a23603608d3a",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-013-5",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the customer's request for the list of supported identity providers by explaining that any SAML 2.0 or OIDC provider is supported, and helpfully provides context about the single-provider limitation for merged teams.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the customer's request for the list of supported identity providers by explaining that any SAML 2.0 or OIDC provider is supported, and helpfully provides context about the single-provider limitation for merged teams.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPOwLcjhkaQDVVeX2T/AZHd40QlueVt6gyO6VHqqccBZuW8Xd0d2/6UwCowroZHmOmJSgMkcgWnZIX02F3vCqJGtiiesI+ZjSRic1tMM8rVU6rKFY3BYkK"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600039,
+      "id": "5t6batGqKp7-4-EPwZzH6Aw",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 50,
+        "prompt_tokens": 567,
+        "total_tokens": 617
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 50,
+      "prompt_tokens": 567
+    }
+  },
+  "retry_after": null
+}

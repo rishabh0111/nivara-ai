@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:10:25.877974Z",
+  "failure_detail": null,
+  "fingerprint": "9554e591c923808bed1faf5bbd33586c514793d6b6e1d4dd8061070ca296a45a",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-050-4",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly derives its factual statements (referencing the contract's schedule and asking support to confirm the measured uptime impact) from the provided text in chunk DOC-050#2, and uses appropriate professional framing without making unsupported external claims.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly derives its factual statements (referencing the contract's schedule and asking support to confirm the measured uptime impact) from the provided text in chunk DOC-050#2, and uses appropriate professional framing without making unsupported external claims.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPgd0JkShnlS18CVPYCjehzm4haX8u3DtJS47TNQFgKKA19eDqtJm7gPS/O7n19jiJVS22+lJZzpobqA0NRbW7mIzXCEalo8N7p5HPdFPtFsFlLPV+eKV1"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599425,
+      "id": "gdybarmyAb_84-EPx6zi2Qs",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 52,
+        "prompt_tokens": 428,
+        "total_tokens": 480
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 52,
+      "prompt_tokens": 428
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:17:44.254513Z",
+  "failure_detail": null,
+  "fingerprint": "2453e817eb102f3b10e692151a7066ee48343d9487206f6d99da81f67f09888b",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-050-0",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe system correctly used the provided chunks to explain that the uptime percentage is in the contract, how credits are generally calculated and applied, and offered to check the incident details against the contract schedule.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe system correctly used the provided chunks to explain that the uptime percentage is in the contract, how credits are generally calculated and applied, and offered to check the incident details against the contract schedule.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPpQVpbu0AOxApAcF7QhmDZwyOe8q0GlL7vSI0tPnGy3x47aRO/V1ISK9VqgRbMsUVd9hp0qYIAtEPq7qxA1Jq817Raa4rmTcQYdIfN/oDFc5+Zmt5nK54"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599863,
+      "id": "N96bauzjC6W1g8UPxp7W2Qc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 40,
+        "prompt_tokens": 584,
+        "total_tokens": 624
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 40,
+      "prompt_tokens": 584
+    }
+  },
+  "retry_after": null
+}

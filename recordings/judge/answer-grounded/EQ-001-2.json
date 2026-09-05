@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:14:08.192796Z",
+  "failure_detail": null,
+  "fingerprint": "11fe14239e139ad791c712d2d453299c8f6d4ec879ebcbf75e29bb6f901d83a0",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-001-2",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer accurately reflects the retrieval chunks regarding where to find invoices (Settings \u2192 Billing \u2192 Invoices), the distinction between the summary card and the invoices table, how to download/forward the PDF, and the reason why an invoice might be missing (covered by credit).",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer accurately reflects the retrieval chunks regarding where to find invoices (Settings \u2192 Billing \u2192 Invoices), the distinction between the summary card and the invoices table, how to download/forward the PDF, and the reason why an invoice might be missing (covered by credit).",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIP9ji7Mh/c8j/purBNY1mjpfpPHTYGeVqEfbVTMu+fNiK51x1SGGAKMhrmIbX6VcbNqBKyYVJsu2VeijjMxUJc11lCF+IV5GmZTIX4NCp3NlgWPmwi0rlc"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599648,
+      "id": "X92basv_Cc63g8UPm-XyyQg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 55,
+        "prompt_tokens": 576,
+        "total_tokens": 631
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 55,
+      "prompt_tokens": 576
+    }
+  },
+  "retry_after": null
+}

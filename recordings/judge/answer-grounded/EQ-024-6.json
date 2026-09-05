@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:15:02.439712Z",
+  "failure_detail": null,
+  "fingerprint": "b457567ed4bffec60fae4b6552a81d14e7a3d1313e46e67d725c019bc9449519",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-024-6",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "NO\nThe chunks state that the payload is capped at a fixed size, but they do not mention the product name \"Meridian\" nor do they explicitly state that the limit is the same across all webhook events (although it implies a fixed cap, the claim about it not differing per event type is an extrapolation not directly stated in the text).",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "NO\nThe chunks state that the payload is capped at a fixed size, but they do not mention the product name \"Meridian\" nor do they explicitly state that the limit is the same across all webhook events (although it implies a fixed cap, the claim about it not differing per event type is an extrapolation not directly stated in the text).",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPm57KKy7Nc2IpPBUoznlVNG4SUQZ5paW5eNgQFH41DVmL2enH5iicY6oKn2ihcpa1V3mL7/EwxtMyCmYxf0e4rejUZbJlk4Kyxi6mk+XZANg0C6fYexne"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599701,
+      "id": "ld2bar7oC9y2g8UPiOvesQg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 69,
+        "prompt_tokens": 518,
+        "total_tokens": 587
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 69,
+      "prompt_tokens": 518
+    }
+  },
+  "retry_after": null
+}

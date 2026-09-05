@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:15:20.180044Z",
+  "failure_detail": null,
+  "fingerprint": "a962cc31de95f28b852e7c4df3ccf84e69fa3310e108abc4e177aa9175b1d5bf",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-028-5",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe system's answer accurately reflects the information provided in the retrieved chunks without introducing any unsupported claims.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe system's answer accurately reflects the information provided in the retrieved chunks without introducing any unsupported claims.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPnn24jC1rDmSsph3zuO3aoCHYTEIuOw6m3eLZpxMNVbFgoWbwLiXCXG3MxlZt/2GfyaDQVliwUpSmJ0Cx/1cyKu+vMjsoh1ltUic4UaWlFLq3FbUWzZuq"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599719,
+      "id": "p92batDQCZHFg8UPj5migQg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 22,
+        "prompt_tokens": 626,
+        "total_tokens": 648
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 22,
+      "prompt_tokens": 626
+    }
+  },
+  "retry_after": null
+}

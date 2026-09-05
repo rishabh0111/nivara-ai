@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:13:27.536242Z",
+  "failure_detail": null,
+  "fingerprint": "70557df5a8416ca80fa3175a92acce2109183b980b25afa54d8013613b27c42f",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-047-1",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the customer's question about whether the 20-minute slow pages were platform-wide or specific to them by explaining how to check the status page and what a lack of an entry would mean.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the customer's question about whether the 20-minute slow pages were platform-wide or specific to them by explaining how to check the status page and what a lack of an entry would mean.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPX92n2+l7K/nauPuJOHcYdhN/CCefY1yNw+927+xJy8Un5sD5Wno8cIaXcgQhqnaDLh68Wd4gP1nmXtaRnGa7kJFVfsIeFqrtgidKVhWxzTON5XE0+wDy"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599607,
+      "id": "Nt2baoHmKaH5g8UP8YWi6Ac",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 47,
+        "prompt_tokens": 561,
+        "total_tokens": 608
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 47,
+      "prompt_tokens": 561
+    }
+  },
+  "retry_after": null
+}

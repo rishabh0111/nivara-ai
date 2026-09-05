@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:18:38.066572Z",
+  "failure_detail": null,
+  "fingerprint": "931b589a8340964aad2a09fad7356f86fda1ff0bf541c41f4652d75837743eab",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-041-5",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer accurately reflects the retrieved documentation regarding exporting usage data for past quarters via the settings screen within the data-retention window, without requiring a support request.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer accurately reflects the retrieved documentation regarding exporting usage data for past quarters via the settings screen within the data-retention window, without requiring a support request.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPnZuP9+BOoHn7zygWXLUk8oXJpnFV/Z05vIx9JowOz9/jl8dT24U8r3jVK3ect9F7oA44+a6MWVzMi1XHqcisNe1ZLBKsfKx3ZBwIblXNfWYmFPeKL3pJ"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599917,
+      "id": "bd6baqWpDILCg8UPstyB0Qg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 34,
+        "prompt_tokens": 501,
+        "total_tokens": 535
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 34,
+      "prompt_tokens": 501
+    }
+  },
+  "retry_after": null
+}

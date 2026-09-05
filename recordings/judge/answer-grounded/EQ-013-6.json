@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:09:20.419585Z",
+  "failure_detail": null,
+  "fingerprint": "7681d4f6c2a2d825f932bc598a10ab7da0c829b10603c5cf30f0469c18c9f5b8",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-013-6",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer accurately reflects the retrieved documentation stating that a workspace configures one identity provider at a time, migration requires picking one as a source of truth without running both simultaneously, and support can advise on migration order.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer accurately reflects the retrieved documentation stating that a workspace configures one identity provider at a time, migration requires picking one as a source of truth without running both simultaneously, and support can advise on migration order.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIP5G0yymY7AvzvazYfGT5A/vGz1zHaZnP0cdbrfseWndu0CoMwu8dGtXFgm2HvPQN5H6dCD6ixFGYxcQHQ2kc9cvEjycijULjKnN+qupgIKSIkYOMMg9tt"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599360,
+      "id": "P9ybapbSJqjdg8UPkruckAs",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 44,
+        "prompt_tokens": 515,
+        "total_tokens": 559
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 44,
+      "prompt_tokens": 515
+    }
+  },
+  "retry_after": null
+}

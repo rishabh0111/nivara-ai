@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:09:32.320628Z",
+  "failure_detail": null,
+  "fingerprint": "921c12de681b4057732490845c620d57cf6f28e17393b867bfe2d4ef919230e1",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-049-1",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer accurately reflects the retrieved chunks regarding post-incident summaries on the status page and whether data was affected.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer accurately reflects the retrieved chunks regarding post-incident summaries on the status page and whether data was affected.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPu57iDVdHj8OZgU5WZS3G/+WKEvs//UCbmRlacTERNGcQ3MVPKE4rG+67NS4qeP4Gveu220Ayo9ooGp+zsikauw9X+inoTrahIOPdYDaphhuSoDmgwZXJ"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599372,
+      "id": "S9ybauj_HYOtg8UP-JC52Qc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 24,
+        "prompt_tokens": 484,
+        "total_tokens": 508
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 24,
+      "prompt_tokens": 484
+    }
+  },
+  "retry_after": null
+}

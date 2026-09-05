@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:21:06.597688Z",
+  "failure_detail": null,
+  "fingerprint": "9e533de303a7f2355b4170436eab1e13f0929b09b79ddbfbb8704922fcb96552",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-045-7",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses how to access data beyond the retention window using the information provided in the retrieved chunks.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses how to access data beyond the retention window using the information provided in the retrieved chunks.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPJRjMUXVHscGFZNBhFQ0AgnkSj7AJ07Jx9vPoH5G1iIDcLIMN+Phj6zBUgxDhTDwjwYb8e7xZGNM+5V5T4jeKCzG4J6/eqV2Nj14/UcoaL3JSRnaEkdPt"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600066,
+      "id": "Ad-bapDFKvOqg8UPufbbwAg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 23,
+        "prompt_tokens": 567,
+        "total_tokens": 590
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 23,
+      "prompt_tokens": 567
+    }
+  },
+  "retry_after": null
+}

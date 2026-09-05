@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:23:21.456782Z",
+  "failure_detail": null,
+  "fingerprint": "c43879b36ad38f5bfe13da57826b774937340457ccab25c1174cbbb2c0607e18",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-036-2",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the customer's issue about getting flooded with irrelevant notifications and provides step-by-step instructions on how to narrow them down immediately using the retrieved documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the customer's issue about getting flooded with irrelevant notifications and provides step-by-step instructions on how to narrow them down immediately using the retrieved documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIP6Nl7X8T99ZyyP2fcgLZxKmBqmk84M/1uyckxF7xSEJ3Lt/wH38t/4ZQGAtkuG59KS4Ybz2HAnRy+ekc+wkzX9FJS0Wp5IKPxv8GWDg2wwC9MO6CBt213"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600201,
+      "id": "iN-baq29K_q2g8UPjrinyQc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 37,
+        "prompt_tokens": 496,
+        "total_tokens": 533
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 37,
+      "prompt_tokens": 496
+    }
+  },
+  "retry_after": null
+}

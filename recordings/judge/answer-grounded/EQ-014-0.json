@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:23:53.203149Z",
+  "failure_detail": null,
+  "fingerprint": "98ded4a9a00e2b4cc9d807c9bf01cbfed7015c5f036926f1c223424d1520ff20",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-014-0",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer accurately reflects the methods provided in the retrieved chunks for handling the 10,000-row limit (narrowing by date range/filters and using scheduled exports to cloud storage).",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer accurately reflects the methods provided in the retrieved chunks for handling the 10,000-row limit (narrowing by date range/filters and using scheduled exports to cloud storage).",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPOsi8pKDoUv5ykfhm3i0A5O7yZYCdC/4K2+KSqIBDZQL5MO0oXcFI3NVZsIWa3/n9WJejfi6J+QeRXFknuLN/BFQJYSVa6WSxIQDx7wn74isV1o8Pk1w1"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600232,
+      "id": "qN-bavTaDdykqfkP3Zyi-Ac",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 42,
+        "prompt_tokens": 560,
+        "total_tokens": 602
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 42,
+      "prompt_tokens": 560
+    }
+  },
+  "retry_after": null
+}

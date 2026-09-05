@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:21:42.447557Z",
+  "failure_detail": null,
+  "fingerprint": "34c3c0e17e2ed1e1d846e5a78595885685b1334f615d0689681225847bca976d",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-015-1",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe customer asked a very brief question about importing column headers, and the answer directly provides all relevant details about required headers, optional headers, how matching works, and how to get the correct template.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe customer asked a very brief question about importing column headers, and the answer directly provides all relevant details about required headers, optional headers, how matching works, and how to get the correct template.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPH+lsoCF2THHN212sZB7l5sA7SjS/MxNc73Ea6IjZUw7rPjK6ZF5yL3czKL65jrBrj27GC2ZsB+quX+tDl+morQRVYaOihjiuou5LY6zbKrnoy2BU2b64"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600102,
+      "id": "Jd-batzWK62yg8UPwuTxuQg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 41,
+        "prompt_tokens": 534,
+        "total_tokens": 575
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 41,
+      "prompt_tokens": 534
+    }
+  },
+  "retry_after": null
+}

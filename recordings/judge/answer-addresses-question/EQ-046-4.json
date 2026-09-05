@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:16:45.422125Z",
+  "failure_detail": null,
+  "fingerprint": "290e40340559e361e8bd2a1e5f42ec48d9bfb3dd1c2c80c812186cb4dfd5b571",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-046-4",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the customer's uncertainty about whether the brief total outage was on their end or the company's, by pointing them to the status page to verify.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the customer's uncertainty about whether the brief total outage was on their end or the company's, by pointing them to the status page to verify.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPYkEZ4QL4+1VbTPukqTsAKPLkn6hGCtx+fK0mp0IQNWy9aCBXT7Kx1QU1069ac5yhnZZQRgZYgfSBkVAiu2ZjfalXkjZXmpW422Jx1kcwQZpQnaTStb96"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599805,
+      "id": "_N2bavncKNPnqfkPmYaksQc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 37,
+        "prompt_tokens": 527,
+        "total_tokens": 564
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 37,
+      "prompt_tokens": 527
+    }
+  },
+  "retry_after": null
+}

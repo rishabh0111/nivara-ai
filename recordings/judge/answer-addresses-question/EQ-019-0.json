@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:12:33.285230Z",
+  "failure_detail": null,
+  "fingerprint": "4f09da1e0c34c552ae2b1d281e63736152a695e8335ab4e7d2e72915e99e9bff",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-019-0",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses whether rows will duplicate on re-import and accurately explains the conditions based on the retrieved documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses whether rows will duplicate on re-import and accurately explains the conditions based on the retrieved documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIP0WGDyKxiT7cwOpIbaMY2R6IRNUX0/pI3iVqmCwujFEiYR4+P8psdMNDMsRcB0QqMbpQ+pi/qYyU12znjZs4hoa/M1gSG5b9d/cbtWX1plMoMcPxJpyQk"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599553,
+      "id": "AN2bas2BKfXnqfkPwczNgQs",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 25,
+        "prompt_tokens": 502,
+        "total_tokens": 527
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 25,
+      "prompt_tokens": 502
+    }
+  },
+  "retry_after": null
+}

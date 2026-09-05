@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:19:00.519642Z",
+  "failure_detail": null,
+  "fingerprint": "40ef8093f5e58f85fd38ebd0c3d0bbeadac490b3d3bc7870b4836ee53727f775",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-036-3",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses where and how to configure email notifications to receive only tickets assigned to the user, using the provided documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses where and how to configure email notifications to receive only tickets assigned to the user, using the provided documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPtI3Et6s1iNBOSSRetinHY5wZkcA9MVFyDepvAmCpjulDOz/wjcqHY3VM5rLlMaryNdVXJVWpIM3YAoyBszO2WQyYqKjPFLRYXfitWZAgXeXH0b7QIwTj"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599940,
+      "id": "g96baqGbKrKvg8UPp9PPgQY",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 27,
+        "prompt_tokens": 530,
+        "total_tokens": 557
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 27,
+      "prompt_tokens": 530
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:24:24.679415Z",
+  "failure_detail": null,
+  "fingerprint": "6873f43d59bbf823f12203074387ac10a4e6b8f9b31d25c92fe1b3ddde113fec",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-012-2",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the user's specific problem of being locked out of two-factor authentication after switching phones and provides the exact steps to re-enrol using either the settings page or recovery codes.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the user's specific problem of being locked out of two-factor authentication after switching phones and provides the exact steps to re-enrol using either the settings page or recovery codes.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIP3Yu6aC9jWRBAFKOpnwDomHM2eO+nNrnsLN2yaXptHHBCQnOFfiuK8anJtjgSPRnQkBZcJWGWtNFk0nB84xdnYj2M0kSR90XOmfzRhjeOmXkgVksDf4se"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600264,
+      "id": "x9-batzCK5vcg8UPjKSWuQo",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 43,
+        "prompt_tokens": 606,
+        "total_tokens": 649
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 43,
+      "prompt_tokens": 606
+    }
+  },
+  "retry_after": null
+}

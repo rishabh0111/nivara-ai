@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:09:28.376630Z",
+  "failure_detail": null,
+  "fingerprint": "730a011e069f6b6305cf4bc08778ac72e91983b317a5fe466777e1030af1e0c1",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-028-2",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer accurately reflects the retrieved information regarding seat caps, how to raise the limit, and the immediate effect of the changes.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer accurately reflects the retrieved information regarding seat caps, how to raise the limit, and the immediate effect of the changes.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPgLrx4Vmq83E/QH5qsJB9qPFfXaw9NFBqEbrPQnGpQWAqorenIlIJElP5x0LAdCjmv/SeJy3SYTtp/9JW4HJ5KzYNaZ4mE0PI+ZRXn+mXq7hETbVpI4q1"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599368,
+      "id": "R9ybasqgItO0g8UPi-Ct6Ak",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 27,
+        "prompt_tokens": 567,
+        "total_tokens": 594
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 27,
+      "prompt_tokens": 567
+    }
+  },
+  "retry_after": null
+}

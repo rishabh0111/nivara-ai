@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:16:18.549496Z",
+  "failure_detail": null,
+  "fingerprint": "57130a3e50d7c16c06d7f418d8a40ed25ecf88b0a1dfc2cb369f20a16b4f3920",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-050-6",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe system correctly answered that the credit is calculated against the total uptime over the billing period rather than per incident, which directly addresses the customer's question using information from the retrieved chunks.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe system correctly answered that the credit is calculated against the total uptime over the billing period rather than per incident, which directly addresses the customer's question using information from the retrieved chunks.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPLBU4LHnCO20mNyJnMqJEUg5d6kwdUeYGhbZgMeZSw+zGaM4LqFBZkgQfr6YtwVF59aF1pOG9upftA/nxYAmNZc8uYV23rV6uiHFmR5zsHDdO58MofRZM"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599778,
+      "id": "4d2barK0Kc63g8UPm-XyyQg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 39,
+        "prompt_tokens": 513,
+        "total_tokens": 552
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 39,
+      "prompt_tokens": 513
+    }
+  },
+  "retry_after": null
+}

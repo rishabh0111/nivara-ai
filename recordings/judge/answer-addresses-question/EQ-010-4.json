@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:13:09.443482Z",
+  "failure_detail": null,
+  "fingerprint": "59aa8ad01d33b7119513edaa30ebfd83dd4c5105c43d5f9633c7cd385263ae18",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-010-4",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the customer's concern about not knowing if they were added to the sync by explaining how the sync works, when the sign-in option appears, and how an admin can verify their presence in the system.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the customer's concern about not knowing if they were added to the sync by explaining how the sync works, when the sign-in option appears, and how an admin can verify their presence in the system.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPw4G0F6sb5HgHvsNQltj8wDBVpsaC05YjaIwkNQ/5nhy60S+qv5ffmrc2ZJm66qgNVttb2k/u5q0K14mqdPgP4h0d2zURPWQXzUqbywVUA8QSTan1oeLX"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599589,
+      "id": "JN2baouaKd2tg8UP07Pa8Qc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 48,
+        "prompt_tokens": 585,
+        "total_tokens": 633
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 48,
+      "prompt_tokens": 585
+    }
+  },
+  "retry_after": null
+}

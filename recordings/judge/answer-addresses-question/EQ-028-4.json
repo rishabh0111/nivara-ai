@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:21:15.431521Z",
+  "failure_detail": null,
+  "fingerprint": "d62da8c6a10dca2bdb2e3a7402f0ba77acd2eb2bcda8b5391b809210feda0da2",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-028-4",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the issue of invites silently failing past a certain number of people by explaining the seat limit and referencing the relevant documentation chunk about reaching tier limits.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the issue of invites silently failing past a certain number of people by explaining the seat limit and referencing the relevant documentation chunk about reaching tier limits.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPxRY801nT8OcUyLT4bOulMWIMM7R6ZIj+NIGXp/IzeLun65MtNFj+f2hAkkb2ukH+wyGmcejrN/E2ajn2GbHV04CF6yUZwfjk7k/7rom5C1V0riEoeHEf"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600075,
+      "id": "Ct-baoC3Lc3ag8UPr_-1kQo",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 34,
+        "prompt_tokens": 595,
+        "total_tokens": 629
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 34,
+      "prompt_tokens": 595
+    }
+  },
+  "retry_after": null
+}

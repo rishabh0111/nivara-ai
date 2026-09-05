@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:12:37.782432Z",
+  "failure_detail": null,
+  "fingerprint": "ac3f848a97738617032711b34943c73bb40b5aa7b74c65efd39597de6933a614",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-035-3",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer accurately reflects the information in the retrieved chunks about the search indexing delay and what to do if it persists.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer accurately reflects the information in the retrieved chunks about the search indexing delay and what to do if it persists.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPNA/D+/qAg+Tuqs4MdzxKPlnl0wHd1yTQMI57gNj10GLwNUydodhk3ly+AeHddothTyCXSuXn/4I7ak5WZAmZ5oVmOLh6tt2wmhoamBgUfaGRQtoHbDPE"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599557,
+      "id": "Bd2basWQCu6_g8UP3NWi0Ao",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 25,
+        "prompt_tokens": 500,
+        "total_tokens": 525
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 25,
+      "prompt_tokens": 500
+    }
+  },
+  "retry_after": null
+}

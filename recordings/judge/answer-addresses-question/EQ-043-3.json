@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:20:30.658854Z",
+  "failure_detail": null,
+  "fingerprint": "cc88deb24f70869a026c779195be615ef0ceaf96a7bb8b351d8ed76fb1090da3",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-043-3",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the customer's question about whether grouping by tag is supported and provides the exact configuration path retrieved from the documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the customer's question about whether grouping by tag is supported and provides the exact configuration path retrieved from the documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPPjP1ZVuJRIPFyDVFWaoWUzgATPN2IpyeA1n1YViMgp9zVHaTcSSqp5uJaoG6SqHmzrShd/s2UbQtpTyityts2SoudChsgJlpoDjkX0W4DT5zl86h1JDb"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600030,
+      "id": "3d6bas20Ktq0juMP9tKTwQo",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 534,
+        "total_tokens": 563
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 29,
+      "prompt_tokens": 534
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:17:25.863110Z",
+  "failure_detail": null,
+  "fingerprint": "a26ab2819e1c4921a5e514e782830782d0193092476019ac07e04473308d6784",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-013-3",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPdx/JvYI6Y6Rj+AAQIid9Oe8ChrQd9OvIBPe0Ek/waitRqQ2Sr6F9UbWKfZdA0VvOtQ67FhXcA4WwHmoW23a1lfmuZHb85FUd4ZTbGdp8vjeiNzObjVSf"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599845,
+      "id": "Jd6baoHdC6Kqg8UPrLDjmQY",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 1,
+        "prompt_tokens": 501,
+        "total_tokens": 502
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 1,
+      "prompt_tokens": 501
+    }
+  },
+  "retry_after": null
+}

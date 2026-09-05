@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:13:45.388455Z",
+  "failure_detail": null,
+  "fingerprint": "5ba0fea0fd90d2b7996737d53bcba415716a716c439bb78364709f1804129544",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-036-4",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe system's answer directly addresses the customer's request to reduce the number of notifications by providing clear instructions on how to adjust notification settings in their profile.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe system's answer directly addresses the customer's request to reduce the number of notifications by providing clear instructions on how to adjust notification settings in their profile.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPx7I/r/8gBtrQUligGS+A+imYpafDVYz54HoOcG6CEJI1aucplhUy23/llvsukKvcxmSsSIeEgJKAfRN7XtEpOxyyJOd5J0OTerU8x+bTbnb1QsuMW/6n"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599625,
+      "id": "SN2batjqKdPnqfkPmYaksQc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 34,
+        "prompt_tokens": 469,
+        "total_tokens": 503
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 34,
+      "prompt_tokens": 469
+    }
+  },
+  "retry_after": null
+}

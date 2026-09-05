@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:22:22.990837Z",
+  "failure_detail": null,
+  "fingerprint": "94dc9a44deb15ea1ffd3e44b9fe10bdebd15671655594e61cf35afbe54d9779f",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-025-4",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "NO\nThe retrieved chunks do not mention \"Meridian UI\".",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "NO\nThe retrieved chunks do not mention \"Meridian UI\".",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPlm3Z9lgN+tLUZxixi2gRbWUJOiMj5EZwlwJCsHHOvtyOC11JqpiX8HsOkBzyCIg3D3E7J4PynEZf3QLuc3K7xgQtCK7bnylBM8ewX9lvQIr9t87ndIf5"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600142,
+      "id": "Tt-bavK4DKjdg8UPzL2ckAs",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 13,
+        "prompt_tokens": 456,
+        "total_tokens": 469
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 13,
+      "prompt_tokens": 456
+    }
+  },
+  "retry_after": null
+}

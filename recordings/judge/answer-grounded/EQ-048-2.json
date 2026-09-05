@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:10:24.137482Z",
+  "failure_detail": null,
+  "fingerprint": "9cd45d8cfb025db8b719a62a43944c73a2091acf0d600a0110c93db48aabe2a9",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-048-2",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nEvery statement in the answer is directly supported by the provided text chunks (DOC-048 chunks 0, 1, and 2).",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nEvery statement in the answer is directly supported by the provided text chunks (DOC-048 chunks 0, 1, and 2).",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPdDjqv3tQ63zvSUJ+U5UMdPeWLcGwYZSzkiyRdu6K9cEWxcjJ/BgwXBpzK6UVkbKIMXEEZU+elipnqER1gCP0qhZYHkSCF0ILWUTXksMuIJJMu+KAFjPp"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599424,
+      "id": "f9ybasOVG7Hdg8UPg_OnyAc",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 520,
+        "total_tokens": 552
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 32,
+      "prompt_tokens": 520
+    }
+  },
+  "retry_after": null
+}

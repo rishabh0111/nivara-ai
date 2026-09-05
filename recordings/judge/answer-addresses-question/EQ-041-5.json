@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:18:42.728947Z",
+  "failure_detail": null,
+  "fingerprint": "235befd6ac63afe272a1166dddcf65c9ea1c6422be0b841beedf3c93f5d54100",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-041-5",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses whether last quarter's data can be pulled directly or needs a support request.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses whether last quarter's data can be pulled directly or needs a support request.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPRrWNxH10GrwtejaXYtnpFQy1iCFJKWfhlNTXZyXiXXaFzOysUisZh9nzD23RptFlo+2D9WrqIATYze4SiCLG1JIGNxFjWCcptMoGWqM3OzOZF/SJpet5"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599922,
+      "id": "cd6bau_IKsKig8UPlZv1yAg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 22,
+        "prompt_tokens": 499,
+        "total_tokens": 521
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 22,
+      "prompt_tokens": 499
+    }
+  },
+  "retry_after": null
+}

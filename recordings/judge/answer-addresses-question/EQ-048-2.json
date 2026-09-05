@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:10:24.896283Z",
+  "failure_detail": null,
+  "fingerprint": "eeb04317de6e86387c1db07d950af60762787f4a01a5a3fe0c9b3ed791d4eb41",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-048-2",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the customer's problem of hearing about outages too late by explaining how to set up real-time status page alerts and webhooks for immediate notification.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the customer's problem of hearing about outages too late by explaining how to set up real-time status page alerts and webhooks for immediate notification.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPbultl4Ryi/ZP+cqIm9o/rT1sTVqrlO7YEZos3YAUAjUTCM6h/37V29qimT/nTFEuiMFiYTKfOKF/0d4ofq7Kq8DasQ5ewspLs3UyjdGBb8uRUmtXtLlW"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599424,
+      "id": "gNybatjxD_XnqfkPwczNgQs",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 36,
+        "prompt_tokens": 518,
+        "total_tokens": 554
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 36,
+      "prompt_tokens": 518
+    }
+  },
+  "retry_after": null
+}

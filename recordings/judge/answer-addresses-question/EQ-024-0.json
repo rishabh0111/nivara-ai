@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:20:03.931067Z",
+  "failure_detail": null,
+  "fingerprint": "ee7a4af92187613b30268c77b86be1542187bf2244b88c204917027fca9a0892",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-024-0",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the customer's premise about \"silently truncated\" payloads by explaining how truncation actually works (via the `truncated: true` flag rather than silent dropping) and provides guidance on building a receiving-side batching strategy as requested.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the customer's premise about \"silently truncated\" payloads by explaining how truncation actually works (via the `truncated: true` flag rather than silent dropping) and provides guidance on building a receiving-side batching strategy as requested.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPKMk5QQY54n/CLbhGo75Oyh+7Tsq9IKtSVPwLNzXfVG1wGC1X05q+2pqb0jyn47VGsF2lk6MohVfS69rQjdrDISVfmsSnPn7bXKpBEBcGkhygWv7M6the"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600003,
+      "id": "wt6baonXKpvcg8UPjKSWuQo",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 53,
+        "prompt_tokens": 672,
+        "total_tokens": 725
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 53,
+      "prompt_tokens": 672
+    }
+  },
+  "retry_after": null
+}

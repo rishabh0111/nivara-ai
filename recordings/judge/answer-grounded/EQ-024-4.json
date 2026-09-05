@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:15:46.997258Z",
+  "failure_detail": null,
+  "fingerprint": "463bdeadf3ff6850744d9b249c988456445920abaa85d5f0d88cfdcca16a9201",
+  "outcome": "response",
+  "recording_id": "judge/answer-grounded/EQ-024-4",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer accurately reflects the retrieved documentation regarding webhook payload size limits, the `truncated: true` flag, fetching via the API, subscribing to `.changed` events, and the lack of configurable batching.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer accurately reflects the retrieved documentation regarding webhook payload size limits, the `truncated: true` flag, fetching via the API, subscribing to `.changed` events, and the lack of configurable batching.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPzbatcb6h4pFtliMzaNrkxjyL07G4BwV6aCsS54vmvFZVi6Zl2qac3OolCP1A7h0BXQJtKnuV7eV7VEo5viPYtR/pBdOvcUQuGtQtocRkpael1A7Te1s0"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599746,
+      "id": "wt2batiMC5Xlg8UPtcvBsQI",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 43,
+        "prompt_tokens": 589,
+        "total_tokens": 632
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 43,
+      "prompt_tokens": 589
+    }
+  },
+  "retry_after": null
+}

@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:23:12.743954Z",
+  "failure_detail": null,
+  "fingerprint": "135d76370748e3af93489b2f674ed8212bace516855ae0aa0b9cfea29babfd80",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-044-0",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses both parts of the customer's question: how to share with someone without a login and whether there is a read-only sharing option, using the provided documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses both parts of the customer's question: how to share with someone without a login and whether there is a read-only sharing option, using the provided documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPmLKl3nasGbnNvrHsBjmda73ClW6PB4XEt3m1reh8LrfNKDbyim5ghBY5Zdd0q4k2X7zdeOuJLjHr9eglb7dNOh9gGcQMMocWGKSufLBGlQLfa3uSCTfE"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600192,
+      "id": "f9-baqziKpy0g8UPkLKn0Qg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 39,
+        "prompt_tokens": 470,
+        "total_tokens": 509
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 39,
+      "prompt_tokens": 470
+    }
+  },
+  "retry_after": null
+}

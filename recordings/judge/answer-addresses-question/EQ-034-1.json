@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:17:57.571733Z",
+  "failure_detail": null,
+  "fingerprint": "e3c9bb2dd00bafff03b2479b58ad5fae12393f052cd2564de2f1a9fdbe76b624",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-034-1",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe system's answer directly addresses the customer's question about fixing incorrect timezone timestamps by providing clear, accurate steps based on the retrieved documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe system's answer directly addresses the customer's question about fixing incorrect timezone timestamps by providing clear, accurate steps based on the retrieved documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPW+S0eKU8yq35zz7ZuKAUubDtcX8hWBSxHm3RhEY5Zm6sfDqxtvCtRqzV4TnX/W/nwzfNGBVggSjlo/qJ7eizEdEYn4J90tPQSm7bA98TQbvmFzoGB+bI"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599877,
+      "id": "RN6bapy6KuaujuMPz9ajmAs",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 536,
+        "total_tokens": 567
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 31,
+      "prompt_tokens": 536
+    }
+  },
+  "retry_after": null
+}

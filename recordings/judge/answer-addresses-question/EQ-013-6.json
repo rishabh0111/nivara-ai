@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:09:21.425087Z",
+  "failure_detail": null,
+  "fingerprint": "7b817f23c390898bef005497257da4652f6909c17d77d7b901024954f1d84862",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-013-6",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses whether two identity providers can be connected simultaneously during a transition or if a cutover is required.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses whether two identity providers can be connected simultaneously during a transition or if a cutover is required.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPu48hD2WKzK5X1CadCqFHyh0Ipa06LXgeTOJC2NamMFKXF/ACD2G9gx02qZvdgF6w5dXb7IREnv4/mHfa7pVMGz5/So5ZCldZ84e2e6/C0GvLEb4UNLfy"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599361,
+      "id": "QNybarL8JYjVqfkP1tP0sAg",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 25,
+        "prompt_tokens": 513,
+        "total_tokens": 538
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 25,
+      "prompt_tokens": 513
+    }
+  },
+  "retry_after": null
+}

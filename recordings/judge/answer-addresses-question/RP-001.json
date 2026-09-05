@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:24:51.446165Z",
+  "failure_detail": null,
+  "fingerprint": "c40bd8fff0a990eae168761344c7f7655e082974b3dd5e24d1b0b99c8ea13b90",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/RP-001",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe system correctly addressed the discrepancy between the customer's internal logs and the dashboard by offering the usage-dispute review mentioned in the retrieved documentation (DOC-053#1).",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe system correctly addressed the discrepancy between the customer's internal logs and the dashboard by offering the usage-dispute review mentioned in the retrieved documentation (DOC-053#1).",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPAOeIgjOgpn/hdF4Mfk03lWbhjb90LpqHq7M1LacgLGH6dXqoQ4Q6JPqhVVI96WqqxKh9npzFl1U2zwODOin6EoEM2f9VEzC4eCuGbN79teK8+TCZe5hS"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600291,
+      "id": "4t-baqWjK4vFg8UP0L7diQ4",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 40,
+        "prompt_tokens": 601,
+        "total_tokens": 641
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 40,
+      "prompt_tokens": 601
+    }
+  },
+  "retry_after": null
+}

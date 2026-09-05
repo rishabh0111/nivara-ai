@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:13:00.408208Z",
+  "failure_detail": null,
+  "fingerprint": "7e841b0d9361b33123f60d3982e5c99a441149bfd3ac2325d179ce6a06e73003",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-012-4",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the customer's problem of codes not working after a phone change by providing the correct troubleshooting steps retrieved from the documentation.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the customer's problem of codes not working after a phone change by providing the correct troubleshooting steps retrieved from the documentation.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPeorHFwKPbrHMhL9T7Dg5BGBRY+Fz0tTEmJWr/Aq0eaFGMvIaSr0R6h7u9gaFz8rU2TMFhpVh0fkOn3Y2gQetB1QkJE007K7OrVhwJKxvIfOiLi30fw/K"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599580,
+      "id": "G92bavnTKYvFg8UP0L7diQ4",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 647,
+        "total_tokens": 677
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 30,
+      "prompt_tokens": 647
+    }
+  },
+  "retry_after": null
+}

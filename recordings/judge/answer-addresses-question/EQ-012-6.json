@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:22:54.697240Z",
+  "failure_detail": null,
+  "fingerprint": "23a60c3e507109c9b04228e00acca7bd9160b680020699f4d4693f0295bd6ec4",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-012-6",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe customer asked whether they need to fully remove/reset the old enrolment or just re-scan a new code, and the answer directly addresses this by explaining that they need to choose \"Reset\" first, which invalidates the old code before scanning the new one.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe customer asked whether they need to fully remove/reset the old enrolment or just re-scan a new code, and the answer directly addresses this by explaining that they need to choose \"Reset\" first, which invalidates the old code before scanning the new one.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIP6LHAYC2sEoq6//Tvf7uO6tRX21j+JwODoOg5SzRIsXBN/Ht59PMg/jKUD1u33oo2SBKrNYgHN0xGPohq8/Uv2d9AsfljFepxf25fMooGoJXrsefLwzUQ"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600174,
+      "id": "bd-basGVK_TEg8UP9fqgoQM",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 55,
+        "prompt_tokens": 534,
+        "total_tokens": 589
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 55,
+      "prompt_tokens": 534
+    }
+  },
+  "retry_after": null
+}

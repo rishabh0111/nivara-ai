@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:13:18.760098Z",
+  "failure_detail": null,
+  "fingerprint": "a190f4ee8e8ba2cb644d1beb07dd1906a051c9afb7e3a4cf92179096e9b0f7ce",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-031-0",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses whether data is deleted or hidden upon downgrade, citing the retention window exception as outlined in the retrieved context.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses whether data is deleted or hidden upon downgrade, citing the retention window exception as outlined in the retrieved context.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPJ+5UPor7d4JVVgRMxNMCEiiNzxZwFQfRpfB1ZRbkjUypc1KnsRHHFjXO0wFZIyv+Zvc54yvRb8rTm2fJM1E3VtiGdTUdmCsWSvpnPcxxwX6l+6Vb7wfa"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788599598,
+      "id": "Ld2bapHeKL_84-EPzazi2Qs",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 27,
+        "prompt_tokens": 547,
+        "total_tokens": 574
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 27,
+      "prompt_tokens": 547
+    }
+  },
+  "retry_after": null
+}

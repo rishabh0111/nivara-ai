@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-09-05T09:21:51.563108Z",
+  "failure_detail": null,
+  "fingerprint": "8f4fee023365c503c7bcd703ba0e3fb396920303b2bf9412682d961d65690d50",
+  "outcome": "response",
+  "recording_id": "judge/answer-addresses-question/EQ-045-0",
+  "request_snapshot": {
+    "model": "gemini-3.5-flash-lite",
+    "prompt_version": "judge-v1",
+    "provider": "gemini"
+  },
+  "response": {
+    "content": "YES\nThe answer directly addresses the customer's question about options for accessing historical data beyond the current retention window by explaining cold storage, extended history requests, usage exports, and workspace creation limits.",
+    "raw": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "YES\nThe answer directly addresses the customer's question about options for accessing historical data beyond the current retention window by explaining cold storage, extended history requests, usage exports, and workspace creation limits.",
+            "extra_content": {
+              "google": {
+                "thought_signature": "El4KXAERTTIPEXgKEbLTSK3zTWN0w6x6ssj8Hp7yoAymDkcgmevOd1mE/bB6F6xnKBiXo4+1nTOFjb7VYBAqr8fBftbnUXrslzsDrFAMNmRNyfL5H/2dAZ0Ztg3erTf/"
+              }
+            },
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1788600111,
+      "id": "Lt-bauu-KrKvg8UPp9PPgQY",
+      "model": "gemini-3.5-flash-lite",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 39,
+        "prompt_tokens": 619,
+        "total_tokens": 658
+      }
+    },
+    "served_by_model": null,
+    "served_by_provider": null,
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 39,
+      "prompt_tokens": 619
+    }
+  },
+  "retry_after": null
+}
