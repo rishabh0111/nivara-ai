@@ -76,6 +76,20 @@ jobs:
       - name: Bring up the stack
         run: docker compose up -d --wait
 
+      - name: Point the host at the published ports and fetch the Assistant token
+        run: |
+          echo "NIVARA_QDRANT_URL=http://localhost:6333" >> "$GITHUB_ENV"
+          echo "NIVARA_API_BASE_URL=http://localhost:3000" >> "$GITHUB_ENV"
+          token=$(docker compose logs migrate \
+            | grep -B1 'Deflection assistant' \
+            | grep -o 'nvk_live_[A-Za-z0-9._-]*' \
+            | tail -1)
+          if [ -z "$token" ]; then
+            echo "::error::couldn't find the Assistant token in migrate's logs"
+            exit 1
+          fi
+          echo "NIVARA_ASSISTANT_TOKEN=$token" >> "$GITHUB_ENV"
+
       - name: Index the Corpus
         run: python scripts/index_corpus.py
 
