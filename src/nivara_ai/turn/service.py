@@ -54,6 +54,7 @@ from nivara_ai.turn.conversation import (
 from nivara_ai.turn.cost import modelled_cost_usd, modelled_turn_cost_usd
 from nivara_ai.turn.escalation import EscalationReason, render_note
 from nivara_ai.turn.loop import CeilingExceeded, Escalate, LoopResult, NoAnswer, PostReply, run_loop
+from nivara_ai.turn.plain_text import to_plain_text
 from nivara_ai.turn.prompt import (
     PROMPT_VERSION,
     SELF_CONSISTENCY_PROMPT_VERSION,
@@ -487,12 +488,21 @@ class TurnRunner:
         """Post the Answer, then resolve it. Resolving is the tidy follow-up —
         the dwell sweep would do it otherwise — so if a person took the
         Conversation in the window between the two writes, the reply still
-        stands and the state is now theirs to move."""
+        stands and the state is now theirs to move.
 
-        writer.post_reply(conversation_id, message)
+        The text is normalised here, at the point it stops being the model's
+        output and becomes a customer's Message: posted and returned as the
+        same string, so the Answer streaming into the Widget and the Message
+        that lands beside it a moment later cannot disagree. What the model
+        actually said is kept verbatim in the Trace and the Recording — see
+        `plain_text`.
+        """
+
+        answer = to_plain_text(message)
+        writer.post_reply(conversation_id, answer)
         with suppress(HumanHasTakenConversation):
             writer.resolve(conversation_id)
-        return "answered", message, None
+        return "answered", answer, None
 
     @staticmethod
     def _clarify(
@@ -502,8 +512,9 @@ class TurnRunner:
         no resolve. The customer's reply is the next Turn; if it is still
         uncertain the Gate escalates then (decision 29)."""
 
-        writer.post_reply(conversation_id, question)
-        return "clarified", question, None
+        asked = to_plain_text(question)
+        writer.post_reply(conversation_id, asked)
+        return "clarified", asked, None
 
     def _retrieval_trace(self, query: str, hits: list[RetrievedChunk]) -> RetrievalTrace:
         chunk_traces = [ChunkTrace.from_chunk(hit) for hit in hits]
