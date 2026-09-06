@@ -1,5 +1,16 @@
 # nivara-ai
 
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
+![Qdrant](https://img.shields.io/badge/Qdrant-DC244C?style=flat&logo=qdrant&logoColor=white)
+![Langfuse](https://img.shields.io/badge/Langfuse-0A0A0A?style=flat)
+![MCP](https://img.shields.io/badge/MCP-000000?style=flat&logo=modelcontextprotocol&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
+
+[Live](https://nivara-ai-7qw8.onrender.com/health)  ·
+[Try it](https://rishabh0111.github.io/nivara-web-nextjs/)  ·
+[The product](https://nivara-landing-iota.vercel.app)
+
 The AI support layer for [Nivara Desk](https://nivara-landing-iota.vercel.app). It answers what it
 can safely answer, asks when a request is ambiguous, escalates the rest to a human, and **cannot
 lie about which it did** — prose the model writes outside a tool call is never posted to a
