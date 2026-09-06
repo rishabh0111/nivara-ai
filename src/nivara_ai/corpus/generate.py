@@ -156,7 +156,7 @@ def chunk_body(body: str) -> list[str]:
 
 
 def contextual_prefix_for(document: Document, index: int, total: int) -> str:
-    """The build-time assistant's answer to `prompts/corpus/chunk_prefix.md`
+    """The generated answer to `prompts/corpus/chunk_prefix.md`
     for one chunk, composed the same deterministic way as the documents
     themselves — see `compose_documents`.
     """

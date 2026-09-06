@@ -87,7 +87,7 @@ class FailureLabel(BaseModel):
 
     `status` records that the label was verified by hand, not just read off
     the Trace — the same draft-then-review path `eval/sensitive.jsonl` and
-    `eval/retrieval_labels.jsonl` follow (the assistant may draft from the
+    `eval/retrieval_labels.jsonl` follow (a draft may be generated from the
     data, but a measured finding is verified by hand). The committed
     set is fully `"adjudicated"`; see `traffic/README.md`.
 

@@ -5,7 +5,7 @@
 
 writes `corpus/documents.jsonl`, `corpus/chunks.jsonl` and
 `corpus/counts.md` from `src/nivara_ai/corpus/authored.py` — the
-build-time assistant's own generation, already done and committed there.
+generation's own generation, already done and committed there.
 This is the default and requires no provider key.
 
     python scripts/generate_corpus.py --live

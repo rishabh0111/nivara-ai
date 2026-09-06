@@ -28,7 +28,7 @@ from nivara_ai.retrieval.scenarios import Scenario, load_scenarios
 #: plays for the Corpus.
 PROMPT_VERSION = "eval-v1"
 
-#: What produced `eval/questions.jsonl` — the build-time assistant, generating
+#: What produced `eval/questions.jsonl` — generation,
 #: directly, the same way `corpus.generate.GENERATED_BY` records the Corpus's
 #: provenance.
 GENERATED_BY = "local"

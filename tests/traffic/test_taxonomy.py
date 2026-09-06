@@ -64,7 +64,7 @@ def test_a_labelled_category_is_always_a_real_taxonomy_slug() -> None:
 
 
 def test_every_committed_label_has_been_adjudicated_by_hand() -> None:
-    # The assistant may draft a label from the Trace, but the
+    # A label may be drafted from the Trace, but the
     # committed set is ground truth and every row is verified by hand. A
     # `status: "drafted"` row in the repo is an unfinished review.
     drafts = [label.case_id for label in load_labels() if label.status != "adjudicated"]

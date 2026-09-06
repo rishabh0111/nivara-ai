@@ -1,6 +1,6 @@
 """The Traffic generator.
 
-Traffic generation is an *input* and the build-time assistant may write it.
+Traffic generation is an *input*, so it is generated.
 What it must never touch is
 the deployed Tenant — `assert_compose_target` runs before the first
 Conversation is opened, and every write below goes to a compose/local API or

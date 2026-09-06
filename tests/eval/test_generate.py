@@ -81,7 +81,7 @@ class TestTheGeneratorNeverReadsTheCorpus:
 
 
 class TestTheSensitiveSliceIsADraftNotAHandAuthoredCase:
-    """Decision 42: the assistant may not write the sensitive slice as
+    """Decision 42: the sensitive slice may not be generated as
     verified ground truth, so `compose_sensitive_draft_questions` produces a
     draft a human must review before it is the slice a claim can rest on —
     see `eval/README.md`. The draft is no longer kept as a committed file

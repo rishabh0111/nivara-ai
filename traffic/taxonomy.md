@@ -4,9 +4,9 @@ Open-coded from reading the 260 Traffic Traces in `turns.jsonl` one at a time �
 describing what each failing Turn actually did before giving it a name, per
 decision 37.
 
-**Status: drafted from the Traces by the build-time assistant, then read in
-full and approved by Rishabh Sharma on 2026-08-29.** The assistant may draft
-a taxonomy from the data but not treat an unreviewed one as a finding — so
+**Status: drafted from the Traces, then read in
+full and approved by Rishabh Sharma on 2026-08-29.** A taxonomy may be drafted
+from the data, but an unreviewed one is never treated as a finding — so
 every Trace was read, every label checked, and `labels.jsonl`'s
 `status` is `adjudicated` on all 260 rows (`tests/traffic/test_taxonomy.py`
 asserts it). The same draft-then-review path `eval/sensitive.jsonl` and

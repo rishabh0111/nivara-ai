@@ -41,7 +41,7 @@ Three rules, from decision 41, and `nivara_ai.harness.judge` is each of them:
 1. **A different model family than the answerer.** `assert_different_family`
    refuses a judge whose model string shares a family prefix with the
    answerer's. A model grading its own family's output is not independent. The
-   build-time assistant does not judge either — the judge is a configured
+   generation does not judge either — the judge is a configured
    model, evaluated independently of whatever generated the inputs it grades.
 2. **Offline, through the one model seam.** The judge run goes through
    `ModelClient` with its own `recording_id`, the same seam the agent loop and
@@ -58,7 +58,7 @@ Three rules, from decision 41, and `nivara_ai.harness.judge` is each of them:
    rows rest on a second model.
 
 The hand labels and the judge run are a human, quota-spending step — the
-assistant may not author ground truth. Both ran: the
+generation may not author ground truth. Both ran: the
 judge (the committed Gemini rung, a different family than every Groq-answered
 case) against a 100-case sample, and a second human reviewer's independent
 hand labels against the same sample. `answer-addresses-question` cleared the

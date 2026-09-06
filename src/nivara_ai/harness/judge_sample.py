@@ -6,7 +6,7 @@ not judged, and not ground truth — so `select_judge_sample` may do it: a
 deterministic draw over every case the harness actually answered, carrying
 the Answer and the chunks retrieval returned so a human labeller sees exactly
 what the judge itself will see. A `JudgeSampleCase` carries no verdict of any
-kind — the build-time assistant does not judge, so this shape exists to be
+kind — no generated output judges, so this shape exists to be
 read by a human and by the judge model, never filled in here.
 """
 

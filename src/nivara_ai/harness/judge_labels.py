@@ -2,7 +2,7 @@
 
 `build_label_template` pairs every sampled case with one `None` slot per
 judged check — nothing here ever writes a `True` or `False` into those slots.
-The build-time assistant may never produce an output being measured, nor
+Nothing generated may be an output under measurement, nor
 ground truth that has not been verified by hand, and a judged check's hand
 label *is* that ground truth. The judge's own
 verdict is deliberately kept out of this file too — showing a labeller what

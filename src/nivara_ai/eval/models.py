@@ -9,7 +9,7 @@ from pydantic import BaseModel
 
 from nivara_ai.retrieval.scenarios import ScenarioCategory, ScenarioTopic
 
-#: `"generated"` for the ~400 ordinary cases the build-time assistant is
+#: `"generated"` for the ~400 ordinary cases that are
 #: permitted to write directly. `"assistant-drafted-pending-review"`
 #: for the sensitive slice as it comes out of the generator — decision 42
 #: forbids the assistant from writing this slice itself, so a row with this

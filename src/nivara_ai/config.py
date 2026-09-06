@@ -166,7 +166,7 @@ class Settings(BaseSettings):
 
     # Only read by `scripts/generate_corpus.py --live` (ticket 08). Unset in
     # every deployed and CI environment — the committed Corpus was generated
-    # by the build-time assistant, not this settings block; these exist so a
+    # by generation, not this settings block; these exist so a
     # reviewer can independently regenerate it against a provider of their
     # choosing, which decision 21 requires to be a different model family
     # than whatever ends up answering.

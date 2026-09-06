@@ -9,7 +9,7 @@ of registers (direct, terse, frustrated, detail-heavy, indirect, relayed
 through a third party, undecided between two readings, and very short) so the
 generated set exercises retrieval against more than one way of asking.
 Writing these directly is permitted: "the ordinary-category eval cases" are
-something the build-time assistant may generate.
+something that may be generated.
 
 `AUTHORED_SENSITIVE_DRAFT_QUESTIONS` holds five questions per sensitive
 Scenario (30 * 5 = 150). Decision 42 is explicit that the assistant

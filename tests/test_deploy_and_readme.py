@@ -42,8 +42,8 @@ class TestTheReadmeOpensWithNumbers:
     def test_it_carries_the_provenance_sentence(self):
         flat = " ".join(_README.lower().split())
         assert (
-            "the assistant built the harness and wrote the inputs; every number "
-            "came from the system itself" in flat
+            "inputs are generated; outputs are measured. every number came from "
+            "the system itself" in flat
         )
 
     def test_cost_is_list_price_beside_zero(self):

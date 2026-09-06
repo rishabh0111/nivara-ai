@@ -10,7 +10,7 @@ Three rules fence it:
 1. **A different model family than the answerer.** `assert_different_family`
    refuses a judge whose model string shares a family prefix with the answerer's
    — a model grading its own family's output is not an independent reading
-   (decision 41). The build-time assistant does not judge either; the judge
+   (decision 41). No generated output judges either; the judge
    is a configured model, evaluated independently of whatever generated the
    inputs it grades.
 2. **Offline, on a held-out sample, through build-time access.** Judge calls go

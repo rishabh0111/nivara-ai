@@ -621,7 +621,7 @@ def render_markdown(calibration: Calibration, *, meta: dict) -> str:
         "",
         "## The rule this obeyed",
         "",
-        "The assistant built this harness and fit both models from the "
+        "This harness and both fitted models are generated from the "
         "human-reviewed labelled set — generating inputs and writing code is "
         "permitted, and `eval/sensitive.jsonl` is already hand-reviewed ground "
         "truth (`eval/README.md`). Nothing here is an output being measured that "

@@ -42,7 +42,7 @@ indirect, relayed through a third party, undecided between two readings, and
 very short — so the set exercises more than one way of asking the same
 underlying situation. Writing these directly is permitted: "the
 ordinary-category eval cases" are named explicitly as something the
-build-time assistant may generate.
+may be generated.
 
 ## `sensitive.jsonl` — 150 cases, drafted by the assistant, reviewed and approved by a human
 

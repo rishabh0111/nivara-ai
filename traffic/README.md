@@ -88,8 +88,9 @@ breakdown.
 
 ## The rule this obeyed
 
-The assistant wrote the generator and drove the Traffic — an input. It then
-read the 260 Traces and drafted `labels.jsonl` and `taxonomy.md` from them.
+The generator, the Traffic it drove, and the first draft of `labels.jsonl`
+and `taxonomy.md` read off the 260 Traces are all generated — inputs, every
+one of them.
 Ground truth that has not been verified by hand is never treated as a
 finding, so on
 2026-08-29 Rishabh Sharma read every Trace and every label and approved the

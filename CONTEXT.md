@@ -119,7 +119,7 @@ The fifty seeded real Tickets, held out of the Corpus entirely and used only as 
 _Avoid_: Holdout, test set (the eval set is the whole thing; this is one slice of it)
 
 **Traffic**:
-Synthetic customer-side Conversations driven against the compose API so their Traces can be read for **Error analysis**. Generated — the questions are the committed eval set and the Real-phrasing slice, driven as real Turns — and an input, so the build-time assistant writes the generator. Never points at the deployed Tenant: a write there would land in the deflection Cohort behind the published number and nothing would undo it. Distinct from the eval set, which is scored; Traffic is read.
+Synthetic customer-side Conversations driven against the compose API so their Traces can be read for **Error analysis**. Generated — the questions are the committed eval set and the Real-phrasing slice, driven as real Turns — and an input, so the generator is code in this repository. Never points at the deployed Tenant: a write there would land in the deflection Cohort behind the published number and nothing would undo it. Distinct from the eval set, which is scored; Traffic is read.
 _Avoid_: Load test, synthetic load, replay (a Recording is a replay; Traffic is live Turns)
 
 ### Cost and providers
