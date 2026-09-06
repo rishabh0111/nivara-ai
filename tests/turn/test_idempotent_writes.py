@@ -15,8 +15,14 @@ from __future__ import annotations
 import httpx
 import pytest
 
-from nivara_ai.turn.conversation import ConversationSnapshot, ConversationWriter
+from nivara_ai.turn.conversation import (
+    Conversation,
+    ConversationSnapshot,
+    ConversationWriter,
+    ThreadMessage,
+)
 from tests.turn.conftest import (
+    API_BASE_URL,
     build_runner,
     mint_widget_session,
     open_conversation,
@@ -116,3 +122,89 @@ class TestReplayingATurnPostsNoDuplicate:
             m for m in read_messages(admin_token, conversation_id) if m["authorKind"] == "service"
         ]
         assert len(service) == 1
+
+
+class TestWhichMessageIsBeingAnswered:
+    """The key is scoped to the Message, not to what it said.
+
+    Two Messages are two questions however alike they read, and one Message
+    retried is one question. A hash of the words cannot tell those apart —
+    which is how a Visitor who asked the same thing twice had their second
+    answer refused as a duplicate of the first and was answered into silence.
+    """
+
+    def _conversation(self, *thread: ThreadMessage) -> Conversation:
+        return Conversation(
+            id="conv-1",
+            subject="past invoices",
+            state="open",
+            assignee_id=None,
+            thread=list(thread),
+        )
+
+    def test_the_same_question_asked_twice_names_the_second_asking(self):
+        asked = "where are my old invoices?"
+        conversation = self._conversation(
+            ThreadMessage(author_kind="contact", body=asked, id="msg_1"),
+            ThreadMessage(author_kind="service", body="Under Billing.", id="msg_2"),
+            ThreadMessage(author_kind="contact", body=asked, id="msg_3"),
+        )
+
+        assert conversation.latest_customer_message == asked
+        assert conversation.latest_customer_message_id == "msg_3"
+
+    def test_an_agent_s_reply_is_not_what_the_turn_is_answering(self):
+        conversation = self._conversation(
+            ThreadMessage(author_kind="contact", body="where?", id="msg_1"),
+            ThreadMessage(author_kind="user", body="Have you tried Billing?", id="msg_2"),
+        )
+
+        assert conversation.latest_customer_message_id == "msg_1"
+
+    def test_a_conversation_with_nothing_from_the_customer_names_no_message(self):
+        # The Turn falls back to the content key here — there is no Message to
+        # be a retry of, so nothing is lost by it.
+        assert self._conversation().latest_customer_message_id is None
+
+
+class TestAskingTheSameQuestionAgain:
+    pytestmark = [requires_stack, requires_corpus]
+
+    def test_the_second_ask_is_answered_rather_than_refused_as_a_duplicate(
+        self, assistant_token, admin_token
+    ):
+        """The other half of `TestReplayingATurnPostsNoDuplicate`: that one
+        proves a retried Turn does not post twice, and this proves a second
+        question does. Both were the same key once, and the first assertion
+        was the only one anybody had made."""
+
+        widget_token = mint_widget_session()
+        asked = "where are my old invoices?"
+        conversation_id = open_conversation(
+            widget_token, subject="past invoices", message=asked
+        )
+        runner = build_runner(
+            assistant_token,
+            model_client=reply_client("Your old invoices are under Billing > History."),
+            disable_gate=True,
+        )
+
+        first = runner.run(conversation_id, widget_token)
+
+        # Asked again, word for word — a Visitor who did not see the answer,
+        # which is the ordinary reason anybody asks twice.
+        httpx.post(
+            f"{API_BASE_URL}/widget/tickets/{conversation_id}/messages",
+            json={"body": asked},
+            headers={"Authorization": f"Bearer {widget_token}"},
+            timeout=5,
+        ).raise_for_status()
+
+        second = runner.run(conversation_id, widget_token)
+
+        assert first.outcome == "answered"
+        assert second.outcome == "answered"
+        service = [
+            m for m in read_messages(admin_token, conversation_id) if m["authorKind"] == "service"
+        ]
+        assert len(service) == 2, "the second ask was answered into silence"

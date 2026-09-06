@@ -135,6 +135,13 @@ class ConversationSnapshot:
 class ThreadMessage:
     author_kind: AuthorKind
     body: str
+    #: The API's own id for this Message. Carried so a Turn can say *which*
+    #: message it is answering rather than only what that message said — two
+    #: customers' identical questions, or one customer asking the same thing
+    #: twice, are different Turns and must not be mistaken for a retry of each
+    #: other (see `Conversation.latest_customer_message_id`). Optional because
+    #: a thread assembled in a test is about the words, not the ids.
+    id: str | None = None
 
     @property
     def role(self) -> str:
@@ -157,6 +164,24 @@ class Conversation:
         for message in reversed(self.thread):
             if message.author_kind == "contact":
                 return message.body
+        return None
+
+    @property
+    def latest_customer_message_id(self) -> str | None:
+        """The id of the Message this Turn is answering.
+
+        What makes one Turn distinguishable from another on the same
+        Conversation. A Visitor who asks the same question twice writes two
+        Messages with two ids and is owed two answers; the same Turn retried
+        after a dropped connection is answering the one Message and is owed
+        one. Keyed on the words instead, those two cases are identical — which
+        is how a re-asked question came to be answered into silence, the reply
+        refused as a duplicate of the first.
+        """
+
+        for message in reversed(self.thread):
+            if message.author_kind == "contact":
+                return message.id
         return None
 
     def as_messages(self) -> list[dict[str, Any]]:
@@ -242,7 +267,7 @@ class _TicketReader:
                 f"{self._ticket_prefix}/{conversation_id}/messages", params
             ).json()
             messages.extend(
-                ThreadMessage(author_kind=row["authorKind"], body=row["body"])
+                ThreadMessage(author_kind=row["authorKind"], body=row["body"], id=row.get("id"))
                 for row in page["data"]
             )
             cursor = page.get("nextCursor")

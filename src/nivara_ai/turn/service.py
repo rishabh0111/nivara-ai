@@ -439,10 +439,22 @@ class TurnRunner:
             self._api_base_url,
             self._assistant_token,
             lambda: reader.snapshot(conversation.id),
-            # Stable across retries of this Turn: the Conversation plus a hash
-            # of the customer content being answered, never a per-request uuid
-            # (user story 29).
-            idempotency_scope=f"turn:{conversation.id}:{recording_key}",
+            # Stable across retries of this Turn, and different for the next
+            # one: the Conversation plus the id of the Message being answered,
+            # never a per-request uuid (user story 29).
+            #
+            # The id rather than a hash of the words. Keyed on content, a
+            # Visitor who asked the same question twice produced the same key
+            # twice, so their second answer was refused as a duplicate of the
+            # first and they were answered into silence. Two Messages are two
+            # questions however alike they read; one Message retried is one.
+            # `recording_key` stays content-derived — a Recording has to be
+            # findable from the question alone — which is exactly why it
+            # cannot serve here as well.
+            idempotency_scope=(
+                f"turn:{conversation.id}:"
+                f"{conversation.latest_customer_message_id or recording_key}"
+            ),
         )
 
         try:
