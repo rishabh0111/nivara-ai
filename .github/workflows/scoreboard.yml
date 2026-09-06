@@ -85,7 +85,11 @@ jobs:
           # material for the managed Qdrant, not a location. Empty against the
           # throwaway compose stack's own Qdrant, which has no auth to give it.
           NIVARA_QDRANT_API_KEY: ${{ secrets.NIVARA_SCOREBOARD_QDRANT_API_KEY }}
-        run: python scripts/scoreboard.py --fail-on-drift
+        # No --fail-on-drift: the alert is advisory. The accounted rate is
+        # measured over the committed synthetic Traffic and live deflection
+        # over real Widget traffic, so the gap is published beside the two
+        # columns rather than failing the job. See `DRIFT_IS_ADVISORY`.
+        run: python scripts/scoreboard.py
 
       - name: Commit the refreshed artifact and rollup
         if: env.HAS_REPORTER == 'true'

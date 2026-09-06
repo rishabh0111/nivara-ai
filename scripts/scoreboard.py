@@ -84,7 +84,10 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--fail-on-drift",
         action="store_true",
-        help="exit non-zero when the drift alert fires (for the scheduled job)",
+        help=(
+            "exit non-zero when the drift alert fires. Off in the scheduled job: "
+            "the alert is advisory (see `DRIFT_IS_ADVISORY`)."
+        ),
     )
     parser.add_argument(
         "--no-rollup",

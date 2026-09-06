@@ -44,7 +44,16 @@ def test_it_holds_the_reporter_token_and_only_that_credential(workflow):
 def test_it_keeps_the_vector_store_alive_via_the_same_run(workflow):
     # keep-alive is inside scripts/scoreboard.py, so running the script is
     # enough — assert the script is the thing run, not a separate curl.
-    assert _step(workflow, "Publish the scoreboard")["run"].strip().endswith("--fail-on-drift")
+    run = _step(workflow, "Publish the scoreboard")["run"]
+    assert "python scripts/scoreboard.py" in run
+
+
+def test_the_scheduled_job_does_not_fail_on_drift(workflow):
+    # The alert is advisory: the accounted rate is measured over the committed
+    # synthetic Traffic and live deflection over real Widget traffic, so the two
+    # are not the same Conversations and the gap is published rather than gated.
+    # `nivara_ai.scoreboard.scoreboard.DRIFT_IS_ADVISORY` carries the reasoning.
+    assert "--fail-on-drift" not in _step(workflow, "Publish the scoreboard")["run"]
 
 
 def test_it_stops_with_a_runbook_when_the_secret_is_absent(workflow):

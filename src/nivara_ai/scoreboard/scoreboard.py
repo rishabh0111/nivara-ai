@@ -16,8 +16,11 @@ Three columns:
   service never answered. Measured and published, never filtered.
 
 A **drift alert** fires when live deflection and the rate this service can
-account for (AI-answered + Phantom) diverge by more than `DRIFT_THRESHOLD` — a
-divergence noticed rather than discovered (user story 36).
+account for (AI-answered + Phantom) diverge by more than `DRIFT_THRESHOLD` over
+a Cohort of at least `MIN_COHORT` — a divergence noticed rather than discovered
+(user story 36). It is advisory, and the scheduled job does not fail on it: the
+two rates are not measured over the same Conversations, so the gap is published
+beside them rather than treated as a regression. `DRIFT_IS_ADVISORY` says why.
 """
 
 from __future__ import annotations
@@ -30,10 +33,26 @@ from nivara_ai.scoreboard.deflection import LiveDeflection
 from nivara_ai.scoreboard.traces import AiAnswered, PhantomDeflection
 
 #: How far live deflection and the accounted-for rate may diverge before the
-#: job flags it. Phantom deflection is the *expected* gap and is subtracted
-#: before this is applied, so anything past it is unexplained — a scoring bug,
-#: a trace-collection gap, or the seed leaking into the Window.
+#: job flags it.
 DRIFT_THRESHOLD = 0.10
+
+#: Below this many Conversations the live rate is too noisy to read as
+#: anything, and the gap is recorded without being flagged. A Window holding a
+#: dozen Conversations moves several points when one of them resolves.
+MIN_COHORT = 50
+
+#: The two sides of this comparison are not measured over the same
+#: Conversations, and the gap is reported rather than gated because of it.
+#: `accounted` is a property of a committed file — `ai_answered` and `phantom`
+#: are both computed over `traffic/turns.jsonl`, whose Turns are synthetic and
+#: driven to completion, which is why `phantom` reads 0.0% there and cannot
+#: absorb a live gap it never sampled. Live deflection is real Widget traffic,
+#: including the Visitor who typed `hi` and left. So a delta here is first of
+#: all the distance between those two populations, and only after that a
+#: signal about this service. Closing it means deriving the offline rate from
+#: this service's own Traces over the same Window, which needs a Trace read the
+#: scheduled job does not currently hold.
+DRIFT_IS_ADVISORY = True
 
 
 @dataclass(frozen=True)
@@ -77,18 +96,30 @@ def assess_drift(live: LiveDeflection, answered: AiAnswered, phantom: PhantomDef
         )
 
     delta = live.rate - accounted
-    alert = abs(delta) > DRIFT_THRESHOLD
-    if alert:
+    measurable = live.cohort_size >= MIN_COHORT
+    alert = measurable and abs(delta) > DRIFT_THRESHOLD
+
+    reading = (
+        f"Live deflection is {delta:+.1%} from AI-answered + Phantom "
+        f"({accounted:.1%})"
+    )
+
+    if not measurable:
         note = (
-            f"Live deflection is {delta:+.1%} from AI-answered + Phantom "
-            f"({accounted:.1%}). That is past the {DRIFT_THRESHOLD:.0%} threshold and "
-            "is not explained by Phantom deflection alone — check trace collection "
-            "and the Window bound."
+            f"{reading}, over a Cohort of {live.cohort_size} — under the "
+            f"{MIN_COHORT} this job will read a rate from. Recorded, not flagged."
+        )
+    elif alert:
+        note = (
+            f"{reading}, past the {DRIFT_THRESHOLD:.0%} threshold. Advisory: the "
+            "two sides are not the same Conversations — the accounted rate is "
+            "measured over the committed synthetic Traffic, live deflection over "
+            "real Widget traffic — so read this as the distance between those "
+            "populations before reading it as a fault here."
         )
     else:
         note = (
-            f"Live deflection is {delta:+.1%} from AI-answered + Phantom "
-            f"({accounted:.1%}), within the {DRIFT_THRESHOLD:.0%} threshold. A small "
+            f"{reading}, within the {DRIFT_THRESHOLD:.0%} threshold. A small "
             "positive gap is ordinary self-service the API credits and this "
             "service was never asked about."
         )
@@ -247,7 +278,7 @@ def render_markdown(scoreboard: Scoreboard) -> str:
         "",
         f"- Live deflection: {_pct(drift.live_rate)}",
         f"- AI-answered + Phantom: {_pct(drift.accounted_rate)}",
-        f"- Alert: {'**yes**' if drift.alert else 'no'}",
+        f"- Alert: {'**yes** (advisory)' if drift.alert else 'no'}",
         "",
         drift.note,
         "",
