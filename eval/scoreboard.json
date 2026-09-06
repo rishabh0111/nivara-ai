@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-05T20:38:03Z",
+  "generated_at": "2026-09-06T13:30:41Z",
   "trace_source": "traffic/turns.jsonl (260 Turns)",
   "live_deflection": {
-    "count": 0,
-    "cohort_size": 0,
-    "rate": null,
+    "count": 9,
+    "cohort_size": 23,
+    "rate": 0.391304347826087,
     "window_from": "2026-09-01T00:00:00.000Z",
-    "window_to": "2026-09-05T20:38:03.000Z",
+    "window_to": "2026-09-06T13:30:41.000Z",
     "definition": "Terminal Tickets with no agent touch \u2014 no user-authored Message or Note. Credits AI handling and self-service only."
   },
   "ai_answered": {
@@ -20,10 +20,10 @@
     "rate": 0.0
   },
   "drift": {
-    "live_rate": null,
+    "live_rate": 0.391304347826087,
     "accounted_rate": 0.7346153846153847,
-    "delta": null,
+    "delta": -0.3433110367892977,
     "alert": false,
-    "note": "Pending \u2014 the Go-live Window has no Conversations yet, so there is no live figure to compare the offline one against."
+    "note": "Live deflection is -34.3% from AI-answered + Phantom (73.5%), over a Cohort of 23 \u2014 under the 50 this job will read a rate from. Recorded, not flagged."
   }
 }
