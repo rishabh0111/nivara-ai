@@ -20,6 +20,7 @@ import pytest
 
 from nivara_ai.seed_anchors import MERIDIAN_AGENT_USER_ID
 from nivara_ai.turn.conversation import (
+    ConversationNotWritable,
     ConversationSnapshot,
     ConversationWriter,
     HumanHasTakenConversation,
@@ -42,6 +43,55 @@ from tests.turn.conftest import (
 # nothing to replay, so the loop produces no answer and the Turn escalates.
 NO_RECORDING_SUBJECT = "a question with no committed Recording"
 NO_RECORDING_QUESTION = "The model seam has nothing to replay for this, so the Turn escalates."
+
+
+class TestAForeignTenant:
+    """A Conversation this service holds no write authority over.
+
+    The Assistant token is minted for one Tenant, but the Widget ingress reads
+    with the *Visitor's* credential, so a Visitor on another Tenant's site
+    reaches a Turn perfectly well and then finds every write refused. Before
+    this was named, the refusal reached the Visitor as
+    `internal_error` — a fault message for a situation in which nothing had
+    gone wrong for them.
+
+    Exercised against a local server rather than the live stack: the point is
+    the status code the API returns for a Ticket the credential cannot see, and
+    404 is 404.
+    """
+
+    @pytest.mark.parametrize("status", [403, 404])
+    @pytest.mark.parametrize(
+        "write",
+        ["post_reply", "resolve", "escalate"],
+    )
+    def test_a_refused_write_is_named_rather_than_an_outage(self, status, write, monkeypatch):
+        calls: list[tuple[str, str]] = []
+
+        def refuse(method, url, **kwargs):
+            calls.append((method, str(url)))
+            return httpx.Response(status, json={"error": {"code": "not_found"}}, request=httpx.Request(method, url))
+
+        monkeypatch.setattr("nivara_ai.turn.conversation._send", refuse)
+
+        writer = ConversationWriter(
+            "http://api.invalid",
+            "assistant-token-for-another-tenant",
+            lambda: ConversationSnapshot("open", None),
+        )
+
+        action = {
+            "post_reply": lambda: writer.post_reply("c1", "an answer"),
+            "resolve": lambda: writer.resolve("c1"),
+            "escalate": lambda: writer.escalate("c1", "a note"),
+        }[write]
+
+        # Not `httpx.HTTPStatusError`: a foreign Tenant is a known shape, and
+        # the Turn's caller branches on the difference.
+        with pytest.raises(ConversationNotWritable):
+            action()
+
+        assert calls, "the write should have been attempted"
 
 
 class TestTheWriteGuard:

@@ -50,6 +50,13 @@ class EscalationReason(str, Enum):
     #: this is the escalation that follows it.
     CLARIFICATION_EXHAUSTED = "clarification_exhausted"
 
+    #: The Conversation belongs to a Tenant this service cannot write to. The
+    #: Assistant token is minted for one Tenant; a Visitor on another's site
+    #: reaches a Turn through the Borrowed read and then finds every write
+    #: refused. No Note carries this term — writing one is the thing that is
+    #: impossible — so it appears in the Trace alone.
+    NOT_THIS_SERVICES_TENANT = "not_this_services_tenant"
+
     #: A hard per-Turn ceiling — Steps, tokens or cost
     #: (`nivara_ai.turn.ceilings`) — was crossed before the loop produced an
     #: answer, so the Turn stopped spending and went to a person rather than

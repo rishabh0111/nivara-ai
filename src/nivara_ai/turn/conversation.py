@@ -111,6 +111,22 @@ class WidgetSessionInvalid(Exception):
     or revoked."""
 
 
+class ConversationNotWritable(Exception):
+    """This service holds no write authority over the Conversation.
+
+    The Assistant token is minted for one Tenant. A Visitor on another Tenant's
+    site can still reach a Turn — the read is Borrowed, performed with the
+    Visitor's own credential, and it succeeds — and then every write is refused,
+    because the API will not show one Tenant's Ticket to another's credential.
+
+    It is a distinct exception because the customer-facing consequence is not a
+    fault: their Ticket exists, on their own Tenant's queue, carrying their
+    question. A person will pick it up. What cannot happen is this service
+    answering or annotating it, so the Turn escalates without writing rather
+    than reporting that something went wrong.
+    """
+
+
 class HumanHasTakenConversation(Exception):
     """A person is the Conversation's assignee, so this service must not write
     to it (user story 18). Raised by the write guard; the Turn catches it and
@@ -359,6 +375,16 @@ class ConversationWriter:
             # write stands; a second must not be posted. Benign — return it
             # rather than raising.
             return response
+        if response.status_code in (403, 404):
+            # The Borrowed read let this Turn get here; the write is judged on
+            # the Assistant token instead, and a Ticket on another Tenant is
+            # `404` to it by the API's design (the same 404-not-403 that stops
+            # the surface being a probe). Named rather than left to
+            # `raise_for_status`, which would make a foreign Tenant look like
+            # an outage.
+            raise ConversationNotWritable(
+                f"{method} {path} was refused with {response.status_code}"
+            )
         response.raise_for_status()
         return response
 

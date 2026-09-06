@@ -44,6 +44,7 @@ from nivara_ai.tools.dialects import dialect
 from nivara_ai.turn.ceilings import Ceilings
 from nivara_ai.turn.concurrency import ConcurrencyLimiter, SingleFlight
 from nivara_ai.turn.conversation import (
+    ConversationNotWritable,
     AssistantTokenReader,
     BorrowedReader,
     Conversation,
@@ -469,6 +470,18 @@ class TurnRunner:
             # `deferred`: there is no one to escalate to who is not already
             # here (user story 18).
             return "deferred", None, None
+        except ConversationNotWritable:
+            # The Conversation is on a Tenant this service holds no write
+            # authority over. The Borrowed read got the Turn this far because it
+            # is performed with the Visitor's own credential; every write is
+            # judged on the Assistant token, which is minted for one Tenant.
+            #
+            # Escalated rather than failed, and the distinction is the honest
+            # one: the Visitor's Ticket exists, on their own Tenant's queue,
+            # carrying their question, and a person will pick it up. Nothing
+            # went wrong for them. What this service cannot do is answer it or
+            # write the Note explaining why — so it writes neither and says so.
+            return "escalated", None, EscalationReason.NOT_THIS_SERVICES_TENANT
 
     def _apply_ruling(
         self, writer: ConversationWriter, conversation_id: str, ruling: GateRuling
