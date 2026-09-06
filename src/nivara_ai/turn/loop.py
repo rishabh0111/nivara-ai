@@ -148,7 +148,7 @@ def run_loop(
             return result
 
         if not response.tool_calls:
-            result.decision = NoAnswer("model replied without calling a tool")
+            result.decision = NoAnswer(_wrote_instead_of_acting(response.content))
             return result
 
         reread = False
@@ -169,6 +169,43 @@ def run_loop(
         f"reached the {ceilings.max_steps}-Step ceiling without an answer", "steps"
     )
     return result
+
+
+#: How much of a bare completion the Note carries. Long enough for the model's
+#: actual point, short enough that the Note stays the summary an agent reads
+#: *before* the thread rather than a second copy of it.
+_WROTE_CHARS = 400
+
+
+def _wrote_instead_of_acting(content: str | None) -> str:
+    """The Note's detail when the model wrote prose instead of taking an action.
+
+    Its own words, rather than the protocol complaint they replace. The
+    ordinary way to reach here is a customer re-asking something already
+    answered in the thread: the model says so conversationally instead of
+    calling `post_reply` a second time, and the Turn escalates because a bare
+    completion is not a grounded answer (see this module's docstring). The
+    colleague picking the Conversation out of the Unclaimed pool needs to read
+    what it said and that the customer never saw it — "model replied without
+    calling a tool" told them neither.
+    """
+
+    said = (content or "").strip()
+
+    if not said:
+        return (
+            "The assistant took no action and wrote nothing, so the customer "
+            "has had no reply and is still waiting."
+        )
+
+    if len(said) > _WROTE_CHARS:
+        said = said[:_WROTE_CHARS].rstrip() + "…"
+
+    return (
+        "The assistant wrote a reply instead of sending one — it never called "
+        "`post_reply`, so the customer has not seen any of this and is still "
+        f"waiting:\n\n{said}"
+    )
 
 
 def _act_on(call: ToolCall) -> Decision | None:

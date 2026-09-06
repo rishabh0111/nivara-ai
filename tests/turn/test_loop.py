@@ -134,6 +134,40 @@ def test_plain_text_with_no_tool_call_is_no_answer():
     assert isinstance(result.decision, NoAnswer)
 
 
+def test_the_note_carries_what_the_model_wrote_rather_than_a_protocol_complaint():
+    """The detail becomes the escalation Note, which is the first thing the
+    agent picking the Conversation up reads (user story 17).
+
+    The ordinary way to reach here is a customer re-asking something already
+    answered in the thread: the model says so conversationally instead of
+    calling `post_reply` again. What that colleague needs is what it said and
+    that the customer never saw it — not "model replied without calling a
+    tool", which was true of every one of these and useful for none.
+    """
+
+    said = "I already answered that above — see my earlier message."
+    result = _run(StubTransport(ModelResponse(content=said, usage=USAGE)))
+
+    assert isinstance(result.decision, NoAnswer)
+    assert said in result.decision.detail
+    assert "still waiting" in result.decision.detail
+
+
+def test_a_completion_with_nothing_in_it_says_so_rather_than_quoting_a_blank():
+    result = _run(StubTransport(ModelResponse(content="   ", usage=USAGE)))
+
+    assert isinstance(result.decision, NoAnswer)
+    assert "wrote nothing" in result.decision.detail
+
+
+def test_a_long_completion_is_cut_so_the_note_stays_a_summary():
+    result = _run(StubTransport(ModelResponse(content="x" * 900, usage=USAGE)))
+
+    assert isinstance(result.decision, NoAnswer)
+    assert len(result.decision.detail) < 700
+    assert result.decision.detail.endswith("…")
+
+
 def test_post_reply_with_an_empty_message_is_no_answer():
     empty = ModelResponse(
         tool_calls=[ToolCall(id="c1", name="post_reply", arguments={"message": "   "})],
