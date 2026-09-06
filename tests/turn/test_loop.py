@@ -184,7 +184,7 @@ def test_the_reminder_says_that_answering_again_is_correct():
     assert sent[-2] == {"role": "assistant", "content": "I already answered that."}
 
 
-def test_a_well_behaved_turn_is_never_reminded(): 
+def test_a_well_behaved_turn_is_never_reminded():
     """One Step, one action, no extra call — the reminder reaches only the Turn
     that needed it, which is what keeps every Recording valid."""
 
