@@ -15,7 +15,7 @@ import time
 import pytest
 
 from nivara_ai.turn import service as turn_service
-from nivara_ai.turn.concurrency import ConcurrencyLimiter, SingleFlight
+from nivara_ai.turn.concurrency import ConcurrencyLimiter, QueueTimeout, SingleFlight
 from tests.turn.conftest import (
     build_runner,
     mint_widget_session,
@@ -93,7 +93,7 @@ class TestSingleFlight:
 
 class TestConcurrencyLimiter:
     def test_it_queues_rather_than_rejecting(self):
-        limiter = ConcurrencyLimiter(limit=2)
+        limiter = ConcurrencyLimiter(limit=2, wait_seconds=5)
         concurrent = 0
         peak = 0
         lock = threading.Lock()
@@ -123,7 +123,47 @@ class TestConcurrencyLimiter:
 
     def test_a_limit_below_one_is_refused(self):
         with pytest.raises(ValueError):
-            ConcurrencyLimiter(limit=0)
+            ConcurrencyLimiter(limit=0, wait_seconds=5)
+
+    def test_a_wait_of_zero_or_less_is_refused(self):
+        # An unbounded wait is the bug this replaces; a zero wait is the
+        # opposite one — rejecting on arrival, which decision 45 rules out.
+        with pytest.raises(ValueError):
+            ConcurrencyLimiter(limit=1, wait_seconds=0)
+
+    def test_a_queue_that_never_moves_times_out_rather_than_waiting_forever(self):
+        limiter = ConcurrencyLimiter(limit=1, wait_seconds=0.05)
+        holding = threading.Event()
+        release = threading.Event()
+
+        def hold() -> None:
+            limiter.run(lambda: (holding.set(), release.wait(5)))
+
+        holder = threading.Thread(target=hold)
+        holder.start()
+        assert holding.wait(5)
+
+        try:
+            with pytest.raises(QueueTimeout):
+                limiter.run(lambda: None)
+        finally:
+            release.set()
+            holder.join(5)
+
+    def test_the_slot_is_released_when_the_call_raises(self):
+        # The `finally` matters more once a wait can expire: a slot leaked by a
+        # failing Turn would turn every later arrival into a QueueTimeout.
+        limiter = ConcurrencyLimiter(limit=1, wait_seconds=0.05)
+
+        def boom() -> None:
+            raise RuntimeError("turn failed")
+
+        with pytest.raises(RuntimeError):
+            limiter.run(boom)
+
+        assert limiter.run(lambda: "the next arrival still gets in") == (
+            "the next arrival still gets in"
+        )
 
 
 class TestBothGuardsAreInTheRunPath:

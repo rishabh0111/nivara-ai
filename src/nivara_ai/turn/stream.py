@@ -34,6 +34,7 @@ from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 
 from nivara_ai.handoff import WIDGET_DEFERRED, WIDGET_ESCALATION
+from nivara_ai.turn.concurrency import QueueTimeout
 from nivara_ai.turn.conversation import ConversationNotFound, WidgetSessionInvalid
 from nivara_ai.turn.service import TurnResult
 
@@ -94,6 +95,18 @@ def turn_events(
         except ConversationNotFound:
             yield SseEvent(
                 "error", {"code": "not_found", "message": "No such conversation."}
+            ).render()
+            return
+        except QueueTimeout:
+            # The queue never moved. Distinct from `internal_error` below
+            # because nothing went wrong answering — the Turn never started,
+            # nothing was spent, and retrying is the right thing to do.
+            yield SseEvent(
+                "error",
+                {
+                    "code": "busy",
+                    "message": "This service is busy right now. Please try again in a moment.",
+                },
             ).render()
             return
         except Exception:

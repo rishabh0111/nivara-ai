@@ -24,6 +24,7 @@ from fastapi import APIRouter, Header, Response, status
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
+from nivara_ai.turn.concurrency import QueueTimeout
 from nivara_ai.turn.conversation import (
     BorrowedReader,
     ConversationNotFound,
@@ -98,6 +99,15 @@ def widget_turn(
         # Bare 404, identical to a Conversation that does not exist — a 403
         # would confirm this one is real and belongs to someone.
         return _error(response, status.HTTP_404_NOT_FOUND, "not_found", "No such Conversation.")
+    except QueueTimeout:
+        # No slot came free. The Turn never started and nothing was spent, so
+        # this is a retry-later, not a failure to answer.
+        return _error(
+            response,
+            status.HTTP_503_SERVICE_UNAVAILABLE,
+            "busy",
+            "This service is busy right now. Please try again in a moment.",
+        )
 
     return {
         "outcome": result.outcome,

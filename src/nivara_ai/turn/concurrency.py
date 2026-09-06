@@ -18,6 +18,14 @@ in-process registry cannot see it.
 core (spec, Problem Statement), so more than a few Turns in flight at once
 helps nobody. Arrivals past the limit wait in line rather than being turned
 away — a queued Visitor gets a slow answer, a rejected one gets an error.
+
+The wait is bounded. Queueing is the design, but queueing *forever* is not
+the same decision: a slot only frees when a Turn ahead returns, and a Turn
+that wedges — a provider socket that never closes, a rung that stops
+answering — would otherwise hold every arrival behind it with nothing timing
+out and nothing to see. `QueueTimeout` after `wait_seconds` turns that into
+one 503 a Visitor can retry and an operator can count, which is what the
+unbounded `acquire()` this replaces could not produce.
 """
 
 from __future__ import annotations
@@ -76,17 +84,29 @@ class SingleFlight(Generic[T]):
             return key in self._inflight
 
 
+class QueueTimeout(Exception):
+    """No slot came free within the limiter's wait. The caller has not run and
+    nothing has been spent — the Turn never started."""
+
+
 class ConcurrencyLimiter:
     """A bounded gate that queues rather than rejecting. `run` blocks until a
-    slot is free, then runs `fn` and releases it."""
+    slot is free, then runs `fn` and releases it — or raises `QueueTimeout`
+    when the queue has not moved in `wait_seconds`."""
 
-    def __init__(self, limit: int) -> None:
+    def __init__(self, limit: int, wait_seconds: float) -> None:
         if limit < 1:
             raise ValueError("concurrency limit must be at least 1")
+        if wait_seconds <= 0:
+            raise ValueError("queue wait must be positive")
         self._sem = threading.BoundedSemaphore(limit)
+        self._wait_seconds = wait_seconds
 
     def run(self, fn: Callable[[], T]) -> T:
-        self._sem.acquire()
+        if not self._sem.acquire(timeout=self._wait_seconds):
+            raise QueueTimeout(
+                f"no Turn slot came free in {self._wait_seconds:g}s"
+            )
         try:
             return fn()
         finally:

@@ -109,6 +109,13 @@ class Settings(BaseSettings):
     # line rather than being rejected with a 503.
     max_concurrent_turns: int = 4
 
+    # How long an arrival waits for one of those slots before giving up with a
+    # 503. Queueing is the design; queueing forever is not — a wedged Turn
+    # would otherwise hold every arrival behind it silently. Generous next to a
+    # Turn that runs in single-digit seconds, so this expires on a stall rather
+    # than on ordinary load.
+    max_queue_wait_seconds: float = 30.0
+
     # How many chunks a Turn retrieves and hands the model.
     retrieval_limit: int = 5
 

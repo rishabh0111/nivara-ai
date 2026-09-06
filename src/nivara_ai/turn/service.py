@@ -99,7 +99,9 @@ def _limiter() -> ConcurrencyLimiter:
     if _turn_limiter is None:
         from nivara_ai.config import settings
 
-        _turn_limiter = ConcurrencyLimiter(settings.max_concurrent_turns)
+        _turn_limiter = ConcurrencyLimiter(
+            settings.max_concurrent_turns, settings.max_queue_wait_seconds
+        )
     return _turn_limiter
 
 
