@@ -27,9 +27,13 @@ class StubTransport:
     def __init__(self, *outcomes):
         self._outcomes = list(outcomes)
         self.calls = 0
+        #: Every request as it was sent, for the tests that assert on what the
+        #: model was actually shown rather than only on what it answered.
+        self.seen = []
 
     def complete(self, request):
         self.calls += 1
+        self.seen.append(request)
         outcome = self._outcomes.pop(0)
         if isinstance(outcome, BaseException):
             raise outcome
@@ -125,13 +129,71 @@ def test_a_rate_limit_is_also_no_answer_not_a_raise():
     assert len(result.steps) == 1
 
 
-def test_plain_text_with_no_tool_call_is_no_answer():
-    """The prompt requires exactly one tool action. A bare completion is a
-    protocol violation, and the safe reading of it is 'could not answer'."""
+def test_a_bare_completion_is_reminded_once_and_the_answer_it_then_sends_stands():
+    """The ordinary cause is a customer re-asking something already answered:
+    the model says so as chat, which reaches nobody. Reminded once, it sends
+    the answer through `post_reply` and the Visitor gets it — which is the
+    whole point, since escalating a question the assistant can demonstrably
+    answer is a worse outcome for them than repeating it.
+    """
 
-    result = _run(StubTransport(ModelResponse(content="Your invoices are in Billing.", usage=USAGE)))
+    transport = StubTransport(
+        ModelResponse(content="I already answered that above.", usage=USAGE),
+        _reply("Settings → Billing → Recipients."),
+    )
 
+    result = _run(transport)
+
+    assert transport.calls == 2
+    assert isinstance(result.decision, PostReply)
+    assert result.decision.message == "Settings → Billing → Recipients."
+
+
+def test_the_reminder_is_sent_once_and_a_second_bare_completion_goes_to_a_person():
+    """Reminded, not argued with. A model that writes prose twice is not going
+    to send an answer, and the Turn stops spending Steps on it."""
+
+    transport = StubTransport(
+        ModelResponse(content="I already answered that above.", usage=USAGE),
+        ModelResponse(content="As I said, it is under Settings.", usage=USAGE),
+    )
+
+    result = _run(transport)
+
+    assert transport.calls == 2
     assert isinstance(result.decision, NoAnswer)
+    assert "As I said, it is under Settings." in result.decision.detail
+
+
+def test_the_reminder_says_that_answering_again_is_correct():
+    """The model reaches here having decided not to repeat itself. A reminder
+    that only restated the tool contract would leave that decision standing."""
+
+    transport = StubTransport(
+        ModelResponse(content="I already answered that.", usage=USAGE),
+        _reply("Settings → Billing."),
+    )
+
+    _run(transport)
+
+    sent = transport.seen[-1].messages
+    assert sent[-1]["role"] == "system"
+    assert "already answered" in sent[-1]["content"]
+    # The model's own unsent words are carried, so it is reminded in context
+    # rather than asked to answer a question it can no longer see itself refuse.
+    assert sent[-2] == {"role": "assistant", "content": "I already answered that."}
+
+
+def test_a_well_behaved_turn_is_never_reminded(): 
+    """One Step, one action, no extra call — the reminder reaches only the Turn
+    that needed it, which is what keeps every Recording valid."""
+
+    transport = StubTransport(_reply("Settings → Billing."))
+
+    result = _run(transport)
+
+    assert transport.calls == 1
+    assert isinstance(result.decision, PostReply)
 
 
 def test_the_note_carries_what_the_model_wrote_rather_than_a_protocol_complaint():
@@ -146,7 +208,14 @@ def test_the_note_carries_what_the_model_wrote_rather_than_a_protocol_complaint(
     """
 
     said = "I already answered that above — see my earlier message."
-    result = _run(StubTransport(ModelResponse(content=said, usage=USAGE)))
+    # Twice: the first is reminded, and it is the second that gives up and
+    # writes the Note.
+    result = _run(
+        StubTransport(
+            ModelResponse(content=said, usage=USAGE),
+            ModelResponse(content=said, usage=USAGE),
+        )
+    )
 
     assert isinstance(result.decision, NoAnswer)
     assert said in result.decision.detail
@@ -154,14 +223,24 @@ def test_the_note_carries_what_the_model_wrote_rather_than_a_protocol_complaint(
 
 
 def test_a_completion_with_nothing_in_it_says_so_rather_than_quoting_a_blank():
-    result = _run(StubTransport(ModelResponse(content="   ", usage=USAGE)))
+    result = _run(
+        StubTransport(
+            ModelResponse(content="   ", usage=USAGE),
+            ModelResponse(content="   ", usage=USAGE),
+        )
+    )
 
     assert isinstance(result.decision, NoAnswer)
     assert "wrote nothing" in result.decision.detail
 
 
 def test_a_long_completion_is_cut_so_the_note_stays_a_summary():
-    result = _run(StubTransport(ModelResponse(content="x" * 900, usage=USAGE)))
+    result = _run(
+        StubTransport(
+            ModelResponse(content="x" * 900, usage=USAGE),
+            ModelResponse(content="x" * 900, usage=USAGE),
+        )
+    )
 
     assert isinstance(result.decision, NoAnswer)
     assert len(result.decision.detail) < 700

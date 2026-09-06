@@ -9,10 +9,20 @@ with a `CeilingExceeded`, which the caller escalates to a human.
 
 `read_conversation` is answered inline from the thread already fetched by the
 Borrowed read, so a model that asks to re-read costs a Step but no second API
-call. Anything the model does that is not one of the three Tools — a bare
-completion, an unknown tool, a `post_reply` with no message — resolves to
-`NoAnswer`, and the caller escalates it to a human. That is the safe reading:
-a Turn that could not produce a grounded answer is a Turn for a person.
+call. Anything the model does that is not one of the three Tools — an unknown
+tool, a `post_reply` with no message — resolves to `NoAnswer`, and the caller
+escalates it to a human. That is the safe reading: a Turn that could not
+produce a grounded answer is a Turn for a person, and no prose the model wrote
+outside a tool call is ever posted to a customer.
+
+A bare completion is the one case given a second chance before that, because
+it is the one with an obvious cause. A customer who re-asks a question already
+answered in the thread gets a model that says so conversationally rather than
+calling `post_reply` again — a fair judgement, delivered in the one way that
+reaches nobody. So it is reminded once (`_ONE_ACTION_REMINDER`) and asked to
+take the action; a second bare completion is taken as an answer that is not
+coming. Nothing is loosened by this: the reminder makes the model send an
+answer through a tool, it does not make an unsent one acceptable.
 
 Message threading here is the OpenAI chat-completions shape (assistant
 `tool_calls` + `tool` results). Ticket 21, which picks the provider chain, is
@@ -109,6 +119,7 @@ def run_loop(
     thread_text = _render_thread(thread)
     result = LoopResult()
     spent = Usage(prompt_tokens=0, completion_tokens=0)
+    reminded = False
 
     for index in range(ceilings.max_steps):
         request = ModelRequest(
@@ -148,8 +159,24 @@ def run_loop(
             return result
 
         if not response.tool_calls:
-            result.decision = NoAnswer(_wrote_instead_of_acting(response.content))
-            return result
+            if reminded:
+                result.decision = NoAnswer(_wrote_instead_of_acting(response.content))
+                return result
+
+            # Reminded once, then taken at its word. The ordinary way to reach
+            # here is a customer re-asking something already answered in the
+            # thread: the model says so conversationally, which is a reasonable
+            # thing to mean and an unsendable way to mean it. Asking again
+            # costs one Step and usually gets the same words through
+            # `post_reply`; a second bare completion is an answer that is not
+            # coming, and goes to a person.
+            reminded = True
+            messages = [
+                *messages,
+                {"role": "assistant", "content": response.content or ""},
+                {"role": "system", "content": _ONE_ACTION_REMINDER},
+            ]
+            continue
 
         reread = False
         for call in response.tool_calls:
@@ -170,6 +197,26 @@ def run_loop(
     )
     return result
 
+
+#: Sent once, in-Turn, when the model writes an answer instead of sending one.
+#:
+#: A runtime message rather than a line in `system_prompt.md` deliberately: the
+#: prompt and the messages built from it are hashed into
+#: `ModelRequest.fingerprint`, so editing it makes every committed Recording
+#: stale and costs a full Record run. This reaches only the Turn that needed
+#: it, and leaves the fingerprint of every Turn that behaved untouched.
+#:
+#: The last sentence is the one that matters: the model reaches here because it
+#: has already answered this question in the thread and does not want to repeat
+#: itself. Declining to repeat is a fair judgement and a wrong one — the
+#: customer asked again, and an answer they can see beats a tidy thread.
+_ONE_ACTION_REMINDER = (
+    "That reply was not delivered. It was written as chat, and only a tool "
+    "call reaches the customer — they are still waiting. Take one action now: "
+    "`post_reply` with the answer, or `escalate` if you should not answer. "
+    "Answering is correct even if you have already answered this question "
+    "earlier in the thread; the customer has asked again."
+)
 
 #: How much of a bare completion the Note carries. Long enough for the model's
 #: actual point, short enough that the Note stays the summary an agent reads
