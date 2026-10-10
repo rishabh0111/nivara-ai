@@ -96,6 +96,12 @@ def main(argv: list[str] | None = None) -> int:
     )
     arguments = parser.parse_args(argv)
 
+    # First, before anything that can fail. Between 19 and 30 Sep 2026 every
+    # run died on an /analytics error before reaching this touch, and the
+    # managed cluster was suspended for inactivity.
+    alive = keep_vector_store_alive(arguments.qdrant_url, arguments.qdrant_api_key or None)
+    print(f"vector store keep-alive: {'ok' if alive else 'unreachable (logged, not fatal)'}")
+
     now = datetime.now(UTC)
 
     turns = load_turns()
@@ -137,9 +143,6 @@ def main(argv: list[str] | None = None) -> int:
         with _ROLLUPS_PATH.open("a") as sink:
             sink.write(json.dumps(scoreboard.rollup()) + "\n")
         print(f"appended a rollup to {_ROLLUPS_PATH.name}")
-
-    alive = keep_vector_store_alive(arguments.qdrant_url, arguments.qdrant_api_key or None)
-    print(f"vector store keep-alive: {'ok' if alive else 'unreachable (logged, not fatal)'}")
 
     if scoreboard.drift.alert:
         print(f"DRIFT ALERT: {scoreboard.drift.note}", file=sys.stderr)

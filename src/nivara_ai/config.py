@@ -143,6 +143,13 @@ class Settings(BaseSettings):
     slack_ingress_interval_seconds: int = 120
     slack_ingress_batch: int = 10
 
+    # How often the running service touches its Qdrant collection so a managed
+    # free-tier cluster never sees a week without a request (Qdrant Cloud
+    # suspends an idle free cluster, then deletes it three weeks later). On
+    # only against a managed cluster, i.e. whenever `qdrant_api_key` is set;
+    # the compose network's own Qdrant never reaps anything.
+    vector_keepalive_interval_seconds: int = 6 * 60 * 60
+
     # The model router (ticket 24, `nivara_ai.model.router`). Lays a routing
     # policy over the failover chain — start an easy-looking Turn one rung down.
     # Measured with `scripts/router_ablation.py --drive` and kept: 26-39%

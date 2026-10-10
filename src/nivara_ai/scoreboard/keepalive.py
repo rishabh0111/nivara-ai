@@ -10,11 +10,17 @@ collection each run — a cheap read that resets the idle clock.
 
 from __future__ import annotations
 
+import asyncio
+import contextlib
+import logging
+
 import httpx
 
 from nivara_ai.retrieval import COLLECTION
 
-__all__ = ["COLLECTION", "keep_vector_store_alive"]
+__all__ = ["COLLECTION", "keep_vector_store_alive", "keep_vector_store_alive_forever"]
+
+log = logging.getLogger(__name__)
 
 
 
@@ -48,3 +54,31 @@ def keep_vector_store_alive(
     except httpx.HTTPError:
         return False
     return response.status_code == 200
+
+
+async def keep_vector_store_alive_forever(
+    stop: asyncio.Event,
+    qdrant_url: str,
+    api_key: str | None,
+    *,
+    interval_seconds: float,
+) -> None:
+    """The same touch, from inside the running service, on a fixed cadence.
+
+    The scoreboard job was the only thing touching the collection, and it is
+    a GitHub schedule: it runs late, it is switched off on a quiet repository,
+    and between 19 and 30 Sep 2026 it failed on an API error before reaching
+    the touch. Twelve days with no request was enough for Qdrant Cloud to
+    suspend the cluster. The service is kept awake, so it is the one place
+    that can be trusted to keep making the request. A failed touch is logged
+    and retried on the next tick; it never takes the service down.
+    """
+
+    while not stop.is_set():
+        alive = await asyncio.to_thread(keep_vector_store_alive, qdrant_url, api_key)
+        if alive:
+            log.info("vector store keep-alive: ok")
+        else:
+            log.warning("vector store keep-alive: collection unreachable, retrying next tick")
+        with contextlib.suppress(asyncio.TimeoutError):
+            await asyncio.wait_for(stop.wait(), timeout=interval_seconds)

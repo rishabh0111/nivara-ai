@@ -22,23 +22,41 @@ mcp = McpEndpoint()
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     async with mcp.running():
-        if not settings.slack_ingress_enabled:
-            yield
-            return
+        stop = asyncio.Event()
+        tasks: list[asyncio.Task] = []
 
         # The Slack ingress runs as a background task inside this one process
         # (ticket 26, decision 50) — off in every test and CI run.
-        from nivara_ai.slack.scheduler import run_forever
+        if settings.slack_ingress_enabled:
+            from nivara_ai.slack.scheduler import run_forever
 
-        stop = asyncio.Event()
-        task = asyncio.create_task(run_forever(stop))
+            tasks.append(asyncio.create_task(run_forever(stop)))
+
+        # Only a managed cluster reaps an idle collection, and only a managed
+        # cluster carries an API key, so the key is the switch.
+        if settings.qdrant_api_key:
+            from nivara_ai.scoreboard.keepalive import keep_vector_store_alive_forever
+
+            tasks.append(
+                asyncio.create_task(
+                    keep_vector_store_alive_forever(
+                        stop,
+                        settings.qdrant_url,
+                        settings.qdrant_api_key,
+                        interval_seconds=settings.vector_keepalive_interval_seconds,
+                    )
+                )
+            )
+
         try:
             yield
         finally:
             stop.set()
-            task.cancel()
-            with contextlib.suppress(asyncio.CancelledError):
-                await task
+            for task in tasks:
+                task.cancel()
+            for task in tasks:
+                with contextlib.suppress(asyncio.CancelledError):
+                    await task
 
 
 app = FastAPI(title="nivara-ai", lifespan=lifespan)

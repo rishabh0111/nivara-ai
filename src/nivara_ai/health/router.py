@@ -29,7 +29,7 @@ def liveness() -> dict:
     }
 
 
-@router.get("/health/ready")
+@router.api_route("/health/ready", methods=["GET", "HEAD"])
 def readiness(response: Response) -> dict:
     """Whether this process can do its job right now.
 
@@ -44,6 +44,10 @@ def readiness(response: Response) -> dict:
     old one; this endpoint will report `unauthenticated` until the new
     secret is configured here — the credential is replaceable, the live
     deflection history that reseed erased is not.
+
+    `HEAD` too, so an uptime monitor can watch it: a suspended Qdrant
+    cluster or a revoked token then pages someone within minutes instead of
+    being found by the next visitor whose question goes unanswered.
     """
 
     api_status = check_assistant_token(settings.api_base_url, settings.assistant_token)
