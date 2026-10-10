@@ -7,8 +7,8 @@
 ![MCP](https://img.shields.io/badge/MCP-000000?style=flat&logo=modelcontextprotocol&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
 
-[Live](https://nivara-ai-7qw8.onrender.com/health)  ·
-[Try it](https://rishabh0111.github.io/nivara-web-nextjs/)  ·
+[Ask it a question](https://rishabh0111.github.io/nivara-web-nextjs/)  ·
+[See the ticket it made](https://nivara-web-nextjs.vercel.app/dashboard?demo)  ·
 [The product](https://nivara-landing-iota.vercel.app)
 
 The AI support layer for [Nivara Desk](https://nivara-landing-iota.vercel.app). It answers what it
@@ -17,7 +17,10 @@ lie about which it did** — prose the model writes outside a tool call is never
 customer, so there is no path by which an ungrounded answer becomes one.
 
 Python, FastAPI, Qdrant, an MCP tool surface, and a free-tier model chain.
-[`CONTEXT.md`](CONTEXT.md) is the vocabulary. **[Live](https://nivara-ai-7qw8.onrender.com/health)**.
+[`CONTEXT.md`](CONTEXT.md) is the vocabulary. **[Ask it a question](https://rishabh0111.github.io/nivara-web-nextjs/)**
+from the widget on a demo customer's site, then open the
+[agent dashboard](https://nivara-web-nextjs.vercel.app/dashboard?demo) to see the same exchange as a
+ticket. The service itself answers at [`/health`](https://nivara-ai-7qw8.onrender.com/health).
 
 ## The numbers
 
