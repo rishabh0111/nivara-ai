@@ -10,7 +10,7 @@ router = APIRouter(tags=["health"])
 _started_at = time.monotonic()
 
 
-@router.get("/health")
+@router.api_route("/health", methods=["GET", "HEAD"])
 def liveness() -> dict:
     """Liveness only — process alive, no dependency touched.
 
@@ -18,6 +18,9 @@ def liveness() -> dict:
     token, the API and Qdrant by name. This endpoint answers `200` for as
     long as the event loop is scheduling it, which is what a keep-warm ping
     needs it to mean.
+
+    `HEAD` as well as `GET`, because uptime monitors probe with `HEAD` by
+    default; a `405` there reads as an outage while the process is serving.
     """
 
     return {
