@@ -9,9 +9,9 @@
 
 [Ask it a question](https://rishabh0111.github.io/nivara-web-nextjs/)  ·
 [See the ticket it made](https://nivara-web-nextjs.vercel.app/dashboard?demo)  ·
-[The product](https://nivara-landing-iota.vercel.app)
+[The product](https://nivara-desk.vercel.app)
 
-The AI support layer for [Nivara Desk](https://nivara-landing-iota.vercel.app). It answers what it
+The AI support layer for [Nivara Desk](https://nivara-desk.vercel.app). It answers what it
 can safely answer, asks when a request is ambiguous, escalates the rest to a human, and **cannot
 lie about which it did** — prose the model writes outside a tool call is never posted to a
 customer, so there is no path by which an ungrounded answer becomes one.
