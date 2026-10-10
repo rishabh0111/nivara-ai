@@ -12,15 +12,13 @@ from __future__ import annotations
 
 import asyncio
 import contextlib
-import logging
+import sys
 
 import httpx
 
 from nivara_ai.retrieval import COLLECTION
 
 __all__ = ["COLLECTION", "keep_vector_store_alive", "keep_vector_store_alive_forever"]
-
-log = logging.getLogger(__name__)
 
 
 
@@ -76,9 +74,14 @@ async def keep_vector_store_alive_forever(
 
     while not stop.is_set():
         alive = await asyncio.to_thread(keep_vector_store_alive, qdrant_url, api_key)
+        # stderr, like the Slack ingress: nothing configures `logging` in this
+        # process, so a logger's INFO line would never reach the platform log.
         if alive:
-            log.info("vector store keep-alive: ok")
+            print("vector store keep-alive: ok", file=sys.stderr)
         else:
-            log.warning("vector store keep-alive: collection unreachable, retrying next tick")
+            print(
+                "vector store keep-alive: collection unreachable (non-fatal), retrying next tick",
+                file=sys.stderr,
+            )
         with contextlib.suppress(asyncio.TimeoutError):
             await asyncio.wait_for(stop.wait(), timeout=interval_seconds)
