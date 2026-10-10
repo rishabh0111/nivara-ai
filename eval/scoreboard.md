@@ -6,15 +6,15 @@ Computed by a scheduled CI job holding the **Reporter token** (`analytics:read` 
 
 ## Provenance
 
-- Run: 2026-10-09T13:19:50Z
+- Run: 2026-10-10T12:34:33Z
 - Trace source: traffic/turns.jsonl (260 Turns)
-- Go-live Window: `2026-09-01T00:00:00.000Z` → `2026-10-09T13:19:50.000Z` (start is a committed constant — ADR-0002)
+- Go-live Window: `2026-09-01T00:00:00.000Z` → `2026-10-10T12:34:33.000Z` (start is a committed constant — ADR-0002)
 
 ## Three columns
 
 | column | value | source |
 | --- | --- | --- |
-| Live deflection | 61.1% (22/36) | `GET /analytics`, Reporter token |
+| Live deflection | 53.5% (23/43) | `GET /analytics`, Reporter token |
 | AI-answered rate | 73.5% (191/260) | this service's Traces |
 | Phantom deflection | 0.0% (0/260) | this service's Traces |
 
@@ -32,8 +32,8 @@ The Phantom figure above is the trace-only reading: a Conversation whose last Tu
 
 ## Drift
 
-- Live deflection: 61.1%
+- Live deflection: 53.5%
 - AI-answered + Phantom: 73.5%
 - Alert: no
 
-Live deflection is -12.4% from AI-answered + Phantom (73.5%), over a Cohort of 36 — under the 50 this job will read a rate from. Recorded, not flagged.
+Live deflection is -20.0% from AI-answered + Phantom (73.5%), over a Cohort of 43 — under the 50 this job will read a rate from. Recorded, not flagged.
