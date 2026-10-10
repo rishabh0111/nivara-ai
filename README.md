@@ -22,6 +22,10 @@ from the widget on a demo customer's site, then open the
 [agent dashboard](https://nivara-web-nextjs.vercel.app/dashboard?demo) to see the same exchange as a
 ticket. The service itself answers at [`/health`](https://nivara-ai-7qw8.onrender.com/health).
 
+![A visitor asks the widget two questions; one is answered, one is handed to a person, and both appear as tickets on the agent dashboard.](https://raw.githubusercontent.com/rishabh0111/nivara-web-nextjs/main/docs/img/walkthrough.gif)
+
+<sub>45 seconds, recorded by Playwright against the live deployment: a question the help centre covers is answered, a refund question is handed to a person, and both show up as tickets on the agent queue.</sub>
+
 ## The numbers
 
 Every figure is regenerated from committed data by a script, and a test re-renders the artifact
