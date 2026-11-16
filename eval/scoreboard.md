@@ -6,15 +6,15 @@ Computed by a scheduled CI job holding the **Reporter token** (`analytics:read` 
 
 ## Provenance
 
-- Run: 2026-11-15T13:57:26Z
+- Run: 2026-11-16T15:49:54Z
 - Trace source: traffic/turns.jsonl (260 Turns)
-- Go-live Window: `2026-09-01T00:00:00.000Z` → `2026-11-15T13:57:26.000Z` (start is a committed constant — ADR-0002)
+- Go-live Window: `2026-09-01T00:00:00.000Z` → `2026-11-16T15:49:54.000Z` (start is a committed constant — ADR-0002)
 
 ## Three columns
 
 | column | value | source |
 | --- | --- | --- |
-| Live deflection | 53.3% (24/45) | `GET /analytics`, Reporter token |
+| Live deflection | 18.0% (9/50) | `GET /analytics`, Reporter token |
 | AI-answered rate | 73.5% (191/260) | this service's Traces |
 | Phantom deflection | 0.0% (0/260) | this service's Traces |
 
@@ -32,8 +32,8 @@ The Phantom figure above is the trace-only reading: a Conversation whose last Tu
 
 ## Drift
 
-- Live deflection: 53.3%
+- Live deflection: 18.0%
 - AI-answered + Phantom: 73.5%
-- Alert: no
+- Alert: **yes** (advisory)
 
-Live deflection is -20.1% from AI-answered + Phantom (73.5%), over a Cohort of 45 — under the 50 this job will read a rate from. Recorded, not flagged.
+Live deflection is -55.5% from AI-answered + Phantom (73.5%), past the 10% threshold. Advisory: the two sides are not the same Conversations — the accounted rate is measured over the committed synthetic Traffic, live deflection over real Widget traffic — so read this as the distance between those populations before reading it as a fault here.

@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-15T13:57:26Z",
+  "generated_at": "2026-11-16T15:49:54Z",
   "trace_source": "traffic/turns.jsonl (260 Turns)",
   "live_deflection": {
-    "count": 24,
-    "cohort_size": 45,
-    "rate": 0.5333333333333333,
+    "count": 9,
+    "cohort_size": 50,
+    "rate": 0.18,
     "window_from": "2026-09-01T00:00:00.000Z",
-    "window_to": "2026-11-15T13:57:26.000Z",
+    "window_to": "2026-11-16T15:49:54.000Z",
     "definition": "Terminal Tickets with no agent touch \u2014 no user-authored Message or Note. Credits AI handling and self-service only."
   },
   "ai_answered": {
@@ -20,10 +20,10 @@
     "rate": 0.0
   },
   "drift": {
-    "live_rate": 0.5333333333333333,
+    "live_rate": 0.18,
     "accounted_rate": 0.7346153846153847,
-    "delta": -0.20128205128205134,
-    "alert": false,
-    "note": "Live deflection is -20.1% from AI-answered + Phantom (73.5%), over a Cohort of 45 \u2014 under the 50 this job will read a rate from. Recorded, not flagged."
+    "delta": -0.5546153846153847,
+    "alert": true,
+    "note": "Live deflection is -55.5% from AI-answered + Phantom (73.5%), past the 10% threshold. Advisory: the two sides are not the same Conversations \u2014 the accounted rate is measured over the committed synthetic Traffic, live deflection over real Widget traffic \u2014 so read this as the distance between those populations before reading it as a fault here."
   }
 }
