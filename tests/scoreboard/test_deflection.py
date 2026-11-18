@@ -50,7 +50,7 @@ def test_it_reads_the_window_from_go_live_and_sends_the_reporter_token():
 
     read_live_deflection("http://api", "nvk_live_reporter", now=_NOW, client=client)
 
-    assert "from=2026-09-01T00%3A00%3A00.000Z" in captured["url"]
+    assert "from=2026-11-16T12%3A15%3A00.000Z" in captured["url"]
     assert captured["auth"] == "Bearer nvk_live_reporter"
 
 

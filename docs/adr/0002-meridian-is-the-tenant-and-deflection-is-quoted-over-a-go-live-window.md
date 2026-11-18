@@ -13,3 +13,9 @@ This repository's headline claim is that its score is awarded by a different sys
 The alternative was to delete the seeded AI-closed Tickets. It was rejected because they earn their place: they are what makes deflection non-zero thirty seconds after `docker compose up`, for a developer with no keys configured and no AI layer running. The Window removes them from the published number without removing them from the demo.
 
 The cost accepted is a standing trap. Both an all-time figure and a Go-live Window figure are available from the same endpoint, and only one of them is honest — so the Window's start is a committed constant with this reasoning attached, not a parameter someone can widen later while tidying up.
+
+## Amendment (18 Nov 2026): a reseed moves the start
+
+The Window's guarantee rested on one assumption: every seeded Ticket is created before go-live, because seeding happens at `docker compose up`. The demo database was reseeded on 16 Nov 2026 (the API's `Reseed` workflow, finished 12:14 UTC), and the seed dates its Tickets relative to the moment it runs, up to 30 days back. Those Tickets landed inside a Window that started on 1 Sep, and the published live deflection fell to 18.0% (9 of 50): a measurement of the seed, the exact number this ADR exists to keep out.
+
+The start is therefore no longer the first go-live but the last moment seed data was written: `GO_LIVE` is now 2026-11-16T12:15:00Z. Moving it forward only narrows the Window, which this ADR already allows; moving it back is still forbidden. Every reseed moves it forward to that run's finish. The readings before the reseed stay in `eval/scoreboard_rollups.jsonl` as they were (the last, from 4 Nov, was 53.3%, 24 of 45); the new Window starts with an empty Cohort and the headline reads as pending until real Tickets arrive.

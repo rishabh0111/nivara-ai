@@ -24,13 +24,15 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 
-#: The instant this service went live on Meridian: the deploy under ticket 27.
-#: Every Ticket the seed writes is created before this (seed time is
-#: `docker compose up`, always earlier than a deploy), so the Cohort of
-#: Tickets created at or after it contains no seeded Ticket. Moving this
-#: forward only ever narrows the window; moving it back re-admits seed data
-#: and is the change ADR-0002 exists to forbid.
-GO_LIVE = datetime(2026, 9, 1, 0, 0, 0, tzinfo=timezone.utc)
+#: The start of the Window: just after the demo database was last reseeded.
+#: Every Ticket the seed writes is created no later than the seed run, so the
+#: Cohort of Tickets created at or after this contains no seeded Ticket.
+#: It was the go-live deploy (2026-09-01) until the 16 Nov 2026 reseed, whose
+#: Tickets are dated relative to the run and so landed inside that Window
+#: (ADR-0002, "Amendment"). A reseed moves this forward to its finish time.
+#: Moving it forward only ever narrows the window; moving it back re-admits
+#: seed data and is the change ADR-0002 exists to forbid.
+GO_LIVE = datetime(2026, 11, 16, 12, 15, 0, tzinfo=timezone.utc)
 
 
 def window_query(now: datetime) -> dict[str, str]:
