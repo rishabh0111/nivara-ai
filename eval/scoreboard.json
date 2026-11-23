@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-22T14:36:47Z",
+  "generated_at": "2026-11-23T18:12:30Z",
   "trace_source": "traffic/turns.jsonl (260 Turns)",
   "live_deflection": {
     "count": 0,
     "cohort_size": 0,
     "rate": null,
     "window_from": "2026-11-16T12:15:00.000Z",
-    "window_to": "2026-11-22T14:36:47.000Z",
+    "window_to": "2026-11-23T18:12:30.000Z",
     "definition": "Terminal Tickets with no agent touch \u2014 no user-authored Message or Note. Credits AI handling and self-service only."
   },
   "ai_answered": {
