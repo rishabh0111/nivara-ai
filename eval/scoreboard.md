@@ -6,9 +6,9 @@ Computed by a scheduled CI job holding the **Reporter token** (`analytics:read` 
 
 ## Provenance
 
-- Run: 2026-11-27T16:41:27Z
+- Run: 2026-11-28T15:33:14Z
 - Trace source: traffic/turns.jsonl (260 Turns)
-- Go-live Window: `2026-11-16T12:15:00.000Z` → `2026-11-27T16:41:27.000Z` (start is a committed constant — ADR-0002)
+- Go-live Window: `2026-11-16T12:15:00.000Z` → `2026-11-28T15:33:14.000Z` (start is a committed constant — ADR-0002)
 
 ## Three columns
 
